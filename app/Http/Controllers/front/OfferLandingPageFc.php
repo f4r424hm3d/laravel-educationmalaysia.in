@@ -29,7 +29,7 @@ class OfferLandingPageFc extends Controller
     $wrdseo = ['url' => 'scholarship-detail-page'];
     $dseo = DynamicPageSeo::website()->where($wrdseo)->first();
     $title = $scholarship->title;
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
     $meta_title = $scholarship->meta_title == '' ? $dseo->meta_title : $scholarship->meta_title;

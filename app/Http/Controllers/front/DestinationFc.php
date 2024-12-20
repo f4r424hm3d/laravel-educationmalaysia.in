@@ -85,7 +85,7 @@ class DestinationFc extends Controller
     $dogimg = DefaultOgImage::default()->first();
 
     $title = $destination->destination_name;
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
     $meta_title = $destination->meta_title == '' ? $dseo->meta_title : $destination->meta_title;

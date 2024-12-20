@@ -36,7 +36,7 @@ class JobPageFc extends Controller
     $dogimg = DefaultOgImage::default()->first();
 
     $title = $row->title;
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
     $meta_title = $row->meta_title == '' ? $dseo->meta_title : $row->meta_title;

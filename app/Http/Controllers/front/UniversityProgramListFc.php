@@ -110,7 +110,7 @@ class UniversityProgramListFc extends Controller
     $dogimg = DefaultOgImage::default()->first();
     $title = 'universities';
     $d_name = $destination->destination_name;
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
 
     $category = $curCat == '' ? '' : $curCat->category_name;
     $specialization = $curSpc == '' ? '' : $curSpc->specialization_name;
@@ -260,7 +260,7 @@ class UniversityProgramListFc extends Controller
     $dogimg = DefaultOgImage::default()->first();
     $title = 'universities';
     $d_name = $destination->destination_name;
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
 
     $category = $curCat == '' ? '' : $curCat->category_name;
     $specialization = $curSpc == '' ? '' : $curSpc->specialization_name;

@@ -38,7 +38,7 @@ class DestinationArticleFc extends Controller
 
     $sub_slug = $article->title;
     //$category = str_replace('-', ' ', $article->cate_slug);
-    $site = 'educationmalaysia.in';
+    $site = DOMAIN;
 
     $tagArray = ['title' => $sub_slug, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 

@@ -68,6 +68,7 @@ use App\Http\Controllers\front\ServiceFc;
 use App\Http\Controllers\front\SpecializationFc;
 use App\Http\Controllers\front\UniversityProgramListFc;
 use App\Http\Controllers\front\UniversityListFc;
+use App\Http\Controllers\front\UniversityProfileCoursesFc;
 use App\Http\Controllers\front\UniversityProfileFc;
 use App\Http\Controllers\sitemap\SitemapController;
 use App\Http\Controllers\student\ApplyProgramFc;
@@ -80,6 +81,7 @@ use App\Http\Middleware\StudentLoggedOut;
 use App\Models\Blog;
 use App\Models\Exam;
 use App\Models\Service;
+use App\Models\UniversityProgram;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -823,6 +825,19 @@ Route::prefix('university/{university_slug}')->group(function () {
   Route::get('/reviews', [UniversityProfileFc::class, 'reviews'])->name('university.reviews');
   Route::get('/news', [UniversityProfileFc::class, 'news'])->name('university.news');
   Route::get('/news/{news_slug}', [UniversityProfileFc::class, 'newsDetail'])->name('university.news.details');
-  Route::get('/courses', [UniversityProfileFc::class, 'courses'])->name('university.courses');
-  Route::get('/course/{course_slug}', [UniversityProfileFc::class, 'courseDetail'])->name('university.course.details');
+  Route::get('/courses', [UniversityProfileCoursesFc::class, 'index'])->name('university.courses');
+  Route::get('/course/{course_slug}', [UniversityProfileCoursesFc::class, 'courseDetail'])->name('university.course.details');
+});
+$levels = UniversityProgram::select('level')->where(['status' => 1])->distinct()->get();
+foreach ($levels as $row) {
+  Route::get('university/{university_slug}/' . $row->level . '-courses', [UniversityProfileCoursesFc::class, 'index']);
+}
+
+Route::prefix('/university-course-list')->group(function () {
+  Route::get('/level', [UniversityProfileCoursesFc::class, 'applyLevelFilter']);
+  Route::get('/category', [UniversityProfileCoursesFc::class, 'applyCategoryFilter']);
+  Route::get('/specialization', [UniversityProfileCoursesFc::class, 'applySpecializationFilter']);
+  Route::get('/apply-filter', [UniversityProfileCoursesFc::class, 'applyFilter']);
+  Route::get('/remove-filter', [UniversityProfileCoursesFc::class, 'removeFilter']);
+  Route::get('/remove-all-filter', [UniversityProfileCoursesFc::class, 'removeAllFilter']);
 });

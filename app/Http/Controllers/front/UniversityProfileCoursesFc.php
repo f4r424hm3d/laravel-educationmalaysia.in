@@ -5,7 +5,6 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Models\CourseCategory;
 use App\Models\CourseSpecialization;
-use App\Models\DefaultOgImage;
 use App\Models\DynamicPageSeo;
 use App\Models\Level;
 use App\Models\Month;
@@ -14,13 +13,12 @@ use App\Models\University;
 use App\Models\UniversityProgram;
 use Illuminate\Http\Request;
 
-class UniversityCourseListFc extends Controller
+class UniversityProfileCoursesFc extends Controller
 {
   public function index($university_slug, Request $request)
   {
-    $university_slug = $request->segment(1);
-    $filter = $request->segment(2);
-    $university = University::where(['slug' => $university_slug])->firstOrFail();
+    $filter = $request->segment(3);
+    $university = University::where(['uname' => $university_slug])->firstOrFail();
     $checkPrograms = UniversityProgram::where(['university_id' => $university->id, 'status' => 1])->count();
     if ($checkPrograms == 0) {
       abort(404);
@@ -39,7 +37,7 @@ class UniversityCourseListFc extends Controller
 
       // Check if any match is found
       if ($chkLevel !== null) {
-        session()->put('UCF_level', $chkLevel->id);
+        session()->put('UCF_level', $chkLevel->level);
       } elseif ($chkCategory !== null) {
         session()->put('UCF_course_category', $chkCategory->id);
       } elseif ($chkSpecialization !== null) {
@@ -51,8 +49,8 @@ class UniversityCourseListFc extends Controller
 
 
     if (session()->has('UCF_level')) {
-      $rows = $rows->where(['level_id' => session()->get('UCF_level')]);
-      $filter_level = Level::find(session()->get('UCF_level'));
+      $rows = $rows->where(['level' => session()->get('UCF_level')]);
+      $filter_level = session()->get('UCF_level');
     } else {
       $filter_level = null;
     }
@@ -88,40 +86,39 @@ class UniversityCourseListFc extends Controller
     $pp = $rows->perPage();
     $i = ($cp - 1) * $pp + 1;
 
-    $levels = UniversityProgram::select('level_id')->where(['university_id' => $university->id, 'status' => 1])->distinct()->get();
+    $levels = UniversityProgram::select('level')->where(['university_id' => $university->id, 'status' => 1])->distinct()->get();
 
     $categories = UniversityProgram::select('course_category_id')->where(['university_id' => $university->id, 'status' => 1])->distinct();
     if (session()->has('UCF_level')) {
-      $categories = $categories->where(['level_id' => session()->get('UCF_level')]);
+      $categories = $categories->where(['level' => session()->get('UCF_level')]);
     }
     $categories = $categories->get();
 
     $specializations = UniversityProgram::select('specialization_id')->where(['university_id' => $university->id, 'status' => 1])->distinct();
     if (session()->has('UCF_level')) {
-      $specializations = $specializations->where(['level_id' => session()->get('UCF_level')]);
+      $specializations = $specializations->where(['level' => session()->get('UCF_level')]);
     }
     if (session()->has('UCF_course_category')) {
       $specializations = $specializations->where(['course_category_id' => session()->get('UCF_course_category')]);
     }
     $specializations = $specializations->get();
 
-    $study_modes = StudyMode::all();
+    $studyModes = StudyMode::all();
+    $intakes = Month::all();
 
     $page_url = url()->current();
 
     $wrdseo = ['url' => 'university-course-list'];
     $dseo = DynamicPageSeo::where($wrdseo)->first();
-    $dogimg = DefaultOgImage::default()->first();
 
     $category = $filter_category == null ? '' : $filter_category->category_name;
     $specialization = $filter_specialization == '' ? '' : $filter_specialization->specialization_name;
-    $level = $filter_level == null ? '' : $filter_level->level;
+    $level = $filter_level;
     $university_name = $university->name;
-    $destination = $university->getDestination->destination_name;
 
     $title = $university->name;
     $site =  DOMAIN;
-    $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site, 'category' => $category, 'specialization' => $specialization, 'level' => $level, 'university' => $university_name, 'destination' => $destination, 'noc' => $total];
+    $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site, 'category' => $category, 'specialization' => $specialization, 'level' => $level, 'university' => $university_name, 'noc' => $total];
 
     $meta_title = $university->meta_title == '' ? $dseo->meta_title : $university->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
@@ -135,11 +132,11 @@ class UniversityCourseListFc extends Controller
     $meta_description = $university->meta_description == '' ? $dseo->meta_description : $university->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
 
-    $og_image_path = $dogimg->file_path;
+    $og_image_path = $dseo->file_path ?? null;
 
     $breadcrumbCurrent = '<li class="facts-1">Courses</li>';
 
-    $data = compact('university', 'rows', 'i', 'levels', 'categories', 'specializations', 'study_modes', 'total', 'filter_level', 'filter_category', 'filter_specialization', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'breadcrumbCurrent', 'npu', 'ppu');
+    $data = compact('university', 'rows', 'i', 'levels', 'categories', 'specializations', 'studyModes', 'total', 'filter_level', 'filter_category', 'filter_specialization', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'breadcrumbCurrent', 'npu', 'ppu');
     return view('front.university-course-list')->with($data);
   }
   public function applyLevelFilter(Request $request)
@@ -147,10 +144,10 @@ class UniversityCourseListFc extends Controller
     session()->forget('UCF_course_category');
     session()->forget('UCF_specialization');
     session()->forget('UCF_study_mode');
-    $level_id = $request->level_id;
-    $level = Level::find($level_id);
-    $request->session()->put('UCF_level', $level_id);
-    return $level->slug . '-courses';
+    $level = $request->level;
+    //$level = Level::where('level', $level)->first();
+    $request->session()->put('UCF_level', $level);
+    return slugify($level) . '-courses';
   }
   public function applyCategoryFilter(Request $request)
   {
@@ -184,14 +181,14 @@ class UniversityCourseListFc extends Controller
     session()->forget('UCF_specialization');
     session()->forget('UCF_study_mode');
   }
-  public function programDetail($university_slug, $program_slug, Request $request)
-  {
-    $slug = $request->segment(1);
-    $university = University::where(['slug' => $slug])->firstOrFail();
-    $trendingUniversity = University::where(['destination_id' => $university->destination_id])->limit(10)->get();
 
-    $program_slug = $program_slug;
-    $program = UniversityProgram::where(['university_id' => $university->id, 'program_slug' => $program_slug])->firstOrFail();
+
+  public function courseDetail($university_slug, $program_slug, Request $request)
+  {
+    $university = University::where(['uname' => $university_slug])->firstOrFail();
+    $trendingUniversity = University::limit(10)->get();
+
+    $program = UniversityProgram::where(['university_id' => $university->id, 'slug' => $program_slug])->firstOrFail();
     // printArray($program);
     // die;
     $path = implode('/', $request->segments());
@@ -200,7 +197,6 @@ class UniversityCourseListFc extends Controller
 
     $wrdseo = ['url' => 'university-course-detail'];
     $dseo = DynamicPageSeo::where($wrdseo)->first();
-    $dogimg = DefaultOgImage::default()->first();
 
     $breadcrumbCurrent = '<li class="facts-1">' . $program->program_name . '</li>';
     $title = $program->program_name;
@@ -219,9 +215,9 @@ class UniversityCourseListFc extends Controller
     $meta_description = $program->meta_description == '' ? $dseo->meta_description : $program->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
 
-    $og_image_path = $dogimg->file_path;
+    $og_image_path = $dseo->ogimgpath ?? null;
 
-    $months = Month::orderBy('month_number', 'ASC')->get();
+    $months = Month::orderBy('id', 'ASC')->get();
 
     $data = compact('program', 'university', 'trendingUniversity', 'path', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'months', 'breadcrumbCurrent');
     return view('front.programs-profile')->with($data);

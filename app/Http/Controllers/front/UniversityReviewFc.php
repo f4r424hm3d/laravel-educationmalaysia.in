@@ -41,7 +41,7 @@ class UniversityReviewFc extends Controller
     $dogimg = DefaultOgImage::default()->first();
 
     $title = $university->name;
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
     $meta_title = $university->meta_title == '' ? $dseo->meta_title : $university->meta_title;
@@ -80,7 +80,7 @@ class UniversityReviewFc extends Controller
     $dseo = DynamicPageSeo::where($wrdseo)->first();
     $dogimg = DefaultOgImage::default()->first();
     $title = $university->name;
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
     $meta_title = $university->meta_title == '' ? $dseo->meta_title : $university->meta_title;

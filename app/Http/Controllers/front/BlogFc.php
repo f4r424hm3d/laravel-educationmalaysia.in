@@ -28,7 +28,7 @@ class BlogFc extends Controller
     $dseo = DynamicPageSeo::where($wrdseo)->first();
 
     $title = $category->category_name;
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
     $meta_title = $category->meta_title == '' ? $dseo->meta_title : $category->meta_title;
@@ -66,7 +66,7 @@ class BlogFc extends Controller
 
     $sub_slug = $blog->title;
     $category = str_replace('-', ' ', $blog->cate_slug);
-    $site = 'educationmalaysia.in';
+    $site = DOMAIN;
 
     $tagArray = ['title' => $sub_slug, 'category' => $category, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 

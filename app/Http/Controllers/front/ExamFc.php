@@ -37,7 +37,7 @@ class ExamFc extends Controller
     $dseo = DynamicPageSeo::website()->where($wrdseo)->first();
     $title = $exam->page_name;
     $headline = $exam->headline;
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
     $tagArray = ['title' => $title, 'headline' => $headline, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
     $meta_title = $exam->meta_title == '' ? $dseo->meta_title : $exam->meta_title;

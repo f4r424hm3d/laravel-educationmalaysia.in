@@ -31,7 +31,7 @@ class UniversityProfileFc extends Controller
     $inst_type = $university->inst_type;
     $uname = $university->name;
 
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
     $tagArray = ['title' => $title, 'address' => $city, 'shortnote' => $shortnote, 'universitytype' => $inst_type, 'universityname' => $uname, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
     $meta_title = $university->meta_title == '' ? $dseo->meta_title : $university->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
@@ -63,7 +63,7 @@ class UniversityProfileFc extends Controller
     $inst_type = $university->inst_type;
     $uname = $university->name;
 
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
     $tagArray = ['title' => $title, 'address' => $city, 'shortnote' => $shortnote, 'universitytype' => $inst_type, 'universityname' => $uname, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
     $meta_title = $university->meta_title == '' ? $dseo->meta_title : $university->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
@@ -95,7 +95,7 @@ class UniversityProfileFc extends Controller
     $inst_type = $university->inst_type;
     $uname = $university->name;
 
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
     $tagArray = ['title' => $title, 'address' => $city, 'shortnote' => $shortnote, 'universitytype' => $inst_type, 'universityname' => $uname, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
     $meta_title = $university->meta_title == '' ? $dseo->meta_title : $university->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);

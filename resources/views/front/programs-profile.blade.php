@@ -27,22 +27,22 @@
       }, {
         "@type": "ListItem",
         "position": 2,
-        "name": "{{ $university->getDestination->destination_name }}",
-        "item": "{{ url($university->getDestination->destination_slug) }}"
+        "name": "Select University",
+        "item": "{{ route('select.university') }}"
       }, {
         "@type": "ListItem",
         "position": 3,
-        "name": "{{ url($university->slug) }}",
-        "item": "{{ $university->name }}"
+        "name": "University",
+        "item": "{{ route('university.overview',['university_slug'=>$university->uname]) }}"
       }, {
         "@type": "ListItem",
         "position": 4,
-        "name": "Courses",
-        "item": "{{ url($university->slug.'/courses') }}"
+        "name": "University Courses",
+        "item": "{{ route('university.courses',['university_slug'=>$university->uname]) }}"
       }, {
         "@type": "ListItem",
         "position": 5,
-        "name": "{{ $title }}",
+        "name": "Courses",
         "item": "{{ url()->current() }}"
       }]
     }
@@ -79,7 +79,7 @@
 
           <div class="edu_wraper">
 
-            <h2 class="course-new-title mb-2">{{ $program->program_name }}</h2>
+            <h2 class="course-new-title mb-2">{{ $program->course_name }} Fees Structure, Admission, Intake, Deadline</h2>
 
             <div class="row align-items-center">
               <div class="col-md-12">
@@ -88,7 +88,7 @@
                     <div class="row">
                       <div class="col-lg-3 col-2 course-icon-new"><i class="ti-flag-alt"></i></div>
                       <div class="col-lg-9 col-10"><span class="theme-cl">Study Mode:</span><br><span
-                          class="course-new-sc">{{ j2s($program->study_mode ?? null) }}</span></div>
+                          class="course-new-sc">{{ ucwords($program->study_mode) }}</span></div>
                     </div>
                   </div>
                   <div class="col-md-4 col-12 mt-2 mb-2">
@@ -102,7 +102,7 @@
                     <div class="row">
                       <div class="col-lg-3 col-2 course-icon-new"><i class="ti-files"></i></div>
                       <div class="col-lg-9 col-10"><span class="theme-cl">Level:</span><br><span
-                          class="course-new-sc">{{ $program->getLevel->level }}</span></div>
+                          class="course-new-sc">{{ $program->level }}</span></div>
                     </div>
                   </div>
 
@@ -132,20 +132,49 @@
             </div>
 
           </div>
+          @if ($program->intake != null)
+            @php
+              $intakeArr = explode(',', $program->intake);
+              $appDeadlineArr = explode(',', $program->application_deadline);
+            @endphp
 
-          @if ($program->overview != null)
-            <!-- Overview -->
-            <div class="edu_wraper">
-              <div class="show-more-box">
-                <div class="text show-more-height">
-                  <h2 class="edu_title">Course Overview</h2>
-                  {!! $program->overview !!}
+            @if (count($intakeArr) == count($appDeadlineArr))
+              @php
+                $finalIntake = array_combine($intakeArr, $appDeadlineArr);
+              @endphp
+              <table class="table table-sm">
+                <tr>
+                  <td>
+                    <table>
+                      <tr>
+                        <th>Intake</th>
+                        <th>Deadline</th>
+                      </tr>
+                      @foreach ($finalIntake as $key => $value)
+                        <tr>
+                          <td>{{ $key != null ? $key : 'N/A' }}</td>
+                          <td>{{ $value != null ? $value : 'N/A' }}</td>
+                        </tr>
+                      @endforeach
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            @endif
+
+            @if ($program->overview != null)
+              <!-- Overview -->
+              <div class="edu_wraper">
+                <div class="show-more-box">
+                  <div class="text show-more-height">
+                    <h2 class="edu_title">Course Overview</h2>
+                    {!! $program->overview !!}
+                  </div>
+                  <div class="show-more">(Show More)</div>
                 </div>
-                <div class="show-more">(Show More)</div>
               </div>
-            </div>
+            @endif
           @endif
-
           <div class="edu_wraper p-3">
             <!-- Call to action -->
             <div class="justify-content-center align-content-center text-center font-weight-bold">
@@ -161,8 +190,6 @@
               @else
                 <a href="{{ url('/sign-in/?return_to=' . $path . '&program_id=' . $program->id) }}"
                   class="btn btn-theme-2 ml-2 rounded rounded-circle" style="border:0px">APPLY NOW</a>
-
-                {{-- <a id="applyBtn1" href="javascript:void()" onclick="applyProgram('{{ $program->id }}','applyBtn1')" class="btn btn-theme-2 ml-2 rounded rounded-circle" style="background:#60cb00; border:0px">Green</a><a id="applyBtn1" href="javascript:void()" onclick="applyProgram('{{ $program->id }}','applyBtn1')" class="btn btn-theme-2 ml-2 rounded rounded-circle" style="background:red; border:0px">Red</a> --}}
               @endif
             </div>
           </div>
@@ -200,60 +227,6 @@
             </div>
           @endif
 
-          <div class="edu_wraper">
-            <h2 class="course-new-title mb-2">English Exam Requirement</h2>
-            <table class="table table-striped mb-0 mt-3 b-l b-r b-b">
-              <tbody style="width:100%; display:inline-table;">
-                <tr>
-                  <th class="bg-primary text-white" style="font-size:18px; width:50%">Exam</th>
-                  <th class="bg-primary text-white" style="font-size:18px; width:50%">Band</th>
-                </tr>
-                @if ($program->ielts)
-                  <tr>
-                    <td><strong>IELTS</strong></td>
-                    <td>{{ $program->ielts ?? 'N/A' }}</td>
-                  </tr>
-                @endif
-                @if ($program->toefl)
-                  <tr>
-                    <td><strong>TOEFL</strong></td>
-                    <td>{{ $program->toefl ?? 'N/A' }}</td>
-                  </tr>
-                @endif
-                @if ($program->pte)
-                  <tr>
-                    <td><strong>PTE</strong></td>
-                    <td>{{ $program->pte ?? 'N/A' }}</td>
-                  </tr>
-                @endif
-                @if ($program->duolingo)
-                  <tr>
-                    <td><strong>DUOLINGO</strong></td>
-                    <td>{{ $program->duolingo ?? 'N/A' }}</td>
-                  </tr>
-                @endif
-                @if ($program->gre)
-                  <tr>
-                    <td><strong>GRE</strong></td>
-                    <td>{{ $program->gre ?? 'N/A' }}</td>
-                  </tr>
-                @endif
-                @if ($program->gmat)
-                  <tr>
-                    <td><strong>GMAT</strong></td>
-                    <td>{{ $program->gmat ?? 'N/A' }}</td>
-                  </tr>
-                @endif
-                @if ($program->sat)
-                  <tr>
-                    <td><strong>SAT</strong></td>
-                    <td>{{ $program->sat ?? 'N/A' }}</td>
-                  </tr>
-                @endif
-              </tbody>
-            </table>
-          </div>
-
           <div id="accordionExample" class="accordion shadow circullum">
 
             @if ($trendingUniversity->count() > 0)
@@ -281,7 +254,7 @@
                                   <div class="row align-items-center mb-2">
                                     <div class="col-3 pr-0">
                                       <div class="path-img border-primary border rounded">
-                                        <img data-src="{{ asset($tu->logo_path) }}" class="img-fluid rounded"
+                                        <img data-src="{{ asset($tu->imgpath) }}" class="img-fluid rounded"
                                           alt="">
                                       </div>
                                     </div>
@@ -289,16 +262,17 @@
                                       <h6 class="mb-1">{{ $tu->name }}</h6>
                                       <i class="ti-location-pin mr-2"></i>{{ $tu->city }},
                                       {{ $tu->state }}<br />
-                                      <i class="ti-eye mr-2"></i>{{ $tu->getInstType->type ?? 'N/A' }}
+                                      <i class="ti-eye mr-2"></i>{{ $tu->instituteType->type ?? 'N/A' }}
                                     </div>
                                   </div>
                                 </div>
 
                                 <div class="education_block_footer pl-3 pr-3">
-                                  <a href="{{ url($tu->slug) }}" class="card-btn mr-3" style="font-size:13px">View
+                                  <a href="{{ route('university.overview', ['university_slug' => $tu->slug]) }}"
+                                    class="card-btn mr-3" style="font-size:13px">View
                                     detials</a>
-                                  <a href="{{ url($tu->slug . '/courses') }}" class="card-btn"
-                                    style="font-size:13px">View
+                                  <a href="{{ route('university.courses', ['university_slug' => $tu->slug]) }}"
+                                    class="card-btn" style="font-size:13px">View
                                     courses</a>
                                 </div>
                               </div>
@@ -312,12 +286,6 @@
                 </div>
               </div>
             @endif
-
-            <!-- Call to action -->
-            {{-- <div class="justify-content-center align-content-center text-center mb-4 font-weight-bold">
-            GET DETAILS ON FEE, ADMISSION, INTAKE <a href="{{ url('/sign-up/?return_to=') }}"
-              class="btn btn-theme-2 ml-2 rounded rounded-circle">Call to action</a>
-          </div> --}}
 
           </div>
 
@@ -336,19 +304,23 @@
               @foreach ($trendingUniversity as $uni)
                 <div class="learnup-list">
                   <div class="learnup-list-thumb">
-                    <a href="{{ url($uni->slug) }}">
-                      <img data-src="{{ asset($uni->logo_path) }}" class="img-fluid" alt="{{ $uni->name }}">
+                    <a href="{{ route('university.overview', ['university_slug' => $uni->slug]) }}">
+                      <img data-src="{{ asset($uni->imgpath) }}" class="img-fluid" alt="{{ $uni->name }}">
                     </a>
                   </div>
                   <div class="learnup-list-caption">
-                    <h6><a href="{{ url($uni->slug) }}">{{ $uni->name }}</a></h6>
+                    <h6><a
+                        href="{{ route('university.overview', ['university_slug' => $uni->slug]) }}">{{ $uni->name }}</a>
+                    </h6>
                     <p class="mb-0"><i class="ti-location-pin"></i> {{ $uni->city }}, {{ $uni->state }}</p>
                     <div class="learnup-info">
                       <span class="mr-3">
-                        <a href="{{ url($uni->slug) }}"><i class="fa fa-edit"></i> Admission</a>
+                        <a href="{{ route('university.overview', ['university_slug' => $uni->slug]) }}"><i
+                            class="fa fa-edit"></i> Admission</a>
                       </span>
                       <span>
-                        <a href="{{ url($uni->slug . '/courses') }}"><i class="fa fa-graduation-cap"></i> Programme</a>
+                        <a href="{{ route('university.courses', ['university_slug' => $uni->slug]) }}"><i
+                            class="fa fa-graduation-cap"></i> Programme</a>
                       </span>
                     </div>
                   </div>

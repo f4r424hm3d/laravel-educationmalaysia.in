@@ -133,7 +133,7 @@ class UniversityListFc extends Controller
 
     $title = 'universities';
     $d_name = $destination->destination_name;
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
 
     $category = $curCat == '' ? '' : $curCat->category_name;
     $specialization = $curSpc == '' ? '' : $curSpc->specialization_name;
@@ -305,7 +305,7 @@ class UniversityListFc extends Controller
 
     $title = 'universities';
     $d_name = $destination->destination_name;
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
 
     $category = $curCat == '' ? '' : $curCat->category_name;
     $specialization = $curSpc == '' ? '' : $curSpc->specialization_name;

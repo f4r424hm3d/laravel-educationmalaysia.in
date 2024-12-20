@@ -41,7 +41,7 @@ class SpecializationFc extends Controller
     $wrdseo = ['url' => 'specialization'];
     $dseo = DynamicPageSeo::website()->where($wrdseo)->first();
     $title = $specialization->name;
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
     $meta_title = $specialization->meta_title == '' ? $dseo->meta_title : $specialization->meta_title;

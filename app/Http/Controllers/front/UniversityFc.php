@@ -53,7 +53,7 @@ class UniversityFc extends Controller
 
     $title = 'universities';
     $d_name = $destination->destination_name;
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
     $tagArray = ['title' => $title, 'destination' => $d_name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
     $meta_title = replaceTag($dseo->meta_title, $tagArray);
     $meta_keyword = replaceTag($dseo->meta_keyword, $tagArray);
@@ -109,7 +109,7 @@ class UniversityFc extends Controller
 
     $title = 'universities';
     $d_name = $destination->destination_name;
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
     $tagArray = ['title' => $title, 'destination' => $d_name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
     $meta_title = replaceTag($dseo->meta_title, $tagArray);
     $meta_keyword = replaceTag($dseo->meta_keyword, $tagArray);
@@ -167,7 +167,7 @@ class UniversityFc extends Controller
 
     $title = 'universities';
     $d_name = $destination->destination_name;
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
     $tagArray = ['title' => $title, 'destination' => $d_name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
     $meta_title = replaceTag($dseo->meta_title, $tagArray);
     $meta_keyword = replaceTag($dseo->meta_keyword, $tagArray);
@@ -224,7 +224,7 @@ class UniversityFc extends Controller
 
     $title = 'universities';
     $d_name = $destination->destination_name;
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
     $tagArray = ['title' => $title, 'destination' => $d_name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
     $meta_title = replaceTag($dseo->meta_title, $tagArray);
     $meta_keyword = replaceTag($dseo->meta_keyword, $tagArray);
@@ -281,7 +281,7 @@ class UniversityFc extends Controller
 
     $title = 'universities';
     $d_name = $destination->destination_name;
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
     $tagArray = ['title' => $title, 'destination' => $d_name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
     $meta_title = replaceTag($dseo->meta_title, $tagArray);
     $meta_keyword = replaceTag($dseo->meta_keyword, $tagArray);

@@ -14,7 +14,10 @@ class University extends Model
   {
     static::addGlobalScope(new WebsiteScope);
   }
-
+  public function getSlugAttribute()
+  {
+    return $this->attributes['uname'];
+  }
   public function instituteType()
   {
     return $this->hasOne(InstituteType::class, 'id', 'institute_type');

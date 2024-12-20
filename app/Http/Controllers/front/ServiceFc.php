@@ -69,7 +69,7 @@ class ServiceFc extends Controller
     $dseo = DynamicPageSeo::website()->where($wrdseo)->first();
     $title = $service->page;
     $headline = $service->headline;
-    $site =  'educationmalaysia.in';
+    $site =  DOMAIN;
     $tagArray = ['title' => $title, 'headline' => $headline, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
     $meta_title = $service->meta_title == '' ? $dseo->meta_title : $service->meta_title;

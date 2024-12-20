@@ -17,6 +17,7 @@ define('BCC_EMAIL', 'farazahmad280@gmail.com');
 define('BCC_NAME', 'Mohd Faraz');
 
 define('site_var', 'MYS');
+define('DOMAIN', 'educationmalaysia.in');
 
 
 if (!function_exists('printArray')) {
