@@ -2,14 +2,7 @@
 @push('seo_meta_tag')
   @include('front.layouts.dynamic_page_meta_tag')
 @endpush
-@push('pagination_tag')
-  @if ($npu)
-    <link rel="next" href="{{ $npu }}" />
-  @endif
-  @if ($ppu)
-    <link rel="prev" href="{{ $ppu }}" />
-  @endif
-@endpush
+
 @push('breadcrumb_schema')
   <!-- breadcrumb schema Code -->
   <script type="application/ld+json">
@@ -26,45 +19,13 @@
       }, {
         "@type": "ListItem",
         "position": 2,
-        "name": "Study In {{ $destination->destination_name }}",
-        "item": "{{ url($destination->destination_slug) }}"
-      }
-      @if ((session()->has('FilterCategory') || session()->has('FilterSpecialization') || session()->has('FilterInstituteType')) && $headTitle != null)
-      , {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "{{ $destination->destination_name }} Universities",
-        "item": "{{ url($destination->destination_slug . '/' . $destination->destination_slug . '-universities') }}"
-      }, {
-        "@type": "ListItem",
-        "position": 4,
-        "name": "{{ $headTitle }}",
+        "name": "Universities in Malaysia",
         "item": "{{ url()->current() }}"
       }
-      @else
-      , {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "{{ $destination->destination_name }} Universities",
-        "item": "{{ url()->current() }}"
-      }
-      @endif
       ]
     }
   </script>
   <!-- breadcrumb schema Code End -->
-  <!-- webpage schema Code Destinations -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org/",
-      "@type": "webpage",
-      "url": "{{ url()->current() }}",
-      "name": "{{ $pageHeading }}",
-      "description": "{{ $meta_description }}",
-      "inLanguage": "en-US",
-      "keywords": ["{{ $meta_keyword }}"]
-    }
-  </script>
 @endpush
 @section('main-section')
   <!-- Breadcrumb -->
@@ -75,25 +36,14 @@
           <div class="ed_detail_wrap light">
             <ul class="cources_facts_list">
               <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
-              <li class="facts-1"><a href="{{ url($destination->destination_slug) }}">Study In
-                  {{ $destination->destination_name }}</a></li>
-              @if (
-                  (session()->has('FilterCategory') ||
-                      session()->has('FilterSpecialization') ||
-                      session()->has('FilterInstituteType')) &&
-                      $headTitle != null)
-                <li class="facts-1"><a
-                    href="{{ url($destination->destination_slug . '/' . $destination->destination_slug . '-universities') }}">{{ $destination->destination_name }}
-                    Universities</a></li>
-                <li class="facts-1">{{ $headTitle }}</li>
-              @else
-                <li class="facts-1">{{ $destination->destination_name }} Universities</li>
-              @endif
+              <li class="facts-1">Universities in Malaysia</li>
             </ul>
             <div class="ed_header_caption mb-0">
-              <h1 class="ed_title mb-0">
-                {{ $pageHeading }}
-              </h1>
+              <h2 class="ed_title mb-0"><span><?php echo $total; ?></span> <?php echo $curInstType; ?> In <span>Malaysia</span></h2>
+              <p>Find a list of top <?php echo $curInstType; ?> in malaysia. Get details such as institution type, campus
+                location, courses offered, World rating and other pertinent information about all the top
+                <?php echo $curInstType; ?> in malaysia. Fill out an online request form to get the complete information about any
+                top <?php echo $curInstType; ?> in malaysia you're interested in.</p>
             </div>
           </div>
         </div>
@@ -107,17 +57,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-12">
-          <form class="form-inline addons hide-23 mb-2">
-            <select class="left-dropdown-filter" id="filter_country">
-              @foreach ($destinations as $row)
-                <option value="{{ $row->getDestination->destination_slug }}"
-                  {{ $row->destination_id == $destination->id ? 'selected' : '' }}>
-                  {{ $row->getDestination->destination_name }}
-                </option>
-              @endforeach
-            </select>
 
-          </form>
           <div id="accordionExample" class="accordion shadow circullum hide-23 full-width">
             @include('front.filter-universities')
           </div>
@@ -135,41 +75,9 @@
                       id="open2">Show Filter<span class="ml-2"><i class="ti-arrow-right"></i></span></a></div>
                 </div>
               </div>
-              @if (session()->has('FilterLevel') ||
-                      session()->has('FilterCategory') ||
-                      session()->has('FilterSpecialization') ||
-                      session()->has('FilterInstituteType') ||
-                      session()->has('FilterState') ||
-                      session()->has('FilterCity') ||
-                      isset($_GET['study_mode']) ||
-                      isset($_GET['intake']))
+              @if (session()->has('FilterInstituteType') || session()->has('FilterState'))
                 <div class="portal-filter">
                   <ul>
-                    @if (session()->has('FilterLevel'))
-                      <li><a onclick="removeFilter('FilterLevel')" href="javascript:void(0)">{{ $curLevel->level }}<span
-                            class="cross">×</span></a>
-                      </li>
-                    @endif
-                    @if (session()->has('FilterCategory'))
-                      <li><a onclick="removeFilter('FilterCategory')"
-                          href="javascript:void(0)">{{ $curCat->category_name }}<span class="cross">×</span></a>
-                      </li>
-                    @endif
-                    @if (session()->has('FilterSpecialization'))
-                      <li><a onclick="removeFilter('FilterSpecialization')"
-                          href="javascript:void(0)">{{ $curSpc->specialization_name }}<span class="cross">×</span></a>
-                      </li>
-                    @endif
-                    @if (isset($_GET['study_mode']))
-                      <li><a onclick="removeStaticFilter('study_mode')"
-                          href="javascript:void(0)">{{ $_GET['study_mode'] }}<span class="cross">×</span></a>
-                      </li>
-                    @endif
-                    @if (isset($_GET['intake']))
-                      <li><a onclick="removeStaticFilter('intake')" href="javascript:void(0)">{{ $_GET['intake'] }}<span
-                            class="cross">×</span></a>
-                      </li>
-                    @endif
                     @if (session()->has('FilterInstituteType'))
                       <li><a onclick="removeFilter('FilterInstituteType')"
                           href="javascript:void(0)">{{ $curInstType->type }}<span class="cross">×</span></a>
@@ -181,21 +89,8 @@
                             class="cross">×</span></a>
                       </li>
                     @endif
-                    @if (session()->has('FilterCity'))
-                      <li><a onclick="removeFilter('FilterCity')"
-                          href="javascript:void(0)">{{ unslugify(session()->get('FilterCity')) }}<span
-                            class="cross">×</span></a>
-                      </li>
-                    @endif
                   </ul>
-                  @if (session()->has('FilterLevel') ||
-                          session()->has('FilterCategory') ||
-                          session()->has('FilterSpecialization') ||
-                          session()->has('FilterInstituteType') ||
-                          session()->has('FilterState') ||
-                          session()->has('FilterCity') ||
-                          isset($_GET['study_mode']) ||
-                          isset($_GET['intake']))
+                  @if (session()->has('FilterInstituteType') || session()->has('FilterState'))
                     <a onclick="removeAllFilter()" href="javascript:void(0)" class="clearAll">Clear All</a>
                   @endif
                 </div>
@@ -213,22 +108,21 @@
 
                     <div class="row align-items-center">
                       <div class="col-lg-1 col-12">
-                        <img data-src="{{ asset($row->getUniversity->logo_path) }}" class="w-100"
-                          alt="{{ $row->getUniversity->name }} Logo">
+                        <img data-src="{{ asset($row->imgpatg) }}" class="w-100" alt="{{ $row->name }} Logo">
                       </div>
 
                       <div class="dashboard_single_course_caption col-lg-11 col-12">
                         <div class="dashboard_single_course_head">
                           <div class="dashboard_single_course_head_flex mt-0">
                             <h4 class="dashboard_course_title mb-1" style="font-size:20px">
-                              <a href="{{ url($row->getUniversity->slug) }}">
-                                {{ $row->getUniversity->name }}
+                              <a href="{{ url($row->slug) }}">
+                                {{ $row->name }}
                               </a>
                             </h4>
                             <div class="row">
                               <div class="col-md-12">
                                 <i class="ti-location-pin"></i>
-                                {{ formatLocation($row->getUniversity->city, $row->getUniversity->state, $row->getUniversity->country) }}
+                                {{ formatLocation($row->city, $row->state, $row->country) }}
                               </div>
                             </div>
                           </div>
@@ -242,12 +136,12 @@
                     </div>
                     <div class="row mt-2 mb-1">
                       <div class="col-md-3 col-6"><span class="theme-cl">Founded:</span>
-                        {{ $row->getUniversity->founded }}
+                        {{ $row->founded }}
                       </div>
                       <div class="col-md-3 col-6"><span class="theme-cl">Course:</span>
-                        {{ $row->getUniversity->getPrograms->count() ?? 'N/A' }}</div>
+                        {{ $row->programs->count() ?? 'N/A' }}</div>
                       <div class="col-md-3 col-6"><span class="theme-cl">Type:</span>
-                        {{ $row->getUniversity->getInstType->type ?? 'N/A' }}
+                        {{ $row->getInstType->type ?? 'N/A' }}
                       </div>
                       <div class="col-md-3 col-6"><span class="theme-cl">Scholarship:</span> Yes</div>
                     </div>
@@ -257,9 +151,9 @@
                         <div class="row">
                           <div class="col-lg-8 col-md-8 col-sm-6">
                             <h6 style="display: inline-block">
-                              <a href="{{ url($row->getUniversity->slug . '/course/' . $row->program_slug) }}"
-                                contenteditable="false" style="cursor: pointer;"><i
-                                  class="fa fa-hand-point-right mr-1 theme-cl"></i> {{ $row->program_name }}</a>
+                              <a href="{{ url($row->slug . '/course/' . $row->program_slug) }}" contenteditable="false"
+                                style="cursor: pointer;"><i class="fa fa-hand-point-right mr-1 theme-cl"></i>
+                                {{ $row->program_name }}</a>
                             </h6>
 
                           </div>
@@ -286,14 +180,14 @@
                             </div>
                           </div>
                           <div class="col-lg-5 col-md-5  mt-1">
-                            @if ($row->getUniversity->getPrograms->count() > 0)
-                              <a href="{{ url($row->getUniversity->slug . '/courses') }}" class="new-rbtn">
+                            @if ($row->programs->count() > 0)
+                              <a href="{{ url($row->slug . '/courses') }}" class="new-rbtn">
                                 <i class="fa fa-graduation-cap"></i> All Programs
                               </a>
                             @endif
-                            @if ($row->getUniversity->getReviews->count() > 0)
-                              <a href="{{ url($row->getUniversity->slug . '/reviews') }}" class="new-rbtn"><i
-                                  class="fa fa-star"></i> Reviews</a>
+                            @if ($row->reviews->count() > 0)
+                              <a href="{{ url($row->slug . '/reviews') }}" class="new-rbtn"><i class="fa fa-star"></i>
+                                Reviews</a>
                             @endif
                           </div>
 
@@ -326,20 +220,7 @@
     <div class="show-hide-sidebar">
       <div class="sidebar-widgets">
         <!-- Search Form -->
-        <form class="form-inline addons mb-3">
-          <select class="left-dropdown-filter mb-2" id="mbl_filter_country">
-            @foreach ($destinations as $row)
-              <option value="{{ $row->getDestination->destination_slug }}"
-                {{ $row->destination_id == $destination->id ? 'selected' : '' }}>
-                {{ $row->getDestination->destination_name }}
-              </option>
-            @endforeach
-          </select>
-          <div id="accordionExample" class="accordion shadow circullum full-width">
-            @include('front.filter-universities')
-          </div>
-          <a class="btn btn-theme-2 full-width mb-2 text-white">Filter Result</a>
-        </form>
+
       </div>
     </div>
   </div>
@@ -403,7 +284,7 @@
       //alert(`${col} , ${val}`);
       var baseUrl = "{{ url('/') }}";
       if (slug) {
-        var redirectUrl = baseUrl + '/{{ $destination->destination_slug }}/' + slug + '-universities';
+        var redirectUrl = baseUrl + slug + '-universities';
         window.location.href = redirectUrl;
       }
     }
@@ -429,7 +310,7 @@
     }
 
     function removeFilter(value) {
-      var destination_slug = '{{ $destination->destination_slug }}';
+      var destination_slug = '';
       //alert(destination_slug);
       if (value != "") {
         $.ajax({
@@ -452,7 +333,7 @@
         method: "GET",
         success: function(b) {
           window.open(
-            "{{ url($destination->destination_slug . '/' . $destination->destination_slug . '-universities/') }}",
+            "{{ url('universities-in-malaysia') }}",
             '_SELF');
         }
       })

@@ -110,16 +110,7 @@
     </div>
   </div>
 </footer>
-<div class="jsx-66a23b37ae4ff4a1 bottomLeadTickerContainer  bottom-btn">
-  <button class="jsx-66a23b37ae4ff4a1 bottomLeadTickerBtn">
-    <span class="jsx-66a23b37ae4ff4a1"><a href="{{ url('book-demo') }}" target="blank">Get a
-        Free Expert Advice</a></span>
-    <div id="mouse-scroll" class="jsx-66a23b37ae4ff4a1">
-      <span class="jsx-66a23b37ae4ff4a1 down-arrow-1"></span>
-      <span class="jsx-66a23b37ae4ff4a1 down-arrow-2"></span>
-    </div>
-  </button>
-</div>
+
 <!-- Footer End -->
 
 <span id="back2Top" class="top-scroll" title="Back to top"><i class="ti-arrow-up"></i></span>
@@ -260,7 +251,7 @@
     width: 180px;
     overflow: hidden;
     background-color: #2db742;
-    color: #FFF;
+    color: #ffffff;
     border-radius: 2px 0 0 2px;
     z-index: 10;
     transition: all 0.5s ease-in-out;
@@ -289,7 +280,7 @@
   }
 
   .whats-float:hover {
-    color: #FFFFFF;
+    color: #000000;
     transform: translate(0px, 0px);
   }
 
@@ -321,7 +312,7 @@
   .wa-container .cancel {
     width: 35px;
     height: 35px;
-    background: #fff !important;
+    background: #ffffff !important;
     color: #000;
     transition: all 0.5s ease-in-out;
     font-size: 14px;
@@ -343,7 +334,7 @@
 
   .wa-container .whtsapp-header {
     padding: 20px 20px 5px 20px;
-    color: #fff;
+    color: #ffffff;
     background: #2db742;
     border-radius: 7px 7px 0px 0px
   }
@@ -376,7 +367,7 @@
   }
 
   .wa-container .content .country-box:hover {
-    background: #fff;
+    background: #ffffff;
     box-shadow: 0 0px 10px 4px rgba(0, 0, 0, .06)
   }
 </style>
@@ -452,6 +443,134 @@
 
   </div>
 </div>
+
+
+ <!-- Include jQuery and Slick Carousel libraries -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <!-- Initialize Slick Carousel -->
+    <script>
+        $(document).ready(function() {
+            $(".multiple-items").slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                responsive: [
+                  {
+                        breakpoint: 1200, // For devices with a width <= 1024px
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 2,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 1024, // For devices with a width <= 1024px
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 768, // For devices with a width <= 600px
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 600, // For devices with a width <= 600px
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+
+            $(".secondheader").slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,  // Change based on your preference
+            slidesToScroll: 2,  // Change based on your preference
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 2,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+        
+        $(".serviceitedms").slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                arrows: true, // Enable arrows
+                slidesToShow: 3,
+                slidesToScroll: 2,
+                responsive: [
+                  {
+                        breakpoint: 1200, // For devices with a width <= 1024px
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 2,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 1024, // For devices with a width <= 1024px
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 768, // For devices with a width <= 600px
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 600, // For devices with a width <= 600px
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+
+        });
+    </script>
+   
+
+<!-- top slider mainheader  -->
+
+
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     var lazyImages = document.querySelectorAll('[data-src]');
@@ -469,6 +588,9 @@
     });
   });
 </script>
+
+
+
 <script>
   function openForm() {
     document.getElementById("myForm").style.display = "block";
@@ -494,6 +616,30 @@
   })();
 </script>
 <!--End of Tawk.to Script-->
+
+ <!-- owl-carousel start  -->
+ <script>
+ $(document).ready(function() {
+    $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: false,
+        dots: false,
+        items: 2
+        
+        
+    });
+});
+
+          </script>
+
+<!-- jQuery -->
+
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+            <!-- owl-carousel end  -->
+
 </body>
 
 </html>

@@ -12,6 +12,6 @@ class InstituteType extends Model
   protected $guarded = [];
   public function nou()
   {
-    return $this->hasMany(University::class, 'institute_type_id', 'id');
+    return $this->hasMany(University::class, 'institute_type', 'id');
   }
 }

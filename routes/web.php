@@ -712,7 +712,7 @@ Route::get('author/{slug}' . $row->slug, [AuthorFc::class, 'index']);
 
 // UNIVERSITIES IN MALAYSIA ROUTES START
 
-Route::get('universities-in-malaysia' . $row->slug, [UniversityListFc::class, 'index']);
+Route::get('universities-in-malaysia', [UniversityListFc::class, 'index']);
 
 // Fetch the data from the database
 $results = DB::table('universities')

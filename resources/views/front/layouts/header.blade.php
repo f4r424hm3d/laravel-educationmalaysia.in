@@ -16,6 +16,19 @@
 <html lang="en">
 
 <head>
+<!-- slick slider  -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+<!-- slick slider end  -->
+ 
+ <!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+
+ <!-- Owl Carousel  end  -->
+
+<!-- owl-carousel end  -->
   <!--Meta Tag Seo-->
   @stack('seo_meta_tag')
   @stack('pagination_tag')
@@ -23,6 +36,9 @@
   <link href="{{ url('front/') }}/assets/css/styles.css" rel="stylesheet">
   <link rel="preload" href="{{ url('front/') }}/assets/css/colors.css" as="style"
     onload="this.onload=null;this.rel='stylesheet'">
+
+
+
   <style>
     .hide-this {
       display: none;
@@ -79,14 +95,14 @@
       font-size: 15px;
       text-align: left;
       background: #ff57221c;
-      color: #da0b4e;
+      color: #000000;
       text-transform: uppercase;
       font-weight: 600
     }
 
     .sItems ul li a:hover {
-      background: #da0b4e;
-      color: #fff
+      background: #000000;
+      color: #ffffff
     }
   </style>
 </head>
@@ -98,11 +114,11 @@
   <!-- End Google Tag Manager (noscript) -->
   <div id="main-wrapper">
     <!-- Top header-->
-    <div class="header header-light head-shadow">
+    <div class="header header-light head-shadow py-2">
       <div class="container">
-        <nav id="navigation" class="navigation navigation-landscape">
+        <nav id="navigation" class="navigation navigation-landscape new-navigatoins">
           <div class="nav-header">
-            <a class="nav-brand" href="{{ url('/') }}"><img src="{{ url('front/') }}/assets/img/logo.webp"
+            <a class="nav-brand" href="{{ url('/') }}"><img src="{{ url('front/') }}/assets/img/logo.png"
                 class="logo" alt="Education Malaysia Education Logo" /></a>
             <div class="nav-toggle"></div>
           </div>
