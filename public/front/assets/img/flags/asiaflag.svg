@@ -5,7 +5,7 @@
     </pattern>
   </defs>
   <g id="Group_1" data-name="Group 1" transform="translate(-981 -290)">
-    <path id="Path_1" data-name="Path 1" d="M0,0H35V35H0Z" transform="translate(981 290)" fill="#fff"/>
+    <path id="Path_1" data-name="Path 1" d="M0,0H35V35H0Z" transform="translate(981 290)" fill="#ffffff"/>
     <rect id="Image_1" data-name="Image 1" width="35" height="18" transform="translate(981 299)" fill="url(#pattern)"/>
   </g>
 </svg>

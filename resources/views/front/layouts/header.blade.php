@@ -134,31 +134,37 @@
             <ul class="nav-menu align-to-right">
               <li><a href="{{ url('/') }}/cities">Home</a></li>
               <li class="mega-dropdown"><a href="#">Resources<span class="submenu-indicator"></span></a>
-                <ul class="nav-dropdown nav-submenu mega-dropdown-menu">
+                <ul class="nav-dropdown nav-submenu mega-dropdown-menu new-width">
                   <div class="row">
-                    <div class="col-md-2">
-                      <ul>
+                    <div class="col-md-3">
+                    <div class="b-font">Exams</div>
+                      <ul class="li_dd" >
                         <li><a href="{{ url('exams') }}">English Exams</a></li>
                         @foreach ($exams as $exam)
                           <li><a href="{{ url($exam->uri) }}">{{ ucfirst($exam->page_name) }}</a></li>
                         @endforeach
                       </ul>
                     </div>
-                    <div class="col-md-2">
-                      <ul>
-                        <li><a href="{{ url('services') }}">Services</a></li>
+                    <div class="col-md-3">
+                    <div class="b-font">Services</div>
+                      <ul class="li_dd" >
+                        <li><a href="{{ url('services') }}">Our Services</a></li>
                         @foreach ($sitePages as $page)
                           <li><a href="{{ url($page->uri) }}">{{ ucfirst($page->page_name) }}</a></li>
                         @endforeach
                       </ul>
                     </div>
-                    <div class="col-md-2">
-                      <ul>
+                    <div class="col-md-3">
+                      <div class="b-font">About Us</div>
+                      <ul class="li_dd" >
                         <li><a href="{{ route('wwa') }}">Who we are</a></li>
                         <li><a href="{{ route('wps') }}" target="_blank">What Students Say</a></li>
                         <li><a href="{{ route('select.level') }}" target="_blank">Study Malaysia</a></li>
                         <li><a href="{{ url('why-study-in-malaysia') }}">Why Study In Malaysia?</a></li>
                       </ul>
+                    </div>
+                    <div class="col-md-3">
+                      <img src="{{ asset('assets/web/images/em-menu2.jpg') }}" class="em-menus" alt="">
                     </div>
                   </div>
                 </ul>

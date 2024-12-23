@@ -21,7 +21,7 @@
   </div>
   <!-- Breadcrumb -->
   <!-- Content -->
-  <section class="bg-light">
+  <section class="main-specialization">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-12 col-md-12 mb-3">
@@ -34,9 +34,9 @@
         @foreach ($specializations as $row)
           <div class="col-lg-3 col-md-3 col-sm-4">
             <a href="{{ route('specialization.detail', ['slug' => $row->slug]) }}" target="_blank">
-              <div class="card">
-                <div class="card-body">{{ $row->name }}
-                </div>
+              <div class="fuc-box">
+                <p class="card-body">{{ $row->name }} <i class="fa fa-angle-right"></i>
+                </p>
               </div>
             </a>
           </div>
