@@ -23,7 +23,7 @@ class UniversityListFc extends Controller
     $currentInstituteType = '';
     $currentState = '';
 
-    $query = University::query()->active();
+    $query = University::orderBy('name')->active();
     if (session()->has('FilterInstituteType')) {
       $instituteType = InstituteType::where('seo_title_slug', session()->get('FilterInstituteType'))->firstOrFail();
       $currentInstituteType = $instituteType->type;
@@ -78,6 +78,44 @@ class UniversityListFc extends Controller
 
     $data = compact('rows', 'i', 'instituteTypes', 'states', 'total', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path',  'studyModes', 'intakes', 'currentInstituteType', 'currentState');
     return view('front.universities')->with($data);
+  }
+  public function applyFilter(Request $request)
+  {
+    $col = $request->col;
+    $val = $request->val;
+    if ($val != '') {
+      $request->session()->put($col, $val);
+    }
+    if (session()->has('FilterState') && session()->has('FilterInstituteType')) {
+      $path = url(session()->get('FilterInstituteType') . '-in-' . slugify(session()->get('FilterState')));
+    } else if (session()->has('FilterInstituteType')) {
+      $path = url(session()->get('FilterInstituteType') . '-in-malaysia');
+    } else if (session()->has('FilterState')) {
+      $path = url('universities-in-' . slugify(session()->get('FilterState')));
+    } else {
+      $path = url('universities-in-malaysia');
+    }
+    echo $path;
+  }
+
+  public function removeFilter(Request $request)
+  {
+    session()->forget($request->value);
+    if (session()->has('FilterState') && session()->has('FilterInstituteType')) {
+      $path = url(session()->get('FilterInstituteType') . '-in-' . slugify(session()->get('FilterState')));
+    } else if (session()->has('FilterInstituteType')) {
+      $path = url(session()->get('FilterInstituteType') . '-in-malaysia');
+    } else if (session()->has('FilterState')) {
+      $path = url('universities-in-' . slugify(session()->get('FilterState')));
+    } else {
+      $path = url('universities-in-malaysia');
+    }
+    echo $path;
+  }
+  public function removeAllFilter(Request $request)
+  {
+    session()->forget('FilterInstituteType');
+    session()->forget('FilterState');
   }
   public function filterUniversity(Request $request, $filter)
   {
@@ -251,43 +289,5 @@ class UniversityListFc extends Controller
 
     $data = compact('destination', 'rows', 'i', 'instTYpe', 'states', 'total', 'cities', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'destinations', 'levelListForFilter', 'categoryListForFilter', 'spcListForFilter', 'studyModes', 'curInstType', 'curLevel', 'curCat', 'curSpc', 'intakes');
     return view('front.universities')->with($data);
-  }
-  public function applyFilter(Request $request)
-  {
-    $col = $request->col;
-    $val = $request->val;
-    if ($val != '') {
-      $request->session()->put($col, $val);
-    }
-    if (session()->has('FilterState') && session()->has('FilterInstituteType')) {
-      $path = url(session()->get('FilterInstituteType') . '-in-' . slugify(session()->get('FilterState')));
-    } else if (session()->has('FilterInstituteType')) {
-      $path = url(session()->get('FilterInstituteType') . '-in-malaysia');
-    } else if (session()->has('FilterState')) {
-      $path = url('universities-in-' . slugify(session()->get('FilterState')));
-    } else {
-      $path = url('universities-in-malaysia');
-    }
-    echo $path;
-  }
-
-  public function removeFilter(Request $request)
-  {
-    session()->forget($request->value);
-    if (session()->has('FilterState') && session()->has('FilterInstituteType')) {
-      $path = url(session()->get('FilterInstituteType') . '-in-' . slugify(session()->get('FilterState')));
-    } else if (session()->has('FilterInstituteType')) {
-      $path = url(session()->get('FilterInstituteType') . '-in-malaysia');
-    } else if (session()->has('FilterState')) {
-      $path = url('universities-in-' . slugify(session()->get('FilterState')));
-    } else {
-      $path = url('universities-in-malaysia');
-    }
-    echo $path;
-  }
-  public function removeAllFilter(Request $request)
-  {
-    session()->forget('FilterInstituteType');
-    session()->forget('FilterState');
   }
 }

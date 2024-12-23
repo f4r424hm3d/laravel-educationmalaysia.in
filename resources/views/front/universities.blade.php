@@ -103,19 +103,17 @@
 
               @if ($rows->count() > 0)
                 @foreach ($rows as $row)
-                  <!-- Single University -->
                   <div class="dashboard_single_course align-items-center d-block">
-
                     <div class="row align-items-center">
                       <div class="col-lg-1 col-12">
-                        <img data-src="{{ asset($row->imgpatg) }}" class="w-100" alt="{{ $row->name }} Logo">
+                        <img data-src="{{ asset($row->imgpath) }}" class="w-100" alt="{{ $row->name }} Logo">
                       </div>
 
                       <div class="dashboard_single_course_caption col-lg-11 col-12">
                         <div class="dashboard_single_course_head">
                           <div class="dashboard_single_course_head_flex mt-0">
                             <h4 class="dashboard_course_title mb-1" style="font-size:20px">
-                              <a href="{{ url($row->slug) }}">
+                              <a href="{{ route('university.overview', ['university_slug' => $row->uname]) }}">
                                 {{ $row->name }}
                               </a>
                             </h4>
@@ -128,75 +126,30 @@
                           </div>
                           <div class="dc_head_right">
                             <div class="dropdown">
-                              <a href="{{ url('book-demo') }}" class="btn btn-modern2 univ-btn reviews-btn">Apply Now</a>
+                              <a href="{{ route('university.overview', ['university_slug' => $row->uname]) }}"
+                                class="btn btn-modern2 univ-btn reviews-btn">View
+                                Details</a>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="row mt-2 mb-1">
-                      <div class="col-md-3 col-6"><span class="theme-cl">Founded:</span>
-                        {{ $row->founded }}
+                      <div class="col-md-4 col-6">
+                        <span class="theme-cl">Institute Type:</span>
+                        {{ $row->instituteType->type }}
                       </div>
-                      <div class="col-md-3 col-6"><span class="theme-cl">Course:</span>
-                        {{ $row->programs->count() ?? 'N/A' }}</div>
-                      <div class="col-md-3 col-6"><span class="theme-cl">Type:</span>
-                        {{ $row->getInstType->type ?? 'N/A' }}
+                      <div class="col-md-4 col-6">
+                        <span class="theme-cl">Course:</span>
+                        {{ $row->programs->count() ?? 'N/A' }}
                       </div>
-                      <div class="col-md-3 col-6"><span class="theme-cl">Scholarship:</span> Yes</div>
+                      <div class="col-md-4 col-6">
+                        <span class="theme-cl">World Ranking:</span>
+                        {{ $row->rank ?? 'N/A' }}
+                      </div>
                     </div>
-                    <hr>
-                    <div class="row mt-1 p-2">
-                      <div class="col-md-12 mb-2">
-                        <div class="row">
-                          <div class="col-lg-8 col-md-8 col-sm-6">
-                            <h6 style="display: inline-block">
-                              <a href="{{ url($row->slug . '/course/' . $row->program_slug) }}" contenteditable="false"
-                                style="cursor: pointer;"><i class="fa fa-hand-point-right mr-1 theme-cl"></i>
-                                {{ $row->program_name }}</a>
-                            </h6>
-
-                          </div>
-                          <div class="col-lg-4 col-md-4 col-sm-6">
-                            <div class="checkbox-col">
-                              <label class="check-box"> Add To Compare
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="row align-items-center">
-                          <div class="col-lg-7 col-md-7">
-                            <div class="row">
-                              <div class="col-md-3 col-4 mt-1 mb-1"><span class="theme-cl">
-                                  Mode:</span><br>{{ jsonToTextByLimit($row->study_mode, '2') }}</div>
-                              <div class="col-md-3 col-4 mt-1 mb-1"><span
-                                  class="theme-cl">Duration:</span><br>{{ $row->duration }}
-                              </div>
-                              <div class="col-md-4 col-4 mt-1 mb-1"><span class="theme-cl">Intakes:</span><br>
-                                {{ jsonToTextByLimit($row->intake, '3') }}</div>
-                            </div>
-                          </div>
-                          <div class="col-lg-5 col-md-5  mt-1">
-                            @if ($row->programs->count() > 0)
-                              <a href="{{ url($row->slug . '/courses') }}" class="new-rbtn">
-                                <i class="fa fa-graduation-cap"></i> All Programs
-                              </a>
-                            @endif
-                            @if ($row->reviews->count() > 0)
-                              <a href="{{ url($row->slug . '/reviews') }}" class="new-rbtn"><i class="fa fa-star"></i>
-                                Reviews</a>
-                            @endif
-                          </div>
-
-                        </div>
-                      </div>
-
-                    </div>
-
                   </div>
+                  <br>
                 @endforeach
               @else
                 <center>No Data Found with your match</center>
