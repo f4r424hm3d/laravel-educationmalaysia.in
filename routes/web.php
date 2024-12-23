@@ -79,6 +79,8 @@ use App\Http\Middleware\AdminLoggedOut;
 use App\Http\Middleware\StudentLoggedIn;
 use App\Http\Middleware\StudentLoggedOut;
 use App\Models\Blog;
+use App\Models\CourseCategory;
+use App\Models\CourseSpecialization;
 use App\Models\Exam;
 use App\Models\Service;
 use App\Models\University;
@@ -741,53 +743,6 @@ Route::get('universities-in-malaysia/remove-filter', [UniversityListFc::class, '
 Route::get('universities-in-malaysia/remove-all-filter', [UniversityListFc::class, 'removeAllFilter'])->name('university.list.remove.all.filter');
 // UNIVERSITIES IN MALAYSIA ROUTES END
 
-// COURSES IN MALAYSIA ROUTES FRONT
-
-
-// Static route for courses in Malaysia
-Route::get('courses-in-malaysia', [UniversityProgramListFc::class, 'index']);
-
-// Dynamic routes for courses by level
-$levels = DB::table('university_programs')
-  ->select('level')
-  ->where('university_programs.website', config('app.site_var')) // Replace 'site_var' with Laravel config
-  ->groupBy('level')
-  ->orderBy('level', 'ASC')
-  ->get();
-
-foreach ($levels as $level) {
-  $level_slug = slugify($level->level); // Slugify the level name
-  Route::get($level_slug . '-courses', [UniversityProgramListFc::class, 'LevelCourses']);
-}
-
-// Dynamic routes for courses by category
-$categories = DB::table('university_programs')
-  ->select('university_programs.course_category_id', 'course_categories.slug')
-  ->join('course_categories', 'course_categories.id', '=', 'university_programs.course_category_id')
-  ->where('university_programs.website', config('app.site_var')) // Replace 'site_var' with Laravel config
-  ->groupBy('university_programs.course_category_id')
-  ->orderBy('course_categories.name', 'ASC')
-  ->get();
-
-foreach ($categories as $category) {
-  Route::get($category->slug . '-courses', [UniversityProgramListFc::class, 'CatCourses']);
-}
-
-// Dynamic routes for courses by specialization
-$specializations = DB::table('university_programs')
-  ->select('university_programs.specialization_id', 'course_specializations.slug')
-  ->join('course_specializations', 'course_specializations.id', '=', 'university_programs.specialization_id')
-  ->where('university_programs.website', config('app.site_var')) // Replace 'site_var' with Laravel config
-  ->groupBy('university_programs.specialization_id')
-  ->orderBy('course_specializations.name', 'ASC')
-  ->get();
-
-foreach ($specializations as $specialization) {
-  Route::get($specialization->slug . '-courses', [UniversityProgramListFc::class, 'SpcCourses']);
-}
-
-// COURSES IN MALAYSIA ROUTES END
-
 // Fetch course levels and dynamically create routes
 $levels = DB::table('university_programs')->select('level')->where('website', site_var)->groupBy('level')->get();
 
@@ -821,3 +776,31 @@ Route::prefix('/university-course-list')->group(function () {
   Route::get('/remove-filter', [UniversityProfileCoursesFc::class, 'removeFilter']);
   Route::get('/remove-all-filter', [UniversityProfileCoursesFc::class, 'removeAllFilter']);
 });
+
+// COURSES IN MALAYSIA ROUTES FRONT
+
+Route::get('courses-in-malaysia', [UniversityProgramListFc::class, 'index']);
+
+$levels = UniversityProgram::select('level')->groupBy('level')->get();
+foreach ($levels as $level) {
+  $level_slug = slugify($level->level); // Slugify the level name
+  Route::get($level_slug . '-courses', [UniversityProgramListFc::class, 'filterUniversity']);
+}
+
+$categories = CourseCategory::whereHas('programs')->select('slug')->orderBy('name')->get();
+foreach ($categories as $category) {
+  Route::get($category->slug . '-courses', [UniversityProgramListFc::class, 'filterUniversity']);
+}
+
+$specializations = CourseSpecialization::whereHas('programs')->select('slug')->orderBy('name')->get();
+
+foreach ($specializations as $row) {
+  Route::get($row->slug . '-courses', [UniversityProgramListFc::class, 'filterUniversity']);
+}
+
+Route::prefix('courses-in-malaysia')->group(function () {
+  Route::get('/remove-filter', [UniversityProgramListFc::class, 'removeFilter'])->name('cl.remove.filter');
+  Route::get('/remove-all-filter', [UniversityProgramListFc::class, 'removeAllFilter'])->name('cl.remove.all.filter');
+});
+
+// COURSES IN MALAYSIA ROUTES END

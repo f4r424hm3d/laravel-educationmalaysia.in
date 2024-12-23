@@ -14,6 +14,27 @@ class CourseSpecialization extends Model
   {
     static::addGlobalScope(new WebsiteScope);
   }
+  public function courseCategory()
+  {
+    return $this->belongsTo(CourseCategory::class, 'course_category_id', 'id');
+  }
+
+  public function universityPrograms()
+  {
+    return $this->hasMany(UniversityProgram::class, 'specialization_id', 'id');
+  }
+  public function universities()
+  {
+    return $this->hasManyThrough(
+      University::class,
+      UniversityProgram::class,
+      'specialization_id', // Foreign key on UniversityProgram
+      'id',                // Foreign key on University
+      'id',                // Local key on CourseSpecialization
+      'university_id'      // Local key on UniversityProgram
+    );
+  }
+
   public function getCategory()
   {
     return $this->hasOne(CourseCategory::class, 'id', 'course_category_id');
@@ -21,6 +42,10 @@ class CourseSpecialization extends Model
   public function contents()
   {
     return $this->hasMany(SpecializationContent::class, 'specialization_id')->orderBy('position', 'asc');
+  }
+  public function programs()
+  {
+    return $this->hasMany(UniversityProgram::class, 'specialization_id');
   }
   public function faqs()
   {

@@ -23,45 +23,33 @@ class UniversityProgramListFc extends Controller
 {
   public function index(Request $request)
   {
-    //return $request->study_mode;
-    $destination_slug = $request->segment(1);
-    $destination = Destination::where(['destination_slug' => $destination_slug])->firstOrFail();
-    $destinationId = $destination->id;
-
     $curLevel = '';
     $curCat = '';
     $curSpc = '';
-    $curInstType = '';
-    $curState = '';
-    $curCity = '';
+    $studymode = '';
+    $intake = '';
 
-    $headTitle = null;
-    $headTail = null;
-
-    $seg2 = $request->segment(2);
-
-    if (session()->has('FilterState')) {
-      $headTail = unslugify(session()->get('FilterState'));
+    if (session()->has('CFilterLevel')) {
+      $curLevel = Level::find(session()->get('CFilterLevel'));
     }
-    if (session()->has('FilterCity')) {
-      $headTail = unslugify(session()->get('FilterCity'));
+    if (session()->has('CFilterCategory')) {
+      $curCat = CourseCategory::find(session()->get('CFilterCategory'));
     }
-    if (session()->has('FilterInstituteType')) {
-      $curInstType = InstituteType::find(session()->get('FilterInstituteType'));
+    if (session()->has('CFilterSpecialization')) {
+      $curSpc = CourseSpecialization::find(session()->get('CFilterSpecialization'));
     }
-
-    if (session()->has('FilterLevel')) {
-      $curLevel = Level::find(session()->get('FilterLevel'));
+    if ($request->has('study_mode')) {
+      $studymode = $request->study_mode;
     }
-    if (session()->has('FilterCategory')) {
-      $curCat = CourseCategory::find(session()->get('FilterCategory'));
-    }
-    if (session()->has('FilterSpecialization')) {
-      $curSpc = CourseSpecialization::find(session()->get('FilterSpecialization'));
+    if ($request->has('intake')) {
+      $intake = $request->intake;
     }
 
     $request = new Request();
-    $rows = UniversityList::universities($request, $destination);
+    $rows = UniversityList::universityPrograms($request);
+    $nou = UniversityList::universityCount($request);
+    $noc = $rows->total();
+
     $npu = $rows->nextPageUrl() ?? null;
     if ($rows->currentPage() == 2) {
       $firstPageUrl = url()->current();
@@ -70,149 +58,119 @@ class UniversityProgramListFc extends Controller
       $ppu = $rows->previousPageUrl() ?? null;
     }
 
-    // printArray($rows->toArray());
-    // die;
+
     $total = $rows->total();
     $cp = $rows->currentPage();
     $pp = $rows->perPage();
     $i = ($cp - 1) * $pp + 1;
 
-    // GET DESTINATION FOR FILTER SIDEBAR
-    $destinations = UniversityListFilters::destinations();
 
     // GET LEVEL FOR FILTER SIDEBAR
-    $levelListForFilter = UniversityListFilters::level($destinationId);
+    //$levelListForFilter = UniversityListFilters::level();
+    $levelListForFilter = Level::all();
 
     // GET CATEGORY FOR FILTER SIDEBAR
-    $categoryListForFilter = UniversityListFilters::category($destinationId);
+    $categoryListForFilter = UniversityListFilters::category();
 
     // GET SPECIALIZATION FOR FILTER SIDEBAR
-    $spcListForFilter = UniversityListFilters::specialization($destinationId);
-
-    // GET INSTITUTE TYPE FOR FILTER SIDEBAR
-    $instTYpe = UniversityListFilters::instituteType($destinationId);
-
-    // GET STATES FOR FILTER SIDEBAR
-    $states = UniversityListFilters::states($destinationId);
-
-    // GET CITIES FOR FILTER SIDEBAR
-    $cities = UniversityListFilters::cities($destinationId);
+    $spcListForFilter = UniversityListFilters::specialization();
 
     // GET STUDY MODES FOR FILTER SIDEBAR
     $studyModes = StudyMode::orderBy('study_mode')->get();
 
     // GET INTAKES FOR FILTER SIDEBAR
-    $intakes = Month::orderBy('month_number')->get();
+    $intakes = Month::orderBy('id')->get();
 
     $page_url = url()->current();
-    $wrdseo = ['url' => 'university-list'];
-    $dseo = DynamicPageSeo::where($wrdseo)->first();
+    $dseo = DynamicPageSeo::where('url', 'courses-in-malaysia')->first();
+
+    //printArray($dseo->toArray());
+    //die;
+
     $dogimg = DefaultOgImage::default()->first();
-    $title = 'universities';
-    $d_name = $destination->destination_name;
+    $title = 'courses in malaysia';
     $site =  DOMAIN;
 
-    $category = $curCat == '' ? '' : $curCat->category_name;
-    $specialization = $curSpc == '' ? '' : $curSpc->specialization_name;
+    $category = $curCat == '' ? '' : $curCat->name;
+    $specialization = $curSpc == '' ? '' : $curSpc->name;
     $level = $curLevel == '' ? '' : $curLevel->level;
-    $institute_type = $curInstType == '' ? '' : $curInstType->type;
-    $state = session()->has('FilterState') ? unslugify(session()->get('FilterState')) : '';
-    $city = session()->has('FilterCity') ? unslugify(session()->get('FilterCity')) : '';
 
-    $tagArray = ['title' => $title, 'destination' => $d_name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site, 'category' => $category, 'specialization' => $specialization, 'level' => $level, 'institute_type' => $institute_type, 'state' => $state, 'city' => $city, 'nou' => $total];
+    $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site, 'category' => $category, 'specialization' => $specialization, 'level' => $level, 'nou' => $nou, 'noc' => $noc, 'studymode' => $studymode,];
 
-    $meta_title = replaceTag($dseo->meta_title, $tagArray);
-    $meta_keyword = replaceTag($dseo->meta_keyword, $tagArray);
-    $page_content = replaceTag($dseo->page_content, $tagArray);
-    $meta_description = replaceTag($dseo->meta_description, $tagArray);
+    $meta_title = replaceTag($dseo->title, $tagArray);
+    $meta_keyword = replaceTag($dseo->keyword, $tagArray);
+    $page_content = replaceTag($dseo->content, $tagArray);
+    $meta_description = replaceTag($dseo->description, $tagArray);
     $og_image_path = $dogimg->file_path;
 
-    $headTail = $headTail == null ? $destination->destination_name : $headTail;
-    $pageHeading = "Top Universities/Colleges in " . $headTail;
+    $page_contents = 'Find a list of Courses in Malaysia to study at top private & Public universities in Malaysia. Learn about the course duration, intake, tuition fee, and discover information about leading private universities offering diploma, bachelor degree, master programs, and phd courses. Apply directly for your desired courses today.';
 
-    $data = compact('destination', 'rows', 'i', 'instTYpe', 'seg2', 'states', 'total', 'cities', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'destinations', 'levelListForFilter', 'categoryListForFilter', 'spcListForFilter', 'studyModes', 'curInstType', 'curLevel', 'curCat', 'curSpc', 'intakes', 'pageHeading', 'headTitle', 'headTail', 'npu', 'ppu');
-    return view('front.universities')->with($data);
+    $data = compact('rows', 'i', 'total', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'levelListForFilter', 'categoryListForFilter', 'spcListForFilter', 'studyModes',  'curLevel', 'curCat', 'curSpc', 'intakes', 'npu', 'ppu', 'page_contents');
+    return view('front.courses-in-malaysia')->with($data);
   }
-  public function filterUniversity(Request $request, $filter)
+  public function filterUniversity(Request $request)
   {
-    if (!Str::contains($filter, '-universities')) {
+    $filter = $request->segment(1);
+    if (!Str::contains($filter, '-courses')) {
       abort(404);
     }
-    //return $filter;
-    $destination_slug = $request->segment(1);
-    $destination = Destination::where(['destination_slug' => $destination_slug])->firstOrFail();
-    $destinationId = $destination->id;
 
     $curLevel = '';
     $curCat = '';
     $curSpc = '';
-    $curInstType = '';
-    $curState = '';
-    $curCity = '';
+    $studymode = '';
+    $intake = '';
 
-    $filter_slug = str_replace('-universities', '', $filter);
+    $filter_slug = str_replace('-courses', '', $filter);
     if ($filter_slug == '') {
       abort(404);
     }
     // Find in levels table
     $chkLevel = Level::where('slug', $filter_slug)->first();
     // Find in course_categories table
-    $chkCategory = CourseCategory::where('category_slug', $filter_slug)->first();
+    $chkCategory = CourseCategory::where('slug', $filter_slug)->first();
     // Find in course_specializations table
-    $chkSpecialization = CourseSpecialization::where('specialization_slug', $filter_slug)->first();
+    $chkSpecialization = CourseSpecialization::where('slug', $filter_slug)->first();
 
-    $chkInstType = InstituteType::where('seo_title_slug', $filter_slug)->first();
-
-    $chkState = University::where('destination_id', $destinationId)->where('state_slug', $filter_slug)->first();
-    // $chkCity = University::where('destination_id', $destinationId)->where('city_slug', $filter_slug)->first();
-
-    $headTitle = null;
-    $headTail = null;
+    $pageContentKeyword = null;
+    $seoUrl = 'courses-in-malaysia';
     // Check if any match is found
     if ($chkLevel !== null) {
-      session()->put('FilterLevel', $chkLevel->id);
-      $headTitle = $chkLevel->level;
+      session()->put('CFilterLevel', $chkLevel->level);
+      $pageContentKeyword = $chkLevel->level;
+      $seoUrl .= '-by-level';
     } elseif ($chkCategory !== null) {
-      session()->put('FilterCategory', $chkCategory->id);
-      $headTitle = $chkCategory->category_name;
+      session()->put('CFilterCategory', $chkCategory->id);
+      $pageContentKeyword = $chkCategory->name;
+      $seoUrl .= '-by-category';
     } elseif ($chkSpecialization !== null) {
-      session()->put('FilterSpecialization', $chkSpecialization->id);
-      $headTitle = $chkSpecialization->specialization_name;
-    } elseif ($chkState !== null) {
-      session()->put('FilterState', $filter_slug);
-    }
-    // elseif ($chkCity !== null) {
-    //   session()->put('FilterCity', $filter_slug);
-    // }
-    elseif ($chkInstType !== null) {
-      session()->put('FilterInstituteType', $chkInstType->id);
-      $headTitle = $chkInstType->seo_title;
+      session()->put('CFilterSpecialization', $chkSpecialization->id);
+      $pageContentKeyword = $chkSpecialization->name;
+      $seoUrl .= '-by-specialization';
     } else {
       abort(404);
     }
 
-    if (session()->has('FilterState')) {
-      $headTail = unslugify(session()->get('FilterState'));
+    if (session()->has('CFilterLevel')) {
+      $curLevel = Level::where('slug', session()->get('CFilterLevel'))->first();
     }
-    // if (session()->has('FilterCity')) {
-    //   $headTail = unslugify(session()->get('FilterCity'));
-    // }
-    if (session()->has('FilterInstituteType')) {
-      $curInstType = InstituteType::find(session()->get('FilterInstituteType'));
+    if (session()->has('CFilterCategory')) {
+      $curCat = CourseCategory::find(session()->get('CFilterCategory'));
     }
-
-    if (session()->has('FilterLevel')) {
-      $curLevel = Level::find(session()->get('FilterLevel'));
+    if (session()->has('CFilterSpecialization')) {
+      $curSpc = CourseSpecialization::find(session()->get('CFilterSpecialization'));
     }
-    if (session()->has('FilterCategory')) {
-      $curCat = CourseCategory::find(session()->get('FilterCategory'));
+    if ($request->has('study_mode')) {
+      $studymode = $request->study_mode;
     }
-    if (session()->has('FilterSpecialization')) {
-      $curSpc = CourseSpecialization::find(session()->get('FilterSpecialization'));
+    if ($request->has('intake')) {
+      $intake = $request->intake;
     }
 
     $request = new Request();
-    $rows = UniversityList::universities($request, $destination);
+    $rows = UniversityList::universityPrograms($request);
+    $nou = UniversityList::universityCount($request);
+    $noc = $rows->total();
 
     $npu = $rows->nextPageUrl() ?? null;
     if ($rows->currentPage() == 2) {
@@ -227,102 +185,75 @@ class UniversityProgramListFc extends Controller
     $pp = $rows->perPage();
     $i = ($cp - 1) * $pp + 1;
 
-    // GET DESTINATION FOR FILTER SIDEBAR
-    $destinations = UniversityListFilters::destinations();
-
     // GET LEVEL FOR FILTER SIDEBAR
-    $levelListForFilter = UniversityListFilters::level($destinationId);
+    //$levelListForFilter = UniversityListFilters::level();
+    $levelListForFilter = Level::all();
 
     // GET CATEGORY FOR FILTER SIDEBAR
-    $categoryListForFilter = UniversityListFilters::category($destinationId);
+    $categoryListForFilter = UniversityListFilters::category();
 
     // GET SPECIALIZATION FOR FILTER SIDEBAR
-    $spcListForFilter = UniversityListFilters::specialization($destinationId);
-
-    // GET INSTITUTE TYPE FOR FILTER SIDEBAR
-    $instTYpe = UniversityListFilters::instituteType($destinationId);
-
-    // GET STATES FOR FILTER SIDEBAR
-    $states = UniversityListFilters::states($destinationId);
-
-    // GET CITIES FOR FILTER SIDEBAR
-    $cities = UniversityListFilters::cities($destinationId);
+    $spcListForFilter = UniversityListFilters::specialization();
 
     // GET STUDY MODES FOR FILTER SIDEBAR
     $studyModes = StudyMode::orderBy('study_mode')->get();
 
     // GET INTAKES FOR FILTER SIDEBAR
-    $intakes = Month::orderBy('month_number')->get();
+    $intakes = Month::orderBy('id')->get();
 
     $page_url = url()->current();
-    $wrdseo = ['url' => 'university-list'];
-    $dseo = DynamicPageSeo::where($wrdseo)->first();
+    $dseo = DynamicPageSeo::where('url', $seoUrl)->first();
     $dogimg = DefaultOgImage::default()->first();
-    $title = 'universities';
-    $d_name = $destination->destination_name;
+    $title = $pageContentKeyword;
     $site =  DOMAIN;
 
-    $category = $curCat == '' ? '' : $curCat->category_name;
-    $specialization = $curSpc == '' ? '' : $curSpc->specialization_name;
+    $category = $curCat == '' ? '' : $curCat->name;
+    $specialization = $curSpc == '' ? '' : $curSpc->name;
     $level = $curLevel == '' ? '' : $curLevel->level;
-    $institute_type = $curInstType == '' ? '' : $curInstType->type;
     $state = session()->has('FilterState') ? unslugify(session()->get('FilterState')) : '';
     $city = session()->has('FilterCity') ? unslugify(session()->get('FilterCity')) : '';
 
-    $tagArray = ['title' => $title, 'destination' => $d_name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site, 'category' => $category, 'specialization' => $specialization, 'level' => $level, 'institute_type' => $institute_type, 'state' => $state, 'city' => $city, 'nou' => $total];
+    $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site, 'category' => $category, 'specialization' => $specialization, 'level' => $level, 'nou' => $nou, 'noc' => $noc, 'studymode' => $studymode,];
 
-    $meta_title = replaceTag($dseo->meta_title, $tagArray);
-    $meta_keyword = replaceTag($dseo->meta_keyword, $tagArray);
-    $page_content = replaceTag($dseo->page_content, $tagArray);
-    $meta_description = replaceTag($dseo->meta_description, $tagArray);
+    $meta_title = replaceTag($dseo->title, $tagArray);
+    $meta_keyword = replaceTag($dseo->keyword, $tagArray);
+    $page_content = replaceTag($dseo->content, $tagArray);
+    $meta_description = replaceTag($dseo->description, $tagArray);
     $og_image_path = $dogimg->file_path;
 
-    $finalTail = $headTail ?? $destination->destination_name;
-    $pageHeading = "Top $headTitle Universities/Colleges in " . $finalTail;
+    $page_contents = 'Discover a list of ' . $noc . ' ' . $pageContentKeyword . ' courses offered by the Top ' . $nou . ' universities and colleges in Malaysia. Gather valuable information such as entry requirements, fee structures, intake schedules for ' . date('Y') . ', study modes, and recommendations for the best universities and colleges offering ' . $pageContentKeyword . ' degree programs. Enroll directly in ' . $pageContentKeyword . ' courses through EducationMalaysia.in.';
 
-    $data = compact('destination', 'rows', 'i', 'instTYpe', 'states', 'total', 'cities', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'destinations', 'levelListForFilter', 'categoryListForFilter', 'spcListForFilter', 'studyModes', 'curInstType', 'curLevel', 'curCat', 'curSpc', 'intakes', 'pageHeading', 'headTitle', 'npu', 'ppu');
-    return view('front.universities')->with($data);
+    $data = compact('rows', 'i', 'total', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'levelListForFilter', 'categoryListForFilter', 'spcListForFilter', 'studyModes', 'curLevel', 'curCat', 'curSpc', 'intakes', 'npu', 'ppu', 'page_contents');
+    return view('front.courses-in-malaysia')->with($data);
   }
 
   public function removeFilter(Request $request)
   {
-    if ($request->value == 'FilterCategory') {
-      session()->forget('FilterSpecialization');
+    if ($request->value == 'CFilterCategory') {
+      session()->forget('CFilterSpecialization');
     }
 
     session()->forget($request->value);
 
-    if (session()->has('FilterSpecialization')) {
-      $curSpc = CourseSpecialization::find(session()->get('FilterSpecialization'));
-      $main = $curSpc->specialization_slug . '-universities';
-    } else if (session()->has('FilterCategory')) {
-      $curCat = CourseCategory::find(session()->get('FilterCategory'));
-      $main = $curCat->category_slug . '-universities';
-    } else if (session()->has('FilterLevel')) {
-      $curLevel = Level::find(session()->get('FilterLevel'));
-      $main = $curLevel->slug . '-universities';
-    } else if (session()->has('FilterInstituteType')) {
-      $curInstType = InstituteType::find(session()->get('FilterInstituteType'));
-      $main = $curInstType->seo_title_slug . '-universities';
-    } else if (session()->has('FilterCity')) {
-      $city = slugify(session()->get('FilterCity'));
-      $main = $city . '-universities';
-    } else if (session()->has('FilterState')) {
-      $city = slugify(session()->get('FilterState'));
-      $main = $city . '-universities';
+    if (session()->has('CFilterSpecialization')) {
+      $curSpc = CourseSpecialization::find(session()->get('CFilterSpecialization'));
+      $main = $curSpc->specialization_slug . '-courses';
+    } else if (session()->has('CFilterCategory')) {
+      $curCat = CourseCategory::find(session()->get('CFilterCategory'));
+      $main = $curCat->category_slug . '-courses';
+    } else if (session()->has('CFilterLevel')) {
+      $curLevel = Level::find(session()->get('CFilterLevel'));
+      $main = $curLevel->slug . '-courses';
     } else {
-      $main = $request->destination_slug . '-universities';
+      $main = 'courses-in-malaysia';
     }
-    $url = $request->destination_slug . '/' . $main;
+    $url = $main;
     return url($url);
   }
   public function removeAllFilter(Request $request)
   {
-    session()->forget('FilterInstituteType');
-    session()->forget('FilterState');
-    session()->forget('FilterCity');
-    session()->forget('FilterLevel');
-    session()->forget('FilterCategory');
-    session()->forget('FilterSpecialization');
+    session()->forget('CFilterLevel');
+    session()->forget('CFilterCategory');
+    session()->forget('CFilterSpecialization');
   }
 }

@@ -69,12 +69,12 @@
           <ul class="no-ul-list mb-3">
             @foreach ($specializations as $row)
               <li>
-                <input id="spc{{ $row->specialization->id }}" class="checkbox-custom" name="institute_type"
-                  type="checkbox" onclick="<?php echo session()->get('UCF_specialization') == $row->specialization->id ? "removeFilter('UCF_specialization')" : "ApplySpecializationFilter('" . $row->specialization->id . "')";
+                <input id="spc{{ $row->getSpecialization->id }}" class="checkbox-custom" name="institute_type"
+                  type="checkbox" onclick="<?php echo session()->get('UCF_specialization') == $row->getSpecialization->id ? "removeFilter('UCF_specialization')" : "ApplySpecializationFilter('" . $row->getSpecialization->id . "')";
                   ?>"
-                  {{ session()->get('UCF_specialization') == $row->specialization->id ? 'checked' : '' }}>
-                <label for="spc{{ $row->specialization->id }}"
-                  class="checkbox-custom-label">{{ $row->specialization->name }}</label>
+                  {{ session()->get('UCF_specialization') == $row->getSpecialization->id ? 'checked' : '' }}>
+                <label for="spc{{ $row->getSpecialization->id }}"
+                  class="checkbox-custom-label">{{ $row->getSpecialization->name }}</label>
               </li>
             @endforeach
           </ul>

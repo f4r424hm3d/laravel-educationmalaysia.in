@@ -117,7 +117,7 @@
                     <div class="row">
                       <div class="col-lg-3 col-2 course-icon-new"><i class="ti-calendar"></i></div>
                       <div class="col-lg-9 col-10"><span class="theme-cl">Intake:</span><br><span
-                          class="course-new-sc">{{ j2s($program->intake ?? null) }}</span></div>
+                          class="course-new-sc">{{ $program->intake }}</span></div>
                     </div>
                   </div>
                   <div class="col-md-4 col-12 mt-2 mb-2">
@@ -200,11 +200,16 @@
               <div class="row">
                 <div class="col-md-12 col-12">
                   <div class="course-intake">
+                    @php
+                      // Convert comma-separated string into an array and trim any whitespace
+                      $intakeArray = array_map('strtolower', array_map('trim', explode(',', $program->intake)));
+                    @endphp
                     @foreach ($months as $row)
-                      <?php
-                      $shortNameMatch = in_array(strtolower($row->month_short_name), array_map('strtolower', json_decode($program->intake)));
-                      $fullNameMatch = in_array(strtolower($row->month_full_name), array_map('strtolower', json_decode($program->intake)));
-                      ?>
+                      @php
+                        // Check for matches in both short and full month names
+                        $shortNameMatch = in_array(strtolower($row->month_short_name), $intakeArray);
+                        $fullNameMatch = in_array(strtolower($row->month_full_name), $intakeArray);
+                      @endphp
                       <span class="{{ $shortNameMatch || $fullNameMatch ? 'active' : '' }}">
                         {{ $row->month_short_name }}
                       </span>
@@ -214,6 +219,7 @@
               </div>
             </div>
           @endif
+
           @if ($program->entry_requirement != null)
             <div class="edu_wraper">
               <h2 class="course-new-title mb-2">Entry Requirement</h2>

@@ -4,10 +4,12 @@ namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\CourseSpecialization;
 use App\Models\Destination;
 use App\Models\FaqCategory;
 use App\Models\PageContent;
 use App\Models\University;
+use App\Models\UniversityProgram;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 

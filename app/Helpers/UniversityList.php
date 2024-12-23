@@ -13,58 +13,70 @@ use Illuminate\Http\Request;
 
 class UniversityList
 {
-  public static function universities(Request $request, $destination)
+  public static function universityPrograms(Request $request)
+  {
+    $query = UniversityProgram::query();
+
+    //$query->groupBy('university_id');
+    $query->where('status', 1);
+
+    $query->whereHas('university', function ($subQuery) {
+      $subQuery->where('status', 1);
+    });
+
+    if (session()->has('CFilterLevel')) {
+      $query->where('level', session()->get('CFilterLevel'));
+      $curLevel = Level::where('slug', session()->get('CFilterLevel'))->first();
+    }
+    if (session()->has('CFilterCategory')) {
+      $query->where('course_category_id', session()->get('CFilterCategory'));
+      $curCat = CourseCategory::find(session()->get('CFilterCategory'));
+    }
+    if (session()->has('CFilterSpecialization')) {
+      $query->where('specialization_id', session()->get('CFilterSpecialization'));
+      $curSpc = CourseSpecialization::find(session()->get('CFilterSpecialization'));
+    }
+    if ($request->has('study_mode')) {
+      $query->whereRaw("FIND_IN_SET(?, study_mode)", [$request->study_mode]);
+    }
+    if ($request->has('intake')) {
+      $query->whereRaw("FIND_IN_SET(?, intake)", [$request->intake]);
+    }
+
+    $rows = $query->paginate(10);
+    return $rows;
+  }
+  public static function universityCount(Request $request)
   {
     $query = UniversityProgram::query();
 
     $query->groupBy('university_id');
+    $query->where('status', 1);
 
-    $query->whereHas('getUniversity', function ($subQuery) use ($destination) {
-      $subQuery->where('destination_id', $destination->id);
-    });
-    $query->whereHas('getUniversity', function ($subQuery) use ($destination) {
+    $query->whereHas('university', function ($subQuery) {
       $subQuery->where('status', 1);
     });
 
-    if (session()->has('FilterState')) {
-      $query->whereHas('getUniversity', function ($subQuery) {
-        $subQuery->where('state_slug', session()->get('FilterState'));
-      });
-      $headTail = unslugify(session()->get('FilterState'));
+    if (session()->has('CFilterLevel')) {
+      $query->where('level', session()->get('CFilterLevel'));
+      $curLevel = Level::where('slug', session()->get('CFilterLevel'))->first();
     }
-    if (session()->has('FilterCity')) {
-      $query->whereHas('getUniversity', function ($subQuery) {
-        $subQuery->where('city_slug', session()->get('FilterCity'));
-      });
-      $headTail = unslugify(session()->get('FilterCity'));
+    if (session()->has('CFilterCategory')) {
+      $query->where('course_category_id', session()->get('CFilterCategory'));
+      $curCat = CourseCategory::find(session()->get('CFilterCategory'));
     }
-    if (session()->has('FilterInstituteType')) {
-      $query->whereHas('getUniversity', function ($subQuery) {
-        $subQuery->where('institute_type_id', session()->get('FilterInstituteType'));
-      });
-      $curInstType = InstituteType::find(session()->get('FilterInstituteType'));
-    }
-
-    if (session()->has('FilterLevel')) {
-      $query->where('level_id', session()->get('FilterLevel'));
-      $curLevel = Level::find(session()->get('FilterLevel'));
-    }
-    if (session()->has('FilterCategory')) {
-      $query->where('course_category_id', session()->get('FilterCategory'));
-      $curCat = CourseCategory::find(session()->get('FilterCategory'));
-    }
-    if (session()->has('FilterSpecialization')) {
-      $query->where('specialization_id', session()->get('FilterSpecialization'));
-      $curSpc = CourseSpecialization::find(session()->get('FilterSpecialization'));
+    if (session()->has('CFilterSpecialization')) {
+      $query->where('specialization_id', session()->get('CFilterSpecialization'));
+      $curSpc = CourseSpecialization::find(session()->get('CFilterSpecialization'));
     }
     if ($request->has('study_mode')) {
-      $query->whereJsonContains('study_mode', $request->study_mode);
+      $query->whereRaw("FIND_IN_SET(?, study_mode)", [$request->study_mode]);
     }
     if ($request->has('intake')) {
-      $query->whereJsonContains('intake', $request->intake);
+      $query->whereRaw("FIND_IN_SET(?, intake)", [$request->intake]);
     }
 
-    $rows = $query->paginate(10);
+    $rows = $query->count();
     return $rows;
   }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\WebsiteScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,6 +10,14 @@ class CourseCategory extends Model
 {
   use HasFactory;
   protected $guarded = [];
+  protected static function booted()
+  {
+    static::addGlobalScope(new WebsiteScope);
+  }
+  public function programs()
+  {
+    return $this->hasMany(UniversityProgram::class, 'course_category_id');
+  }
   public function contents()
   {
     return $this->hasMany(CourseCategoryContent::class, 'course_category_id')->orderBy('position', 'asc');

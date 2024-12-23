@@ -16,28 +16,22 @@
 <html lang="en">
 
 <head>
-<!-- slick slider  -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
-<!-- slick slider end  -->
- 
- <!-- Owl Carousel CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-
-
- <!-- Owl Carousel  end  -->
-
-<!-- owl-carousel end  -->
   <!--Meta Tag Seo-->
   @stack('seo_meta_tag')
   @stack('pagination_tag')
   <!-- CSS -->
+  <!-- slick slider  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+  <!-- slick slider end  -->
+
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
   <link href="{{ url('front/') }}/assets/css/styles.css" rel="stylesheet">
   <link rel="preload" href="{{ url('front/') }}/assets/css/colors.css" as="style"
     onload="this.onload=null;this.rel='stylesheet'">
-
-
 
   <style>
     .hide-this {
@@ -47,7 +41,7 @@
 
   <!-- organization schema code -->
   <script type="application/ld+json"> {"@context":"https://schema.org","@type":"Organization","@id":"https://www.educationmalaysia.in/#organization","name":"Education Malaysia Education","url":"https://www.educationmalaysia.in/","logo":"https://www.educationmalaysia.in/front/assets/img/logo.png","address":{"@type":"PostalAddress","streetAddress":"B-16 Ground Floor, Mayfield Garden, Sector 50","addressLocality":"Gurugram","addressRegion":"Haryana","postalCode":"122002","addressCountry":"India"},"contactPoint":{"@type":"ContactPoint","contactType":"contact","telephone":"+919818560331","email":"info.educationmalaysia.in"},"sameAs":["https://www.facebook.com/britannicaoverseasedu","https://twitter.com/BritannicaOEdu","https://www.youtube.com/channel/UCK2eeC1CkS3YkYrGnnzBUEQ","https://in.pinterest.com/Britannicaoverseas/","https://www.linkedin.com/company/britannicaoverseas/","https://www.instagram.com/britannicaoverseas/","https://www.tumblr.com/britannicaoverseas/"]}
-</script>
+    </script>
   <!-- Google Tag Manager -->
   <script>
     (function(w, d, s, l, i) {
@@ -72,8 +66,7 @@
     .hide-this {
       display: none;
     }
-  </style>
-  <style>
+
     .sItems ul li a,
     .sItems ul li.active {
       padding: 8px 15px;
@@ -137,8 +130,8 @@
                 <ul class="nav-dropdown nav-submenu mega-dropdown-menu new-width">
                   <div class="row">
                     <div class="col-md-3">
-                    <div class="b-font">Exams</div>
-                      <ul class="li_dd" >
+                      <div class="b-font">Exams</div>
+                      <ul class="li_dd">
                         <li><a href="{{ url('exams') }}">English Exams</a></li>
                         @foreach ($exams as $exam)
                           <li><a href="{{ url($exam->uri) }}">{{ ucfirst($exam->page_name) }}</a></li>
@@ -146,8 +139,8 @@
                       </ul>
                     </div>
                     <div class="col-md-3">
-                    <div class="b-font">Services</div>
-                      <ul class="li_dd" >
+                      <div class="b-font">Services</div>
+                      <ul class="li_dd">
                         <li><a href="{{ url('services') }}">Our Services</a></li>
                         @foreach ($sitePages as $page)
                           <li><a href="{{ url($page->uri) }}">{{ ucfirst($page->page_name) }}</a></li>
@@ -156,7 +149,7 @@
                     </div>
                     <div class="col-md-3">
                       <div class="b-font">About Us</div>
-                      <ul class="li_dd" >
+                      <ul class="li_dd">
                         <li><a href="{{ route('wwa') }}">Who we are</a></li>
                         <li><a href="{{ route('wps') }}" target="_blank">What Students Say</a></li>
                         <li><a href="{{ route('select.level') }}" target="_blank">Study Malaysia</a></li>

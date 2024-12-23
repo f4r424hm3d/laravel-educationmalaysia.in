@@ -18,7 +18,7 @@ class UniversityProgram extends Model
   {
     return $this->hasOne(CourseCategory::class, 'id', 'course_category_id');
   }
-  public function specialization()
+  public function getSpecialization()
   {
     return $this->hasOne(CourseSpecialization::class, 'id', 'specialization_id');
   }
@@ -26,9 +26,20 @@ class UniversityProgram extends Model
   {
     return $this->hasOne(Level::class, 'level', 'level');
   }
+
   public function university()
   {
-    return $this->hasOne(University::class, 'id', 'university_id');
+    return $this->belongsTo(University::class, 'university_id', 'id');
+  }
+
+  public function courseCategory()
+  {
+    return $this->belongsTo(CourseCategory::class, 'course_category_id', 'id');
+  }
+
+  public function courseSpecialization()
+  {
+    return $this->belongsTo(CourseSpecialization::class, 'specialization_id', 'id');
   }
   public function studentApplications()
   {
