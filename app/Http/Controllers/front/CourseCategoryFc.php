@@ -26,7 +26,10 @@ class CourseCategoryFc extends Controller
     $start_from = 10 * $page;
 
     // Fetch related universities
-    //$relatedUniversities = University::getCatRelatedUniversities($category->id, $start_from);
+    $relatedUniversities = UniversityProgram::select('university_id')->distinct()->where('course_category_id', $category->id)->get();
+
+    // printArray($relatedUniversities->toArray());
+    // die;
 
     $programs = UniversityProgram::website()->where('course_category_id', $category->id)->orderBy('course_name', 'ASC')->get();
 

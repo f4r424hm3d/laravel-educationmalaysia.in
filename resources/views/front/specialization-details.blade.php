@@ -70,39 +70,7 @@
                 <div class="new-box mb-5" id="{{ slugify($row->tab) }}">
                   {!! $row->description !!}
                 </div>
-                @if ($pgcont == 1)
-                  <div id="spcRelatedUniversities" class="mb-4">
-                    @if ($relatedUniversities != false)
-                      <div class="new-em-filter" style=" background:#eee; padding:10px">
-                        <div class="new-right-side-boxes">
-                          <h2>List of <?php echo $specialization->name; ?> Universities in Malaysia with courses</h2>
-                          @foreach ($relatedUniversities as $row)
-                            <div class="new-em-filter-box">
-                              <div class="row header">
-                                <div class="col-md-2 col-xs-12">
-                                  <img data-src="<?php echo $row->imgpath; ?>" class="img-responsive"
-                                    alt="<?php echo $row->name; ?> Logo">
-                                </div>
-                                <div class="col-md-10 col-xs-12 pl0">
-                                  <h2><a target="_blank" href="<?php echo url('university/' . $row->uname); ?>"><?php echo $row->name; ?></a>
-                                  </h2>
-                                  <div class="loc-rating">
-                                    <span> <i class="fa fa-map-marker"></i> <?php echo $row->state; ?></span>
-                                    <span style="padding-left:12px"> <i class="fa fa-graduation-cap"></i>
-                                      <?php echo $row->inst_type; ?></span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          @endforeach
-                        </div>
-                        <div class="text-center mb-3">
-                          <a href="<?php echo url($specialization->slug . '-courses'); ?>" class="new-btn-sm">Browse All Courses </a>
-                        </div>
-                      </div>
-                    @endif
-                  </div>
-                @endif
+
                 @php
                   $pgcont++;
                 @endphp
@@ -207,8 +175,8 @@
                   <div class="col-xs-8 pl-0">
                     <div class="form-group">
                       <label for="mobile">Phone</label>
-                      <input type="text" class="form-control" name="mobile" id="mobile"
-                        placeholder="987654321" value="{{ old('mobile') }}" required>
+                      <input type="text" class="form-control" name="mobile" id="mobile" placeholder="987654321"
+                        value="{{ old('mobile') }}" required>
                       @error('mobile')
                         <span class="text-danger">{{ $message }}</span>
                       @enderror

@@ -100,7 +100,6 @@
           <!-- all universities -->
           <div class="dashboard_container">
             <div class="dashboard_container_body">
-
               @if ($rows->count() > 0)
                 @foreach ($rows as $row)
                   <div class="dashboard_single_course align-items-center d-block">
@@ -154,9 +153,7 @@
               @else
                 <center>No Data Found with your match</center>
               @endif
-
             </div>
-
           </div>
           {!! $rows->links('pagination::bootstrap-4') !!}
         </div>

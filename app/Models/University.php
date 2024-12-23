@@ -60,37 +60,6 @@ class University extends Model
     return $this->hasOne(University::class, 'id', 'parent_university_id');
   }
 
-  public static function getRelatedUniversities($specializationId, $startFrom)
-  {
-    return self::select('universities.*')
-      ->join('university_programs', 'universities.id', '=', 'university_programs.university_id')
-      ->where('university_programs.website', site_var)
-      ->where('universities.website', site_var)
-      ->where('university_programs.status', 1)
-      ->where('universities.status', 1)
-      ->where('university_programs.specialization_id', $specializationId)
-      ->groupBy('university_programs.university_id')
-      ->orderBy('universities.name', 'ASC')
-      ->skip($startFrom)
-      ->take(10)
-      ->get();
-  }
-  public static function getCatRelatedUniversities($course_category_id, $start_from)
-  {
-    return self::select('university_programs.university_id', 'universities.*')
-      ->join('universities', 'universities.id', '=', 'university_programs.university_id')
-      ->where('university_programs.website', config('app.site_var'))
-      ->where('universities.website', config('app.site_var'))
-      ->where('university_programs.status', 1)
-      ->where('universities.status', 1)
-      ->where('university_programs.course_category_id', $course_category_id)
-      ->groupBy('university_programs.university_id')
-      ->orderBy('universities.name', 'ASC')
-      ->skip($start_from)
-      ->take(5)
-      ->get();
-  }
-
   public function scopeWebsite($query)
   {
     return $query->where('website', site_var);
