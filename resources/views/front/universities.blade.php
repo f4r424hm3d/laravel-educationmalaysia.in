@@ -39,11 +39,11 @@
               <li class="facts-1">Universities in Malaysia</li>
             </ul>
             <div class="ed_header_caption mb-0">
-              <h2 class="ed_title mb-0"><span><?php echo $total; ?></span> <?php echo $curInstType; ?> In <span>Malaysia</span></h2>
-              <p>Find a list of top <?php echo $curInstType; ?> in malaysia. Get details such as institution type, campus
+              <h2 class="ed_title mb-0"><span><?php echo $total; ?></span> <?php echo $currentInstituteType; ?> In <span>Malaysia</span></h2>
+              <p>Find a list of top <?php echo $currentInstituteType; ?> in malaysia. Get details such as institution type, campus
                 location, courses offered, World rating and other pertinent information about all the top
-                <?php echo $curInstType; ?> in malaysia. Fill out an online request form to get the complete information about any
-                top <?php echo $curInstType; ?> in malaysia you're interested in.</p>
+                <?php echo $currentInstituteType; ?> in malaysia. Fill out an online request form to get the complete information about any
+                top <?php echo $currentInstituteType; ?> in malaysia you're interested in.</p>
             </div>
           </div>
         </div>
@@ -80,7 +80,7 @@
                   <ul>
                     @if (session()->has('FilterInstituteType'))
                       <li><a onclick="removeFilter('FilterInstituteType')"
-                          href="javascript:void(0)">{{ $curInstType->type }}<span class="cross">×</span></a>
+                          href="javascript:void(0)">{{ $currentInstituteType }}<span class="cross">×</span></a>
                       </li>
                     @endif
                     @if (session()->has('FilterState'))
@@ -280,45 +280,32 @@
       });
     });
 
-    function ApplyFilter(slug) {
-      //alert(`${col} , ${val}`);
-      var baseUrl = "{{ url('/') }}";
-      if (slug) {
-        var redirectUrl = baseUrl + slug + '-universities';
-        window.location.href = redirectUrl;
+    function applyFilter(col, val) {
+      //alert(col+' '+val);
+      if (val != '') {
+        $.ajax({
+          url: "{{ route('university.list.apply.filter') }}",
+          method: "GET",
+          data: {
+            col: col,
+            val: val
+          },
+          success: function(data) {
+            //alert(data);
+            window.location.replace(data);
+          }
+        });
       }
     }
 
-    function ApplyStaticFilter(key, value) {
-      let currentUrl = window.location.href;
-      let url = new URL(currentUrl);
-
-      // Replace spaces with '+' symbol manually
-      value = value.replace(/ /g, '+');
-
-      url.searchParams.set(key, value);
-      window.location.href = decodeURIComponent(url);
-    }
-
-    function removeStaticFilter(key) {
-      let currentUrl = window.location.href;
-      let url = new URL(currentUrl);
-
-      // Remove the specified query parameter
-      url.searchParams.delete(key);
-      window.location.href = decodeURIComponent(url); // Redirect to the modified URL
-    }
-
     function removeFilter(value) {
-      var destination_slug = '';
-      //alert(destination_slug);
+      //alert(value);
       if (value != "") {
         $.ajax({
-          url: "{{ url('course-list/remove-filter') }}",
+          url: "{{ route('university.list.remove.filter') }}",
           method: "GET",
           data: {
             value: value,
-            destination_slug: destination_slug,
           },
           success: function(b) {
             window.location.replace(b);
@@ -329,12 +316,10 @@
 
     function removeAllFilter() {
       $.ajax({
-        url: "{{ url('course-list/remove-all-filter') }}",
+        url: "{{ route('university.list.remove.all.filter') }}",
         method: "GET",
         success: function(b) {
-          window.open(
-            "{{ url('universities-in-malaysia') }}",
-            '_SELF');
+          window.open("{{ url('universities-in-malaysia') }}", '_SELF');
         }
       })
     }

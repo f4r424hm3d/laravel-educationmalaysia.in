@@ -20,39 +20,39 @@ class UniversityListFc extends Controller
 {
   public function index(Request $request)
   {
-    $curInstType = '';
-    $curState = '';
+    $currentInstituteType = '';
+    $currentState = '';
 
-    $seg2 = $request->segment(2);
-
-    $query = University::query();
-    if (session()->has('FilterState')) {
-      $query->where('state_slug', session()->get('FilterState'));
-    }
-
+    $query = University::query()->active();
     if (session()->has('FilterInstituteType')) {
-      $query->where('institute_type', session()->get('FilterInstituteType'));
-      $curInstType = InstituteType::find(session()->get('FilterInstituteType'));
+      $instituteType = InstituteType::where('seo_title_slug', session()->get('FilterInstituteType'))->firstOrFail();
+      $currentInstituteType = $instituteType->type;
+      $query->where('institute_type', $instituteType->id);
+    }
+    if (session()->has('FilterState')) {
+      $query->where('state', session()->get('FilterState'));
+      $currentState = session()->get('FilterState');
     }
 
     $rows = $query->paginate(20);
+
+    //die;
 
     $total = $rows->total();
     $cp = $rows->currentPage();
     $pp = $rows->perPage();
     $i = ($cp - 1) * $pp + 1;
 
-    // printArray($levelListForFilter->toArray());
-    // die;
+    $instituteTypes = University::select('institute_type')->where(['status' => 1])->where('institute_type', '!=', null)->groupBy('institute_type')->get();
 
-    $instTYpe = University::select('institute_type')->where(['status' => 1])->where('institute_type', '!=', null)->groupBy('institute_type')->get();
-
-    $states = University::select('state')->where(['status' => 1])->where('state', '!=', null)->distinct();
+    $states = University::select('state')->where(['status' => 1])->where('state', '!=', '')->distinct();
     if (session()->has('FilterInstituteType')) {
-      $states = $states->where('institute_type', session()->get('FilterInstituteType'));
+      $states = $states->where('institute_type', $instituteType->id);
     }
     $states = $states->get();
 
+    // printArray($states->toArray());
+    // die;
 
     $studyModes = StudyMode::orderBy('study_mode')->get();
     $intakes = Month::orderBy('id')->get();
@@ -65,7 +65,7 @@ class UniversityListFc extends Controller
     $title = 'universities';
     $site =  DOMAIN;
 
-    $institute_type = $curInstType == '' ? '' : $curInstType->type;
+    $institute_type = $currentInstituteType;
 
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site, 'institute_type' => $institute_type];
     $meta_title = replaceTag($dseo->meta_title, $tagArray);
@@ -76,7 +76,7 @@ class UniversityListFc extends Controller
 
     $pageHeading = "Top Universities/Colleges in Malaysia";
 
-    $data = compact('rows', 'i', 'instTYpe', 'seg2', 'states', 'total', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path',  'studyModes', 'curInstType', 'intakes');
+    $data = compact('rows', 'i', 'instituteTypes', 'states', 'total', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path',  'studyModes', 'intakes', 'currentInstituteType', 'currentState');
     return view('front.universities')->with($data);
   }
   public function filterUniversity(Request $request, $filter)
@@ -252,19 +252,42 @@ class UniversityListFc extends Controller
     $data = compact('destination', 'rows', 'i', 'instTYpe', 'states', 'total', 'cities', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'destinations', 'levelListForFilter', 'categoryListForFilter', 'spcListForFilter', 'studyModes', 'curInstType', 'curLevel', 'curCat', 'curSpc', 'intakes');
     return view('front.universities')->with($data);
   }
-
+  public function applyFilter(Request $request)
+  {
+    $col = $request->col;
+    $val = $request->val;
+    if ($val != '') {
+      $request->session()->put($col, $val);
+    }
+    if (session()->has('FilterState') && session()->has('FilterInstituteType')) {
+      $path = url(session()->get('FilterInstituteType') . '-in-' . slugify(session()->get('FilterState')));
+    } else if (session()->has('FilterInstituteType')) {
+      $path = url(session()->get('FilterInstituteType') . '-in-malaysia');
+    } else if (session()->has('FilterState')) {
+      $path = url('universities-in-' . slugify(session()->get('FilterState')));
+    } else {
+      $path = url('universities-in-malaysia');
+    }
+    echo $path;
+  }
 
   public function removeFilter(Request $request)
   {
     session()->forget($request->value);
+    if (session()->has('FilterState') && session()->has('FilterInstituteType')) {
+      $path = url(session()->get('FilterInstituteType') . '-in-' . slugify(session()->get('FilterState')));
+    } else if (session()->has('FilterInstituteType')) {
+      $path = url(session()->get('FilterInstituteType') . '-in-malaysia');
+    } else if (session()->has('FilterState')) {
+      $path = url('universities-in-' . slugify(session()->get('FilterState')));
+    } else {
+      $path = url('universities-in-malaysia');
+    }
+    echo $path;
   }
   public function removeAllFilter(Request $request)
   {
     session()->forget('FilterInstituteType');
     session()->forget('FilterState');
-    session()->forget('FilterCity');
-    session()->forget('FilterLevel');
-    session()->forget('FilterCategory');
-    session()->forget('FilterSpecialization');
   }
 }

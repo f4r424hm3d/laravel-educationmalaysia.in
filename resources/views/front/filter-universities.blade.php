@@ -9,14 +9,19 @@
     <div class="scrlbar">
       <div class="card-body pl-4 pr-4 pb-2">
         <ul class="no-ul-list mb-3">
-          @foreach ($instTYpe as $inst)
+          @foreach ($instituteTypes as $row)
+            @php
+              $onClickFunction =
+                  session()->get('FilterInstituteType') == $row->instituteType->seo_title_slug
+                      ? "removeFilter('FilterInstituteType')"
+                      : "applyFilter('FilterInstituteType','" . $row->instituteType->seo_title_slug . "')";
+              $checked = session()->get('FilterInstituteType') == $row->instituteType->seo_title_slug ? 'checked' : '';
+            @endphp
             <li>
-              <input id="inst{{ $inst->instituteType->id }}" class="checkbox-custom" name="institute_type"
-                type="checkbox"
-                onclick="{{ session()->get('FilterInstituteType') == $inst->instituteType->id ? "removeFilter('FilterInstituteType')" : "ApplyFilter('" . $inst->instituteType->seo_title_slug . "')" }}"
-                {{ session()->get('FilterInstituteType') == $inst->instituteType->id ? 'checked' : '' }}>
-              <label for="inst{{ $inst->instituteType->id }}"
-                class="checkbox-custom-label">{{ $inst->instituteType->type }}</label>
+              <input id="inst{{ $row->instituteType->id }}" class="checkbox-custom" name="institute_type"
+                type="checkbox" onclick="{{ $onClickFunction }}" {{ $checked }}>
+              <label for="inst{{ $row->instituteType->id }}" class="checkbox-custom-label">
+                {{ $row->instituteType->type }}</label>
             </li>
           @endforeach
         </ul>
@@ -36,14 +41,17 @@
       <div class="card-body pl-4 pr-4 pb-2">
         <ul class="no-ul-list mb-3">
           @foreach ($states as $row)
+            @php
+              $onClickFunctionState =
+                  session()->get('FilterState') == $row->state
+                      ? "removeFilter('FilterState')"
+                      : "applyFilter('FilterState','" . $row->state . "')";
+              $checkedState = session()->get('FilterState') == $row->state ? 'checked' : '';
+            @endphp
             <li>
               <input id="state{{ slugify($row->state) }}" class="checkbox-custom" name="state_filter" type="checkbox"
-                onclick="{{ session()->get('FilterState') == $row->state
-                    ? "removeFilter('FilterState')"
-                    : "ApplyFilter('" . $row->state . "')" }}"
-                onclick="ApplyStateFilter('{{ $row->state }}')"
-                {{ session()->get('FilterState') == $row->state ? 'checked' : '' }}>
-              <label for="state{{ $row->state }}" class="checkbox-custom-label">{{ $row->state }}</label>
+                onclick="{{ $onClickFunctionState }}" {{ $checkedState }}>
+              <label for="state{{ slugify($row->state) }}" class="checkbox-custom-label">{{ $row->state }}</label>
             </li>
           @endforeach
         </ul>

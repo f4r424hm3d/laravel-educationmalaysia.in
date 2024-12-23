@@ -81,6 +81,7 @@ use App\Http\Middleware\StudentLoggedOut;
 use App\Models\Blog;
 use App\Models\Exam;
 use App\Models\Service;
+use App\Models\University;
 use App\Models\UniversityProgram;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
@@ -714,30 +715,17 @@ Route::get('author/{slug}' . $row->slug, [AuthorFc::class, 'index']);
 
 Route::get('universities-in-malaysia', [UniversityListFc::class, 'index']);
 
-// Fetch the data from the database
-$results = DB::table('universities')
-  ->select('universities.institute_type', 'institute_types.type', 'institute_types.seo_title_slug')
-  ->join('institute_types', 'universities.institute_type', '=', 'institute_types.id')
-  ->where('universities.website', config('app.site_var')) // Replace 'site_var' with the corresponding Laravel config or variable
-  ->groupBy('universities.institute_type')
-  ->orderBy('institute_types.id', 'ASC')
-  ->get();
-
-// Dynamically generate routes
-foreach ($results as $row) {
-  Route::get($row->seo_title_slug . '-in-malaysia', [UniversityListFc::class, 'byInstitute']);
+$instTYpe = University::select('institute_type')->where(['status' => 1])->where('institute_type', '!=', null)->groupBy('institute_type')->get();
+foreach ($instTYpe as $row) {
+  Route::get($row->instituteType->seo_title_slug . '-in-malaysia', [UniversityListFc::class, 'index']);
 }
 
 // Generate routes for universities by state
-$states = DB::table('universities')
-  ->select('universities.state')
-  ->where('universities.website', config('app.site_var')) // Replace 'site_var' with your Laravel configuration or variable
-  ->groupBy('universities.state')
-  ->get();
+$states = University::select('state')->where(['status' => 1])->where('state', '!=', '')->distinct()->get();
 
 foreach ($states as $state) {
   $state_slug = slugify($state->state); // Slugify the state name
-  Route::get('universities-in-' . $state_slug, [UniversityListFc::class, 'byState']);
+  Route::get('universities-in-' . $state_slug, [UniversityListFc::class, 'index']);
 }
 
 // Generate routes for universities by institute type and state
@@ -756,9 +744,11 @@ $results = DB::table('universities')
 
 foreach ($results as $row) {
   $state_slug = slugify($row->state); // Slugify the state name
-  Route::get($row->seo_title_slug . '-in-' . $state_slug, [UniversityListFc::class, 'byInstState']);
+  Route::get($row->seo_title_slug . '-in-' . $state_slug, [UniversityListFc::class, 'index']);
 }
-
+Route::get('universities-in-malaysia/apply-filter', [UniversityListFc::class, 'applyFilter'])->name('university.list.apply.filter');
+Route::get('universities-in-malaysia/remove-filter', [UniversityListFc::class, 'removeFilter'])->name('university.list.remove.filter');
+Route::get('universities-in-malaysia/remove-all-filter', [UniversityListFc::class, 'removeAllFilter'])->name('university.list.remove.all.filter');
 // UNIVERSITIES IN MALAYSIA ROUTES END
 
 // COURSES IN MALAYSIA ROUTES FRONT
