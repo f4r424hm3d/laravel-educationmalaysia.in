@@ -728,24 +728,14 @@ foreach ($states as $state) {
   Route::get('universities-in-' . $state_slug, [UniversityListFc::class, 'index']);
 }
 
-// Generate routes for universities by institute type and state
-$results = DB::table('universities')
-  ->select(
-    'universities.institute_type',
-    'universities.state',
-    'institute_types.type',
-    'institute_types.seo_title_slug'
-  )
-  ->join('institute_types', 'universities.institute_type', '=', 'institute_types.id')
-  ->where('universities.website', config('app.site_var')) // Replace 'site_var' accordingly
-  ->groupBy('universities.institute_type', 'universities.state')
-  ->orderBy('institute_types.id', 'ASC')
-  ->get();
+$uniqueCombinations = University::select('institute_type', 'state')->whereNotNull('institute_type')->where('institute_type', '!=', '')->whereNotNull('state')->where('state', '!=', '')->distinct()->get();
 
-foreach ($results as $row) {
-  $state_slug = slugify($row->state); // Slugify the state name
-  Route::get($row->seo_title_slug . '-in-' . $state_slug, [UniversityListFc::class, 'index']);
+// Generate routes dynamically
+foreach ($uniqueCombinations as $row) {
+  $state_slug = slugify($row->state);
+  Route::get($row->instituteType->seo_title_slug . '-in-' . $state_slug, [UniversityListFc::class, 'index']);
 }
+
 Route::get('universities-in-malaysia/apply-filter', [UniversityListFc::class, 'applyFilter'])->name('university.list.apply.filter');
 Route::get('universities-in-malaysia/remove-filter', [UniversityListFc::class, 'removeFilter'])->name('university.list.remove.filter');
 Route::get('universities-in-malaysia/remove-all-filter', [UniversityListFc::class, 'removeAllFilter'])->name('university.list.remove.all.filter');
