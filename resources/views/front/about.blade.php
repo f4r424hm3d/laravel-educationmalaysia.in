@@ -54,7 +54,7 @@
                       industry by introducing software and marketing solutions.</p>
                   </div>
                   <div class="col-md-5 col-sm-12"> <img
-                      data-src="<?= url('assets/web/') ?>images/education-malaysia-aboutus.png" class="img-responsive">
+                      src=" {{ asset('assets/web/images/education-malaysia-aboutus.png') }}" class="img-fuild">
                   </div>
                   <div class="col-md-12 col-sm-12">
                     <h3>Vision</h3>
@@ -91,13 +91,13 @@
                     <!--    </li>-->
                     <!--    <li><a data-toggle="tab" href="#partners"><span>Partners</span></a></li>-->
                     <!--</ul>-->
-                    <ul class="tabs tabs-hom-reg text-center">
-                      <li class="tab s6"><a href="#universities" class="b">Universities</a></li>
-                      <li class="tab s6"><a href="#for-students" class="b">Students</a> </li>
-                      <li class="tab s6"><a href="#partners" class="b">Partners</a></li>
+                    <ul class="nav nav-pills all-mars mb-3" id="pills-tab" role="tablist">
+                      <li class="nav-item"><a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Universities</a></li>
+                      <li class="nav-item"><a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Students</a> </li>
+                      <li class="nav-item"><a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Partners</a></li>
                     </ul>
-                    <div class="tab-content">
-                      <div id="universities" class="tab-pane fade in active">
+                    <div class="tab-content all-schools" id="pills-tabContent">
+                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <h2 class="pad10"> For Universities</h2>
                         <ul>
                           <li>We are partnered with the most esteemed Universities/ Institutions globally and enlarge the
@@ -139,7 +139,7 @@
                           efficiency of your admission team. This will also save time and get you in touch with the cream
                           crowd.</p>
                       </div>
-                      <div id="for-students" class="tab-pane fade in active">
+                      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                         <h2 class="pad10"> For Students</h2>
                         <ul>
                           <li>To manifest accomplished services by making the whole process simpler and smoother. </li>
@@ -150,7 +150,7 @@
                             associated allied services is provided by us. </li>
                         </ul>
                       </div>
-                      <div id="partners" class="tab-pane fade in active">
+                      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                         <h2 class="pad10"> For Partners</h2>
                         <ul>
                           <li>Swift, Simple and rewarding are the key words we describe for our services to make
@@ -215,12 +215,15 @@
                         </div>
                       </div>
                     </div>
+
+
                   </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-4 col-sm-12">
-                  <div class="card"> <img data-src="<?= url('assets/web/') ?>images/Establish-an-India-Office.jpg"
+      <section class="all-chooses">
+      <div class="row">
+                <div class="col-md-4 col-sm-12 mb-4">
+                  <div class="card h-100"> <img  src=" {{ asset('assets/web/images/Establish-an-India-Office.jpg') }}" 
                       alt="Establish an India Office" style="width:100%">
                     <div class="card-body" style="padding:10px 20px;">
                       <h5 class="card-title text-center pad10" style="line-height:normal; margin-bottom:15px">Establish an
@@ -235,8 +238,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4 col-sm-12">
-                  <div class="card"> <img data-src="<?= url('assets/web/') ?>images/market-research-and-analysis.jpg"
+                <div class="col-md-4 col-sm-12 mb-4">
+                  <div class="card  h-100"> <img src=" {{ asset('assets/web/images/market-research-and-analysis.jpg') }}" 
                       alt="marketing research and Analysis" style="width:100%">
                     <div class="card-body" style="padding:10px 20px;">
                       <h5 class="card-title text-center pad10" style="line-height:normal; margin-bottom:15px">Market
@@ -249,8 +252,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4 col-sm-12">
-                  <div class="card"> <img data-src="<?= url('assets/web/') ?>images/marketing-and-branding.jpg"
+                <div class="col-md-4 col-sm-12 mb-4">
+                  <div class="card h-100"> <img src=" {{ asset('assets/web/images/marketing-and-branding.jpg') }}" 
                       alt="Marketing and Branding" style="width:100%">
                     <div class="card-body" style="padding:10px 20px;">
                       <h5 class="card-title text-center pad10" style="line-height:normal; margin-bottom:15px">Marketing
@@ -262,17 +265,22 @@
                   </div>
                 </div>
               </div>
-              <div class=" row mar10">
-                <h2 class="text-center">Why Choose Us?</h2>
-                <div class="col-md-4 col-sm-12">
-                  <div class="card-body">
+      </section>
+             <section class="py-5 choose-uss mar10" >
+             <div class="text-center">
+              <h2 class="text-center">Why Choose Us?</h2>
+              </div>
+              <div class=" row">
+               
+                <div class="col-md-4 col-sm-12 mb-4">
+                  <div class="card-body h-100 ">
                     <h3 class="text-center">We Understand Business</h3>
                     <p>The Boundless experience in the education industry gives us a unique advantage of far reaching and
                       understanding the Education Industry in India.</p>
                   </div>
                 </div>
-                <div class="col-md-4 col-sm-12">
-                  <div class="card-body">
+                <div class="col-md-4 col-sm-12 mb-4">
+                  <div class="card-body h-100 ">
                     <h3 class="text-center">We are good at what we do</h3>
                     <p>We work with a highly professional with much experience and resources to provide you with cost
                       effective yet target oriented high output marketing solutions. The goal is to aid out the needs and
@@ -280,8 +288,8 @@
                     </p>
                   </div>
                 </div>
-                <div class="col-md-4 col-sm-12">
-                  <div class="card-bod">
+                <div class="col-md-4 col-sm-12 mb-4">
+                  <div class="card-body h-100 " >
                     <h3 class="text-center">An Accomplished Team</h3>
                     <p>Our extensive and vast experience in the education industry gives an edge to our clients as our
                       Team of education and marketing experts work with the client and for the client by understanding and
@@ -289,6 +297,7 @@
                   </div>
                 </div>
               </div>
+             </section>
             </div>
           </div>
         </div>
