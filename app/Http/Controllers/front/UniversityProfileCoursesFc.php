@@ -120,16 +120,16 @@ class UniversityProfileCoursesFc extends Controller
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site, 'category' => $category, 'specialization' => $specialization, 'level' => $level, 'university' => $university_name, 'noc' => $total];
 
-    $meta_title = $university->meta_title == '' ? $dseo->meta_title : $university->meta_title;
+    $meta_title = $university->meta_title == '' ? $dseo->title : $university->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
 
-    $meta_keyword = $university->meta_keyword == '' ? $dseo->meta_keyword : $university->meta_keyword;
+    $meta_keyword = $university->meta_keyword == '' ? $dseo->keyword : $university->meta_keyword;
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
 
     $page_content = $university->page_content == '' ? $dseo->page_content : $university->page_content;
     $page_content = replaceTag($page_content, $tagArray);
 
-    $meta_description = $university->meta_description == '' ? $dseo->meta_description : $university->meta_description;
+    $meta_description = $university->meta_description == '' ? $dseo->description : $university->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
 
     $og_image_path = $dseo->file_path ?? null;
@@ -203,16 +203,16 @@ class UniversityProfileCoursesFc extends Controller
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'university' => $university->name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
-    $meta_title = $program->meta_title == '' ? $dseo->meta_title : $program->meta_title;
+    $meta_title = $program->meta_title == '' ? $dseo->title : $program->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
 
-    $meta_keyword = $program->meta_keyword == '' ? $dseo->meta_keyword : $program->meta_keyword;
+    $meta_keyword = $program->meta_keyword == '' ? $dseo->keyword : $program->meta_keyword;
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
 
     $page_content = $program->page_content == '' ? $dseo->page_content : $program->page_content;
     $page_content = replaceTag($page_content, $tagArray);
 
-    $meta_description = $program->meta_description == '' ? $dseo->meta_description : $program->meta_description;
+    $meta_description = $program->meta_description == '' ? $dseo->description : $program->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
 
     $og_image_path = $dseo->ogimgpath ?? null;

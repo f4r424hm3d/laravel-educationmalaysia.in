@@ -55,10 +55,10 @@ class UniversityFc extends Controller
     $d_name = $destination->destination_name;
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'destination' => $d_name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
-    $meta_title = replaceTag($dseo->meta_title, $tagArray);
-    $meta_keyword = replaceTag($dseo->meta_keyword, $tagArray);
+    $meta_title = replaceTag($dseo->title, $tagArray);
+    $meta_keyword = replaceTag($dseo->keyword, $tagArray);
     $page_content = replaceTag($dseo->page_content, $tagArray);
-    $meta_description = replaceTag($dseo->meta_description, $tagArray);
+    $meta_description = replaceTag($dseo->description, $tagArray);
     $og_image_path = $dogimg->file_path;
 
     $data = compact('destination', 'rows', 'i', 'instTYpe', 'seg2', 'states', 'total', 'cities', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'destinations');
@@ -111,10 +111,10 @@ class UniversityFc extends Controller
     $d_name = $destination->destination_name;
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'destination' => $d_name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
-    $meta_title = replaceTag($dseo->meta_title, $tagArray);
-    $meta_keyword = replaceTag($dseo->meta_keyword, $tagArray);
+    $meta_title = replaceTag($dseo->title, $tagArray);
+    $meta_keyword = replaceTag($dseo->keyword, $tagArray);
     $page_content = replaceTag($dseo->page_content, $tagArray);
-    $meta_description = replaceTag($dseo->meta_description, $tagArray);
+    $meta_description = replaceTag($dseo->description, $tagArray);
     $og_image_path = $dogimg->file_path;
 
     $data = compact('destination', 'rows', 'i', 'instTYpe', 'institute_type', 'states', 'seg2', 'total', 'cities', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'currentInstType');
@@ -169,10 +169,10 @@ class UniversityFc extends Controller
     $d_name = $destination->destination_name;
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'destination' => $d_name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
-    $meta_title = replaceTag($dseo->meta_title, $tagArray);
-    $meta_keyword = replaceTag($dseo->meta_keyword, $tagArray);
+    $meta_title = replaceTag($dseo->title, $tagArray);
+    $meta_keyword = replaceTag($dseo->keyword, $tagArray);
     $page_content = replaceTag($dseo->page_content, $tagArray);
-    $meta_description = replaceTag($dseo->meta_description, $tagArray);
+    $meta_description = replaceTag($dseo->description, $tagArray);
     $og_image_path = $dogimg->file_path;
 
     $data = compact('destination', 'rows', 'i', 'instTYpe', 'states', 'total', 'cities', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'currentInstType');
@@ -226,10 +226,10 @@ class UniversityFc extends Controller
     $d_name = $destination->destination_name;
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'destination' => $d_name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
-    $meta_title = replaceTag($dseo->meta_title, $tagArray);
-    $meta_keyword = replaceTag($dseo->meta_keyword, $tagArray);
+    $meta_title = replaceTag($dseo->title, $tagArray);
+    $meta_keyword = replaceTag($dseo->keyword, $tagArray);
     $page_content = replaceTag($dseo->page_content, $tagArray);
-    $meta_description = replaceTag($dseo->meta_description, $tagArray);
+    $meta_description = replaceTag($dseo->description, $tagArray);
     $og_image_path = $dogimg->file_path;
 
     $data = compact('destination', 'rows', 'i', 'instTYpe', 'states', 'total', 'cities', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'currentInstType');
@@ -283,10 +283,10 @@ class UniversityFc extends Controller
     $d_name = $destination->destination_name;
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'destination' => $d_name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
-    $meta_title = replaceTag($dseo->meta_title, $tagArray);
-    $meta_keyword = replaceTag($dseo->meta_keyword, $tagArray);
+    $meta_title = replaceTag($dseo->title, $tagArray);
+    $meta_keyword = replaceTag($dseo->keyword, $tagArray);
     $page_content = replaceTag($dseo->page_content, $tagArray);
-    $meta_description = replaceTag($dseo->meta_description, $tagArray);
+    $meta_description = replaceTag($dseo->description, $tagArray);
     $og_image_path = $dogimg->file_path;
 
     $data = compact('destination', 'rows', 'i', 'instTYpe', 'institute_type', 'states', 'seg2', 'total', 'cities', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'currentInstType');

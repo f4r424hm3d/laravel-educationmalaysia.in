@@ -31,16 +31,16 @@ class BlogFc extends Controller
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
-    $meta_title = $category->meta_title == '' ? $dseo->meta_title : $category->meta_title;
+    $meta_title = $category->meta_title == '' ? $dseo->title : $category->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
 
-    $meta_keyword = $category->meta_keyword == '' ? $dseo->meta_keyword : $category->meta_keyword;
+    $meta_keyword = $category->meta_keyword == '' ? $dseo->keyword : $category->meta_keyword;
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
 
     $page_content = $category->page_content == '' ? $dseo->page_content : $category->page_content;
     $page_content = replaceTag($page_content, $tagArray);
 
-    $meta_description = $category->meta_description == '' ? $dseo->meta_description : $category->meta_description;
+    $meta_description = $category->meta_description == '' ? $dseo->description : $category->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
 
     $og_image_path = $category->imgpath ?? $dseo->ogimgpath;
@@ -70,16 +70,16 @@ class BlogFc extends Controller
 
     $tagArray = ['title' => $sub_slug, 'category' => $category, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
-    $meta_title = $blog->meta_title == '' ? $dseo->meta_title : $blog->meta_title;
+    $meta_title = $blog->meta_title == '' ? $dseo->title : $blog->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
 
-    $meta_keyword = $blog->meta_keyword == '' ? $dseo->meta_keyword : $blog->meta_keyword;
+    $meta_keyword = $blog->meta_keyword == '' ? $dseo->keyword : $blog->meta_keyword;
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
 
     $page_content = $blog->page_content == '' ? $dseo->page_content : $blog->page_content;
     $page_content = replaceTag($page_content, $tagArray);
 
-    $meta_description = $blog->meta_description == '' ? $dseo->meta_description : $blog->meta_description;
+    $meta_description = $blog->meta_description == '' ? $dseo->description : $blog->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
 
     $og_image_path = $blog->imgpath == '' ? $dseo->ogimgpath : $blog->imgpath;

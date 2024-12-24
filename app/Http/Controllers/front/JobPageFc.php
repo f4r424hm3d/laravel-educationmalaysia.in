@@ -39,16 +39,16 @@ class JobPageFc extends Controller
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
-    $meta_title = $row->meta_title == '' ? $dseo->meta_title : $row->meta_title;
+    $meta_title = $row->meta_title == '' ? $dseo->title : $row->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
 
-    $meta_keyword = $row->meta_keyword == '' ? $dseo->meta_keyword : $row->meta_keyword;
+    $meta_keyword = $row->meta_keyword == '' ? $dseo->keyword : $row->meta_keyword;
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
 
     $page_content = $row->page_content == '' ? $dseo->page_content : $row->page_content;
     $page_content = replaceTag($page_content, $tagArray);
 
-    $meta_description = $row->meta_description == '' ? $dseo->meta_description : $row->meta_description;
+    $meta_description = $row->meta_description == '' ? $dseo->description : $row->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
 
     $og_image_path = $row->thumbnail_path ?? $dogimg->file_path;

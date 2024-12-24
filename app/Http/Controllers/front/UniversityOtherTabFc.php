@@ -35,13 +35,13 @@ class UniversityOtherTabFc extends Controller
     $title = $universityTabContent->tab_name;
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
-    $meta_title = $universityTabContent->meta_title == '' ? $dseo->meta_title : $universityTabContent->meta_title;
+    $meta_title = $universityTabContent->meta_title == '' ? $dseo->title : $universityTabContent->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
-    $meta_keyword = $universityTabContent->meta_keyword == '' ? $dseo->meta_keyword : $universityTabContent->meta_keyword;
+    $meta_keyword = $universityTabContent->meta_keyword == '' ? $dseo->keyword : $universityTabContent->meta_keyword;
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
     $page_content = $universityTabContent->page_content == '' ? $dseo->page_content : $universityTabContent->page_content;
     $page_content = replaceTag($page_content, $tagArray);
-    $meta_description = $universityTabContent->meta_description == '' ? $dseo->meta_description : $universityTabContent->meta_description;
+    $meta_description = $universityTabContent->meta_description == '' ? $dseo->description : $universityTabContent->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
     $og_image_path = $dogimg->file_path;
 

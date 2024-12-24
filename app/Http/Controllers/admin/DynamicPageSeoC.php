@@ -43,9 +43,9 @@ class DynamicPageSeoC extends Controller
     );
     $field = new DynamicPageSeo;
     $field->url = $request['url'];
-    $field->meta_title = $request['meta_title'];
-    $field->meta_keyword = $request['meta_keyword'];
-    $field->meta_description = $request['meta_description'];
+    $field->title = $request['meta_title'];
+    $field->keyword = $request['meta_keyword'];
+    $field->description = $request['meta_description'];
     $field->page_content = $request['page_content'];
     $field->seo_rating = $request['seo_rating'];
     $field->save();
@@ -67,9 +67,9 @@ class DynamicPageSeoC extends Controller
     );
     $field = DynamicPageSeo::find($id);
     $field->url = $request['url'];
-    $field->meta_title = $request['meta_title'];
-    $field->meta_keyword = $request['meta_keyword'];
-    $field->meta_description = $request['meta_description'];
+    $field->title = $request['meta_title'];
+    $field->keyword = $request['meta_keyword'];
+    $field->description = $request['meta_description'];
     $field->page_content = $request['page_content'];
     $field->seo_rating = $request['seo_rating'];
     $field->save();

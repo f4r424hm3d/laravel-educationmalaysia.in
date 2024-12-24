@@ -68,10 +68,10 @@ class UniversityListFc extends Controller
     $institute_type = $currentInstituteType;
 
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site, 'institute_type' => $institute_type];
-    $meta_title = replaceTag($dseo->meta_title, $tagArray);
-    $meta_keyword = replaceTag($dseo->meta_keyword, $tagArray);
+    $meta_title = replaceTag($dseo->title, $tagArray);
+    $meta_keyword = replaceTag($dseo->keyword, $tagArray);
     $page_content = replaceTag($dseo->page_content, $tagArray);
-    $meta_description = replaceTag($dseo->meta_description, $tagArray);
+    $meta_description = replaceTag($dseo->description, $tagArray);
     $og_image_path = $dogimg->file_path ?? null;
 
     $pageHeading = "Top Universities/Colleges in Malaysia";
@@ -281,10 +281,10 @@ class UniversityListFc extends Controller
 
     $tagArray = ['title' => $title, 'destination' => $d_name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site, 'category' => $category, 'specialization' => $specialization, 'level' => $level, 'institute_type' => $institute_type];
 
-    $meta_title = replaceTag($dseo->meta_title, $tagArray);
-    $meta_keyword = replaceTag($dseo->meta_keyword, $tagArray);
+    $meta_title = replaceTag($dseo->title, $tagArray);
+    $meta_keyword = replaceTag($dseo->keyword, $tagArray);
     $page_content = replaceTag($dseo->page_content, $tagArray);
-    $meta_description = replaceTag($dseo->meta_description, $tagArray);
+    $meta_description = replaceTag($dseo->description, $tagArray);
     $og_image_path = $dogimg->file_path;
 
     $data = compact('destination', 'rows', 'i', 'instTYpe', 'states', 'total', 'cities', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'destinations', 'levelListForFilter', 'categoryListForFilter', 'spcListForFilter', 'studyModes', 'curInstType', 'curLevel', 'curCat', 'curSpc', 'intakes');

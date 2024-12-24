@@ -40,16 +40,16 @@ class ExamFc extends Controller
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'headline' => $headline, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
-    $meta_title = $exam->meta_title == '' ? $dseo->meta_title : $exam->meta_title;
+    $meta_title = $exam->meta_title == '' ? $dseo->title : $exam->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
 
-    $meta_keyword = $exam->meta_keyword == '' ? $dseo->meta_keyword : $exam->meta_keyword;
+    $meta_keyword = $exam->meta_keyword == '' ? $dseo->keyword : $exam->meta_keyword;
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
 
     $page_content = $exam->page_content == '' ? $dseo->page_content : $exam->page_content;
     $page_content = replaceTag($page_content, $tagArray);
 
-    $meta_description = $exam->meta_description == '' ? $dseo->meta_description : $exam->meta_description;
+    $meta_description = $exam->meta_description == '' ? $dseo->description : $exam->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
 
     $og_image_path = $exam->imgpath ?? $dseo->ogimgpath;

@@ -33,13 +33,13 @@ class UniversityProfileFc extends Controller
 
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'address' => $city, 'shortnote' => $shortnote, 'universitytype' => $inst_type, 'universityname' => $uname, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
-    $meta_title = $university->meta_title == '' ? $dseo->meta_title : $university->meta_title;
+    $meta_title = $university->meta_title == '' ? $dseo->title : $university->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
-    $meta_keyword = $university->meta_keyword == '' ? $dseo->meta_keyword : $university->meta_keyword;
+    $meta_keyword = $university->meta_keyword == '' ? $dseo->keyword : $university->meta_keyword;
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
     $page_content = $university->page_content == '' ? $dseo->page_content : $university->page_content;
     $page_content = replaceTag($page_content, $tagArray);
-    $meta_description = $university->meta_description == '' ? $dseo->meta_description : $university->meta_description;
+    $meta_description = $university->meta_description == '' ? $dseo->description : $university->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
     $og_image_path = $university->ofimgpath ?? $dseo->ogimgpath;
     $schema = false;
@@ -65,13 +65,13 @@ class UniversityProfileFc extends Controller
 
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'address' => $city, 'shortnote' => $shortnote, 'universitytype' => $inst_type, 'universityname' => $uname, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
-    $meta_title = $university->meta_title == '' ? $dseo->meta_title : $university->meta_title;
+    $meta_title = $university->meta_title == '' ? $dseo->title : $university->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
-    $meta_keyword = $university->meta_keyword == '' ? $dseo->meta_keyword : $university->meta_keyword;
+    $meta_keyword = $university->meta_keyword == '' ? $dseo->keyword : $university->meta_keyword;
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
     $page_content = $university->page_content == '' ? $dseo->page_content : $university->page_content;
     $page_content = replaceTag($page_content, $tagArray);
-    $meta_description = $university->meta_description == '' ? $dseo->meta_description : $university->meta_description;
+    $meta_description = $university->meta_description == '' ? $dseo->description : $university->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
     $og_image_path = $university->ofimgpath ?? $dseo->ogimgpath;
     $schema = false;
@@ -97,13 +97,13 @@ class UniversityProfileFc extends Controller
 
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'address' => $city, 'shortnote' => $shortnote, 'universitytype' => $inst_type, 'universityname' => $uname, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
-    $meta_title = $university->meta_title == '' ? $dseo->meta_title : $university->meta_title;
+    $meta_title = $university->meta_title == '' ? $dseo->title : $university->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
-    $meta_keyword = $university->meta_keyword == '' ? $dseo->meta_keyword : $university->meta_keyword;
+    $meta_keyword = $university->meta_keyword == '' ? $dseo->keyword : $university->meta_keyword;
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
     $page_content = $university->page_content == '' ? $dseo->page_content : $university->page_content;
     $page_content = replaceTag($page_content, $tagArray);
-    $meta_description = $university->meta_description == '' ? $dseo->meta_description : $university->meta_description;
+    $meta_description = $university->meta_description == '' ? $dseo->description : $university->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
     $og_image_path = $university->ofimgpath ?? $dseo->ogimgpath;
     $schema = false;

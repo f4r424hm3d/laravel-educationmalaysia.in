@@ -8,13 +8,13 @@
   $site = url('/');
   $tagArray = ['currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
-  $meta_title = $seo->meta_title ?? '';
+  $meta_title = $seo->title ?? '';
   $meta_title = replaceTag($meta_title, $tagArray);
 
-  $meta_keyword = $seo->meta_keyword ?? '';
+  $meta_keyword = $seo->keyword ?? '';
   $meta_keyword = replaceTag($meta_keyword, $tagArray);
 
-  $meta_description = $seo->meta_description ?? '';
+  $meta_description = $seo->description ?? '';
   $meta_description = replaceTag($meta_description, $tagArray);
 
   $page_content = $seo->page_content ?? '';
