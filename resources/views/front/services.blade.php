@@ -14,9 +14,6 @@
               <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
               <li class="facts-1"><a href="{{ url('/services/') }}">Services</a></li>
             </ul>
-            <div class="ed_header_caption mb-0">
-              <h1 class="ed_title mb-0">Services</h1>
-            </div>
           </div>
         </div>
       </div>
@@ -24,25 +21,28 @@
   </div>
   <!-- Breadcrumb -->
   <!-- Content -->
-  <section class="bg-light">
+  <section class="main-specialization">
     <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12 col-md-12 mb-3">
+          <div class="sec-heading">
+            <h2>What we do</h2>
+            <p class="text-center">Having and managing a correct marketing strategy is crucial in a fast moving market.
+            </p>
+          </div>
+        </div>
+      </div>
       <div class="row">
         @foreach ($services as $row)
-          <div class="col-lg-4 col-md-4 col-sm-6">
-            <div class="education_block_grid style_2 mb-4">
-              <div class="education_block_thumb n-shadow">
-                <img data-src="{{ asset($row->imgpath) }}" class="img-fluid" alt="{{ $row->page_name }}">
+          <div class="col-lg-3 col-md-3 col-sm-4">
+            <a href="{{ url($row->uri) }}" target="_blank">
+              <div class="fuc-box">
+                <p class="card-body">{{ $row->page_name }} <i class="fa fa-angle-right"></i>
+                </p>
               </div>
-              <div class="education_block_body">
-                <h4 class="bl-title"><a href="{{ url($row->uri) }}">{{ $row->page_name }}</a></h4>
-              </div>
-              <div class="education_block_footer align-items-center p-3">
-                <div class="education_block_author"><a href="{{ url($row->uri) }}" class="card-btn">Read More</a></div>
-              </div>
-            </div>
+            </a>
           </div>
         @endforeach
-
       </div>
     </div>
   </section>

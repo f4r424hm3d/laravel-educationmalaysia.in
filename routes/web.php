@@ -676,7 +676,6 @@ Route::post('/libia/register', [LibiaLandingPageFc::class, 'register'])->name('l
 Route::get('/transfer-service-data', [ServiceFc::class, 'transferSitePageData']);
 
 Route::get('/services', [ServiceFc::class, 'index'])->name('services');
-Route::get('/services', [ServiceFc::class, 'index'])->name('services');
 $services = Service::where('website', 'MYS')->get();
 foreach ($services as $row) {
   Route::get($row->uri, [ServiceFc::class, 'serviceDetail']);

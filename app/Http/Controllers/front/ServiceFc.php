@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Country;
 use App\Models\DefaultOgImage;
 use App\Models\Destination;
 use App\Models\DynamicPageSeo;
@@ -16,7 +17,7 @@ class ServiceFc extends Controller
 {
   public function index(Request $request)
   {
-    $services = Service::website()->get();
+    $services = Service::orderBy('page_name')->get();
     //printArray($services->toArray());
     $data = compact('services');
     return view('front.services')->with($data);
@@ -59,9 +60,11 @@ class ServiceFc extends Controller
   }
   public function serviceDetail(Request $request)
   {
+
     $slug = $request->segment(1);
     $service = Service::website()->where('uri', $slug)->first();
     $services = Service::website()->where('id', '!=', $service->id)->get();
+    $countries = Country::orderBy('phonecode', 'asc')->where('phonecode', '!=', '0')->get();
 
     $page_url = url()->current();
 
@@ -90,7 +93,10 @@ class ServiceFc extends Controller
 
     $seoRatingSchema = true;
 
-    $data = compact('services', 'service', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'seo_rating', 'seoRatingSchema');
+    $captcha = generateMathQuestion();
+    session(['captcha_answer' => $captcha['answer']]);
+
+    $data = compact('services', 'service', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'seo_rating', 'seoRatingSchema', 'countries', 'captcha');
     return view('front.service-detail')->with($data);
   }
 }
