@@ -10,7 +10,7 @@
   </url>
   @foreach ($rows as $row)
     <url>
-      <loc>{{ url('exam/' . $row->getExam->exam_slug . '/' . $row->tab_slug) }}</loc>
+      <loc>{{ url($row->uri) }}</loc>
       <lastmod>{{ $row->updated_at->format('Y-m-d') }}</lastmod>
       <changefreq>always</changefreq>
       <priority>0.5</priority>

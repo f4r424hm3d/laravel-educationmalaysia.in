@@ -623,18 +623,15 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
 // SITE MAP
 Route::get('sitemap.xml', [SitemapController::class, 'sitemap']);
 Route::get('sitemap-home.xml', [SitemapController::class, 'home']);
-Route::get('sitemap-get-info.xml', [SitemapController::class, 'article']);
-Route::get('sitemap-universities.xml', [SitemapController::class, 'university']);
 Route::get('sitemap-exams.xml', [SitemapController::class, 'exam']);
 Route::get('sitemap-services.xml', [SitemapController::class, 'services']);
-Route::get('sitemap-university-course.xml', [SitemapController::class, 'universityCourses']);
-Route::get('sitemap-courses-in-malaysia.xml', [SitemapController::class, 'sitemapCoursesInMalaysia']);
-Route::get('sitemap-course-level.xml', [SitemapController::class, 'sitemapCoursesInMalaysia']);
-Route::get('sitemap-course.xml', [SitemapController::class, 'courses']);
-Route::get('sitemap-specialization.xml', [SitemapController::class, 'specialization']);
 Route::get('sitemap-select-university.xml', [SitemapController::class, 'selectuni']);
-Route::get('sitemap-who-we-are.xml', [SitemapController::class, 'whoWeAre']);
-Route::get('sitemap-faq.xml', [SitemapController::class, 'faq']);
+Route::get('sitemap-university.xml', [SitemapController::class, 'university']);
+Route::get('sitemap-specialization.xml', [SitemapController::class, 'specialization']);
+Route::get('sitemap-course.xml', [SitemapController::class, 'courses']);
+Route::get('sitemap-get-info.xml', [SitemapController::class, 'article']);
+Route::get('sitemap-course-level.xml', [SitemapController::class, 'sitemapCourseLevel']);
+Route::get('sitemap-courses-in-malaysia.xml', [SitemapController::class, 'sitemapCoursesInMalaysia']);
 
 
 /* FRONT ROUTES */

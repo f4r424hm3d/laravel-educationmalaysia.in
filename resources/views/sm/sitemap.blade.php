@@ -7,30 +7,30 @@
     <loc>{{ url('/') }}/sitemap-home.xml</loc>
   </sitemap>
   <sitemap>
-    <loc>{{ url('/') }}/sitemap-articles.xml</loc>
-  </sitemap>
-  <sitemap>
-    <loc>{{ url('/') }}/sitemap-destinations.xml</loc>
-  </sitemap>
-  <sitemap>
-    <loc>{{ url('/') }}/sitemap-universities.xml</loc>
-  </sitemap>
-  <sitemap>
     <loc>{{ url('/') }}/sitemap-exams.xml</loc>
   </sitemap>
   <sitemap>
     <loc>{{ url('/') }}/sitemap-services.xml</loc>
   </sitemap>
   <sitemap>
-    <loc>{{ url('/') }}/sitemap-jobs.xml</loc>
+    <loc>{{ url('/') }}/sitemap-select-university.xml</loc>
   </sitemap>
   <sitemap>
-    <loc>{{ url('/') }}/sitemap-teams.xml</loc>
+    <loc>{{ url('/') }}/sitemap-university.xml</loc>
   </sitemap>
   <sitemap>
-    <loc>{{ url('/') }}/sitemap-university-courses.xml</loc>
+    <loc>{{ url('/') }}/sitemap-specialization.xml</loc>
   </sitemap>
   <sitemap>
-    <loc>{{ url('/') }}/sitemap-university-list.xml</loc>
+    <loc>{{ url('/') }}/sitemap-course.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>{{ url('/') }}/sitemap-get-info.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>{{ url('/') }}/sitemap-course-level.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>{{ url('/') }}/sitemap-courses-in-malaysia.xml</loc>
   </sitemap>
 </sitemapindex>

@@ -22,7 +22,7 @@ class SpecializationFc extends Controller
   public function detail($slug, Request $request)
   {
     $countries = Country::orderBy('phonecode', 'asc')->where('phonecode', '!=', '0')->get();
-    $defaultImage = DefaultImage::where('page', 'specialization-detail')->get();
+    $defaultImage = DefaultImage::where('page', 'specialization-detail')->first();
 
     // Fetch course specialization by slug and website filter
     $specialization = CourseSpecialization::where('slug', $slug)->firstOrFail();

@@ -9,19 +9,31 @@
     <priority>1</priority>
   </url>
   <url>
-    <loc>{{ url('about') }}</loc>
+    <loc>{{ url('who-we-are') }}</loc>
     <lastmod>{{ date('Y-m-d') }}</lastmod>
     <changefreq>always</changefreq>
     <priority>1</priority>
   </url>
   <url>
-    <loc>{{ url('contact') }}</loc>
+    <loc>{{ url('what-people-say') }}</loc>
     <lastmod>{{ date('Y-m-d') }}</lastmod>
     <changefreq>always</changefreq>
     <priority>1</priority>
   </url>
   <url>
-    <loc>{{ url('terms-conditions') }}</loc>
+    <loc>{{ url('select-university') }}</loc>
+    <lastmod>{{ date('Y-m-d') }}</lastmod>
+    <changefreq>always</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>{{ url('contact-us') }}</loc>
+    <lastmod>{{ date('Y-m-d') }}</lastmod>
+    <changefreq>always</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>{{ url('terms-and-conditions') }}</loc>
     <lastmod>{{ date('Y-m-d') }}</lastmod>
     <changefreq>always</changefreq>
     <priority>1</priority>
@@ -34,54 +46,6 @@
   </url>
   <url>
     <loc>{{ url('faqs') }}</loc>
-    <lastmod>{{ date('Y-m-d') }}</lastmod>
-    <changefreq>always</changefreq>
-    <priority>1</priority>
-  </url>
-  <url>
-    <loc>{{ url('cities') }}</loc>
-    <lastmod>{{ date('Y-m-d') }}</lastmod>
-    <changefreq>always</changefreq>
-    <priority>1</priority>
-  </url>
-  <url>
-    <loc>{{ url('compare') }}</loc>
-    <lastmod>{{ date('Y-m-d') }}</lastmod>
-    <changefreq>always</changefreq>
-    <priority>1</priority>
-  </url>
-  <url>
-    <loc>{{ url('team') }}</loc>
-    <lastmod>{{ date('Y-m-d') }}</lastmod>
-    <changefreq>always</changefreq>
-    <priority>1</priority>
-  </url>
-  <url>
-    <loc>{{ url('career') }}</loc>
-    <lastmod>{{ date('Y-m-d') }}</lastmod>
-    <changefreq>always</changefreq>
-    <priority>1</priority>
-  </url>
-  <url>
-    <loc>{{ url('student-services') }}</loc>
-    <lastmod>{{ date('Y-m-d') }}</lastmod>
-    <changefreq>always</changefreq>
-    <priority>1</priority>
-  </url>
-  <url>
-    <loc>{{ url('franchise-services') }}</loc>
-    <lastmod>{{ date('Y-m-d') }}</lastmod>
-    <changefreq>always</changefreq>
-    <priority>1</priority>
-  </url>
-  <url>
-    <loc>{{ url('partner-services') }}</loc>
-    <lastmod>{{ date('Y-m-d') }}</lastmod>
-    <changefreq>always</changefreq>
-    <priority>1</priority>
-  </url>
-  <url>
-    <loc>{{ url('universities-services') }}</loc>
     <lastmod>{{ date('Y-m-d') }}</lastmod>
     <changefreq>always</changefreq>
     <priority>1</priority>

@@ -2,10 +2,9 @@
   echo $utf;
 @endphp
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  @foreach ($services as $row)
+  @foreach ($rows as $row)
     <url>
-      <loc>{{ url($row->uri) }}</loc>
-      <lastmod>{{ $row->updated_at->format('Y-m-d') }}</lastmod>
+      <loc>{{ url('courses/' . $row) }}</loc>
       <changefreq>always</changefreq>
       <priority>0.5</priority>
     </url>
