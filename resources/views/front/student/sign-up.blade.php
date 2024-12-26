@@ -228,7 +228,9 @@
                       <button type="submit" class="btn btn-theme-2 rounded w-100">Sign Up</button>
                     </div>
                     <div class="form-group text-center mb-0">
-                      Are you a already member? &nbsp;&nbsp; <a href="{{ url('sign-in') }}" class="theme-cl1">Sign
+                      Are you a already member? &nbsp;&nbsp; <a
+                        href="{{ url('sign-in') . (request()->has('program_id') ? '?program_id=' . request()->query('program_id') : '') }}"
+                        class="theme-cl1">Sign
                         In</a>
                     </div>
                   </div>

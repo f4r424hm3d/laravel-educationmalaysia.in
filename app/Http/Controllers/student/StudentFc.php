@@ -13,6 +13,7 @@ use App\Models\Lead;
 use App\Models\StudentApplication;
 use App\Models\StudentDocument;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class StudentFc extends Controller
 {
@@ -80,24 +81,35 @@ class StudentFc extends Controller
     $data = compact('student');
     return view('front.student.change-password')->with($data);
   }
+
   public function changePassword(Request $request)
   {
     $id = session()->get('student_id');
     $student = Lead::find($id);
 
-    $request->validate(
-      [
-        'old_password' => 'required|in:' . $student->password,
-        'new_password' => 'required|min:8',
-        'confirm_new_password' => 'required|min:8|same:new_password',
-      ]
-    );
-    $field = Lead::find($request['id']);
-    $field->password = $request['new_password'];
-    $field->save();
+    if (!$student) {
+      return redirect('student/change-password')->withErrors(['error' => 'Student not found.']);
+    }
+
+    $request->validate([
+      'old_password' => 'required',
+      'new_password' => 'required|min:8',
+      'confirm_new_password' => 'required|min:8|same:new_password',
+    ]);
+
+    // Verify the old password
+    if (!Hash::check($request->input('old_password'), $student->password)) {
+      return redirect('student/change-password')->withErrors(['old_password' => 'The old password is incorrect.']);
+    }
+
+    // Update the password
+    $student->password = $request->input('new_password');
+    $student->save();
+
     session()->flash('smsg', 'Password has been changed.');
     return redirect('student/change-password');
   }
+
   public function appliedCollege()
   {
     $id = session()->get('student_id');

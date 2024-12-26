@@ -149,7 +149,7 @@ class StudentLoginFc extends Controller
               $field->status = 1;
               $field->website = site_var;
               $field->save();
-              session()->flash('smsg', 'Congratulation! You succesfully Applied for ' . $chkProg->program_name);
+              session()->flash('smsg', 'Congratulation! You succesfully Applied for ' . $chkProg->course_name);
             }
           }
         }

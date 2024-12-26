@@ -31,7 +31,7 @@ class UniversityProgramListFc extends Controller
     $intake = '';
 
     if (session()->has('CFilterLevel')) {
-      $curLevel = Level::find(session()->get('CFilterLevel'));
+      $curLevel = Level::where('slug', session()->get('CFilterLevel'))->first();
     }
     if (session()->has('CFilterCategory')) {
       $curCat = CourseCategory::find(session()->get('CFilterCategory'));
