@@ -160,8 +160,8 @@ Route::middleware([StudentLoggedIn::class])->group(function () {
     Route::post('/update-sat-score', [StudentFc::class, 'updateSAT']);
     Route::post('/update-background-info', [StudentFc::class, 'updateBI']);
     Route::post('/upload-documents', [StudentFc::class, 'updateDocs']);
-    Route::get('/apply-program', [ApplyProgramFc::class, 'applyProgram']);
-    Route::get('/shortlist-program', [ApplyProgramFc::class, 'shortlistProgram']);
+    Route::get('/apply-program/{program_id}', [ApplyProgramFc::class, 'applyProgram'])->name('student.apply.program');
+    Route::get('/shortlist-program/{program_id}', [ApplyProgramFc::class, 'shortlistProgram'])->name('student.shortlist.program');
     Route::get('/delete-program/{id}', [StudentFc::class, 'deleteProgram']);
     Route::get('/logout', function () {
       session()->forget('studentLoggedIn');
