@@ -31,7 +31,7 @@
               <h2>About <span class="theme-cl1">Education Malaysia</span></h2>
             </div>
             <div class="font-size-16">
-              <div class="cor-p3">
+              <div class="cor-p3 border-bottom-0 pb-1">
                 <div class="row">
                   <div class="col-sm-12 col-md-7">
                     <h2 style="margin:0px!important">About Us</h2>
@@ -75,7 +75,7 @@
                   </div>
                 </div>
               </div>
-              <div class="cor-p3">
+              <div class="cor-p3 pt-0 border-top-0 mb-5">
                 <div class="row">
                   <div class="col-md-12 col-sm-12">
                     <h2 class="b" style="margin-top:0px!important">Our Services</h2>
@@ -99,7 +99,7 @@
                     <div class="tab-content all-schools" id="pills-tabContent">
                       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <h2 class="pad10"> For Universities</h2>
-                        <ul>
+                        <ul class="allschol" >
                           <li>We are partnered with the most esteemed Universities/ Institutions globally and enlarge the
                             options for the students who look for out of the way higher education prospects around the
                             world. </li>
@@ -163,7 +163,7 @@
                         <h3 class="pad10 b">Our Clients</h3>
                         <p>Having a vast number of clients in our list, we understand our client’s frame of reference and
                           conclude solutions more than they expect.</p>
-                        <ul>
+                        <ul class="partner-client" >
                           <li>Partner with us for Swift Services & Higher Commissions</li>
                           <li>
                             <h5 class="b">Multi-Country Advantage</h5>
@@ -185,10 +185,10 @@
                         <br>
                         <h2 class="b text-center pad-bot-70">Our 3-Step Process</h2>
                         <div class="stepwizard">
-                          <div class="stepwizard-row">
+                          <div class="row">
                             <div class="col-md-4 col-sm-12">
                               <div class="stepwizard-step">
-                                <button type="button" class="btn b">1</button>
+                                <button type="button" class="btn-b">1</button>
                                 <h5 class="pad10 b">As a partner Associate</h5>
                                 <p>We ensure the success of the on boarding by giving access to online platforms and
                                   complete hand holding. </p>
@@ -196,7 +196,7 @@
                             </div>
                             <div class="col-md-4 col-sm-12">
                               <div class="stepwizard-step">
-                                <button type="button" class="btn b">2</button>
+                                <button type="button" class="btn-b">2</button>
                                 <h5 class="pad10 b">Branding</h5>
                                 <p>Your Brand will be in front while we recruit for you. Along with our admissions team,
                                   we will assist you to screen, apply and process your candidate’s applications and visa
@@ -205,7 +205,7 @@
                             </div>
                             <div class="col-md-4 col-sm-12">
                               <div class="stepwizard-step">
-                                <button type="button" class="btn b">3</button>
+                                <button type="button" class="btn-b">3</button>
                                 <h5 class="pad10 b">Revenue Boosting</h5>
                                 <p>You earn your commissions and enhance the revenue successfully on every candidate’s
                                   enrolment</p>
@@ -266,7 +266,7 @@
                 </div>
               </div>
       </section>
-             <section class="py-5 choose-uss mar10" >
+             <section class="pb-5 pt-3 choose-uss mar10" >
              <div class="text-center">
               <h2 class="text-center">Why Choose Us?</h2>
               </div>

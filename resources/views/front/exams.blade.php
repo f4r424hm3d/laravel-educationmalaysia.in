@@ -36,17 +36,17 @@
       </div>
       <div class="row">
         @foreach ($exams as $row)
-          <div class="col-lg-4 col-md-4 col-sm-6">
-            <div class="education_block_grid style_2 mb-4">
-              <div class="education_block_thumb n-shadow">
-                <img data-src="{{ asset($row->imgpath) }}" class="img-fluid" alt="{{ $row->page_name }}">
+          <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
+            <div class="education_block_grid style_2 all-cards">
+              <div class="education_block_thumb n-shadow fix-sizes">
+                <img data-src="{{ asset($row->imgpath) }}" class="fix-sizes" alt="{{ $row->page_name }}">
                 <div class="cources_price">{{ $row->page_name }}</div>
               </div>
-              <div class="education_block_body">
-                <h4 class="bl-title">{{ $row->headline }}</h4>
+              <div class="education_block_body title-size">
+                <h4 class="bl-title card-title">{{ $row->headline }}</h4>
               </div>
-              <div class="education_block_footer align-items-center p-3">
-                <a href="{{ url($row->uri) }}" class="card-btn">View Details</a>
+              <div class="education_block_footer align-items-center p">
+                <a href="{{ url($row->uri) }}" class="btn-regi">View Details</a>
               </div>
             </div>
           </div>

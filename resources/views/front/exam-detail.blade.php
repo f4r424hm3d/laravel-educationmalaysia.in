@@ -99,9 +99,9 @@
         <div class="col-lg-8 col-md-8">
           <div class="new-exam-page">
 
-            <div class="sec-heading">
-              <h2>{{ $exam->heading }}</h2>
-            </div>
+            <!-- <div class="sec-heading"> -->
+              <h3>{{ $exam->heading }}</h3>
+            <!-- </div> -->
 
             @if ($exam->imgpath != null)
               <img data-src="{{ asset($exam->imgpath) }}" alt="{{ $exam->heading }}">

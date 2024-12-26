@@ -53,22 +53,18 @@
     </div>
   </div>
   <!-- Breadcrumb -->
-  <!-- nav-bar   -->
-  <div class="new-scoll-links scroll-bar scroll-sticky new-stickyadd">
-    <div class="container">
-      <ul class="links scrollTo vertically-scrollbar">
-        @php
-          $i = 1;
-        @endphp
-        @foreach ($specialization->contents as $row)
-          <li class="{{ $i == 1 ? 'active' : '' }}"><a href="#{{ slugify($row->tab) }}">{{ ucwords($row->tab) }}</a></li>
-          @php
-            $i++;
-          @endphp
-        @endforeach
-      </ul>
-    </div>
-  </div>
+<!-- nav-bar   -->
+<div class="new-scoll-links scroll-bar scroll-sticky new-stickyadd">
+		<div class="container">
+			<ul class="links scrollTo vertically-scrollbar" >
+									<li class="active"><a href="#About-Course">About Course</a></li>
+									<li class=""><a href="#Duration">Duration</a></li>
+									<li class=""><a href="#Cost">Cost</a></li>
+									<li class=""><a href="#Career">Career</a></li>
+									<li class=""><a href="#Branches">Branches</a></li>
+							</ul>
+		</div>
+	</div>
   <!-- Content -->
   <section class="bg-light pt-5 pb-5">
     <div class="container">
@@ -142,7 +138,7 @@
 
                 <!-- Name Field -->
                 <div class="row">
-                  <div class="col-xs-12">
+                  <div class="col-12">
                     <div class="form-group">
                       <label for="name">Name</label>
                       <input type="text" name="name" id="name" value="{{ old('name') }}"
@@ -156,7 +152,7 @@
 
                 <!-- Email Field -->
                 <div class="row">
-                  <div class="col-xs-12">
+                  <div class="col-12">
                     <div class="form-group">
                       <label for="email">Email</label>
                       <input type="email" class="form-control" name="email" id="email"
@@ -170,7 +166,7 @@
 
                 <!-- Phone Field -->
                 <div class="row">
-                  <div class="col-xs-4 pr-0">
+                  <div class="col-5">
                     <div class="form-group">
                       <label for="c_code">Country Code</label>
                       <select class="form-control" name="c_code" id="c_code" required>
@@ -187,7 +183,7 @@
                       @enderror
                     </div>
                   </div>
-                  <div class="col-xs-8 pl-0">
+                  <div class="col-7 pl-0">
                     <div class="form-group">
                       <label for="mobile">Phone</label>
                       <input type="text" class="form-control" name="mobile" id="mobile" placeholder="987654321"
@@ -201,7 +197,7 @@
 
                 <!-- Nationality Field -->
                 <div class="row">
-                  <div class="col-xs-12">
+                  <div class="col-12">
                     <div class="form-group">
                       <label for="s-nationality">Nationality</label>
                       <select class="form-control" name="nationality" id="s-nationality" required>
@@ -221,7 +217,7 @@
 
                 <!-- Interested Program Field -->
                 <div class="row">
-                  <div class="col-xs-12">
+                  <div class="col-12">
                     <div class="form-group">
                       <label for="program">Select Interested Program</label>
                       <select class="form-control" name="program" id="program" required>
@@ -253,10 +249,10 @@
 
                 <!-- Terms & Conditions -->
                 <div class="row">
-                  <div class="col-xs-12">
-                    <div class="form-group mt-2">
-                      <input type="checkbox" id="tnc" name="tnc" required>
-                      <label for="tnc">
+                  <div class="col-12">
+                    <div class="form-check mt-2 ml-4">
+                      <input type="checkbox" id="tnc" name="tnc" required class="form-check-input">
+                      <label for="tnc" class="allcheckbx">
                         I agree to the <a href="{{ url('terms-and-conditions') }}">Terms</a> and <a
                           href="{{ url('privacy-policy') }}">Privacy Statement</a>
                       </label>
@@ -266,7 +262,7 @@
 
                 <!-- Submit Button -->
                 <div class="row">
-                  <div class="col-xs-12">
+                  <div class="col-12">
                     <div class="form-group">
                       <button class="btn btn-primary" type="submit">Submit</button>
                     </div>

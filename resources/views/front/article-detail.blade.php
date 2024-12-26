@@ -93,9 +93,9 @@
         <div class="col-lg-8 col-md-8">
           <div class="new-exam-page">
 
-            <div class="sec-heading">
-              <h2>{{ $article->title }}</h2>
-            </div>
+            <!-- <div class="sec-heading"> -->
+              <h3>{{ $article->title }}</h3>
+            <!-- </div> -->
 
             <div class="row align-items-center mb-3">
               @if ($article->author_id != null)

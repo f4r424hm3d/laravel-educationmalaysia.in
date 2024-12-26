@@ -149,7 +149,7 @@
 
                 <!-- Name Field -->
                 <div class="row">
-                  <div class="col-xs-12">
+                  <div class="col-12">
                     <div class="form-group">
                       <label for="name">Name</label>
                       <input type="text" name="name" id="name" value="{{ old('name') }}"
@@ -163,7 +163,7 @@
 
                 <!-- Email Field -->
                 <div class="row">
-                  <div class="col-xs-12">
+                  <div class="col-12">
                     <div class="form-group">
                       <label for="email">Email</label>
                       <input type="email" class="form-control" name="email" id="email"
@@ -208,7 +208,7 @@
 
                 <!-- Nationality Field -->
                 <div class="row">
-                  <div class="col-xs-12">
+                  <div class="col-12">
                     <div class="form-group">
                       <label for="s-nationality">Nationality</label>
                       <select class="form-control" name="nationality" id="s-nationality" required>
@@ -240,7 +240,7 @@
 
                 <!-- Terms & Conditions -->
                 <div class="row">
-                  <div class="col-xs-12">
+                  <div class="col-12">
                     <div class="form-group mt-2">
                       <input type="checkbox" id="tnc" name="tnc" required>
                       <label for="tnc">
@@ -253,7 +253,7 @@
 
                 <!-- Submit Button -->
                 <div class="row">
-                  <div class="col-xs-12">
+                  <div class="col-12">
                     <div class="form-group">
                       <button class="btn btn-primary" type="submit">Submit</button>
                     </div>
