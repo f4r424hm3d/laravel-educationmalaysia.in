@@ -1235,7 +1235,7 @@ html body .bg-dark-blue {
     color: #000000;
 }
 .label-light-warning {
-    background-color: #ffffff8ec;
+    background-color: #cfecfe;
     color: #ff9b20;
 }
 .label-light-danger {
@@ -2432,7 +2432,7 @@ a.btn-outline-success:hover {
     font-size: 15px;
     box-shadow: none;
     padding: 0.3rem 1rem;
-    border: 1px solid #e6eaf3;
+    border: 1px solid #a4a4a4;
     background-clip: initial;
 }
 .frm_submit_block .form-control,
@@ -2500,7 +2500,7 @@ span.select2-selection.select2-selection--single {
     color: #495057 ;
 }
 select.form-control:not([size]):not([multiple]) {
-    height: 56px;
+    height: 48px;
 }
 .form-control.fc-lg,
 select.form-control.fc-lg:not([size]):not([multiple]) {
@@ -3851,7 +3851,7 @@ ul.st_rate_info li {
     max-width: 20px;
 }
 .input-group {
-    border: 1px solid #e6eaf3;
+    border: 1px solid #a4a4a4;
     border-radius: 0.2rem;
     overflow: hidden;
 }
@@ -3898,7 +3898,7 @@ ul.st_rate_info li {
     background: #ffffff;
     border-radius: 0.4rem;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
     position: relative;
     transition: 0.4s;
     border: 1px solid #e8ebf1;
@@ -5212,8 +5212,8 @@ ul.list_ed_detail2 li.tag-5 strong {
 }
 .edu_wraper {
     width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 30px;
+    padding: 10px 0px 0px;
+    margin-bottom: 0px;
 }
 .edu_wraper .edu_title {
     font-size: 20px;
@@ -6262,8 +6262,8 @@ a.elio_right {
     color: #d70040 ;
 }
 .single_widgets {
-    border: 1px solid #e5e8f3;
-    border-radius: 20px;
+    border: 1px solid #a4a4a4;
+    border-radius: 8px;
     background: #ffffff;
     padding: 25px;
     margin: 0 0 25px;
@@ -6304,7 +6304,7 @@ a.elio_right {
 }
 .single_widgets.widget_category ul li {
     display: block;
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid #a4a4a4;
     padding: 11px 0;
 }
 .single_widgets.widget_category ul li:last-child {
@@ -10602,8 +10602,8 @@ table th {
     padding: 40px;
 }
 .booking .form-control {
-    color: #647b9c ;
-    height: 48px ;
+    color: #484949;
+    height: 48px;
 }
 .booking .mini {
     font-size: 13px;
@@ -10744,21 +10744,27 @@ table th {
     padding: 10px 0;
     font-size: 18px;
     color: #ffffff;
-    background: #000000;
+    background: #dc5a21;
     width: 50%;
-    margin: 15px auto;
+    margin: 15px auto 0px;
     display: block;
     text-align: center;
     border-radius: 5px;
 }
 .big-center-btn:hover {
-    background: #c60845;
+    background: #dc5a21;
     color: #ffffff ;
+}
+
+
+.edu_wraper ul {
+    padding: 0px;
 }
 .course-new-sc,
 .new-exam-page p {
-    font-size: 16px;
-    color: #000;
+    font-size: 14px;
+    color: #203245;
+    line-height: 28px;
 }
 .course-short,
 .share__icon {
@@ -10790,8 +10796,13 @@ table th {
     padding: 0 10px;
 }
 .new-exam-page h2 {
-    color: #000000;
-    margin-bottom: 0;
+    margin: 0 0 10px 0px !important;
+    font-size: 17px;
+    font-weight: 400;
+    color: #0a4191;
+    background: #fafafa;
+    padding: 10px;
+    border-left: 5px solid #dc5a21;
 }
 .new-exam-page h2 a:hover {
     color: #000;
@@ -11487,6 +11498,8 @@ table th {
     .new-exam-page iframe {
         height: 200px;
     }
+
+
     .new-exam-page table {
         width: 100%;
         overflow-x: auto;
@@ -11641,10 +11654,7 @@ table th {
 .btn.univ-btn {
     padding: 0 12px 0 10px ;
 }
-.course-new-sc,
-.text {
-    text-align: justify ;
-}
+
 .option {
     font-size: 14px ;
     padding-bottom: 10px ;
@@ -13415,14 +13425,14 @@ table tr th {
 
 
 .cor-con-mid h3 {font-size: 18px;font-weight: 500;}
-
+/* 
 .tab-content>.active {
     display: flow-root;
     background: #f5f6fa !important;
     padding: 25px 10px;
     border-top: 3px solid #d7e0f1 !important;
     margin-bottom: 0px;
-}
+} */
 
 .stu-db {
     padding: 0px 0px 40px;
@@ -13643,7 +13653,7 @@ ul.partner-client li h5 {
 }
 
 .choose-uss h2 {
-    margin-bottom: 33px !important;!i;!;
+    margin-bottom: 33px !important;
     font-size: 24px;
     background-color: #0a4191;
     padding: 14px 20px;
@@ -13675,7 +13685,44 @@ ul.partner-client li h5 {
 .choose-uss .card-body:hover {
     box-shadow: 0px 0px 20px 0px #00000042;
 }
+.reviewss h2 {
+    color: #000;
+    font-weight: 400;
+    font-size: 24px;
+}
 
+.people-testi {
+    padding: 60px 0px;
+    background-color: #eee;
+}
+
+.people-testi .card-header {
+    background: #e5e5e5;
+    padding: 0px 0px !important;
+}
+
+
+.people-testi .card-header button {
+    font-weight: 500;
+    color: #000000;
+    width: 100%;
+    text-align: left;
+    text-decoration: none;
+    font-size: 14px !important;
+}
+
+.people-testi .card {
+    border: 1px solid #c9c9c9;
+    margin-bottom: 4px;
+}
+
+.people-testi .testimon {
+    margin: 10px 0px 40px;
+}
+
+.reviewss h2 {
+    font-size: 20px;
+}
 /* about us css end  */
 
 /* specialization css start  */
@@ -13713,11 +13760,13 @@ ul.partner-client li h5 {
     
 }
 
-/* .scroll-sticky {
+.scroll-sticky {
     position: sticky;
-    top: 9%;
-} */
-
+    top: 0%; 
+}
+.allcheckbx{
+    text-transform: capitalize;
+}
 .scroll-bar ul.links {
     background: none !important;
     display: flex;
@@ -13746,4 +13795,252 @@ ul.partner-client li h5 {
 }
 .scroll-bar ul.links li a {
     padding: 10px;
+}
+
+
+.users-collapse h2 {
+	color: #333;
+	text-align: center;
+	text-transform: uppercase;
+    font-family: 'Noto Sans', sans-serif;
+	font-weight: bold;
+	position: relative;
+	margin: 30px 0 60px;
+}
+.users-collapse h2::after {
+	content: "";
+	width: 140px;
+	position: absolute;
+	margin: 0 auto;
+	height: 3px;
+	background: #db584e;
+	left: 0;
+	right: 0;
+	bottom: -10px;
+    opacity: .8;
+}
+.allusrs {
+    padding: 20px;
+    border: 1px solid #0000001f;
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+.users-collapse .col-center {
+	margin: 0 auto;
+	float: none !important;
+}
+.users-collapse .carousel {
+    margin: 10px auto !important;
+    padding: 0 40px;
+}
+.users-collapse .carousel-item {
+    color: #999;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    min-height: 290px;
+    margin-top: 10px;
+}
+.users-collapse .carousel .item .img-box {
+	width: 135px;
+	height: 135px;
+	margin: 0 auto;
+	padding: 5px;
+	border: 1px solid #ddd;
+	border-radius: 50%;
+}
+.users-collapse .carousel .img-box img {
+	width: 100%;
+	height: 100%;
+	display: block;
+	border-radius: 50%;
+}
+.users-collapse .carousel .testimonial {
+	padding: 30px 0 10px;
+}
+.users-collapse .carousel .overview {	
+	font-style: italic;
+}
+.users-collapse .carousel .overview b {
+	text-transform: uppercase;
+	color: #db584e;
+}
+.users-collapse .carousel .carousel-control {
+	width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    top: 50%;
+	background: none;
+}
+.users-collapse .carousel-control i {
+    font-size: 68px;
+	line-height: 42px;
+    position: absolute;
+    display: inline-block;
+	color: rgba(0, 0, 0, 0.8);
+    text-shadow: 0 3px 3px #e6e6e6, 0 0 0 #000;
+}
+.users-collapse .carousel .carousel-indicators {
+	bottom: -40px;
+}
+.users-collapse .carousel-indicators li, .users-collapse .carousel-indicators li.active {
+	width: 10px;
+	height: 10px;
+	margin: 1px 3px;
+	border-radius: 50%;
+}
+.users-collapse .carousel-indicators li {	
+	background: #999;
+	border-color: transparent;
+	box-shadow: inset 0 2px 1px rgba(0,0,0,0.2);
+}
+.users-collapse .carousel-indicators li.active {	
+	background: #555;		
+	box-shadow: inset 0 2px 1px rgba(0,0,0,0.2);
+}
+.reviewss.allusrs {
+    padding: 20px;
+    background-color: #e5e5e5;
+    border-radius: 7px;
+    margin-bottom: 33px;
+}
+
+.u-stall {
+    text-align: center;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.u-stall .overview b {
+    color: #dd5e26;
+    font-style: italic;
+}
+
+.u-stall .overview {
+    color: gray;
+}
+
+.u-stall .testimonial {
+    color: gray;
+}
+
+.u-stall .img-box {
+    border-radius: 119px;
+    width: 157px;
+    height: 157px;
+    overflow: hidden;
+}
+.say-h2 {
+    font-size: 18px;
+    color: #000;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+
+.users-collapse .carousel-control-next, .users-collapse .carousel-control-prev {
+    width: 3%;
+}
+
+.review-write {
+    font-weight: 500 !important;
+}
+.reviewss.allusrs button{
+    background-color: #dd5e27 !important;
+    border: 1px solid #dd5e27 !important;
+}
+
+section.levellight {
+    padding: 60px 0px;
+}
+
+section.levellight h2 {
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+section.levellight h2 span {
+    color: #0f4593;
+}
+
+.ed-ad-dec {
+    text-align: center;
+    height: 100%;
+    border: 1px solid #00000029;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.ed-ad-dec .alluniversty {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ed-ad-dec .ed-ad-img {
+    width: 84px;
+    margin: 0px auto;
+}
+
+.ed-ad-dec:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.ed-ad-dec a {
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #dc5a21;
+    color: #fff;
+    border-radius: 3px;
+    display: block;
+}
+
+.ed-ad-dec a:hover {
+    color: #fff !important;
+}
+
+.reviewss h2 {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.people-testi {
+    text-align: center;
+}
+.new-exam-page {
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgb(0 0 0 / 8%);
+    margin-top: 0px;
+    border: 1px solid #a4a4a4;
+    border-radius: 10px;
+}
+.new-exam-page h3 {
+    margin: 0 0 10px 0px !important;
+    font-size: 17px;
+    font-weight: 400;
+    color: #0a4191;
+    background: #fafafa;
+    padding: 10px;
+    border-left: 5px solid #dc5a21;
+}
+.edu_wraper h4 {
+    margin: 0 0 10px 0px !important;
+    font-size: 18px;
+    font-weight: 400;
+    color: #0a4191;
+    background: #fafafa;
+    padding: 10px;
+    border-left: 5px solid #dc5a21;
+}
+.booking .form-control::placeholder {
+    color: #0c0c0c;
+    font-weight: 400;
 }

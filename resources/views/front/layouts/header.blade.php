@@ -121,11 +121,10 @@
                 <li class="login_click light"><a href="{{ url('/student/profile/') }}">Profile</a></li>
               @else
                 <li class="login_click light"><a href="{{ url('/') }}/sign-in">Login</a></li>
-                <!--<li class="login_click theme-bg"><a href="{{ url('/') }}/sign-up">Sign up</a></li>-->
               @endif
             </ul>
             <ul class="nav-menu align-to-right">
-              <li><a href="{{ url('/') }}/cities">Home</a></li>
+              <li><a href="{{ route('home') }}">Home</a></li>
               <li class="mega-dropdown"><a href="#">Resources<span class="submenu-indicator"></span></a>
                 <ul class="nav-dropdown nav-submenu mega-dropdown-menu new-width">
                   <div class="row">
