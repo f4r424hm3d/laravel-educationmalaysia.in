@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\student;
 
 use App\Http\Controllers\Controller;
-use App\Models\AppliedProgram;
+use App\Models\StudentApplication;
 use App\Models\Country;
 use App\Models\CourseCategory;
 use App\Models\Level;
-use App\Models\Student;
+use App\Models\Lead;
 use App\Models\UniversityProgram;
 use App\Rules\MathCaptchaValidationRule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 
 class StudentLoginFc extends Controller
@@ -20,14 +22,15 @@ class StudentLoginFc extends Controller
   public function signUp(Request $request)
   {
     $url = url('sign-up');
+    $countries = Country::orderBy('name', 'ASC')->get();
     $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
     $levels = Level::groupBy('level')->orderBy('level', 'ASC')->get();
-    $course_categories = CourseCategory::orderBy('category_name', 'asc')->get();
+    $course_categories = CourseCategory::orderBy('name', 'asc')->get();
 
     $question = generateMathQuestion();
     session(['captcha_answer' => $question['answer']]);
 
-    $data = compact('url', 'phonecodes', 'levels', 'course_categories', 'question');
+    $data = compact('url', 'countries', 'phonecodes', 'levels', 'course_categories', 'question');
     return view('front.student.sign-up')->with($data);
   }
   public function register(Request $request)
@@ -42,23 +45,31 @@ class StudentLoginFc extends Controller
       [
         'captcha_answer' => ['required', 'numeric', new MathCaptchaValidationRule()],
         'name' => 'required|regex:/^[a-zA-Z ]*$/',
-        'email' => 'required|email|unique:students,email',
+        'email' => [
+          'required',
+          'email',
+          Rule::unique('leads', 'email')->where('website', site_var),
+        ],
         'c_code' => 'required|numeric',
         'mobile' => 'required|numeric',
         'password' => ['required', 'string', Password::min(8)->mixedCase()->numbers()->symbols()],
         'confirm_password' => 'required|same:password',
-        'current_qualification_level' => 'required',
-        'intrested_course_category' => 'required'
+        'highest_qualification' => 'required',
+        'intrested_subject' => 'required',
+        'nationality' => 'required'
       ]
     );
-    $field = new Student();
+    $field = new Lead();
     $field->name = $request['name'];
     $field->email = $request['email'];
-    $field->current_qualification_level = $request['current_qualification_level'];
-    $field->intrested_course_category = $request['intrested_course_category'];
+    $field->highest_qualification = $request['highest_qualification'];
+    $field->intrested_subject = $request['intrested_subject'];
+    $field->nationality = $request['nationality'];
     $field->c_code = $request['c_code'];
     $field->mobile = $request['mobile'];
     $field->password = $request['password'];
+    $field->source = 'Education Malaysia - Signup';
+    $field->source_path = $request->source_path;
     $field->otp = $otp;
     $field->otp_expire_at = $otp_expire_at;
     $field->status = 0;
@@ -76,32 +87,11 @@ class StudentLoginFc extends Controller
       }
     );
     if ($chk == false) {
-      $emsg = response()->Fail('Sorry! Please try again latter');
+      $emsg = 'Sorry! Please try again latter';
       session()->flash('emsg', $emsg);
       return redirect($return_url);
     } else {
       $field->save();
-
-      $form_data = [
-        'website' => 'BRI',
-        'name' => $request['name'],
-        'email' => $request['email'],
-        'c_code' => $request['c_code'],
-        'mobile' => $request['mobile'],
-        'highest_qualification' => $request['current_qualification_level'],
-        'intrested_subject' => $request['intrested_course_category'],
-        'source' => 'Education Malaysia Sign-up',
-      ];
-
-
-      $api_url = "https://www.crm.educationmalaysia.in/api/lead-from-britannica-overseas-book-demo";
-      $client = curl_init($api_url);
-      curl_setopt($client, CURLOPT_POST, true);
-      curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
-      curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-      $response = curl_exec($client);
-      curl_close($client);
-
       session()->flash('smsg', 'An OTP has been send to your registered email address.');
       $request->session()->put('last_id', $field->id);
       if ($request['program_id'] != null) {
@@ -120,7 +110,7 @@ class StudentLoginFc extends Controller
     //printArray($request->all());
     $seg1 = $request['return_to'] != null ? 'return_to=' . $request['return_to'] : null;
     $return_url = 'sign-up?' . $seg1;
-    $result = Student::find($request['id']);
+    $result = Lead::find($request['id']);
     $current_time = date("YmdHis");
     if ($result->otp == $request['otp']) {
       if ($current_time > $result->otp_expire_at) {
@@ -140,9 +130,8 @@ class StudentLoginFc extends Controller
         $result->otp_expire_at = null;
         $result->email_verified_at = date("Y-m-d H:i:s");
         $result->email_verified = 1;
+        $result->registered = 1;
         $result->status = 1;
-        $result->lead_type = 'new';
-        $result->source = 'signup';
         $result->save();
         session()->flash('smsg', 'Email verified. Succesfully logged in.');
         $request->session()->put('studentLoggedIn', true);
@@ -151,18 +140,33 @@ class StudentLoginFc extends Controller
           $program_id = $request->program_id;
           $chkProg = UniversityProgram::where('id', $program_id)->first();
           if ($chkProg != null) {
-            $where = ['program_id' => $program_id, 'student_id' => $request->session()->get('last_id')];
-            $check = AppliedProgram::where($where)->count();
+            $where = ['prog_id' => $program_id, 'stdid' => $request->session()->get('last_id')];
+            $check = StudentApplication::where($where)->count();
             if ($check == 0) {
-              $field = new AppliedProgram();
-              $field->program_id = $request->program_id;
-              $field->student_id = session()->get('student_id');
+              $field = new StudentApplication();
+              $field->prog_id = $request->program_id;
+              $field->stdid = session()->get('student_id');
               $field->status = 1;
+              $field->website = site_var;
               $field->save();
               session()->flash('smsg', 'Congratulation! You succesfully Applied for ' . $chkProg->program_name);
             }
           }
         }
+
+        $emaildata = ['name' => $result['name']];
+        $dd = ['to' => $result['email'], 'to_name' => $result['name'], 'subject' => 'Successfully registration on Education Malaysia.'];
+
+        Mail::send(
+          'mails.student-welcome-mail',
+          $emaildata,
+          function ($message) use ($dd) {
+            $message->to($dd['to'], $dd['to_name']);
+            $message->subject($dd['subject']);
+            $message->priority(1);
+          }
+        );
+
         if ($request['return_to'] != null) {
           return redirect($request['return_to']);
         } else {
@@ -190,13 +194,13 @@ class StudentLoginFc extends Controller
     $seg2 = $request['program_id'] != null ? 'program_id=' . $request['program_id'] : null;
     $return_url = 'sign-in?' . $seg1 . ($seg2 != null ? '&' . $seg2 : '');
     //die;
-    $field = Student::whereEmail($request['email'])->first();
+    $field = Lead::whereEmail($request['email'])->first();
     if (is_null($field)) {
       session()->flash('emsg', 'Email address not exist.');
       return redirect($return_url);
     } else {
       if ($field->status == 1) {
-        if ($field->password == $request['password']) {
+        if (Hash::check($request->password, $field->password)) {
           $lc = $field->login_count == '' ? 0 : $field->login_count + 1;
           $field->login_count = $lc;
           $field->last_login = date("Y-m-d H:i:s");
@@ -208,15 +212,16 @@ class StudentLoginFc extends Controller
             $program_id = $request->program_id;
             $chkProg = UniversityProgram::where('id', $program_id)->first();
             if ($chkProg != null) {
-              $where = ['program_id' => $program_id, 'student_id' => $field->id];
-              $check = AppliedProgram::where($where)->count();
+              $where = ['prog_id' => $program_id, 'stdid' => $field->id];
+              $check = StudentApplication::where($where)->count();
               if ($check == 0) {
-                $field = new AppliedProgram();
-                $field->program_id = $request->program_id;
-                $field->student_id = session()->get('student_id');
+                $field = new StudentApplication();
+                $field->prog_id = $request->program_id;
+                $field->stdid = session()->get('student_id');
                 $field->status = 1;
+                $field->website = site_var;
                 $field->save();
-                session()->flash('smsg', 'Congratulation! You succesfully Applied for ' . $chkProg->program_name);
+                session()->flash('smsg', 'Congratulation! You succesfully Applied for ' . $chkProg->course_name);
               }
             }
           }
@@ -242,7 +247,7 @@ class StudentLoginFc extends Controller
           }
         );
         if ($result == false) {
-          $emsg = response()->Fail('Sorry! Please try again latter');
+          $emsg = 'Sorry! Please try again latter';
           session()->flash('emsg', $emsg);
           return redirect($return_url);
         } else {
@@ -276,7 +281,7 @@ class StudentLoginFc extends Controller
     // die;
     $remember_token = Str::random(45);
     $otp_expire_at = date("YmdHis", strtotime("+10 minutes"));
-    $field = Student::whereEmail($request['email'])->first();
+    $field = Lead::whereEmail($request['email'])->first();
     if (is_null($field)) {
       session()->flash('emsg', 'Entered wrong email address. Please check.');
       return redirect('account/password/reset');
@@ -299,7 +304,7 @@ class StudentLoginFc extends Controller
         }
       );
       if ($chk == false) {
-        $emsg = response()->Fail('Sorry! Please try again latter');
+        $emsg = 'Sorry! Please try again latter';
         session()->flash('emsg', $emsg);
         return redirect('account/password/reset');
       } else {
@@ -324,7 +329,7 @@ class StudentLoginFc extends Controller
     $id = $request['uid'];
     $remember_token = $request['token'];
     $where = ['id' => $id, 'remember_token' => $remember_token];
-    $field = Student::where($where)->first();
+    $field = Lead::where($where)->first();
     $current_time = date("YmdHis");
     //printArray($field->all());
     if (is_null($field)) {
@@ -358,7 +363,7 @@ class StudentLoginFc extends Controller
     $id = $request['uid'];
     $remember_token = $request['token'];
     $where = ['id' => $id, 'remember_token' => $remember_token];
-    $field = Student::where($where)->first();
+    $field = Lead::where($where)->first();
     $current_time = date("YmdHis");
     //printArray($field->all());
     if (is_null($field)) {
@@ -380,7 +385,7 @@ class StudentLoginFc extends Controller
     $id = $request['id'];
     $remember_token = $request['remember_token'];
     $where = ['id' => $id, 'remember_token' => $remember_token];
-    $field = Student::where($where)->first();
+    $field = Lead::where($where)->first();
     $current_time = date("YmdHis");
     //printArray($field->all());
     if (is_null($field)) {

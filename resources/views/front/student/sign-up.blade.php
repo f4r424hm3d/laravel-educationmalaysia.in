@@ -72,7 +72,7 @@
                 @enderror
                 <form action="{{ $url }}" method="post" enctype="multipart/form-data">
                   @csrf
-                  <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+                  <input type="hidden" name="source_path" value="{{ url()->current() }}">
                   <input type="hidden" name="return_to" value="{{ $_GET['return_to'] ?? null }}">
                   <input type="hidden" name="program_id" value="{{ $_GET['program_id'] ?? null }}">
                   <div class="log_wraps">
@@ -83,7 +83,7 @@
                       <div class="input-group">
                         <div class="input-icon"><span class="ti-user"></span></div>
                         <input name="name" type="text" class="form-control b-0 bg-white pl-0"
-                          placeholder="Ex. Mohd Abdul Rafay" value="{{ old('name') }}" required="">
+                          placeholder="Ex. Peter Parker" value="{{ old('name') }}" required="">
                       </div>
                       <span class="text-danger">
                         @error('name')
@@ -136,35 +136,46 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <select name="current_qualification_level" id="current_qualification_level"
-                        class="form-control bg-white">
+                      <select name="highest_qualification" id="highest_qualification" class="form-control bg-white">
                         <option value="">Qualification Level</option>
                         @foreach ($levels as $row)
                           <option value="{{ $row->level }}"
-                            {{ old('current_qualification_level') && old('current_qualification_level') == $row->level ? 'Selected' : '' }}>
+                            {{ old('highest_qualification') && old('highest_qualification') == $row->level ? 'Selected' : '' }}>
                             {{ $row->level }}</option>
                         @endforeach
                       </select>
                       <span class="text-danger">
-                        @error('current_qualification_level')
+                        @error('highest_qualification')
                           {{ $message }}
                         @enderror
                       </span>
                     </div>
                     <div class="form-group">
-                      <select name="intrested_course_category" id="intrested_course_category"
-                        class="form-control bg-white">
+                      <select name="intrested_subject" id="intrested_subject" class="form-control bg-white">
                         <option value="">Intrested Course Category</option>
                         @foreach ($course_categories as $row)
-                          <option value="{{ $row->category_name }}"
-                            {{ old('intrested_course_category') && old('intrested_course_category') == $row->category_name
-                                ? 'Selected'
-                                : '' }}>
-                            {{ $row->category_name }}</option>
+                          <option value="{{ $row->name }}"
+                            {{ old('intrested_subject') && old('intrested_subject') == $row->name ? 'Selected' : '' }}>
+                            {{ $row->name }}</option>
                         @endforeach
                       </select>
                       <span class="text-danger">
-                        @error('intrested_course_category')
+                        @error('intrested_subject')
+                          {{ $message }}
+                        @enderror
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <select name="nationality" id="nationality" class="form-control bg-white">
+                        <option value="">Nationality</option>
+                        @foreach ($countries as $row)
+                          <option value="{{ $row->name }}"
+                            {{ old('nationality') && old('nationality') == $row->name ? 'Selected' : '' }}>
+                            {{ $row->name }}</option>
+                        @endforeach
+                      </select>
+                      <span class="text-danger">
+                        @error('nationality')
                           {{ $message }}
                         @enderror
                       </span>

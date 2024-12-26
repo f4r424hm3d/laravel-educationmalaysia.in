@@ -16,4 +16,13 @@ class StudentApplication extends Model
   {
     return $this->belongsTo(lead::class, 'stdid', 'id');
   }
+
+  public function scopeActive($query)
+  {
+    return $query->where('status', 1);
+  }
+  public function scopeInActive($query)
+  {
+    return $query->where('status', 0);
+  }
 }

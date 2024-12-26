@@ -21,6 +21,6 @@
   $page_content = replaceTag($page_content, $tagArray);
 
   $seo_rating = $seo->seo_rating ?? '';
-  $og_image_path = $seo->ogimgpath;
+  $og_image_path = $seo->ogimgpath ?? null;
 @endphp
 @include('front.layouts.dynamic_page_meta_tag')

@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\student;
 
 use App\Http\Controllers\Controller;
-use App\Models\AppliedProgram;
 use App\Models\Country;
 use App\Models\Gender;
 use App\Models\Level;
 use App\Models\MaritalStatus;
-use App\Models\SchoolAttended;
+use App\Models\StudentSchool;
 use App\Models\ShortlistedProgram;
-use App\Models\Student;
+use App\Models\Lead;
+use App\Models\StudentApplication;
 use App\Models\StudentDocument;
 use Illuminate\Http\Request;
 
@@ -19,15 +19,15 @@ class StudentFc extends Controller
   public function profile()
   {
     $id = session()->get('student_id');
-    $student = Student::find($id);
+    $student = Lead::find($id);
 
     $phonecodes = Country::orderBy('phonecode')->groupBy('phonecode')->where('phonecode', '!=', '0')->get();
     $countries = Country::orderBy('name')->get();
     $genders = Gender::all();
     $marital_statuses = MaritalStatus::all();
     $levels = Level::all();
-    $schools = SchoolAttended::where('student_id', $id)->get();
-    $stdDocs = StudentDocument::where('student_id', $id)->get();
+    $schools = StudentSchool::where('std_id', $id)->get();
+    $stdDocs = StudentDocument::where('std_id', $id)->get();
 
     $piurl = url('student/personal-information');
     $eduurl = url('student/education-summary');
@@ -40,7 +40,7 @@ class StudentFc extends Controller
   public function editProfile()
   {
     $id = session()->get('student_id');
-    $student = Student::find($id);
+    $student = Lead::find($id);
     $data = compact('student');
     return view('front.student.edit-profile')->with($data);
   }
@@ -59,7 +59,7 @@ class StudentFc extends Controller
         'country' => 'regex:/^[a-zA-Z ]*$/',
       ]
     );
-    $field = Student::find($request['id']);
+    $field = Lead::find($request['id']);
     $field->name = $request['name'];
     $field->gender = $request['gender'];
     $field->dob = $request['dob'];
@@ -76,14 +76,14 @@ class StudentFc extends Controller
   public function viewChangePassword()
   {
     $id = session()->get('student_id');
-    $student = Student::find($id);
+    $student = Lead::find($id);
     $data = compact('student');
     return view('front.student.change-password')->with($data);
   }
   public function changePassword(Request $request)
   {
     $id = session()->get('student_id');
-    $student = Student::find($id);
+    $student = Lead::find($id);
 
     $request->validate(
       [
@@ -92,7 +92,7 @@ class StudentFc extends Controller
         'confirm_new_password' => 'required|min:8|same:new_password',
       ]
     );
-    $field = Student::find($request['id']);
+    $field = Lead::find($request['id']);
     $field->password = $request['new_password'];
     $field->save();
     session()->flash('smsg', 'Password has been changed.');
@@ -101,25 +101,24 @@ class StudentFc extends Controller
   public function appliedCollege()
   {
     $id = session()->get('student_id');
-    $student = Student::find($id);
-    $appliedprograms = AppliedProgram::with('getProgram')->where('student_id', $id)->get();
-    // printArray($appliedprograms->toArray());
-    // die;
+    $student = Lead::find($id);
+    $appliedprograms = StudentApplication::active()->where('stdid', $id)->get();
     $data = compact('student', 'appliedprograms');
+    //die;
     return view('front.student.applied-colleges')->with($data);
   }
   public function shortlist()
   {
     $id = session()->get('student_id');
-    $student = Student::find($id);
-    $rows = ShortlistedProgram::with('getProgram')->where('student_id', $id)->get();
+    $student = Lead::find($id);
+    $rows = StudentApplication::inActive()->where('stdid', $id)->get();
     $data = compact('student', 'rows');
     return view('front.student.shortlist')->with($data);
   }
   public function settings()
   {
     $id = session()->get('student_id');
-    $student = Student::find($id);
+    $student = Lead::find($id);
     $data = compact('student');
     return view('front.student.account-settings')->with($data);
   }
@@ -149,7 +148,7 @@ class StudentFc extends Controller
         'home_contact_number' => 'required|numeric',
       ]
     );
-    $field = Student::find($id);
+    $field = Lead::find($id);
     $field->name = $request['name'];
     $field->email = $request['email'];
     $field->c_code = $request['c_code'];
@@ -184,7 +183,7 @@ class StudentFc extends Controller
         'grade_average' => 'required',
       ]
     );
-    $field = Student::find($id);
+    $field = Lead::find($id);
     $field->country_of_education = $request['country_of_education'];
     $field->highest_level_of_education = $request['highest_level_of_education'];
     $field->grading_scheme = $request['grading_scheme'];
@@ -214,8 +213,8 @@ class StudentFc extends Controller
         'zipcode' => 'required',
       ]
     );
-    $field = new SchoolAttended;
-    $field->student_id = $id;
+    $field = new StudentSchool;
+    $field->std_id = $id;
     $field->country_of_institution = $request['country_of_institution'];
     $field->name_of_institution = $request['name_of_institution'];
     $field->level_of_education = $request['level_of_education'];
@@ -254,7 +253,7 @@ class StudentFc extends Controller
         'zipcode' => 'required',
       ]
     );
-    $field = SchoolAttended::find($request['id']);
+    $field = StudentSchool::find($request['id']);
     $field->country_of_institution = $request['country_of_institution'];
     $field->name_of_institution = $request['name_of_institution'];
     $field->level_of_education = $request['level_of_education'];
@@ -285,7 +284,7 @@ class StudentFc extends Controller
         'english_exam_type' => 'required',
       ]
     );
-    $field = Student::find($id);
+    $field = Lead::find($id);
     foreach ($data as $key => $value) {
       $field->$key = $value;
     }
@@ -306,7 +305,7 @@ class StudentFc extends Controller
         'gre' => 'required',
       ]
     );
-    $field = Student::find($id);
+    $field = Lead::find($id);
     foreach ($data as $key => $value) {
       $field->$key = $value;
     }
@@ -327,7 +326,7 @@ class StudentFc extends Controller
         'gmat' => 'required',
       ]
     );
-    $field = Student::find($id);
+    $field = Lead::find($id);
     foreach ($data as $key => $value) {
       $field->$key = $value;
     }
@@ -348,7 +347,7 @@ class StudentFc extends Controller
         'sat' => 'required',
       ]
     );
-    $field = Student::find($id);
+    $field = Lead::find($id);
     foreach ($data as $key => $value) {
       $field->$key = $value;
     }
@@ -369,7 +368,7 @@ class StudentFc extends Controller
         'visa_note' => 'required',
       ]
     );
-    $field = Student::find($id);
+    $field = Lead::find($id);
     $field->refused_visa = $request->refused_visa;
     $field->valid_study_permit = $request->valid_study_permit;
     $field->visa_note = $request->visa_note;
@@ -389,8 +388,8 @@ class StudentFc extends Controller
       ]
     );
     $field = new StudentDocument();
-    $field->student_id = $id;
-    $field->document_name = $request->document_name;
+    $field->std_id = $id;
+    $field->doc_name = $request->document_name;
     if ($request->hasFile('doc')) {
       $fileOriginalName = $request->file('doc')->getClientOriginalName();
       $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
@@ -399,8 +398,8 @@ class StudentFc extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('doc')->move('uploads/documents/', $file_name);
       if ($move) {
-        $field->file_name = $file_name;
-        $field->file_path = 'uploads/documents/' . $file_name;
+        $field->imgname = $file_name;
+        $field->imgpath = 'uploads/documents/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
@@ -412,11 +411,11 @@ class StudentFc extends Controller
   public function deleteSchool($id)
   {
     //echo $id;
-    echo $result = SchoolAttended::find($id)->delete();
+    echo $result = StudentSchool::find($id)->delete();
   }
   public function deleteProgram($id)
   {
     //echo $id;
-    echo $result = AppliedProgram::find($id)->delete();
+    echo $result = StudentApplication::find($id)->delete();
   }
 }

@@ -79,7 +79,7 @@ class AdminLogin extends Controller
         }
       );
       if ($chk == false) {
-        $emsg = response()->Fail('Sorry! Please try again latter');
+        $emsg = response('Sorry! Please try again latter');
         session()->flash('emsg', $emsg);
         return redirect('admin/account/password/reset');
       } else {

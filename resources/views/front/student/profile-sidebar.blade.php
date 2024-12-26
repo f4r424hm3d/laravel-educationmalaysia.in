@@ -12,8 +12,8 @@
         </svg>
       </a>
       <input id="upload-file" type="file" />
-      <h4>abdul rafay</h4>
-      <span>mohdabdulrafay@gmail.com</span>
+      <h4>{{ $student->name }}</h4>
+      <span>{{ $student->email }}</span>
     </div>
     <div class="d-navigation">
       <ul id="side-menu">
@@ -25,8 +25,6 @@
             href="{{ url('student/shortlist/') }}"><i class="ti-list"></i>Shortlist</a></li>
         <li class="{{ Request::segment(2) == 'change-password' ? 'active' : '' }}"><a
             href="{{ url('student/change-password/') }}"><i class="ti-lock"></i>Change Password</a></li>
-        <li class="{{ Request::segment(2) == 'account-settings' ? 'active' : '' }}"><a
-            href="{{ url('student/account-settings/') }}"><i class="ti-settings"></i>Account settings</a></li>
         <li><a href="{{ url('student/logout/') }}"><i class="ti-power-off"></i>Log Out</a></li>
       </ul>
     </div>

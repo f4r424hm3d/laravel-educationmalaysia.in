@@ -1,8 +1,10 @@
 @php
-  use App\Models\Seo;
+  use App\Models\StaticPageSeo;
   $page_url = url()->current();
-  $url = Request::segment(2);
-  $seo = Seo::where(['url' => $url])->first();
+  //$url = Request::segment(1) ?? 'home';
+  $url = Request::path() == '/' ? 'home' : Request::path();
+  //die();
+  $seo = StaticPageSeo::where(['page' => $url])->first();
   $site = url('/');
   $tagArray = ['currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
