@@ -1,5 +1,6 @@
 @php
   use App\Models\StudentApplication;
+  use App\Helpers\UniversityProgramListButton;
 @endphp
 @extends('front.layouts.main')
 @push('seo_meta_tag')
@@ -155,28 +156,7 @@
                           </div>
                           <div class="dc_head_right">
                             <div class="dropdown">
-                              @if (session()->has('studentLoggedIn'))
-                                @php
-                                  $studentId = session()->get('student_id');
-                                  $checkAppliedProgram = StudentApplication::where('stdid', $studentId)
-                                      ->where('prog_id', $row->id)
-                                      ->first();
-                                @endphp
-                                @if ($checkAppliedProgram)
-                                  @if ($checkAppliedProgram->status == 1)
-                                    <button class="btn btn-modern2 univ-btn reviews-btn">Applied</button>
-                                  @else
-                                    <a href="{{ route('student.apply.program', ['program_id' => $row->id]) }}"
-                                      class="btn btn-modern2 univ-btn reviews-btn">Apply Now</a>
-                                  @endif
-                                @else
-                                  <a href="{{ route('student.apply.program', ['program_id' => $row->id]) }}"
-                                    class="btn btn-modern2 univ-btn reviews-btn">Apply Now</a>
-                                @endif
-                              @else
-                                <a href="{{ url('sign-up?program_id=' . $row->id) }}"
-                                  class="btn btn-modern2 univ-btn reviews-btn">Apply Now</a>
-                              @endif
+                              {!! UniversityProgramListButton::getApplyButton($row->id) !!}
                             </div>
                           </div>
                         </div>
