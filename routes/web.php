@@ -711,7 +711,7 @@ Route::get('author/{slug}' . $row->slug, [AuthorFc::class, 'index']);
 
 // UNIVERSITIES IN MALAYSIA ROUTES START
 
-Route::get('universities-in-malaysia', [UniversityListFc::class, 'index']);
+Route::get('universities-in-malaysia', [UniversityListFc::class, 'index'])->name('uim');
 
 $instTYpe = University::select('institute_type')->where(['status' => 1])->where('institute_type', '!=', null)->groupBy('institute_type')->get();
 foreach ($instTYpe as $row) {

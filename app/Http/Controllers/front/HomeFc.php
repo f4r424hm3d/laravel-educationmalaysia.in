@@ -8,6 +8,7 @@ use App\Models\CourseSpecialization;
 use App\Models\Destination;
 use App\Models\FaqCategory;
 use App\Models\PageContent;
+use App\Models\Testimonial;
 use App\Models\University;
 use App\Models\UniversityProgram;
 use Illuminate\Http\Request;
@@ -18,8 +19,18 @@ class HomeFc extends Controller
   public function index(Request $request)
   {
     $blogs = Blog::limit(10)->get();
+    $universities = University::inRandomOrder()->active()->homeview()->limit(20)->get();
+    $universityRanks = University::inRandomOrder()->active()->homeview()->where(function ($query) {
+      $query->whereNotNull('qs_rank')->where('qs_rank', '!=', '')
+        ->orWhereNotNull('times_rank')->where('times_rank', '!=', '')
+        ->orWhereNotNull('rank')->where('rank', '!=', '');
+    })->limit(20)->get();
 
-    $data = compact('blogs');
+    $specializations = CourseSpecialization::inRandomOrder()->limit(20)->get();
+    $specializationsWithContent = CourseSpecialization::inRandomOrder()->whereHas('contents')->limit(20)->get();
+    $pageContent = PageContent::where('page_name', 'home')->first();
+    $testimonials = Testimonial::limit(20)->active()->inRandomOrder()->get();
+    $data = compact('blogs', 'universities', 'pageContent', 'specializations', 'specializationsWithContent', 'universityRanks', 'testimonials');
     return view('front.index')->with($data);
   }
   public function privacyPolicy(Request $request)

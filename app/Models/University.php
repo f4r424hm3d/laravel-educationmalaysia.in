@@ -51,6 +51,10 @@ class University extends Model
   {
     return $query->where('status', 1);
   }
+  public function scopeHomeview($query)
+  {
+    return $query->where('homeview', 1);
+  }
   public function scopeHead($query)
   {
     return $query->where('parent_university_id', null);
