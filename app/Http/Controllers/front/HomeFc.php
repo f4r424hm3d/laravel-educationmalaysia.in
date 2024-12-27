@@ -7,7 +7,9 @@ use App\Models\Blog;
 use App\Models\CourseSpecialization;
 use App\Models\Destination;
 use App\Models\FaqCategory;
+use App\Models\PageBanner;
 use App\Models\PageContent;
+use App\Models\StaticPageContent;
 use App\Models\Testimonial;
 use App\Models\University;
 use App\Models\UniversityProgram;
@@ -62,7 +64,14 @@ class HomeFc extends Controller
   }
   public function SelectUniversities(Request $request)
   {
-    return view('front.select-universities');
+    $banner = PageBanner::where('uri', 'select-university')->first();
+    $pageContentTop = StaticPageContent::where(['page_name' => 'select-university', 'position' => 'top'])->first();
+    $pageContentBottom = StaticPageContent::where(['page_name' => 'select-university', 'position' => 'bottom'])->first();
+    $pageContentPrivate = StaticPageContent::where(['page_name' => 'select-university', 'position' => 'private-university'])->first();
+    $pageContentPublic = StaticPageContent::where(['page_name' => 'select-university', 'position' => 'public-university'])->first();
+    $pageContentForeign = StaticPageContent::where(['page_name' => 'select-university', 'position' => 'foreign-university'])->first();
+    $data = compact('banner', 'pageContentTop', 'pageContentForeign', 'pageContentPublic', 'pageContentPrivate', 'pageContentBottom');
+    return view('front.select-universities')->with($data);
   }
   public function whoWeAre(Request $request)
   {
