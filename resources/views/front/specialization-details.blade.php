@@ -53,18 +53,22 @@
     </div>
   </div>
   <!-- Breadcrumb -->
-<!-- nav-bar   -->
-<div class="new-scoll-links scroll-bar scroll-sticky new-stickyadd">
-		<div class="container">
-			<ul class="links scrollTo vertically-scrollbar" >
-									<li class="active"><a href="#About-Course">About Course</a></li>
-									<li class=""><a href="#Duration">Duration</a></li>
-									<li class=""><a href="#Cost">Cost</a></li>
-									<li class=""><a href="#Career">Career</a></li>
-									<li class=""><a href="#Branches">Branches</a></li>
-							</ul>
-		</div>
-	</div>
+  <!-- nav-bar   -->
+  <div class="new-scoll-links scroll-bar scroll-sticky new-stickyadd">
+    <div class="container">
+      <ul class="links scrollTo vertically-scrollbar">
+        @php
+          $i = 1;
+        @endphp
+        @foreach ($specialization->contents as $row)
+          <li class="{{ $i == 1 ? 'active' : '' }}"><a href="#{{ slugify($row->tab) }}">{{ ucwords($row->tab) }}</a></li>
+          @php
+            $i++;
+          @endphp
+        @endforeach
+      </ul>
+    </div>
+  </div>
   <!-- Content -->
   <section class="bg-light pt-5 pb-5">
     <div class="container">
