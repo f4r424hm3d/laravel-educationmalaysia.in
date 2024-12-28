@@ -139,7 +139,7 @@
                       <label>Passing Year</label>
                       <select name="passing_year" id="passing_year" class="form-control">
                         <option value="">Select Year</option>
-                        @for ($year = 1900; $year <= date('Y'); $year++)
+                        @for ($year = 1980; $year <= date('Y'); $year++)
                           <option value="{{ $year }}"
                             {{ old('passing_year') && old('passing_year') == $year ? 'Selected' : '' }}>
                             {{ $year }}

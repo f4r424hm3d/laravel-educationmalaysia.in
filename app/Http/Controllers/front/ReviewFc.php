@@ -24,8 +24,8 @@ class ReviewFc extends Controller
   }
   public function addReview(Request $request)
   {
-    printArray($request->toArray());
-    die;
+    // printArray($request->toArray());
+    // die;
     $request->validate(
       [
         'name' => ['required', 'regex:/^([a-zA-Z ])+$/i'],
