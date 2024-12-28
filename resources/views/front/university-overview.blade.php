@@ -193,6 +193,7 @@
             @endforeach
 
           </div>
+          @include('front.forms.university-side-form')
         </div>
       </div>
     </div>

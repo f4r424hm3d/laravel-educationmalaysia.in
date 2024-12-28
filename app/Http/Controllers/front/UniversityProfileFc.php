@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Country;
 use App\Models\DefaultOgImage;
 use App\Models\DynamicPageSeo;
 use App\Models\FeesAndDeadline;
@@ -21,6 +22,9 @@ class UniversityProfileFc extends Controller
     $university = University::where(['uname' => $university_slug])->active()->firstOrFail();
 
     $trendingUniversity = University::inRandomOrder()->active()->where('id', '!=', $university->id)->limit(10)->get();
+
+    $countries = Country::orderBy('name', 'ASC')->get();
+    $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
 
     $page_url = url()->current();
     $wrdseo = ['url' => 'university'];
@@ -45,7 +49,10 @@ class UniversityProfileFc extends Controller
     $og_image_path = $university->ofimgpath ?? $dseo->ogimgpath;
     $schema = false;
 
-    $data = compact('university', 'trendingUniversity', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'schema');
+    $captcha = generateMathQuestion();
+    session(['captcha_answer' => $captcha['answer']]);
+
+    $data = compact('university', 'trendingUniversity', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'schema', 'countries', 'phonecodes', 'captcha');
     return view('front.university-overview')->with($data);
   }
   public function gallery($university_slug, Request $request)
