@@ -19,7 +19,8 @@ class OfferLandingPageFc extends Controller
   public function PageDetail($slug, Request $request)
   {
     $uri = $request->segment(1);
-    $countries = Country::orderBy('phonecode', 'asc')->where('phonecode', '!=', '0')->get();
+    $countries = Country::orderBy('name', 'ASC')->get();
+    $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
 
     $scholarship = Scholarship::website()->where(['slug' => $slug])->firstOrFail();
     $scholarships = Scholarship::website()->where('id', '!=', $scholarship->id)->get();
@@ -53,7 +54,9 @@ class OfferLandingPageFc extends Controller
     $captcha = generateMathQuestion();
     session(['captcha_answer' => $captcha['answer']]);
 
-    $data = compact('scholarship', 'scholarships', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'seo_rating', 'seoRatingSchema', 'countries', 'captcha');
+    $source = 'Scholarship Page';
+
+    $data = compact('scholarship', 'scholarships', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'seo_rating', 'seoRatingSchema', 'countries', 'phonecodes', 'captcha', 'source');
     return view('front.scholarship-detail')->with($data);
   }
 }

@@ -154,6 +154,72 @@ class InquiryController extends Controller
     );
     return redirect($request->return_path);
   }
+  public function simpleForm(Request $request)
+  {
+    // printArray($request->toArray());
+    // die;
+    $request->validate(
+      [
+        'captcha_answer' => ['required', 'numeric', new MathCaptchaValidationRule()],
+        'name' => 'required',
+        'source' => 'required',
+        'source_path' => 'required',
+        'c_code' => 'required|numeric',
+        'mobile' => 'required|numeric',
+        'email' => 'required|email',
+        'nationality' => 'required'
+      ]
+    );
+    $field = new Lead();
+    $field->name = $request['name'];
+    $field->c_code = $request['c_code'];
+    $field->mobile = $request['mobile'];
+    $field->email = $request['email'];
+    $field->source = $request['source'];
+    $field->source_path = $request['source_path'];
+    $field->nationality = $request['nationality'];
+    $field->website = site_var;
+    $field->save();
+    session()->flash('smsg', 'Your inquiry has been submitted succesfully. We will contact you soon.');
+
+    $emaildata = [
+      'name' => $request['name'],
+      'email' => $request['email'],
+      'c_code' => $request['c_code'],
+      'mobile' => $request['mobile'],
+      'source' => $request['source'],
+      'source_path' => $request['source_path'],
+      'nationality' => $request['nationality'] ?? null,
+      'university' => null,
+      'program' => null,
+      'interest' => null,
+    ];
+    $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'We have Received Your Request – Expect a Response Soon'];
+
+    Mail::send(
+      'mails.inquiry-reply',
+      $emaildata,
+      function ($message) use ($dd) {
+        $message->to($dd['to'], $dd['to_name']);
+        $message->subject($dd['subject']);
+        $message->priority(1);
+      }
+    );
+
+    $dd2 = ['to' => TO_EMAIL, 'cc' => CC_EMAIL, 'to_name' => TO_NAME, 'cc_name' => CC_NAME, 'subject' => 'New Enquiry Alert – Team Attention Needed'];
+
+    Mail::send(
+      'mails.inquiry-mail-to-team',
+      $emaildata,
+      function ($message) use ($dd2) {
+        $message->to($dd2['to'], $dd2['to_name']);
+        $message->cc($dd2['cc'], $dd2['cc_name']);
+        $message->subject($dd2['subject']);
+        $message->priority(1);
+      }
+    );
+    return redirect($request->return_path);
+  }
 
 
 
