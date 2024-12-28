@@ -60,11 +60,12 @@ class ServiceFc extends Controller
   }
   public function serviceDetail(Request $request)
   {
-
     $slug = $request->segment(1);
     $service = Service::website()->where('uri', $slug)->first();
     $services = Service::website()->where('id', '!=', $service->id)->get();
-    $countries = Country::orderBy('phonecode', 'asc')->where('phonecode', '!=', '0')->get();
+    $allServices = Service::website()->get();
+    $countries = Country::orderBy('name', 'ASC')->get();
+    $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
 
     $page_url = url()->current();
 
@@ -96,7 +97,9 @@ class ServiceFc extends Controller
     $captcha = generateMathQuestion();
     session(['captcha_answer' => $captcha['answer']]);
 
-    $data = compact('services', 'service', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'seo_rating', 'seoRatingSchema', 'countries', 'captcha');
+    $source = 'Service Page';
+
+    $data = compact('services', 'service', 'allServices', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'seo_rating', 'seoRatingSchema', 'countries', 'phonecodes', 'captcha', 'source');
     return view('front.service-detail')->with($data);
   }
 }
