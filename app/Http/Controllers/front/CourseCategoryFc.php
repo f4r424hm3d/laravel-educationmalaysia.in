@@ -15,7 +15,8 @@ class CourseCategoryFc extends Controller
 {
   public function detail($slug, Request $request)
   {
-    $countries = Country::orderBy('phonecode', 'asc')->where('phonecode', '!=', '0')->get();
+    $countries = Country::orderBy('name', 'ASC')->get();
+    $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
     $defaultImage = DefaultImage::where('page', 'course-category-detail')->get();
 
     // Fetch course specialization by slug and website filter
@@ -62,7 +63,7 @@ class CourseCategoryFc extends Controller
     $captcha = generateMathQuestion();
     session(['captcha_answer' => $captcha['answer']]);
 
-    $data = compact('category', 'categories', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path',  'captcha', 'countries', 'programs');
+    $data = compact('category', 'categories', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path',  'captcha', 'countries', 'phonecodes', 'programs');
     return view('front.category-details')->with($data);
   }
 }
