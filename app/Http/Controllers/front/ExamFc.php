@@ -25,11 +25,14 @@ class ExamFc extends Controller
   public function examDetail(Request $request)
   {
     $uri = $request->segment(1);
-    $countries = Country::orderBy('phonecode', 'asc')->where('phonecode', '!=', '0')->get();
+    $countries = Country::orderBy('name', 'ASC')->get();
+    $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
 
     $exam = Exam::website()->where(['status' => 1])->where('uri', $uri)->firstOrFail();
 
     $exams = Exam::website()->where(['status' => 1])->where('id', '!=', $exam->id)->get();
+
+    $allExams = Exam::website()->where(['status' => 1])->get();
 
     $page_url = url()->current();
 
@@ -54,10 +57,10 @@ class ExamFc extends Controller
 
     $og_image_path = $exam->imgpath ?? $dseo->ogimgpath;
 
-    $question = generateMathQuestion();
-    session(['captcha_answer' => $question['answer']]);
+    $captcha = generateMathQuestion();
+    session(['captcha_answer' => $captcha['answer']]);
 
-    $data = compact('exam', 'exams', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'countries', 'question');
+    $data = compact('exam', 'exams', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'countries', 'phonecodes', 'captcha', 'allExams');
     return view('front.exam-detail')->with($data);
   }
 }
