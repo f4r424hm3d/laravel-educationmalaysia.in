@@ -652,8 +652,10 @@ Route::get('privacy-policy', [HomeFc::class, 'privacyPolicy'])->name('pp');
 Route::get('terms-and-conditions', [HomeFc::class, 'termsConditions'])->name('tc');
 
 Route::get('reviews', [ReviewFc::class, 'reviews'])->name('reviews');
-Route::get('write-a-review', [ReviewFc::class, 'writeReview'])->name('write.review');
+Route::get('write-a-review', [ReviewFc::class, 'index'])->name('write.review');
 Route::post('add-review', [ReviewFc::class, 'addReview'])->name('add.review');
+Route::get('reviews/get-programs', [ReviewFc::class, 'getProgramsByUniversity'])->name('review.get.programs');
+
 
 Route::get('what-people-say', [HomeFc::class, 'whatPeopleSay'])->name('wps');
 Route::get('who-we-are', [HomeFc::class, 'whoWeAre'])->name('wwa');
