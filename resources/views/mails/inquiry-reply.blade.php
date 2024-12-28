@@ -23,24 +23,23 @@
           </tr>
           <tr>
             <td valign="top" class="content" style="background:white;padding:20px 35px 10px 35px;">
-              <h3>Hello
-                {{ $name }},
-              </h3>
-              <p style="text-align: justify">
-                Thank you for your intrest in <span style="color: black; font-weight: bold;">
-                  {{ $intrest }}
-                </span>. One of our counsellors will be in touch with you shortly.
-                <br>
-                <br>
-                <br>
-                {{-- In case of any queries, feel free to contact us at <span
-                  style="color: #fcb709;font-weight:bold">info@tutelagestudy.com</span> --}}
+              <p>Dear {{ $name }},</p>
+              <p>Thank you for reaching out to us! We’ve received your enquiry and our team is currently reviewing it.
+                We will get back to you as soon as possible with the information or assistance you requested.</p>
+              <p>If you have any urgent questions or need further assistance, feel free to reply to this email or
+                contact us at <strong><a href="tel:{{ callPhoneNumber(phone_india) }}">{{ phone_india }}</a></strong>.
               </p>
+              <p>We appreciate your interest and look forward to assisting you soon!</p>
+              <br>
+              <p>Best regards,</p>
+              <p><strong>{{ config('app.name') }}</strong></p>
+              <p><strong>{{ contact_email }}</strong></p>
+              <p><a href="{{ url('/') }}">{{ DOMAIN }}</a></p>
               <hr>
-              <!-- <p style="text-align: justify">
+              <p style="text-align: justify">
                 <b>Our mailing address is:</b><br>
                 B-16 ground floor Gurugram, Mayfield Garden,<br>Sector 50, Gurugram
-              </p> -->
+              </p>
             </td>
           </tr>
           <tr>

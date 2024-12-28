@@ -695,9 +695,8 @@ Route::get('/scholarship/{slug}', [OfferLandingPageFc::class, 'PageDetail'])->na
 
 Route::prefix('/inquiry')->group(function () {
   Route::post('/inquiry/university-profile-form', [InquiryController::class, 'universityProfile'])->name('inquiry.university.profile');
-
-
   Route::post('/inquiry/stream-page-inquiry', [InquiryController::class, 'submitStreamPageInquiry'])->name('stream.inquiry');
+
   Route::post('/inquiry/brochure-request', [InquiryController::class, 'brochureRequest'])->name('brochure.inquiry');
   Route::post('/inquiry/simple-inquiry', [InquiryController::class, 'submitSimpleInquiry'])->name('simple.inquiry');
 });

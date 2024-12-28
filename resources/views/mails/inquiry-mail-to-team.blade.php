@@ -66,19 +66,35 @@
           </tr>
           <tr>
             <td valign="top" class="content" style="background:white;padding:25px;">
-              <p style="text-align: justify">
-                Hi Team,<br>
-                New Inquiry from <b>{{ config('app.name') }}</b><br>
-
+              <p style="text-align: justify;">
+                Hi Team,<br><br>
+                <strong>New Inquiry from {{ config('app.name') }}</strong><br><br>
               <ul>
                 <li>Name : {{ $name }}</li>
                 <li>Email : {{ $email }}</li>
-                <li>Mobile : {{ $c_code??'' }} {{ $mobile }}</li>
-                @if ($intrest)
-                <li>Exam : {{ $intrest }}</li>
+                <li>Mobile : {{ $c_code ?? '' }} {{ $mobile }}</li>
+                @if ($nationality)
+                  <li>Nationality : {{ $nationality }}</li>
+                @endif
+                @if ($university)
+                  <li>University : {{ $university }}</li>
+                @endif
+                @if ($program)
+                  <li>Program : {{ $program }}</li>
+                @endif
+                @if ($source)
+                  <li>Source : {{ $source }}</li>
+                @endif
+                @if ($source_path)
+                  <li>Source Path : {{ $source_path }}</li>
                 @endif
               </ul>
+              <br>
+              Please review and follow up as needed.<br>
+              Best regards,<br>
+              <strong>{{ config('app.name') }} Team</strong>
               </p>
+
             </td>
           </tr>
           <tr>

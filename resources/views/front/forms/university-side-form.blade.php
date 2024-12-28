@@ -21,7 +21,7 @@
       <input type="hidden" name="source" value="Education Malaysia - University Profile Page">
       <input type="hidden" name="source_path" value="{{ URL::full() }}">
 
-      <input type="hidden" name="retpath" value="{{ url()->current() }}">
+      <input type="hidden" name="return_path" value="{{ url()->current() }}">
       <div class="col-lg-12">
         <div class="form-group">
           <div class="input-group">
@@ -78,11 +78,13 @@
             <select name="interested_program" id="interested_program" class="form-control">
               <option value="">Select Program</option>
               @foreach ($university->programs as $row)
-                <option value="{{ $row->course_name }}">{{ $row->course_name }}</option>
+                <option value="{{ $row->course_name }}"
+                  {{ old('interested_program') == $row->course_name ? 'selected' : '' }}>{{ $row->course_name }}
+                </option>
               @endforeach
             </select>
           </div>
-          @error('email')
+          @error('interested_program')
             <span class="text-danger">{{ $message }}</span>
           @enderror
         </div>

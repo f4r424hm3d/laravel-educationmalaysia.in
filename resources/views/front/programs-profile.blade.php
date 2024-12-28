@@ -297,9 +297,9 @@
 
         </div>
 
-        @if ($trendingUniversity->count() > 0)
-          <!-- Sidebar -->
-          <div class="col-lg-4 col-md-4">
+        <!-- Sidebar -->
+        <div class="col-lg-4 col-md-4">
+          @if ($trendingUniversity->count() > 0)
             <div class="ed_view_box style_2">
               <div class="ed_author">
                 <div class="ed_author_box">
@@ -333,8 +333,9 @@
                 </div>
               @endforeach
             </div>
-          </div>
-        @endif
+          @endif
+          @include('front.forms.university-side-form')
+        </div>
 
       </div>
     </div>

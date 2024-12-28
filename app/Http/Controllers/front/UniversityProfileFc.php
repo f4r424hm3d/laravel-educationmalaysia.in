@@ -61,6 +61,9 @@ class UniversityProfileFc extends Controller
 
     $trendingUniversity = University::inRandomOrder()->active()->where('id', '!=', $university->id)->limit(10)->get();
 
+    $countries = Country::orderBy('name', 'ASC')->get();
+    $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
+
     $page_url = url()->current();
     $wrdseo = ['url' => 'gallery'];
     $dseo = DynamicPageSeo::where($wrdseo)->first();
@@ -84,7 +87,10 @@ class UniversityProfileFc extends Controller
     $og_image_path = $university->ofimgpath ?? $dseo->ogimgpath;
     $schema = false;
 
-    $data = compact('university', 'trendingUniversity', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'schema');
+    $captcha = generateMathQuestion();
+    session(['captcha_answer' => $captcha['answer']]);
+
+    $data = compact('university', 'trendingUniversity', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'schema', 'countries', 'phonecodes', 'captcha');
     return view('front.university-gallery')->with($data);
   }
   public function videos($university_slug, Request $request)
@@ -92,6 +98,9 @@ class UniversityProfileFc extends Controller
     $university = University::where(['uname' => $university_slug])->active()->firstOrFail();
 
     $trendingUniversity = University::inRandomOrder()->active()->where('id', '!=', $university->id)->limit(10)->get();
+
+    $countries = Country::orderBy('name', 'ASC')->get();
+    $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
 
     $page_url = url()->current();
     $wrdseo = ['url' => 'video'];
@@ -116,7 +125,10 @@ class UniversityProfileFc extends Controller
     $og_image_path = $university->ofimgpath ?? $dseo->ogimgpath;
     $schema = false;
 
-    $data = compact('university', 'trendingUniversity', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'schema');
+    $captcha = generateMathQuestion();
+    session(['captcha_answer' => $captcha['answer']]);
+
+    $data = compact('university', 'trendingUniversity', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'schema', 'countries', 'phonecodes', 'captcha');
     return view('front.university-videos')->with($data);
   }
   public function reviews($university_slug, Request $request)
@@ -124,6 +136,9 @@ class UniversityProfileFc extends Controller
     $university = University::where(['uname' => $university_slug])->active()->firstOrFail();
 
     $trendingUniversity = University::inRandomOrder()->active()->where('id', '!=', $university->id)->limit(10)->get();
+
+    $countries = Country::orderBy('name', 'ASC')->get();
+    $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
 
     $totalrating = Review::where(['university_id' => $university->id, 'status' => 1])->sum('rating');
 
@@ -168,7 +183,10 @@ class UniversityProfileFc extends Controller
     $og_image_path = $university->ofimgpath ?? $dseo->ogimgpath;
     $schema = false;
 
-    $data = compact('university', 'rows', 'i', 'total', 'trendingUniversity', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'schema', 'avrgRating', 'air', 'afr', 'apr', 'ahr');
+    $captcha = generateMathQuestion();
+    session(['captcha_answer' => $captcha['answer']]);
+
+    $data = compact('university', 'rows', 'i', 'total', 'trendingUniversity', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'schema', 'avrgRating', 'air', 'afr', 'apr', 'ahr', 'countries', 'phonecodes', 'captcha');
     return view('front.university-reviews')->with($data);
   }
 }

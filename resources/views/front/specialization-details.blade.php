@@ -130,15 +130,11 @@
               @error('g-recaptcha-response')
                 <span class="text-danger">{{ $message }}</span>
               @enderror
-              <form action="{{ url('inquiry/stream-page-inquiry') }}" method="post" class="p-3">
+              <form action="{{ route('stream.inquiry') }}" method="post" class="p-3">
                 @csrf
-                @if (Request::segment(1) == 'stream')
-                  <input type="hidden" name="source" value="Education Malaysia - Specialization Page">
-                @elseif (Request::segment(1) == 'course')
-                  <input type="hidden" name="source" value="Education Malaysia - Course Category Page">
-                @endif
+                <input type="hidden" name="source" value="Education Malaysia - Specialization Page">
                 <input type="hidden" name="source_path" value="{{ URL::full() }}">
-                <input type="hidden" name="return_path" value="{{ Request::path() }}">
+                <input type="hidden" name="return_path" value="{{ url()->current() }}">
 
                 <!-- Name Field -->
                 <div class="row">
@@ -175,7 +171,7 @@
                       <label for="c_code">Country Code</label>
                       <select class="form-control" name="c_code" id="c_code" required>
                         <option value="">Select</option>
-                        @foreach ($countries as $row)
+                        @foreach ($phonecodes as $row)
                           <option value="{{ $row->phonecode }}"
                             {{ old('c_code') == $row->phonecode || $row->phonecode == '91' ? 'selected' : '' }}>
                             +{{ $row->phonecode }}
@@ -223,16 +219,17 @@
                 <div class="row">
                   <div class="col-12">
                     <div class="form-group">
-                      <label for="program">Select Interested Program</label>
-                      <select class="form-control" name="program" id="program" required>
+                      <label for="interested_program">Select Interested Program</label>
+                      <select class="form-control" name="interested_program" id="interested_program" required>
                         <option value="">Select Interested Program</option>
-                        @foreach ($programs as $program)
-                          <option value="{{ $program->id }}" {{ old('program') == $program->id ? 'selected' : '' }}>
-                            {{ $program->course_name }}
+                        @foreach ($programs as $row)
+                          <option value="{{ $row->course_name }}"
+                            {{ old('interested_program') == $row->course_name ? 'selected' : '' }}>
+                            {{ $row->course_name }}
                           </option>
                         @endforeach
                       </select>
-                      @error('program')
+                      @error('interested_program')
                         <span class="text-danger">{{ $message }}</span>
                       @enderror
                     </div>
@@ -247,7 +244,7 @@
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-12">
                     <input type="text" id="captcha" placeholder="Enter the Captcha Code" class="form-control"
-                      name="captcha_input" required>
+                      name="captcha_answer" required>
                   </div>
                 </div>
 

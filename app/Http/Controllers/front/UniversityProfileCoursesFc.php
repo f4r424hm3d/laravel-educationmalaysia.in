@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Country;
 use App\Models\CourseCategory;
 use App\Models\CourseSpecialization;
 use App\Models\DynamicPageSeo;
@@ -136,7 +137,13 @@ class UniversityProfileCoursesFc extends Controller
 
     $breadcrumbCurrent = '<li class="facts-1">Courses</li>';
 
-    $data = compact('university', 'rows', 'i', 'levels', 'categories', 'specializations', 'studyModes', 'total', 'filter_level', 'filter_category', 'filter_specialization', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'breadcrumbCurrent', 'npu', 'ppu');
+    $countries = Country::orderBy('name', 'ASC')->get();
+    $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
+
+    $captcha = generateMathQuestion();
+    session(['captcha_answer' => $captcha['answer']]);
+
+    $data = compact('university', 'rows', 'i', 'levels', 'categories', 'specializations', 'studyModes', 'total', 'filter_level', 'filter_category', 'filter_specialization', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'breadcrumbCurrent', 'npu', 'ppu', 'countries', 'phonecodes', 'captcha');
     return view('front.university-course-list')->with($data);
   }
   public function applyLevelFilter(Request $request)
@@ -219,7 +226,13 @@ class UniversityProfileCoursesFc extends Controller
 
     $months = Month::orderBy('id', 'ASC')->get();
 
-    $data = compact('program', 'university', 'trendingUniversity', 'path', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'months', 'breadcrumbCurrent');
+    $countries = Country::orderBy('name', 'ASC')->get();
+    $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
+
+    $captcha = generateMathQuestion();
+    session(['captcha_answer' => $captcha['answer']]);
+
+    $data = compact('program', 'university', 'trendingUniversity', 'path', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'months', 'breadcrumbCurrent', 'countries', 'phonecodes', 'captcha');
     return view('front.programs-profile')->with($data);
   }
 }
