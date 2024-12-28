@@ -177,7 +177,7 @@
                           style="height:100px; padding-top:17px">{{ old('description') }}</textarea>
                       </div>
                       <div class="star-rating mt-2">
-                        @for ($i = 1; $i <= 10; $i++)
+                        @for ($i = 1; $i <= 5; $i++)
                           <input id="star-{{ $i }}" type="radio" name="rating"
                             value="{{ $i }}" />
                           <label for="star-{{ $i }}" title="{{ $i }} star">

@@ -131,7 +131,7 @@ class UniversityProfileFc extends Controller
     $pp = $rows->perPage();
     $i = ($cp - 1) * $pp + 1;
 
-    $avrgRating = ($totalrating / $total) / 2;
+    $avrgRating = ($totalrating / $total);
     $avrgRating = sprintf("%.1f", $avrgRating);
     $air = 4;
     $afr = 4;

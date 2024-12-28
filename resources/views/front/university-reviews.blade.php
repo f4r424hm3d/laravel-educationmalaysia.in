@@ -84,6 +84,11 @@
 
                   <h5 class="mt-4 mb-0">{{ $row->review_title }}</h5>
                   <p>{{ $row->description }}</p>
+
+                  @foreach ($row->categoryReviews as $cr)
+                    <h5 class="mt-4 mb-0">{{ $cr->category->name }}</h5>
+                    <p>{{ $row->review }}</p>
+                  @endforeach
                 </div>
               </div>
             </div>
