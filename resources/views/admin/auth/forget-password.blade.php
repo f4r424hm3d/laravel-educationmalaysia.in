@@ -43,7 +43,7 @@
                 <x-ResultNotificationField></x-ResultNotificationField>
                 <!-- NOTIFICATION FIELD END -->
                 <div class="auth-content my-auto">
-                  <form action="{{ aurl('forget-password') }}/" method="post">
+                  <form action="{{ aurl('forget-password') }}" method="post">
                     @csrf
                     <div class="mb-3">
                       <label class="form-label">Enter Email</label>

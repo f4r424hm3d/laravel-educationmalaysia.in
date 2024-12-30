@@ -46,7 +46,7 @@
                 <x-ResultNotificationField></x-ResultNotificationField>
                 <!-- NOTIFICATION FIELD END -->
                 <div class="auth-content my-auto">
-                  <form method="post" action="{{ aurl('reset-password') }}/" enctype="multipart/form-data">
+                  <form method="post" action="{{ aurl('reset-password') }}" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="id" value="{{ $_GET['uid'] }}">
                     <input type="hidden" name="remember_token" value="{{ $_GET['token'] }}">
