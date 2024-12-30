@@ -58,6 +58,7 @@ if (!function_exists('unslugify')) {
   {
     // Swap out Non "-" with a space
     $text = str_replace('-', ' ', $text);
+    $text = str_replace('_', ' ', $text);
     // Trim out extra spaces
     $text = trim($text, ' ');
     // Make text lowercase

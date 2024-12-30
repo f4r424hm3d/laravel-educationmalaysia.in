@@ -13,7 +13,6 @@ class LevelC extends Controller
 {
   public function index($id = null)
   {
-    $destinations = Destination::all();
     $rows = Level::get();
     if ($id != null) {
       $sd = Level::find($id);
@@ -32,7 +31,7 @@ class LevelC extends Controller
     }
     $page_title = "level";
     $page_route = "levels";
-    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'destinations');
+    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route');
     return view('admin.level')->with($data);
   }
   public function store(Request $request)

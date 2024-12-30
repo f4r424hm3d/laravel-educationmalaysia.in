@@ -29,14 +29,14 @@ class CourseCategoryImport implements ToCollection, WithHeadingRow, WithChunkRea
     $totalRows = 0;
     foreach ($rows as $row) {
       $where = [
-        'category_name' => $row['category_name']
+        'name' => $row['name']
       ];
       $data = CourseCategory::where($where)->count();
       if ($data == 0) {
         CourseCategory::create([
-          'category_name' => $row['category_name'],
-          'category_slug' => slugify($row['category_name']),
-          'icon_class' => $row['icon_class'],
+          'name' => $row['name'],
+          'slug' => slugify($row['name']),
+          'shortnote' => $row['shortnote'],
         ]);
         $rowsInserted++;
       }

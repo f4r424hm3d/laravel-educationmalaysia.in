@@ -154,7 +154,7 @@
         <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
           <div class="collapse navbar-collapse" id="topnav-menu-content">
             <ul class="navbar-nav">
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown hide-this">
                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
 
                   <span data-key="t-extra-pages">
@@ -175,7 +175,7 @@
                   </div>
                 </div>
               </li>
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown hide-this">
                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
 
                   <span data-key="t-extra-pages">Destinations</span>

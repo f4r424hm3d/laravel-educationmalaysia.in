@@ -1,6 +1,7 @@
 @extends('admin.layouts.main')
 @push('title')
-  <title>{{ $page_title }}</title>
+  <title>
+    {{ $page_title }}</title>
 @endpush
 @section('main-section')
   <div class="page-content">
@@ -49,45 +50,35 @@
                 @csrf
                 <div class="row">
                   <div class="col-md-6 col-sm-12 mb-3">
-                    <div class="form-group">
-                      <label>Enter Name</label>
-                      <input name="category_name" type="text" class="form-control" placeholder="Enter Name"
-                        value="{{ $ft == 'edit' ? $sd->category_name : old('category_name') }}">
-                      <span class="text-danger">
-                        @error('category_name')
-                          {{ $message }}
-                        @enderror
-                      </span>
-                    </div>
+                    <x-input-field type="text" label="{{ unslugify('name') }}" name="name" id="name"
+                      :ft="$ft" :sd="$sd"></x-input-field>
                   </div>
-                  <div class="col-md-6 col-sm-12 mb-3 hide-this">
-                    <div class="form-group">
-                      <label>Icon Class</label>
-                      <input name="icon_class" type="text" class="form-control" placeholder="Icon Class"
-                        value="{{ $ft == 'edit' ? $sd->icon_class : old('icon_class') }}">
-                      <span class="text-danger">
-                        @error('icon_class')
-                          {{ $message }}
-                        @enderror
-                      </span>
-                    </div>
+                  <div class="col-md-3 col-sm-12 mb-3">
+                    <x-select-field label="{{ unslugify('author') }}" name="author_id" id="author_id" :ft="$ft"
+                      :sd="$sd" :list="$authors" savev="id" showv="name"></x-select-field>
                   </div>
-                  <div class="col-md-4 col-sm-12 mb-3">
-                    <div class="form-group">
-                      <label>Upload SVG Icon</label>
-                      <input name="svg_icon" type="file" class="form-control">
-                      <span class="text-danger">
-                        @error('svg_icon')
-                          {{ $message }}
-                        @enderror
-                      </span>
-                    </div>
+                  <div class="col-md-3 col-sm-12 mb-3">
+                    <x-input-field type="file" label="{{ unslugify('thumbnail') }}" name="thumbnail" id="thumbnail"
+                      :ft="$ft" :sd="$sd"></x-input-field>
+                  </div>
+                  <div class="col-md-3 col-sm-12 mb-3">
+                    <x-input-field type="file" label="{{ unslugify('banner') }}" name="banner" id="banner"
+                      :ft="$ft" :sd="$sd"></x-input-field>
+                  </div>
+                  <div class="col-md-3 col-sm-12 mb-3">
+                    <x-input-field type="file" label="{{ unslugify('content_image') }}" name="content_image"
+                      id="content_image" :ft="$ft" :sd="$sd"></x-input-field>
+                  </div>
+                  <div class="col-md-12 col-sm-12 mb-3">
+                    <x-textarea-field label="{{ unslugify('shortnote') }}" name="shortnote" id="shortnote"
+                      :ft="$ft" :sd="$sd">
+                    </x-textarea-field>
                   </div>
                 </div>
                 <hr>
 
                 {{--  SEO INPUT FILED COMPONENT  --}}
-                <x-SeoField :ft="$ft" :sd="$sd"></x-SeoField>
+                <x-seo-field :ft="$ft" :sd="$sd"></x-seo-field>
                 {{--  SEO INPUT FILED COMPONENT END  --}}
 
                 @if ($ft == 'add')
@@ -117,8 +108,10 @@
                     <th>Sr. No.</th>
                     <th>Id</th>
                     <th>Name</th>
-                    <th>Icon</th>
+                    <th>Author</th>
+                    <th>Shortnote</th>
                     <th>SEO</th>
+                    <th>Images</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -130,10 +123,34 @@
                     <tr id="row{{ $row->id }}">
                       <td>{{ $i }}</td>
                       <td>{{ $row->id }}</td>
-                      <td>{{ $row->category_name }}</td>
+                      <td>{{ $row->name }}</td>
+                      <td>{{ $row->author_id != null ? $row->author->name : 'N/A' }}</td>
                       <td>
-                        @if ($row->icon_path != null)
-                          <img src="{{ asset($row->icon_path) }}" alt="icon" height="40" width="40">
+                        @if ($row->shortnote != null)
+                          <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light"
+                            data-bs-toggle="modal"
+                            data-bs-target="#ShortnoteModalScrollable{{ $row->id }}">View</button>
+                          <div class="modal fade" id="ShortnoteModalScrollable{{ $row->id }}" tabindex="-1"
+                            role="dialog" aria-labelledby="ShortnoteModalScrollableTitle{{ $row->id }}"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="ShortnoteModalScrollableTitle{{ $row->id }}">
+                                    SEO
+                                  </h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  {!! $row->shortnote !!}
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         @else
                           N/A
                         @endif
@@ -141,7 +158,8 @@
                       <td>
                         @if ($row->meta_title != null)
                           <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light"
-                            data-bs-toggle="modal" data-bs-target="#SeoModalScrollable{{ $row->id }}">View</button>
+                            data-bs-toggle="modal"
+                            data-bs-target="#SeoModalScrollable{{ $row->id }}">View</button>
                           <div class="modal fade" id="SeoModalScrollable{{ $row->id }}" tabindex="-1"
                             role="dialog" aria-labelledby="SeoModalScrollableTitle{{ $row->id }}"
                             aria-hidden="true">
@@ -155,11 +173,18 @@
                                     aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                  {!! $row->meta_title !!} <br>
-                                  {!! $row->meta_keyword !!} <br>
-                                  {!! $row->meta_description !!} <br>
-                                  {!! $row->page_content !!} <br>
-                                  {!! $row->seo_rating !!}
+                                  <h4>Title</h4>
+                                  <p>{!! $row->meta_title !!}</p>
+                                  <h4>Keyword</h4>
+                                  <p>{!! $row->meta_keyword !!}</p>
+                                  <h4>Description</h4>
+                                  <p>{!! $row->meta_description !!}</p>
+                                  <h4>Page Content</h4>
+                                  <p>{!! $row->page_content !!}</p>
+                                  <h4>Rating/Review</h4>
+                                  <p>Rating : {{ $row->seo_rating }} | Best Rating : {{ $row->best_rating }} | Total
+                                    Reviews :
+                                    {{ $row->review_number }}</p>
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
@@ -168,17 +193,53 @@
                             </div>
                           </div>
                         @else
-                          Null
+                          N/A
                         @endif
                       </td>
                       <td>
-                        <a href="javascript:void()" onclick="DeleteAjax('{{ $row->id }}')"
-                          class="waves-effect waves-light btn btn-xs btn-outline btn-danger">
-                          <i class="fa fa-trash" aria-hidden="true"></i>
+                        <ul>
+                          <li>Thumbnail : @if ($row->thumbnail_path != null)
+                              <a href="{{ asset($row->thumbnail_path) }}" target="_blank">View</a>
+                            @else
+                              N/A
+                            @endif
+                          </li>
+                          <li>Banner :@if ($row->banner_path != null)
+                              <a href="{{ asset($row->banner_path) }}" target="_blank">View</a>
+                            @else
+                              N/A
+                            @endif
+                          </li>
+                          <li>Content Image : @if ($row->content_image_path != null)
+                              <a href="{{ asset($row->content_image_path) }}" target="_blank">View</a>
+                            @else
+                              N/A
+                            @endif
+                          </li>
+                          <li>OG Image : @if ($row->og_image_path != null)
+                              <a href="{{ asset($row->og_image_path) }}" target="_blank">View</a>
+                            @else
+                              N/A
+                            @endif
+                          </li>
+                        </ul>
+                      </td>
+                      <td>
+                        <a href="{{ aurl('course-category-contents/' . $row->id) }}"
+                          class="waves-effect waves-light btn btn-xs btn-outline btn-primary">
+                          Content
+                        </a>
+                        <a href="{{ aurl('course-category-faqs/' . $row->id) }}"
+                          class="waves-effect waves-light btn btn-xs btn-outline btn-primary">
+                          Faqs
                         </a>
                         <a href="{{ url('admin/' . $page_route . '/update/' . $row->id) }}"
                           class="waves-effect waves-light btn btn-xs btn-outline btn-info">
                           <i class="fa fa-edit" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void()" onclick="DeleteAjax('{{ $row->id }}')"
+                          class="waves-effect waves-light btn btn-xs btn-outline btn-danger">
+                          <i class="fa fa-trash" aria-hidden="true"></i>
                         </a>
                       </td>
                     </tr>
