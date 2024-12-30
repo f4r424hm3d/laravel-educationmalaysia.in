@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\BlogC;
 use App\Http\Controllers\admin\BlogCategoryC;
 use App\Http\Controllers\admin\CareerC;
 use App\Http\Controllers\admin\CourseCategoryC;
+use App\Http\Controllers\admin\CourseCategoryContentC;
 use App\Http\Controllers\admin\CourseModeC;
 use App\Http\Controllers\admin\CourseSpecializationC;
 use App\Http\Controllers\admin\DefaultOgImageC;
@@ -197,22 +198,6 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
     Route::get('/profile', [AdminDashboard::class, 'profile']);
     Route::post('/update-profile', [AdminDashboard::class, 'updateProfile']);
 
-    Route::prefix('/destinations')->group(function () {
-      Route::get('', [DestinationC::class, 'index']);
-      Route::post('/store', [DestinationC::class, 'store']);
-      Route::get('/delete/{id}', [DestinationC::class, 'delete']);
-      Route::get('/update/{id}', [DestinationC::class, 'index']);
-      Route::post('/update/{id}', [DestinationC::class, 'update']);
-    });
-    Route::prefix('/destination-faqs')->group(function () {
-      Route::get('/get-data', [DestinationFaqC::class, 'getData']);
-      Route::get('/delete/{id}', [DestinationFaqC::class, 'delete']);
-      Route::post('/store-ajax', [DestinationFaqC::class, 'storeAjax']);
-      Route::get('/{destination_id}/', [DestinationFaqC::class, 'index']);
-      Route::get('/{destination_id}/update/{id}', [DestinationFaqC::class, 'index']);
-      Route::post('/{destination_id}/update/{id}', [DestinationFaqC::class, 'update']);
-    });
-
     Route::prefix('/course-category')->group(function () {
       Route::get('', [CourseCategoryC::class, 'index']);
       Route::post('/store', [CourseCategoryC::class, 'store']);
@@ -220,6 +205,14 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
       Route::get('/update/{id}', [CourseCategoryC::class, 'index']);
       Route::post('/update/{id}', [CourseCategoryC::class, 'update']);
       Route::post('/import', [CourseCategoryC::class, 'import']);
+    });
+    Route::prefix('/course-category-contents/')->group(function () {
+      Route::get('/get-data', [CourseCategoryContentC::class, 'getData']);
+      Route::get('/delete/{id}', [CourseCategoryContentC::class, 'delete']);
+      Route::post('/store', [CourseCategoryContentC::class, 'store']);
+      Route::get('/{course_category_id}/', [CourseCategoryContentC::class, 'index']);
+      Route::get('{course_category_id}/update/{id}', [CourseCategoryContentC::class, 'index']);
+      Route::post('{course_category_id}/update/{id}', [CourseCategoryContentC::class, 'update']);
     });
     Route::prefix('/course-specialization')->group(function () {
       Route::get('', [CourseSpecializationC::class, 'index']);

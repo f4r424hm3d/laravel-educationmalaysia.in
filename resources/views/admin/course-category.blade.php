@@ -227,17 +227,17 @@
                       <td>
                         <a href="{{ aurl('course-category-contents/' . $row->id) }}"
                           class="waves-effect waves-light btn btn-xs btn-outline btn-primary">
-                          Content
+                          Content <span class="badge bg-danger">{{ $row->contents->count() }}</span>
                         </a>
                         <a href="{{ aurl('course-category-faqs/' . $row->id) }}"
                           class="waves-effect waves-light btn btn-xs btn-outline btn-primary">
-                          Faqs
+                          Faqs <span class="badge bg-danger">{{ $row->faqs->count() }}</span>
                         </a>
                         <a href="{{ url('admin/' . $page_route . '/update/' . $row->id) }}"
                           class="waves-effect waves-light btn btn-xs btn-outline btn-info">
                           <i class="fa fa-edit" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void()" onclick="DeleteAjax('{{ $row->id }}')"
+                        <a href="javascript:void()" onclick="deleteData('{{ $row->id }}')"
                           class="waves-effect waves-light btn btn-xs btn-outline btn-danger">
                           <i class="fa fa-trash" aria-hidden="true"></i>
                         </a>
@@ -257,26 +257,6 @@
   </div>
   <script>
     CKEDITOR.replace("description");
-
-    function DeleteAjax(id) {
-      //alert(id);
-      var cd = confirm("Are you sure ?");
-      if (cd == true) {
-        $.ajax({
-          url: "{{ url('admin/' . $page_route . '/delete') }}" + "/" + id,
-          success: function(data) {
-            if (data == '1') {
-              var h = 'Success';
-              var msg = 'Record deleted successfully';
-              var type = 'success';
-              $('#row' + id).remove();
-              $('#toastMsg').text(msg);
-              $('#liveToast').show();
-              showToastr(h, msg, type);
-            }
-          }
-        });
-      }
-    }
   </script>
+  @include('admin.js.common-delete')
 @endsection
