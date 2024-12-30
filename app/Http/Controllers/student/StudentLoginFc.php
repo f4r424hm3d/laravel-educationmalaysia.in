@@ -73,6 +73,7 @@ class StudentLoginFc extends Controller
     $field->otp = $otp;
     $field->otp_expire_at = $otp_expire_at;
     $field->status = 0;
+    $field->website = site_var;
 
     $emaildata = ['name' => $request['name'], 'otp' => $otp];
     $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'OTP'];

@@ -672,8 +672,9 @@ Route::get('get-info/{category_slug}', [BlogFc::class, 'blogByCategory'])->name(
 Route::get('get-info/{category_slug}/{slug}', [BlogFc::class, 'detail'])->name('blog.detail');
 
 
-Route::get('/education-fair-in-libia-2025', [LibiaLandingPageFc::class, 'index'])->name('libia.page');
+Route::get('/education-fair-in-libya-2025', [LibiaLandingPageFc::class, 'index'])->name('libia.page');
 Route::post('/libia/register', [LibiaLandingPageFc::class, 'register'])->name('libia.register');
+Route::post('/libia/fetch-program', [LibiaLandingPageFc::class, 'getProgramsByUniversity'])->name('libia.fetch.program');
 
 Route::get('/transfer-service-data', [ServiceFc::class, 'transferSitePageData']);
 

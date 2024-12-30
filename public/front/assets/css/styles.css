@@ -887,12 +887,7 @@ html body .vm {
 html body .vb {
     vertical-align: bottom;
 }
-.fw-600,
-.review-count,
-html body .font-bold,
-table.table tr th {
-    font-weight: 600;
-}
+
 .badge,
 .input-group-text,
 .label,
@@ -7370,9 +7365,7 @@ ul.social li a {
 .footer-logo img {
     max-width: 185px;
 }
-.footer-widget {
-    padding: 0 0 30px;
-}
+
 span.widget-title {
     color: #ffffff;
 }
@@ -7398,7 +7391,7 @@ footer.skin-dark-footer .footer-widget ul li a,
 footer.skin-dark-footer a {
     color: #c6cbdc;
     transition: 0.4s;
-    font-size: 14px;
+    font-size: 13px;
 }
 .widget_media_image {
     margin-top: 3rem;
@@ -7427,7 +7420,7 @@ ul.footer-bottom-social li a:hover {
 }
 footer.skin-dark-footer ul.footer-bottom-social li a {
     color: #858b9f;
-    font-size: 14px;
+    font-size: 13px;
 }
 footer.skin-dark-footer ul.footer-bottom-social li a:focus,
 footer.skin-dark-footer ul.footer-bottom-social li a:hover {
@@ -8291,6 +8284,7 @@ span.payment_status.cancel {
     }
 }
 @media (min-width: 1200px) {
+  
     .hero_banner {
         padding: 0;
     }
@@ -14044,3 +14038,952 @@ section.levellight h2 span {
     color: #0c0c0c;
     font-weight: 400;
 }
+
+/* carousel css property  start */
+
+
+.banner-section  .carousel {
+    position: relative;
+}
+
+ .banner-section  .carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+ .banner-section  .carousel-item {
+    position: relative;
+    display: none;
+    float: left;
+    width: 100%;
+    margin-right: -100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: transform .6s ease-in-out;
+}
+
+ .banner-section  .carousel-item-next,  .banner-section  .carousel-item-prev,  .banner-section  .carousel-item.active {
+    display:block;
+}
+
+/* General Styles for Controls */
+.banner-section  .carousel-control-prev,
+.banner-section  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgb(220 90 33 / 57%);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.banner-section  .carousel-control-prev:hover,
+.banner-section  .carousel-control-next:hover {
+    background-color: #dc5a21;
+}
+
+/* Positioning */
+.banner-section  .carousel-control-prev {
+    left: 10px;
+}
+
+.banner-section  .carousel-control-next {
+    right: 10px;
+}
+
+/* Icons */
+.banner-section  .carousel-control-prev-icon,
+.banner-section  .carousel-control-next-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.banner-section  .carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+}
+
+.banner-section  .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+}
+
+/* Accessibility */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.banner-section {
+    background-color: #1e40af;
+    padding-bottom: 50px;
+}
+
+/* carousel css property  end */
+
+.Sureworks {
+    padding: 50px 0px;
+background-color:#eee;
+}
+
+.all-flexx {
+    border: 1px solid #00000057;
+    padding: 20px;
+    height: 100%;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+.all-flexx p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+}
+.all-flexx h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 12px 0px;
+    text-transform: capitalize;
+}
+.all-flexx img {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ffffff;
+    border-radius: 71px;
+}
+.all-flexx:hover {
+    box-shadow: 0px 0px 15px 3px #00000057;
+}
+.registrationss {
+    padding: 50px 0px;
+}
+
+.fairs {
+    color: #273476;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.all-fair {
+    font-size: 22px;
+    max-width: 488px;
+    margin: 31px 0px;
+    color: #0a4191;
+    font-weight: 500;
+}
+
+.new-registor {
+    padding: 11px 27px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: capitalize;
+    background-color: #0a4191;
+    color: #fff !important;
+}
+
+section.studaies-abroad, .particaptes-universties {
+    padding: 50px 0px;
+    background-color: #eee;
+}
+
+.abroad-imags {
+    padding: 0px;
+    padding-right: 30px;
+}
+
+.studysimage {
+    width: 100%;
+    height: 568px;
+    object-fit: cover;
+}
+
+.abroad-students h2 {
+    font-size: 27px;
+    font-weight: 500;
+    color: #0a4191;
+    margin-bottom: 27px !important;
+}
+
+.abroad-students p {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.registrations-fomrs {
+    padding: 50px 0px;
+}
+
+.all-forms {
+    padding: 20px 10px;
+}
+
+.all-forms .new-regist {
+    text-align: center;
+    font-size: 24px;
+    color: #0a4191;
+}
+.registrationss {
+    padding: 50px 0px;
+}
+
+.fairs {
+    color: #273476;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.all-fair {
+    font-size: 26px;
+    max-width: 488px;
+    margin: 31px 0px;
+    color: #0a4191;
+    font-weight: 500;
+}
+
+.new-registor {
+    padding: 11px 27px;
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: capitalize;
+    background-color: #0a4191;
+    color: #fff !important;
+}
+
+section.studaies-abroad, .particaptes-universties {
+    padding: 50px 0px;
+    background-color: #eee;
+}
+
+.abroad-imags {
+    padding: 0px;
+    padding-right: 30px;
+}
+
+.studysimage {
+    width: 100%;
+    height: 568px;
+    object-fit: cover;
+}
+
+.abroad-students h2 {
+    font-size: 27px;
+    font-weight: 500;
+    color: #0a4191;
+    margin-bottom: 27px !important;
+}
+
+.abroad-students p {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.registrations-fomrs {
+    padding: 50px 0px;
+}
+
+.all-forms {
+    padding: 20px  50px;
+}
+
+.all-forms .new-regist {
+    text-align: center;
+    font-size: 24px;
+    color: #0a4191;
+}
+
+.f {
+    /* font-size: 10px; */
+}
+
+.main-modals input, .main-modals select {
+    border: 1px solid #0000005c !important;
+    border-radius: 3px;
+    padding: 6px 12px;
+}
+
+label {
+    color: #999;
+    margin-bottom: 2px;
+    font-size: 13px !important;
+}
+
+.blue-register {
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 8px 0px;
+    margin-top: 26px;
+}
+
+section.studaies-abroad, .particaptes-universties {
+    padding: 50px 0px;
+    background-color: #eee;
+}
+
+.particaptes {
+    box-shadow: 0px 0px 2px 0px #a4a09e;
+    padding: 6px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.particaptes-universties .tab-content>.active, .particaptes-universties .pill-content>.active {
+    box-shadow: 0px 0px 2px 0px #a4a09e;
+    padding: 6px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+
+.numbers {
+    font-size: 14px;
+    padding: 0px 24px;
+    font-weight: 500;
+}
+
+
+
+section.fair-about {
+    padding: 50px 0px;
+}
+
+section.fair-about h2 {
+    font-size: 31px;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: #0a4191;
+    margin-bottom: 38px !important;
+}
+
+ul.ol-joins {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 14px;
+}
+
+.li-joins {
+    display: flex;
+    flex-direction: column;
+}
+
+.li-joins span {
+    width: 45px;
+    height: 45px;
+    background-color: #0a4191;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.li-joins p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #312e2e;
+}
+
+.applyisss {
+    padding-bottom: 50px;
+    background: #eee;
+}
+
+.passings {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 19px;
+    height: 500px;
+    object-position: top;
+}
+
+
+
+
+.malaysiass {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 54px;
+    margin-bottom: 17px !important;
+}
+
+
+
+.universties {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.divide-y span label, .shrink h2 {
+    color: #000000;
+    margin-bottom: 2px;
+    font-size: 16px !important;
+    font-weight: 400;
+}
+
+.spacebx {
+    width: 28%;
+}
+
+
+
+.f {
+    /* font-size: 10px; */
+}
+
+.main-modals input, .main-modals select {
+    border: 1px solid #0000005c !important;
+    border-radius: 3px;
+    padding: 6px 12px;
+}
+
+label {
+    color: #999;
+    margin-bottom: 2px;
+    font-size: 13px !important;
+}
+
+.blue-register {
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 8px 0px;
+    margin-top: 26px;
+    background: #0a4191;
+    color: #fff;
+    border: 1px solid transparent;
+}
+
+section.studaies-abroad, .particaptes-universties {
+    padding: 50px 0px;
+    background-color: #eee;
+}
+
+.particaptes {
+    box-shadow: 0px 0px 2px 0px #a4a09e;
+    padding: 6px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.particaptes-universties .tab-content>.active, .particaptes-universties .pill-content>.active {
+    box-shadow: 0px 0px 2px 0px #a4a09e;
+    padding: 6px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.grow a span {
+    color: #0a4191;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.numbers {
+    font-size: 14px;
+    padding: 0px 24px;
+    font-weight: 500;
+}
+
+
+.all-apply {
+    font-weight: 500;
+    border-radius: 3px;
+    letter-spacing: normal;
+    font-size: 12px;
+    background-color: #0a4191;
+    color: #fff;
+    padding: 6px;
+}
+.border-bottom {
+    border-bottom: 1px solid #00000021;
+}
+
+section.fair-about {
+    padding: 50px 0px;
+}
+
+section.fair-about h2 {
+    font-size: 31px;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: #0a4191;
+    margin-bottom: 38px !important;
+}
+
+ul.ol-joins {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 14px;
+}
+
+.li-joins {
+    display: flex;
+    flex-direction: column;
+}
+
+.li-joins span {
+    width: 45px;
+    height: 45px;
+    background-color: #0a4191;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+
+.applyisss {
+    padding-bottom: 50px;
+    background: #eee;
+}
+
+.applyingsstart {
+    background-image: url(' http://localhost/educationmalaysia/assets/web/images/apply-banner.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0px;
+    position: relative;
+    margin-bottom: 100px;
+    background-color: #dc5a21e6;
+    color: #fff;
+}
+
+.applyingsstart::before {
+    content: '';
+    background-color: #dc5a21ab;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    position: absolute;
+}
+
+.applyings {
+    text-align: center;
+    padding: 50px 0px;
+    font-size: 42px;
+    font-weight: bolder;
+    margin: 0px auto;
+    max-width: 1013px;
+    z-index: 9;
+    position: relative;
+}
+
+
+
+.divmalaysiass {
+    text-align: center;
+    margin: 50px auto;
+    width: 79%;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.divmalaysiass {
+    text-align: center;
+    margin: 50px auto;
+    width: 79%;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+p.applyis {
+    color: #fff;
+    font-weight: 500;
+    background-color: #0a4191;
+    padding: 23px;
+    text-transform: capitalize;
+    margin: 0px !important;
+    border-radius: 12px;
+}
+.all-apply {
+    font-weight: 500;
+    border-radius: 3px;
+    letter-spacing: normal;
+    font-size: 12px;
+    background-color: #0a4191;
+}   
+
+
+ol.olrearsarch {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 18px;
+    margin: 30px 0px;
+}
+ol.olrearsarch ::marker {
+    font-size: 22px;
+}
+.olrearsarch li {
+    margin-right: 18px;
+    color: #203245;
+    line-height: 28px;
+}
+
+ol.olrearsarch h2 {
+    font-size: 20px;
+}
+
+ol.olrearsarch p {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+
+section.malaysia-govt {
+    padding: 50px 0px 0px;
+}
+.applyingsstart{
+    background-image: url(' http://localhost/educationmalaysia/assets/web/images/apply-banner.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0px;
+    position: relative;
+}
+
+.applyingsstart::before{
+    content: '';
+    background-color: #dc5a21ab;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    position: absolute;
+}
+.applyisss{
+    padding-bottom: 50px;
+    background: #eee;
+}
+.card.all-cards {
+    position: relative;
+    background-color: #fff;
+    padding: 17px;
+    height: 100%;
+}
+
+.all-cards  ul.ul-offers {
+    position: absolute;
+    top: 29px;
+    left: 29px;
+    width: 86%;
+}
+
+.card.all-cards .fix-sizes {
+    width: 100%;
+    height: 259px;
+    object-fit: cover;
+}
+
+.title-size .card-title {
+    font-size: 17px;
+    font-weight: 500;
+    margin: 0px!important;
+    padding: 20px 0px;
+    text-transform: capitalize;
+}
+
+.title-size .card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+    font-size: 16px;
+}
+
+a.btn-regi {
+    padding: 6px 12px;
+    border: 1px solid #dc5a21;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    color: #dc5a21;
+}
+
+a.btn-regi:hover {
+    background-color: #dc5a21;
+    color: #fff !important;
+}
+
+.regi-active {
+    background-color: #dc5a21;
+    color: #fff !important;
+}
+.offeroption{
+    padding: 50px 0px 100px;
+    background-color: #eee;
+}
+.card.all-cards:hover {
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.title-size {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.spacebx {
+    width: 28%;
+}
+.numbers {
+    font-size: 14px;
+    padding: 0px 24px;
+    font-weight: 500;
+}
+.sponser {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+
+/* 11111111111111111111111111111  */
+
+
+  
+  @-webkit-keyframes scrolled {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 7));
+    }
+  }
+  
+  @keyframes scrolled {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 7));
+    }
+  }
+  .allsponser .slider {
+    background: white;
+    padding: 50px;
+    height: 284px !important;
+    overflow: hidden;
+    margin: auto;
+    position: relative;
+    width: 100%;
+    padding-top: 0px;
+    display: flex;
+    align-items: end;
+  }
+  .allsponser .slider::before, .allsponser .slider::after {
+    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+    content: "";
+    padding: 50px;
+    height: 100%;
+    position: absolute;
+    width: 100px;
+    z-index: 2;
+  }
+  .allsponser .slider::after {
+    right: -1px;
+    top: 0;
+    transform: rotateZ(179deg);
+    background: linear-gradient(to right, white 0%, rgb(255 255 255 / 59%) 100%);
+  }
+  .allsponser .slider::before {
+    left: 0;
+    top: 0;
+  }
+  .allsponser .slider .slide-track {
+    -webkit-animation: scrolled 40s linear infinite;
+    animation: scrolled 40s linear infinite;
+    display: flex;
+    width: calc(221px * 16);
+    gap: 60px;
+    align-items: center;
+  }
+  .allsponser .slider .slide {
+    width: 250px;
+  }
+  .allsponser .slider img{
+    width: 93%;
+
+  }
+
+
+
+
+  section.faq-sections {
+    padding-bottom: 50px;
+}
+
+.faq {
+    background-image: url('http://localhost/educationmalaysia/assets/web/images/faq.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0px 0px 385px;
+}
+
+.faq-details {
+    background-color: #0a4191;
+    padding: 7px 12px;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    color: #fff;
+}
+
+.mainacc {
+    padding: 50px 0px;
+}
+
+.mainacc .accordion-header {
+    margin: 0px 0px !important;
+}
+
+.mainacc .accordion-header button {
+    font-size: 14px;
+    color: #0a4191 !important;
+    border: 1px solid #0a4191 !important;
+}
+
+.mainacc .accordion-body {
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid #0a4191 !important;
+}
+
+.mainacc .card-header {
+    background: transparent;
+    border-color: transparent;
+    padding: 0px;
+}
+.mainacc button {
+    width: 100%;
+    text-align: left;
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 14px;
+    border: 1px solid #0a4191 !important;
+    background-color: #0a4191 !important;
+}
+.mainacc button:hover, .mainacc button:focus{
+    color:#fff;
+    text-decoration: none;
+}
+.mainacc .card-body {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: capitalize;
+    border: 1px solid #0a4191;
+}
+.minsiter .titles-malaysia {
+    margin-bottom: 0px !important;
+    font-size: 28px;
+    font-weight: 500;
+    margin-top: 0px !important;
+}
+.minsiter {
+    text-align: center;
+}
+
+  @media screen and (max-width: 720px) {
+    .allsponser .slider img{
+      width: 100%;
+
+    }
+  }
+
+  .footer-widget .widget-title {
+    font-size: 18px;
+    padding-bottom: 11px !important;
+    display: block;
+    margin-bottom: 0px !important;
+    text-transform: capitalize;
+}
+
+.footer-widget .footer-menu {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0px;
+}
+
+.footer-widget ul li a {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+
+.indin-office span {
+    font-size: 18px;
+    padding-bottom: 11px !important;
+    display: block;
+    margin-bottom: 0px !important;
+    text-transform: capitalize;
+    color: #fff;
+}
+
+.indin-office p {
+    color: #c6cbdc;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.indin-office a {
+    color: #fff !important;
+    text-transform: lowercase;
+}
+
+@media (max-width:1200px){
+      /* gourav css start  */
+
+      .footer-widget .footer-menu {
+        grid-template-columns: auto;
+    }
+
+    footer.skin-dark-footer, footer.skin-dark-footer .footer-widget ul li a, footer.skin-dark-footer a {
+        font-size: 14px;
+    }
+    /* gourav css end  */
+}
+
+@media (max-width:576px){
+    /* gourav css start  */
+    .footer-widget .footer-menu {
+        grid-template-columns: auto auto;
+    }
+
+
+  /* gourav css end  */
+}
+

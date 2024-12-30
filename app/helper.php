@@ -293,3 +293,12 @@ if (!function_exists('callPhoneNumber')) {
     return str_replace('-', '', $phoneNumber);
   }
 }
+if (!function_exists('ip_details')) {
+
+  function ip_details($ip)
+  {
+    $json = file_get_contents("http://ipinfo.io/{$ip}");
+    $details = json_decode($json);
+    return $details;
+  }
+}

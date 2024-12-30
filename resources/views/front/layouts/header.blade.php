@@ -32,6 +32,7 @@
   <link href="{{ url('front/') }}/assets/css/styles.css" rel="stylesheet">
   <link rel="preload" href="{{ url('front/') }}/assets/css/colors.css" as="style"
     onload="this.onload=null;this.rel='stylesheet'">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <style>
     .hide-this {

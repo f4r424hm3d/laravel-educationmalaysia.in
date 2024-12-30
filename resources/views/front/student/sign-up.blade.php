@@ -256,15 +256,4 @@
       $("#" + id + '_icon_hide').hide();
     }
   </script>
-  <script>
-    grecaptcha.ready(function() {
-      grecaptcha.execute('{{ gr_site_key() }}', {
-          action: 'contact_us'
-        })
-        .then(function(token) {
-          // Set the reCAPTCHA token in the hidden input field
-          document.getElementById('g-recaptcha-response').value = token;
-        });
-    });
-  </script>
 @endsection
