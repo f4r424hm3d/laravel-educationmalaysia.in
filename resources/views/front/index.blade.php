@@ -115,8 +115,8 @@
   <section class="why-study">
     <div class=" container">
 
-      <div class="row">
-        <div class="col-lg-8">
+      <div class="row flex-column-reverse flex-xl-row align-items-center">
+        <div class="col-xl-8 col-lg-12">
           <h2>Why Study in Malaysia: <span>Unlock Global Opportunities</span></h2>
           <p>Malaysia offers a unique combination of world-class education and diverse cultural experiences,
             making it top destination for international students. With globally recognized universities,
@@ -125,7 +125,7 @@
             excellence with global exposure, offering both personal growth and career development in a vibrant,
             multicultural setting.</p>
           <div class="row">
-            <div class="col-lg-4 col-md-4 col-xs-12">
+            <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="header">
                 <div class="visa-approve"><img src="{{ asset('assets/images/icons-new-home/visa-approval.png') }} "
                     class="loading" alt="Visa Approval Rate"></div>
@@ -135,7 +135,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-xs-12">
+            <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="header">
                 <div><img src=" {{ asset('assets/images/icons-new-home/institute.png') }}" class="loading"
                     alt="Total Institutions and Universities"></div>
@@ -145,7 +145,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-xs-12">
+            <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="header">
                 <div><img src="{{ asset('assets/images/icons-new-home/summer.png ') }}" class="loading"
                     alt="Best Intake in Malaysia"></div>
@@ -155,7 +155,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-xs-12">
+            <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="header">
                 <div><img src="{{ asset('assets/images/icons-new-home/study-cost.png ') }}" class="loading"
                     alt="Average Study Cost"></div>
@@ -165,7 +165,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-xs-12">
+            <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="header">
                 <div><img src="{{ asset('assets/images/icons-new-home/living-cost.png ') }}" class="loading"
                     alt="Living Cost"></div>
@@ -175,7 +175,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-xs-12">
+            <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="header">
                 <div><img src="{{ asset('assets/images/icons-new-home/travel-cost.png ') }}" class="loading"
                     alt="Travel Cost"></div>
@@ -185,7 +185,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-xs-12">
+            <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="header">
                 <div><img src="{{ asset('assets/images/icons-new-home/tofel.png') }}" class="loading"
                     alt="Min TOFEL Score"></div>
@@ -195,7 +195,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-xs-12">
+            <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="header">
                 <div><img src="{{ asset('assets/images/icons-new-home/ielts.png') }}" class="loading"
                     alt="Min IELTS Score"></div>
@@ -205,7 +205,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-xs-12">
+            <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="header">
                 <div><img src="{{ asset('assets/images/icons-new-home/pte.png ') }}" class="loading"
                     alt="Min PTE Score"></div>
@@ -218,25 +218,26 @@
           </div>
         </div>
 
-        <div class="col-lg-4 hidden-xs"><img src="{{ asset('assets/images/icons-new-home/malaysia-map.png') }}"
-            class="img-responsive loading" alt="Malaysia Map"></div>
+        <div class="col-xl-4  col-lg-12 hidden-xs text-center">
+          <img src="{{ asset('assets/images/icons-new-home/malaysia-map.png') }}"
+            class="map-malysia loading" alt="Malaysia Map"></div>
       </div>
     </div>
   </section>
   <!-- fourth section end  -->
 
-  <section class="main-specialization">
+  <section class="main-specialization pt-0">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-12 col-md-12 mb-3">
           <div class="sec-heading">
-            <h2>Choose Your Favourite Programme in Malaysia</h2>
+            <h2 class="mt-0 chooses" >Choose Your Favourite Programme in Malaysia</h2>
           </div>
         </div>
       </div>
       <div class="row">
         @foreach ($specializations as $row)
-          <div class="col-lg-3 col-md-3 col-sm-4">
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-4 col-12">
             <a href="{{ url($row->slug . '-courses') }}" target="_blank">
               <div class="fuc-box">
                 <p class="card-body">{{ $row->name }} <i class="fa fa-angle-right"></i>
@@ -250,8 +251,12 @@
   </section>
   <!-- five section end  -->
 
+
+
+  <!-- seven section start   -->
+  <section class="academic-counsellor">
   @if ($pageContent != null)
-    <div class="container">
+  <div class="container">
       <div class="edu_wraper mb-0">
         <div class="show-more-box-country">
 
@@ -275,17 +280,16 @@
           <div class="show-more">(Show More)</div>
         </div>
       </div>
-    </div>
-  @endif
+    </div><section class="pb-5" >
 
-  <!-- seven section start   -->
-  <section class="academic-counsellor">
+  </section>
+  @endif
     <div class="container">
-      <div class="row">
-        <div class="col-lg-7">
+      <div class="row flex-column-reverse flex-xl-row">
+        <div class="col-xl-7 col-lg-12 mb-4">
           <h2>How Our <span>Academic Counsellor</span> Can Help You Get Admission in Malaysia</h2>
           <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 col-12 ">
               <div class="academic-card">
                 <div class="academic-card-body"> <i><img
                       src="https://www.educationmalaysia.in/assets/web/images/icons-new-home/register-yourself.png"
@@ -294,7 +298,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 col-12 ">
               <div class="academic-card">
                 <div class="academic-card-body"> <i><img
                       src="https://www.educationmalaysia.in/assets/web/images/icons-new-home/document-counselling.png"
@@ -303,7 +307,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 col-12 ">
               <div class="academic-card">
                 <div class="academic-card-body"> <i><img
                       src="https://www.educationmalaysia.in/assets/web/images/icons-new-home/entrance-test.png"
@@ -312,7 +316,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 col-12 ">
               <div class="academic-card">
                 <div class="academic-card-body"> <i><img
                       src="https://www.educationmalaysia.in/assets/web/images/icons-new-home/university-shortlist.png"
@@ -321,7 +325,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 col-12 ">
               <div class="academic-card">
                 <div class="academic-card-body"> <i><img
                       src="https://www.educationmalaysia.in/assets/web/images/icons-new-home/preparing-documentation.png"
@@ -330,7 +334,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 col-12 ">
               <div class="academic-card">
                 <div class="academic-card-body"> <i><img
                       src="https://www.educationmalaysia.in/assets/web/images/icons-new-home/application-guidance.png"
@@ -339,7 +343,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 col-12 ">
               <div class="academic-card">
                 <div class="academic-card-body"> <i><img
                       src="https://www.educationmalaysia.in/assets/web/images/icons-new-home/financial-dcumentation.png"
@@ -348,7 +352,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 col-12 ">
               <div class="academic-card">
                 <div class="academic-card-body"> <i><img
                       src="https://www.educationmalaysia.in/assets/web/images/icons-new-home/visa-application.png"
@@ -357,7 +361,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 col-12 ">
               <div class="academic-card">
                 <div class="academic-card-body"> <i><img
                       src="https://www.educationmalaysia.in/assets/web/images/icons-new-home/post-visa.png"
@@ -368,19 +372,17 @@
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <center class="text-left pt-mob"> <a href="#" class="new-btn">Talk to Counsellor <svg
+       
+         <div class="text-center text-xl-left pt-mob"> <a href="#" class="new-btn">Talk to Counsellor <svg
                     xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
                     class="bi bi-arrow-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                       d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z">
                     </path>
-                  </svg></a> </center>
-            </div>
-          </div>
+                  </svg></a> </div>
+       
         </div>
-        <div class="col-lg-5">
+        <div class="col-xl-5 col-lg-12 mb-4">
           <div class="row">
             <div class="col-md-12">
               <h2>Study in <span>Malaysia Courses</span></h2>
@@ -388,38 +390,38 @@
           </div>
           <div class="new-home-fuc ">
             <div class="row">
-              <div class="col-lg-6 col-xs-6 pr-10"><a href="#">
+              <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a href="#">
                   <div class="fuc-box"><span><img src="{{ asset('assets/images/fuc-icons/certificate.png') }} "
                         alt="Certificate Courses" class="loading"></span>
                     <p>Certificate <i class="fa fa-angle-right"></i></p>
                   </div>
                 </a></div>
-              <div class="col-lg-6 col-xs-6 pl-10"><a href="#">
+              <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a href="#">
                   <div class="fuc-box"><span><img src="{{ asset('assets/images/fuc-icons/pre-university.png') }} "
                         alt="Pre University Courses" class="loading"></span>
                     <p>Pre University <i class="fa fa-angle-right"></i></p>
                   </div>
                 </a></div>
-              <div class="col-lg-6 col-xs-6 pr-10"><a href="#">
+              <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a href="#">
                   <div class="fuc-box"><span><img src="{{ asset('assets/images/fuc-icons/diploma.png') }} "
                         alt="Diploma Courses" class="loading"></span>
                     <p>Diploma <i class="fa fa-angle-right"></i></p>
                   </div>
                 </a></div>
-              <div class="col-lg-6 col-xs-6 pl-10"><a href="#">
+              <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a href="#">
                   <div class="fuc-box"> <span><img src="{{ asset('assets/images/fuc-icons/under-graduate.png') }} "
                         alt="Under Graduate Courses" class="loading"></span>
                     <p>Under Graduate <i class="fa fa-angle-right"></i></p>
                   </div>
                 </a></div>
-              <div class="col-lg-6 col-xs-6 pr-10"><a href="#">
-                  <div class="fuc-box"> <span><img src="{{ asset('assets/images/fuc-icons/post-graduate.png') }} "
+              <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a href="#">
+                  <div class="fuc-box mb-0"> <span><img src="{{ asset('assets/images/fuc-icons/post-graduate.png') }} "
                         alt="Post Graduate Courses" class="loading"></span>
                     <p>Post Graduate <i class="fa fa-angle-right"></i></p>
                   </div>
                 </a></div>
-              <div class="col-lg-6 col-md-6 col-xs-6 pl-10"><a href="#">
-                  <div class="fuc-box"> <span><img src="{{ asset('assets/images/fuc-icons/phd.png') }} "
+              <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a href="#">
+                  <div class="fuc-box mb-0"> <span><img src="{{ asset('assets/images/fuc-icons/phd.png') }} "
                         alt="P.hd Courses" class="loading"></span>
                     <p>P.hd <i class="fa fa-angle-right"></i></p>
                   </div>
@@ -444,7 +446,7 @@
           </div>
           <div class="row">
             @foreach ($specializationsWithContent as $row)
-              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 pl-10 pr-10">
+              <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                 <a href="{{ route('specialization.detail', ['slug' => $row->slug]) }}">
                   <div class="fuc-box">
                     <p>{{ $row->name }} <i class="fa fa-angle-right"></i></p>
@@ -476,8 +478,8 @@
       </div>
       <div class="row">
         <div class="col-lg-12">
-          <div class=" b-all ranking-table" style="overflow-x:auto;">
-            <table class="table-responsive table table-striped mb-0">
+          <div class=" b-all ranking-table table-responsive">
+            <table class=" table table-striped mb-0">
               <tbody>
                 <tr class="bg-primary text-white">
                   <th class="d-none mob-hide">Logo</th>
@@ -583,7 +585,7 @@
           </div>
           <div class="row">
             @foreach ($universities as $row)
-              <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-2 col-12 mb-4">
                 <a href="{{ route('university.overview', ['university_slug' => $row->uname]) }}">
                   <div class="fuc-box">
                     <span>
