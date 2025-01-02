@@ -4,6 +4,7 @@ namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\CourseCategory;
 use App\Models\CourseSpecialization;
 use App\Models\Destination;
 use App\Models\FaqCategory;
@@ -89,8 +90,22 @@ class HomeFc extends Controller
   {
     $page_name = $request->segment(2);
     $pageContent = PageContent::with('author')->where('website', site_var)->where('page_name', $page_name)->first();
+    $level = strtoupper($page_name);
+    $categories = CourseCategory::whereHas('programs', function ($query) use ($level) {
+      $query->where('status', 1)
+        ->where('level', $level)
+        ->whereHas('university', function ($query) {
+          $query->where('status', 1);
+        });
+    })->with('specializations', function ($query) use ($level) {
+      $query->whereHas('universityPrograms', function ($query) use ($level) {
+        $query->where('status', 1)->where('level', $level)->whereHas('university', function ($query) {
+          $query->where('status', 1);
+        });;
+      })->orderBy('name');
+    })->orderBy('name')->get();
     //printArray($pageContent);
-    $data = compact('pageContent');
+    $data = compact('pageContent', 'categories', 'level');
     return view('front.courses')->with($data);
   }
 }

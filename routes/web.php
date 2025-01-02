@@ -797,6 +797,7 @@ foreach ($specializations as $row) {
 Route::prefix('courses-in-malaysia')->group(function () {
   Route::get('/remove-filter', [UniversityProgramListFc::class, 'removeFilter'])->name('cl.remove.filter');
   Route::get('/remove-all-filter', [UniversityProgramListFc::class, 'removeAllFilter'])->name('cl.remove.all.filter');
+  Route::get('/apply-custom-filter', [UniversityProgramListFc::class, 'applyFilter'])->name('cl.apply.custom.filter');
 });
 
 // COURSES IN MALAYSIA ROUTES END

@@ -257,4 +257,9 @@ class UniversityProgramListFc extends Controller
     session()->forget('CFilterCategory');
     session()->forget('CFilterSpecialization');
   }
+  public function applyFilter(Request $request)
+  {
+    session()->put('CFilterLevel', $request->CFilterLevel);
+    session()->put('CFilterCategory', $request->CFilterCategory);
+  }
 }
