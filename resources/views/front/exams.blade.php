@@ -25,7 +25,7 @@
   </div>
   <!-- Breadcrumb -->
   <!-- Content -->
-  <section class="bg-light">
+  <section class="bg-light examslead py-5">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-12 col-md-12 mb-3">
@@ -36,7 +36,7 @@
       </div>
       <div class="row">
         @foreach ($exams as $row)
-          <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
+          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 mb-4">
             <div class="education_block_grid style_2 all-cards">
               <div class="education_block_thumb n-shadow fix-sizes">
                 <img data-src="{{ asset($row->imgpath) }}" class="fix-sizes" alt="{{ $row->page_name }}">

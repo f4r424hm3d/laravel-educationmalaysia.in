@@ -1261,14 +1261,7 @@ html body .bg-dark-blue {
 .table-striped tbody tr:nth-of-type(odd) {
     background-color: #f7f9fb;
 }
-.table > tbody > tr > td,
-.table > tbody > tr > th,
-.table > tfoot > tr > td,
-.table > tfoot > tr > th,
-.table > thead > tr > td,
-.table > thead > tr > th {
-    border-top: 1px solid #f7f9fb;
-}
+
 .table tr td,
 .table tr th {
     border: 1px solid #aeaeae;
@@ -1546,9 +1539,9 @@ a.btn-trans-video i {
 .btn-white-t-theme:hover,
 .btn-white-theme:focus,
 .btn-white-theme:hover {
-    color: #ffffff ;
-    background-color: #000000 ;
-    border: 2px solid #000000;
+    color: #ffffff;
+    background-color: #ffffff;
+    border: 2px solid #ffffff;
 }
 .btn-white-theme {
     color: #ffffff;
@@ -1589,17 +1582,18 @@ a.btn-trans-video i {
 }
 .btn-primary,
 .btn-primary.disabled {
-    background: #000000;
-    border: 1px solid #000000;
+    background: #0a4191;
+    border: 1px solid #0a4191;
     -webkit-transition: 0.2s ease-in;
     -o-transition: 0.2s ease-in;
     transition: 0.2s ease-in;
 }
 .btn-primary.disabled:hover,
 .btn-primary:hover {
-    background: #e05707;
-    border: 1px solid #e05707;
-    color: #ffffff ;
+    background: #0a4191;
+    border: 1px solid #0a4191;
+    color: #ffffff;
+    box-shadow: 1px 14px 17px -4px #0a4191;
 }
 .btn-outline-primary.active,
 .btn-outline-primary:active,
@@ -2464,7 +2458,7 @@ span.select2-selection.select2-selection--single {
     color: #495057 ;
 }
 select.form-control:not([size]):not([multiple]) {
-    height: 48px;
+    height: 40px;
 }
 .form-control.fc-lg,
 select.form-control.fc-lg:not([size]):not([multiple]) {
@@ -9241,7 +9235,7 @@ table {
     justify-content: center;
 }
 .form-control:focus {
-    border-color: #e6eaf3;
+    border-color: #a4a4a4;
 }
 .dashboard_single_course {
     display: flex;
@@ -9911,6 +9905,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 15px;
+    overflow-x: auto;
 }
 table customers th,
 table td {
@@ -9939,7 +9934,7 @@ table th {
 }
 .booking .form-control {
     color: #484949;
-    height: 48px;
+    height: 40px;
 }
 .booking .mini {
     font-size: 13px;
@@ -10459,11 +10454,11 @@ table th {
 }
 .addSticky {
     background: #ffffff;
-    top: 70px;
+    top: 0px;
     position: sticky;
     overflow: auto;
     font-weight: 600;
-    z-index: 999;
+    z-index: 1;
     box-shadow: 0 4px 10px rgb(0 0 0 / 4%);
 }
 
@@ -10937,7 +10932,7 @@ table th {
 .top-trending-universities .slick-prev {
     position: absolute;
     left: -30px;
-    top: 35%;
+    top: 50%;
     background: rgba(255, 255, 255, 1) !important;
     width: 40px;
     height: 40px;
@@ -10954,17 +10949,17 @@ table th {
 
 .top-trending-universities .slick-next {
     position: absolute;
-    right: -30px;
-    top: 35%;
+    right: -11px;
+    top: 50%;
     background: rgba(255, 255, 255, 1) !important;
     width: 40px;
     height: 40px;
     cursor: pointer;
-    position: absolute;
     display: block;
     z-index: 999;
     border-radius: 30px;
     padding-left: 2px;
+    border: 1px solid #d4d4d4;
 }
 .top-trending-universities .content {
     margin-top: 33px;
@@ -11026,7 +11021,6 @@ section.main-sliderss .slick-next {
     width: 50px;
     height: 50px;
     cursor: pointer;
-    position: absolute;
     display: block;
     z-index: 999;
     border-radius: 30px;
@@ -11718,8 +11712,6 @@ table tr td a {
     border: 1p soxlid #0000002b;
 }
 
-
-
 .service-new .slick-next {
     position: absolute;
     right: -33px;
@@ -11728,13 +11720,14 @@ table tr td a {
     width: 40px;
     height: 40px;
     cursor: pointer;
-    position: absolute;
     display: block;
     z-index: 999;
     border-radius: 30px;
     padding-left: 2px;
-    border: 1p soxlid #0000002b;
+    border: 1px solid #0000002b;
 }
+
+
 /* ten section end  */
 
 /* evl section start  */
@@ -12096,11 +12089,11 @@ table tr td a {
 
 .title-size .card-title {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     margin: 0px!important;
     padding: 13px 0px;
     text-transform: capitalize;
-    margin-top: 14px !important;
+    margin-top: 0px !important;
 }
 
 .title-size .card-text {
@@ -12183,7 +12176,7 @@ table tr td a {
     padding: 6px 12px;
     border: 1px solid #dc5a21;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     border-radius: 4px;
     color: #dc5a21;
 }
@@ -12307,6 +12300,7 @@ table tr td a {
     font-size: 18px;
     font-weight: 500;
     margin-top: 22px;
+    margin-bottom: 22px;
 }
 .breadcrumb li a {
     color: #fff;
@@ -12369,7 +12363,7 @@ table tr th {
 .all-mass .all-listst h2 {
     font-size: 18px;
     font-weight: 500;
-    text-align: center;
+    text-align: left !important;
 }
 
 .all-mass p {
@@ -12431,11 +12425,7 @@ table tr th {
     padding: 0px 0px 40px;
 }
 
-.all-listst h2 {
-    font-size: 18px;
-    font-weight: 500;
-    text-align: center;
-}
+
 .study-owl {
     width: 100%;
     max-width: 100px;
@@ -12486,11 +12476,24 @@ table tr th {
     display: flex!important;
     align-items: center;
     height: 70px;
+    width: 23%;
 }
 
 .cor-p5 ul li a {
-    font-weight: 500;
-    padding: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    padding: 0px;
+    margin: 20px;
+    margin-left: 0px;
 }
 
 .courses_ol li::before {
@@ -13675,14 +13678,6 @@ section.malaysia-govt {
     object-fit: cover;
 }
 
-.title-size .card-title {
-    font-size: 17px;
-    font-weight: 500;
-    margin: 0px!important;
-    padding: 20px 0px;
-    text-transform: capitalize;
-}
-
 .title-size .card-text {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -13691,15 +13686,6 @@ section.malaysia-govt {
     text-overflow: ellipsis;
     text-transform: capitalize;
     font-size: 16px;
-}
-
-a.btn-regi {
-    padding: 6px 12px;
-    border: 1px solid #dc5a21;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 4px;
-    color: #dc5a21;
 }
 
 a.btn-regi:hover {
@@ -14206,7 +14192,276 @@ span.duratinss {
 
 }
 
+.modal-backdrop.show{
+    z-index: -1;
+}
+.registration-modal .modal-dialog{
+    max-width: 1080px;
+}
+.all-grays {
+    background-color: #f8f8f8;
+    height: 100%;
+    padding: 20px;
+}
+
+.all-white {
+    background-color: #ffffff;
+    height: 100%;
+    padding: 20px;
+    position: relative;
+}
+.all-grays h2 {
+    font-size: 13px;
+    font-weight: 500;
+    color: #333 !important;
+    max-width: 200px;
+    line-height: 19px;
+}
+.border-alls {
+    height: 74px;
+    border: 1px solid #8080807d;
+    padding: 10px;
+    border-radius: 2px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    width: 47%;
+    height: 98px;
+    
+}
+.set-gaps {
+    gap: 15px;
+    justify-content: space-between;
+}
+.border-alls img {
+    width: 23px;
+    height: 27px;
+    object-fit: contain;
+}
+
+.border-alls h4 {
+    font-size: 12px;
+    font-weight: 400;
+    color: #333 !important;
+    margin: 0px;
+    text-transform: capitalize;
+}
+
+
+.user-says img {
+    width: 33px;
+    height: 33px;
+    border-radius: 21px;
+}
+
+.user-profile h2 {
+    font-size: 10px;
+    color: #000 !important;
+    font-weight: 400;
+    line-height: 13px;
+}
+
+.user-profile p {
+    font-size: 12px;
+    margin: 0px;
+    color: #000 !important;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.user-says .set-gap {
+    padding: 10px;
+    gap: 6px;
+    height: 100%;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+}
+
+.user-says {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #0000004f;
+    margin-bottom: 0px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.your-class {
+    margin-top: 29px;
+}
+
+.your-class  .slick-slide {
+    width: 250px;
+    height: 120px;
+}
+
+.your-class .slick-prev {
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    background: #0a4191;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    z-index: 999;
+    border-radius: 30px;
+    padding-right: 2px;
+    border: 1px solid #0a4191;
+    display: none !important;
+}
+
+.your-class .slick-next {
+    position: absolute !important;
+    right: -18px;
+    top: 50%;
+    background: #0a4191;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: block;
+    z-index: 999 !important;
+    border-radius: 30px;
+    padding-left: 2px;
+    border: 1px solid #0a4191;
+}
+.your-class .slick-next:before, .your-class .slick-prev:before {
+    font-size: 15px;
+    line-height: 1;
+    opacity: 1;
+    color: #ffffff;
+    content: "\e649";
+}
+.leadform-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: space-between;
+    padding-bottom: 26px;
+    border-bottom: 1px solid #bdbdbd;
+    margin-bottom: 26px;
+}
+
+.lead-hdr-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.lead-hdr-img {
+    width: 100px;
+    border: 1px solid #0000003b;
+    border-radius: 69px;
+    padding: 17px;
+    overflow: hidden;
+    box-shadow: 0px 3px 6px 0px #000000a8;
+}
+
+.hdr-info h3 {
+    color: #0a4191 !important;
+    font-size: 24px;
+    text-align: left;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.hdr-info {
+    width: 100%;
+    padding: 10px;
+}
+
+.hdr-info .all-list {
+    color: #000 !important;
+    font-size: 16px;
+    text-align: left;
+    font-weight: 400;
+    text-transform: capitalize;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+.setgap3 {
+    gap: 30px;
+}
+.form-added .form-control, .form-added .form-control:focus{
+    height: 40px;
+    color: #0a4191;
+}
+.all-white button.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #0a4191;
+    color: #fff;
+    font-size: 25px;
+    z-index: 4 !important;
+    display: block;
+}
+.all-white .widthss {
+    width: 172px;
+}
+.form-added .slick-arrow {
+    display: block !important;
+    z-index: 1000; 
+  }
+
+
+
+  .examslead .sec-heading h2 {
+    font-size: 24px;
+    text-align: left;
+}
+section.bg-light {
+    padding: 50px 0px;
+}
+.university-blades h1 {
+    font-size: 24px;
+    margin-top: 22px;
+    text-align: left !important;
+}
+
+.mobile-field .call-select {
+    position: absolute;
+    top: 0;
+    z-index: 3 !important;
+    width: 103px !important;
+}
+
+.mobile-field input {
+    padding-left: 118px;
+}
+.mobile-field{
+    position: relative;
+}
+.all-white .linkp {
+    color: #000 !important;
+    font-size: 13px;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.all-white .linkp a {
+    color: #0a4191;
+}
+.already-fomrs {
+    text-align: left;
+    color: #dc5b22 !important;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+
 @media (max-width:1200px){
+    .your-class .slick-next{
+        display: block !important;
+    }
         /* gourav css start  */
         .new-home-fuc{
             padding-bottom: 0px;
@@ -14224,8 +14479,7 @@ span.duratinss {
         margin-bottom: 16px;
         font-size: 22px;
     }
-    
-    .mainsliders p {
+    .cor-p5 h2 {
         font-size: 14px;
         padding-bottom: 23px;
         line-height: 23px;
@@ -14238,6 +14492,26 @@ span.duratinss {
     }
 }
 @media (max-width: 992px) {
+    .courses_ol li{
+        width: 31%;
+    }
+ 
+    .your-class .slick-next{
+        display: block !important;
+    }
+    .set-gaps{
+        gap: 10px;
+    }
+    .your-class  .slick-slide {
+        width: 182px;
+    }
+    .hdr-info h3{
+        font-size: 18px;
+    }
+    .hdr-info .all-list{
+        font-size: 14px;
+    }
+
     .why-study .header{
         margin-left: 0px !important;
     }
@@ -14279,10 +14553,32 @@ span.duratinss {
         font-size: 20px;
         margin-bottom: 10px;
     }
- 
+
+    .cor-con-mid .all-mars {
+        gap: 12px;
+        margin-bottom: 22px;
+        justify-content: center;
+    }
+    
+    .cor-con-mid .all-mars li.nav-item {
+        font-size: 12px;
+    }
 }
 
 @media (max-width:768px){
+    .courses_ol li{
+        width: 47%;
+    }
+    .cor-con-mid .all-mars {
+        flex-direction: column;
+    }
+    
+    .title-size .card-title {
+        font-size: 14px;
+    }
+    .your-class  .slick-slide {
+        width: unset !important;
+    }
     .new-home-fuc a .fuc-box{
         margin-bottom: 20px !important;
     }
@@ -14335,8 +14631,36 @@ span.duratinss {
         margin-bottom: 25px;
         line-height: 24px;
     }
+    .examslead .sec-heading h2 {
+        font-size: 19px !important;
+        text-align: center !important;
+    }
+    .browserall .card h2 {
+        font-size: 18px;
+    }
 }
 @media (max-width:576px){
+    .courses_ol li{
+        width: 100%;
+    }
+    .title-size .card-title {
+        font-size: 16px;
+    }
+    .hdr-info h3{
+        text-align: center;
+    }
+    .hdr-info .all-list {
+        font-size: 14px;
+        text-align: center;
+    }
+    .leadform-header {
+        flex-direction: column;
+    }
+    
+    .leadform-header .hdr-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;}
     section.main-sliderss .slick-next, section.main-sliderss .slick-prev {
         display: none !important;
     }
@@ -14392,7 +14716,13 @@ span.duratinss {
     grid-template-columns: auto auto;
 }
 
-
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+}   
 /* gourav css end  */
     
 }

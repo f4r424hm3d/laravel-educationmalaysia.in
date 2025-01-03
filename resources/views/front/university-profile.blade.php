@@ -160,8 +160,8 @@
 
                                             <div class="col-12">
                                             <div class="form-group">
-                                            <div class="d-flex align-items-center setgap3">
-                                                    <select class="form-control w-25">
+                                            <div class="d-flex align-items-center setgap3 position-relative mobile-field">
+                                                    <select class="form-control  call-select">
                                                         <option value="">Country Code</option>
                                                         <option value="0">+0</option>
                                                         <option value="1">+1</option>
@@ -738,8 +738,18 @@
                                                
                                             </div>
                                            <div class="col-12 text-right ">
-                                           <button type="submit" class="btn btn-primary rounded"
-                                           data-dismiss="modal">Send Message</button>
+                                           <p class=" mb-3 text-left linkp">By submitting this form, you accept and agree to our <a href="#" rel="noopener" target="_blank">Terms of Use.</a></p>
+                                           
+                                           <div class="row flex-column-reverse flex-md-row align-items-center ">
+                                            <div class="col-12 col-sm-12 col-md-9 col-lg-9">
+                                            <p class="already-fomrs">Already Registered? Click Here To Login.</p>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                                            <button type="submit" class="btn btn-primary rounded"
+                                            data-dismiss="modal">Send Message</button>
+                                            </div>
+                                           </div>
+                                        
                                            </div>
 
 

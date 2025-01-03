@@ -21,7 +21,7 @@
   </div>
   <!-- Breadcrumb -->
   <!-- Content -->
-  <section class="main-specialization">
+  <section class="main-specialization examslead ">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-12 col-md-12 mb-3">
@@ -32,7 +32,7 @@
       </div>
       <div class="row">
         @foreach ($specializations as $row)
-          <div class="col-lg-3 col-md-3 col-sm-4">
+          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-4 col-12">
             <a href="{{ route('specialization.detail', ['slug' => $row->slug]) }}" target="_blank">
               <div class="fuc-box">
                 <p class="card-body">{{ $row->name }} <i class="fa fa-angle-right"></i>
