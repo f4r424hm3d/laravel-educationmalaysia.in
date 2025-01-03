@@ -40,44 +40,6 @@
     }
   </style>
 
-  <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "inLanguage": "en-US",
-        "name": "<?php echo $meta_title; ?>",
-        "description": "<?php echo $meta_description; ?>",
-        "url": "<?php echo $fullurl; ?>",
-        "publisher": {
-            "@type": "Organization",
-            "name": "Education Malaysia",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://www.educationmalaysia.in/assets/web/images/education-malaysia-new-logo.png",
-                "width": "230",
-                "height": "55"
-            }
-        }
-    }
-  </script>
-  <script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "Organization",
-        "name": "EducationMalaysia",
-        "url": "https://www.educationmalaysia.in/",
-        "logo": "https://www.educationmalaysia.in/assets/web/images/education-malaysia-new-logo.png",
-        "image": "https://www.educationmalaysia.in/assets/web/images/education-malaysia-new-logo.png",
-        "sameAs": ["https://www.facebook.com/educationmalaysia.in", "https://www.pinterest.com/educationmalaysiain/",
-            "https://twitter.com/educatemalaysia/", "https://www.instagram.com/educationmalaysia.in/", "https://www.quora.com/profile/Education-Malaysia-3", "https://www.linkedin.com/company/educationmalaysia/", "https://www.youtube.com/channel/UCK7S9yvQnx08CgcDMMfYAyg"
-        ],
-        "contactPoint": [{
-            "@type": "ContactPoint",
-            "telephone": "+91 9818560331",
-            "contactType": "customer support"
-        }]
-    }
-  </script>
   <!-- Favicons-->
   @stack('breadcrumb_schema')
   <style>
