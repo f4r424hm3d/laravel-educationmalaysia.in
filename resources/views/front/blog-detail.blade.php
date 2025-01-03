@@ -34,38 +34,6 @@
     }
   </script>
   <!-- breadcrumb schema Code End -->
-  <!-- webpage schema Code Destinations -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org/",
-      "@type": "webpage",
-      "url": "{{ url()->current() }}",
-      "name": "{{ $meta_title }}",
-      "description": "{{ $meta_description }}",
-      "inLanguage": "en-US",
-      "keywords": ["{{ $meta_keyword }}"]
-    }
-  </script>
-  <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "Article",
-      "inLanguage": "en",
-      "headline": "<?= $meta_title ?>",
-      "description": "<?= $meta_description ?>",
-      "keywords": "<?= $meta_keyword ?>",
-      "dateModified": "<?= getISOFormatTime($blog->updated_at) ?>",
-      "datePublished": "<?= getISOFormatTime($blog->created_at) ?>",
-      "mainEntityOfPage": { "id": "<?= $page_url ?>", "@type": "WebPage" },
-      "author": { "@type": "Person", "name": "Britannica Team", "url": "https://www.educationmalaysia.in/author/6-britannica-team" },
-      "publisher": {
-          "@type": "Organization",
-          "name": "Education Malaysia Education",
-          "logo": { "@type": "ImageObject", "name": "Education Malaysia Education", "url": "https://www.educationmalaysia.in/front/assets/img/logo.webp", "height": "65", "width": "258" }
-      },
-      "image": { "@type": "ImageObject", "url": "<?= asset($og_image_path) ?>" }
-    }
-  </script>
 @endpush
 @section('main-section')
   <div class="image-cover ed_detail_head lg" style="background:url({{ url('/front/') }}/assets/img/ub.jpg);"

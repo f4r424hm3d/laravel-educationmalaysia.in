@@ -13,21 +13,21 @@
         <div class="col-lg-7 col-md-7">
           <div class="ed_detail_wrap light">
             <!--ul class="cources_facts_list">
-  <li class="facts-1"><a href="#">Study In Canada</a></li>
-  <li class="facts-1"><a href="#">Universities In Canada</a></li>
-  <li class="facts-1"><a href="#">U Of T</a></li>
-  <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
-  </ul-->
+    <li class="facts-1"><a href="#">Study In Canada</a></li>
+    <li class="facts-1"><a href="#">Universities In Canada</a></li>
+    <li class="facts-1"><a href="#">U Of T</a></li>
+    <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
+    </ul-->
             <div class="ed_header_caption">
               <h1 class="ed_title">University of Toronto</h1>
               <ul class="b-b pb-2 mb-3">
                 <li><i class="ti-location-pin"></i><span>Location:</span> Toronto, Ontario</li>
                 <!--li><i class="fa fa-building"></i><span>Founded:</span> 1827</li>
-  <li><i class="fa fa-globe"></i><span>World Rank:</span> 114</li-->
+    <li><i class="fa fa-globe"></i><span>World Rank:</span> 114</li-->
               </ul>
             </div>
             <!--a href="{{ url('/sign-up/?return_to=') }}" class="btn btn-white-t-theme mr-3"><i class="ti-download mr-1"></i> Download Brochure</a>
-  <a href="{{ url('/sign-up/?return_to=') }}" class="btn btn-white-theme mr-3"><i class="ti-user mr-1"></i> Get free counselling</a-->
+    <a href="{{ url('/sign-up/?return_to=') }}" class="btn btn-white-theme mr-3"><i class="ti-user mr-1"></i> Get free counselling</a-->
             <a href="write-a-review.html" class="btn btn-white-t-theme"><i class="ti-pencil-alt mr-1"></i> Write a
               review</a>
           </div>
@@ -169,10 +169,10 @@
                 </div>
 
                 <!--h4 class="mb-1">Student Wafa</h4>
-  <div class="star-rating  green" data-rating="5"><i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i>
-  </div> <span class=" theme-cl"><i class="ti-check-box ml-2"></i> Verified Review</span>
-  <p>Post on - Jan 5, 2023 <span class="fw-600">by (Wafa) Sayyeda Fatima Naurizadeh</span></p>
-  <p class="fw-600">Batch of 2022 | Bechlor of Information Technology (Hons) Data Analytics</p-->
+    <div class="star-rating  green" data-rating="5"><i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i><i class="ti-star"></i>
+    </div> <span class=" theme-cl"><i class="ti-check-box ml-2"></i> Verified Review</span>
+    <p>Post on - Jan 5, 2023 <span class="fw-600">by (Wafa) Sayyeda Fatima Naurizadeh</span></p>
+    <p class="fw-600">Batch of 2022 | Bechlor of Information Technology (Hons) Data Analytics</p-->
 
                 <h5 class="mt-4 mb-0">College Infrastructure</h5>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the

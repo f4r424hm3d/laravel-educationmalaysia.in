@@ -32,18 +32,6 @@
     }
   </script>
   <!-- breadcrumb schema Code End -->
-  <!-- webpage schema Code Destinations -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org/",
-      "@type": "webpage",
-      "url": "{{ url()->current() }}",
-      "name": "{{ $meta_title }}",
-      "description": "{{ $meta_description }}",
-      "inLanguage": "en-US",
-      "keywords": ["{{ $meta_keyword }}"]
-    }
-  </script>
 @endpush
 @push('pagination_tag')
   @if ($npu)

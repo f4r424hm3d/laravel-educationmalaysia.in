@@ -40,27 +40,44 @@
     }
   </style>
 
-  <!-- organization schema code -->
-  <script type="application/ld+json"> {"@context":"https://schema.org","@type":"Organization","@id":"https://www.educationmalaysia.in/#organization","name":"Education Malaysia Education","url":"https://www.educationmalaysia.in/","logo":"https://www.educationmalaysia.in/front/assets/img/logo.png","address":{"@type":"PostalAddress","streetAddress":"B-16 Ground Floor, Mayfield Garden, Sector 50","addressLocality":"Gurugram","addressRegion":"Haryana","postalCode":"122002","addressCountry":"India"},"contactPoint":{"@type":"ContactPoint","contactType":"contact","telephone":"+919818560331","email":"info.educationmalaysia.in"},"sameAs":["https://www.facebook.com/britannicaoverseasedu","https://twitter.com/BritannicaOEdu","https://www.youtube.com/channel/UCK2eeC1CkS3YkYrGnnzBUEQ","https://in.pinterest.com/Britannicaoverseas/","https://www.linkedin.com/company/britannicaoverseas/","https://www.instagram.com/britannicaoverseas/","https://www.tumblr.com/britannicaoverseas/"]}
-    </script>
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-PXNZKF7');
+  <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "inLanguage": "en-US",
+        "name": "<?php echo $meta_title; ?>",
+        "description": "<?php echo $meta_description; ?>",
+        "url": "<?php echo $fullurl; ?>",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Education Malaysia",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.educationmalaysia.in/assets/web/images/education-malaysia-new-logo.png",
+                "width": "230",
+                "height": "55"
+            }
+        }
+    }
   </script>
-  <!-- End Google Tag Manager -->
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "EducationMalaysia",
+        "url": "https://www.educationmalaysia.in/",
+        "logo": "https://www.educationmalaysia.in/assets/web/images/education-malaysia-new-logo.png",
+        "image": "https://www.educationmalaysia.in/assets/web/images/education-malaysia-new-logo.png",
+        "sameAs": ["https://www.facebook.com/educationmalaysia.in", "https://www.pinterest.com/educationmalaysiain/",
+            "https://twitter.com/educatemalaysia/", "https://www.instagram.com/educationmalaysia.in/", "https://www.quora.com/profile/Education-Malaysia-3", "https://www.linkedin.com/company/educationmalaysia/", "https://www.youtube.com/channel/UCK7S9yvQnx08CgcDMMfYAyg"
+        ],
+        "contactPoint": [{
+            "@type": "ContactPoint",
+            "telephone": "+91 9818560331",
+            "contactType": "customer support"
+        }]
+    }
+  </script>
   <!-- Favicons-->
   @stack('breadcrumb_schema')
   <style>
@@ -103,9 +120,9 @@
 
 <body class="red-skin">
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXNZKF7" height="0" width="0"
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WP578P4K" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <!-- End Google Tag Manager (noscript) -->
   <div id="main-wrapper">
     <!-- Top header-->
     <div class="header header-light head-shadow py-2">
