@@ -4,8 +4,10 @@ namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Lead;
+use App\Models\Level;
 use App\Models\Student;
 use App\Models\University;
+use App\Models\UniversityBrochure;
 use App\Rules\MathCaptchaValidationRule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
@@ -245,6 +247,14 @@ class InquiryController extends Controller
     }
 
     $university = University::find($request->university_id);
+    $levelDetail = Level::where('level', $request['highest_qualification'])->first();
+
+    $brochures = UniversityBrochure::where(['university_id' => $university->id, 'category' => $request->intrested_subject, 'level_id' => $levelDetail->id, 'brochure_type' => $request->requestfor, 'status' => 1])->get();
+    if ($brochures->count() < 1) {
+      $brochure_status = 'Brochure Not Available';
+    } else {
+      $brochure_status = 'Brochure Sended';
+    }
 
     $field = new Lead();
     $field->name = $request['name'];
@@ -259,6 +269,7 @@ class InquiryController extends Controller
     $field->source = $request->requestfor == 'fees' ? 'Education Malaysia - Fees Request' : 'Education Malaysia - Brochure Request';
     $field->source_path = $request['source_path'];
     $field->website = site_var;
+    $field->brochure_status = $brochure_status;
     $field->save();
 
     $emaildata = [
@@ -284,6 +295,27 @@ class InquiryController extends Controller
         $message->priority(1);
       }
     );
+
+    // Mail::send(
+    //   'mails.inquiry-reply', // View
+    //   $emaildata,            // Data passed to the view
+    //   function ($message) use ($dd, $brochures) {
+    //     $message->to($dd['to'], $dd['to_name']);
+    //     $message->subject($dd['subject']);
+    //     $message->priority(1);
+
+    //     // Attach each brochure file
+    //     foreach ($brochures as $brochure) {
+    //       $filePath = public_path($brochure->file_link); // Adjust if the path is relative to storage
+    //       if (file_exists($filePath)) {
+    //         $message->attach($filePath, [
+    //           'as' => basename($filePath), // Use the file's original name
+    //           'mime' => mime_content_type($filePath) // Dynamically detect MIME type
+    //         ]);
+    //       }
+    //     }
+    //   }
+    // );
 
     $dd2 = ['to' => TO_EMAIL, 'cc' => CC_EMAIL, 'to_name' => TO_NAME, 'cc_name' => CC_NAME, 'subject' => 'New Brochure/Fees request inquiry for ' . $university->name . ' – Team Attention Needed'];
 

@@ -210,7 +210,7 @@ class UniversityProfileCoursesFc extends Controller
     $breadcrumbCurrent = '<li class="facts-1">' . $program->program_name . '</li>';
     $title = $program->program_name;
     $site =  DOMAIN;
-    $tagArray = ['title' => $title, 'university' => $university->name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
+    $tagArray = ['title' => $title, 'universityname' => $university->name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
     $meta_title = $program->meta_title == '' ? $dseo->title : $program->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
