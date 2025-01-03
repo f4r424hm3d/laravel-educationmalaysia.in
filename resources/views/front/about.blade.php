@@ -22,20 +22,20 @@
   <!-- Breadcrumb -->
 
   <!-- Content -->
-  <section>
+  <section class="py-5" >
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="about-short">
-            <div class="sec-heading">
-              <h2>About <span class="theme-cl1">Education Malaysia</span></h2>
+            <div class="sec-heading ">
+              <h2 class="mb-4 text-center" >About <span class="theme-cl1">Education Malaysia</span></h2>
             </div>
             <div class="font-size-16">
               <div class="cor-p3 border-bottom-0 pb-1">
-                <div class="row">
-                  <div class="col-sm-12 col-md-7">
-                    <h2 style="margin:0px!important">About Us</h2>
-                    <div class="pad10 font b" style="margin-bottom:15px!important">The Achievement of Perfection is our
+                <div class="row flex-column-reverse flex-lg-row align-items-center">
+                  <div class="col-sm-12 col-md-12 col-lg-7">
+                    <h2 >About Us</h2>
+                    <div class="pad10 font b" >The Achievement of Perfection is our
                       goal but Excellence is Guarantee!</div>
                     <p>Britannica Overseas is the cutting edge of higher education’s Recruitment, Marketing and student
                       enrollment. We have been a well founded solutions specialist to our partner institutions since 2015.
@@ -53,10 +53,15 @@
                       team in Malaysia and India. Britannica Overseas, has stepped into an era within the education
                       industry by introducing software and marketing solutions.</p>
                   </div>
-                  <div class="col-md-5 col-sm-12"> <img
-                      src=" {{ asset('assets/web/images/education-malaysia-aboutus.png') }}" class="img-fuild">
+                  <div class="col-sm-12 col-md-12 col-lg-5">
+                    <div class="imgfix" >
+                    <img
+                    src=" {{ asset('assets/web/images/education-malaysia-aboutus.png') }}" class="img-fuild w-100">
+                    </div>
                   </div>
-                  <div class="col-md-12 col-sm-12">
+                 
+                </div>
+              
                     <h3>Vision</h3>
                     <p>Our vision is to make a transformative impact on the Study Abroad Service Sector through continual
                       innovation in student services by connecting institutions, recruiters, and students across the
@@ -72,13 +77,12 @@
                     <p>Integrity, Honesty, Commitment, Transparency, Excellence and Value Addition.</p>
                     <h3>Objectives</h3>
                     <p>To Expand the Academic Horizons.</p>
-                  </div>
-                </div>
+                
               </div>
               <div class="cor-p3 pt-0 border-top-0 mb-5">
                 <div class="row">
                   <div class="col-md-12 col-sm-12">
-                    <h2 class="b" style="margin-top:0px!important">Our Services</h2>
+                    <h2 class="b" >Our Services</h2>
                     <p>Britannica Overseas believes in re-inventing the Overseas Education Services for the students who
                       want to study in Malaysia from all over the world. We have joined the forces with the Top
                       Universities globally and with like minded student recruiters. We together strive to attain the
@@ -91,7 +95,7 @@
                     <!--    </li>-->
                     <!--    <li><a data-toggle="tab" href="#partners"><span>Partners</span></a></li>-->
                     <!--</ul>-->
-                    <ul class="nav nav-pills all-mars mb-3" id="pills-tab" role="tablist">
+                    <ul class="nav nav-pills all-mars mb-3 pb-3 pt-2" id="pills-tab" role="tablist">
                       <li class="nav-item"><a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Universities</a></li>
                       <li class="nav-item"><a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Students</a> </li>
                       <li class="nav-item"><a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Partners</a></li>
@@ -110,7 +114,7 @@
                             between the students and the esteemed Universities/Institutions/Colleges.</li>
                         </ul>
                         <h3 class="pad10 b">For institutions- </h3>
-                        <h4 style="margin-bottom:0px">International Students Recruitment Solutions -:</h4>
+                        <h4>International Students Recruitment Solutions -:</h4>
                         <p>End to end Student recruitment solutions to the universities in Malaysia. We help with
                           marketing
 
@@ -119,11 +123,11 @@
                           them in organizing and managing their office in India. We use successful marketing strategies
                           like partnering with International Universities and Educational fairs which will create a strong
                           presence in the education sector.</p>
-                        <h4 style="margin-bottom:0px">Establish a Network of Education Agents -:</h4>
+                        <h4>Establish a Network of Education Agents -:</h4>
                         <p>Our services include initiating a network of international education representatives across the
                           entire India. We also give assistance by training and grooming them to market your university in
                           these prospective regions.</p>
-                        <h4 style="margin-bottom:0px">Recruiting and Supervising an In-Country Representative -:</h4>
+                        <h4>Recruiting and Supervising an In-Country Representative -:</h4>
                         <p>From Recruiting to training and supervising an In-Country agent for your esteemed institutions.
                           We
 
@@ -132,7 +136,7 @@
                           fairs and partnering with local universities to recruit more candidates. We
 
                           will also monitor their production and help them with necessary support.</p>
-                        <h4 style="margin-bottom:0px">Screening of Applications -:</h4>
+                        <h4>Screening of Applications -:</h4>
                         <p>Our local team in India will make sure to pre screen the applications received from your
                           network of agents to guarantee that your admission team gets in touch with candidates with high
                           quality and verified applications. Our service will reduce the workload and enhance the
@@ -220,13 +224,13 @@
                   </div>
                 </div>
               </div>
-      <section class="all-chooses">
+      <se ction class="all-chooses">
       <div class="row">
                 <div class="col-md-4 col-sm-12 mb-4">
                   <div class="card h-100"> <img  src=" {{ asset('assets/web/images/Establish-an-India-Office.jpg') }}" 
-                      alt="Establish an India Office" style="width:100%">
-                    <div class="card-body" style="padding:10px 20px;">
-                      <h5 class="card-title text-center pad10" style="line-height:normal; margin-bottom:15px">Establish an
+                      alt="Establish an India Office" >
+                    <div class="card-body" >
+                      <h5 class="card-title text-center pad10" >Establish an
                         India Office</h5>
                       <p>If you plan to set up an
 
@@ -240,9 +244,9 @@
                 </div>
                 <div class="col-md-4 col-sm-12 mb-4">
                   <div class="card  h-100"> <img src=" {{ asset('assets/web/images/market-research-and-analysis.jpg') }}" 
-                      alt="marketing research and Analysis" style="width:100%">
-                    <div class="card-body" style="padding:10px 20px;">
-                      <h5 class="card-title text-center pad10" style="line-height:normal; margin-bottom:15px">Market
+                      alt="marketing research and Analysis" >
+                    <div class="card-body" >
+                      <h5 class="card-title text-center pad10">Market
                         Research and Analysis</h5>
                       <p>Our service will include understanding of these markets and trace out the effective strategies
                         for marketing which will suit your needs , requirements and goals.<br />
@@ -254,9 +258,9 @@
                 </div>
                 <div class="col-md-4 col-sm-12 mb-4">
                   <div class="card h-100"> <img src=" {{ asset('assets/web/images/marketing-and-branding.jpg') }}" 
-                      alt="Marketing and Branding" style="width:100%">
-                    <div class="card-body" style="padding:10px 20px;">
-                      <h5 class="card-title text-center pad10" style="line-height:normal; margin-bottom:15px">Marketing
+                      alt="Marketing and Branding" >
+                    <div class="card-body" >
+                      <h5 class="card-title text-center pad10" >Marketing
                         and Branding</h5>
                       <p>Our marketing and Branding strategies will help you outstretch to a vast pool of prospective
                         international candidates. We will also assist you in conducting International Education Fairs to
@@ -265,7 +269,7 @@
                   </div>
                 </div>
               </div>
-      </section>
+      </se>
              <section class="pb-5 pt-3 choose-uss mar10" >
              <div class="text-center">
               <h2 class="text-center">Why Choose Us?</h2>

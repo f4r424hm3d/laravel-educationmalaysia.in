@@ -28,7 +28,7 @@
   </div>
         <div class="row">
 
-            <div class="col-md-4 mb-4">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
                 <div class="ed-ad-dec">
 
                     <div class="ed-ad-img">
@@ -51,7 +51,7 @@
 
 
 
-            <div class="col-md-4 mb-4">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
                 <div class="ed-ad-dec">
 
                     <div class="ed-ad-img">
@@ -76,7 +76,7 @@
 
 
 
-            <div class="col-md-4 mb-4">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
                 <div class="ed-ad-dec">
 
                     <div class="ed-ad-img">
@@ -98,7 +98,7 @@
             </div>
 
 
-            <div class="col-md-4 mb-4">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
                 <div class="ed-ad-dec">
 
                     <div class="ed-ad-img">
@@ -122,7 +122,7 @@
 
 
 
-            <div class="col-md-4 mb-4">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
                 <div class="ed-ad-dec">
 
                     <div class="ed-ad-img">
@@ -145,7 +145,7 @@
 
 
 
-            <div class="col-md-4 mb-4">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
                 <div class="ed-ad-dec">
 
                     <div class="ed-ad-img">

@@ -36,7 +36,7 @@
       <div class="col-12">
         <div class="row">
           <div class="col-4 pr-0">
-            <select name="c_code" class="form-control bg-white p-2" style="height:50px" required>
+            <select name="c_code" class="form-control bg-white p-2"  required>
               <option value="">Select</option>
               @foreach ($countries as $row)
                 <option value="{{ $row->phonecode }}" {{ $row->phonecode == 91 ? 'selected' : '' }}>

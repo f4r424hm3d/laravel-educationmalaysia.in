@@ -11,10 +11,11 @@
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
 
-                <div id="carouselExampleControls" class="carousel slide users-collapse pb-5 pt-3" data-ride="carousel">
+                <div id="carouselExampleControls" class="carousel slide users-collapse pb-5 " data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="say-h2"> What our users say ?</div>
+                            <div class="overflows mx-5">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="u-stall">
@@ -41,9 +42,12 @@
                                     </div>
                                 </div>
                             </div>
+                            </div>
+                           
                         </div>
                         <div class="carousel-item">
                             <div class="say-h2"> What Universities say ?</div>
+                            <div class="overflows mx-5"> 
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="u-stall">
@@ -70,9 +74,12 @@
                                     </div>
                                 </div>
                             </div>
+                            </div>
+                            
                         </div>
                         <div class="carousel-item">
                             <div class="say-h2"> What our guardian say ?</div>
+                            <div class="overflows mx-5">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="u-stall">
@@ -98,7 +105,9 @@
                                         <p class="overview"><b>Elango M S </b>, INDIA</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div>        
+                        </div>
+                            
                         </div>
                     </div>
                    
@@ -111,7 +120,10 @@
 				</a>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-12 col-lg-12">
+  
+        </div>
+<div class="row">
+ <div class="col-sm-12 col-md-12 col-lg-12">
                 <div class="reviewss allusrs">
                     <h2 class="review-write">Write Reviews </h2>
                     <form>
@@ -419,11 +431,7 @@
                     </form>
                 </div>
             </div>
-
-
-
-        </div>
-
+</div>
 
 
 
