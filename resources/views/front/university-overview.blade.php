@@ -1,5 +1,6 @@
 @extends('front.layouts.main')
 @push('seo_meta_tag')
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   @include('front.layouts.dynamic_page_meta_tag')
 @endpush
 @push('breadcrumb_schema')

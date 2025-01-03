@@ -220,4 +220,84 @@ class InquiryController extends Controller
     );
     return redirect($request->return_path);
   }
+  public function brochureRequest(Request $request)
+  {
+    // printArray($request->toArray());
+    // die;
+    $validator = Validator::make($request->all(), [
+      'captcha_answer' => ['required', 'numeric', new MathCaptchaValidationRule()],
+      'name' => 'required',
+      'c_code' => 'required|numeric',
+      'mobile' => 'required|numeric',
+      'email' => 'required|email',
+      'nationality' => 'required',
+      'highest_qualification' => 'required',
+      'intrested_subject' => 'required',
+      'university_id' => 'required',
+      'source_path' => 'required',
+      'requestfor' => 'required',
+    ]);
+
+    if ($validator->fails()) {
+      return response()->json([
+        'error' => $validator->errors(),
+      ]);
+    }
+
+    $university = University::find($request->university_id);
+
+    $field = new Lead();
+    $field->name = $request['name'];
+    $field->c_code = $request['c_code'];
+    $field->mobile = $request['mobile'];
+    $field->email = $request['email'];
+    $field->nationality = $request['nationality'];
+    $field->highest_qualification = $request['highest_qualification'];
+    $field->intrested_subject = $request['intrested_subject'];
+    $field->intrested_university = $university->name;
+    $field->university_id = $university->id;
+    $field->source = $request->requestfor == 'fees' ? 'Education Malaysia - Fees Request' : 'Education Malaysia - Brochure Request';
+    $field->source_path = $request['source_path'];
+    $field->website = site_var;
+    $field->save();
+
+    $emaildata = [
+      'name' => $request['name'],
+      'email' => $request['email'],
+      'c_code' => $request['c_code'],
+      'mobile' => $request['mobile'],
+      'source' => $request['source'],
+      'source_path' => $request['source_path'],
+      'nationality' => $request['nationality'] ?? null,
+      'university' => $university->name,
+      'program' => null,
+      'interest' => null,
+    ];
+    $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'We have Received Your Request for brochure/fees of ' . $university->name . ' – Expect a Response Soon'];
+
+    Mail::send(
+      'mails.inquiry-reply',
+      $emaildata,
+      function ($message) use ($dd) {
+        $message->to($dd['to'], $dd['to_name']);
+        $message->subject($dd['subject']);
+        $message->priority(1);
+      }
+    );
+
+    $dd2 = ['to' => TO_EMAIL, 'cc' => CC_EMAIL, 'to_name' => TO_NAME, 'cc_name' => CC_NAME, 'subject' => 'New Brochure/Fees request inquiry for ' . $university->name . ' – Team Attention Needed'];
+
+    Mail::send(
+      'mails.inquiry-mail-to-team',
+      $emaildata,
+      function ($message) use ($dd2) {
+        $message->to($dd2['to'], $dd2['to_name']);
+        $message->cc($dd2['cc'], $dd2['cc_name']);
+        $message->subject($dd2['subject']);
+        $message->priority(1);
+      }
+    );
+
+    return response()->json(['success' => true, 'message' => 'Your inquiry has been submitted succesfully. We will contact you soon.']);
+  }
 }
