@@ -139,11 +139,13 @@ class UniversityProfileCoursesFc extends Controller
 
     $countries = Country::orderBy('name', 'ASC')->get();
     $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
+    //$levels = Level::groupBy('level')->orderBy('level', 'ASC')->get();
+    $course_categories = CourseCategory::orderBy('name', 'asc')->get();
 
     $captcha = generateMathQuestion();
     session(['captcha_answer' => $captcha['answer']]);
 
-    $data = compact('university', 'rows', 'i', 'levels', 'categories', 'specializations', 'studyModes', 'total', 'filter_level', 'filter_category', 'filter_specialization', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'breadcrumbCurrent', 'npu', 'ppu', 'countries', 'phonecodes', 'captcha');
+    $data = compact('university', 'rows', 'i', 'levels', 'categories', 'specializations', 'studyModes', 'total', 'filter_level', 'filter_category', 'filter_specialization', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'breadcrumbCurrent', 'npu', 'ppu', 'countries', 'phonecodes', 'captcha', 'course_categories');
     return view('front.university-course-list')->with($data);
   }
   public function applyLevelFilter(Request $request)
@@ -228,11 +230,13 @@ class UniversityProfileCoursesFc extends Controller
 
     $countries = Country::orderBy('name', 'ASC')->get();
     $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
+    $levels = Level::groupBy('level')->orderBy('level', 'ASC')->get();
+    $course_categories = CourseCategory::orderBy('name', 'asc')->get();
 
     $captcha = generateMathQuestion();
     session(['captcha_answer' => $captcha['answer']]);
 
-    $data = compact('program', 'university', 'trendingUniversity', 'path', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'months', 'breadcrumbCurrent', 'countries', 'phonecodes', 'captcha');
+    $data = compact('program', 'university', 'trendingUniversity', 'path', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'months', 'breadcrumbCurrent', 'countries', 'phonecodes', 'captcha', 'levels', 'course_categories');
     return view('front.programs-profile')->with($data);
   }
 }

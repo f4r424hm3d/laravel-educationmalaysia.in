@@ -67,6 +67,8 @@ class UniversityProfileFc extends Controller
 
     $countries = Country::orderBy('name', 'ASC')->get();
     $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
+    $levels = Level::groupBy('level')->orderBy('level', 'ASC')->get();
+    $course_categories = CourseCategory::orderBy('name', 'asc')->get();
 
     $page_url = url()->current();
     $wrdseo = ['url' => 'gallery'];
@@ -94,7 +96,7 @@ class UniversityProfileFc extends Controller
     $captcha = generateMathQuestion();
     session(['captcha_answer' => $captcha['answer']]);
 
-    $data = compact('university', 'trendingUniversity', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'schema', 'countries', 'phonecodes', 'captcha');
+    $data = compact('university', 'trendingUniversity', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'schema', 'countries', 'phonecodes', 'captcha', 'levels', 'course_categories');
     return view('front.university-gallery')->with($data);
   }
   public function videos($university_slug, Request $request)
@@ -105,6 +107,8 @@ class UniversityProfileFc extends Controller
 
     $countries = Country::orderBy('name', 'ASC')->get();
     $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
+    $levels = Level::groupBy('level')->orderBy('level', 'ASC')->get();
+    $course_categories = CourseCategory::orderBy('name', 'asc')->get();
 
     $page_url = url()->current();
     $wrdseo = ['url' => 'video'];
@@ -132,7 +136,7 @@ class UniversityProfileFc extends Controller
     $captcha = generateMathQuestion();
     session(['captcha_answer' => $captcha['answer']]);
 
-    $data = compact('university', 'trendingUniversity', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'schema', 'countries', 'phonecodes', 'captcha');
+    $data = compact('university', 'trendingUniversity', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'schema', 'countries', 'phonecodes', 'captcha', 'levels', 'course_categories');
     return view('front.university-videos')->with($data);
   }
   public function reviews($university_slug, Request $request)
@@ -143,6 +147,8 @@ class UniversityProfileFc extends Controller
 
     $countries = Country::orderBy('name', 'ASC')->get();
     $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
+    $levels = Level::groupBy('level')->orderBy('level', 'ASC')->get();
+    $course_categories = CourseCategory::orderBy('name', 'asc')->get();
 
     $totalrating = Review::where(['university_id' => $university->id, 'status' => 1])->sum('rating');
 
@@ -190,7 +196,7 @@ class UniversityProfileFc extends Controller
     $captcha = generateMathQuestion();
     session(['captcha_answer' => $captcha['answer']]);
 
-    $data = compact('university', 'rows', 'i', 'total', 'trendingUniversity', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'schema', 'avrgRating', 'air', 'afr', 'apr', 'ahr', 'countries', 'phonecodes', 'captcha');
+    $data = compact('university', 'rows', 'i', 'total', 'trendingUniversity', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'schema', 'avrgRating', 'air', 'afr', 'apr', 'ahr', 'countries', 'phonecodes', 'captcha', 'levels', 'course_categories');
     return view('front.university-reviews')->with($data);
   }
 }
