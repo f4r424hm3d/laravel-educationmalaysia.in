@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\BlogCategoryC;
 use App\Http\Controllers\admin\CareerC;
 use App\Http\Controllers\admin\CourseCategoryC;
 use App\Http\Controllers\admin\CourseCategoryContentC;
+use App\Http\Controllers\admin\CourseCategoryFaqC;
 use App\Http\Controllers\admin\CourseModeC;
 use App\Http\Controllers\admin\CourseSpecializationC;
 use App\Http\Controllers\admin\DefaultOgImageC;
@@ -213,6 +214,14 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
       Route::get('/{course_category_id}/', [CourseCategoryContentC::class, 'index']);
       Route::get('{course_category_id}/update/{id}', [CourseCategoryContentC::class, 'index']);
       Route::post('{course_category_id}/update/{id}', [CourseCategoryContentC::class, 'update']);
+    });
+    Route::prefix('/course-category-faqs/')->group(function () {
+      Route::get('/get-data', [CourseCategoryFaqC::class, 'getData']);
+      Route::get('/delete/{id}', [CourseCategoryFaqC::class, 'delete']);
+      Route::post('/store', [CourseCategoryFaqC::class, 'store']);
+      Route::get('/{course_category_id}/', [CourseCategoryFaqC::class, 'index']);
+      Route::get('{course_category_id}/update/{id}', [CourseCategoryFaqC::class, 'index']);
+      Route::post('{course_category_id}/update/{id}', [CourseCategoryFaqC::class, 'update']);
     });
     Route::prefix('/course-specialization')->group(function () {
       Route::get('', [CourseSpecializationC::class, 'index']);
