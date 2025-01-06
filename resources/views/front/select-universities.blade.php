@@ -36,7 +36,7 @@
               <img src="{{ asset('assets/images/owl.png') }}" class="study-owl">
               <h2>Public University</h2>
             </div>
-            <a href="#" class="new-btn">Browser-all</a>
+            <a href="{{ url('public-institution-in-malaysia') }}" class="new-btn">Browser-all</a>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4 col-xl-4 mb-4 ">
@@ -45,7 +45,7 @@
               <img src="{{ asset('assets/images/owl.png') }}" class="study-owl">
               <h2>Private University</h2>
             </div>
-            <a href="#" class="new-btn">Browser-all</a>
+            <a href="{{ url('private-institution-in-malaysia') }}" class="new-btn">Browser-all</a>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4 col-xl-4 mb-4 ">
@@ -54,7 +54,7 @@
               <img src="{{ asset('assets/images/owl.png') }}" class="study-owl">
               <h2>Foregin University</h2>
             </div>
-            <a href="#" class="new-btn">Browser-all</a>
+            <a href="{{ url('foreign-universities-in-malaysia') }}" class="new-btn">Browser-all</a>
           </div>
         </div>
       </div>
@@ -98,7 +98,7 @@
                     </div>
                   </section>
                   <div class="text-center">
-                    <a href="{{ url('private-universities-in-malaysia') }}" class="new-btn mar10">Browse All Private
+                    <a href="{{ url('private-institution-in-malaysia') }}" class="new-btn mar10">Browse All Private
                       Universities</a>
                   </div>
                 </div>
@@ -114,7 +114,7 @@
                     </div>
                   </section>
                   <div class="text-center">
-                    <a href="{{ url('public-universities-in-malaysia') }}" class="new-btn mar10">Browse All Public
+                    <a href="{{ url('public-institution-in-malaysia') }}" class="new-btn mar10">Browse All Public
                       Universities</a>
                   </div>
                 </div>
