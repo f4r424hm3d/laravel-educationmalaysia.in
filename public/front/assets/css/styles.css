@@ -2458,7 +2458,7 @@ span.select2-selection.select2-selection--single {
     color: #495057 ;
 }
 select.form-control:not([size]):not([multiple]) {
-    height: 40px;
+    height: 40px !important;
 }
 .form-control.fc-lg,
 select.form-control.fc-lg:not([size]):not([multiple]) {
@@ -4859,6 +4859,7 @@ ul.badge_info li.power {
 .ed_header_caption {
     width: 100%;
     display: block;
+    margin: 0px;
     margin-top: 0.5rem;
     margin-bottom: 0.8rem;
 }
@@ -5617,7 +5618,7 @@ a.btn-br-more {
 }
 .collapsible-link::after,
 .collapsible-link::before {
-    background: #333;
+    background: #0a4191;
     display: block;
     transition: 0.3s;
     content: "";
@@ -5891,12 +5892,14 @@ span.mod-close {
     flex: 1;
 }
 .card {
-    margin-bottom: 30px;
     border: none;
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.09);
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 37%);
     border-radius: 0.25rem;
     overflow: hidden;
+    margin-bottom: 22px !important;
 }
+
+
 .card-header {
     background: #ffffff;
     border-color: #e6eaf1;
@@ -6068,9 +6071,7 @@ a.btn.btn_apply.w-100:hover {
 .modal {
     z-index: 9999;
 }
-.modal-body {
-    padding: 1rem 2rem;
-}
+
 .modal-header h4 {
     font-size: 15px;
     font-weight: 600;
@@ -6083,13 +6084,15 @@ button.close {
     font-size: 11px;
     align-items: center;
     justify-content: center;
-    background: #e5e8ef;
+    background: #0a4191;
     border-radius: 50%;
     text-shadow: none;
     opacity: 1;
-    padding: 0 ;
-    cursor: pointer ;
-    margin: 0 ;
+    padding: 0;
+    cursor: pointer;
+    margin: 0;
+    font-size: 25px;
+    color: #fff;
 }
 h4.modal-header-title {
     margin: 2rem auto;
@@ -6479,9 +6482,7 @@ a.elio_right {
     align-items: center;
     position: relative;
 }
-.tab-content > .tab-pane {
-    padding: 0 0 1rem;
-}
+
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
     color: #ffffff;
@@ -8452,6 +8453,7 @@ span.payment_status.cancel {
     margin-bottom: 20px;
     overflow-y: scroll;
     overflow-x: hidden;
+    color: #0a4191;
 }
 ::-webkit-scrollbar {
     width: 7px;
@@ -8460,7 +8462,7 @@ span.payment_status.cancel {
     background: #eee;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: #000000;
+    background-color: #0a4191;
 }
 .vertically-scrollbar {
     display: block;
@@ -9079,6 +9081,8 @@ span.payment_status.cancel {
     display: flex;
     align-items: center;
     margin-top: 10px;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 .nav-second-level li,
 .portal-filter h4 {
@@ -9090,14 +9094,14 @@ span.payment_status.cancel {
     font-weight: 500;
 }
 .portal-filter ul {
-    margin: 0 15px 0 0;
+    margin: 0px;
 }
 .portal-filter ul li {
     display: inline-block;
     color: #505254;
     cursor: pointer;
     padding: 2px 12px 2px 15px;
-    margin-bottom: 6px;
+    margin-bottom: 0px;
     border: 1px solid #ccc;
     border-radius: 20px;
     transition: 0.3s;
@@ -9116,7 +9120,8 @@ span.payment_status.cancel {
 .portal-filter .clearAll {
     color: #000;
     font-weight: 400;
-    text-decoration: underline;
+    text-decoration: none;
+    text-transform: capitalize;
 }
 .dashboard-navbar,
 .dashboard-wraper {
@@ -10091,12 +10096,7 @@ table th {
 .edu_wraper ul {
     padding: 0px;
 }
-.course-new-sc,
-.new-exam-page p {
-    font-size: 14px;
-    color: #203245;
-    line-height: 28px;
-}
+
 .course-short,
 .share__icon {
     color: #ffffff;
@@ -12192,7 +12192,7 @@ table tr td a {
 /* spelization css start  */
 .main-specialization {
     background: #eee;
-    padding: 40px 0px 40px;
+    padding: 40px 0px;
 }
 
 .main-specialization a .fuc-box {
@@ -12650,11 +12650,11 @@ ul.partner-client li h5 {
 
 .choose-uss h2 {
     margin-bottom: 33px !important;
-    font-size: 24px;
+    font-size: 19px;
     background-color: #0a4191;
-    padding: 14px 20px;
+    padding: 12px 17px;
     color: #fff;
-    max-width: 250px;
+    max-width: 212px;
     margin: 0px auto;
     border-radius: 11px;
     font-weight: 500;
@@ -12802,9 +12802,6 @@ ul.partner-client li h5 {
     color: #999;
     font-size: 14px;
     text-align: center;
-    overflow: hidden;
-    min-height: 290px;
-    margin-top: 10px;
 }
 .users-collapse .carousel .item .img-box {
 	width: 135px;
@@ -12877,7 +12874,7 @@ ul.partner-client li h5 {
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    height: 100%;
+    gap: 12px;
 }
 
 .u-stall .overview b {
@@ -13290,11 +13287,6 @@ section.studaies-abroad, .particaptes-universties {
     padding: 6px 12px;
 }
 
-label {
-    color: #999;
-    margin-bottom: 2px;
-    font-size: 13px !important;
-}
 
 .blue-register {
     font-size: 20px;
@@ -13417,9 +13409,6 @@ ul.ol-joins {
 
 
 
-.f {
-    /* font-size: 10px; */
-}
 
 .main-modals input, .main-modals select {
     border: 1px solid #0000005c !important;
@@ -13428,7 +13417,7 @@ ul.ol-joins {
 }
 
 label {
-    color: #999;
+    color: #6f6969;
     margin-bottom: 2px;
     font-size: 13px !important;
 }
@@ -14456,6 +14445,42 @@ section.bg-light {
     font-size: 16px;
     margin-bottom: 0px;
 }
+.modal-filter-set .modal-body {
+    background-color: #e2e2e3;
+}
+
+.modal-filter-set .checkbox-custom + .checkbox-custom-label:before {
+    border: 2px solid #acb0b3;
+}
+.modal-filter-set .checkbox-custom-label, .radio-custom-label{
+    color: #2a2928;
+}
+.modal-filter-set .modal-dialog {
+    margin: 0px 0px 0px auto;
+}
+.modal-filter-set .modal-content {
+    height: 100vh;
+}
+.forms-found {
+    border: 1px solid #dedede;
+    border-radius: 2px;
+    padding: 15px;
+    background-color: #ffffff;
+}
+
+.forms-found p {
+    margin-bottom: 0px;
+}
+
+.forms-found:hover {
+    background-color: #ffffff29;
+}
+.desktop-hide{
+    display: none;
+}
+.accord-mobile{
+    display: block;
+}
 
 
 @media (max-width:1200px){
@@ -14492,6 +14517,14 @@ section.bg-light {
     }
 }
 @media (max-width: 992px) {
+    .desktop-hide{
+        display: block ;
+    }
+.accord-mobile{
+    display: none;
+}
+
+    
     .courses_ol li{
         width: 31%;
     }
@@ -14563,9 +14596,49 @@ section.bg-light {
     .cor-con-mid .all-mars li.nav-item {
         font-size: 12px;
     }
+    .imgfix {
+        width: 80%;
+        margin: 0px auto;
+    }
+    .u-stall .img-box {
+        width: 120px;
+        height: 120px;
+        border: 1px solid #c4c4c4;
+    }
+    .u-stall {
+        text-align: center;
+        margin: 22px auto 0px;
+        border: 1px solid #0000003b;
+        border-radius: 10px;
+        padding: 20px 50px;
+        background-color: #fff;
+    }
+ .overflows {
+    max-height: 332px;
+    margin-top: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+        
+    }
+    .overflows::-webkit-scrollbar-thumb{
+background-color: transparent !important;
+    }
+    .overflows:hover::-webkit-scrollbar-thumb{
+        background-color: red !important;
+    }
+   
+
 }
 
 @media (max-width:768px){
+   
+    .setgap2{
+        gap: 10px;
+    }
+    .block-desktop{
+        display: flex !important;
+    }
+
     .courses_ol li{
         width: 47%;
     }
@@ -14589,7 +14662,7 @@ section.bg-light {
     .top-trending-universities .item-ol {
         margin-right: 11px !important;
     }
-    .con-title h2 {
+    .levellight .con-title h2 {
         font-size: 20px;
     }
     .banner-search .br-right {
@@ -14640,6 +14713,20 @@ section.bg-light {
     }
 }
 @media (max-width:576px){
+    .bachlors a {
+        font-size: 14px;
+    }
+    .dashboard_course_title a {
+    font-size: 20px;
+}
+
+.block-desktop span {
+    font-size: 14px;
+}
+
+.locationsloc {
+    font-size: 14px;
+}
     .courses_ol li{
         width: 100%;
     }
@@ -14727,3 +14814,15 @@ table {
     
 }
 
+
+.block-desktop{
+    display: block;
+}
+
+.main-specialization .sec-heading h2{
+    text-align: center;
+}
+
+.main-specialization  .sec-heading p {
+    margin: 10px 0px 20px;
+}
