@@ -43,13 +43,17 @@ class CourseSpecialization extends Model
   {
     return $this->hasMany(SpecializationContent::class, 'specialization_id')->orderBy('position', 'asc');
   }
+  public function levelContents()
+  {
+    return $this->hasMany(LevelSpecializationContent::class, 'specialization_id');
+  }
   public function programs()
   {
     return $this->hasMany(UniversityProgram::class, 'specialization_id');
   }
   public function faqs()
   {
-    return $this->hasMany(CourseSpecializationFaq::class, 'specialization_id')->orderBy('position', 'asc');
+    return $this->hasMany(CourseSpecializationFaq::class, 'specialization_id');
   }
   public function author()
   {

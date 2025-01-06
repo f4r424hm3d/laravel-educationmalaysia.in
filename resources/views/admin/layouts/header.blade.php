@@ -211,7 +211,7 @@
                       id="topnav-auth" role="button">
                       <span data-key="t-authentication">Course Category</span>
                     </a>
-                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('Course-Specialization') }}"
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('Course-Specializations') }}"
                       id="topnav-auth" role="button">
                       <span data-key="t-authentication">Course Specialization</span>
                     </a>
