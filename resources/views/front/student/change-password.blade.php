@@ -4,24 +4,24 @@
 @endpush
 @section('main-section')
 <!-- Content -->
-<section class="gray pt-5">
+<section class="gray pt-5 px-0 px-sm-4 px-md-5 profilesection">
   <div class="container-fluid">
     <div class="row">
       @include('front.student.profile-sidebar')
-      <div class=" col-lg-9 col-md-9 col-sm-12">
+      <div class=" col-xl-9 col-lg-8 col-md-12 col-sm-12 mb-4">
         <!-- NOTIFICATION FIELD START -->
         <x-FrontResultNotification></x-FrontResultNotification>
         <!-- NOTIFICATION FIELD END -->
-        <div class="infoContent mt-0">
+         <div class="profile-infos">
+         <div class="infoContent mt-0 pt-0 pb-2">
           <form action="{{ url('student/change-password') }}" method="post">
             @csrf
             <input type="hidden" name="id" value="{{ $student->id }}">
             <div class="row">
-              <div class="col-md-12">
-                <h2>Change Password</h2>
+              <div class="col-md-12 mb-3 text-center ">
+                <h2 class="fullchagesn">Change Password</h2>
               </div>
-              <div class="col-md-4"></div>
-              <div class="col-md-4">
+              <div class="col-md-12 mb-3">
                 <label>Password <span class="red">*</span></label>
                 <input name="old_password" type="password" placeholder="Enter Current Password" required>
                 <span class="text-danger">
@@ -30,9 +30,7 @@
                   @enderror
                 </span>
               </div>
-              <div class="col-md-4"></div>
-              <div class="col-md-4"></div>
-              <div class="col-md-4">
+              <div class="col-md-12 mb-3">
                 <label>Enter New Password</label>
                 <input name="new_password" type="password" placeholder="Enter New Password" required>
                 <span class="text-danger">
@@ -41,9 +39,7 @@
                   @enderror
                 </span>
               </div>
-              <div class="col-md-4"></div>
-              <div class="col-md-4"></div>
-              <div class="col-md-4">
+              <div class="col-md-12 mb-3">
                 <label>Confirm New Password</label>
                 <input name="confirm_new_password" type="password" placeholder="Confirm New Password" required>
                 <span class="text-danger">
@@ -52,12 +48,18 @@
                   @enderror
                 </span>
               </div>
-              <div class="col-md-4"></div>
-              <div class="col-md-12"><button class="saveBtn">Save</button><button class="cancelBtn">Cancel</button>
+              <div class="col-md-12 mb-3">
+                <div class="d-flex align-items-center set-gap justify-content-end ">
+                <button class="btn btn-primary">Save</button>
+                <button class="btn btn-secondary">Cancel</button>
+                </div>
+            
               </div>
             </div>
           </form>
         </div>
+         </div>
+        
       </div>
     </div>
   </div>

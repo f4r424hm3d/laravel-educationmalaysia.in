@@ -9,12 +9,12 @@
   </div>
 @endif
 <div class="single_widgets widget_category">
-  <h5 class="title mb-3">Get in touch</h5>
-  <div class="row align-items-center booking p-0">
+  <h5 class="title mb-3 text-center">Get in touch</h5>
+  <div class="row">
     @error('g-recaptcha-response')
       <span class="text-danger">{{ $message }}</span>
     @enderror
-    <form action="{{ route('stream.inquiry') }}" method="post" class="p-3">
+    <form action="{{ route('stream.inquiry') }}" method="post" class="px-3">
       @csrf
       <input type="hidden" name="source" value="Education Malaysia - Exam Page">
       <input type="hidden" name="source_path" value="{{ URL::full() }}">
@@ -22,8 +22,8 @@
 
       <!-- Name Field -->
       <div class="row">
-        <div class="col-12">
-          <div class="form-group">
+        <div class="col-12 mb-3">
+          <div class="form-group text-left">
             <label for="name">Name</label>
             <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control"
               pattern="[a-zA-Z\s]+" required>
@@ -32,12 +32,12 @@
             @enderror
           </div>
         </div>
-      </div>
+     
 
       <!-- Email Field -->
-      <div class="row">
-        <div class="col-12">
-          <div class="form-group">
+     
+        <div class="col-12 mb-3">
+          <div class="form-group text-left">
             <label for="email">Email</label>
             <input type="email" class="form-control" name="email" id="email" value="{{ old('email') }}"
               required>
@@ -46,12 +46,12 @@
             @enderror
           </div>
         </div>
-      </div>
+    
 
       <!-- Phone Field -->
-      <div class="row">
-        <div class="col-5">
-          <div class="form-group">
+    
+        <div class="col-5 mb-3 pr-0">
+          <div class="form-group text-left">
             <label for="c_code">Country Code</label>
             <select class="form-control" name="c_code" id="c_code" required>
               <option value="">Select</option>
@@ -67,8 +67,8 @@
             @enderror
           </div>
         </div>
-        <div class="col-7 pl-0">
-          <div class="form-group">
+        <div class="col-7 mb-3">
+          <div class="form-group text-left">
             <label for="mobile">Phone</label>
             <input type="text" class="form-control" name="mobile" id="mobile" placeholder="987654321"
               value="{{ old('mobile') }}" required>
@@ -77,12 +77,12 @@
             @enderror
           </div>
         </div>
-      </div>
+      
 
       <!-- Nationality Field -->
-      <div class="row">
-        <div class="col-12">
-          <div class="form-group">
+    
+        <div class="col-12 mb-3">
+          <div class="form-group text-left">
             <label for="s-nationality">Nationality</label>
             <select class="form-control" name="nationality" id="s-nationality" required>
               <option value="">Select Nationality</option>
@@ -97,11 +97,11 @@
             @enderror
           </div>
         </div>
-      </div>
+      
       <!-- Interested Program Field -->
-      <div class="row">
-        <div class="col-12">
-          <div class="form-group">
+     
+        <div class="col-12 mb-3 ">
+          <div class="form-group text-left">
             <label for="interested_program">Select Interested Exam</label>
             <select class="form-control" name="interested_program" id="interested_program" required>
               <option value="">Select Interested Exam</option>
@@ -117,20 +117,20 @@
             @enderror
           </div>
         </div>
-      </div>
+    
 
       <!-- Captcha Field -->
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
+    
+        <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
           <label for="captcha">Captcha: {{ $captcha['text'] }} =</label>
           <input type="text" id="captcha" placeholder="Enter the Captcha Code" class="form-control"
             name="captcha_answer" required>
         </div>
-      </div>
+    
 
       <!-- Terms & Conditions -->
-      <div class="row">
-        <div class="col-12">
+     
+        <div class="col-12 mb-3">
           <div class="form-check mt-2 ml-4">
             <input type="checkbox" id="tnc" name="tnc" required class="form-check-input">
             <label for="tnc" class="allcheckbx">
@@ -139,12 +139,12 @@
             </label>
           </div>
         </div>
-      </div>
+     
 
       <!-- Submit Button -->
-      <div class="row">
-        <div class="col-12">
-          <div class="form-group">
+    
+        <div class="col-12 ">
+          <div class="form-group  text-center">
             <button class="btn btn-primary" type="submit">Submit</button>
           </div>
         </div>

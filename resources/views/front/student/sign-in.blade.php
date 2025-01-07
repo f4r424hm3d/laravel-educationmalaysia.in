@@ -15,7 +15,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-12 col-md-12">
             <div class="row no-gutters position-relative log_rads">
-              <div class="d-none d-md-block col-lg-6 col-md-5 bg-cover"
+              <div class="d-none d-lg-block col-lg-6 col-md-5 bg-cover"
                 style="background:#1f2431 url({{ url('/front/') }}/assets/img/log.png)no-repeat;">
                 <div class="lui_9okt6">
                   <div class="_loh_revu97">
@@ -58,8 +58,9 @@
                 </div>
               </div>
 
-              <div class="col-lg-6 col-md-7 position-static p-2">
-                @if (session()->has('smsg'))
+              <div class="col-lg-6 col-md-12 ">
+               <div class="position-static p-2 sign-froms">
+               @if (session()->has('smsg'))
                   <div class="alert alert-success alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                     {{ session()->get('smsg') }}
@@ -101,15 +102,15 @@
                     </div>
 
                     <div class="social-login mb-3">
-                      <ul>
-                        <li>
+                      <div class="d-flex justify-content-between align-items-center" >
+                        <span>
                           <input id="reg" class="checkbox-custom" name="reg" type="checkbox">
                           <label for="reg" class="checkbox-custom-label">Remember me</label>
-                        </li>
-                        <li class="right"><a href="{{ url('account/password/reset') }}" class="theme-cl1">Forgot
+                        </span>
+                        <span><a href="{{ url('account/password/reset') }}" class="theme-cl1">Forgot
                             Password?</a>
-                        </li>
-                      </ul>
+                        </span>
+                      </div>
                     </div>
 
                     <div class="form-group">
@@ -124,6 +125,7 @@
 
                   </div>
                 </form>
+               </div>
               </div>
             </div>
 

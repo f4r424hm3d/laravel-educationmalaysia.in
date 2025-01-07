@@ -30,6 +30,10 @@
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
   <link href="{{ url('front/') }}/assets/css/styles.css" rel="stylesheet">
+  <!-- font-awesome  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
   <link rel="preload" href="{{ url('front/') }}/assets/css/colors.css" as="style"
     onload="this.onload=null;this.rel='stylesheet'">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -106,9 +110,9 @@
             <ul class="nav-menu align-to-right">
               <li><a href="{{ route('home') }}">Home</a></li>
               <li class="mega-dropdown"><a href="#">Resources<span class="submenu-indicator"></span></a>
-                <ul class="nav-dropdown nav-submenu mega-dropdown-menu new-width">
-                  <div class="row">
-                    <div class="col-md-3">
+                <ul class="nav-dropdown nav-submenu mega-dropdown-menu new-width mob-width">
+                  <div class="row mx-md-auto ">
+                    <div class=" col-xl-3 col-lg-3 col-md-12 ">
                       <div class="b-font">Exams</div>
                       <ul class="li_dd">
                         <li><a href="{{ url('exams') }}">English Exams</a></li>
@@ -117,7 +121,7 @@
                         @endforeach
                       </ul>
                     </div>
-                    <div class="col-md-3">
+                    <div class=" col-xl-3 col-lg-3 col-md-12 ">
                       <div class="b-font">Services</div>
                       <ul class="li_dd">
                         <li><a href="{{ url('services') }}">Our Services</a></li>
@@ -126,7 +130,7 @@
                         @endforeach
                       </ul>
                     </div>
-                    <div class="col-md-3">
+                    <div class=" col-xl-3 col-lg-3 col-md-12 ">
                       <div class="b-font">About Us</div>
                       <ul class="li_dd">
                         <li><a href="{{ route('wwa') }}">Who we are</a></li>
@@ -135,7 +139,7 @@
                         <li><a href="{{ url('why-study-in-malaysia') }}">Why Study In Malaysia?</a></li>
                       </ul>
                     </div>
-                    <div class="col-md-3">
+                    <div class=" col-xl-3 col-lg-3 col-md-12 ">
                       <img src="{{ asset('assets/web/images/em-menu2.jpg') }}" class="em-menus" alt="">
                     </div>
                   </div>

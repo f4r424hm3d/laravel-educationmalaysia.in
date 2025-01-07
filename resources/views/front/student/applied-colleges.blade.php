@@ -4,17 +4,14 @@
 @endpush
 @section('main-section')
   <!-- Content -->
-  <section class="gray pt-5">
+  <section class="gray pt-5 px-0 px-sm-4 px-md-5 profilesection">
     <div class="container-fluid">
       <div class="row">
         @include('front.student.profile-sidebar')
-        <div class=" col-lg-9 col-md-9 col-sm-12">
-          <div class="infoContent mt-0">
-            <div class="row">
-              <div class="col-md-12">
-                <h2>Your Applied colleges</h2>
-              </div>
-            </div>
+        <div class="col-xl-9 col-lg-8 col-md-12 col-sm-12 mb-4">
+          <div class="profile-infos">
+          <div class="infoContent mt-0 p-0">
+          <h2>Your Applied colleges</h2>
             @if ($appliedprograms->count() > 0)
               <div class="dashboard_container mt-3">
                 <div class="dashboard_container_body">
@@ -29,19 +26,27 @@
                         </div>
 
                         <div class="row align-items-center">
-                          <div class="col-md-7">
+                          <div class="col-md-12">
                             <div class="row">
-                              <div class="col-md-3 col-6 mt-1 mb-1"><span class="theme-cl">Study Mode:</span><br>
-                                {{ $row->universityProgram->study_mode }}
+                              <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-3 ">
+                                <span class="theme-cl">Study Mode:</span>
+                               
+                                <span class="duratinss"> {{ $row->universityProgram->study_mode }} </span>
                               </div>
-                              <div class="col-md-3 col-6 mt-1 mb-1"><span class="theme-cl">Duration:</span><br>
-                                {{ $row->universityProgram->duration ?? 'N/A' }}
+                              <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-3 ">
+                                <span class="theme-cl">Duration:</span>
+                               
+                                <span class="duratinss" {{ $row->universityProgram->duration ?? 'N/A' }} </span>
+
                               </div>
-                              <div class="col-md-3 col-6 mt-1 mb-1"><span class="theme-cl">Deadline:</span><br>
-                                {{ $row->universityProgram->application_deadline ?? 'N/A' }}
+                              <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-3 "><span class="theme-cl">Deadline:</span>
+                                
+                                <span class="duratinss">{{ $row->universityProgram->application_deadline ?? 'N/A' }} </span>
+
                               </div>
-                              <div class="col-md-3 col-6 mt-1 mb-1">Intake:<br>
-                                <strong>{{ $row->universityProgram->intake ?? 'N/A' }}</strong>
+                              <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-3 ">Intake:
+                                <span class="duratinss">{{ $row->universityProgram->intake ?? 'N/A' }} </span>
+
                               </div>
                             </div>
                           </div>
@@ -62,12 +67,10 @@
                 </div>
               </div>
             @else
-              <div class="row justify-content-center">
-                <div class="col-md-5">
-                  <p>Nothing to show yet. You haven't applied to any colleges.</p>
+           
+                  <p class="text-center" >Nothing to show yet. You haven't applied to any colleges.</p>
 
-                </div>
-              </div>
+              
             @endif
             <div class="row justify-content-center mt-3">
               <a href="{{ url('courses-in-malaysia') }}" class="btn btn-modern float-none">
@@ -75,6 +78,8 @@
               </a>
             </div>
           </div>
+          </div>
+          
         </div>
       </div>
     </div>

@@ -64,8 +64,8 @@
     <div class="container">
       <div class="row">
 
-        <div class="col-lg-8 col-md-8">
-          <div class="new-exam-page">
+        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 mb-4">
+          <div class="new-exam-page  pages-examss">
 
             <!-- <div class="sec-heading"> -->
             <h3>{{ $exam->heading }}</h3>
@@ -88,7 +88,7 @@
         </div>
 
         <!-- Sidebar -->
-        <div class="col-lg-4 col-md-4">
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 ">
 
           @if ($exams->count() > 0)
             <div class="single_widgets widget_category">

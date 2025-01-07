@@ -517,57 +517,7 @@
       });
     </script>
 
-    <!-- university-profile-blade.php slick js start -->
-    <script>
-      $('.your-class').slick({
-        centerMode: true,
-        centerPadding: '60px',
-        slidesToShow: 1,
-        variableWidth: true,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        arrows: true,
-        responsive: [{
-            breakpoint: 1200,
-            settings: {
-              slidesToShow: 6,
-              slidesToScroll: 6,
-              infinite: true,
-              dots: true,
-              arrows: true,
-            },
-          },
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 6,
-              slidesToScroll: 6,
-              infinite: true,
-              dots: false,
-              arrows: true,
-            },
-          },
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 1,
-              dots: false,
-              arrows: true,
-            },
-          },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              arrows: true,
-            },
-          },
-        ],
-      });
-    </script>
-    <!-- university-profile-blade.php slick js end -->
+  
 
     <!-- jQuery -->
 

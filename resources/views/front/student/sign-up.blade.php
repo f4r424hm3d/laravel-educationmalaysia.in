@@ -82,7 +82,7 @@
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-icon"><span class="ti-user"></span></div>
-                        <input name="name" type="text" class="form-control b-0 bg-white pl-0"
+                        <input name="name" type="text" class="form-control b-0 bg-white "
                           placeholder="Ex. Peter Parker" value="{{ old('name') }}" required="">
                       </div>
                       <span class="text-danger">
@@ -94,8 +94,8 @@
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-icon"><span class="ti-email"></span></div>
-                        <input name="email" type="email" class="form-control b-0 bg-white pl-0"
-                          placeholder="Ex. mohdrafay@gmail.com" value="{{ old('email') }}" required="">
+                        <input name="email" type="email" class="form-control "
+                          placeholder="Enter Your Email Id" value="{{ old('email') }}" required="">
                       </div>
                       <span class="text-danger">
                         @error('email')
@@ -104,7 +104,7 @@
                       </span>
                     </div>
                     <div class="row">
-                      <div class="col-3 pr-0">
+                      <div class="col-4 pr-0">
                         <select name="c_code" id="c_code" class="form-control bg-white">
                           <option value="">Select</option>
                           @foreach ($phonecodes as $row)
@@ -120,11 +120,11 @@
                           @enderror
                         </span>
                       </div>
-                      <div class="col-9 pl-1">
+                      <div class="col-8 pl-1">
                         <div class="form-group">
                           <div class="input-group">
                             <div class="input-icon"><span class="ti-mobile"></span></div>
-                            <input name="mobile" type="number" class="form-control b-0 bg-white pl-0"
+                            <input name="mobile" type="number" class="form-control b-0 bg-white"
                               placeholder="Ex. 9634575238" value="{{ old('mobile') }}" required="">
                           </div>
                           <span class="text-danger">
@@ -214,10 +214,12 @@
                       </span>
                     </div>
                     <div class="form-group">
-                      <label for="captcha_question">{{ $question['text'] }}</label>
+                     
                       <div class="input-group">
-                        <div class="input-icon"><span class="ti-captcha_answer"></span></div>
-                        <input type="number" name="captcha_answer" class="form-control b-0 pl-0"
+                        <div class="input-icon"><span class="ti-captcha_answer">
+                        <label for="captcha_question">{{ $question['text'] }}</label>
+                        </span></div>
+                        <input type="number" name="captcha_answer" class="form-control"
                           placeholder="Enter Captcha Value" required="">
                       </div>
                       @error('captcha_answer')

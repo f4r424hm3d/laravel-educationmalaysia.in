@@ -18,7 +18,7 @@
                   <rect x="1" y="1" width="28" height="28" rx="14" fill="#FFE9D3"></rect>
                   <path
                     d="M8 19.084V22h2.916l8.601-8.601-2.916-2.916L8 19.083Zm13.773-7.94a.773.773 0 0 0 0-1.097l-1.82-1.82a.774.774 0 0 0-1.097 0l-1.423 1.424 2.916 2.916 1.424-1.423Z"
-                    fill="#da0b4e"></path>
+                    fill="#0a4191"></path>
                   <rect x="1" y="1" width="28" height="28" rx="14" stroke="#fff" stroke-width="2"></rect>
                 </svg></a>
               <input id="upload-file" type="file" />

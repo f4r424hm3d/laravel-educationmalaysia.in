@@ -171,7 +171,7 @@
     }
 
     .btn.btn_apply.w-100 {
-      background: #da0b4e;
+      background: #0a4191;
       height: 48px;
       display: flex;
       align-items: center;

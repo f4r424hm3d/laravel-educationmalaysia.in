@@ -46,29 +46,21 @@
                 novalidate>
                 @csrf
                 <div class="row">
-                  <div class="col-md-4 col-sm-12 mb-3">
-                    <x-SelectField name="parent_university_id" id="parent_university_id" label="Select Head University"
-                      :ft="$ft" :sd="$sd" :list="$headUniversities" showv="name" savev="id"></x-SelectField>
-                  </div>
-                  <div class="col-md-3 col-sm-12 mb-3">
+                  <div class="col-md-6 col-sm-12 mb-3">
                     <x-InputField type="text" label="Name" name="name" id="name" :ft="$ft"
                       :sd="$sd" required="required">
                     </x-InputField>
                   </div>
-                  <div class="col-md-3 col-sm-12 mb-3">
-                    <x-SelectField label="Destination" name="destination_id" id="destination_id" savev="id"
-                      showv="destination_name" :list="$destinations" :ft="$ft" :sd="$sd" required="required">
-                    </x-SelectField>
+                  <div class="col-md-6 col-sm-12 mb-3">
+                    <x-InputField type="text" label="Slug" name="uname" id="uname" :ft="$ft"
+                      :sd="$sd" required="required">
+                    </x-InputField>
                   </div>
                   <div class="col-md-3 col-sm-12 mb-3 hide-this">
-                    <x-InputField type="text" label="Country" name="country" id="country" :ft="$ft"
+                    <x-InputField type="text" label="Views" name="views" id="views" :ft="$ft"
                       :sd="$sd">
                     </x-InputField>
                   </div>
-                  {{-- <div class="col-md-3 col-sm-12 mb-3">
-                    <x-SelectField label="Country" name="country" id="country" savev="nicename" showv="nicename"
-                      :list="$countries" :ft="$ft" :sd="$sd" required="required"></x-SelectField>
-                  </div> --}}
                   <div class="col-md-3 col-sm-12 mb-3">
                     <x-DatalistField type="text" label="State" name="state" id="state" savev="nicename"
                       showv="state_name" :list="$states" :ft="$ft" :sd="$sd"></x-DatalistField>

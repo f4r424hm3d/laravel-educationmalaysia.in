@@ -187,7 +187,7 @@
                         <div class="form-group mb-0">
                           <div class="input-group">
                             <div class="input-icon"><span class="ti-mobile"></span></div>
-                            <input name="mobile" type="text" class="form-control b-0 bg-white pl-0"
+                            <input name="mobile" type="text" class="form-control b-0 bg-white"
                               placeholder="eg. 12345 78901" value="{{ old('mobile') }}" required="">
                           </div>
                           @error('mobile')

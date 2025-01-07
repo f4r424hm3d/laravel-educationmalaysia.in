@@ -9,7 +9,7 @@
   </div>
 @endif
 
-<div class="single_widgets widget_category">
+<div class="single_widgets widget_category  single-toch">
   <h5 class="title mb-3">Get in touch</h5>
   <div class="row align-items-center booking p-0">
     @error('g-recaptcha-response')
@@ -22,10 +22,10 @@
       <input type="hidden" name="source_path" value="{{ URL::full() }}">
 
       <input type="hidden" name="return_path" value="{{ url()->current() }}">
-      <div class="col-lg-12">
+      <div class="col-lg-12 mb-3">
         <div class="form-group">
           <div class="input-group">
-            <input name="name" type="text" class="form-control b-0" placeholder="Full Name*"
+            <input name="name" type="text" class="form-control" placeholder="Full Name*"
               value="{{ old('name') }}" required="">
           </div>
           @error('name')
@@ -33,7 +33,7 @@
           @enderror
         </div>
       </div>
-      <div class="col-12">
+      <div class="col-12 mb-3">
         <div class="row">
           <div class="col-4 pr-0">
             <select name="c_code" class="form-control bg-white p-2"  required>
@@ -51,7 +51,7 @@
           <div class="col-8 pl-1">
             <div class="form-group">
               <div class="input-group">
-                <input name="mobile" type="text" class="form-control b-0 bg-white" placeholder="Mobile/WhatsApp No*"
+                <input name="mobile" type="text" class="form-control bg-white" placeholder="Mobile/WhatsApp No*"
                   value="{{ old('mobile') }}" required="">
               </div>
               @error('mobile')
@@ -61,7 +61,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-12">
+      <div class="col-lg-12 mb-3">
         <div class="form-group">
           <div class="input-group">
             <input name="email" type="email" class="form-control b-0" placeholder="Email ID"
@@ -72,10 +72,10 @@
           @enderror
         </div>
       </div>
-      <div class="col-lg-12">
+      <div class="col-lg-12 mb-3">
         <div class="form-group">
           <div class="input-group">
-            <select name="interested_program" id="interested_program" class="form-control">
+            <select name="interested_program" id="interested_program" class="form-control program b-0">
               <option value="">Select Program</option>
               @foreach ($university->programs as $row)
                 <option value="{{ $row->course_name }}"
@@ -89,7 +89,7 @@
           @enderror
         </div>
       </div>
-      <div class="col-lg-12">
+      <div class="col-lg-12 mb-3">
         <div class="social-login mb-3 d-flex align-items-center">
           <ul>
             <li class="b-0 p-0" style="width:auto">
@@ -102,12 +102,14 @@
           </ul>
         </div>
       </div>
-      <div class="col-lg-12">
+      <div class="col-lg-12 mb-3">
         <div class="form-group">
-          <label for="captcha_question">{{ $captcha['text'] }}</label>
+        
           <div class="input-group">
-            <div class="input-icon"><span class="ti-captcha_answer"></span></div>
-            <input type="number" name="captcha_answer" class="form-control b-0 pl-0" placeholder="Enter Captcha Value"
+            <div class="input-icon"><span class="ti-captcha_answer">
+            <label for="captcha_question" class="capctaha">{{ $captcha['text'] }}</label>
+            </span></div>
+            <input type="number" name="captcha_answer" class="form-control b-0" placeholder="Enter Captcha Value"
               required="">
           </div>
           @error('captcha_answer')
@@ -115,8 +117,8 @@
           @enderror
         </div>
       </div>
-      <div class="col-lg-12">
-        <div class="form-group"><button class="slot-btn" type="submit">Submit</button></div>
+      <div class="col-lg-12 ">
+        <div class="form-group"><button class="btn btn-primary w-100" type="submit">Submit</button></div>
       </div>
     </form>
   </div>

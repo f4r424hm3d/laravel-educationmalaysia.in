@@ -77,7 +77,7 @@
     padding: 8px 15px;
     display: block;
     background: #ff57221c;
-    color: #da0b4e;
+    color: #0a4191;
     text-transform: uppercase;
     font-weight: 600;
   }
@@ -88,7 +88,7 @@
   }
 
   .sItems ul li a:hover {
-    background: #da0b4e;
+    background: #0a4191;
     color: #fff
   }
 </style>

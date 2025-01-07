@@ -95,6 +95,33 @@ class UniversityC extends Controller
     $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'instType', 'countries', 'states', 'i', 'destinations', 'limit_per_page', 'order_by', 'order_in', 'lpp', 'orderColumns', 'filterCountries', 'filterApplied', 'filterStates', 'filterCities');
     return view('admin.university')->with($data);
   }
+
+  public function add(Request $request, $id = null)
+  {
+    $instType = InstituteType::all();
+    $countries = Country::all();
+    $states = State::all();
+
+    if ($id != null) {
+      $sd = University::find($id);
+      if (!is_null($sd)) {
+        $ft = 'edit';
+        $url = url('admin/university/update/' . $id);
+        $title = 'Update';
+      } else {
+        return redirect('admin/university');
+      }
+    } else {
+      $ft = 'add';
+      $url = url('admin/university/store');
+      $title = 'Add New';
+      $sd = '';
+    }
+    $page_title = "Add University";
+    $page_route = "university";
+    $data = compact('sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'instType', 'countries', 'states');
+    return view('admin.add-university')->with($data);
+  }
   public function store(Request $request)
   {
     // printArray($request->all());
@@ -302,35 +329,6 @@ class UniversityC extends Controller
         dd($ex);
       }
     }
-  }
-  public function add(Request $request, $id = null)
-  {
-    $instType = InstituteType::all();
-    $destinations = Destination::all();
-    $countries = Country::all();
-    $states = State::all();
-
-    $headUniversities = University::head()->get();
-
-    if ($id != null) {
-      $sd = University::find($id);
-      if (!is_null($sd)) {
-        $ft = 'edit';
-        $url = url('admin/university/update/' . $id);
-        $title = 'Update';
-      } else {
-        return redirect('admin/university');
-      }
-    } else {
-      $ft = 'add';
-      $url = url('admin/university/store');
-      $title = 'Add New';
-      $sd = '';
-    }
-    $page_title = "Add University";
-    $page_route = "university";
-    $data = compact('sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'instType', 'countries', 'states', 'destinations', 'headUniversities');
-    return view('admin.add-university')->with($data);
   }
 
   public function getStateByCountry(Request $request)

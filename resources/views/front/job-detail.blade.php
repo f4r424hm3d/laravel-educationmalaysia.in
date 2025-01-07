@@ -546,7 +546,7 @@
     .btn.btn-modern.dark:hover,
     .btn.btn-modern.dark:focus {
       background: #ffffff;
-      color: #da0b4e !important;
+      color: #0a4191 !important;
     }
 
     .img {
@@ -567,7 +567,7 @@
     }
 
     .form-heading span {
-      color: #da0b4e;
+      color: #0a4191;
     }
 
     .img img {
@@ -597,7 +597,7 @@
 
     .heading-padding h2 {
       padding: 10px;
-      color: #da0b4e;
+      color: #0a4191;
       font-size: 28px;
     }
 
@@ -647,7 +647,7 @@
 
     /* Set a style for the submit/login button */
     .form-container .btn {
-      background-color: #da0b4e;
+      background-color: #0a4191;
       color: white;
       padding: 10px 20px;
       border: none;
@@ -677,7 +677,7 @@
     }
 
     .new-page-heading span {
-      color: #da0b4e !important;
+      color: #0a4191 !important;
     }
 
     .form-heading h5 {

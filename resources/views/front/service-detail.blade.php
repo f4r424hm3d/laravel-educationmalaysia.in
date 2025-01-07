@@ -71,12 +71,10 @@
     <div class="container">
       <div class="row">
 
-        <div class="col-lg-8 col-md-8">
-          <div class="card">
-            <div class="card-body">
-              <div class="new-exam-page">
+        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 mb-4">
+        <div class="new-exam-page">
                 <div class="sec-heading">
-                  <h2>{{ $service->headline }}</h2>
+                  <h3>{{ $service->headline }}</h3>
                 </div>
                 <hr>
                 <img data-src="{{ asset('assets/uploadFiles/study/' . $service->imgpath) }}" class="img-fluid w-100 mb-3"
@@ -96,12 +94,10 @@
 
                 </div>
               </div>
-            </div>
           </div>
-        </div>
 
         <!-- Sidebar -->
-        <div class="col-lg-4 col-md-4">
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 ">
           <div class="single_widgets widget_category">
             <h4 class="title">Related Services</h4>
             <ul>

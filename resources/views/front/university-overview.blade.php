@@ -43,11 +43,11 @@
   <section class="bg-light pt-4 pb-4">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-md-8">
+        <div class="col-xl-8 col-lg-8 col-md-12">
 
           @if ($university->overviews->count() > 0)
             <!-- Overview -->
-            <div class="edu_wraper">
+            <div class="edu_wraper all-overviews">
               <div class="show-more-box">
                 <div class="text show-more-height">
                   @foreach ($university->overviews as $row)
@@ -61,16 +61,17 @@
                     {!! $row->p !!}
                   @endforeach
                 </div>
-                <div class="show-more">(Show More)</div>
+                <!-- <div class="show-more">(Show More)</div> -->
               </div>
             </div>
           @endif
 
           <div id="accordionExample" class="accordion shadow circullum">
             <!-- Call to action -->
-            <div class="justify-content-center align-content-center text-center mb-4 font-weight-bold">
-              GET DETAILS ON FEE, ADMISSION, INTAKE <a href="{{ url('/sign-up/?return_to=') }}"
-                class="btn btn-theme-2 ml-2 rounded rounded-circle">Apply Now</a>
+            <div class="d-flex justify-content-center align-items-center set-gap my-3">
+              <h3 class="intake_fee mb-0" > GET DETAILS ON FEE, ADMISSION, INTAKE</h3>
+             <button href="{{ url('/sign-up/?return_to=') }}"
+                class="btn btn-primary">Apply Now</button>
             </div>
             <div class="card">
               <div id="headingTwo" class="card-header bg-white shadow-sm border-0 pl-4 pr-4">
@@ -83,7 +84,7 @@
               <div id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample" class="collapse show">
                 <div class="card-body pl-4 pr-4">
                   <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-6 pmr-7">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
                       <div class="courses b-all">
                         <a target="_blank"
                           href="{{ url('university/' . $university->uname . '/pre-university-courses') }}">
@@ -93,7 +94,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-6 pmr-7">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
                       <div class="courses b-all">
                         <a target="_blank"
                           href="{{ url('university/' . $university->uname . '/pre-university-courses') }}">
@@ -103,7 +104,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-6 pmr-7">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
                       <div class="courses b-all">
                         <a target="_blank" href="{{ url('university/' . $university->uname . '/diploma-courses') }}">
                           <img data-src="{{ asset('assets/web/images/fuc-icons/diploma.png') }}" alt="icon"
@@ -112,7 +113,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-6 pmr-7">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
                       <div class="courses b-all">
                         <a target="_blank"
                           href="{{ url('university/' . $university->uname . '/under-graduate-courses') }}">
@@ -122,7 +123,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-6 pmr-7">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
                       <div class="courses b-all">
                         <a target="_blank"
                           href="{{ url('university/' . $university->uname . '/post-graduate-courses') }}">
@@ -132,7 +133,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-6 pmr-7">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
                       <div class="courses b-all">
                         <a target="_blank" href="{{ url('university/' . $university->uname . '/phd-courses') }}">
                           <img data-src="{{ asset('assets/web/images/fuc-icons/phd.png') }}" alt="icon"
@@ -142,8 +143,8 @@
                       </div>
                     </div>
                   </div>
-                  <div align="center"><a href="{{ url('university/' . $university->uname . '/courses') }}"
-                      class="btn btn-outline-theme">View all courses</a>
+                  <div align="center"><button href="{{ url('university/' . $university->uname . '/courses') }}"
+                      class="btn btn-primary">View all courses</button>
                   </div>
                 </div>
               </div>
@@ -152,7 +153,7 @@
 
         </div>
         <!-- Sidebar -->
-        <div class="col-lg-4 col-md-4">
+        <div class="col-xl-4 col-lg-4 col-md-12">
           <div class="ed_view_box style_2">
             <div class="ed_author">
               <div class="ed_author_box">
