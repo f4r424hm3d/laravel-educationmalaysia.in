@@ -6,6 +6,7 @@ use App\Exports\UniversityListExport;
 use App\Http\Controllers\Controller;
 use App\Imports\UniversityImport;
 use App\Imports\UniversityListBulkUpdateImport;
+use App\Models\Author;
 use App\Models\Country;
 use App\Models\CourseCategory;
 use App\Models\CourseSpecialization;
@@ -14,6 +15,7 @@ use App\Models\InstituteType;
 use App\Models\State;
 use App\Models\University;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Facades\Excel;
 
 class UniversityC extends Controller
@@ -101,6 +103,7 @@ class UniversityC extends Controller
     $instType = InstituteType::all();
     $countries = Country::all();
     $states = State::all();
+    $authors = Author::all();
 
     if ($id != null) {
       $sd = University::find($id);
@@ -119,7 +122,7 @@ class UniversityC extends Controller
     }
     $page_title = "Add University";
     $page_route = "university";
-    $data = compact('sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'instType', 'countries', 'states');
+    $data = compact('sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'instType', 'countries', 'states', 'authors');
     return view('admin.add-university')->with($data);
   }
   public function store(Request $request)
@@ -128,13 +131,18 @@ class UniversityC extends Controller
     // die;
     $request->validate(
       [
-        'name' => 'required|unique:universities,name',
-        'destination_id' => 'required',
+        'name' => [
+          'required',
+          Rule::unique('universities', 'name')->where('website', site_var),
+        ],
         'seo_rating' => 'nullable|numeric',
         'logo' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif,webp',
         'banner' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif,webp'
       ]
     );
+
+    $instituteType = InstituteType::find($request['institute_type']);
+
     $field = new University;
     if ($request->hasFile('logo')) {
       $fileOriginalName = $request->file('logo')->getClientOriginalName();
@@ -144,7 +152,6 @@ class UniversityC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('logo')->move('university/', $file_name);
       if ($move) {
-        $field->logo_name = $file_name;
         $field->logo_path = 'university/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
@@ -158,51 +165,66 @@ class UniversityC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('banner')->move('university/', $file_name);
       if ($move) {
-        $field->banner_name = $file_name;
         $field->banner_path = 'university/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
+    if ($request->hasFile('og_image')) {
+      $fileOriginalName = $request->file('og_image')->getClientOriginalName();
+      $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
+      $file_name_slug = slugify($fileNameWithoutExtention);
+      $fileExtention = $request->file('og_image')->getClientOriginalExtension();
+      $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
+      $move = $request->file('og_image')->move('university/', $file_name);
+      if ($move) {
+        $field->og_image_path = 'university/' . $file_name;
+      } else {
+        session()->flash('emsg', 'Some problem occured. File not uploaded.');
+      }
+    }
     $field->name = $request['name'];
-    $field->slug = slugify($request['name']);
-    $field->destination_id = $request['destination_id'];
-    $field->address = $request['address'];
+    $field->uname = slugify($request['uname']);
+    $field->views = $request['views'];
     $field->city = $request['city'];
-    $field->city_slug = slugify($request['city']);
     $field->state = $request['state'];
-    $field->state_slug = slugify($request['state']);
-    $field->country = $request['country'];
-    $field->institute_type_id = $request['institute_type_id'];
-    $field->founded = $request['founded'];
-    $field->university_rank = $request['university_rank'];
+    $field->inst_type = $instituteType->type;
+    $field->institute_type = $request['institute_type'];
+    $field->rating = $request['rating'];
+    $field->rank = $request['rank'];
     $field->qs_rank = $request['qs_rank'];
-    $field->us_world_rank = $request['us_world_rank'];
-    $field->parent_university_id = $request['parent_university_id'];
+    $field->times_rank = $request['times_rank'];
+    $field->author_id = $request['author_id'];
+    $field->shortnote = $request['shortnote'];
+
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
     $field->meta_description = $request['meta_description'];
     $field->page_content = $request['page_content'];
     $field->seo_rating = $request['seo_rating'];
+    $field->best_rating = $request['best_rating'];
+    $field->review_number = $request['review_number'];
     $field->save();
     session()->flash('smsg', 'New record has been added successfully.');
     return redirect('admin/university/add');
-  }
-  public function delete($id)
-  {
-    //echo $id;
-    echo $result = University::find($id)->delete();
   }
   public function update($id, Request $request)
   {
     $request->validate(
       [
-        'name' => 'required|unique:universities,name,' . $id,
-        'destination_id' => 'required',
+        'name' => [
+          'required',
+          Rule::unique('universities', 'name')
+            ->ignore($id) // Ignore the current record by its ID
+            ->where('website', site_var), // Add condition for the `website`
+        ],
+        'seo_rating' => 'nullable|numeric',
         'logo' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif,webp',
         'banner' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif,webp'
       ]
     );
+
+    $instituteType = InstituteType::find($request['institute_type']);
 
     $field = University::find($id);
     if ($request->hasFile('logo')) {
@@ -211,10 +233,9 @@ class UniversityC extends Controller
       $file_name_slug = slugify($fileNameWithoutExtention);
       $fileExtention = $request->file('logo')->getClientOriginalExtension();
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
-      $move = $request->file('logo')->move('uploads/university/', $file_name);
+      $move = $request->file('logo')->move('university/', $file_name);
       if ($move) {
-        $field->logo_name = $file_name;
-        $field->logo_path = 'uploads/university/' . $file_name;
+        $field->logo_path = 'university/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
@@ -225,38 +246,57 @@ class UniversityC extends Controller
       $file_name_slug = slugify($fileNameWithoutExtention);
       $fileExtention = $request->file('banner')->getClientOriginalExtension();
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
-      $move = $request->file('banner')->move('uploads/university/', $file_name);
+      $move = $request->file('banner')->move('university/', $file_name);
       if ($move) {
-        $field->banner_name = $file_name;
-        $field->banner_path = 'uploads/university/' . $file_name;
+        $field->banner_path = 'university/' . $file_name;
+      } else {
+        session()->flash('emsg', 'Some problem occured. File not uploaded.');
+      }
+    }
+    if ($request->hasFile('og_image')) {
+      $fileOriginalName = $request->file('og_image')->getClientOriginalName();
+      $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
+      $file_name_slug = slugify($fileNameWithoutExtention);
+      $fileExtention = $request->file('og_image')->getClientOriginalExtension();
+      $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
+      $move = $request->file('og_image')->move('university/', $file_name);
+      if ($move) {
+        $field->og_image_path = 'university/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
     $field->name = $request['name'];
-    $field->slug = slugify($request['name']);
-    $field->destination_id = $request['destination_id'];
-    $field->address = $request['address'];
+    $field->uname = slugify($request['uname']);
+    $field->views = $request['views'];
     $field->city = $request['city'];
-    $field->city_slug = slugify($request['city']);
     $field->state = $request['state'];
-    $field->state_slug = slugify($request['state']);
-    $field->country = $request['country'];
-    $field->institute_type_id = $request['institute_type_id'];
-    $field->founded = $request['founded'];
-    $field->university_rank = $request['university_rank'];
+    $field->inst_type = $instituteType->type;
+    $field->institute_type = $request['institute_type'];
+    $field->rating = $request['rating'];
+    $field->rank = $request['rank'];
     $field->qs_rank = $request['qs_rank'];
-    $field->us_world_rank = $request['us_world_rank'];
-    $field->parent_university_id = $request['parent_university_id'];
+    $field->times_rank = $request['times_rank'];
+    $field->author_id = $request['author_id'];
+    $field->shortnote = $request['shortnote'];
+
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
     $field->meta_description = $request['meta_description'];
     $field->page_content = $request['page_content'];
     $field->seo_rating = $request['seo_rating'];
+    $field->best_rating = $request['best_rating'];
+    $field->review_number = $request['review_number'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
     return redirect('admin/university');
   }
+  public function delete($id)
+  {
+    //echo $id;
+    echo $result = University::find($id)->delete();
+  }
+
   public function import(Request $request)
   {
     $request->validate([

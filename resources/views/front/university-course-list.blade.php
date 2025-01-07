@@ -124,7 +124,7 @@
 
                           @if (session()->has('studentLoggedIn'))
                             <div id="shortlisted_mark{{ $row->id }}"
-                              class="woo_buttons float-right {{ $check->count() > 0 ? '' : 'hide-this' }}">
+                              class="woo_buttons float-right {{ $check ? '' : 'hide-this' }}">
                               <a href="javascript:void(0)" class="btn woo_btn_light" data-toggle="tooltip"
                                 data-placement="top" title="Shortlisted">
                                 <i style="background-color: red" class="ti-heart"></i>
@@ -132,7 +132,7 @@
                             </div>
 
                             <div id="add_to_shortlist_mark{{ $row->id }}"
-                              class="woo_buttons float-right {{ $check->count() > 0 ? 'hide-this' : '' }}">
+                              class="woo_buttons float-right {{ $check ? 'hide-this' : '' }}">
                               <a href="javascript:void(0)" onclick="shortlistProgram('{{ $row->id }}')"
                                 class="btn woo_btn_light" data-toggle="tooltip" data-placement="top"
                                 title="Add To Shortlist">
@@ -169,7 +169,7 @@
                         @if (!session()->has('studentLoggedIn'))
                           <span class="btn btn-modern2" onclick="ApplyNow()"><span>Apply Now</span></span>
                         @else
-                          @if ($check->count() > 0)
+                          @if ($check)
                             @if ($check->status == 0)
                               <span class="btn btn-modern2"
                                 onClick="window.location.href = '<?php echo url('CourseController/directApply/' . $row->id); ?>';"><span>Apply

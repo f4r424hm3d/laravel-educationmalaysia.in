@@ -47,68 +47,71 @@
                 @csrf
                 <div class="row">
                   <div class="col-md-6 col-sm-12 mb-3">
-                    <x-InputField type="text" label="Name" name="name" id="name" :ft="$ft"
+                    <x-input-field type="text" label="Name" name="name" id="name" :ft="$ft"
                       :sd="$sd" required="required">
-                    </x-InputField>
+                    </x-input-field>
                   </div>
                   <div class="col-md-6 col-sm-12 mb-3">
-                    <x-InputField type="text" label="Slug" name="uname" id="uname" :ft="$ft"
+                    <x-input-field type="text" label="Slug" name="uname" id="uname" :ft="$ft"
                       :sd="$sd" required="required">
-                    </x-InputField>
+                    </x-input-field>
                   </div>
-                  <div class="col-md-3 col-sm-12 mb-3 hide-this">
-                    <x-InputField type="text" label="Views" name="views" id="views" :ft="$ft"
+                  <div class="col-md-3 col-sm-12 mb-3">
+                    <x-input-field type="text" label="Views" name="views" id="views" :ft="$ft"
                       :sd="$sd">
-                    </x-InputField>
+                    </x-input-field>
+                  </div>
+                  <div class="col-md-3 col-sm-12 mb-3">
+                    <x-input-field type="text" label="City" name="city" id="city" :ft="$ft"
+                      :sd="$sd"></x-input-field>
                   </div>
                   <div class="col-md-3 col-sm-12 mb-3">
                     <x-DatalistField type="text" label="State" name="state" id="state" savev="nicename"
                       showv="state_name" :list="$states" :ft="$ft" :sd="$sd"></x-DatalistField>
                   </div>
                   <div class="col-md-3 col-sm-12 mb-3">
-                    <x-InputField type="text" label="City" name="city" id="city" :ft="$ft"
-                      :sd="$sd"></x-InputField>
-                  </div>
-                  <div class="col-md-3 col-sm-12 mb-3">
-                    <x-InputField type="text" label="Address" name="address" id="address" :ft="$ft"
-                      :sd="$sd">
-                    </x-InputField>
-                  </div>
-                  <div class="col-md-3 col-sm-12 mb-3">
-                    <x-SelectField label="Institute Type" name="institute_type_id" id="institute_type_id" savev="id"
+                    <x-SelectField label="Institute Type" name="institute_type" id="institute_type" savev="id"
                       showv="type" :list="$instType" :ft="$ft" :sd="$sd"></x-SelectField>
                   </div>
                   <div class="col-md-3 col-sm-12 mb-3">
-                    <x-InputField type="text" label="Founded" name="founded" id="founded" :ft="$ft"
-                      :sd="$sd">
-                    </x-InputField>
+                    <x-number-input type="number" label="Rating" name="rating" id="rating" :ft="$ft"
+                      :sd="$sd" max="5" min="1" step=".1">
+                    </x-number-input>
                   </div>
                   <div class="col-md-3 col-sm-12 mb-3">
-                    <x-InputField type="number" label="University Rank" name="university_rank" id="university_rank"
-                      :ft="$ft" :sd="$sd"></x-InputField>
+                    <x-input-field type="number" label="Rank (QS Malaysia)" name="rank" id="rank"
+                      :ft="$ft" :sd="$sd"></x-input-field>
                   </div>
                   <div class="col-md-3 col-sm-12 mb-3">
-                    <x-InputField type="number" label="QS Rank" name="qs_rank" id="qs_rank" :ft="$ft"
-                      :sd="$sd">
-                    </x-InputField>
+                    <x-input-field type="number" label="QS Wrold Ranking" name="qs_rank" id="qs_rank"
+                      :ft="$ft" :sd="$sd">
+                    </x-input-field>
                   </div>
                   <div class="col-md-3 col-sm-12 mb-3">
-                    <x-InputField type="number" label="US World Rank" name="us_world_rank" id="us_world_rank"
-                      :ft="$ft" :sd="$sd"></x-InputField>
+                    <x-input-field type="number" label="The Times" name="times_rank" id="times_rank" :ft="$ft"
+                      :sd="$sd"></x-input-field>
                   </div>
                   <div class="col-md-3 col-sm-12 mb-3">
-                    <x-InputField type="file" label="Logo" name="logo" id="logo" :ft="$ft"
-                      :sd="$sd"></x-InputField>
+                    <x-select-field label="Author" name="author_id" id="author_id" savev="id" showv="name"
+                      :list="$authors" :ft="$ft" :sd="$sd"></x-select-field>
                   </div>
                   <div class="col-md-3 col-sm-12 mb-3">
-                    <x-InputField type="file" label="Banner" name="banner" id="banner" :ft="$ft"
-                      :sd="$sd"></x-InputField>
+                    <x-input-field type="file" label="Logo" name="logo" id="logo" :ft="$ft"
+                      :sd="$sd"></x-input-field>
+                  </div>
+                  <div class="col-md-3 col-sm-12 mb-3">
+                    <x-input-field type="file" label="Banner" name="banner" id="banner" :ft="$ft"
+                      :sd="$sd"></x-input-field>
+                  </div>
+                  <div class="col-md-12 col-sm-12 mb-3">
+                    <x-textarea-field label="Shortnote" name="shortnote" id="shortnote" :ft="$ft"
+                      :sd="$sd"></x-textarea-field>
                   </div>
                 </div>
                 <hr>
 
                 <!--  SEO INPUT FIELD COMPONENT START -->
-                <x-SeoField :ft="$ft" :sd="$sd"></x-SeoField>
+                <x-seo-field :ft="$ft" :sd="$sd"></x-seo-field>
                 <!--  SEO INPUT FIELD COMPONENT END  -->
 
                 @if ($ft == 'add')
