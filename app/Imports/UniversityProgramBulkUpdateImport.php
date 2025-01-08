@@ -20,6 +20,7 @@ class UniversityProgramBulkUpdateImport implements ToCollection, WithHeadingRow,
   //   $this->group_id = $data['group_id'];
   //   $this->question_type = $data['question_type'];
   // }
+  protected $university_id;
   public function __construct(array $data)
   {
     $this->university_id = $data['university_id'];
@@ -34,20 +35,18 @@ class UniversityProgramBulkUpdateImport implements ToCollection, WithHeadingRow,
     $totalRows = 0;
     foreach ($rows as $row) {
       $spc = CourseSpecialization::find($row['specialization_id']);
-      $study_mode = explode(',', $row['study_mode']);
-      $study_mode = json_encode($study_mode);
-      $course_mode = explode(',', $row['course_mode']);
-      $course_mode = json_encode($course_mode);
+
       $field = UniversityProgram::find($row['id']);
       $field->course_category_id = $spc->course_category_id;
       $field->specialization_id = $row['specialization_id'];
-      $field->program_name = $row['program_name'];
-      $field->program_slug = slugify($row['program_name']);
-      $field->level_id = $row['level_id'];
+      $field->course_name = $row['course_name'];
+      $field->slug = slugify($row['course_name']);
+      $field->level = $row['level'];
       $field->duration = $row['duration'];
-      $field->study_mode = $study_mode;
-      $field->course_mode = $course_mode;
-      $field->tution_fees = $row['tution_fees'];
+      $field->study_mode = $row['study_mode'];
+      $field->intake = $row['intake'];
+      $field->application_deadline = $row['application_deadline'];
+      $field->tution_fee = $row['tution_fee'];
       $field->save();
       $rowsInserted++;
       $totalRows++;

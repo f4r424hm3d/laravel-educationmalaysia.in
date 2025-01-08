@@ -12,6 +12,7 @@ class UniversityProgramsExport implements FromView
   /**
    * @return \Illuminate\Support\Collection
    */
+  protected $university_id;
   public function __construct(array $data)
   {
     $this->university_id = $data['university_id'];

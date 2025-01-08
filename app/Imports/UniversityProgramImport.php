@@ -39,43 +39,30 @@ class UniversityProgramImport implements ToCollection, WithHeadingRow, WithChunk
       $where = [
         'university_id' => $this->university_id,
         'specialization_id' => $row['specialization_id'],
-        'level_id' => $row['level_id'],
-        'program_name' => $row['program_name'],
+        'level' => $row['level'],
+        'course_name' => $row['course_name'],
       ];
       $data = UniversityProgram::where($where)->count();
       if ($data == 0) {
         $spc = CourseSpecialization::find($row['specialization_id']);
-        $study_mode = explode(',', $row['study_mode']);
-        $study_mode = json_encode($study_mode);
-        $course_mode = explode(',', $row['course_mode']);
-        $course_mode = json_encode($course_mode);
-        $exam_accepted = explode(',', $row['exam_accepted']);
-        $exam_accepted = json_encode($exam_accepted);
-        $intake = explode(',', $row['intake']);
-        $intake = json_encode($intake);
         if ($spc != false) {
           UniversityProgram::create([
             'university_id' => $this->university_id,
             'course_category_id' => $spc->course_category_id,
             'specialization_id' => $row['specialization_id'],
-            'level_id' => $row['level_id'],
-            'program_name' => $row['program_name'],
-            'program_slug' => slugify($row['program_name']),
+            'level' => $row['level'],
+            'course_name' => $row['course_name'],
+            'slug' => slugify($row['course_name']),
             'duration' => $row['duration'],
-            'study_mode' => $study_mode,
-            'course_mode' => $course_mode,
-            'exam_accepted' => $exam_accepted,
-            'intake' => $intake,
-            'tution_fees' => $row['tution_fees'] ?? null,
+            'study_mode' => implode(',', $row['study_mode']),
+            'intake' => implode(',', $row['intake']),
+            'application_deadline' => $row['application_deadline'],
+            'tution_fee' => $row['tution_fee'],
             'overview' => $row['overview'],
             'entry_requirement' => $row['entry_requirement'],
-            'ielts' => $row['ielts'],
-            'toefl' => $row['toefl'],
-            'pte' => $row['pte'],
-            'duolingo' => $row['duolingo'],
-            'gre' => $row['gre'],
-            'gmat' => $row['gmat'],
-            'sat' => $row['sat'],
+            'exam_required' => $row['exam_required'],
+            'mode_of_instruction' => $row['mode_of_instruction'],
+            'scholarship_info' => $row['scholarship_info'],
           ]);
           $rowsInserted++;
         } else {

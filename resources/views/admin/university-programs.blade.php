@@ -55,31 +55,22 @@
                 <div class="row">
                   <div class="col-md-3 col-sm-12 mb-3">
                     <x-SelectField label="Course Category" name="course_category_id" id="course_category_id"
-                      :ft="$ft" :sd="$sd" :list="$categories" savev="id" showv="category_name"
+                      :ft="$ft" :sd="$sd" :list="$categories" savev="id" showv="name"
                       required="required"></x-SelectField>
                   </div>
                   <div class="col-md-3 col-sm-12 mb-3">
                     <x-SelectField label="Specialization" name="specialization_id" id="specialization_id"
-                      :ft="$ft" :sd="$sd" :list="$specializations" savev="id" showv="specialization_name"
+                      :ft="$ft" :sd="$sd" :list="$specializations" savev="id" showv="name"
                       required="required">
                     </x-SelectField>
                   </div>
-                  {{-- <div class="col-md-3 col-sm-12 mb-3">
-                    <x-SelectField label="Programs" name="program_name" id="program_name" :ft="$ft"
-                      :sd="$sd" :list="$programs" savev="program_name" showv="program_name"
-                      required="required"></x-SelectField>
-                  </div> --}}
                   <div class="col-md-3 col-sm-12 mb-3 hide-thi">
-                    <x-InputField type="text" label="Program" name="program_name" id="program_name" :ft="$ft"
+                    <x-InputField type="text" label="Program" name="course_name" id="course_name" :ft="$ft"
                       :sd="$sd"></x-InputField>
                   </div>
-                  <div class="col-md-3 col-sm-12 mb-3 hide-this" id="newProgramField">
-                    <x-InputField type="text" label="Add New Program" name="new_program" id="new_program"
-                      :ft="$ft" :sd="$sd"></x-InputField>
-                  </div>
                   <div class="col-md-3 col-sm-12 mb-3">
-                    <x-SelectField label="Level" name="level_id" id="level_id" :ft="$ft" :sd="$sd"
-                      :list="$levels" savev="id" showv="level" required="required"></x-SelectField>
+                    <x-SelectField label="Level" name="level" id="level" :ft="$ft" :sd="$sd"
+                      :list="$levels" savev="level" showv="level" required="required"></x-SelectField>
                   </div>
                   <div class="col-md-3 col-sm-12 mb-3">
                     <x-InputField type="text" label="Duration" name="duration" id="duration" :ft="$ft"
@@ -91,51 +82,17 @@
                     </x-multiple-select-field>
                   </div>
                   <div class="col-md-3 col-sm-12 mb-3">
-                    <x-multiple-select-field label="Course Mode" name="course_mode" id="course_mode" :ft="$ft"
-                      :sd="$sd" :list="$coursemodes" savev="course_mode" showv="course_mode">
-                    </x-multiple-select-field>
-                  </div>
-                  <div class="col-md-3 col-sm-12 mb-3">
-                    <x-multiple-select-field label="Exam Accepted" name="exam_accepted" id="exam_accepted"
-                      :ft="$ft" :sd="$sd" :list="$exams" savev="exam_name" showv="exam_name">
-                    </x-multiple-select-field>
-                  </div>
-                  <div class="col-md-3 col-sm-12 mb-3">
                     <x-multiple-select-field label="Intake" name="intake" id="intake" :ft="$ft"
                       :sd="$sd" :list="$months" savev="month_short_name" showv="month_short_name"
                       required="required">
                     </x-multiple-select-field>
                   </div>
                   <div class="col-md-3 col-sm-12 mb-3">
-                    <x-InputField type="number" label="Tution Fees" name="tution_fees" id="tution_fees"
-                      :ft="$ft" :sd="$sd"></x-InputField>
+                    <x-InputField type="text" label="Application Deadline" name="application_deadline"
+                      id="application_deadline" :ft="$ft" :sd="$sd"></x-InputField>
                   </div>
-                  <div class="col-md-2 col-sm-12 mb-3">
-                    <x-InputField type="text" label="IELTS Band" name="ielts" id="ielts" :ft="$ft"
-                      :sd="$sd"></x-InputField>
-                  </div>
-                  <div class="col-md-2 col-sm-12 mb-3">
-                    <x-InputField type="text" label="TOEFL Band" name="toefl" id="toefl" :ft="$ft"
-                      :sd="$sd"></x-InputField>
-                  </div>
-                  <div class="col-md-2 col-sm-12 mb-3">
-                    <x-InputField type="text" label="PTE Band" name="pte" id="pte" :ft="$ft"
-                      :sd="$sd"></x-InputField>
-                  </div>
-                  <div class="col-md-2 col-sm-12 mb-3">
-                    <x-InputField type="text" label="DUOLINGO Band" name="duolingo" id="duolingo"
-                      :ft="$ft" :sd="$sd"></x-InputField>
-                  </div>
-                  <div class="col-md-2 col-sm-12 mb-3">
-                    <x-InputField type="text" label="GRE Band" name="gre" id="gre" :ft="$ft"
-                      :sd="$sd"></x-InputField>
-                  </div>
-                  <div class="col-md-2 col-sm-12 mb-3">
-                    <x-InputField type="text" label="GMAT Band" name="gmat" id="gmat" :ft="$ft"
-                      :sd="$sd"></x-InputField>
-                  </div>
-                  <div class="col-md-2 col-sm-12 mb-3">
-                    <x-InputField type="text" label="SAT Band" name="sat" id="sat" :ft="$ft"
+                  <div class="col-md-3 col-sm-12 mb-3">
+                    <x-InputField type="number" label="Tution Fees" name="tution_fee" id="tution_fee" :ft="$ft"
                       :sd="$sd"></x-InputField>
                   </div>
                   <div class="col-md-12 col-sm-12 mb-3">
@@ -145,6 +102,21 @@
                   </div>
                   <div class="col-md-12 col-sm-12 mb-3">
                     <x-TextareaField label="Entry Requirement" name="entry_requirement" id="entry_requirement"
+                      :ft="$ft" :sd="$sd">
+                    </x-TextareaField>
+                  </div>
+                  <div class="col-md-12 col-sm-12 mb-3">
+                    <x-TextareaField label="Exam Required" name="exam_required" id="exam_required" :ft="$ft"
+                      :sd="$sd">
+                    </x-TextareaField>
+                  </div>
+                  <div class="col-md-12 col-sm-12 mb-3">
+                    <x-TextareaField label="Mode of Instruction" name="mode_of_instruction" id="mode_of_instruction"
+                      :ft="$ft" :sd="$sd">
+                    </x-TextareaField>
+                  </div>
+                  <div class="col-md-12 col-sm-12 mb-3">
+                    <x-TextareaField label="Scholarship Info" name="scholarship_info" id="scholarship_info"
                       :ft="$ft" :sd="$sd">
                     </x-TextareaField>
                   </div>
@@ -188,14 +160,10 @@
                     <th>Category</th>
                     <th>Duration</th>
                     <th>Study Mode</th>
-                    <th>Course Mode</th>
-                    <th>Exams</th>
                     <th>Intake</th>
-                    <th>Tution Fees</th>
+                    <th>Deadline</th>
                     <th>Status</th>
                     <th>SEO</th>
-                    <th>Overview</th>
-                    <th>Date</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -205,94 +173,22 @@
                       <td>{{ $i }}</td>
                       <td>
                         Id : {{ $row->id }} <br>
-                        Name : {{ $row->program_name }} <br>
+                        Name : {{ $row->course_name }} <br>
                       </td>
                       <td>
-                        Category : {{ $row->getCategory->category_name }} <br>
-                        Specialization : {{ $row->getSpecialization->specialization_name }} <br>
-                        Level : {{ $row->getLevel->level }} <br>
+                        Category : {{ $row->category->name }} <br>
+                        Specialization : {{ $row->getSpecialization->name }} <br>
+                        Level : {{ $row->level }} <br>
                       </td>
                       <td>{{ $row->duration }}</td>
-                      <td>{!! json_to_list($row->study_mode) !!}</td>
-                      <td>{!! json_to_list($row->course_mode) !!}</td>
-                      <td>{!! json_to_list($row->exam_accepted) !!}</td>
-                      <td>{!! json_to_list($row->intake) !!}</td>
-                      <td>{{ $row->tution_fees }}</td>
+                      <td>{{ $row->study_mode }}</td>
+                      <td>{{ $row->intake }}</td>
+                      <td>{{ $row->application_deadline }}</td>
                       <td>
-                        <span id="astatus{{ $row->id }}"
-                          class="badge bg-success {{ $row->status == 1 ? '' : 'hide-this' }}"
-                          onclick="changeStatus('{{ $row->id }}','status','0')">Active</span>
-                        <span id="istatus{{ $row->id }}"
-                          class="badge bg-danger {{ $row->status == 0 ? '' : 'hide-this' }}"
-                          onclick="changeStatus('{{ $row->id }}','status','1')">Inactive</span>
+                        <x-status-field :row="$row" />
                       </td>
                       <td>
-                        @if ($row->meta_title != null)
-                          <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light"
-                            data-bs-toggle="modal"
-                            data-bs-target="#SeoModalScrollable{{ $row->id }}">View</button>
-                          <div class="modal fade" id="SeoModalScrollable{{ $row->id }}" tabindex="-1"
-                            role="dialog" aria-labelledby="SeoModalScrollableTitle{{ $row->id }}"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-scrollable">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="SeoModalScrollableTitle{{ $row->id }}">
-                                    SEO
-                                  </h5>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  {!! $row->meta_title !!} <br>
-                                  {!! $row->meta_keyword !!} <br>
-                                  {!! $row->meta_description !!} <br>
-                                  {!! $row->page_content !!} <br>
-                                  {!! $row->seo_rating !!}
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        @else
-                          Null
-                        @endif
-                      </td>
-                      <td>
-                        @if ($row->overview != null)
-                          <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light"
-                            data-bs-toggle="modal"
-                            data-bs-target="#OvrModalScrollable{{ $row->id }}">View</button>
-                          <div class="modal fade" id="OvrModalScrollable{{ $row->id }}" tabindex="-1"
-                            role="dialog" aria-labelledby="OvrModalScrollableTitle{{ $row->id }}"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-scrollable">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="OvrModalScrollableTitle{{ $row->id }}">
-                                    SEO
-                                  </h5>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  {!! $row->overview !!}
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        @else
-                          Null
-                        @endif
-                      </td>
-                      <td>
-                        Created at : <b>{{ getFormattedDate($row->created_at, 'h:i A - d-m-Y') }}</b> <br>
-                        Updated at : <b>{{ getFormattedDate($row->updated_at, 'h:i A - d-m-Y') }}</b> <br>
+                        <x-seo-view-model :row="$row" />
                       </td>
                       <td>
                         <a href="javascript:void()" onclick="DeleteAjax('{{ $row->id }}')"
@@ -444,5 +340,8 @@
 
     CKEDITOR.replace("overview");
     CKEDITOR.replace("entry_requirement");
+    CKEDITOR.replace("exam_required");
+    CKEDITOR.replace("mode_of_instruction");
+    CKEDITOR.replace("scholarship_info");
   </script>
 @endsection

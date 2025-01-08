@@ -65,50 +65,49 @@ class UniversityProgramC extends Controller
       [
         'course_category_id' => 'required',
         'specialization_id' => 'required',
-        'program_name' => 'required',
-        'level_id' => 'required',
+        'course_name' => 'required',
+        'level' => 'required',
         'duration' => 'required',
         'study_mode' => 'required|array',
       ]
     );
-    if ($request['program_name'] == 'addnew') {
-      $pf = new Program();
-      $pf->course_category_id = $request['course_category_id'];
-      $pf->specialization_id = $request['specialization_id'];
-      $pf->program_name = $request['new_program'];
-      $pf->program_slug = slugify($request['new_program']);
-      $pf->save();
-      $program_name = $request['new_program'];
-    } else {
-      $program_name = $request['program_name'];
-    }
     $field = new UniversityProgram;
-    $field->university_id = $request['university_id'];
+    $field->university_id = $university_id;
     $field->course_category_id = $request['course_category_id'];
     $field->specialization_id = $request['specialization_id'];
-    $field->program_name = $program_name;
-    $field->program_slug = slugify($program_name);
-    $field->level_id = $request['level_id'];
+    $field->course_name = $request['course_name'];
+    $field->slug = slugify($request['course_name']);
+    $field->level = $request['level'];
     $field->duration = $request['duration'];
-    $field->tution_fees = $request['tution_fees'];
-    $field->study_mode = json_encode($request['study_mode']);
-    $field->course_mode = json_encode($request['course_mode']);
-    $field->exam_accepted = json_encode($request['exam_accepted']);
-    $field->intake = json_encode($request['intake']);
+    $field->study_mode = implode(',', $request['study_mode']);
+    $field->intake = implode(',', $request['intake']);
+    $field->application_deadline = $request['application_deadline'];
+    $field->tution_fee = $request['tution_fee'];
     $field->overview = $request['overview'];
     $field->entry_requirement = $request['entry_requirement'];
-    $field->ielts = $request['ielts'];
-    $field->toefl = $request['toefl'];
-    $field->duolingo = $request['duolingo'];
-    $field->pte = $request['pte'];
-    $field->gre = $request['gre'];
-    $field->gmat = $request['gmat'];
-    $field->sat = $request['sat'];
+    $field->exam_required = $request['exam_required'];
+    $field->mode_of_instruction = $request['mode_of_instruction'];
+    $field->scholarship_info = $request['scholarship_info'];
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
     $field->meta_description = $request['meta_description'];
     $field->page_content = $request['page_content'];
     $field->seo_rating = $request['seo_rating'];
+    $field->best_rating = $request['best_rating'];
+    $field->review_number = $request['review_number'];
+    if ($request->hasFile('og_image')) {
+      $fileOriginalName = $request->file('og_image')->getClientOriginalName();
+      $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
+      $file_name_slug = slugify($fileNameWithoutExtention);
+      $fileExtention = $request->file('og_image')->getClientOriginalExtension();
+      $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
+      $move = $request->file('og_image')->move('uploads/university/', $file_name);
+      if ($move) {
+        $field->og_image_path = 'uploads/university/' . $file_name;
+      } else {
+        session()->flash('emsg', 'Some problem occured. File not uploaded.');
+      }
+    }
     $field->save();
     session()->flash('smsg', 'New record has been added successfully.');
     return redirect('admin/university-programs/' . $university_id);
@@ -124,50 +123,49 @@ class UniversityProgramC extends Controller
       [
         'course_category_id' => 'required',
         'specialization_id' => 'required',
-        'program_name' => 'required',
-        'level_id' => 'required',
+        'course_name' => 'required',
+        'level' => 'required',
         'duration' => 'required',
         'study_mode' => 'required|array',
       ]
     );
-    if ($request['program_name'] == 'addnew') {
-      $pf = new Program();
-      $pf->course_category_id = $request['course_category_id'];
-      $pf->specialization_id = $request['specialization_id'];
-      $pf->program_name = $request['new_program'];
-      $pf->program_slug = slugify($request['new_program']);
-      $pf->save();
-      $program_name = $request['new_program'];
-    } else {
-      $program_name = $request['program_name'];
-    }
     $field = UniversityProgram::find($id);
-    $field->university_id = $request['university_id'];
+    $field->university_id = $university_id;
     $field->course_category_id = $request['course_category_id'];
     $field->specialization_id = $request['specialization_id'];
-    $field->program_name = $program_name;
-    $field->program_slug = slugify($program_name);
-    $field->level_id = $request['level_id'];
+    $field->course_name = $request['course_name'];
+    $field->slug = slugify($request['course_name']);
+    $field->level = $request['level'];
     $field->duration = $request['duration'];
-    $field->study_mode = json_encode($request['study_mode']);
-    $field->course_mode = json_encode($request['course_mode']);
-    $field->exam_accepted = json_encode($request['exam_accepted']);
-    $field->intake = json_encode($request['intake']);
+    $field->study_mode = implode(',', $request['study_mode']);
+    $field->intake = implode(',', $request['intake']);
+    $field->application_deadline = $request['application_deadline'];
+    $field->tution_fee = $request['tution_fee'];
     $field->overview = $request['overview'];
     $field->entry_requirement = $request['entry_requirement'];
-    $field->ielts = $request['ielts'];
-    $field->toefl = $request['toefl'];
-    $field->duolingo = $request['duolingo'];
-    $field->pte = $request['pte'];
-    $field->gre = $request['gre'];
-    $field->gmat = $request['gmat'];
-    $field->sat = $request['sat'];
-    $field->tution_fees = $request['tution_fees'];
+    $field->exam_required = $request['exam_required'];
+    $field->mode_of_instruction = $request['mode_of_instruction'];
+    $field->scholarship_info = $request['scholarship_info'];
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
     $field->meta_description = $request['meta_description'];
     $field->page_content = $request['page_content'];
     $field->seo_rating = $request['seo_rating'];
+    $field->best_rating = $request['best_rating'];
+    $field->review_number = $request['review_number'];
+    if ($request->hasFile('og_image')) {
+      $fileOriginalName = $request->file('og_image')->getClientOriginalName();
+      $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
+      $file_name_slug = slugify($fileNameWithoutExtention);
+      $fileExtention = $request->file('og_image')->getClientOriginalExtension();
+      $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
+      $move = $request->file('og_image')->move('uploads/university/', $file_name);
+      if ($move) {
+        $field->og_image_path = 'uploads/university/' . $file_name;
+      } else {
+        session()->flash('emsg', 'Some problem occured. File not uploaded.');
+      }
+    }
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
     return redirect('admin/university-programs/' . $university_id);
