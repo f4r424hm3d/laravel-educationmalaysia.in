@@ -61,19 +61,6 @@
                   <div class="row">
                     <div class="col-md-3 col-sm-12 mb-3">
                       <div class="form-group">
-                        <label>Country</label>
-                        <select name="country" id="country" class="form-control js-example-basic-singl">
-                          <option value="">Select</option>
-                          @foreach ($filterCountries as $row)
-                            <option value="{{ $row->country }}"
-                              {{ isset($_GET['country']) && $_GET['country'] == $row->country ? 'selected' : '' }}>
-                              {{ $row->country }}</option>
-                          @endforeach
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 mb-3">
-                      <div class="form-group">
                         <label>State</label>
                         <select name="state" id="state" class="form-control js-example-basic-singl">
                           <option value="">Select</option>
@@ -145,7 +132,7 @@
                     </th>
                     <th>Sr. No.</th>
                     <th>Name</th>
-                    <th>Address</th>
+                    <th>Location</th>
                     <th>Rank</th>
                     <th>Logo/Banner</th>
                     <th>Permission</th>
@@ -167,21 +154,16 @@
                       <td>
                         <b>Id</b> : {{ $row->id }} <br>
                         <b>Name</b> : {{ $row->name }} <br>
-                        <b>Destination</b> : {{ $row->getDestination->destination_name ?? 'N/A' }} <br>
-                        <b>Founded</b> : {{ $row->founded }} <br>
-                        <b>Inst Type</b> : {{ $row->getInstType->type ?? 'N/A' }} <br>
-                        <b>Head University</b> : {{ $row->headUniversity->name ?? 'N/A' }} <br>
+                        <b>Inst Type</b> : {{ $row->instituteType->type ?? 'N/A' }}
                       </td>
                       <td>
-                        <b>Address</b> : {{ $row->address ?? 'N/A' }} <br>
                         <b>City</b> : {{ $row->city ?? 'N/A' }} <br>
-                        <b>State</b> : {{ $row->state ?? 'N/A' }} <br>
-                        <b>Country</b> : {{ $row->country ?? 'N/A' }}
+                        <b>State</b> : {{ $row->state ?? 'N/A' }}
                       </td>
                       <td>
-                        <b>University Rank</b> : {{ $row->university_rank ?? 'N/A' }} <br>
-                        <b>QS Rank</b> : {{ $row->qs_rank ?? 'N/A' }} <br>
-                        <b>US World Rank</b> : {{ $row->us_world_rank ?? 'N/A' }}
+                        <b>Rank (QS Malaysia)</b> : {{ $row->rank ?? 'N/A' }} <br>
+                        <b>QS Wrold Ranking</b> : {{ $row->qs_rank ?? 'N/A' }} <br>
+                        <b>The Times</b> : {{ $row->times_rank ?? 'N/A' }}
                       </td>
                       <td>
                         Logo : {!! $row->logo_path != null
@@ -197,66 +179,30 @@
                             <tr>
                               <td>Status</td>
                               <td>
-                                <span id="astatus{{ $row->id }}"
-                                  class="badge bg-success {{ $row->status == 1 ? '' : 'hide-this' }} active_status"
-                                  onclick="changeStatus('{{ $row->id }}','status','0')">Active</span>
-                                <span id="istatus{{ $row->id }}"
-                                  class="badge bg-danger {{ $row->status == 0 ? '' : 'hide-this' }} inactive_status"
-                                  onclick="changeStatus('{{ $row->id }}','status','1')">Inactive</span>
+                                <x-status-field :row="$row" />
                               </td>
                             </tr>
                             <tr>
                               <td>Home View</td>
                               <td>
                                 <span id="ahome_view{{ $row->id }}"
-                                  class="badge bg-success {{ $row->home_view == 1 ? '' : 'hide-this' }}"
-                                  onclick="changeStatus('{{ $row->id }}','home_view','0')">Active</span>
+                                  class="badge bg-success {{ $row->homeview == 1 ? '' : 'hide-this' }}"
+                                  onclick="changeStatus('{{ $row->id }}','homeview','0')">Active</span>
                                 <span id="ihome_view{{ $row->id }}"
-                                  class="badge bg-danger {{ $row->home_view == 0 ? '' : 'hide-this' }}"
-                                  onclick="changeStatus('{{ $row->id }}','home_view','1')">Inactive</span>
+                                  class="badge bg-danger {{ $row->homeview == 0 ? '' : 'hide-this' }}"
+                                  onclick="changeStatus('{{ $row->id }}','homeview','1')">Inactive</span>
                               </td>
                             </tr>
                           </tbody>
                         </table>
                       </td>
                       <td>
-                        @if ($row->meta_title != null)
-                          <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light"
-                            data-bs-toggle="modal"
-                            data-bs-target="#SeoModalScrollable{{ $row->id }}">View</button>
-                          <div class="modal fade" id="SeoModalScrollable{{ $row->id }}" tabindex="-1"
-                            role="dialog" aria-labelledby="SeoModalScrollableTitle{{ $row->id }}"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-scrollable">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="SeoModalScrollableTitle{{ $row->id }}">
-                                    SEO
-                                  </h5>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  {!! $row->meta_title !!} <br>
-                                  {!! $row->meta_keyword !!} <br>
-                                  {!! $row->meta_description !!} <br>
-                                  {!! $row->page_content !!} <br>
-                                  {!! $row->seo_rating !!}
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        @else
-                          Null
-                        @endif
+                        <x-seo-view-model :row="$row" />
                       </td>
                       <td>
-                        Programs : @if ($row->getPrograms->count() > 0)
+                        Programs : @if ($row->programs->count() > 0)
                           <a href="{{ url('admin/university-programs/' . $row->id) }}"
-                            class="badge bg-success">{{ $row->getPrograms->count() }} Programs</a>
+                            class="badge bg-success">{{ $row->programs->count() }} Programs</a>
                         @else
                           <a href="{{ url('admin/university-programs/' . $row->id) }}" class="badge bg-danger">Null</a>
                         @endif
@@ -516,21 +462,6 @@
     }
 
     $(document).ready(function() {
-      $('#destination_id').on('change', function(event) {
-        var destination_id = $('#destination_id').val();
-        //alert(destination_id);
-        $.ajax({
-          url: "{{ url('common/get-country-by-destination') }}",
-          method: "GET",
-          data: {
-            destination_id: destination_id
-          },
-          success: function(result) {
-            //alert(result);
-            $('#country').val(result);
-          }
-        })
-      });
       $('#course_category_id').on('change', function(event) {
         var course_category_id = $('#course_category_id').val();
         $.ajax({

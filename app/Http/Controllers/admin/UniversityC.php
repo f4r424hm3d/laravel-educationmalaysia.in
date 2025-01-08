@@ -28,12 +28,8 @@ class UniversityC extends Controller
     $rows = University::orderBy($order_by, $order_in);
     $filterApplied = false;
     if ($request->has('search') && $request->search != '') {
-      $rows = $rows->where('name', 'like', '%' . $request->search . '%')->orWhere('country', 'like', '%' . $request->search . '%')->orWhere('city', 'like', '%' . $request->search . '%')->orWhere('state', 'like', '%' . $request->search . '%');
+      $rows = $rows->where('name', 'like', '%' . $request->search . '%')->orWhere('city', 'like', '%' . $request->search . '%')->orWhere('state', 'like', '%' . $request->search . '%');
     } else {
-      if ($request->has('country') && $request->country != '') {
-        $rows = $rows->Where('country', $request->country);
-        $filterApplied = true;
-      }
       if ($request->has('state') && $request->state != '') {
         $rows = $rows->Where('state', $request->state);
         $filterApplied = true;
@@ -50,25 +46,15 @@ class UniversityC extends Controller
     $i = ($cp - 1) * $pp + 1;
 
     $instType = InstituteType::all();
-    $destinations = Destination::all();
     $countries = Country::all();
     $states = State::all();
 
     $lpp = ['10', '20', '50'];
     $orderColumns = ['Name' => 'name', 'Date' => 'created_at', 'City' => 'city', 'State' => 'state', 'Country' => 'country'];
 
-    $filterCountries = University::select('country')->groupBy('country')->orderBy('country')->get();
-
-    $filterStates = University::select('state')->groupBy('state')->orderBy('state')->where('state', '!=', '');
-    if ($request->has('country') && $request->country != '') {
-      $filterStates = $filterStates->where('country', $request->country);
-    }
-    $filterStates = $filterStates->get();
+    $filterStates = University::select('state')->groupBy('state')->orderBy('state')->where('state', '!=', '')->get();
 
     $filterCities = University::select('city')->groupBy('city')->orderBy('city')->where('city', '!=', '');
-    if ($request->has('country') && $request->country != '') {
-      $filterCities = $filterCities->where('country', $request->country);
-    }
     if ($request->has('state') && $request->state != '') {
       $filterCities = $filterCities->where('state', $request->state);
     }
@@ -94,7 +80,7 @@ class UniversityC extends Controller
     }
     $page_title = "University";
     $page_route = "university";
-    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'instType', 'countries', 'states', 'i', 'destinations', 'limit_per_page', 'order_by', 'order_in', 'lpp', 'orderColumns', 'filterCountries', 'filterApplied', 'filterStates', 'filterCities');
+    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'instType', 'countries', 'states', 'i', 'limit_per_page', 'order_by', 'order_in', 'lpp', 'orderColumns',  'filterApplied', 'filterStates', 'filterCities');
     return view('admin.university')->with($data);
   }
 

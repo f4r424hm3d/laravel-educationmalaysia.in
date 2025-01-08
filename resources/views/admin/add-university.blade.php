@@ -39,8 +39,8 @@
             </div>
             <div class="card-body {{ $ft == 'edit' ? '' : 'hide-thi' }}" id="tblCDiv">
               <!-- IMPORT FORM START -->
-              <x-ImportForm :pageRoute="$page_route" fileName="university"></x-ImportForm>
-              <hr>
+              {{-- <x-ImportForm :pageRoute="$page_route" fileName="university"></x-ImportForm>
+              <hr> --}}
               <!-- IMPORT FORM END -->
               <form action="{{ $url }}" class="needs-validation" method="post" enctype="multipart/form-data"
                 novalidate>
@@ -127,7 +127,7 @@
           <!-- end card -->
         </div>
       </div>
-      <div class="row">
+      <div class="row hide-this">
         <div class="col-xl-12">
           <div class="card">
             <div class="card-header">
@@ -156,36 +156,6 @@
     </div>
   </div>
   <script>
-    $(document).ready(function() {
-      $('#destination_id').on('change', function(event) {
-        var destination_id = $('#destination_id').val();
-        //alert(destination_id);
-        $.ajax({
-          url: "{{ url('common/get-country-by-destination') }}",
-          method: "GET",
-          data: {
-            destination_id: destination_id
-          },
-          success: function(result) {
-            //alert(result);
-            $('#country').val(result);
-          }
-        })
-      });
-      $('#course_category_id').on('change', function(event) {
-        var course_category_id = $('#course_category_id').val();
-        $.ajax({
-          url: "{{ aurl('course-specialization/get-by-category') }}",
-          method: "GET",
-          data: {
-            course_category_id: course_category_id
-          },
-          success: function(result) {
-            $('#specialization_id').html(result);
-          }
-        })
-      });
-    });
     CKEDITOR.replace("description");
   </script>
 @endsection
