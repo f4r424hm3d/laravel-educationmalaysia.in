@@ -46,7 +46,7 @@
                 @csrf
                 <div class="row">
                   <div class="col-md-9 col-sm-12 mb-3">
-                    <x-InputField type="text" label="Title" name="title" id="title" :ft="$ft"
+                    <x-InputField type="text" label="Title" name="h" id="h" :ft="$ft"
                       :sd="$sd"></x-InputField>
                   </div>
                   <div class="col-md-3 col-sm-12 mb-3">
@@ -54,7 +54,7 @@
                       :sd="$sd"></x-InputField>
                   </div>
                   <div class="col-md-12 col-sm-12 mb-3">
-                    <x-TextareaField label="Decription" name="description" id="description" :ft="$ft"
+                    <x-TextareaField label="Decription" name="p" id="p" :ft="$ft"
                       :sd="$sd"></x-TextareaField>
                   </div>
                 </div>
@@ -101,39 +101,13 @@
                   @foreach ($rows as $row)
                     <tr id="row{{ $row->id }}">
                       <td>{{ $i }}</td>
-                      <td>{{ $row->title }}</td>
+                      <td>{{ $row->h }}</td>
                       <td>
-                        @if ($row->description != null)
-                          <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light"
-                            data-bs-toggle="modal" data-bs-target="#SeoModalScrollable{{ $row->id }}">View</button>
-                          <div class="modal fade" id="SeoModalScrollable{{ $row->id }}" tabindex="-1"
-                            role="dialog" aria-labelledby="SeoModalScrollableTitle{{ $row->id }}"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-scrollable">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="SeoModalScrollableTitle{{ $row->id }}">
-                                    SEO
-                                  </h5>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  {!! $row->description !!}
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        @else
-                          Null
-                        @endif
+                        <x-content-view-modal :row="$row" field="p" title="Description" />
                       </td>
                       <td>
-                        @if ($row->thumbnail_path != null)
-                          <img src="{{ asset($row->thumbnail_path) }}" alt="" height="80" width="80">
+                        @if ($row->imgpath != null)
+                          <img src="{{ asset($row->imgpath) }}" alt="" height="80" width="80">
                         @else
                           N/A
                         @endif

@@ -9,38 +9,38 @@ use Illuminate\Http\Request;
 
 class UniversityOverviewC extends Controller
 {
-  public function index($university_id,$id = null)
+  public function index($university_id, $id = null)
   {
     $university = University::find($university_id);
-    $rows = UniversityOverview::where('university_id',$university_id)->get();
+    $rows = UniversityOverview::where('u_id', $university_id)->get();
     if ($id != null) {
       $sd = UniversityOverview::find($id);
       if (!is_null($sd)) {
         $ft = 'edit';
-        $url = url('admin/university-overview/'.$university_id.'/update/' . $id);
+        $url = url('admin/university-overview/' . $university_id . '/update/' . $id);
         $title = 'Update';
       } else {
         return redirect('admin/university-overview');
       }
     } else {
       $ft = 'add';
-      $url = url('admin/university-overview/'.$university_id.'/store');
+      $url = url('admin/university-overview/' . $university_id . '/store');
       $title = 'Add New';
       $sd = '';
     }
     $page_title = "University Overview";
     $page_route = "university-overview";
-    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route','university');
+    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'university');
     return view('admin.university-overview')->with($data);
   }
-  public function store($university_id,Request $request)
+  public function store($university_id, Request $request)
   {
     // printArray($request->all());
     // die;
     $request->validate(
       [
-        'title' => 'required',
-        'description' => 'required',
+        'h' => 'required',
+        'p' => 'required',
       ]
     );
     $field = new UniversityOverview;
@@ -52,30 +52,30 @@ class UniversityOverviewC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('thumbnail')->move('uploads/university/', $file_name);
       if ($move) {
-        $field->thumbnail_name = $file_name;
-        $field->thumbnail_path = 'uploads/university/' . $file_name;
+        $field->imgname = $file_name;
+        $field->imgpath = 'uploads/university/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
-    $field->university_id = $request['university_id'];
-    $field->title = $request['title'];
-    $field->description = $request['description'];
+    $field->u_id = $request['university_id'];
+    $field->h = $request['h'];
+    $field->p = $request['p'];
     $field->save();
     session()->flash('smsg', 'New record has been added successfully.');
-    return redirect('admin/university-overview/'.$university_id);
+    return redirect('admin/university-overview/' . $university_id);
   }
   public function delete($id)
   {
     //echo $id;
     echo $result = UniversityOverview::find($id)->delete();
   }
-  public function update($university_id,$id, Request $request)
+  public function update($university_id, $id, Request $request)
   {
     $request->validate(
       [
-        'title' => 'required',
-        'description' => 'required',
+        'h' => 'required',
+        'p' => 'required',
       ]
     );
     $field = UniversityOverview::find($id);
@@ -87,17 +87,17 @@ class UniversityOverviewC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('thumbnail')->move('uploads/university/', $file_name);
       if ($move) {
-        $field->thumbnail_name = $file_name;
-        $field->thumbnail_path = 'uploads/university/' . $file_name;
+        $field->imgname = $file_name;
+        $field->imgpath = 'uploads/university/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
-    $field->university_id = $request['university_id'];
-    $field->title = $request['title'];
-    $field->description = $request['description'];
+    $field->u_id = $request['university_id'];
+    $field->h = $request['h'];
+    $field->p = $request['p'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
-    return redirect('admin/university-overview/'.$university_id);
+    return redirect('admin/university-overview/' . $university_id);
   }
 }
