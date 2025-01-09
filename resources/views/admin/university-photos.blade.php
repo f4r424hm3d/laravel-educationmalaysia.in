@@ -101,8 +101,8 @@
                       <td>{{ $i }}</td>
                       <td>{{ $row->title }}</td>
                       <td>
-                        @if ($row->image_path != null)
-                          <img src="{{ asset($row->image_path) }}" alt="" height="80" width="80">
+                        @if ($row->imgpath != null)
+                          <img src="{{ asset($row->imgpath) }}" alt="" height="80" width="80">
                         @else
                           N/A
                         @endif
@@ -112,14 +112,8 @@
                         Updated at : <b>{{ getFormattedDate($row->updated_at, 'h:i A - d-m-Y') }}</b> <br>
                       </td>
                       <td>
-                        <a href="javascript:void()" onclick="DeleteAjax('{{ $row->id }}')"
-                          class="waves-effect waves-light btn btn-xs btn-outline btn-danger">
-                          <i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                        <a href="{{ url('admin/' . $page_route . '/' . $university->id . '/update/' . $row->id) }}"
-                          class="waves-effect waves-light btn btn-xs btn-outline btn-info">
-                          <i class="fa fa-edit" aria-hidden="true"></i>
-                        </a>
+                        <x-delete-button :id="$row->id" />
+                        <x-edit-button :url="url('admin/' . $page_route . '/' . $university->id . '/update/' . $row->id)" />
                       </td>
                     </tr>
                     @php
@@ -134,28 +128,5 @@
       </div>
     </div>
   </div>
-  <script>
-    function DeleteAjax(id) {
-      //alert(id);
-      var cd = confirm("Are you sure ?");
-      if (cd == true) {
-        $.ajax({
-          url: "{{ url('admin/' . $page_route . '/delete') }}" + "/" + id,
-          success: function(data) {
-            if (data == '1') {
-              var h = 'Success';
-              var msg = 'Record deleted successfully';
-              var type = 'success';
-              $('#row' + id).remove();
-              $('#toastMsg').text(msg);
-              $('#liveToast').show();
-              showToastr(h, msg, type);
-            }
-          }
-        });
-      }
-    }
-
-    CKEDITOR.replace("description");
-  </script>
+  @include('admin.js.delete-data')
 @endsection

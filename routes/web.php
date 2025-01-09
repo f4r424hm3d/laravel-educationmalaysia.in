@@ -46,6 +46,7 @@ use App\Http\Controllers\admin\StudentC;
 use App\Http\Controllers\admin\StudyModeC;
 use App\Http\Controllers\admin\TestimonialC;
 use App\Http\Controllers\admin\UniversityC;
+use App\Http\Controllers\admin\UniversityFacilityC;
 use App\Http\Controllers\admin\UniversityGalleryC;
 use App\Http\Controllers\admin\UniversityOtherContentC;
 use App\Http\Controllers\admin\UniversityOverviewC;
@@ -340,26 +341,27 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
       Route::get('{c_id}/update/{id}', [UniversityProgramContentC::class, 'index']);
       Route::post('{c_id}/update/{id}', [UniversityProgramContentC::class, 'update']);
     });
-    Route::prefix('/university-gallery')->group(function () {
-      Route::get('/{university_id}', [UniversityGalleryC::class, 'index']);
-      Route::post('/{university_id}/store', [UniversityGalleryC::class, 'store']);
+    Route::prefix('/university-photos')->group(function () {
+      Route::get('/{u_id}', [UniversityGalleryC::class, 'index']);
+      Route::post('/{u_id}/store', [UniversityGalleryC::class, 'store']);
       Route::get('/delete/{id}', [UniversityGalleryC::class, 'delete']);
-      Route::get('/{university_id}/update/{id}', [UniversityGalleryC::class, 'index']);
-      Route::post('/{university_id}/update/{id}', [UniversityGalleryC::class, 'update']);
+      Route::get('/{u_id}/update/{id}', [UniversityGalleryC::class, 'index']);
+      Route::post('/{u_id}/update/{id}', [UniversityGalleryC::class, 'update']);
     });
-    Route::prefix('/university-video-gallery')->group(function () {
-      Route::get('/{university_id}', [UniversityVideoGalleryC::class, 'index']);
-      Route::post('/{university_id}/store', [UniversityVideoGalleryC::class, 'store']);
+    Route::prefix('/university-videos')->group(function () {
+      Route::get('/{u_id}', [UniversityVideoGalleryC::class, 'index']);
+      Route::post('/{u_id}/store', [UniversityVideoGalleryC::class, 'store']);
       Route::get('/delete/{id}', [UniversityVideoGalleryC::class, 'delete']);
-      Route::get('/{university_id}/update/{id}', [UniversityVideoGalleryC::class, 'index']);
-      Route::post('/{university_id}/update/{id}', [UniversityVideoGalleryC::class, 'update']);
+      Route::get('/{u_id}/update/{id}', [UniversityVideoGalleryC::class, 'index']);
+      Route::post('/{u_id}/update/{id}', [UniversityVideoGalleryC::class, 'update']);
     });
-    Route::prefix('/fees-and-deadline')->group(function () {
-      Route::get('/{university_id}', [FeesAndDeadlineC::class, 'index']);
-      Route::post('/{university_id}/store', [FeesAndDeadlineC::class, 'store']);
-      Route::get('/delete/{id}', [FeesAndDeadlineC::class, 'delete']);
-      Route::get('/{university_id}/update/{id}', [FeesAndDeadlineC::class, 'index']);
-      Route::post('/{university_id}/update/{id}', [FeesAndDeadlineC::class, 'update']);
+    Route::prefix('/university-facilities')->group(function () {
+      Route::get('/get-data', [UniversityFacilityC::class, 'getData']);
+      Route::get('/delete/{id}', [UniversityFacilityC::class, 'delete']);
+      Route::post('/store', [UniversityFacilityC::class, 'store']);
+      Route::get('/{u_id}/', [UniversityFacilityC::class, 'index']);
+      Route::get('{u_id}/update/{id}', [UniversityFacilityC::class, 'index']);
+      Route::post('{u_id}/update/{id}', [UniversityFacilityC::class, 'update']);
     });
     Route::prefix('/other-content')->group(function () {
       Route::get('/get-data', [UniversityOtherContentC::class, 'getData']);

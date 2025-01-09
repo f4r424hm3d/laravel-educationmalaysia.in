@@ -4,36 +4,41 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\University;
-use App\Models\UniversityGallery;
+use App\Models\UniversityPhoto;
 use Illuminate\Http\Request;
 
 class UniversityGalleryC extends Controller
 {
-  public function index($university_id, $id = null)
+  protected $page_route;
+  public function __construct()
   {
-    $university = University::find($university_id);
-    $rows = UniversityGallery::where('university_id', $university_id)->get();
+    $this->page_route = 'university-photos';
+  }
+  public function index($u_id, $id = null)
+  {
+    $university = University::find($u_id);
+    $rows = UniversityPhoto::where('u_id', $u_id)->get();
     if ($id != null) {
-      $sd = UniversityGallery::find($id);
+      $sd = UniversityPhoto::find($id);
       if (!is_null($sd)) {
         $ft = 'edit';
-        $url = url('admin/university-gallery/' . $university_id . '/update/' . $id);
+        $url = url('admin/' . $this->page_route . '/' . $u_id . '/update/' . $id);
         $title = 'Update';
       } else {
-        return redirect('admin/university-gallery');
+        return redirect('admin/university-photos');
       }
     } else {
       $ft = 'add';
-      $url = url('admin/university-gallery/' . $university_id . '/store');
+      $url = url('admin/' . $this->page_route . '/' . $u_id . '/store');
       $title = 'Add New';
       $sd = '';
     }
-    $page_title = "University Gallery";
-    $page_route = "university-gallery";
+    $page_title = "University Photos";
+    $page_route = "university-photos";
     $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'university');
-    return view('admin.university-gallery')->with($data);
+    return view('admin.university-photos')->with($data);
   }
-  public function store($university_id, Request $request)
+  public function store($u_id, Request $request)
   {
     // printArray($request->all());
     // die;
@@ -50,8 +55,8 @@ class UniversityGalleryC extends Controller
     );
     if ($request->hasFile('photo')) {
       foreach ($request->file('photo') as $key => $file) {
-        $field = new UniversityGallery;
-        $field->university_id = $request['university_id'];
+        $field = new UniversityPhoto;
+        $field->u_id = $request['u_id'];
         $field->title = $request['title'];
         $fileOriginalName = $file->getClientOriginalName();
         $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
@@ -59,8 +64,8 @@ class UniversityGalleryC extends Controller
         $file_name = $file_name_slug . '-' . time() . '.' . $file->getClientOriginalExtension();
         $move = $file->move('uploads/university/', $file_name);
         if ($move) {
-          $field->image_name = $file_name;
-          $field->image_path = 'uploads/university/' . $file_name;
+          $field->imgname = $file_name;
+          $field->imgpath = 'uploads/university/' . $file_name;
         } else {
           session()->flash('emsg', 'Images not uploaded.');
         }
@@ -69,14 +74,22 @@ class UniversityGalleryC extends Controller
     }
 
     session()->flash('smsg', 'New record has been added successfully.');
-    return redirect('admin/university-gallery/' . $university_id);
+    return redirect('admin/' . $this->page_route . '/' . $u_id);
   }
   public function delete($id)
   {
-    //echo $id;
-    echo $result = UniversityGallery::find($id)->delete();
+    if ($id) {
+      $row = UniversityPhoto::findOrFail($id);
+      if ($row->imgpath != null && file_exists($row->imgpath)) {
+        unlink($row->imgpath);
+      }
+      $row->delete();
+      return response()->json(['success' => true]);
+    } else {
+      return response()->json(['success' => false]);
+    }
   }
-  public function update($university_id, $id, Request $request)
+  public function update($u_id, $id, Request $request)
   {
     $request->validate(
       [
@@ -84,7 +97,7 @@ class UniversityGalleryC extends Controller
         'photo' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif,webp',
       ]
     );
-    $field = UniversityGallery::find($id);
+    $field = UniversityPhoto::find($id);
     if ($request->hasFile('photo')) {
       $fileOriginalName = $request->file('photo')->getClientOriginalName();
       $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
@@ -93,8 +106,8 @@ class UniversityGalleryC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('photo')->move('uploads/university/', $file_name);
       if ($move) {
-        $field->image_name = $file_name;
-        $field->image_path = 'uploads/university/' . $file_name;
+        $field->imgname = $file_name;
+        $field->imgpath = 'uploads/university/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
@@ -102,6 +115,6 @@ class UniversityGalleryC extends Controller
     $field->title = $request['title'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
-    return redirect('admin/university-gallery/' . $university_id);
+    return redirect('admin/' . $this->page_route . '/' . $u_id);
   }
 }

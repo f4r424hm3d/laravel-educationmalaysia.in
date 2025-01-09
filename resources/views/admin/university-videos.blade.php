@@ -50,7 +50,7 @@
                       :sd="$sd"></x-InputField>
                   </div>
                   <div class="col-md-6 col-sm-12 mb-3">
-                    <x-InputField type="text" label="Video Link" name="link" id="link" :ft="$ft"
+                    <x-InputField type="text" label="Video Link" name="imgpath" id="imgpath" :ft="$ft"
                       :sd="$sd"></x-InputField>
                   </div>
                 </div>
@@ -73,9 +73,6 @@
             <div class="card-header">
               <h4 class="card-title">
                 {{ $page_title }} List
-                {{--  <span style="float:right;">
-                <button class="btn btn-xs btn-success">Export</button>
-              </span>  --}}
               </h4>
             </div>
             <div class="card-body">
@@ -98,9 +95,8 @@
                       <td>{{ $i }}</td>
                       <td>{{ $row->title }}</td>
                       <td>
-                        @if ($row->link != null)
-                          <span class="text-info">{{ $row->link }}</span>
-                          {{--  <iframe width="100" height="50" src="{{ $row->link }}"></iframe>  --}}
+                        @if ($row->imgpath != null)
+                          <iframe src="{{ $row->imgpath }}" frameborder="0"></iframe>
                         @else
                           N/A
                         @endif
@@ -110,14 +106,8 @@
                         Updated at : <b>{{ getFormattedDate($row->updated_at, 'h:i A - d-m-Y') }}</b> <br>
                       </td>
                       <td>
-                        <a href="javascript:void()" onclick="DeleteAjax('{{ $row->id }}')"
-                          class="waves-effect waves-light btn btn-xs btn-outline btn-danger">
-                          <i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                        <a href="{{ url('admin/' . $page_route . '/' . $university->id . '/update/' . $row->id) }}"
-                          class="waves-effect waves-light btn btn-xs btn-outline btn-info">
-                          <i class="fa fa-edit" aria-hidden="true"></i>
-                        </a>
+                        <x-delete-button :id="$row->id" />
+                        <x-edit-button :url="url('admin/' . $page_route . '/' . $university->id . '/update/' . $row->id)" />
                       </td>
                     </tr>
                     @php
@@ -132,28 +122,5 @@
       </div>
     </div>
   </div>
-  <script>
-    function DeleteAjax(id) {
-      //alert(id);
-      var cd = confirm("Are you sure ?");
-      if (cd == true) {
-        $.ajax({
-          url: "{{ url('admin/' . $page_route . '/delete') }}" + "/" + id,
-          success: function(data) {
-            if (data == '1') {
-              var h = 'Success';
-              var msg = 'Record deleted successfully';
-              var type = 'success';
-              $('#row' + id).remove();
-              $('#toastMsg').text(msg);
-              $('#liveToast').show();
-              showToastr(h, msg, type);
-            }
-          }
-        });
-      }
-    }
-
-    CKEDITOR.replace("description");
-  </script>
+  @include('admin.js.delete-data')
 @endsection
