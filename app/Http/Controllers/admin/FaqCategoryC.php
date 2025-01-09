@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\FaqCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Validator;
 
 class FaqCategoryC extends Controller
@@ -54,19 +55,14 @@ class FaqCategoryC extends Controller
     <tbody>';
     if ($rows->count() > 0) {
       foreach ($rows as $row) {
+        $url = url("admin/" . $this->page_route . "/update/" . $row->id);
         $output .= '<tr id="row' . $row->id . '">
       <td>' . $i . '</td>
       <td>' . $row->category_name . '</td>
-      <td>
-        <a href="javascript:void()" onclick="DeleteAjax(' . $row->id . ')"
-          class="waves-effect waves-light btn btn-xs btn-outline btn-danger">
-          <i class="fa fa-trash" aria-hidden="true"></i>
-        </a>
-        <a href="' . url("admin/" . $this->page_route . "/update/" . $row->id) . '"
-                      class="waves-effect waves-light btn btn-xs btn-outline btn-info">
-                      <i class="fa fa-edit" aria-hidden="true"></i>
-                    </a>
-      </td>
+      <td>';
+        $output .= Blade::render('<x-delete-button :id="$id" />', ['id' => $row->id]);
+        $output .= Blade::render('<x-edit-button :url="$url" />', ['url' => $url]);
+        $output .= '</td>
     </tr>';
         $i++;
       }
@@ -77,7 +73,7 @@ class FaqCategoryC extends Controller
     $output .= '<div>' . $rows->links('pagination::bootstrap-5') . '</div>';
     return $output;
   }
-  public function storeAjax(Request $request)
+  public function store(Request $request)
   {
     $validator = Validator::make($request->all(), [
       'category_name' => 'required|unique:faq_categories,category_name',
@@ -99,10 +95,12 @@ class FaqCategoryC extends Controller
   {
     if ($id) {
       $row = FaqCategory::findOrFail($id);
-      //   if ($row->photo_path != null) {
-      //     unlink($row->photo_path);
-      //   }
-      echo $result = $row->delete();
+      $result = $row->delete();
+      if ($result) {
+        return response()->json(['success' => true]);
+      } else {
+        return response()->json(['success' => false]);
+      }
     }
   }
   public function update($id, Request $request)

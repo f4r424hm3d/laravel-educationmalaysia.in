@@ -5,7 +5,7 @@
     if (page) {
       page = page;
     } else {
-      var page = '{{ $page_no??1 }}';
+      var page = '{{ $page_no ?? 1 }}';
     }
     return new Promise(function(resolve, reject) {
       //$("#migrateBtn").text('Migrating...');
@@ -40,7 +40,7 @@
           success: function(data) {
             if (data.success == true) {
               getData();
-              Swal.fire('Deleted!','Your record has been deleted.','success');
+              Swal.fire('Deleted!', 'Your record has been deleted.', 'success');
             }
           }
         });
@@ -82,6 +82,7 @@
               getData();
               $('#dataForm')[0].reset();
               CKEDITOR.instances.description.setData('');
+              setEditorBlank();
             }
           } else {
             //alert(data.error);

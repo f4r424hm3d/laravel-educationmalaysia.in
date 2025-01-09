@@ -37,9 +37,9 @@ class ServiceC extends Controller
     // die;
     $request->validate(
       [
-        'title' => 'required|unique:services,title',
-        'thumbnail' => 'required|max:5000|mimes:jpg,jpeg,png,gif,webp',
-        'shortnote' => 'required',
+        'page_name' => 'required|unique:site_pages,page_name',
+        'thumbnail' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif,webp',
+        'headline' => 'required',
       ]
     );
     $field = new Service;
@@ -51,20 +51,34 @@ class ServiceC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('thumbnail')->move('uploads/services/', $file_name);
       if ($move) {
-        $field->thumbnail_name = $file_name;
-        $field->thumbnail_path = 'uploads/services/' . $file_name;
+        $field->imgpath = 'uploads/services/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
-    $field->title = $request['title'];
-    $field->slug = slugify($request['title']);
-    $field->shortnote = $request['shortnote'];
+    if ($request->hasFile('og_image')) {
+      $fileOriginalName = $request->file('og_image')->getClientOriginalName();
+      $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
+      $file_name_slug = slugify($fileNameWithoutExtention);
+      $fileExtention = $request->file('og_image')->getClientOriginalExtension();
+      $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
+      $move = $request->file('og_image')->move('uploads/services/', $file_name);
+      if ($move) {
+        $field->og_image_path = 'uploads/services/' . $file_name;
+      } else {
+        session()->flash('emsg', 'Some problem occured. File not uploaded.');
+      }
+    }
+    $field->page_name = $request['page_name'];
+    $field->uri = slugify($request['page_name']);
+    $field->headline = $request['headline'];
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
     $field->meta_description = $request['meta_description'];
     $field->page_content = $request['page_content'];
     $field->seo_rating = $request['seo_rating'];
+    $field->best_rating = $request['best_rating'];
+    $field->review_number = $request['review_number'];
     $field->save();
     session()->flash('smsg', 'New record has been added successfully.');
     return redirect('admin/services');
@@ -78,9 +92,9 @@ class ServiceC extends Controller
   {
     $request->validate(
       [
-        'title' => 'required|unique:services,title,' . $id,
+        'page_name' => 'required|unique:site_pages,page_name,' . $id,
         'thumbnail' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif,webp',
-        'shortnote' => 'required',
+        'headline' => 'required',
       ]
     );
     $field = Service::find($id);
@@ -92,20 +106,34 @@ class ServiceC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('thumbnail')->move('uploads/services/', $file_name);
       if ($move) {
-        $field->thumbnail_name = $file_name;
-        $field->thumbnail_path = 'uploads/services/' . $file_name;
+        $field->imgpath = 'uploads/services/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
-    $field->title = $request['title'];
-    $field->slug = slugify($request['title']);
-    $field->shortnote = $request['shortnote'];
+    if ($request->hasFile('og_image')) {
+      $fileOriginalName = $request->file('og_image')->getClientOriginalName();
+      $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
+      $file_name_slug = slugify($fileNameWithoutExtention);
+      $fileExtention = $request->file('og_image')->getClientOriginalExtension();
+      $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
+      $move = $request->file('og_image')->move('uploads/services/', $file_name);
+      if ($move) {
+        $field->og_image_path = 'uploads/services/' . $file_name;
+      } else {
+        session()->flash('emsg', 'Some problem occured. File not uploaded.');
+      }
+    }
+    $field->page_name = $request['page_name'];
+    $field->uri = slugify($request['page_name']);
+    $field->headline = $request['headline'];
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
     $field->meta_description = $request['meta_description'];
     $field->page_content = $request['page_content'];
     $field->seo_rating = $request['seo_rating'];
+    $field->best_rating = $request['best_rating'];
+    $field->review_number = $request['review_number'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
     return redirect('admin/services');

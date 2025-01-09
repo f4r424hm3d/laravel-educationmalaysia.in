@@ -379,11 +379,11 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
       Route::post('/update/{id}', [ServiceC::class, 'update']);
     });
     Route::prefix('/service-content')->group(function () {
-      Route::get('/{service_id}', [ServiceContentC::class, 'index']);
-      Route::post('/{service_id}/store', [ServiceContentC::class, 'store']);
+      Route::get('/{page_id}', [ServiceContentC::class, 'index']);
+      Route::post('/{page_id}/store', [ServiceContentC::class, 'store']);
       Route::get('/delete/{id}', [ServiceContentC::class, 'delete']);
-      Route::get('/{service_id}/update/{id}', [ServiceContentC::class, 'index']);
-      Route::post('/{service_id}/update/{id}', [ServiceContentC::class, 'update']);
+      Route::get('/{page_id}/update/{id}', [ServiceContentC::class, 'index']);
+      Route::post('/{page_id}/update/{id}', [ServiceContentC::class, 'update']);
     });
     Route::prefix('/exams')->group(function () {
       Route::get('', [ExamC::class, 'index']);
@@ -635,7 +635,7 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
     Route::prefix('/faq-categories')->group(function () {
       Route::get('/', [FaqCategoryC::class, 'index']);
       Route::get('/get-data', [FaqCategoryC::class, 'getData']);
-      Route::post('/store-ajax', [FaqCategoryC::class, 'storeAjax']);
+      Route::post('/store', [FaqCategoryC::class, 'store']);
       Route::get('/update/{id}', [FaqCategoryC::class, 'index']);
       Route::post('/update/{id}', [FaqCategoryC::class, 'update']);
       Route::get('/delete/{id}', [FaqCategoryC::class, 'delete']);
@@ -643,7 +643,7 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
     Route::prefix('/faqs')->group(function () {
       Route::get('/', [FaqC::class, 'index']);
       Route::get('/get-data', [FaqC::class, 'getData']);
-      Route::post('/store-ajax', [FaqC::class, 'storeAjax']);
+      Route::post('/store', [FaqC::class, 'store']);
       Route::get('/update/{id}', [FaqC::class, 'index']);
       Route::post('/update/{id}', [FaqC::class, 'update']);
       Route::get('/delete/{id}', [FaqC::class, 'delete']);

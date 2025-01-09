@@ -90,125 +90,6 @@
     </div>
   </div>
   <script>
-    $.ajaxSetup({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-    });
-
-    $(document).ready(function() {
-      $(document).on('click', '.pagination a', function(event) {
-        event.preventDefault();
-        var page = $(this).attr('href').split('page=')[1];
-        getData(page);
-      });
-
-      $('#dataForm').on('submit', function(event) {
-        event.preventDefault();
-        $(".errSpan").text('');
-        $.ajax({
-          url: "{{ aurl($page_route . '/store-ajax/') }}",
-          method: "POST",
-          data: new FormData(this),
-          contentType: false,
-          cache: false,
-          processData: false,
-          success: function(data) {
-            //alert(data);
-            if ($.isEmptyObject(data.error)) {
-              //alert(data.success);
-              if (data.hasOwnProperty('success')) {
-                var h = 'Success';
-                var msg = data.success;
-                var type = 'success';
-                getData();
-                $('#dataForm')[0].reset();
-                CKEDITOR.instances.answer.setData('');
-              }
-            } else {
-              //alert(data.error);
-              printErrorMsg(data.error);
-              var h = 'Failed';
-              var msg = 'Some error occured';
-              var type = 'danger';
-            }
-            showToastr(h, msg, type);
-          }
-        })
-      });
-
-
-    });
-
-    function printErrorMsg(msg) {
-      $.each(msg, function(key, value) {
-        $("#" + key + "-err").text(value);
-      });
-    }
-
-    getData();
-
-    function getData(page) {
-      if (page) {
-        page = page;
-      } else {
-        var page = '{{ $page_no }}';
-      }
-      return new Promise(function(resolve, reject) {
-        //$("#migrateBtn").text('Migrating...');
-        setTimeout(() => {
-          $.ajax({
-            url: "{{ aurl($page_route . '/get-data') }}",
-            method: "GET",
-            data: {
-              page: page,
-            },
-            success: function(data) {
-              $("#trdata").html(data);
-            }
-          });
-        });
-      });
-    }
-
-    function changeStatus(id) {
-      //alert(id);
-      var tbl = 'careers';
-      $.ajax({
-        url: "{{ url('common/change-status') }}",
-        method: "GET",
-        data: {
-          id: id,
-          tbl: tbl
-        },
-        success: function(data) {
-          getData();
-        }
-      });
-    }
-
-    function DeleteAjax(id) {
-      //alert(id);
-      var cd = confirm("Are you sure ?");
-      if (cd == true) {
-        $.ajax({
-          url: "{{ url('admin/' . $page_route . '/delete') }}" + "/" + id,
-          success: function(data) {
-            if (data == '1') {
-              getData();
-              var h = 'Success';
-              var msg = 'Record deleted successfully';
-              var type = 'success';
-              //$('#row' + id).remove();
-              $('#toastMsg').text(msg);
-              $('#liveToast').show();
-              showToastr(h, msg, type);
-            }
-          }
-        });
-      }
-    }
-
     $(function() {
       var $answer = CKEDITOR.replace('answer');
 
@@ -216,5 +97,10 @@
         $answer.updateElement();
       });
     });
+
+    function setEditorBlank() {
+      CKEDITOR.instances.answer.setData('');
+    }
   </script>
+  @include('admin.js.common-ajax-page')
 @endsection

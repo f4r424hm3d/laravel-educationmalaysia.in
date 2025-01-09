@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Faq;
 use App\Models\FaqCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Validator;
 
 class FaqC extends Controller
@@ -50,49 +51,25 @@ class FaqC extends Controller
     <thead>
       <tr>
         <th>Sr. No.</th>
-        <th>Name</th>
+        <th>Category</th>
+        <th>Question</th>
+        <th>Answer</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>';
     if ($rows->count() > 0) {
       foreach ($rows as $row) {
+        $url = url("admin/" . $this->page_route . "/update/" . $row->id);
         $output .= '<tr id="row' . $row->id . '">
       <td>' . $i . '</td>
       <td>' . $row->category->category_name . '</td>
       <td>' . $row->question . '</td>
-      <td>
-        <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light"
-          data-bs-toggle="modal" data-bs-target="#SeoModalScrollable' . $row->id . '">View</button>
-        <div class="modal fade" id="SeoModalScrollable' . $row->id . '" tabindex="-1" role="dialog"
-          aria-labelledby="SeoModalScrollableTitle' . $row->id . '" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="SeoModalScrollableTitle' . $row->id . '">Answer</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                  aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                ' . $row->answer . '
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </td>
-      <td>
-        <a href="javascript:void()" onclick="DeleteAjax(' . $row->id . ')"
-          class="waves-effect waves-light btn btn-xs btn-outline btn-danger">
-          <i class="fa fa-trash" aria-hidden="true"></i>
-        </a>
-        <a href="' . url("admin/" . $this->page_route . "/update/" . $row->id) . '"
-                      class="waves-effect waves-light btn btn-xs btn-outline btn-info">
-                      <i class="fa fa-edit" aria-hidden="true"></i>
-                    </a>
-      </td>
+      <td>' . Blade::render('<x-content-view-modal :row="$row" field="answer" title="Answer" />', ['row' => $row]) . '</td>
+      <td>';
+        $output .= Blade::render('<x-delete-button :id="$id" />', ['id' => $row->id]);
+        $output .= Blade::render('<x-edit-button :url="$url" />', ['url' => $url]);
+        $output .= '</td>
     </tr>';
         $i++;
       }
@@ -103,7 +80,7 @@ class FaqC extends Controller
     $output .= '<div>' . $rows->links('pagination::bootstrap-5') . '</div>';
     return $output;
   }
-  public function storeAjax(Request $request)
+  public function store(Request $request)
   {
     $validator = Validator::make($request->all(), [
       'category_id' => 'required',
@@ -128,10 +105,12 @@ class FaqC extends Controller
   {
     if ($id) {
       $row = Faq::findOrFail($id);
-      //   if ($row->photo_path != null) {
-      //     unlink($row->photo_path);
-      //   }
-      echo $result = $row->delete();
+      $result = $row->delete();
+      if ($result) {
+        return response()->json(['success' => true]);
+      } else {
+        return response()->json(['success' => false]);
+      }
     }
   }
   public function update($id, Request $request)

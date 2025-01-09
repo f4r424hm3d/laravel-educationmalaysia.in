@@ -299,17 +299,7 @@
                   </div>
                 </div>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
 
-                  <span data-key="t-extra-pages">Career</span>
-                  <div class="arrow-down"></div>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="topnav-more">
-                  <a href="{{ aurl('career') }}" class="dropdown-item">Job Vacancy</a>
-                  <a href="{{ aurl('job-application') }}" class="dropdown-item">Job Application</a>
-                </div>
-              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
 
@@ -337,10 +327,6 @@
                       role="button">
                       <span data-key="t-authentication">Exams</span>
                     </a>
-                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('job-pages') }}"
-                      id="topnav-auth" role="button">
-                      <span data-key="t-authentication">Job Pages</span>
-                    </a>
                     <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('users') }}" id="topnav-auth"
                       role="button">
                       <span data-key="t-authentication">Authors</span>
@@ -348,10 +334,6 @@
                     <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('employees') }}"
                       id="topnav-auth" role="button">
                       <span data-key="t-authentication">Employees</span>
-                    </a>
-                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('employee-statuses') }}"
-                      id="topnav-auth" role="button">
-                      <span data-key="t-authentication">Employees Status</span>
                     </a>
                     <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('testimonials') }}"
                       id="topnav-auth" role="button">
@@ -361,7 +343,6 @@
                       id="topnav-auth" role="button">
                       <span data-key="t-authentication">Upload Files</span>
                     </a>
-
                   </div>
                 </div>
               </li>
