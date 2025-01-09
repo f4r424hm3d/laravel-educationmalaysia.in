@@ -45,6 +45,10 @@ class UniversityProgram extends Model
   {
     return $this->hasMany(StudentApplication::class, 'prog_id', 'id');
   }
+  public function contents()
+  {
+    return $this->hasMany(UniversityProgramContent::class, 'c_id', 'id');
+  }
 
   public function scopeWebsite($query)
   {

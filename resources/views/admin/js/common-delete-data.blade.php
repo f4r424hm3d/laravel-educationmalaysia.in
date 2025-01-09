@@ -16,7 +16,7 @@
           success: function(data) {
             if (data.success == true) {
               getData();
-              Swal.fire('Deleted!', 'Your record has been deleted.', 'success');
+              Swal.fire('Deleted!','Your record has been deleted.','success');
             }
           }
         });

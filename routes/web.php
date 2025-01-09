@@ -50,6 +50,7 @@ use App\Http\Controllers\admin\UniversityGalleryC;
 use App\Http\Controllers\admin\UniversityOtherContentC;
 use App\Http\Controllers\admin\UniversityOverviewC;
 use App\Http\Controllers\admin\UniversityProgramC;
+use App\Http\Controllers\admin\UniversityProgramContentC;
 use App\Http\Controllers\admin\UniversityReviewC;
 use App\Http\Controllers\admin\UniversityScholarshipC;
 use App\Http\Controllers\admin\UniversityScholarshipContentC;
@@ -330,6 +331,14 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
       Route::post('/{university_id}/import', [UniversityProgramC::class, 'import']);
       Route::post('/{university_id}/bulk-update-import', [UniversityProgramC::class, 'bulkUpdateImport']);
       Route::get('/{university_id}/export', [UniversityProgramC::class, 'export']);
+    });
+    Route::prefix('/university-program-contents')->group(function () {
+      Route::get('/get-data', [UniversityProgramContentC::class, 'getData']);
+      Route::get('/delete/{id}', [UniversityProgramContentC::class, 'delete']);
+      Route::post('/store', [UniversityProgramContentC::class, 'store']);
+      Route::get('/{c_id}/', [UniversityProgramContentC::class, 'index']);
+      Route::get('{c_id}/update/{id}', [UniversityProgramContentC::class, 'index']);
+      Route::post('{c_id}/update/{id}', [UniversityProgramContentC::class, 'update']);
     });
     Route::prefix('/university-gallery')->group(function () {
       Route::get('/{university_id}', [UniversityGalleryC::class, 'index']);
