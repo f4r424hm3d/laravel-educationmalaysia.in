@@ -13,15 +13,14 @@
   <!-- Content -->
   <section class="bg-light pt-4 pb-4">
     <div class="container">
-
       <div class="row">
         <div class="col-lg-12 col-md-12">
-          <div class="rating-overview mt-0 mb-0 row align-items-center justify-content-center">
-
-            <div class="col-lg-2 col-md-2 col-12">
+          <div class="rating-overvie">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-12">
               <div class="rating-overview-box w-100 mr-0">
-                <span class="rating-overview-box-total">{{ $avrgRating }}/5</span>
-                <span class="rating-overview-box-percent">Based on {{ $total }} Review</span>
+                <h2 class="text-center revewiws"> Rating and Reviews</h2>
+                <div class="d-flex align-items-center ratingss ">
                 <div class="star-rating" data-rating="5">
                   <i class="ti-star"></i>
                   <i class="ti-star"></i>
@@ -29,15 +28,24 @@
                   <i class="ti-star"></i>
                   <i class="ti-star"></i>
                 </div>
+                <div class="ratingreview" >
+                <span class="rating-overview-box-total">{{ $avrgRating }} out of 5</span>
+                <span class="rating-overview-box-percent">Based on {{ $total }} Review</span>
+                </div>
+                </div>
+                
+                
               </div>
             </div>
 
-            <div class="col-lg-2 col-md-2 col-12">
-              <span class="rating-overview-box-percent text-center">
+            <div class="col-lg-12 col-md-12 col-12">
+              <span class="rating-overview-box-percent text-center mt-3">
                 <strong>100% Reviewer</strong><br>Recommends this college
               </span>
             </div>
 
+</div>
+           
           </div>
         </div>
       </div>

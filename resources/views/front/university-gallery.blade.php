@@ -44,7 +44,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-8">
           <div class="card">
-            <div class="card-body pl-4 pr-4 pb-0">
+            <div class="card-body p-4">
               <div class="row">
 
                 @foreach ($university->photos as $row)

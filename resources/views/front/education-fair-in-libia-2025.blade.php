@@ -7,30 +7,29 @@
   <section class="banner-section">
     <div class="container">
       <div class="row">
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             @php
               $i = 1;
             @endphp
             @foreach ($pageDetail->banners as $row)
               <div class="carousel-item {{ $i == '1' ? 'active' : '' }}">
-                <img src="{{ asset($row->file_path) }}" class="img-fluid" alt="{{ $row->alt_text }}">
+                <img class="d-block w-100" src="{{ asset($row->file_path) }}" alt="{{ $row->alt_text }}">
               </div>
               @php
                 $i++;
               @endphp
             @endforeach;
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev">
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="next">
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
       </div>
     </div>
@@ -75,19 +74,19 @@
   <section class="registrationss">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-6">
-          <h2 class="fairs">
-            International Education Fair
+        <div class="col-lg-9 mx-auto">
 
-          </h2>
-          <p class="all-fair">{{ $pageDetail->date_and_address }}</p>
+          <div class="fair-details">
+            <h2 class="fairs">
+              <span class="internationl-fa">International</span> <br> Education Fair <br>
+              <span class="year-fair">2025</span>
 
-          <a href="#register" class="new-registor">Register now to get your free invitation!</a>
+            </h2>
+            <p class="all-fair">{{ $pageDetail->date_and_address }}</p>
 
-        </div>
-        <div class="col-lg-6">
-          <img src="{{ asset($pageDetail->date_and_address_image) }}" class="img-fluid"
-            alt="{{ $pageDetail->page_name }}">
+            <a href="#register" class="new-registor">Register Now</a>
+          </div>
+
         </div>
       </div>
     </div>
@@ -97,231 +96,234 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6">
-          <div class="abroad-imags">
-            <img src="{{ url('/') }}/assets/web/images/studies.jpg" class="studysimage" alt="">
+          <div class="abroad-students">
+            <h2>Want to <br> study abroad?</h2>
+            <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia doloribus pariatur autem
+              officiis, veritatis vero consequatur natus sapiente voluptates, distinctio magni quae, hic eum quam
+              obcaecati sunt tempora libero dolorem molestias enim! Mollitia!</p>
+            <ul class="study-abroads">
+
+              <li>No test required</li>
+              <li>New job opportunites</li>
+              <li>100% schollarship available</li>
+
+            </ul>
+
           </div>
         </div>
         <div class="col-lg-6">
-          <div class="abroad-students">
-            <h2>Want to study abroad?</h2>
-            <p class="mb-3">Nam libero tempore, cum soluta nobis est eligendi</p>
-            <p class="mb-3">Nam libero tempore, cum soluta nobis est eligendi</p>
-            <p class="mb-3">Nam libero tempore, cum soluta nobis est eligendi</p>
-            <p class="mb-3">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo
-              minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor
-              repellendus.</p>
+          <div class="abroad-imags">
+            <img src="{{ url('/') }}/assets/images/study-abroad.png" class="studysimage" alt="">
+
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <section class="registrations-fomrs" id="register">
     <div class="container">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
 
-              <div class="all-forms main-modals">
-                <h2 class="new-regist">Register Now</h2>
-                <form class="s12 f" action="{{ route('libia.register') }}" method="post">
-                  @csrf
-                  <input class="mt-0" type="hidden" name="source" value="Education Malaysia - Libia Landing Page">
-                  <input class="mt-0" type="hidden" name="source_path" value="{{ url()->current() }}">
-                  <input class="mt-0" type="hidden" name="return_path" value="{{ url()->current() }}">
+          <div class="all-forms main-modals">
+            <h2 class="new-regist">Register Now</h2>
+            <form class="s12 f" action="{{ route('libia.register') }}" method="post">
+              @csrf
+              <input class="mt-0" type="hidden" name="source" value="Education Malaysia - Libia Landing Page">
+              <input class="mt-0" type="hidden" name="source_path" value="{{ url()->current() }}">
+              <input class="mt-0" type="hidden" name="return_path" value="{{ url()->current() }}">
 
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <input name="name" class="form-control" type="text" placeholder="Enter Full Name"
-                          pattern="[a-zA-Z'-'\s]*" value="{{ old('name', '') }}" required>
-                        @error('name')
-                          <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                      </div>
-                    </div>
-
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <input name="email" class="form-control" type="email" placeholder="Enter Email Address"
-                          value="{{ old('email', '') }}" required>
-                        @error('email')
-                          <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                      </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-12">
-                      <div class="form-group">
-                        <select name="c_code" id="countryCode" class="form-control" required>
-                          <option value="">Country Code</option>
-                          @foreach ($phonecodes as $row)
-                            <option value="{{ $row->phonecode }}"
-                              {{ $row->iso == $curCountry || old('c_code') == $row->phonecode ? 'selected' : '' }}>
-                              +{{ $row->phonecode }}
-                            </option>
-                          @endforeach
-                        </select>
-                        @error('c_code')
-                          <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                      </div>
-                    </div>
-
-                    <div class="col-lg-8 col-md-8 col-sm-12">
-                      <div class="form-group">
-                        <input name="mobile" class="form-control mt-0" required type="text" pattern="[0-9]+"
-                          placeholder="Phone number" value="{{ old('mobile', '') }}">
-                        @error('mobile')
-                          <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                      </div>
-                    </div>
-
-                    <div class="col-lg-12 col-md-6 col-sm-12">
-                      <div class="form-group">
-                        <select name="highest_qualification" class="form-control" required>
-                          <option value="">Select Highest Qualification</option>
-                          @foreach ($levels as $row)
-                            <option value="{{ $row->level }}"
-                              {{ old('highest_qualification') == $row->level ? 'selected' : '' }}>
-                              {{ $row->level }}
-                            </option>
-                          @endforeach
-                        </select>
-                        @error('highest_qualification')
-                          <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                      </div>
-                    </div>
-
-                    <div class="col-lg-12 col-md-6 col-sm-12">
-                      <div class="form-group">
-                        <select name="nationality" class="form-control" required>
-                          <option value="">Select Nationality</option>
-                          <option value="Libian" {{ old('nationality') == 'Libian' ? 'selected' : '' }}>Libian</option>
-                          <option value="Non-Libian" {{ old('nationality') == 'Non-Libian' ? 'selected' : '' }}>
-                            Non-Libian</option>
-                        </select>
-                        @error('nationality')
-                          <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                      </div>
-                    </div>
-
-                    <div class="col-lg-12 col-md-6 col-sm-12">
-                      <div class="form-group">
-                        <select name="university" class="form-control" id="ef_university" required>
-                          <option value="">Select Interested University</option>
-                          @foreach ($pageDetail->universities as $row)
-                            <option value="{{ $row->university_id }}"
-                              {{ old('university') == $row->university_id ? 'selected' : '' }}>
-                              {{ $row->university->name }}
-                            </option>
-                          @endforeach
-                        </select>
-                        @error('university')
-                          <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                      </div>
-                    </div>
-
-                    <div class="col-lg-12 col-md-6 col-sm-12">
-                      <div class="form-group">
-                        <select name="program" class="form-control" id="ef_program">
-                          <option value="">Select Interested Program (Optional)</option>
-                          @if ($programs != null)
-                            @foreach ($programs as $row)
-                              <option value="{{ $row->course_name }}"
-                                {{ old('program') == $row->course_name ? 'selected' : '' }}>
-                                {{ $row->course_name }}
-                              </option>
-                            @endforeach
-                          @endif
-                        </select>
-                        @error('program')
-                          <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                      </div>
-                    </div>
-
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                      <div class="form-group">
-                        <div class="input-group">
-                          <div class="input-icon">
-                            <span id="password_icon_show" class="ti-eye" onclick="showPassword('password')"></span>
-                            <span id="password_icon_hide" class="ti-eye hide-this"
-                              onclick="hidePassword('password')"></span>
-                          </div>
-                          <input name="password" id="password" type="password" class="form-control bg-white b-0 b-l"
-                            placeholder="Password">
-                        </div>
-                        <span class="text-danger">
-                          @error('password')
-                            {{ $message }}
-                          @enderror
-                        </span>
-                      </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                      <div class="form-group">
-                        <div class="input-group">
-                          <div class="input-icon">
-                            <span id="confirm_password_icon_show" class="ti-eye"
-                              onclick="showPassword('confirm_password')"></span>
-                            <span id="confirm_password_icon_hide" class="ti-eye hide-this"
-                              onclick="hidePassword('confirm_password')"></span>
-                          </div>
-                          <input name="confirm_password" id="confirm_password" type="password"
-                            class="form-control bg-white b-0 b-l" placeholder="Confirm Password">
-                        </div>
-                        <span class="text-danger">
-                          @error('confirm_password')
-                            {{ $message }}
-                          @enderror
-                        </span>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-4 col-sm-12">
-                      <div class="form-group">
-                        <input type="text" placeholder="Captcha: {{ $captcha['text'] }} =" class="form-control"
-                          value="Captcha: {{ $captcha['text'] }} =" disabled readonly>
-                      </div>
-                    </div>
-                    <div class="col-lg-6 col-md-8 col-sm-12">
-                      <div class="form-group">
-                        <input type="text" id="captcha" placeholder="Enter the Captcha Value"
-                          class="form-control" name="captcha_answer" required>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                      <p>
-                        <label for="test5">By clicking on register I agree to the
-                          <a href="{{ url('terms-and-conditions') }}" target="_blank">terms & conditions</a>
-                        </label>
-                      </p>
-                    </div>
-
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                      <div class="input-field s4 d-flex justify-content-center align-items-center">
-                        <button type="submit" class="blue-register mar5 w-50">Register</button>
-                      </div>
-                    </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <input name="name" class="form-control" type="text" placeholder="Enter Full Name"
+                      pattern="[a-zA-Z'-'\s]*" value="{{ old('name', '') }}" required>
+                    @error('name')
+                      <span class="text-danger">{{ $message }}</span>
+                    @enderror
                   </div>
-                </form>
+                </div>
 
-              </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <input name="email" class="form-control" type="email" placeholder="Enter Email Address"
+                      value="{{ old('email', '') }}" required>
+                    @error('email')
+                      <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                  </div>
+                </div>
 
-            </div>
-            <div class="col-md-6">
-              <div class="p-5">
-                <img src="{{ url('/') }}/assets/web/images/registrations.png" alt="" class="img-fluid">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                  <div class="form-group">
+                    <select name="c_code" id="countryCode" class="form-control" required>
+                      <option value="">Country Code</option>
+                      @foreach ($phonecodes as $row)
+                        <option value="{{ $row->phonecode }}"
+                          {{ $row->iso == $curCountry || old('c_code') == $row->phonecode ? 'selected' : '' }}>
+                          +{{ $row->phonecode }}
+                        </option>
+                      @endforeach
+                    </select>
+                    @error('c_code')
+                      <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                  </div>
+                </div>
+
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                  <div class="form-group">
+                    <input name="mobile" class="form-control mt-0" required type="text" pattern="[0-9]+"
+                      placeholder="Phone number" value="{{ old('mobile', '') }}">
+                    @error('mobile')
+                      <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                  </div>
+                </div>
+
+                <div class="col-lg-12 col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <select name="highest_qualification" class="form-control" required>
+                      <option value="">Select Highest Qualification</option>
+                      @foreach ($levels as $row)
+                        <option value="{{ $row->level }}"
+                          {{ old('highest_qualification') == $row->level ? 'selected' : '' }}>
+                          {{ $row->level }}
+                        </option>
+                      @endforeach
+                    </select>
+                    @error('highest_qualification')
+                      <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                  </div>
+                </div>
+
+                <div class="col-lg-12 col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <select name="nationality" class="form-control" required>
+                      <option value="">Select Nationality</option>
+                      <option value="Libian" {{ old('nationality') == 'Libian' ? 'selected' : '' }}>Libian</option>
+                      <option value="Non-Libian" {{ old('nationality') == 'Non-Libian' ? 'selected' : '' }}>
+                        Non-Libian</option>
+                    </select>
+                    @error('nationality')
+                      <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                  </div>
+                </div>
+
+                <div class="col-lg-12 col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <select name="university" class="form-control" id="ef_university" required>
+                      <option value="">Select Interested University</option>
+                      @foreach ($pageDetail->universities as $row)
+                        <option value="{{ $row->university_id }}"
+                          {{ old('university') == $row->university_id ? 'selected' : '' }}>
+                          {{ $row->university->name }}
+                        </option>
+                      @endforeach
+                    </select>
+                    @error('university')
+                      <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                  </div>
+                </div>
+
+                <div class="col-lg-12 col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <select name="program" class="form-control" id="ef_program">
+                      <option value="">Select Interested Program (Optional)</option>
+                      @if ($programs != null)
+                        @foreach ($programs as $row)
+                          <option value="{{ $row->course_name }}"
+                            {{ old('program') == $row->course_name ? 'selected' : '' }}>
+                            {{ $row->course_name }}
+                          </option>
+                        @endforeach
+                      @endif
+                    </select>
+                    @error('program')
+                      <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                  </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="form-group">
+                    <div class="input-group pdborder">
+                      <div class="input-icon ">
+                        <span id="password_icon_show" class="ti-eye" onclick="showPassword('password')"></span>
+                        <span id="password_icon_hide" class="ti-eye hide-this"
+                          onclick="hidePassword('password')"></span>
+                      </div>
+                      <input name="password" id="password" type="password" class="form-control "
+                        placeholder="Password">
+                    </div>
+                    <span class="text-danger">
+                      @error('password')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="form-group pdborder">
+                    <div class="input-group">
+                      <div class="input-icon">
+                        <span id="confirm_password_icon_show" class="ti-eye"
+                          onclick="showPassword('confirm_password')"></span>
+                        <span id="confirm_password_icon_hide" class="ti-eye hide-this"
+                          onclick="hidePassword('confirm_password')"></span>
+                      </div>
+                      <input name="confirm_password" id="confirm_password" type="password" class="form-control"
+                        placeholder="Confirm Password">
+                    </div>
+                    <span class="text-danger">
+                      @error('confirm_password')
+                        {{ $message }}
+                      @enderror
+                    </span>
+                  </div>
+                </div>
+
+                <div class="col-lg-6 col-md-4 col-sm-12">
+                  <div class="form-group">
+                    <input type="text" placeholder="Captcha: {{ $captcha['text'] }} =" class="form-control"
+                      value="Captcha: {{ $captcha['text'] }} =" disabled readonly>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                  <div class="form-group">
+                    <input type="text" id="captcha" placeholder="Enter the Captcha Value" class="form-control"
+                      name="captcha_answer" required>
+                  </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <!-- <p>
+                                                          <label for="test5">By clicking on register I agree to the
+                                                            <a href="{{ url('terms-and-conditions') }}" target="_blank">terms & conditions</a>
+                                                          </label>
+                                                        </p> -->
+                  <div class="form-check checkbx-white pl-4">
+                    <input type="checkbox" class="form-check-input" id="test5">
+                    <label class="form-check-label px-0 " for="test5">By clicking on register I agree to the
+                      <a href="{{ url('terms-and-conditions') }}" target="_blank">terms & conditions</a></label>
+                  </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="input-field s4 d-flex justify-content-center align-items-center">
+                    <button type="submit" class="blue-register mar5 w-50">Register</button>
+                  </div>
+                </div>
               </div>
-            </div>
+            </form>
+
           </div>
+
         </div>
       </div>
     </div>
@@ -334,15 +336,11 @@
           Participates University</h3>
 
         <div class="tab-content" id="one-tabContent">
-          <div class="tab-pane active" id="one" role="tabpanel" aria-labelledby="one-tab">
+          <div class="tab-pane last-div active" id="one" role="tabpanel" aria-labelledby="one-tab">
 
-            <div class="row">
-              <div class="col-12 col-sm-8"></div>
-              <div class="col-12 col-sm-4"></div>
-            </div>
             <div class="flex flex-col divide-y">
               <div
-                class=" px-2 py-3 align-items-center gap-3 my-0 justify-content-between d-flex border-top border-bottom ">
+                class=" px-2 py-2 align-items-center gap-3 my-0 justify-content-between d-flex border-top border-bottom ">
                 <span class="grow"><label>EXHIBITOR</label></span>
                 <div class="d-flex justify-content-between spacebx">
                   <span class="shrink"><label>BOOTH</label></span>
@@ -352,24 +350,24 @@
                 </div>
               </div>
             </div>
-            <?php foreach ($pageDetail->universities as $row): ?>
-            <div class="px-2 py-3 align-items-center gap-3 my-0 justify-content-between d-flex border-top border-bottom">
-              <div class="grow">
-                <a href="<?php echo url('university/' . $row->university_slug); ?>" target="_blank">
-                  <span class=""><?php echo $row->university->name; ?></span>
-                </a>
-              </div>
-              <div class="d-flex justify-content-between spacebx">
-                <div class="numbers">
-                  1.
+            <@foreach ($pageDetail->universities as $row)
+              <div
+                class="px-2 py-2 align-items-center gap-3 my-0 justify-content-between d-flex border-top border-bottom">
+                <div class="grow">
+                  <a href="{{ url('university/' . $row->university_slug) }}" target="_blank">
+                    <span class="">{{ $row->university->name }}</span>
+                  </a>
                 </div>
-                <div class="shrink">
-                  <button class="all-apply" data-id="<?php echo $row->university_id; ?>">Apply Now</button>
+                <div class="d-flex justify-content-between spacebx">
+                  <div class="numbers">
+                    {{ $row->booth_no }}
+                  </div>
+                  <div class="shrink">
+                    <button class="all-apply" data-id="{{ $row->university_id }}">Apply Now</button>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <?php endforeach; ?>
+              @endforeach
 
           </div>
         </div>
@@ -507,8 +505,7 @@
         <div class="col-md-12">
           <div class="minsiter">
 
-            <h2 class="titles-malaysia">The Ministry of Education (MOE)
-              Malaysia</h2>
+            <h2 class="titles-malaysia">Over a steamed Partner or sponser </h2>
 
             <div class="allsponser">
               <div class="slider">
@@ -585,31 +582,39 @@
   </section>
 
   <section class="faq-sections">
-    <div class="faq"></div>
     <div class=" faq-details">
       Frequently Ask Question
     </div>
     <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="accordion mainacc" id="accordionExample">
-            @foreach ($pageDetail->faqs as $row)
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne{{ $row->id }}">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapse{{ $row->id }}" aria-expanded="false"
-                    aria-controls="collapse{{ $row->id }}">
-                    {{ $row->question }}
-                  </button>
-                </h2>
-                <div id="collapse{{ $row->id }}" class="accordion-collapse collapse"
-                  aria-labelledby="headingOne{{ $row->id }}" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    {{ $row->answer }}
+      <div class="row align-items-center">
+        <div class="col-md-6">
+
+          <div id="accordion" class="mainacc">
+            <div class="card">
+              @foreach ($pageDetail->faqs as $row)
+                <div class="card-header" id="heading{{ $row->id }}">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ $row->id }}"
+                      aria-expanded="true" aria-controls="collapse{{ $row->id }}">
+                      {{ $row->question }}
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse{{ $row->id }}" class="collapse show"
+                  aria-labelledby="heading{{ $row->id }}" data-parent="#accordion">
+                  <div class="card-body">
+                    {!! $row->answer !!}
                   </div>
                 </div>
-              </div>
-            @endforeach
+              @endforeach
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col-md-6">
+          <div class="imgfaq">
+            <img src="{{ url('/') }}/assets/web/images/faq.png" class="img-fluid" alt="">
 
           </div>
         </div>
