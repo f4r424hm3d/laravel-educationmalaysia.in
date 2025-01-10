@@ -41,17 +41,18 @@
               <div class="education_block_thumb n-shadow fix-sizes">
                 <img data-src="{{ asset($row->thumbnail_path) }}" class="fix-sizes" alt="{{ $row->title }}">
                 <div class="ul-offers">
-                <div class=" live-offer">{{ $row->active_status }}</div>
-                <div class=" live-exculsive">{{ $row->type }}</div>
+                  <div class=" live-offer">{{ $row->active_status }}</div>
+                  <div class=" live-exculsive">{{ $row->type }}</div>
                 </div>
-                
+
               </div>
               <div class="education_block_body title-size">
                 <h4 class="bl-title card-title">{{ $row->title }}</h4>
               </div>
               <div class="education_block_footer align-items-center p">
                 @if ($row->page_type == 'landing_page')
-                  <a href="{{ $row->landing_page_link }}" class="btn-regi">Explore More</a>
+                  {{-- <a href="{{ $row->landing_page_link }}" class="btn-regi">Explore More</a> --}}
+                  <a href="{{ url('scholarship/' . $row->landing_page_link) }}" class="btn-regi">Explore More</a>
                 @else
                   <a href="{{ url('scholarship/' . $row->slug) }}" class="btn-regi">Explore More</a>
                 @endif

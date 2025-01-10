@@ -18,7 +18,6 @@ class OfferLandingPageFc extends Controller
   }
   public function PageDetail($slug, Request $request)
   {
-    $uri = $request->segment(1);
     $countries = Country::orderBy('name', 'ASC')->get();
     $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
 

@@ -39,7 +39,7 @@ use App\Http\Controllers\admin\JobPageTabC;
 use App\Http\Controllers\admin\JobPageTabContentC;
 use App\Http\Controllers\admin\LevelC;
 use App\Http\Controllers\admin\ProgramC;
-use App\Http\Controllers\admin\SeoC;
+use App\Http\Controllers\admin\StaticPageSeoC;
 use App\Http\Controllers\admin\ServiceC;
 use App\Http\Controllers\admin\ServiceContentC;
 use App\Http\Controllers\admin\StudentC;
@@ -496,12 +496,12 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
       Route::post('/update/{id}', [EmployeeStatusC::class, 'update']);
     });
 
-    Route::prefix('/seos')->group(function () {
-      Route::get('/', [SeoC::class, 'index']);
-      Route::post('/store/', [SeoC::class, 'store']);
-      Route::get('/delete/{id}/', [SeoC::class, 'delete']);
-      Route::get('/update/{id}/', [SeoC::class, 'index']);
-      Route::post('/update/{id}/', [SeoC::class, 'update']);
+    Route::prefix('/static-page-seos')->group(function () {
+      Route::get('/', [StaticPageSeoC::class, 'index']);
+      Route::post('/store/', [StaticPageSeoC::class, 'store']);
+      Route::get('/delete/{id}/', [StaticPageSeoC::class, 'delete']);
+      Route::get('/update/{id}/', [StaticPageSeoC::class, 'index']);
+      Route::post('/update/{id}/', [StaticPageSeoC::class, 'update']);
     });
     Route::prefix('/dynamic-page-seos')->group(function () {
       Route::get('/', [DynamicPageSeoC::class, 'index']);
@@ -712,7 +712,10 @@ Route::get('get-info/{category_slug}', [BlogFc::class, 'blogByCategory'])->name(
 Route::get('get-info/{category_slug}/{slug}', [BlogFc::class, 'detail'])->name('blog.detail');
 
 
-Route::get('/education-fair-in-libya-2025', [LibiaLandingPageFc::class, 'index'])->name('libia.page');
+Route::get('scholarship/education-fair-in-libya-2025', [LibiaLandingPageFc::class, 'index'])->name('libia.page');
+Route::get('scholarship/education-fair-in-libya-2025/courses', [LibiaLandingPageFc::class, 'courses'])->name('libia.courses');
+Route::get('scholarship/education-fair-in-libya-2025/institutions', [LibiaLandingPageFc::class, 'institutions'])->name('libia.institutions');
+
 Route::post('/libia/register', [LibiaLandingPageFc::class, 'register'])->name('libia.register');
 Route::post('/libia/fetch-program', [LibiaLandingPageFc::class, 'getProgramsByUniversity'])->name('libia.fetch.program');
 

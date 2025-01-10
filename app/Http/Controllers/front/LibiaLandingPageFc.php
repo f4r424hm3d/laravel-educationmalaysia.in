@@ -19,7 +19,7 @@ class LibiaLandingPageFc extends Controller
 {
   public function index(Request $request)
   {
-    $page_slug = $request->segment(1);
+    $page_slug = $request->segment(2);
     $captcha = generateMathQuestion();
     session(['captcha_answer' => $captcha['answer']]);
 
@@ -35,17 +35,18 @@ class LibiaLandingPageFc extends Controller
       $programs = null;
     }
 
-    // Get user IP
-    //$userIP = $request->ip();
-
-    // Get country details using ipinfo.io
-    // $response = file_get_contents("http://ipinfo.io/{$userIP}/json");
-    // $details = json_decode($response, true);
-    //$curCountry = $details['country'] ?? 'Unknown';
     $curCountry = '';
 
     $data = compact('captcha', 'pageDetail', 'countries', 'phonecodes', 'levels', 'programs', 'curCountry');
     return view('front.education-fair-in-libia-2025')->with($data);
+  }
+  public function courses(Request $request)
+  {
+    return view('front.libya-courses');
+  }
+  public function institutions(Request $request)
+  {
+    return view('front.libya-institutions');
   }
   public function getProgramsByUniversity(Request $request)
   {
