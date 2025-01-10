@@ -157,7 +157,6 @@
             <ul class="navbar-nav">
               <li class="nav-item dropdown hide-this">
                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
-
                   <span data-key="t-extra-pages">
                     Students
                   </span>
@@ -178,7 +177,6 @@
               </li>
               <li class="nav-item dropdown hide-this">
                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
-
                   <span data-key="t-extra-pages">Destinations</span>
                   <div class="arrow-down"></div>
                 </a>
@@ -278,7 +276,6 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
-
                   <span data-key="t-extra-pages">SEOS</span>
                   <div class="arrow-down"></div>
                 </a>
@@ -299,10 +296,8 @@
                   </div>
                 </div>
               </li>
-
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
-
                   <span data-key="t-extra-pages">Faqs</span>
                   <div class="arrow-down"></div>
                 </a>
@@ -312,8 +307,14 @@
                 </div>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
+                <a class="nav-link dropdown-toggle arrow-none" href="{{ aurl('landing-pages') }}"
+                  id="topnav-dashboard" role="button" title="Dashboard">
+                  Landing Pages
+                </a>
+              </li>
 
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
                   <span data-key="t-extra-pages">More</span>
                   <div class="arrow-down"></div>
                 </a>

@@ -37,6 +37,10 @@ use App\Http\Controllers\admin\JobApplicationC;
 use App\Http\Controllers\admin\JobPageC;
 use App\Http\Controllers\admin\JobPageTabC;
 use App\Http\Controllers\admin\JobPageTabContentC;
+use App\Http\Controllers\admin\LandingPageBannerC;
+use App\Http\Controllers\admin\LandingPageC;
+use App\Http\Controllers\admin\LandingPageFaqC;
+use App\Http\Controllers\admin\LandingPageUniversityC;
 use App\Http\Controllers\admin\LevelC;
 use App\Http\Controllers\admin\ProgramC;
 use App\Http\Controllers\admin\StaticPageSeoC;
@@ -647,6 +651,38 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
       Route::get('/update/{id}', [FaqC::class, 'index']);
       Route::post('/update/{id}', [FaqC::class, 'update']);
       Route::get('/delete/{id}', [FaqC::class, 'delete']);
+    });
+    Route::prefix('/landing-pages')->group(function () {
+      Route::get('', [LandingPageC::class, 'index']);
+      Route::get('get-data', [LandingPageC::class, 'getData']);
+      Route::get('/delete/{id}', [LandingPageC::class, 'delete']);
+      Route::get('/update/{id}', [LandingPageC::class, 'index']);
+      Route::post('/update/{id}', [LandingPageC::class, 'update']);
+      Route::post('/store', [LandingPageC::class, 'store']);
+    });
+    Route::prefix('/landing-page-banners')->group(function () {
+      Route::get('/get-data', [LandingPageBannerC::class, 'getData']);
+      Route::get('/delete/{id}', [LandingPageBannerC::class, 'delete']);
+      Route::post('/store', [LandingPageBannerC::class, 'store']);
+      Route::get('/{landing_page_id}/', [LandingPageBannerC::class, 'index']);
+      Route::get('{landing_page_id}/update/{id}', [LandingPageBannerC::class, 'index']);
+      Route::post('{landing_page_id}/update/{id}', [LandingPageBannerC::class, 'update']);
+    });
+    Route::prefix('/landing-page-faqs')->group(function () {
+      Route::get('/get-data', [LandingPageFaqC::class, 'getData']);
+      Route::get('/delete/{id}', [LandingPageFaqC::class, 'delete']);
+      Route::post('/store', [LandingPageFaqC::class, 'store']);
+      Route::get('/{landing_page_id}/', [LandingPageFaqC::class, 'index']);
+      Route::get('{landing_page_id}/update/{id}', [LandingPageFaqC::class, 'index']);
+      Route::post('{landing_page_id}/update/{id}', [LandingPageFaqC::class, 'update']);
+    });
+    Route::prefix('/landing-page-universities')->group(function () {
+      Route::get('/get-data', [LandingPageUniversityC::class, 'getData']);
+      Route::get('/delete/{id}', [LandingPageUniversityC::class, 'delete']);
+      Route::post('/store', [LandingPageUniversityC::class, 'store']);
+      Route::get('/{landing_page_id}/', [LandingPageUniversityC::class, 'index']);
+      Route::get('{landing_page_id}/update/{id}', [LandingPageUniversityC::class, 'index']);
+      Route::post('{landing_page_id}/update/{id}', [LandingPageUniversityC::class, 'update']);
     });
   });
   Route::prefix('common')->group(function () {
