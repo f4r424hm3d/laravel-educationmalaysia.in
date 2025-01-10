@@ -9,15 +9,12 @@
       <div class="row">
         <div class="col-12">
           <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0 font-size-18">{{ $page_title }} [{{ $university->name }}]</h4>
+            <h4 class="mb-sm-0 font-size-18">{{ $page_title }} [{{ $page->page_name }}]</h4>
 
             <div class="page-title-right">
               <ol class="breadcrumb m-0">
                 <li class="breadcrumb-item"><a href="{{ url('/admin/') }}"><i class="mdi mdi-home-outline"></i></a></li>
-                <li class="breadcrumb-item"><a href="{{ url('/admin/university') }}">Universities</a>
-                </li>
-                <li class="breadcrumb-item"><a
-                    href="{{ url('/admin/university-programs/' . $university->id) }}">Programs</a>
+                <li class="breadcrumb-item"><a href="{{ url('/admin/landing-pages') }}">Pages</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">{{ $page_title }}</li>
               </ol>
@@ -26,7 +23,6 @@
           </div>
         </div>
       </div>
-      @include('admin.university-profile-header')
       <div class="row">
         <div class="col-xl-12">
           <!-- NOTIFICATION FIELD START -->
@@ -50,18 +46,24 @@
               <form id="{{ $ft == 'add' ? 'dataForm' : 'editForm' }}" {{ $ft == 'edit' ? 'action=' . $url : '' }}
                 class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
                 @csrf
-                <input type="hidden" name="u_id" value="{{ $u_id }}">
+                <input type="hidden" name="landing_page_id" value="{{ $landing_page_id }}">
                 <div class="row">
-                  <div class="col-md-3 col-sm-12 mb-3">
-                    <x-input-field type="text" label="Enter Title" name="title" id="title" :ft="$ft"
-                      :sd="$sd">
-                    </x-input-field>
+                  <div class="col-md-10 col-sm-12 mb-3">
+                    @if ($ft == 'edit')
+                      <x-select-field label="Select Universities" name="university_id" id="university_id"
+                        :ft="$ft" :sd="$sd" :list="$universities" savev="id"
+                        showv="name"></x-select-field>
+                    @else
+                      <x-multiple-select-field label="Select Universities" name="university_id" id="university_id"
+                        :ft="$ft" :sd="$sd" :list="$universities" savev="id"
+                        showv="name"></x-multiple-select-field>
+                    @endif
                   </div>
-                  <div class="col-md-12 col-sm-12 mb-3">
-                    <x-textarea-field label="Enter Description" name="description" id="description" :ft="$ft"
-                      :sd="$sd">
-                    </x-textarea-field>
+                  <div class="col-md-2 col-sm-12 mb-3">
+                    <x-input-field type="text" label="Booth No" name="booth_no" id="booth_no" :ft="$ft"
+                      :sd="$sd"></x-input-field>
                   </div>
+
                   <div class="col-md-4 col-sm-12 mb-3">
                     <div class="form-group">
                       @if ($ft == ' add')
@@ -102,7 +104,7 @@
       } else {
         var page = '{{ $page_no }}';
       }
-      var u_id = '{{ $u_id }}';
+      var landing_page_id = '{{ $landing_page_id }}';
       return new Promise(function(resolve, reject) {
         //$("#migrateBtn").text('Migrating...');
         setTimeout(() => {
@@ -111,7 +113,7 @@
             method: "GET",
             data: {
               page: page,
-              u_id: u_id,
+              landing_page_id: landing_page_id,
             },
             success: function(data) {
               $("#trdata").html(data);
@@ -120,13 +122,6 @@
         });
       });
     }
-
-    $(function() {
-      var $description = CKEDITOR.replace('description');
-      $description.on('change', function() {
-        $description.updateElement();
-      });
-    });
   </script>
   @include('admin.js.common-form-submit')
   @include('admin.js.common-delete-data')
