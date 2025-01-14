@@ -43,16 +43,14 @@
           <div class="flex flex-col all-flexx gap-3 items-center text-center h-100">
             <img src="{{ url('/') }}/assets/web/images/png1.png" alt="">
             <h2 class="text-xl font-bold">Courses</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua.</p>
+            <p>Discover a diverse range of programs from undergraduate to postgraduate degrees, explore options in medicine, engineering, business, IT, and more.</p>
           </div>
         </div>
         <div class="col-lg-4 mb-4 ">
           <div class="flex flex-col all-flexx gap-3 h-100 items-center text-center">
             <img src="{{ url('/') }}/assets/web/images/png2.png" alt="">
             <h2 class="text-xl font-bold">Institutions</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua.
+            <p>Connect with globally recognized Malaysian universities and institutions renowned for academic excellence. 
 
             </p>
           </div>
@@ -62,8 +60,7 @@
           <div class="flex flex-col all-flexx gap-3 h-100 items-center text-center">
             <img src="{{ url('/') }}/assets/web/images/png3.png" alt="">
             <h2 class="text-xl font-bold">Scholarships</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua.</p>
+            <p>Exclusive scholarship opportunities for Libyan students sponsored by the Libyan Government.</p>
           </div>
         </div>
 
@@ -71,7 +68,7 @@
     </div>
   </section>
 
-  <section class="registrationss">
+  <!-- <section class="registrationss">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-9 mx-auto">
@@ -90,9 +87,9 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <section class="studaies-abroad">
+  <!-- <section class="studaies-abroad">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6">
@@ -120,12 +117,25 @@
 
       </div>
     </div>
-  </section>
+  </section> -->
 
   <section class="registrations-fomrs" id="register">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+        <div class="fair-details">
+            <h2 class="fairs">
+              <span class="internationl-fa">Education Fair 2025</span>
+
+            </h2>
+            <p class="all-fair">{{ $pageDetail->date_and_address }}</p>
+<div class="imgsfaird">
+<img src="/front/assets/img/fair.png" class="imgsfairs" alt="">
+</div>
+            <!-- <a href="#register" class="new-registor">Register Now</a> -->
+          </div>
+        </div>
+        <div class="col-md-6 ">
 
           <div class="all-forms main-modals">
             <h2 class="new-regist">Register Now</h2>
@@ -329,6 +339,71 @@
     </div>
   </section>
 
+<section class="educationfairs">
+  <div class="container">
+   
+    <h2 class="text-center">Why Join This Education Fair?</h2>
+    <div class="row justify-content-center">
+      <div class=" col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
+        <div class="fariul">
+        <span>1</span>
+        <h2 >Meet Top Universities</h2>
+        <p>Connect with Malaysia’s leading institutions in one place.</p>
+        </div>
+        </div>
+        <div class=" col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
+        <div class="fariul">
+        <span>2</span>
+        <h2  >Exclusive Scholarships</h2>
+        <p>Learn about scholarships for Libyan students.</p>
+        </div>
+        </div>
+        
+        <div class=" col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
+        <div class="fariul">
+        <span>3</span>
+        <h2>Spot Admissions</h2>
+        <p>Apply on the spot for eligible programs.</p>
+        </div>
+        </div>
+        
+        <div class=" col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
+        <div class="fariul">
+        <span>4</span>
+        <h2>Visa & Travel Support</h2>
+        <p>Get step-by-step guidance on studying in Malaysia.</p>
+        </div>
+        </div>
+       
+        <div class=" col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
+        <div class="fariul">
+        <span>5</span>
+        <h2>Work & Internships</h2>
+        <p>Explore part-time work and internship options.</p>
+        </div>
+        </div>
+        
+        <div class=" col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
+        <div class="fariul">
+        <span>6</span>
+        <h2>Work & Internships</h2>
+        <p>Learn about life and student support in Malaysia.</p>
+        </div>
+        </div>
+        
+        <div class=" col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
+        <div class="fariul">
+        <span>7</span>
+        <h2>Save Time and Effort</h2>
+        <p>Access all the information you need about studying in Malaysia.</p>
+        </div>
+        </div>
+        
+     
+    </div>
+  </div>
+</section>
+
   <section class="particaptes-universties">
     <div class="container">
       <div class="particaptes">
@@ -336,7 +411,7 @@
           Participates University</h3>
 
         <div class="tab-content" id="one-tabContent">
-          <div class="tab-pane last-div active" id="one" role="tabpanel" aria-labelledby="one-tab">
+          <div class="tab-pane last-div active mx-2" id="one" role="tabpanel" aria-labelledby="one-tab">
 
             <div class="flex flex-col divide-y">
               <div
@@ -350,7 +425,7 @@
                 </div>
               </div>
             </div>
-            <@foreach ($pageDetail->universities as $row)
+            @foreach ($pageDetail->universities as $row)
               <div
                 class="px-2 py-2 align-items-center gap-3 my-0 justify-content-between d-flex border-top border-bottom">
                 <div class="grow">
@@ -425,7 +500,7 @@
     </h2>
     <div class="container">
       <div class="row">
-        <div class="col-12">
+        <!-- <div class="col-12">
           <div class="position-relative">
             <img src="{{ url('/') }}/assets/web/images/apply.png" class="passings" alt="">
             <div class="divmalaysiass">
@@ -439,7 +514,7 @@
               </p>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="col-12">
 
           <ol class="olrearsarch">
@@ -587,7 +662,7 @@
     </div>
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-md-6">
+        <div class="col-md-12">
 
           <div id="accordion" class="mainacc">
             <div class="card">
@@ -612,12 +687,12 @@
           </div>
 
         </div>
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
           <div class="imgfaq">
             <img src="{{ url('/') }}/assets/web/images/faq.png" class="img-fluid" alt="">
 
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
