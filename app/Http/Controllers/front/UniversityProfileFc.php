@@ -97,7 +97,7 @@ class UniversityProfileFc extends Controller
     session(['captcha_answer' => $captcha['answer']]);
 
     $data = compact('university', 'trendingUniversity', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'schema', 'countries', 'phonecodes', 'captcha', 'levels', 'course_categories');
-    return view('front.university-photos')->with($data);
+    return view('front.university-gallery')->with($data);
   }
   public function videos($university_slug, Request $request)
   {

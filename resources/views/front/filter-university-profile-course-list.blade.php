@@ -1,4 +1,4 @@
-<form class="form-inline addons hide-23 mb-2">
+<form class="form-inline addons hide-23 mb-2 set-onlines">
   <input class="form-control img-fluid" type="search" placeholder="Search Courses" aria-label="Search">
   <button class="btn my-2 my-sm-0" type="submit"><i class="ti-search"></i></button>
 </form>

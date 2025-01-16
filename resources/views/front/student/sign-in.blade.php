@@ -15,13 +15,13 @@
         <div class="row justify-content-center">
           <div class="col-lg-12 col-md-12">
             <div class="row no-gutters position-relative log_rads">
-              <div class="d-none d-lg-block col-lg-6 col-md-5 bg-cover"
+              <!-- <div class="d-none d-lg-block col-lg-6 col-md-5 bg-cover"
                 style="background:#1f2431 url({{ url('/front/') }}/assets/img/log.png)no-repeat;">
                 <div class="lui_9okt6">
                   <div class="_loh_revu97">
                     <div id="reviews-login">
 
-                      <!-- Single Reviews -->
+                    
                       <div class="_loh_r96">
                         <div class="_bloi_quote"><i class="fa fa-quote-left"></i></div>
                         <div class="_loh_r92">
@@ -37,7 +37,6 @@
                         </div>
                       </div>
 
-                      <!-- Single Reviews -->
                       <div class="_loh_r96">
                         <div class="_bloi_quote"><i class="fa fa-quote-left"></i></div>
                         <div class="_loh_r92">
@@ -56,6 +55,9 @@
                     </div>
                   </div>
                 </div>
+              </div> -->
+              <div class="d-none d-lg-block col-lg-6 col-md-5">
+                <img src="/assets/images/signIn.jpg" class="singin" alt="">
               </div>
 
               <div class="col-lg-6 col-md-12 ">

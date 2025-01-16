@@ -11,13 +11,12 @@
         <div class="col-lg-12 col-md-12">
 
           <div class="row no-gutters position-relative log_rads">
-            <div class="d-none d-md-block col-lg-6 col-md-5 bg-cover"
+            <!-- <div class="d-none d-md-block col-lg-6 col-md-5 bg-cover"
               style="background:#1f2431 url({{ url('/front/') }}/assets/img/log.png)no-repeat;">
               <div class="lui_9okt6">
                 <div class="_loh_revu97">
                   <div id="reviews-login">
 
-                    <!-- Single Reviews -->
                     <div class="_loh_r96">
                       <div class="_bloi_quote"><i class="fa fa-quote-left"></i></div>
                       <div class="_loh_r92">
@@ -33,7 +32,6 @@
                       </div>
                     </div>
 
-                    <!-- Single Reviews -->
                     <div class="_loh_r96">
                       <div class="_bloi_quote"><i class="fa fa-quote-left"></i></div>
                       <div class="_loh_r92">
@@ -52,9 +50,13 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
-            <div class="col-lg-6 col-md-7 position-static p-2">
+            <div class="d-none d-md-block col-lg-6 col-md-5 bg-cover">
+            <img src="/assets/images/forgot.jpg" class="forgots" alt="">
+
+            </div>
+            <div class="col-lg-6 col-md-7 position-static p-2 sign-froms">
               @if (session()->has('smsg'))
               <div class="alert alert-success alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>

@@ -40,20 +40,25 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-4 mb-4 ">
-          <div class="flex flex-col all-flexx gap-3 items-center text-center h-100">
-            <img src="{{ url('/') }}/assets/web/images/png1.png" alt="">
-            <h2 class="text-xl font-bold">Courses</h2>
-            <p>Discover a diverse range of programs from undergraduate to postgraduate degrees, explore options in medicine, engineering, business, IT, and more.</p>
-          </div>
+          <a href="{{ url('specialization') }}">
+            <div class="flex flex-col all-flexx gap-3 items-center text-center h-100">
+              <img src="{{ url('/') }}/assets/web/images/png1.png" alt="">
+              <h2 class="text-xl font-bold">Courses</h2>
+              <p>Discover a diverse range of programs from undergraduate to postgraduate degrees, explore options in
+                medicine, engineering, business, IT, and more.</p>
+            </div>
+          </a>
         </div>
         <div class="col-lg-4 mb-4 ">
-          <div class="flex flex-col all-flexx gap-3 h-100 items-center text-center">
-            <img src="{{ url('/') }}/assets/web/images/png2.png" alt="">
-            <h2 class="text-xl font-bold">Institutions</h2>
-            <p>Connect with globally recognized Malaysian universities and institutions renowned for academic excellence. 
-
-            </p>
-          </div>
+          <a href="{{ url(url()->current() . '/institutions') }}">
+            <div class="flex flex-col all-flexx gap-3 h-100 items-center text-center">
+              <img src="{{ url('/') }}/assets/web/images/png2.png" alt="">
+              <h2 class="text-xl font-bold">Institutions</h2>
+              <p>Connect with globally recognized Malaysian universities and institutions renowned for academic
+                excellence.
+              </p>
+            </div>
+          </a>
         </div>
 
         <div class="col-lg-4 mb-4 ">
@@ -69,69 +74,69 @@
   </section>
 
   <!-- <section class="registrationss">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-9 mx-auto">
+                <div class="container">
+                  <div class="row align-items-center">
+                    <div class="col-lg-9 mx-auto">
 
-          <div class="fair-details">
-            <h2 class="fairs">
-              <span class="internationl-fa">International</span> <br> Education Fair <br>
-              <span class="year-fair">2025</span>
+                      <div class="fair-details">
+                        <h2 class="fairs">
+                          <span class="internationl-fa">International</span> <br> Education Fair <br>
+                          <span class="year-fair">2025</span>
 
-            </h2>
-            <p class="all-fair">{{ $pageDetail->date_and_address }}</p>
+                        </h2>
+                        <p class="all-fair">{{ $pageDetail->date_and_address }}</p>
 
-            <a href="#register" class="new-registor">Register Now</a>
-          </div>
+                        <a href="#register" class="new-registor">Register Now</a>
+                      </div>
 
-        </div>
-      </div>
-    </div>
-  </section> -->
+                    </div>
+                  </div>
+                </div>
+              </section> -->
 
   <!-- <section class="studaies-abroad">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <div class="abroad-students">
-            <h2>Want to <br> study abroad?</h2>
-            <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia doloribus pariatur autem
-              officiis, veritatis vero consequatur natus sapiente voluptates, distinctio magni quae, hic eum quam
-              obcaecati sunt tempora libero dolorem molestias enim! Mollitia!</p>
-            <ul class="study-abroads">
+                <div class="container">
+                  <div class="row align-items-center">
+                    <div class="col-lg-6">
+                      <div class="abroad-students">
+                        <h2>Want to <br> study abroad?</h2>
+                        <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia doloribus pariatur autem
+                          officiis, veritatis vero consequatur natus sapiente voluptates, distinctio magni quae, hic eum quam
+                          obcaecati sunt tempora libero dolorem molestias enim! Mollitia!</p>
+                        <ul class="study-abroads">
 
-              <li>No test required</li>
-              <li>New job opportunites</li>
-              <li>100% schollarship available</li>
+                          <li>No test required</li>
+                          <li>New job opportunites</li>
+                          <li>100% schollarship available</li>
 
-            </ul>
+                        </ul>
 
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="abroad-imags">
-            <img src="{{ url('/') }}/assets/images/study-abroad.png" class="studysimage" alt="">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="abroad-imags">
+                        <img src="{{ url('/') }}/assets/images/study-abroad.png" class="studysimage" alt="">
 
-          </div>
-        </div>
+                      </div>
+                    </div>
 
-      </div>
-    </div>
-  </section> -->
+                  </div>
+                </div>
+              </section> -->
 
   <section class="registrations-fomrs" id="register">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-6">
-        <div class="fair-details">
+          <div class="fair-details">
             <h2 class="fairs">
               <span class="internationl-fa">Education Fair 2025</span>
 
             </h2>
             <p class="all-fair">{{ $pageDetail->date_and_address }}</p>
-<div class="imgsfaird">
-<img src="/front/assets/img/fair.png" class="imgsfairs" alt="">
-</div>
+            <div class="imgsfaird">
+              <img src="/assets/images/libya-malaysia.png" class="imgsfairs" alt="">
+            </div>
             <!-- <a href="#register" class="new-registor">Register Now</a> -->
           </div>
         </div>
@@ -313,10 +318,10 @@
 
                 <div class="col-lg-12 col-md-12 col-sm-12">
                   <!-- <p>
-                                                          <label for="test5">By clicking on register I agree to the
-                                                            <a href="{{ url('terms-and-conditions') }}" target="_blank">terms & conditions</a>
-                                                          </label>
-                                                        </p> -->
+                                                                      <label for="test5">By clicking on register I agree to the
+                                                                        <a href="{{ url('terms-and-conditions') }}" target="_blank">terms & conditions</a>
+                                                                      </label>
+                                                                    </p> -->
                   <div class="form-check checkbx-white pl-4">
                     <input type="checkbox" class="form-check-input" id="test5">
                     <label class="form-check-label px-0 " for="test5">By clicking on register I agree to the
@@ -339,70 +344,93 @@
     </div>
   </section>
 
-<section class="educationfairs">
-  <div class="container">
-   
-    <h2 class="text-center">Why Join This Education Fair?</h2>
-    <div class="row justify-content-center">
-      <div class=" col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
-        <div class="fariul">
-        <span>1</span>
-        <h2 >Meet Top Universities</h2>
-        <p>Connect with Malaysia’s leading institutions in one place.</p>
+  <section class="educationfairs">
+    <div class="container">
+
+      <div class="row align-items-center ">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+          <div class="row">
+            <div class="col-12 mb-4">
+              <div class="img-fari">
+              <img src="/assets/images/why-join.png" class="img-fluid" alt="">
+
+              </div>
+            </div>
+            <div class="col-12 mb-4">
+            <h2 class="set-fairs" >Why Join This Education Fair?</h2>
+
+            </div>
+            <div class="col-12 ">
+            <div class="img-fari">
+              <img src="/assets/images/whyjoins.png" class="imgfai" alt="">
+
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 ">
+
+          <div class="fariul">
+            <span>1</span>
+            <div class="fair-us">
+            <h2>Meet Top Universities</h2>
+            <p>Connect with Malaysia’s leading institutions in one place.</p>
+            </div>
+            
+          </div>  
+          <div class="fariul">
+            <span>2</span>
+            <div class="fair-us">
+            <h2>Exclusive Scholarships</h2>
+            <p>Learn about scholarships for Libyan students.</p>
+            </div>
+           
+          </div>  
+          <div class="fariul">
+            <span>3</span>
+            <div class="fair-us">
+            <h2>Spot Admissions</h2>
+            <p>Apply on the spot for eligible programs.</p>
+            </div>
+            
+          </div>
+          <div class="fariul">
+            <span>4</span>
+            <div class="fair-us">
+            <h2>Visa & Travel Support</h2>
+            <p>Get step-by-step guidance on studying in Malaysia.</p>
+            </div>
+           
+          </div>
+          <div class="fariul">
+            <span>5</span>
+            <div class="fair-us">
+            <h2>Work & Internships</h2>
+            <p>Explore part-time work and internship options.</p>
+            </div>
+            
+          </div>
+          <div class="fariul">
+            <span>6</span>
+            <div class="fair-us">
+            <h2>Work & Internships</h2>
+            <p>Learn about life and student support in Malaysia.</p>
+            </div>
+           
+          </div>
+          <div class="fariul">
+            <span>7</span>
+            <div class="fair-us">
+            <h2>Save Time and Effort</h2>
+            <p>Access all the information you need about studying in Malaysia.</p>
+            </div>
+            
+          </div>
         </div>
-        <div class=" col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
-        <div class="fariul">
-        <span>2</span>
-        <h2  >Exclusive Scholarships</h2>
-        <p>Learn about scholarships for Libyan students.</p>
-        </div>
-        </div>
-        
-        <div class=" col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
-        <div class="fariul">
-        <span>3</span>
-        <h2>Spot Admissions</h2>
-        <p>Apply on the spot for eligible programs.</p>
-        </div>
-        </div>
-        
-        <div class=" col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
-        <div class="fariul">
-        <span>4</span>
-        <h2>Visa & Travel Support</h2>
-        <p>Get step-by-step guidance on studying in Malaysia.</p>
-        </div>
-        </div>
-       
-        <div class=" col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
-        <div class="fariul">
-        <span>5</span>
-        <h2>Work & Internships</h2>
-        <p>Explore part-time work and internship options.</p>
-        </div>
-        </div>
-        
-        <div class=" col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
-        <div class="fariul">
-        <span>6</span>
-        <h2>Work & Internships</h2>
-        <p>Learn about life and student support in Malaysia.</p>
-        </div>
-        </div>
-        
-        <div class=" col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
-        <div class="fariul">
-        <span>7</span>
-        <h2>Save Time and Effort</h2>
-        <p>Access all the information you need about studying in Malaysia.</p>
-        </div>
-        </div>
-        
+      </div>
      
     </div>
-  </div>
-</section>
+  </section>
 
   <section class="particaptes-universties">
     <div class="container">
@@ -442,7 +470,7 @@
                   </div>
                 </div>
               </div>
-              @endforeach
+            @endforeach
 
           </div>
         </div>
@@ -453,46 +481,167 @@
     </div>
   </section>
 
-  <section class="fair-about">
+  <!-- <section class="fair-about">
 
+                <div class="container">
+                  <h2>Join the fair to learn about:</h2>
+                  <div class="row align-items-center ">
+                    <div class="col-lg-7">
+                      <ul class="ol-joins">
+                        <li class="li-joins">
+                          <span>1</span>
+                          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni non esse veritatis.</p>
+                        </li>
+                        <li class="li-joins">
+                          <span>2</span>
+                          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni non esse veritatis.</p>
+                        </li>
+                        <li class="li-joins">
+                          <span>3</span>
+                          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni non esse veritatis.</p>
+                        </li>
+                        <li class="li-joins">
+                          <span>4</span>
+                          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni non esse veritatis.</p>
+                        </li>
+                        <li class="li-joins">
+                          <span>5</span>
+                          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni non esse veritatis.</p>
+                        </li>
+                        <li class="li-joins">
+                          <span>6</span>
+                          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni non esse veritatis.</p>
+                        </li>
+
+                      </ul>
+                    </div>
+                    <div class="col-lg-5">
+                      <img src="{{ url('/') }}/assets/web/images/joins.jpg" class="img-fluid" alt="">
+                    </div>
+                  </div>
+                </div>
+              </section> -->
+
+  <section class="education-fairs">
     <div class="container">
-      <h2>Join the fair to learn about:</h2>
       <div class="row align-items-center ">
-        <div class="col-lg-7">
-          <ul class="ol-joins">
-            <li class="li-joins">
-              <span>1</span>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni non esse veritatis.</p>
-            </li>
-            <li class="li-joins">
-              <span>2</span>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni non esse veritatis.</p>
-            </li>
-            <li class="li-joins">
-              <span>3</span>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni non esse veritatis.</p>
-            </li>
-            <li class="li-joins">
-              <span>4</span>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni non esse veritatis.</p>
-            </li>
-            <li class="li-joins">
-              <span>5</span>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni non esse veritatis.</p>
-            </li>
-            <li class="li-joins">
-              <span>6</span>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni non esse veritatis.</p>
-            </li>
-
-          </ul>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+          <div class="all-fairss">
+            <h2> <span>Why Attend</span> <br>
+              the Libya Education Fair?</h2>
+            <p>The Libya Education Fair, a groundbreaking initiative, offers Libyan students a unique
+              opportunity to connect with representatives from over 30 top-ranked universities worldwide, with a focus on
+              Malaysian universities. Sponsored by the Libyan Government, this event is designed to assist students in
+              exploring academic opportunities
+              abroad, applying for scholarships, and achieving their educational dreams.</p>
+          </div>
         </div>
-        <div class="col-lg-5">
-          <img src="{{ url('/') }}/assets/web/images/joins.jpg" class="img-fluid" alt="">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+          <div class="all-fairss-img">
+            <img src="/assets/images/group-photos.png " class="img-fluid" alt="">
+          </div>
         </div>
       </div>
     </div>
   </section>
+
+  <section class="education-special">
+    <div class="container">
+
+      <div class="all-special">
+        <h2>What Makes Libya Education
+          Fair Special?</h2>
+
+      </div>
+      <div class="row align-items-center ">
+
+        <div class="col-12 col-sm-12 col-md-4 mb-4">
+          <div class="cards-special">
+            <img src="/assets/images/govt-user.png" class="img-speacil" alt="">
+            <div class="special-black event-overlay">
+
+              <h2>Government Sponsored Scholarships</h2>
+              <div class="specil-p">
+                <p>The Libya Education Fair offers 100% government-funded scholarships for eligible students, covering
+                  tuition fees, living expenses, and more. Merit-based scholarships are available to empower deserving
+                  students.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 mb-4">
+          <div class="cards-special">
+            <img src="/assets/images/meet-uni.png" class="img-speacil" alt="">
+            <div class="special-black event-overlay">
+
+              <h2>Meet University Representatives</h2>
+              <div class="specil-p">
+                <p>Engage directly with university delegates to learn about programs, application processes, and campus
+                  life. Get your questions about courses, scholarships, visas, and more answered by experts.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 mb-4">
+          <div class="cards-special">
+            <img src="/assets/images/instant.png" class="img-speacil" alt="">
+            <div class="special-black event-overlay">
+
+              <h2>On-The-Spot Offers and Admissions</h2>
+              <div class="specil-p">
+                <p>Bring your academic documents to secure on-the-spot offers and admission assessments from top
+                  universities.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 mb-4">
+          <div class="cards-special">
+            <img src="/assets/images/Scholarshi 1.png" class="img-speacil" alt="">
+            <div class="special-black event-overlay">
+
+              <h2>
+                Scholarships and Application Fee Waivers</h2>
+              <div class="specil-p">
+                <p>Many universities will provide application fee waivers and exclusive scholarships to eligible
+                  candidates submitting complete applications during the event.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 mb-4">
+          <div class="cards-special">
+            <img src="/assets/images/intratative 1.png" class="img-speacil" alt="">
+            <div class="special-black event-overlay">
+
+              <h2>
+                Interactive Sessions</h2>
+              <div class="specil-p">
+                <p>Participate in interactive sessions with university delegates, alumni, and counselors to gain insights
+                  into academic programs, career prospects, and student life.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 mb-4">
+          <div class="cards-special">
+            <img src="/assets/images/Comprehensive 1.png" class="img-speacil" alt="">
+            <div class="special-black event-overlay">
+
+              <h2>
+                Comprehensive Guidance</h2>
+              <div class="specil-p">
+                <p>The event provides personalized assistance with study abroad processes, including information on visa
+                  procedures, education loans, and student accommodation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <section class="applyisss">
     <div class="applyingsstart">
       <h2 class="applyings">Applying for Scholarships in Malaysia? Here’s a Quick Guide
@@ -501,20 +650,20 @@
     <div class="container">
       <div class="row">
         <!-- <div class="col-12">
-          <div class="position-relative">
-            <img src="{{ url('/') }}/assets/web/images/apply.png" class="passings" alt="">
-            <div class="divmalaysiass">
-              <h2 class="malaysiass">How to apply for scholarships in Malaysia?
-              </h2>
-              <p class="applyis">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-                odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-              </p>
-            </div>
-          </div>
-        </div> -->
+                      <div class="position-relative">
+                        <img src="{{ url('/') }}/assets/web/images/apply.png" class="passings" alt="">
+                        <div class="divmalaysiass">
+                          <h2 class="malaysiass">How to apply for scholarships in Malaysia?
+                          </h2>
+                          <p class="applyis">
+                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+                            beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+                            odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                          </p>
+                        </div>
+                      </div>
+                    </div> -->
         <div class="col-12">
 
           <ol class="olrearsarch">
@@ -665,20 +814,27 @@
         <div class="col-md-12">
 
           <div id="accordion" class="mainacc">
-            <div class="card">
+            <div class="card-diff">
               @foreach ($pageDetail->faqs as $row)
-                <div class="card-header" id="heading{{ $row->id }}">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ $row->id }}"
-                      aria-expanded="true" aria-controls="collapse{{ $row->id }}">
-                      {{ $row->question }}
-                    </button>
-                  </h5>
-                </div>
-                <div id="collapse{{ $row->id }}" class="collapse show"
-                  aria-labelledby="heading{{ $row->id }}" data-parent="#accordion">
-                  <div class="card-body">
-                    {!! $row->answer !!}
+                <div class=" card">
+                  <div class="card-header" id="heading{{ $row->id }}">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ $row->id }}"
+                        aria-expanded="true" aria-controls="collapse{{ $row->id }}">
+                        <div class="d-flex justify-content-between gapss align-items-center">
+
+                          <h2 class="span-accord">{{ $row->question }}</h2> <i class="fa fa-arrow-down downs"
+                            aria-hidden="true"></i>
+
+                        </div>
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapse{{ $row->id }}" class="collapse show"
+                    aria-labelledby="heading{{ $row->id }}" data-parent="#accordion">
+                    <div class="card-body">
+                      {!! $row->answer !!}
+                    </div>
                   </div>
                 </div>
               @endforeach
@@ -688,11 +844,11 @@
 
         </div>
         <!-- <div class="col-md-6">
-          <div class="imgfaq">
-            <img src="{{ url('/') }}/assets/web/images/faq.png" class="img-fluid" alt="">
+                      <div class="imgfaq">
+                        <img src="{{ url('/') }}/assets/web/images/faq.png" class="img-fluid" alt="">
 
-          </div>
-        </div> -->
+                      </div>
+                    </div> -->
       </div>
     </div>
   </section>

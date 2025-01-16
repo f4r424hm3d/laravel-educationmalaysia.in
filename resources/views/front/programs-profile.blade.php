@@ -67,29 +67,29 @@
 
           <div class="edu_wraper">
 
-            <h2 class="course-new-title mb-2">{{ $program->course_name }} Fees Structure, Admission, Intake, Deadline</h2>
+            <h2 class="course-new-title pl-3">{{ $program->course_name }} Fees Structure, Admission, Intake, Deadline</h2>
 
-            <div class="row align-items-center">
+            <div class="row align-items-center mx-auto">
               <div class="col-md-12">
                 <div class="row">
                   <div class="col-md-4 col-12 mt-2 mb-2">
                     <div class="row">
                       <div class="col-lg-3 col-2 course-icon-new"><i class="ti-flag-alt"></i></div>
-                      <div class="col-lg-9 col-10"><span class="theme-cl">Study Mode:</span><br><span
+                      <div class="col-lg-9 col-10"><span class="theme-cl">Study Mode:</span><span
                           class="course-new-sc">{{ ucwords($program->study_mode) }}</span></div>
                     </div>
                   </div>
                   <div class="col-md-4 col-12 mt-2 mb-2">
                     <div class="row">
                       <div class="col-lg-3 col-2 course-icon-new"><i class="ti-time"></i></div>
-                      <div class="col-lg-9 col-10"><span class="theme-cl">Duration:</span><br><span
+                      <div class="col-lg-9 col-10"><span class="theme-cl">Duration:</span><span
                           class="course-new-sc">{{ $program->duration }}</span></div>
                     </div>
                   </div>
                   <div class="col-md-4 col-12 mt-2 mb-2">
                     <div class="row">
                       <div class="col-lg-3 col-2 course-icon-new"><i class="ti-files"></i></div>
-                      <div class="col-lg-9 col-10"><span class="theme-cl">Level:</span><br><span
+                      <div class="col-lg-9 col-10"><span class="theme-cl">Level:</span><span
                           class="course-new-sc">{{ $program->level }}</span></div>
                     </div>
                   </div>
@@ -97,21 +97,21 @@
                   <div class="col-md-4 col-12 mt-2 mb-2">
                     <div class="row">
                       <div class="col-lg-3 col-2 course-icon-new"><i class="ti-medall-alt"></i></div>
-                      <div class="col-lg-9 col-10"><span class="theme-cl">Exam Accepted:</span><br><span
+                      <div class="col-lg-9 col-10"><span class="theme-cl">Exam Accepted:</span><span
                           class="course-new-sc">{{ j2s($program->exam_accepted ?? null) }}</span></div>
                     </div>
                   </div>
                   <div class="col-md-4 col-12 mt-2 mb-2">
                     <div class="row">
                       <div class="col-lg-3 col-2 course-icon-new"><i class="ti-calendar"></i></div>
-                      <div class="col-lg-9 col-10"><span class="theme-cl">Intake:</span><br><span
+                      <div class="col-lg-9 col-10"><span class="theme-cl">Intake:</span><span
                           class="course-new-sc">{{ $program->intake }}</span></div>
                     </div>
                   </div>
                   <div class="col-md-4 col-12 mt-2 mb-2">
                     <div class="row">
                       <div class="col-lg-3 col-2 course-icon-new"><i class="ti-money"></i></div>
-                      <div class="col-lg-9 col-10"><span class="theme-cl">Tuition Fees:</span><br><span
+                      <div class="col-lg-9 col-10"><span class="theme-cl">Tuition Fees:</span><span
                           class="course-new-sc">{{ $program->tution_fees ?? 'N/A' }}</span></div>
                     </div>
                   </div>
@@ -184,7 +184,7 @@
 
           @if ($program->intake != null)
             <div class="edu_wraper">
-              <h2 class="course-new-title mb-2">Course Intake</h2>
+              <h2 class="course-new-title pl-3 mb-0">Course Intake</h2>
               <div class="row">
                 <div class="col-md-12 col-12">
                   <div class="course-intake">
@@ -221,12 +221,12 @@
             </div>
           @endif
 
-          <div id="accordionExample" class="accordion shadow circullum">
+          <div id="accordionExample" class="accordion shadow circullum mt-4">
 
             @if ($trendingUniversity->count() > 0)
               <div class="card">
                 <div id="headingFive" class="card-header bg-white shadow-sm border-0">
-                  <h6 class="mb-0 accordion_title"><a href="#" data-toggle="collapse" data-target="#collapseFive"
+                  <h6 class="mb-0 accordion_title title-accord"><a href="#" data-toggle="collapse" data-target="#collapseFive"
                       aria-expanded="true" aria-controls="collapseFive"
                       class="d-block position-relative collapsed text-dark collapsible-link py-2">Top Trending
                       Universities</a>
@@ -245,9 +245,9 @@
 
                               <div class="education_block_grid style_2 mb-3">
                                 <div class="education_block_body mb-0">
-                                  <div class="row align-items-center mb-2">
-                                    <div class="col-3 pr-0">
-                                      <div class="path-img border-primary border rounded">
+                                  <div class="row align-items-center mb-2 mx-auto mt-3">
+                                    <div class="col-3">
+                                      <div class="path-img border-primary border rounded p-2">
                                         <img data-src="{{ asset($tu->imgpath) }}" class="img-fluid rounded"
                                           alt="">
                                       </div>
