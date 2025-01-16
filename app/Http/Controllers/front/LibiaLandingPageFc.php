@@ -4,7 +4,9 @@ namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Country;
+use App\Models\CourseCategory;
 use App\Models\LandingPage;
+use App\Models\LandingPageUniversity;
 use App\Models\Lead;
 use App\Models\Level;
 use App\Models\University;
@@ -12,6 +14,7 @@ use App\Models\UniversityProgram;
 use App\Rules\MathCaptchaValidationRule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\Rule;
 
@@ -28,6 +31,7 @@ class LibiaLandingPageFc extends Controller
     $countries = Country::orderBy('name', 'ASC')->get();
     $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
     $levels = Level::all();
+    $categories = CourseCategory::all();
 
     if (old('university') && old('university') != null) {
       $programs = UniversityProgram::where(['university_id' => old('university')])->get();
@@ -37,7 +41,7 @@ class LibiaLandingPageFc extends Controller
 
     $curCountry = '';
 
-    $data = compact('captcha', 'pageDetail', 'countries', 'phonecodes', 'levels', 'programs', 'curCountry');
+    $data = compact('captcha', 'pageDetail', 'countries', 'phonecodes', 'levels', 'programs', 'curCountry', 'categories');
     return view('front.education-fair-in-libia-2025')->with($data);
   }
   public function courses(Request $request)
@@ -46,7 +50,11 @@ class LibiaLandingPageFc extends Controller
   }
   public function institutions(Request $request)
   {
-    return view('front.libya-institutions');
+    $page_slug = $request->segment(2);
+    $pageDetail = LandingPage::where(['page_slug' => $page_slug])->first();
+    $universities = LandingPageUniversity::where(['landing_page_id' => $pageDetail->id])->get();
+    $data = compact('pageDetail', 'universities');
+    return view('front.libya-institutions')->with($data);
   }
   public function getProgramsByUniversity(Request $request)
   {
@@ -68,6 +76,7 @@ class LibiaLandingPageFc extends Controller
   {
     $otp = rand(1000, 9999);
     $otp_expire_at = date("YmdHis", strtotime("+5 minutes"));
+    $password = Str::random(10);
     $request->validate(
       [
         'captcha_answer' => ['required', 'numeric', new MathCaptchaValidationRule()],
@@ -80,9 +89,6 @@ class LibiaLandingPageFc extends Controller
         'c_code' => 'required|numeric',
         'mobile' => 'required|numeric',
         'password' => ['required', 'string', Password::min(8)->mixedCase()->numbers()->symbols()],
-        'confirm_password' => 'required|same:password',
-        'highest_qualification' => 'required',
-        'university' => 'required',
         'nationality' => 'required'
       ]
     );
@@ -93,11 +99,10 @@ class LibiaLandingPageFc extends Controller
     $field->c_code = $request['c_code'];
     $field->mobile = $request['mobile'];
     $field->highest_qualification = $request['highest_qualification'];
-    $field->intrested_university = $university->name;
     $field->intrested_subject = $request->program;
     $field->interested_program = $request->program;
     $field->nationality = $request['nationality'];
-    $field->password = $request['password'];
+    $field->password = $password;
     $field->source = $request->source;
     $field->source_path = $request->source_path;
     $field->otp = $otp;
