@@ -845,9 +845,9 @@ Route::prefix('university/{university_slug}')->group(function () {
   Route::get('/courses', [UniversityProfileCoursesFc::class, 'index'])->name('university.courses');
   Route::get('/course/{course_slug}', [UniversityProfileCoursesFc::class, 'courseDetail'])->name('university.course.details');
 });
-$levels = UniversityProgram::select('level')->where(['status' => 1])->distinct()->get();
+$levels = UniversityProgram::select('level')->where(['status' => 1])->where('level', '!=', '')->where('level', '!=', null)->distinct()->get();
 foreach ($levels as $row) {
-  Route::get('university/{university_slug}/' . $row->level . '-courses', [UniversityProfileCoursesFc::class, 'index']);
+  Route::get('university/{university_slug}/' . slugify($row->level) . '-courses', [UniversityProfileCoursesFc::class, 'index']);
 }
 
 Route::prefix('/university-course-list')->group(function () {

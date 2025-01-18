@@ -30,11 +30,11 @@ class UniversityProfileCoursesFc extends Controller
       $filter_slug = str_replace('-courses', '', $filter);
 
       // Find in levels table
-      $chkLevel = Level::where('slug', $filter_slug)->first();
+      $chkLevel = Level::where('slug', strtoupper($filter_slug))->first();
       // Find in course_categories table
-      $chkCategory = CourseCategory::where('category_slug', $filter_slug)->first();
+      $chkCategory = CourseCategory::where('slug', $filter_slug)->first();
       // Find in course_specializations table
-      $chkSpecialization = CourseSpecialization::where('specialization_slug', $filter_slug)->first();
+      $chkSpecialization = CourseSpecialization::where('slug', $filter_slug)->first();
 
       // Check if any match is found
       if ($chkLevel !== null) {
