@@ -35,7 +35,7 @@
       }
       ]
     }
-    </script>
+  </script>
   <!-- breadcrumb schema Code End -->
 @endpush
 @section('main-section')
@@ -47,7 +47,8 @@
           <div class="ed_detail_wrap light">
             <ul class="cources_facts_list">
               <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
-              <li class="facts-1">Courses in Malaysia</li>
+              <li class="facts-1"><a href="{{ url('specialization') }}">Courses</a></li>
+              <li class="facts-1"><span>{{ ucwords(str_replace('-', ' ', Request::segment(1))) }}</span></li>
             </ul>
           </div>
         </div>
@@ -58,7 +59,7 @@
 
   <!-- Content -->
   <section class="bg-light pt-4 pb-4">
-    
+
     <div class="container">
       <div class="row">
         <div class="col-xl-3 col-lg-3 col-md-12 col-12">
@@ -70,8 +71,8 @@
           <div class="row align-items-center mb-3">
             <div class="col-lg-12 col-md-12 col-sm-12">
               <div class="forms-found">
-              Found <strong>{{ $total }}</strong> programs
-              <p>{!! $page_contents !!}</p>
+                Found <strong>{{ $total }}</strong> programs
+                <p>{!! $page_contents !!}</p>
               </div>
             </div>
 
@@ -127,9 +128,10 @@
               @endif
             </div>
             <div class="text-right desktop-hide ml-auto px-3">
-            <button type="button" class="btn btn-modern2 univ-btn reviews-btn rounded" data-toggle="modal" data-target="#exampleModalCenter">
-  Filter show
-</button>
+              <button type="button" class="btn btn-modern2 univ-btn reviews-btn rounded" data-toggle="modal"
+                data-target="#exampleModalCenter">
+                Filter show
+              </button>
             </div>
           </div>
           <!-- all universities -->
@@ -161,8 +163,8 @@
                                     </a>
                                   </h4>
                                   <div class="d-flex setgap2 align-items-center locationsloc">
-                                  <i class="ti-location-pin"></i>
-                                  {{ formatLocation($row->university->city, $row->university->state, $row->university->country) }}
+                                    <i class="ti-location-pin"></i>
+                                    {{ formatLocation($row->university->city, $row->university->state, $row->university->country) }}
                                   </div>
                                 </div>
 
@@ -171,28 +173,28 @@
                             <div class="row">
                               <div class="col-md-4 col-12">
                                 <div class="flex-wrap align-items-center setgap2 block-desktop">
-                                <span class="theme-cl ">Institute Type : </span>
-                                <span class="duratinss">{{ $row->university->instituteType->type }} </span>
+                                  <span class="theme-cl ">Institute Type : </span>
+                                  <span class="duratinss">{{ $row->university->instituteType->type }} </span>
                                 </div>
                               </div>
                               <div class="col-md-4 col-12">
-                              <div class="flex-wrap align-items-center setgap2 block-desktop">
-                                <span class="theme-cl">Course : </span>
-                                <span class="duratinss"> {{ $row->university->programs->count() ?? 'N/A' }}</span>
+                                <div class="flex-wrap align-items-center setgap2 block-desktop">
+                                  <span class="theme-cl">Course : </span>
+                                  <span class="duratinss"> {{ $row->university->programs->count() ?? 'N/A' }}</span>
 
-                                @if ($row->university->programs->count() > 0)
-                                  <a href="{{ route('university.courses', ['university_slug' => $row->university->uname]) }}"
-                                    class="new-rbtn">
-                                    <i class="fa fa-graduation-cap"></i> All Programs
-                                  </a>
-                                @endif
+                                  @if ($row->university->programs->count() > 0)
+                                    <a href="{{ route('university.courses', ['university_slug' => $row->university->uname]) }}"
+                                      class="new-rbtn">
+                                      <i class="fa fa-graduation-cap"></i> All Programs
+                                    </a>
+                                  @endif
                                 </div>
                               </div>
                               <div class="col-md-4 col-12">
-                              <div class="flex-wrap align-items-center setgap2 block-desktop">
-                                <span class="theme-cl">World Ranking : </span>
+                                <div class="flex-wrap align-items-center setgap2 block-desktop">
+                                  <span class="theme-cl">World Ranking : </span>
 
-                                <span class="duratinss">{{ $row->university->rank ?? 'N/A' }}</span>
+                                  <span class="duratinss">{{ $row->university->rank ?? 'N/A' }}</span>
                                 </div>
                               </div>
                             </div>
@@ -212,40 +214,38 @@
                     <div class="row">
                       <div class="col-lg-10 col-md-9 col-sm-12">
                         <h6 class="bachlors">
-                          <a class="d-flex align-items-center " href="{{ route('university.course.details', ['university_slug' => $row->university->uname, 'course_slug' => $row->slug]) }}"
+                          <a class="d-flex align-items-center "
+                            href="{{ route('university.course.details', ['university_slug' => $row->university->uname, 'course_slug' => $row->slug]) }}"
                             contenteditable="false" style="cursor: pointer;">
-                            <i class="fa fa-hand-point-right mr-1 theme-cl"></i> 
+                            <i class="fa fa-hand-point-right mr-1 theme-cl"></i>
                             {{ $row->course_name }}
                           </a>
                         </h6>
                         <div class="row">
                           <div class="col-md-4 col-sm-4 col-12 ">
-                          <div class="flex-wrap align-items-center setgap2 block-desktop">
-                          <span class="theme-cl">
-                          Mode:</span>{{ $row->study_mode }}
-                          </div>
-                          
+                            <div class="flex-wrap align-items-center setgap2 block-desktop">
+                              <span class="theme-cl">
+                                Mode:</span>{{ $row->study_mode }}
                             </div>
-                          <div class="col-md-4 col-sm-4 col-12 ">
-                          <div class="flex-wrap align-items-center setgap2 block-desktop">
-                          <span class="theme-cl">Duration:</span> <span
-                              class="duratinss">
-                              {{ $row->duration }}
-                            </span>
+
                           </div>
-  
-                          
+                          <div class="col-md-4 col-sm-4 col-12 ">
+                            <div class="flex-wrap align-items-center setgap2 block-desktop">
+                              <span class="theme-cl">Duration:</span> <span class="duratinss">
+                                {{ $row->duration }}
+                              </span>
+                            </div>
+
                           </div>
                           <div class="col-md-4 col-sm-4 col-12">
-                          <div class="flex-wrap align-items-center setgap2 block-desktop">
-                          <span class="theme-cl">Intakes:</span>
+                            <div class="flex-wrap align-items-center setgap2 block-desktop">
+                              <span class="theme-cl">Intakes:</span>
 
-<span class="duratinss">
-  {{ $row->intake }}
-</span>
-                          </div>
-  
-                          
+                              <span class="duratinss">
+                                {{ $row->intake }}
+                              </span>
+                            </div>
+
                           </div>
                         </div>
                       </div>
@@ -266,7 +266,6 @@
       </div>
     </div>
 
-
   </section>
   <!-- Content -->
   <!-- Mobile Filter -->
@@ -283,32 +282,32 @@
     </div>
   </div>
 
-<!-- study level filter modal   -->
-<!-- Button trigger modal -->
+  <!-- study level filter modal   -->
+  <!-- Button trigger modal -->
 
-
-<!-- Modal -->
-<div class="modal modal-filter-set fade " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Filter Title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body study-filters">
-      <div id="accordionExample1" class="accordion shadow circullum hide-23 full-width  ">
+  <!-- Modal -->
+  <div class="modal modal-filter-set fade " id="exampleModalCenter" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Filter Title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body study-filters">
+          <div id="accordionExample1" class="accordion shadow circullum hide-23 full-width  ">
             @include('front.filter-courses-in-malaysia')
           </div>
+        </div>
+        <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div> -->
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div> -->
     </div>
   </div>
-</div>
   <!-- Show more -->
   <script>
     $(".show-more").click(function() {
