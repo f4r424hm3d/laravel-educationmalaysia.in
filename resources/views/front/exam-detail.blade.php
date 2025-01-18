@@ -97,7 +97,7 @@
                 @foreach ($exams as $row)
                   <li>
                     <a href="{{ url($row->uri) }}">
-                      {{ $row->page_name }}<span><i class="ti-arrow-right"></i></span>
+                      {{ $row->page_name }}<span><i class="fa fa-angle-right"></i></span>
                     </a>
                   </li>
                 @endforeach

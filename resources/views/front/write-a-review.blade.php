@@ -191,7 +191,7 @@
 
                 <div class="form-group mb-0">
                   <button class="btn btn-modern float-none" type="submit">
-                    Submit Review <span><i class="ti-arrow-right"></i></span>
+                    Submit Review <span><i class="fa fa-angle-right"></i></span>
                   </button>
                 </div>
               </form>

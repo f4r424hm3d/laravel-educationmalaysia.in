@@ -238,7 +238,7 @@
 
             <div class="row justify-content-center mt-3">
               <a href="#" class="btn btn-modern float-none">Browse Colleges<span><i
-                    class="ti-arrow-right"></i></span></a>
+                    class="fa fa-angle-right"></i></span></a>
             </div>
 
           </div>

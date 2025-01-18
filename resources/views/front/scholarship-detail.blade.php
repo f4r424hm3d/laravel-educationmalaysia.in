@@ -114,7 +114,7 @@
                 @foreach ($scholarships as $row)
                   <li>
                     <a href="{{ url('scholarship/' . $row->slug) }}">
-                      {{ $row->title }}<span><i class="ti-arrow-right"></i></span>
+                      {{ $row->title }}<span><i class="fa fa-angle-right"></i></span>
                     </a>
                   </li>
                 @endforeach

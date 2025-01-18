@@ -59,7 +59,7 @@
                               <li><i class="ti-user"></i> {{ $row->experience_short }}</li>
                             </ul>
                             <a href="{{ url('team/' . $row->slug . '-' . $row->id) }}" class="btn btn-outline-theme">View
-                              Details <i class="ti-arrow-right"></i></a>
+                              Details <i class="fa fa-angle-right"></i></a>
                           </div>
                         </div>
                       </div>
@@ -94,7 +94,7 @@
                               </ul>
                               <a href="{{ url('team/' . $row->slug . '-' . $row->id) }}"
                                 class="btn btn-outline-theme">View
-                                Details <i class="ti-arrow-right"></i></a>
+                                Details <i class="fa fa-angle-right"></i></a>
                             </div>
                           </div>
                         </div>

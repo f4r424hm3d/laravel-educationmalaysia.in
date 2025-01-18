@@ -67,7 +67,7 @@
               <div class="article_top_info">
                 <ul class="article_middle_info">
                   @if ($blog->author_id != null)
-                    <li>
+                    <li class="before-set" >
                       <a href="javascript:void()">
                         <span class="icons"><i class="ti-user"></i></span>
                         by {{ $blog->author->name }}
@@ -90,7 +90,9 @@
             <h4 class="title">Categories</h4>
             <ul>
               @foreach ($categories as $row)
-                <li><a href="{{ route('blog.category', ['category_slug' => $row->slug]) }}">{{ $row->cate_name }} </a>
+                <li><a href="{{ route('blog.category', ['category_slug' => $row->slug]) }}">{{ $row->cate_name }}
+                <span><i class="fa fa-angle-right"></i></span>    
+              </a>
                 </li>
               @endforeach
             </ul>

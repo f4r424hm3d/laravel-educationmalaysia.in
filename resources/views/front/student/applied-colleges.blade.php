@@ -74,7 +74,7 @@
             @endif
             <div class="row justify-content-center mt-3">
               <a href="{{ url('courses-in-malaysia') }}" class="btn btn-modern float-none">
-                Browse Colleges<span><i class="ti-arrow-right"></i></span>
+                Browse Colleges<span><i class="fa fa-angle-right"></i></span>
               </a>
             </div>
           </div>

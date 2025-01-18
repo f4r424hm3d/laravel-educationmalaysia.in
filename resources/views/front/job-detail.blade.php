@@ -72,7 +72,7 @@
           </div>
           <div class="enquiry-sec">
             <a href="#visit_form" class="big-center-btn enquiry-width open-button btn btn-modern dark">Enquire
-              Now<span><i class="ti-arrow-right"></i></span></a>
+              Now<span><i class="fa fa-angle-right"></i></span></a>
           </div>
 
           {{-- Form Pop up --}}
@@ -149,7 +149,7 @@
                 @foreach ($exams as $row)
                   <li>
                     <a href="{{ url('exam/' . $row->exam_slug . '/overview') }}">
-                      {{ $row->exam_name }}<span><i class="ti-arrow-right"></i></span>
+                      {{ $row->exam_name }}<span><i class="fa fa-angle-right"></i></span>
                     </a>
                   </li>
                 @endforeach
@@ -163,7 +163,7 @@
                 @foreach ($jobs as $row)
                   <li>
                     <a href="{{ url($row->page_slug) }}">
-                      {{ $row->page_name }}<span><i class="ti-arrow-right"></i></span>
+                      {{ $row->page_name }}<span><i class="fa fa-angle-right"></i></span>
                     </a>
                   </li>
                 @endforeach
@@ -416,7 +416,7 @@
 
       <div class="row justify-content-center mt-4">
         <a href="universities" class="btn btn-modern float-none">View all Destinations<span><i
-              class="ti-arrow-right"></i></span></a>
+              class="fa fa-angle-right"></i></span></a>
       </div>
     </div>
   </section>
@@ -453,7 +453,7 @@
         </div>
         <div class="row justify-content-center">
           <a href="{{ url('exams') }}" class="btn btn-modern float-none">View all Exams<span><i
-                class="ti-arrow-right"></i></span></a>
+                class="fa fa-angle-right"></i></span></a>
         </div>
       </div>
     </section>
@@ -481,7 +481,7 @@
               </div>
               <h3>4.9/5</h3>
               <div class="row justify-content-center"><a href="#" class="btn btn-modern float-none">Get free
-                  counselling <span><i class="ti-arrow-right"></i></span></a></div>
+                  counselling <span><i class="fa fa-angle-right"></i></span></a></div>
             </div>
           </div>
 

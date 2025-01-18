@@ -389,7 +389,7 @@
               </span>
 
               <a href="student-services" class="btn btn-modern float-left mt-3">Know More<span><i
-                    class="ti-arrow-right"></i></span></a>
+                    class="fa fa-angle-right"></i></span></a>
             </div>
           </div>
 
@@ -441,7 +441,7 @@
               </span>
 
               <a href="partner-services" class="btn btn-modern float-left mt-3">Know More<span><i
-                    class="ti-arrow-right"></i></span></a>
+                    class="fa fa-angle-right"></i></span></a>
             </div>
           </div>
 
@@ -481,7 +481,7 @@
               </span>
 
               <a href="universities-services" class="btn btn-modern float-left mt-3">Know More<span><i
-                    class="ti-arrow-right"></i></span></a>
+                    class="fa fa-angle-right"></i></span></a>
             </div>
           </div>
           <div class="col-lg-5">
@@ -524,7 +524,7 @@
 
       <div class="row justify-content-center mt-4">
         <a href="{{ url('cities') }}" class="btn btn-modern float-none">View all Destinations<span><i
-              class="ti-arrow-right"></i></span></a>
+              class="fa fa-angle-right"></i></span></a>
       </div>
     </div>
   </section>
@@ -550,7 +550,7 @@
             </div>
             <h3>4.9/5</h3>
             <div class="row justify-content-center"><a href="#" class="btn btn-modern float-none">Get free
-                counselling <span><i class="ti-arrow-right"></i></span></a></div>
+                counselling <span><i class="fa fa-angle-right"></i></span></a></div>
           </div>
         </div>
 
@@ -664,7 +664,7 @@
         </div>
         <div class="row justify-content-center">
           <a href="{{ url('/articles') }}" class="btn btn-modern float-none">View all Articals<span><i
-                class="ti-arrow-right"></i></span></a>
+                class="fa fa-angle-right"></i></span></a>
         </div>
       </div>
     </section>

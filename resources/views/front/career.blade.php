@@ -71,7 +71,7 @@
                           {!! $row->description !!}
 
                           <a href="#apply" class="btn btn-modern float-none">Apply Now <span><i
-                                class="ti-arrow-right"></i></span></a>
+                                class="fa fa-angle-right"></i></span></a>
                         </div>
                       </div>
                     </div>
@@ -218,7 +218,7 @@
                 </div>
                 <div class="form-group mb-0">
                   <button class="btn btn-modern float-none" type="submit">
-                    Submit Request <span><i class="ti-arrow-right"></i></span>
+                    Submit Request <span><i class="fa fa-angle-right"></i></span>
                   </button>
                 </div>
               </form>

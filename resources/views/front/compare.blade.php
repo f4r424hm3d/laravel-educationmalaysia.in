@@ -357,7 +357,7 @@
                 </div>
               </div>
               <div class="WBGridPublic-arrow">
-                <button class="WBGridArrow-next"><i class="ti-arrow-right"></i></button>
+                <button class="WBGridArrow-next"><i class="fa fa-angle-right"></i></button>
               </div>
             </div>
           </div>

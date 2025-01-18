@@ -126,7 +126,7 @@
       <!-- Submit Button -->
     
         <div class="col-12  ">
-          <div class="form-group text-center">
+          <div class="form-group text-center mb-0">
             <button class="btn btn-primary" type="submit">Submit</button>
           </div>
         </div>

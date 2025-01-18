@@ -79,7 +79,7 @@
               <div class="filter_wraps">
                 <div class="dn db-991 mt30 mb0 show-23">
                   <div id="main2"><a href="javascript:void(0)" class="btn btn-theme filter_open" onClick="openNav()"
-                      id="open2">Show Filter<span class="ml-2"><i class="ti-arrow-right"></i></span></a></div>
+                      id="open2">Show Filter<span class="ml-2"><i class="fa fa-angle-right"></i></span></a></div>
                 </div>
               </div>
               @if (session()->has('CFilterLevel') ||

@@ -97,7 +97,7 @@
                 @foreach ($categories as $row)
                   <li>
                     <a href="{{ url('course/' . $row->slug) }}">
-                      {{ $row->name }}<span><i class="ti-arrow-right"></i></span>
+                      {{ $row->name }}<span><i class="fa fa-angle-right"></i></span>
                     </a>
                   </li>
                 @endforeach

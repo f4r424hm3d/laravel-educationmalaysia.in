@@ -8,15 +8,15 @@
           <div class="footer-widget">
             <span class="widget-title">Top Courses</span>
             <ul class="footer-menu">
-              <li><a href="{{ url('/') }}"><i class="ti-arrow-right"></i> Accounting & Finance</a></li>
-              <li><a href="{{ url('/') }}"><i class="ti-arrow-right"></i> Civil Engineering</a></li>
-              <li><a href="{{ url('/') }}"><i class="ti-arrow-right"></i> Arts/Fine Arts</a></li>
-              <li><a href="{{ url('/') }}"><i class="ti-arrow-right"></i> Hospitality</a></li>
-              <li><a href="{{ url('/') }}"><i class="ti-arrow-right"></i> Business Management</a></li>
-              <li><a href="{{ url('/') }}"><i class="ti-arrow-right"></i> Computer Engineering</a></li>
-              <li><a href="{{ url('/') }}"><i class="ti-arrow-right"></i> Physiology</a></li>
-              <li><a href="{{ url('/') }}"><i class="ti-arrow-right"></i> Medicine</a></li>
-              <li><a href="{{ url('/') }}"><i class="ti-arrow-right"></i> Business Information
+              <li><a href="{{ url('/') }}"><i class="fa fa-angle-right"></i> Accounting & Finance</a></li>
+              <li><a href="{{ url('/') }}"><i class="fa fa-angle-right"></i> Civil Engineering</a></li>
+              <li><a href="{{ url('/') }}"><i class="fa fa-angle-right"></i> Arts/Fine Arts</a></li>
+              <li><a href="{{ url('/') }}"><i class="fa fa-angle-right"></i> Hospitality</a></li>
+              <li><a href="{{ url('/') }}"><i class="fa fa-angle-right"></i> Business Management</a></li>
+              <li><a href="{{ url('/') }}"><i class="fa fa-angle-right"></i> Computer Engineering</a></li>
+              <li><a href="{{ url('/') }}"><i class="fa fa-angle-right"></i> Physiology</a></li>
+              <li><a href="{{ url('/') }}"><i class="fa fa-angle-right"></i> Medicine</a></li>
+              <li><a href="{{ url('/') }}"><i class="fa fa-angle-right"></i> Business Information
                   Systems</a></li>
             </ul>
 
@@ -27,17 +27,17 @@
           <div class="footer-widget">
             <span class="widget-title">Qualified Level</span>
             <ul class="footer-menu">
-              <li><a href="{{ url('/') }}/exam/ielts/overview"><i class="ti-arrow-right"></i>
+              <li><a href="{{ url('/') }}/exam/ielts/overview"><i class="fa fa-angle-right"></i>
                   CERTIFICATE</a></li>
-              <li><a href="{{ url('/') }}/exam/pte/overview"><i class="ti-arrow-right"></i>PRE
+              <li><a href="{{ url('/') }}/exam/pte/overview"><i class="fa fa-angle-right"></i>PRE
                   UNIVERSITY</a></li>
-              <li><a href="{{ url('/') }}/exam/oet/overview"><i class="ti-arrow-right"></i> DIPLOMA</a>
+              <li><a href="{{ url('/') }}/exam/oet/overview"><i class="fa fa-angle-right"></i> DIPLOMA</a>
               </li>
-              <li><a href="{{ url('/') }}/exam/toefl/overview"><i class="ti-arrow-right"></i>UNDER
+              <li><a href="{{ url('/') }}/exam/toefl/overview"><i class="fa fa-angle-right"></i>UNDER
                   GRADUATE</a></li>
-              <li><a href="{{ url('/') }}/exam/gmat/overview"><i class="ti-arrow-right"></i>POST
+              <li><a href="{{ url('/') }}/exam/gmat/overview"><i class="fa fa-angle-right"></i>POST
                   GRADUATE</a></li>
-              <li><a href="{{ url('/') }}/exam/nhs/overview"><i class="ti-arrow-right"></i>PhD COURSES</a>
+              <li><a href="{{ url('/') }}/exam/nhs/overview"><i class="fa fa-angle-right"></i>PhD COURSES</a>
               </li>
 
             </ul>
@@ -48,12 +48,12 @@
           <div class="footer-widget">
             <span class="widget-title">HELP & SUPPORT</span>
             <ul class="footer-menu">
-              <li><a href="{{ url('/') }}/canada"><i class="ti-arrow-right"></i> FAQs</a></li>
-              <li><a href="{{ url('/') }}/usa"><i class="ti-arrow-right"></i> What People Say</a></li>
-              <li><a href="{{ url('/') }}/uk"><i class="ti-arrow-right"></i> Contact us</a></li>
-              <li><a href="{{ url('/') }}/"><i class="ti-arrow-right"></i> Terms & Conditions</a></li>
-              <li><a href="{{ url('/') }}/australia"><i class="ti-arrow-right"></i> Articles</a></li>
-              <li><a href="{{ url('/') }}/germany"><i class="ti-arrow-right"></i> Privacy Policy</a></li>
+              <li><a href="{{ url('/') }}/canada"><i class="fa fa-angle-right"></i> FAQs</a></li>
+              <li><a href="{{ url('/') }}/usa"><i class="fa fa-angle-right"></i> What People Say</a></li>
+              <li><a href="{{ url('/') }}/uk"><i class="fa fa-angle-right"></i> Contact us</a></li>
+              <li><a href="{{ url('/') }}/"><i class="fa fa-angle-right"></i> Terms & Conditions</a></li>
+              <li><a href="{{ url('/') }}/australia"><i class="fa fa-angle-right"></i> Articles</a></li>
+              <li><a href="{{ url('/') }}/germany"><i class="fa fa-angle-right"></i> Privacy Policy</a></li>
             </ul>
           </div>
         </div>

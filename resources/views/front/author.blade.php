@@ -135,7 +135,7 @@
 
         <div class="row justify-content-center">
           <a href="{{ url('articles') }}" class="btn btn-modern float-none">View all Articals<span><i
-                class="ti-arrow-right"></i></span></a>
+                class="fa fa-angle-right"></i></span></a>
         </div>
 
       </div>

@@ -55,7 +55,7 @@ class BlogFc extends Controller
     preg_match('/\d+$/', $slug, $matches);
     $blog_id = $matches[0] ?? null;
 
-    $blog = Blog::where('id', $blog_id)->firstOrFail();
+    $blog = Blog::where('cate_id', $category->id)->where('id', $blog_id)->firstOrFail();
     $blogs = Blog::website()->orderBy('id', 'desc')->where('id', '!=', $blog->id)->limit(12)->get();
     $categories = BlogCategory::website()->get();
 

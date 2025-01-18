@@ -9,7 +9,7 @@
   </div>
 @endif
 <div class="single_widgets widget_category">
-  <h5 class="title mb-3">Get in touch</h5>
+  <h5 class="title text-center">Get in touch</h5>
   <div class="row align-items-center booking p-0">
     @error('g-recaptcha-response')
       <span class="text-danger">{{ $message }}</span>
@@ -144,7 +144,7 @@
       <!-- Submit Button -->
       <div class="row">
         <div class="col-12">
-          <div class="form-group">
+          <div class="form-group  text-center mb-0">
             <button class="btn btn-primary" type="submit">Submit</button>
           </div>
         </div>

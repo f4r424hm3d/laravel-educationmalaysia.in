@@ -102,7 +102,7 @@
             <h4 class="title">Related Services</h4>
             <ul>
               @foreach ($services as $row)
-                <li><a href="{{ url($row->uri) }}">{{ $row->page_name }}<span><i class="ti-arrow-right"></i></span></a>
+                <li><a href="{{ url($row->uri) }}">{{ $row->page_name }}<span><i class="fa fa-angle-right"></i></span></a>
                 </li>
               @endforeach
             </ul>
