@@ -826,9 +826,9 @@ Route::get('universities-in-malaysia/remove-all-filter', [UniversityListFc::clas
 // UNIVERSITIES IN MALAYSIA ROUTES END
 
 // Fetch course levels and dynamically create routes
-$levels = DB::table('university_programs')->select('level')->where('website', site_var)->groupBy('level')->get();
+$lvls = UniversityProgram::select('level')->where(['status' => 1])->where('level', '!=', '')->where('level', '!=', null)->distinct()->get();
 
-foreach ($levels as $level) {
+foreach ($lvls as $level) {
   $level_slug = strtolower($level->level); // Convert level to lowercase
   Route::get('courses/' . $level_slug, [HomeFc::class, 'Courses']);
 }
