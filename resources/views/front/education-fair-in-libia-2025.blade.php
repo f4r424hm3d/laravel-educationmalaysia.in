@@ -73,57 +73,6 @@
     </div>
   </section>
 
-  <!-- <section class="registrationss">
-                <div class="container">
-                  <div class="row align-items-center">
-                    <div class="col-lg-9 mx-auto">
-
-                      <div class="fair-details">
-                        <h2 class="fairs">
-                          <span class="internationl-fa">International</span> <br> Education Fair <br>
-                          <span class="year-fair">2025</span>
-
-                        </h2>
-                        <p class="all-fair">{{ $pageDetail->date_and_address }}</p>
-
-                        <a href="#register" class="new-registor">Register Now</a>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              </section> -->
-
-  <!-- <section class="studaies-abroad">
-                <div class="container">
-                  <div class="row align-items-center">
-                    <div class="col-lg-6">
-                      <div class="abroad-students">
-                        <h2>Want to <br> study abroad?</h2>
-                        <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia doloribus pariatur autem
-                          officiis, veritatis vero consequatur natus sapiente voluptates, distinctio magni quae, hic eum quam
-                          obcaecati sunt tempora libero dolorem molestias enim! Mollitia!</p>
-                        <ul class="study-abroads">
-
-                          <li>No test required</li>
-                          <li>New job opportunites</li>
-                          <li>100% schollarship available</li>
-
-                        </ul>
-
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="abroad-imags">
-                        <img src="{{ url('/') }}/assets/images/study-abroad.png" class="studysimage" alt="">
-
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </section> -->
-
   <section class="registrations-fomrs" id="register">
     <div class="container">
       <div class="row ">
@@ -200,6 +149,20 @@
 
                 <div class="col-lg-12 col-md-6 col-sm-12">
                   <div class="form-group">
+                    <select name="nationality" class="form-control" required>
+                      <option value="">Select Nationality</option>
+                      <option value="Libyan" {{ old('nationality') == 'Libyan' ? 'selected' : '' }}>Libyan</option>
+                      <option value="Non-Libyan" {{ old('nationality') == 'Non-Libyan' ? 'selected' : '' }}>
+                        Non-Libyan</option>
+                    </select>
+                    @error('nationality')
+                      <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                  </div>
+                </div>
+
+                <div class="col-lg-12 col-md-6 col-sm-12">
+                  <div class="form-group">
                     <select name="highest_qualification" class="form-control" required>
                       <option value="">Select Highest Qualification</option>
                       @foreach ($levels as $row)
@@ -217,89 +180,17 @@
 
                 <div class="col-lg-12 col-md-6 col-sm-12">
                   <div class="form-group">
-                    <select name="nationality" class="form-control" required>
-                      <option value="">Select Nationality</option>
-                      <option value="Libian" {{ old('nationality') == 'Libian' ? 'selected' : '' }}>Libian</option>
-                      <option value="Non-Libian" {{ old('nationality') == 'Non-Libian' ? 'selected' : '' }}>
-                        Non-Libian</option>
-                    </select>
-                    @error('nationality')
-                      <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                  </div>
-                </div>
-
-                <div class="col-lg-12 col-md-6 col-sm-12">
-                  <div class="form-group">
-                    <select name="university" class="form-control" id="ef_university" required>
-                      <option value="">Select Interested University</option>
-                      @foreach ($pageDetail->universities as $row)
-                        <option value="{{ $row->university_id }}"
-                          {{ old('university') == $row->university_id ? 'selected' : '' }}>
-                          {{ $row->university->name }}
+                    <select name="program" class="form-control" id="ef_program">
+                      <option value="">Select Interested Course (Optional)</option>
+                      @foreach ($categories as $row)
+                        <option value="{{ $row->name }}" {{ old('program') == $row->name ? 'selected' : '' }}>
+                          {{ $row->name }}
                         </option>
                       @endforeach
-                    </select>
-                    @error('university')
-                      <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                  </div>
-                </div>
-
-                <div class="col-lg-12 col-md-6 col-sm-12">
-                  <div class="form-group">
-                    <select name="program" class="form-control" id="ef_program">
-                      <option value="">Select Interested Program (Optional)</option>
-                      @if ($programs != null)
-                        @foreach ($programs as $row)
-                          <option value="{{ $row->course_name }}"
-                            {{ old('program') == $row->course_name ? 'selected' : '' }}>
-                            {{ $row->course_name }}
-                          </option>
-                        @endforeach
-                      @endif
                     </select>
                     @error('program')
                       <span class="text-danger">{{ $message }}</span>
                     @enderror
-                  </div>
-                </div>
-
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <div class="input-group pdborder">
-                      <div class="input-icon ">
-                        <span id="password_icon_show" class="ti-eye" onclick="showPassword('password')"></span>
-                        <span id="password_icon_hide" class="ti-eye hide-this"
-                          onclick="hidePassword('password')"></span>
-                      </div>
-                      <input name="password" id="password" type="password" class="form-control "
-                        placeholder="Password">
-                    </div>
-                    <span class="text-danger">
-                      @error('password')
-                        {{ $message }}
-                      @enderror
-                    </span>
-                  </div>
-                </div>
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                  <div class="form-group pdborder">
-                    <div class="input-group">
-                      <div class="input-icon">
-                        <span id="confirm_password_icon_show" class="ti-eye"
-                          onclick="showPassword('confirm_password')"></span>
-                        <span id="confirm_password_icon_hide" class="ti-eye hide-this"
-                          onclick="hidePassword('confirm_password')"></span>
-                      </div>
-                      <input name="confirm_password" id="confirm_password" type="password" class="form-control"
-                        placeholder="Confirm Password">
-                    </div>
-                    <span class="text-danger">
-                      @error('confirm_password')
-                        {{ $message }}
-                      @enderror
-                    </span>
                   </div>
                 </div>
 
@@ -318,10 +209,10 @@
 
                 <div class="col-lg-12 col-md-12 col-sm-12">
                   <!-- <p>
-                                                                      <label for="test5">By clicking on register I agree to the
-                                                                        <a href="{{ url('terms-and-conditions') }}" target="_blank">terms & conditions</a>
-                                                                      </label>
-                                                                    </p> -->
+                                                                                            <label for="test5">By clicking on register I agree to the
+                                                                                              <a href="{{ url('terms-and-conditions') }}" target="_blank">terms & conditions</a>
+                                                                                            </label>
+                                                                                          </p> -->
                   <div class="form-check checkbx-white pl-4">
                     <input type="checkbox" class="form-check-input" id="test5">
                     <label class="form-check-label px-0 " for="test5">By clicking on register I agree to the
@@ -352,17 +243,17 @@
           <div class="row">
             <div class="col-12 mb-4">
               <div class="img-fari">
-              <img src="/assets/images/why-join.png" class="img-fluid" alt="">
+                <img src="/assets/images/why-join.png" class="img-fluid" alt="">
 
               </div>
             </div>
             <div class="col-12 mb-4">
-            <h2 class="set-fairs" >Why Join This Education Fair?</h2>
+              <h2 class="set-fairs">Why Join This Education Fair?</h2>
 
             </div>
             <div class="col-12 ">
-            <div class="img-fari">
-              <img src="/assets/images/whyjoins.png" class="imgfai" alt="">
+              <div class="img-fari">
+                <img src="/assets/images/whyjoins.png" class="imgfai" alt="">
 
               </div>
             </div>
@@ -373,62 +264,62 @@
           <div class="fariul">
             <span>1</span>
             <div class="fair-us">
-            <h2>Meet Top Universities</h2>
-            <p>Connect with Malaysia’s leading institutions in one place.</p>
+              <h2>Meet Top Universities</h2>
+              <p>Connect with Malaysia’s leading institutions in one place.</p>
             </div>
-            
-          </div>  
+
+          </div>
           <div class="fariul">
             <span>2</span>
             <div class="fair-us">
-            <h2>Exclusive Scholarships</h2>
-            <p>Learn about scholarships for Libyan students.</p>
+              <h2>Exclusive Scholarships</h2>
+              <p>Learn about scholarships for Libyan students.</p>
             </div>
-           
-          </div>  
+
+          </div>
           <div class="fariul">
             <span>3</span>
             <div class="fair-us">
-            <h2>Spot Admissions</h2>
-            <p>Apply on the spot for eligible programs.</p>
+              <h2>Spot Admissions</h2>
+              <p>Apply on the spot for eligible programs.</p>
             </div>
-            
+
           </div>
           <div class="fariul">
             <span>4</span>
             <div class="fair-us">
-            <h2>Visa & Travel Support</h2>
-            <p>Get step-by-step guidance on studying in Malaysia.</p>
+              <h2>Visa & Travel Support</h2>
+              <p>Get step-by-step guidance on studying in Malaysia.</p>
             </div>
-           
+
           </div>
           <div class="fariul">
             <span>5</span>
             <div class="fair-us">
-            <h2>Work & Internships</h2>
-            <p>Explore part-time work and internship options.</p>
+              <h2>Work & Internships</h2>
+              <p>Explore part-time work and internship options.</p>
             </div>
-            
+
           </div>
           <div class="fariul">
             <span>6</span>
             <div class="fair-us">
-            <h2>Work & Internships</h2>
-            <p>Learn about life and student support in Malaysia.</p>
+              <h2>Work & Internships</h2>
+              <p>Learn about life and student support in Malaysia.</p>
             </div>
-           
+
           </div>
           <div class="fariul">
             <span>7</span>
             <div class="fair-us">
-            <h2>Save Time and Effort</h2>
-            <p>Access all the information you need about studying in Malaysia.</p>
+              <h2>Save Time and Effort</h2>
+              <p>Access all the information you need about studying in Malaysia.</p>
             </div>
-            
+
           </div>
         </div>
       </div>
-     
+
     </div>
   </section>
 
@@ -480,47 +371,6 @@
 
     </div>
   </section>
-
-  <!-- <section class="fair-about">
-
-                <div class="container">
-                  <h2>Join the fair to learn about:</h2>
-                  <div class="row align-items-center ">
-                    <div class="col-lg-7">
-                      <ul class="ol-joins">
-                        <li class="li-joins">
-                          <span>1</span>
-                          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni non esse veritatis.</p>
-                        </li>
-                        <li class="li-joins">
-                          <span>2</span>
-                          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni non esse veritatis.</p>
-                        </li>
-                        <li class="li-joins">
-                          <span>3</span>
-                          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni non esse veritatis.</p>
-                        </li>
-                        <li class="li-joins">
-                          <span>4</span>
-                          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni non esse veritatis.</p>
-                        </li>
-                        <li class="li-joins">
-                          <span>5</span>
-                          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni non esse veritatis.</p>
-                        </li>
-                        <li class="li-joins">
-                          <span>6</span>
-                          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni non esse veritatis.</p>
-                        </li>
-
-                      </ul>
-                    </div>
-                    <div class="col-lg-5">
-                      <img src="{{ url('/') }}/assets/web/images/joins.jpg" class="img-fluid" alt="">
-                    </div>
-                  </div>
-                </div>
-              </section> -->
 
   <section class="education-fairs">
     <div class="container">
@@ -649,21 +499,6 @@
     </h2>
     <div class="container">
       <div class="row">
-        <!-- <div class="col-12">
-                      <div class="position-relative">
-                        <img src="{{ url('/') }}/assets/web/images/apply.png" class="passings" alt="">
-                        <div class="divmalaysiass">
-                          <h2 class="malaysiass">How to apply for scholarships in Malaysia?
-                          </h2>
-                          <p class="applyis">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                            beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-                            odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-                          </p>
-                        </div>
-                      </div>
-                    </div> -->
         <div class="col-12">
 
           <ol class="olrearsarch">
@@ -844,11 +679,11 @@
 
         </div>
         <!-- <div class="col-md-6">
-                      <div class="imgfaq">
-                        <img src="{{ url('/') }}/assets/web/images/faq.png" class="img-fluid" alt="">
+                        <div class="imgfaq">
+                          <img src="{{ url('/') }}/assets/web/images/faq.png" class="img-fluid" alt="">
 
-                      </div>
-                    </div> -->
+                        </div>
+                      </div> -->
       </div>
     </div>
   </section>
