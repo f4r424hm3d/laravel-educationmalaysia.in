@@ -61,26 +61,59 @@
         <div class="col-lg-8 col-md-12 col-sm-12 col-12">
           <div class="article_detail_wrapss single_article_wrap format-standard">
             <div class="article_body_wrap">
-              <div class="article_featured_image">
-                <img class="img-fluid w-100" src="{{ asset($blog->imgpath) }}" alt="{{ $blog->headline }}">
-              </div>
+              <h2 class="post-title">{{ $blog->headline }}</h2>
               <div class="article_top_info">
                 <ul class="article_middle_info">
                   @if ($blog->author_id != null)
-                    <li class="before-set" >
-                      <a href="javascript:void()">
-                        <span class="icons"><i class="ti-user"></i></span>
-                        by {{ $blog->author->name }}
-                      </a>
-                    </li>
+                    <div class="mb-3 mt-2">
+                      Published by <span class="clr"><i class="fa fa-user"></i> <a
+                          href="{{ url('author/' . $blog->author->slug) }}">{{ $blog->author->name }}</a>,</span>
+                      Updated
+                      on {{ getFormattedDate($blog->updated_at, 'd M, Y - h:i A') }}<span>
+                    </div>
                   @endif
                 </ul>
               </div>
-              <h2 class="post-title">{{ $blog->headline }}</h2>
+              <div class="article_featured_image">
+                <img class="img-fluid w-100" src="{{ asset($blog->imgpath) }}" alt="{{ $blog->headline }}">
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <h3>Table of Content</h3>
+                </div>
+                <div class="card-body pl-4 pr-4 bg-light">
+                  <div class="table-of-content">
+                    <ol class="top-level">
+                      @foreach ($blog->parentContents as $row)
+                        <li>
+                          <a href="#{{ $row->slug }}"><b>{{ $row->title }}</b></a>
+
+                          @if ($row->childContents->count() > 0)
+                            <ol>
+                              @foreach ($row->childContents as $child)
+                                <li><a href="#{{ $child->slug }}">{{ $child->title }}</a></li>
+                              @endforeach
+                            </ol>
+                          @endif
+                        </li>
+                      @endforeach
+                    </ol>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center mb-4">
+                <a onclick="window.location.href='{{ url('sign-up') }}'" href="javascript:void()" class="new-btn"
+                  rel="nofollow" title="Click to direct apply">Apply Here</a>
+                <a href="#enquiry-form" class="new-btn">Enquire Now</a>
+              </div>
+
               @foreach ($blog->contents as $row)
                 <h2 id="{{ $row->slug }}">{{ $row->title }}</h2>
-                <p>{{ $row->description }}</p><br>
+                <p>{!! $row->description !!}</p><br>
               @endforeach
+
               {!! $blog->description !!}
             </div>
           </div>
@@ -91,12 +124,13 @@
             <ul>
               @foreach ($categories as $row)
                 <li><a href="{{ route('blog.category', ['category_slug' => $row->slug]) }}">{{ $row->cate_name }}
-                <span><i class="fa fa-angle-right"></i></span>    
-              </a>
+                    <span><i class="fa fa-angle-right"></i></span>
+                  </a>
                 </li>
               @endforeach
             </ul>
           </div>
+          @include('front.forms.simple-form')
           <div class="single_widgets widget_thumb_post">
             <h4 class="title mb-3">Trending Posts</h4>
             <ul>
@@ -116,6 +150,20 @@
               @endforeach
             </ul>
           </div>
+          @if ($specializations->count() > 0)
+            <div class="single_widgets widget_category">
+              <h5 class="title">Trending Course</h5>
+              <ul>
+                @foreach ($specializations as $row)
+                  <li>
+                    <a href="{{ url('stream/' . $row->slug) }}">
+                      {{ $row->name }}<span><i class="fa fa-angle-right"></i></span>
+                    </a>
+                  </li>
+                @endforeach
+              </ul>
+            </div>
+          @endif
         </div>
       </div>
     </div>

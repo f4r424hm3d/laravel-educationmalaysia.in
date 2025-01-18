@@ -14,7 +14,11 @@ class Blog extends Model
   }
   public function contents()
   {
-    return $this->hasMany(BlogContent::class, 'id', 'blog_id')->orderBy('position', 'asc');
+    return $this->hasMany(BlogContent::class, 'blog_id', 'id')->orderBy('position', 'asc');
+  }
+  public function parentContents()
+  {
+    return $this->hasMany(BlogContent::class, 'blog_id', 'id')->orderBy('position', 'asc')->where('parent_id', null);
   }
   public function author()
   {

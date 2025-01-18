@@ -13,11 +13,9 @@
           <div class="ed_detail_wrap light">
             <ul class="cources_facts_list">
               <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
-              <li class="facts-1">All Articles</li>
+              <li class="facts-1"><a href="{{ url('get-info') }}">Get Info</a></li>
+              <li class="facts-1">{{ $category->cate_name }}</li>
             </ul>
-            <div class="ed_header_caption mb-0">
-              <h1 class="ed_title mb-0">All Articles</h1>
-            </div>
           </div>
         </div>
       </div>

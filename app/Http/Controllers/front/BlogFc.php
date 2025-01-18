@@ -5,6 +5,8 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\Country;
+use App\Models\CourseSpecialization;
 use App\Models\DefaultOgImage;
 use App\Models\DynamicPageSeo;
 use Illuminate\Http\Request;
@@ -55,7 +57,9 @@ class BlogFc extends Controller
     preg_match('/\d+$/', $slug, $matches);
     $blog_id = $matches[0] ?? null;
 
-    $blog = Blog::where('cate_id', $category->id)->where('id', $blog_id)->firstOrFail();
+    $updatedSlug = preg_replace('/-\d+$/', '', $slug);
+
+    $blog = Blog::where('cate_id', $category->id)->where('slug', $updatedSlug)->where('id', $blog_id)->firstOrFail();
     $blogs = Blog::website()->orderBy('id', 'desc')->where('id', '!=', $blog->id)->limit(12)->get();
     $categories = BlogCategory::website()->get();
 
@@ -84,7 +88,14 @@ class BlogFc extends Controller
 
     $og_image_path = $blog->imgpath == '' ? $dseo->ogimgpath : $blog->imgpath;
 
-    $data = compact('categories', 'blogs', 'blog', 'page_url', 'dseo', 'sub_slug', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path');
+    $specializations = CourseSpecialization::inRandomOrder()->limit(10)->get();
+    $countries = Country::orderBy('name', 'ASC')->get();
+    $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
+    $captcha = generateMathQuestion();
+    session(['captcha_answer' => $captcha['answer']]);
+    $source = 'Blog Page';
+
+    $data = compact('categories', 'blogs', 'blog', 'page_url', 'dseo', 'sub_slug', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'specializations', 'captcha', 'countries', 'phonecodes', 'source');
     return view('front.blog-detail')->with($data);
   }
 }
