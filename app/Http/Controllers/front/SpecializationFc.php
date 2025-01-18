@@ -31,7 +31,10 @@ class SpecializationFc extends Controller
     $specializations = CourseSpecialization::inRandomOrder()->where('id', '!=', $specialization->id)->limit(10)->get();
 
     // Fetch related universities
-    $relatedUniversities = UniversityProgram::select('university_id')->distinct()->where('specialization_id', $specialization->id)->get();
+    $relatedUniversities = University::whereHas('programs', function ($query) use ($specialization) {
+      $query->where('specialization_id', $specialization->id);
+    })->get();
+
 
     // printArray($relatedUniversities->toArray());
     // die;

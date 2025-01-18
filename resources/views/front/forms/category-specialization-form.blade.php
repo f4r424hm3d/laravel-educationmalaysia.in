@@ -14,7 +14,7 @@
     @error('g-recaptcha-response')
       <span class="text-danger">{{ $message }}</span>
     @enderror
-    <form action="{{ route('stream.inquiry') }}" method="post" class="p-3">
+    <form action="{{ route('stream.inquiry') }}" method="post" class="p-3" id="enquiry-form">
       @csrf
       @if (Request::segment(1) == 'stream')
         <input type="hidden" name="source" value="Education Malaysia - Specialization Page">

@@ -172,7 +172,7 @@ class UniversityProfileCoursesFc extends Controller
     $specialization = CourseSpecialization::find($specialization_id);
     $request->session()->put('UCF_specialization', $specialization_id);
     $request->session()->put('UCF_course_category', $specialization->course_category_id);
-    return $specialization->specialization_slug . '-courses';
+    return $specialization->slug . '-courses';
   }
   public function applyFilter(Request $request)
   {
