@@ -28,7 +28,7 @@
       }, {
         "@type": "ListItem",
         "position": 4,
-        "name": "{{ $exam->heading }}",
+        "name": "{{ $exam->headline }}",
         "item": "{{ url()->current() }}"
       }]
     }
@@ -49,9 +49,6 @@
               <li class="facts-1"><a href="{{ url($exam->uri) }}">{{ $exam->page_name }}</a>
               </li>
             </ul>
-            <div class="ed_header_caption mb-0">
-              <h1 class="ed_title mb-0">{{ $exam->heading }}</h1>
-            </div>
           </div>
         </div>
       </div>
@@ -67,12 +64,12 @@
         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 mb-4">
           <div class="new-exam-page  pages-examss">
 
-            <!-- <div class="sec-heading"> -->
-            <h3>{{ $exam->heading }}</h3>
+            <!-- <div class="sec-headline"> -->
+            <h3>{{ $exam->headline }}</h3>
             <!-- </div> -->
 
             @if ($exam->imgpath != null)
-              <img data-src="{{ asset($exam->imgpath) }}" alt="{{ $exam->heading }}">
+              <img data-src="{{ asset($exam->imgpath) }}" alt="{{ $exam->headline }}">
             @endif
 
             <div class="edu_wraper">
