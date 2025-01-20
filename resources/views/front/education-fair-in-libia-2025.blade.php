@@ -5,7 +5,10 @@
 @endpush
 @section('main-section')
   <section class="banner-section">
+  
     <div class="container">
+    <h2 class="banner-titles">MALAYSIAN UNIVERSITIES EDUCATION & TRAINING FAIR
+    </h2>
       <div class="row">
 
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -42,8 +45,10 @@
         <div class="col-lg-4 mb-4 ">
           <a href="{{ url('specialization') }}">
             <div class="flex flex-col all-flexx gap-3 items-center text-center h-100">
-              <img src="{{ url('/') }}/assets/web/images/png1.png" alt="">
-              <h2 class="text-xl font-bold">Courses</h2>
+<div class="imgflx">
+<img src="{{ url('/') }}/assets/images/courses.png" alt="">
+</div>
+            <h2 class="text-xl font-bold">Courses</h2>
               <p>Discover a diverse range of programs from undergraduate to postgraduate degrees, explore options in
                 medicine, engineering, business, IT, and more.</p>
             </div>
@@ -52,7 +57,9 @@
         <div class="col-lg-4 mb-4 ">
           <a href="{{ url(url()->current() . '/institutions') }}">
             <div class="flex flex-col all-flexx gap-3 h-100 items-center text-center">
-              <img src="{{ url('/') }}/assets/web/images/png2.png" alt="">
+             <div class="imgflx">
+             <img src="{{ url('/') }}/assets/images/institution.png" alt="">
+             </div>
               <h2 class="text-xl font-bold">Institutions</h2>
               <p>Connect with globally recognized Malaysian universities and institutions renowned for academic
                 excellence.
@@ -63,7 +70,9 @@
 
         <div class="col-lg-4 mb-4 ">
           <div class="flex flex-col all-flexx gap-3 h-100 items-center text-center">
-            <img src="{{ url('/') }}/assets/web/images/png3.png" alt="">
+           <div class="imgflx">
+           <img src="{{ url('/') }}/assets/images/scholarship.png" alt="">
+           </div>
             <h2 class="text-xl font-bold">Scholarships</h2>
             <p>Exclusive scholarship opportunities for Libyan students sponsored by the Libyan Government.</p>
           </div>
@@ -79,10 +88,21 @@
         <div class="col-md-6">
           <div class="fair-details">
             <h2 class="fairs">
-              <span class="internationl-fa">Education Fair 2025</span>
-
-            </h2>
-            <p class="all-fair">{{ $pageDetail->date_and_address }}</p>
+              Malaysian Universities Education & Training Fair  </h2>
+            <!-- <p class="all-fair mb-2">{{ $pageDetail->date_and_address }}</p> -->
+            
+            <ul class="set_uls" >
+              <li><b>Venue:</b> Libyan Academy for Postgraduate Studies, Tripoli, Libya</li>
+              <li><b>Date:</b> 22nd & 23rd February 2025</li>
+              <li><b>Time:</b> 9:30 AM – 1:00 PM & 4:00 PM – 8:00 PM</li>
+            </ul>
+            <ul class="set_uls" >
+              <li><b>Hosted by:</b>  Ministry of Higher Education and Scientific Research, Libya
+              </li>
+              <li><b>Organised by:</b> Malaysian Export Academy (MEXA), Malaysia
+              </li>
+              <li><b>Supported by:</b> NAPEI, Malaysia</li>
+            </ul>
             <div class="imgsfaird">
               <img src="/assets/images/libya-malaysia.png" class="imgsfairs" alt="">
             </div>
@@ -208,11 +228,7 @@
                 </div>
 
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                  <!-- <p>
-                                                                                            <label for="test5">By clicking on register I agree to the
-                                                                                              <a href="{{ url('terms-and-conditions') }}" target="_blank">terms & conditions</a>
-                                                                                            </label>
-                                                                                          </p> -->
+               
                   <div class="form-check checkbx-white pl-4">
                     <input type="checkbox" class="form-check-input" id="test5">
                     <label class="form-check-label px-0 " for="test5">By clicking on register I agree to the
@@ -237,80 +253,93 @@
 
   <section class="educationfairs">
     <div class="container">
+    <h2 class="set-fairs mb-4">Why Join This Education Fair?</h2>
+      <div class="row align-items-center  justify-content-center  ">
+       
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
+          
+        <div class="fariul">
+          <div class="flspan">
+          <span> <img src="/assets/images/top-universities.png " class="img-fluid" alt=""></span>
 
-      <div class="row align-items-center ">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-          <div class="row">
-            <div class="col-12 mb-4">
-              <div class="img-fari">
-                <img src="/assets/images/why-join.png" class="img-fluid" alt="">
-
-              </div>
-            </div>
-            <div class="col-12 mb-4">
-              <h2 class="set-fairs">Why Join This Education Fair?</h2>
-
-            </div>
-            <div class="col-12 ">
-              <div class="img-fari">
-                <img src="/assets/images/whyjoins.png" class="imgfai" alt="">
-
-              </div>
-            </div>
           </div>
-        </div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-6 ">
-
-          <div class="fariul">
-            <span>1</span>
             <div class="fair-us">
               <h2>Meet Top Universities</h2>
               <p>Connect with Malaysia’s leading institutions in one place.</p>
             </div>
 
           </div>
-          <div class="fariul">
-            <span>2</span>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
+        <div class="fariul">
+        <div class="flspan">
+        <span> <img src="/assets/images/Exclusive-Scholarship.png " class="img-fluid" alt=""></span>
+
+        </div>
             <div class="fair-us">
               <h2>Exclusive Scholarships</h2>
               <p>Learn about scholarships for Libyan students.</p>
             </div>
 
           </div>
-          <div class="fariul">
-            <span>3</span>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
+        <div class="fariul">
+        <div class="flspan">
+        <span> <img src="/assets/images/Spot-Admissions.png " class="img-fluid" alt=""></span>
+
+        </div>
             <div class="fair-us">
               <h2>Spot Admissions</h2>
               <p>Apply on the spot for eligible programs.</p>
             </div>
 
           </div>
-          <div class="fariul">
-            <span>4</span>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
+        <div class="fariul">
+        <div class="flspan">
+        <span> <img src="/assets/images/Visa-travel.png " class="img-fluid" alt=""></span>
+
+        </div>
             <div class="fair-us">
               <h2>Visa & Travel Support</h2>
               <p>Get step-by-step guidance on studying in Malaysia.</p>
             </div>
 
           </div>
-          <div class="fariul">
-            <span>5</span>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
+        <div class="fariul">
+        <div class="flspan">
+        <span> <img src="/assets/images/Work-Internships.png " class="img-fluid" alt=""></span>
+        </div>
             <div class="fair-us">
               <h2>Work & Internships</h2>
               <p>Explore part-time work and internship options.</p>
             </div>
 
           </div>
-          <div class="fariul">
-            <span>6</span>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
+        <div class="fariul">
+        <div class="flspan">
+        <span> <img src="/assets/images/Cultural-Insights.png " class="img-fluid" alt=""></span>
+
+        </div>
             <div class="fair-us">
-              <h2>Work & Internships</h2>
+              <h2>Cultural Insights</h2>
               <p>Learn about life and student support in Malaysia.</p>
             </div>
 
           </div>
-          <div class="fariul">
-            <span>7</span>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
+        <div class="fariul">
+            <div class="flspan">
+            <span> <img src="/assets/images/save-time.png " class="img-fluid" alt=""></span>
+
+            </div>
             <div class="fair-us">
               <h2>Save Time and Effort</h2>
               <p>Access all the information you need about studying in Malaysia.</p>
@@ -318,6 +347,7 @@
 
           </div>
         </div>
+
       </div>
 
     </div>
@@ -403,11 +433,11 @@
           Fair Special?</h2>
 
       </div>
-      <div class="row align-items-center ">
+      <div class="row">
 
         <div class="col-12 col-sm-12 col-md-4 mb-4">
-          <div class="cards-special">
-            <img src="/assets/images/govt-user.png" class="img-speacil" alt="">
+          <div class="cards-spec">
+            
             <div class="special-black event-overlay">
 
               <h2>Government Sponsored Scholarships</h2>
@@ -420,8 +450,7 @@
           </div>
         </div>
         <div class="col-12 col-sm-12 col-md-4 mb-4">
-          <div class="cards-special">
-            <img src="/assets/images/meet-uni.png" class="img-speacil" alt="">
+          <div class="cards-spec">
             <div class="special-black event-overlay">
 
               <h2>Meet University Representatives</h2>
@@ -433,8 +462,8 @@
           </div>
         </div>
         <div class="col-12 col-sm-12 col-md-4 mb-4">
-          <div class="cards-special">
-            <img src="/assets/images/instant.png" class="img-speacil" alt="">
+          <div class="cards-spec">
+           
             <div class="special-black event-overlay">
 
               <h2>On-The-Spot Offers and Admissions</h2>
@@ -446,8 +475,7 @@
           </div>
         </div>
         <div class="col-12 col-sm-12 col-md-4 mb-4">
-          <div class="cards-special">
-            <img src="/assets/images/Scholarshi 1.png" class="img-speacil" alt="">
+          <div class="cards-spec">
             <div class="special-black event-overlay">
 
               <h2>
@@ -460,8 +488,7 @@
           </div>
         </div>
         <div class="col-12 col-sm-12 col-md-4 mb-4">
-          <div class="cards-special">
-            <img src="/assets/images/intratative 1.png" class="img-speacil" alt="">
+          <div class="cards-spec">
             <div class="special-black event-overlay">
 
               <h2>
@@ -474,8 +501,7 @@
           </div>
         </div>
         <div class="col-12 col-sm-12 col-md-4 mb-4">
-          <div class="cards-special">
-            <img src="/assets/images/Comprehensive 1.png" class="img-speacil" alt="">
+          <div class="cards-spec">
             <div class="special-black event-overlay">
 
               <h2>
@@ -641,25 +667,28 @@
   </section>
 
   <section class="faq-sections">
-    <div class=" faq-details">
-      Frequently Ask Question
-    </div>
+   
     <div class="container">
+    <div class=" faq-details">
+      Frequently Ask <span>Question</span>
+    </div>
       <div class="row align-items-center">
         <div class="col-md-12">
 
           <div id="accordion" class="mainacc">
             <div class="card-diff">
+              <div class="row">
               @foreach ($pageDetail->faqs as $row)
-                <div class=" card">
+              <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-4">
+                <div class=" card mb-0">
                   <div class="card-header" id="heading{{ $row->id }}">
                     <h5 class="mb-0">
-                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ $row->id }}"
+                      <button class="btn btn-link" data-toggle="collapsed" data-target="#collapse{{ $row->id }}"
                         aria-expanded="true" aria-controls="collapse{{ $row->id }}">
-                        <div class="d-flex justify-content-between gapss align-items-center">
+                        <div class="clickfa d-flex justify-content-between gapss align-items-center">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                          <h2 class="span-accord">{{ $row->question }}</h2> 
 
-                          <h2 class="span-accord">{{ $row->question }}</h2> <i class="fa fa-arrow-down downs"
-                            aria-hidden="true"></i>
 
                         </div>
                       </button>
@@ -668,11 +697,14 @@
                   <div id="collapse{{ $row->id }}" class="collapse show"
                     aria-labelledby="heading{{ $row->id }}" data-parent="#accordion">
                     <div class="card-body">
-                      {!! $row->answer !!}
+                     <p class="card-anwer" > {!! $row->answer !!}</p>
                     </div>
                   </div>
                 </div>
+                </div>
               @endforeach
+              </div>
+             
             </div>
 
           </div>

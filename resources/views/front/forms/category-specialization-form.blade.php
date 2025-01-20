@@ -30,7 +30,7 @@
         <div class="col-12">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control"
+            <input placeholder="Name" type="text" name="name" id="name" value="{{ old('name') }}" class="form-control"
               pattern="[a-zA-Z\s]+" required>
             @error('name')
               <span class="text-danger">{{ $message }}</span>
@@ -44,7 +44,7 @@
         <div class="col-12">
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" name="email" id="email" value="{{ old('email') }}"
+            <input  placeholder="Email" type="email" class="form-control" name="email" id="email" value="{{ old('email') }}"
               required>
             @error('email')
               <span class="text-danger">{{ $message }}</span>

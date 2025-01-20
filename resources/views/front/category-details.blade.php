@@ -74,10 +74,7 @@
           <div class="new-exam-page">
 
             <div class="edu_wraper">
-              @if ($og_image_path)
-                <img src="{{ asset($og_image_path) }}" alt="" class="imgcss img-responsive loading"
-                  data-was-processed="true">
-              @endif
+
               @foreach ($category->contents as $row)
                 <div class="new-box mb-5" id="{{ slugify($row->tab) }}">
                   {!! $row->description !!}

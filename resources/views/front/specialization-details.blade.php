@@ -35,6 +35,18 @@
 @endpush
 @section('main-section')
   <!-- Breadcrumb -->
+  <div class="new-top-header">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-md-8">
+					<h2 class="malaysia-student">Accounting Finance Course in Malaysia : Complete Guide for International Students </h2> 
+				</div>
+				<div class="col-md-4">
+											<img src="https://www.educationmalaysia.in/assets/web/images/em-cource-img-lite.webp" alt="accounting finance in Malaysia" class="initial loading" data-was-processed="true">
+									</div>
+			</div>
+		</div>
+	</div>
   <div class="image-cover ed_detail_head" data-overlay="8">
     <div class="container">
       <div class="row align-items-center">
@@ -73,24 +85,31 @@
       <div class="row">
 
         <div class="col-lg-8 col-md-8">
-          <div class="new-exam-page">
+          <div class="new-exam-page set-exam-pages ">
             @php
               $pgcont = 1;
             @endphp
             @foreach ($specialization->contents as $row)
-              <div class="new-box mb-5" id="{{ slugify($row->tab) }}">
+              <div class="new-box mb-4" id="{{ slugify($row->tab) }}">
                 {!! $row->description !!}
+
+
+
               </div>
               @if ($pgcont == 1)
                 <img data-src="{{ asset($og_image_path) }}" loading="lazy" alt="{{ $specialization->name }}"
                   class="img-responsive loading" data-was-processed="true">
 
-                <div class="text-center mt-4">
+                <div class="text-center mt-4 acn-gap ">
                   <a onclick="window.location.href='{{ url('sign-up') }}'" href="javascript:void()" target="blank"
-                    class="btn btn-sm btn-primary" rel="nofollow" title="Click to direct apply">Apply Here</a>
-                  <a href="#enquiry-form" class="btn btn-sm btn-primary" data-toggle="tooltip"
-                    title="View All Courses">Enquire
-                    Now</a>
+                    class="new-btn-sms" rel="nofollow" title="Click to direct apply">Apply Here <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+									</svg> </a>
+                  <a href="#enquiry-form" class="new-btn-sms" data-toggle="tooltip"
+                    title="View All Courses">Enquire Now<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+									</svg>
+                    </a>
                 </div>
                 <br>
                 <div>
@@ -105,31 +124,47 @@
                           ])->count();
                         @endphp
                         <div class="card card-body">
-                          <div class="row">
-                            <div class="col-md-2 col-xs-12">
-                              <img data-src="{{ asset($row->logo_path) }}" class="img-responsive"
-                                alt="{{ $row->name }} Logo">
+                          <div class="row align-items-center">
+                            <div class="col-md-2 col-xs-12 mb-3">
+                              <div class="details-img">
+                              <img data-src="{{ asset($row->logo_path) }}" class="img-fluid"
+                              alt="{{ $row->name }} Logo">
+                              </div>
                             </div>
-                            <div class="col-md-10 col-xs-12 pl0">
+                            <div class="col-md-10 col-xs-12 mb-3">
+                              <div class="detail-rating">
                               <a target="_blank" href="{{ url('university/' . $row->uname) }}">{{ $row->name }}</a>
                               <div class="loc-rating">
                                 <span><i class="fa fa-map-marker"></i> {{ $row->state }}</span>
                                 <span style="padding-left:12px"><i class="fa fa-graduation-cap"></i>
                                   {{ $row->inst_type }}</span>
                               </div>
+                              </div>
                             </div>
                           </div>
-                          <div class="row footer">
+                          <div class="row">
                             <div class="col-md-7 col-xs-12">
-                              Courses: <em>{{ $row->programs->count() }}</em> <span></span>
-                              World Rank: <em>{{ $row->qs_rank }}</em> <span></span>
-                              Scholarship: <em>Yes</em>
+                             <div class="d-flex cor-gaps">
+                             <div class="d-flex courcs-gap ">
+                                <h6> Courses:</h6>  <span>{{ $row->programs->count() }}</span>
+                              </div>
+                              <div class="d-flex courcs-gap">
+                                <h6>  World Rank:</h6>  <span>{{ $row->qs_rank }}</span>
+                              </div>
+
+                              <div class="d-flex courcs-gap">
+                                <h6>  Scholarship: <em>Yes</em></h6>  <span>{{ $row->programs->count() }}</span>
+                              </div>
+                             </div>
+                             
+                              <em></em>
+                            
                             </div>
                             <div class="col-md-5 col-xs-12">
                               <div class="btn-mobile">
-                                <button class="btn btn-sm btn-info"
+                                <button class="set-bx"
                                   onclick="goToUniPrograms('{{ $row->uname }}', '{{ $specialization->id }}')">
-                                  <span>{{ $allspcprograms }} {{ $specialization->name }} Courses Available</span>
+                                 {{ $allspcprograms }} {{ $specialization->name }} Courses Available
                                 </button>
                               </div>
                             </div>
@@ -137,8 +172,8 @@
                         </div>
                       @endforeach
                     </div>
-                    <div class="text-center">
-                      <a href="{{ url($specialization->slug . '-courses') }}" class="btn btn-md btn-primary">
+                    <div class="text-center mb-4">
+                      <a href="{{ url($specialization->slug . '-courses') }}" class="btn  btn-primary">
                         Browse All Courses</a>
                     </div>
                   @endif
@@ -148,7 +183,69 @@
                 $pgcont++;
               @endphp
             @endforeach
+            <div class="boxfaq">
+  <h2>FAQs : ANIMAL SCIENCE</h2>
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headdingbx">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#onebx" aria-expanded="true" aria-controls="onebx">
+        What exactly is Animal Science, and what is it?
+        </button>
+      </h5>
+    </div>
+
+    <div id="onebx" class="collapse " aria-labelledby="headdingbx" data-parent="#accordion">
+      <div class="card-body">
+    <p class="mb-0">
+    Animal Science is studying animals' biology, nutrition, animal genetics, management of livestock as well as veterinary treatment. The program prepares students to work in the fields of animal health, agriculture research, conservation, and animal health. 
+    </p>  
+    </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headdingss">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#colaspadd" aria-expanded="false" aria-controls="colaspadd">
+        What universities provide Animal Science programs in Malaysia?
+        </button>
+      </h5>
+    </div>
+    <div id="colaspadd" class="collapse" aria-labelledby="headdingss" data-parent="#accordion">
+      <div class="card-body">
+      <p class="mb-0">The top institutions that offer Animal Science comprise:
+</p><ul class="p-0 m-0" >
+  <li>Universiti Putra Malaysia (UPM)</li>
+  <li>Universiti Malaysia Kelantan (UMK)</li>
+  <li>Universiti Malaysia Sarawak (UNIMAS)</li>
+</ul>
+<p></p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headdbxs">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#coallthree" aria-expanded="false" aria-controls="coallthree">
+        What is the level of education to study Animal Science In Malaysia?
+        </button>
+      </h5>
+    </div>
+    <div id="coallthree" class="collapse" aria-labelledby="headdbxs" data-parent="#accordion">
+      <div class="card-body">
+      <ul class="p-0 m-0">
+  <li>Certificate: 2 to 3 years</li>
+  <li>Bachelor's Degree: Four years</li>
+  <li>Master's Degree: 1 to 2 years</li>
+  <li>PhD: 3 to 5 years</li>
+</ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
           </div>
+    
         </div>
 
         <!-- Sidebar -->

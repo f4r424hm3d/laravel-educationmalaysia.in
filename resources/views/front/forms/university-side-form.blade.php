@@ -49,7 +49,7 @@
             @enderror
           </div>
           <div class="col-8 pl-1">
-            <div class="form-group">
+            <div class="form-group mb-0">
               <div class="input-group">
                 <input name="mobile" type="text" class="form-control bg-white" placeholder="Mobile/WhatsApp No*"
                   value="{{ old('mobile') }}" required="">
@@ -90,13 +90,13 @@
         </div>
       </div>
       <div class="col-lg-12 mb-3">
-        <div class="social-login mb-3 d-flex align-items-center">
+        <div class="social-login ddd-login mb-3 d-flex align-items-center">
           <ul>
             <li class="b-0 p-0" style="width:auto">
               <input id="reg" class="checkbox-custom m-0" name="reg" type="checkbox" required>
               <label for="reg" class="checkbox-custom-label m-0 float-left">I accept the</label>
-              <a href="{{ url('terms-conditions') }}" class="theme-cl font-size-13 m-0">
-                <u class="ml-2">Terms & Conditions</u>
+              <a href="{{ url('terms-conditions') }}" class="p-0">
+               <span class="pl-1 float-left" > Terms & Conditions</span>
               </a>
             </li>
           </ul>

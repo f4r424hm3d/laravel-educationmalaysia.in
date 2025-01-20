@@ -47,7 +47,7 @@
 
           @if ($university->overviews->count() > 0)
             <!-- Overview -->
-            <div class="edu_wraper all-overviews">
+            <div class="edu_wraper all-overviews show-overs">
               <div class="show-more-box">
                 <div class="text show-more-height">
                   @foreach ($university->overviews as $row)
@@ -70,7 +70,7 @@
             <!-- Call to action -->
             <div class="d-flex justify-content-center align-items-center set-gap my-3">
               <h3 class="intake_fee mb-0"> GET DETAILS ON FEE, ADMISSION, INTAKE</h3>
-              <a href="{{ url('/sign-up/?return_to=') }}" class="btn btn-primary">Apply Now</a>
+              <button href="{{ url('/sign-up/?return_to=') }}" class="btn btn-primary">Apply Now</>
             </div>
             <div class="card">
               <div id="headingTwo" class="card-header bg-white shadow-sm border-0 pl-4 pr-4">
@@ -142,8 +142,8 @@
                       </div>
                     </div>
                   </div>
-                  <div align="center"><a href="{{ url('university/' . $university->uname . '/courses') }}"
-                      class="btn btn-primary">View all courses</a>
+                  <div align="center"><button href="{{ url('university/' . $university->uname . '/courses') }}"
+                      class="btn btn-primary">View all courses</>
                   </div>
                 </div>
               </div>

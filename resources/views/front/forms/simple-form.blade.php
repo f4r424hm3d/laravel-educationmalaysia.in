@@ -25,7 +25,7 @@
         <div class="col-md-12">
           <div class="form-group text-left">
             <label for="name">Name</label>
-            <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control"
+            <input placeholder="Name" type="text" name="name" id="name" value="{{ old('name') }}" class="form-control"
               pattern="[a-zA-Z\s]+" required>
             @error('name')
               <span class="text-danger">{{ $message }}</span>
