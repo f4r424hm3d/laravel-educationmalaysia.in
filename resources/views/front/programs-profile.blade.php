@@ -208,13 +208,13 @@
             </div>
           @endif
 
-          @if ($program->entry_requirement != null)
+          @if ($program->overview != null)
             <div class="edu_wraper">
-              <h2 class="course-new-title mb-2">Entry Requirement</h2>
+              <h2 class="course-new-title mb-2">Course Overview</h2>
               <div class="row align-items-center">
                 <div class="col-md-12">
                   <div class="course-new-sc">
-                    {!! $program->entry_requirement !!}
+                    {!! $program->overview !!}
                   </div>
                 </div>
               </div>
@@ -222,14 +222,51 @@
           @endif
 
           <div id="accordionExample" class="accordion shadow circullum mt-4">
+            @if ($program->contents->count() > 0)
+              @foreach ($program->contents as $ucc)
+                <div class="card">
+                  <div id="headingFive{{ $ucc->id }}" class="card-header bg-white shadow-sm border-0">
+                    <h6 class="mb-0 accordion_title title-accord"><a href="#" data-toggle="collapse"
+                        data-target="#collapseFive{{ $ucc->id }}" aria-expanded="false"
+                        aria-controls="collapseFive{{ $ucc->id }}"
+                        class="d-block position-relative collapsed text-dark collapsible-link py-2">{{ $ucc->tab_title }}</a>
+                    </h6>
+                  </div>
+                  <div id="collapseFive{{ $ucc->id }}" aria-labelledby="headingFive{{ $ucc->id }}"
+                    data-parent="#accordionExample" class="collapse">
+                    <div class="card-body pl-4 pr-4">
+                      <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 p-0">
+                          <div class="arrow_slide two_slide-dots arrow_middle">
+                            <div class="singles_items">
+                              <div class="box content">
+                                <h3>
+                                  {{ $ucc->tab_title }} of {{ $program->course_name }} in {{ $university->name }}
+                                  Malaysia
+                                </h3>
+                                {!! $ucc->description !!}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              @endforeach
+            @endif
+          </div>
 
-            @if ($trendingUniversity->count() > 0)
+          <div id="accordionExample" class="accordion shadow circullum mt-4">
+            @if ($similarPrograms->count() > 0)
               <div class="card">
                 <div id="headingFive" class="card-header bg-white shadow-sm border-0">
-                  <h6 class="mb-0 accordion_title title-accord"><a href="#" data-toggle="collapse" data-target="#collapseFive"
-                      aria-expanded="true" aria-controls="collapseFive"
-                      class="d-block position-relative collapsed text-dark collapsible-link py-2">Top Trending
-                      Universities</a>
+                  <h6 class="mb-0 accordion_title title-accord">
+                    <a href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true"
+                      aria-controls="collapseFive"
+                      class="d-block position-relative collapsed text-dark collapsible-link py-2">
+                      Similar Programs
+                    </a>
                   </h6>
                 </div>
                 <div id="collapseFive" aria-labelledby="headingFive" data-parent="#accordionExample"
@@ -238,30 +275,43 @@
                     <div class="row">
                       <div class="col-lg-12 col-md-12 col-sm-12 p-0">
                         <div class="arrow_slide two_slide-dots arrow_middle">
-                          @foreach ($trendingUniversity as $tu)
-                            <!-- Single Slide -->
-
+                          @foreach ($similarPrograms as $tu)
                             <div class="singles_items">
-
                               <div class="education_block_grid style_2 mb-3">
                                 <div class="education_block_body mb-0">
                                   <div class="row align-items-center mb-2 mx-auto mt-3">
                                     <div class="col-3">
                                       <div class="path-img border-primary border rounded p-2">
-                                        <img data-src="{{ asset($tu->imgpath) }}" class="img-fluid rounded"
+                                        <img data-src="{{ asset($tu->university->imgpath) }}" class="img-fluid rounded"
                                           alt="">
                                       </div>
                                     </div>
                                     <div class="col-9">
-                                      <h6 class="mb-1">{{ $tu->name }}</h6>
-                                      <i class="ti-location-pin mr-2"></i>{{ $tu->city }},
-                                      {{ $tu->state }}<br />
-                                      <i class="ti-eye mr-2"></i>{{ $tu->instituteType->type ?? 'N/A' }}
+                                      <h6 class="mb-1">{{ $tu->university->name }}</h6>
+                                      <i class="ti-location-pin mr-2"></i>{{ $tu->university->city }},
+                                      {{ $tu->university->state }}<br />
+                                      <i class="ti-eye mr-2"></i>{{ $tu->university->instituteType->type ?? 'N/A' }}
                                     </div>
                                   </div>
                                 </div>
 
                                 <div class="education_block_footer pl-3 pr-3">
+                                  <div class="col-md-7 col-xs-12">
+                                    <h3>
+                                      <a
+                                        href="{{ url('university/' . $tu->university->uname . '/course/' . $tu->slug) }}">
+                                        {{ $tu->course_name }}
+                                      </a>
+                                    </h3>
+                                    <div class="aminities">
+                                      <?php echo $tu->duration; ?>
+                                      <span></span>
+                                      <?php echo $tu->study_mode; ?>
+                                      <span></span>
+                                      <?php echo $tu->intake; ?>
+                                    </div>
+                                  </div>
+
                                   <a href="{{ route('university.overview', ['university_slug' => $tu->slug]) }}"
                                     class="card-btn mr-3" style="font-size:13px">View
                                     detials</a>
@@ -272,7 +322,6 @@
                               </div>
                             </div>
                           @endforeach
-
                         </div>
                       </div>
                     </div>
@@ -280,7 +329,69 @@
                 </div>
               </div>
             @endif
+          </div>
 
+          <div class="card">
+            <div class="card-header">
+              <h3>{{ $university->name }} Popular Courses</h3>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-2 top-streams">Top Streams:</div>
+                <div class="col-md-10">
+                  @foreach ($universtySpecializationsForCourses as $row)
+                    <span onclick="goToUniPrograms('{{ $university->uname }}', '{{ $row->id }}')"
+                      style="display: inline-block; margin: 0px 3px 10px 0px; border: 1px solid #535353; border-radius: 20px; padding: 4px 10px; cursor: pointer;">
+                      {{ $row->name }}
+                    </span>
+                  @endforeach
+                  <a style="display: inline-block; margin: 0px 3px 10px 0px; border: 1px solid #535353; border-radius: 20px; padding: 4px 10px; cursor: pointer;"
+                    target="_blank" href="{{ url('university/' . $university->uname . '/courses') }}"
+                    class="btn btn-sm btn-primary">View All</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Malaysia Popular Courses</h3>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-2 top-streams">Top Streams:</div>
+                <div class="col-md-10">
+                  @foreach ($randomSpecializations as $row)
+                    <a style="display: inline-block; margin: 0px 3px 10px 0px; border: 1px solid #535353; border-radius: 20px; padding: 4px 10px; cursor: pointer;"
+                      target="_blank" href="{{ url($row->slug . '-courses') }}">{{ $row->name }}</a>
+                  @endforeach
+                  <a style="display: inline-block; margin: 0px 3px 10px 0px; border: 1px solid #535353; border-radius: 20px; padding: 4px 10px; cursor: pointer;"
+                    target="_blank" href="{{ url('courses-in-malaysia') }}" class="btn btn-sm btn-primary">View
+                    All</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Top Courses to Study in Malaysia</h3>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-2 top-streams">Top Streams:</div>
+                <div class="col-md-10">
+                  @foreach ($specializationsWithContents as $row)
+                    <a style="display: inline-block; margin: 0px 3px 10px 0px; border: 1px solid #535353; border-radius: 20px; padding: 4px 10px; cursor: pointer;"
+                      target="_blank"
+                      href="{{ route('specialization.detail', ['slug' => $row->slug]) }}">{{ $row->name }}</a>
+                  @endforeach
+                  <a style="display: inline-block; margin: 0px 3px 10px 0px; border: 1px solid #535353; border-radius: 20px; padding: 4px 10px; cursor: pointer;"
+                    target="_blank" href="{{ url('specialization') }}" class="btn btn-sm btn-primary">View
+                    All</a>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>

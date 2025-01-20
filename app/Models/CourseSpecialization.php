@@ -23,6 +23,7 @@ class CourseSpecialization extends Model
   {
     return $this->hasMany(UniversityProgram::class, 'specialization_id', 'id');
   }
+
   public function universities()
   {
     return $this->hasManyThrough(

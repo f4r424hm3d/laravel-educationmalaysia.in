@@ -236,7 +236,19 @@ class UniversityProfileCoursesFc extends Controller
     $captcha = generateMathQuestion();
     session(['captcha_answer' => $captcha['answer']]);
 
-    $data = compact('program', 'university', 'trendingUniversity', 'path', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'months', 'breadcrumbCurrent', 'countries', 'phonecodes', 'captcha', 'levels', 'course_categories');
+    $universtySpecializationsForCourses = CourseSpecialization::inRandomOrder()->whereHas('programs', function ($query) use ($university) {
+      $query->where('university_id', $university->id);
+    })->limit(15)->get();
+
+    $randomSpecializations = CourseSpecialization::inRandomOrder()->whereHas('programs', function ($query) use ($university) {
+      $query->where('status', 1);
+    })->limit(15)->get();
+
+    $specializationsWithContents = CourseSpecialization::inRandomOrder()->whereHas('contents')->limit(15)->get();
+
+    $similarPrograms = UniversityProgram::inRandomOrder()->where('level', $program->level)->where('specialization_id', $program->specialization_id)->limit(10)->get();
+
+    $data = compact('program', 'university', 'trendingUniversity', 'path', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'months', 'breadcrumbCurrent', 'countries', 'phonecodes', 'captcha', 'levels', 'course_categories', 'universtySpecializationsForCourses', 'randomSpecializations', 'specializationsWithContents', 'similarPrograms');
     return view('front.programs-profile')->with($data);
   }
 }
