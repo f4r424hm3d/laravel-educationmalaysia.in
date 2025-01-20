@@ -43,9 +43,6 @@
               <li class="facts-1"><a href="{{ url('courses') }}">Courses</a></li>
               <li class="facts-1">{{ $category->name }}</li>
             </ul>
-            <div class="ed_header_caption mb-0">
-              <h1 class="ed_title mb-0">{{ $category->name }}</h1>
-            </div>
           </div>
         </div>
       </div>
