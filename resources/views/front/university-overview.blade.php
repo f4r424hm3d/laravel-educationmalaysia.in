@@ -69,9 +69,8 @@
           <div id="accordionExample" class="accordion shadow circullum">
             <!-- Call to action -->
             <div class="d-flex justify-content-center align-items-center set-gap my-3">
-              <h3 class="intake_fee mb-0" > GET DETAILS ON FEE, ADMISSION, INTAKE</h3>
-             <button href="{{ url('/sign-up/?return_to=') }}"
-                class="btn btn-primary">Apply Now</button>
+              <h3 class="intake_fee mb-0"> GET DETAILS ON FEE, ADMISSION, INTAKE</h3>
+              <a href="{{ url('/sign-up/?return_to=') }}" class="btn btn-primary">Apply Now</a>
             </div>
             <div class="card">
               <div id="headingTwo" class="card-header bg-white shadow-sm border-0 pl-4 pr-4">
@@ -143,8 +142,8 @@
                       </div>
                     </div>
                   </div>
-                  <div align="center"><button href="{{ url('university/' . $university->uname . '/courses') }}"
-                      class="btn btn-primary">View all courses</button>
+                  <div align="center"><a href="{{ url('university/' . $university->uname . '/courses') }}"
+                      class="btn btn-primary">View all courses</a>
                   </div>
                 </div>
               </div>
