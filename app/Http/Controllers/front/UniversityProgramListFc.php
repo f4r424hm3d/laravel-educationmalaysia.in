@@ -106,7 +106,9 @@ class UniversityProgramListFc extends Controller
 
     $page_contents = 'Find a list of Courses in Malaysia to study at top private & Public universities in Malaysia. Learn about the course duration, intake, tuition fee, and discover information about leading private universities offering diploma, bachelor degree, master programs, and phd courses. Apply directly for your desired courses today.';
 
-    $data = compact('rows', 'i', 'total', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'levelListForFilter', 'categoryListForFilter', 'spcListForFilter', 'studyModes',  'curLevel', 'curCat', 'curSpc', 'intakes', 'npu', 'ppu', 'page_contents');
+    $specializations = CourseSpecialization::whereHas('contents')->limit(20)->get();
+
+    $data = compact('rows', 'i', 'total', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'levelListForFilter', 'categoryListForFilter', 'spcListForFilter', 'studyModes',  'curLevel', 'curCat', 'curSpc', 'intakes', 'npu', 'ppu', 'page_contents', 'specializations');
     return view('front.courses-in-malaysia')->with($data);
   }
   public function filterUniversity(Request $request)
@@ -224,7 +226,9 @@ class UniversityProgramListFc extends Controller
 
     $page_contents = 'Discover a list of ' . $noc . ' ' . $pageContentKeyword . ' courses offered by the Top ' . $nou . ' universities and colleges in Malaysia. Gather valuable information such as entry requirements, fee structures, intake schedules for ' . date('Y') . ', study modes, and recommendations for the best universities and colleges offering ' . $pageContentKeyword . ' degree programs. Enroll directly in ' . $pageContentKeyword . ' courses through EducationMalaysia.in.';
 
-    $data = compact('rows', 'i', 'total', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'levelListForFilter', 'categoryListForFilter', 'spcListForFilter', 'studyModes', 'curLevel', 'curCat', 'curSpc', 'intakes', 'npu', 'ppu', 'page_contents');
+    $specializations = CourseSpecialization::whereHas('contents')->limit(20)->get();
+
+    $data = compact('rows', 'i', 'total', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'levelListForFilter', 'categoryListForFilter', 'spcListForFilter', 'studyModes', 'curLevel', 'curCat', 'curSpc', 'intakes', 'npu', 'ppu', 'page_contents', 'specializations');
     return view('front.courses-in-malaysia')->with($data);
   }
 
