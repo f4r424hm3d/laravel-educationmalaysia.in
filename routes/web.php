@@ -722,6 +722,7 @@ Route::get('/course/{slug}', [CourseCategoryFc::class, 'detail'])->name('categor
 
 
 Route::get('/faqs', [FaqFc::class, 'index'])->name('faqs');
+Route::get('/faq/{category_slug}', [FaqFc::class, 'byCategory'])->name('faq.category');
 //Route::get('/faq/scholarship', [FaqFc::class, 'SchFaq'])->name('faq.scholarship');
 
 Route::get('privacy-policy', [HomeFc::class, 'privacyPolicy'])->name('pp');

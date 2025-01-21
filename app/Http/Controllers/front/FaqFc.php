@@ -15,4 +15,11 @@ class FaqFc extends Controller
     $data = compact('categories');
     return view('front.faqs')->with($data);
   }
+  public function byCategory($category_slug, Request $request)
+  {
+    $category = FaqCategory::where('category_slug', $category_slug)->firstOrFail();
+    $categories = FaqCategory::whereHas('faqs')->get();
+    $data = compact('categories', 'category');
+    return view('front.faq-by-category')->with($data);
+  }
 }
