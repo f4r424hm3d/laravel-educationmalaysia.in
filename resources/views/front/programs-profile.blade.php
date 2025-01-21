@@ -166,7 +166,6 @@
           <div class="edu_wraper p-3">
             <!-- Call to action -->
             <div class="justify-content-center align-content-center text-center font-weight-bold">
-              GET DETAILS ON FEE, ADMISSION, INTAKE
               @if (session()->has('studentLoggedIn'))
                 @if ($check > 0)
                   <a id="applyBtn1" href="javascript:void()"
@@ -176,9 +175,11 @@
                     class="btn btn-theme-2 ml-2 rounded rounded-circle">APPLY NOW</a>
                 @endif
               @else
-                <a href="{{ url('/sign-in/?return_to=' . $path . '&program_id=' . $program->id) }}"
+                <a href="{{ url('/sign-up/?return_to=' . $path . '&program_id=' . $program->id) }}"
                   class="btn btn-theme-2 ml-2 rounded rounded-circle" style="border:0px">APPLY NOW</a>
               @endif
+              <a href="{{ route('university.courses', ['university_slug' => $university->uname]) }}"
+                class="btn btn-theme-2 ml-2 rounded rounded-circle" style="border:0px">View all courses</a>
             </div>
           </div>
 

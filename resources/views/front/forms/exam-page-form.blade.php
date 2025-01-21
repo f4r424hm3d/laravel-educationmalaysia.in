@@ -22,21 +22,20 @@
 
       <!-- Name Field -->
       <div class="row">
-        <div class="col-12 mb-3">
+        <div class="col-md-12 mb-3">
           <div class="form-group text-left">
             <label for="name">Name</label>
-            <input placeholder="Name" type="text" name="name" id="name" value="{{ old('name') }}" class="form-control"
-              pattern="[a-zA-Z\s]+" required>
+            <input placeholder="Name" type="text" name="name" id="name" value="{{ old('name') }}"
+              class="form-control" pattern="[a-zA-Z\s]+" required>
             @error('name')
               <span class="text-danger">{{ $message }}</span>
             @enderror
           </div>
         </div>
-     
 
-      <!-- Email Field -->
-     
-        <div class="col-12 mb-3">
+        <!-- Email Field -->
+
+        <div class="col-md-12 mb-3">
           <div class="form-group text-left">
             <label for="email">Email</label>
             <input type="email" class="form-control" name="email" id="email" value="{{ old('email') }}"
@@ -46,11 +45,10 @@
             @enderror
           </div>
         </div>
-    
 
-      <!-- Phone Field -->
-    
-        <div class="col-5 mb-3 pr-0">
+        <!-- Phone Field -->
+
+        <div class="col-md-5 mb-3 pr-0">
           <div class="form-group text-left">
             <label for="c_code">Country Code</label>
             <select class="form-control" name="c_code" id="c_code" required>
@@ -67,7 +65,7 @@
             @enderror
           </div>
         </div>
-        <div class="col-7 mb-3">
+        <div class="col-md-7 mb-3">
           <div class="form-group text-left">
             <label for="mobile">Phone</label>
             <input type="text" class="form-control" name="mobile" id="mobile" placeholder="987654321"
@@ -77,11 +75,10 @@
             @enderror
           </div>
         </div>
-      
 
-      <!-- Nationality Field -->
-    
-        <div class="col-12 mb-3">
+        <!-- Nationality Field -->
+
+        <div class="col-md-12 mb-3">
           <div class="form-group text-left">
             <label for="s-nationality">Nationality</label>
             <select class="form-control" name="nationality" id="s-nationality" required>
@@ -97,10 +94,10 @@
             @enderror
           </div>
         </div>
-      
-      <!-- Interested Program Field -->
-     
-        <div class="col-12 mb-3 ">
+
+        <!-- Interested Program Field -->
+
+        <div class="col-md-12 mb-3 ">
           <div class="form-group text-left">
             <label for="interested_program">Select Interested Exam</label>
             <select class="form-control" name="interested_program" id="interested_program" required>
@@ -117,20 +114,18 @@
             @enderror
           </div>
         </div>
-    
 
-      <!-- Captcha Field -->
-    
+        <!-- Captcha Field -->
+
         <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
           <label for="captcha">Captcha: {{ $captcha['text'] }} =</label>
           <input type="text" id="captcha" placeholder="Enter the Captcha Code" class="form-control"
             name="captcha_answer" required>
         </div>
-    
 
-      <!-- Terms & Conditions -->
-     
-        <div class="col-12 mb-3">
+        <!-- Terms & Conditions -->
+
+        <div class="col-md-12 mb-3">
           <div class="form-check mt-2 ml-4">
             <input type="checkbox" id="tnc" name="tnc" required class="form-check-input">
             <label for="tnc" class="allcheckbx">
@@ -139,11 +134,10 @@
             </label>
           </div>
         </div>
-     
 
-      <!-- Submit Button -->
-    
-        <div class="col-12 ">
+        <!-- Submit Button -->
+
+        <div class="col-md-12 ">
           <div class="form-group  text-center mb-0">
             <button class="btn btn-primary" type="submit">Submit</button>
           </div>
