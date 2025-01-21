@@ -28,7 +28,7 @@ class SpecializationFc extends Controller
 
     // Fetch course specialization by slug and website filter
     $specialization = CourseSpecialization::where('slug', $slug)->firstOrFail();
-    $specializations = CourseSpecialization::inRandomOrder()->where('id', '!=', $specialization->id)->limit(10)->get();
+    $specializations = CourseSpecialization::inRandomOrder()->where('id', '!=', $specialization->id)->limit(10)->whereHas('contents')->get();
 
     // Fetch related universities
     $relatedUniversities = University::whereHas('programs', function ($query) use ($specialization) {
