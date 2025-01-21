@@ -13,8 +13,7 @@
           <div class="ed_detail_wrap light">
             <ul class="cources_facts_list">
               <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
-              <li class="facts-1"><a href="{{ url('select-level') }}">Courses</a></li>
-              <li class="facts-1">{{ strtoupper($pageContent->page_name) }}</li>
+              <li class="facts-1">All Courses</li>
             </ul>
           </div>
         </div>
