@@ -1,15 +1,18 @@
-<div class="card mb-2">
-  <div id="headingLevel" class="card-header bg-white shadow-sm border-0 pt-2 pb-2 pl-4 pr-4">
+<div class="all-cardbx">
+<h3 class="filter-title">Filter by <span><a href="javascript:void(0)" onclick="removeAllAppliedFilter()" class="clearAll" rel="nofollow">Clear
+All</a></span> </h3>
+<div class="card mb-2 p-2 ">
+  <div id="headingLevel" class="card-header secondarybxa shadow-sm border-0 pt-2 pb-2 pl-4 pr-4">
     <h6 class="mb-0 accordion_title size-xs">
       <a rel="nofollow" href="#" data-toggle="collapse" data-target="#collapseLevel" aria-expanded="true"
-        aria-controls="collapseLevel" class="d-block position-relative text-dark collapsible-link py-2"
+        aria-controls="collapseLevel" class="d-block position-relative text-dark collapsible-link "
         role="region">Study Level</a>
     </h6>
   </div>
   <div id="collapseLevel" aria-labelledby="headingLevel" data-parent="#accordionExample" class="collapse show"
     role="region">
-    <div class="scrlbar">
-      <div class="card-body pl-4 pr-4 pb-2">
+    <div class="scrlbar mt-2 mr-0 ">
+      <div class="card-body px-0">
         <ul class="no-ul-list mb-3">
           @foreach ($levelListForFilter as $level)
             <li>
@@ -28,19 +31,19 @@
     </div>
   </div>
 </div>
-<div class="card mb-2">
-  <div id="headingCat" class="card-header bg-white shadow-sm border-0 pt-2 pb-2 pl-4 pr-4">
+<div class="card mb-2 p-2 ">
+  <div id="headingCat" class="card-header secondarybxa shadow-sm border-0 pt-2 pb-2 pl-4 pr-4">
     <h6 class="mb-0 accordion_title size-xs">
       <a rel="nofollow" href="#" data-toggle="collapse" data-target="#collapseCat" aria-expanded="true"
-        aria-controls="collapseCat" class="d-block position-relative text-dark collapsible-link py-2"
+        aria-controls="collapseCat" class="d-block position-relative text-dark collapsible-link "
         role="region">Course
         Category</a>
     </h6>
   </div>
   <div id="collapseCat" aria-labelledby="headingCat" data-parent="#accordionExample" class="collapse show"
     role="region">
-    <div class="scrlbar">
-      <div class="card-body pl-4 pr-4 pb-2">
+    <div class="scrlbar mt-2 mr-0 ">
+      <div class="card-body px-0">
         <ul class="no-ul-list mb-3">
           @foreach ($categoryListForFilter as $cat)
             <li>
@@ -59,18 +62,18 @@
     </div>
   </div>
 </div>
-<div class="card mb-2">
-  <div id="headingSpc" class="card-header bg-white shadow-sm border-0 pt-2 pb-2 pl-4 pr-4">
+<div class="card mb-2 p-2 ">
+  <div id="headingSpc" class="card-header secondarybxa shadow-sm border-0 pt-2 pb-2 pl-4 pr-4">
     <h6 class="mb-0 accordion_title size-xs">
       <a rel="nofollow" href="#" data-toggle="collapse" data-target="#collapseSpc" aria-expanded="true"
-        aria-controls="collapseSpc" class="d-block position-relative text-dark collapsible-link py-2"
+        aria-controls="collapseSpc" class="d-block position-relative text-dark collapsible-link "
         role="region">Stream</a>
     </h6>
   </div>
   <div id="collapseSpc" aria-labelledby="headingSpc" data-parent="#accordionExample" class="collapse show"
     role="region">
-    <div class="scrlbar">
-      <div class="card-body pl-4 pr-4 pb-2">
+    <div class="scrlbar mt-2 mr-0 ">
+      <div class="card-body px-0">
         <ul class="no-ul-list mb-3">
           @foreach ($spcListForFilter as $spc)
             <li>
@@ -89,11 +92,11 @@
     </div>
   </div>
 </div>
-<div class="card mb-2">
-  <div id="headingStudyModes" class="card-header bg-white shadow-sm border-0 pt-2 pb-2 pl-4 pr-4">
+<div class="card mb-2 p-2 ">
+  <div id="headingStudyModes" class="card-header secondarybxa shadow-sm border-0 pt-2 pb-2 pl-4 pr-4">
     <h6 class="mb-0 accordion_title size-xs">
       <a rel="nofollow" href="#" data-toggle="collapse" data-target="#collapseStudyModes" aria-expanded="true"
-        aria-controls="collapseStudyModes" class="d-block position-relative text-dark collapsible-link py-2"
+        aria-controls="collapseStudyModes" class="d-block position-relative text-dark collapsible-link "
         role="region">
         Study Mode
       </a>
@@ -101,8 +104,8 @@
   </div>
   <div id="collapseStudyModes" aria-labelledby="headingStudyModes" data-parent="#accordionExample" class="collapse show"
     role="region">
-    <div class="scrlbar">
-      <div class="card-body pl-4 pr-4 pb-2">
+    <div class="scrlbar mt-2 mr-0 ">
+      <div class="card-body px-0">
         <ul class="no-ul-list mb-3">
           @foreach ($studyModes as $sm)
             <li>
@@ -121,11 +124,11 @@
     </div>
   </div>
 </div>
-<div class="card mb-2">
-  <div id="headingIntake" class="card-header bg-white shadow-sm border-0 pt-2 pb-2 pl-4 pr-4">
+<div class="card mb-2 p-2 ">
+  <div id="headingIntake" class="card-header secondarybxa shadow-sm border-0 pt-2 pb-2 pl-4 pr-4">
     <h6 class="mb-0 accordion_title size-xs">
       <a rel="nofollow" href="#" data-toggle="collapse" data-target="#collapseIntake" aria-expanded="true"
-        aria-controls="collapseIntake" class="d-block position-relative text-dark collapsible-link py-2"
+        aria-controls="collapseIntake" class="d-block position-relative text-dark collapsible-link "
         role="region">
         Intake
       </a>
@@ -133,8 +136,8 @@
   </div>
   <div id="collapseIntake" aria-labelledby="headingIntake" data-parent="#accordionExample" class="collapse show"
     role="region">
-    <div class="scrlbar">
-      <div class="card-body pl-4 pr-4 pb-2">
+    <div class="scrlbar mt-2 mr-0 ">
+      <div class="card-body px-0">
         <ul class="no-ul-list mb-3">
           @foreach ($intakes as $intake)
             <li>
@@ -154,3 +157,5 @@
     </div>
   </div>
 </div>
+</div>
+

@@ -104,7 +104,9 @@
               @if (session()->has('studentLoggedIn'))
                 <li class="login_click light"><a href="{{ url('/student/profile/') }}">Profile</a></li>
               @else
+              <li class="login_click purple"><a href="{{ url('/') }}/sign-in">Sign Up</a></li>
                 <li class="login_click light"><a href="{{ url('/') }}/sign-in">Login</a></li>
+               
               @endif
             </ul>
             <ul class="nav-menu align-to-right">

@@ -63,7 +63,8 @@
     <div class="container">
       <div class="row">
         <div class="col-xl-3 col-lg-3 col-md-12 col-12">
-          <div id="accordionExample" class="accordion shadow circullum hide-23 full-width accord-mobile">
+          <div id="accordionExample" class=" accordion shadow circullum hide-23 full-width accord-mobile">
+            
             @include('front.filter-courses-in-malaysia')
           </div>
         </div>
@@ -166,6 +167,7 @@
                                     <i class="ti-location-pin"></i>
                                     {{ formatLocation($row->university->city, $row->university->state, $row->university->country) }}
                                   </div>
+                                  
                                 </div>
 
                               </div>

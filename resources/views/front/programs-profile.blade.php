@@ -222,7 +222,7 @@
             </div>
           @endif
 
-          <div id="accordionExample" class="accordion shadow circullum mt-4">
+          <div id="accordionExample" class="accordion shadow circullum mt-3 program-accordian ">
             @if ($program->contents->count() > 0)
               @foreach ($program->contents as $ucc)
                 <div class="card">
@@ -240,7 +240,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 p-0">
                           <div class="arrow_slide two_slide-dots arrow_middle">
                             <div class="singles_items">
-                              <div class="box content">
+                              <div class="boxcontent">
                                 <h3>
                                   {{ $ucc->tab_title }} of {{ $program->course_name }} in {{ $university->name }}
                                   Malaysia
@@ -258,7 +258,7 @@
             @endif
           </div>
 
-          <div id="accordionExample" class="accordion shadow circullum mt-4">
+          <div id="accordionExample" class="accordion shadow circullum mt-4 program-accordian  newprogramss">
             @if ($similarPrograms->count() > 0)
               <div class="card">
                 <div id="headingFive" class="card-header bg-white shadow-sm border-0">
@@ -272,33 +272,43 @@
                 </div>
                 <div id="collapseFive" aria-labelledby="headingFive" data-parent="#accordionExample"
                   class="collapse show">
-                  <div class="card-body pl-4 pr-4">
+                  <div class="card-body pt-3">
                     <div class="row">
                       <div class="col-lg-12 col-md-12 col-sm-12 p-0">
                         <div class="arrow_slide two_slide-dots arrow_middle">
                           @foreach ($similarPrograms as $tu)
                             <div class="singles_items">
-                              <div class="education_block_grid style_2 mb-3">
+                              <div class="education_block_grid style_2 mb-3 all-programss">
                                 <div class="education_block_body mb-0">
-                                  <div class="row align-items-center mb-2 mx-auto mt-3">
-                                    <div class="col-3">
-                                      <div class="path-img border-primary border rounded p-2">
+                                  <div class="row align-items-center mx-auto "> 
+                                    <div class="col-12 col-sm-12 col-md-3">
+                                      <div class="path-img">
                                         <img data-src="{{ asset($tu->university->imgpath) }}" class="img-fluid rounded"
                                           alt="">
                                       </div>
                                     </div>
-                                    <div class="col-9">
+                                    <div class="col-12 col-sm-12 col-md-9">
                                       <h6 class="mb-1">{{ $tu->university->name }}</h6>
-                                      <i class="ti-location-pin mr-2"></i>{{ $tu->university->city }},
-                                      {{ $tu->university->state }}<br />
-                                      <i class="ti-eye mr-2"></i>{{ $tu->university->instituteType->type ?? 'N/A' }}
+                                      <ul class="loc-rating">
+                                        <li class="loc " >
+                                        <i class="ti-location-pin mr-2"></i>{{ $tu->university->city }}
+                                        </li>
+                                        <li class="loc" >
+                                        <i class="ti-location-pin mr-2"></i>{{ $tu->university->state }}
+                                        </li>
+                                        <li class="loc" >
+                                        <i class="ti-eye mr-2"></i>{{ $tu->university->instituteType->type ?? 'N/A' }}
+                                        </li>
+                                      </ul>
+                                     
                                     </div>
                                   </div>
                                 </div>
 
-                                <div class="education_block_footer pl-3 pr-3">
-                                  <div class="col-md-7 col-xs-12">
-                                    <h3>
+                                <div class="education_block_fo ">
+                                  <div class="row mx-auto align-items-center">
+                                  <div class="col-12 col-sm-12 col-md-7 col-lg-7">
+                                    <h3 class="h3-progrmsn" >
                                       <a
                                         href="{{ url('university/' . $tu->university->uname . '/course/' . $tu->slug) }}">
                                         {{ $tu->course_name }}
@@ -312,13 +322,20 @@
                                       <?php echo $tu->intake; ?>
                                     </div>
                                   </div>
-
-                                  <a href="{{ route('university.course.details', ['university_slug' => $tu->university->uname, 'course_slug' => $tu->slug]) }}"
-                                    class="card-btn mr-3" style="font-size:13px">View
+                                  <div class="col-12 col-sm-12 col-md-5 col-lg-5">
+                                    <div class="d-flex align-items-center set-gap justify-content-end ">
+                                    <a href="{{ route('university.course.details', ['university_slug' => $tu->university->uname, 'course_slug' => $tu->slug]) }}"
+                                    class="btn btn-primary">View
                                     detials</a>
                                   <a href="{{ route('university.courses', ['university_slug' => $tu->university->uname]) }}"
-                                    class="card-btn" style="font-size:13px">View
+                                    class="btn btn-primary">View
                                     courses</a>
+                                    </div>
+                                  </div>
+                                  </div>
+                                  
+
+                                  
                                 </div>
                               </div>
                             </div>
@@ -332,23 +349,35 @@
             @endif
           </div>
 
-          <div class="card">
+        <div class="multi-streams">
+        <div class="card">
             <div class="card-header">
               <h3>{{ $university->name }} Popular Courses</h3>
             </div>
             <div class="card-body">
-              <div class="row">
-                <div class="col-md-2 top-streams">Top Streams:</div>
-                <div class="col-md-10">
-                  @foreach ($universtySpecializationsForCourses as $row)
-                    <span onclick="goToUniPrograms('{{ $university->uname }}', '{{ $row->id }}')"
-                      style="display: inline-block; margin: 0px 3px 10px 0px; border: 1px solid #535353; border-radius: 20px; padding: 4px 10px; cursor: pointer;">
+              <div class="row ">
+                <div class="col-12 col-sm-12 col-md-2 ">
+                  <h2 class="top-streams" >
+                  Top Streams:
+                  </h2>
+                </div>
+                <div class=" col-12 col-sm-12 col-md-10">
+               <div class="multi-options" >
+                <ul>
+                
+                
+               @foreach ($universtySpecializationsForCourses as $row)
+               <li><span class="spanstream"  onclick="goToUniPrograms('{{ $university->uname }}', '{{ $row->id }}')"
+                      >
                       {{ $row->name }}
-                    </span>
+                    </span></li>
+                    
                   @endforeach
-                  <a style="display: inline-block; margin: 0px 3px 10px 0px; border: 1px solid #535353; border-radius: 20px; padding: 4px 10px; cursor: pointer;"
+                  <li> <a 
                     target="_blank" href="{{ url('university/' . $university->uname . '/courses') }}"
-                    class="btn btn-sm btn-primary">View All</a>
+                    class="btn btn-sm btn-primary span-linames">View All</a></li>
+                    </ul>
+               </div>
                 </div>
               </div>
             </div>
@@ -360,15 +389,30 @@
             </div>
             <div class="card-body">
               <div class="row">
-                <div class="col-md-2 top-streams">Top Streams:</div>
-                <div class="col-md-10">
-                  @foreach ($randomSpecializations as $row)
-                    <a style="display: inline-block; margin: 0px 3px 10px 0px; border: 1px solid #535353; border-radius: 20px; padding: 4px 10px; cursor: pointer;"
-                      target="_blank" href="{{ url($row->slug . '-courses') }}">{{ $row->name }}</a>
-                  @endforeach
-                  <a style="display: inline-block; margin: 0px 3px 10px 0px; border: 1px solid #535353; border-radius: 20px; padding: 4px 10px; cursor: pointer;"
-                    target="_blank" href="{{ url('courses-in-malaysia') }}" class="btn btn-sm btn-primary">View
-                    All</a>
+              <div class="col-12 col-sm-12 col-md-2 ">
+                  <h2 class="top-streams" >
+                  Top Streams:
+                  </h2>
+                </div>
+                <div class=" col-12 col-sm-12 col-md-10">
+               <div class="multi-options" >
+                <ul>
+                @foreach ($randomSpecializations as $row)
+                <li>
+                <a class="spanstream"  target="_blank" href="{{ url($row->slug . '-courses') }}">{{ $row->name }}</a>
+                </li>
+                @endforeach
+                <li>
+                <a target="_blank" href="{{ url('courses-in-malaysia') }}" class="btn btn-sm btn-primary span-linames">View
+                All</a>
+                </li>
+                  </ul>
+                
+                  </div>
+               
+                    
+                 
+                  
                 </div>
               </div>
             </div>
@@ -380,20 +424,34 @@
             </div>
             <div class="card-body">
               <div class="row">
-                <div class="col-md-2 top-streams">Top Streams:</div>
+              <div class="col-12 col-sm-12 col-md-2 ">
+                  <h2 class="top-streams" >
+                  Top Streams:
+                  </h2>
+                </div>
                 <div class="col-md-10">
-                  @foreach ($specializationsWithContents as $row)
-                    <a style="display: inline-block; margin: 0px 3px 10px 0px; border: 1px solid #535353; border-radius: 20px; padding: 4px 10px; cursor: pointer;"
-                      target="_blank"
+                <div class="multi-options" >
+                <ul>
+                @foreach ($specializationsWithContents as $row)
+                <li>
+                <a class="spanstream"  target="_blank"
                       href="{{ route('specialization.detail', ['slug' => $row->slug]) }}">{{ $row->name }}</a>
-                  @endforeach
-                  <a style="display: inline-block; margin: 0px 3px 10px 0px; border: 1px solid #535353; border-radius: 20px; padding: 4px 10px; cursor: pointer;"
-                    target="_blank" href="{{ url('specialization') }}" class="btn btn-sm btn-primary">View
+                </li>
+                @endforeach
+                    <li>
+
+                    <a target="_blank" href="{{ url('specialization') }}" class="btn btn-sm btn-primary span-linames">View
                     All</a>
+                    </li>
+  </ul>
+                </div>
+          
+             
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
         </div>
 

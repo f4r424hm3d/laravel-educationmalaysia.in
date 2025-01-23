@@ -67,19 +67,21 @@
               
              
           <div class="programe">
+          <span class="theme-cl">{{ $total }}     </span>
           <h2>
             Programme offered by
             </h2>
             <span
                 class="theme-cl">{{ $university->name }}</span>
+
           </div>
-          <span class="theme-cl">{{ $total }}
-          </span>
+         
+      
           </div>
-          <div class="d-flex justify-content-between align-items-center mt-3">
-          <h4 class="selections">Showing courses based on your selection</h4>
+          <div class="d-flex justify-content-between align-items-center mt-2">
+          <h4 class="selections mb-0">Showing courses based on your selection</h4>
             <div class="portal-filter">
-              <div class="heading">Filters Applied</div>
+              <div class="heading m-0">Filters Applied</div>
               <ul>
                 @if (session()->has('UCF_level'))
                   <li><a onclick="removeFilter('UCF_level')" href="javascript:void(0)">{{ $filter_level }}<span

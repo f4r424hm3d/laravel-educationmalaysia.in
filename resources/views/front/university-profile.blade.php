@@ -1,17 +1,11 @@
-<div class="image-cover ed_detail_head lg pt-5 pb-4 " style="background:url({{ asset($university->bannerpath) }});"
-  data-overlay="8">
+<div class="hero-banner-top">
+					<img src="/assets/images/universitybanner.jpg"  class="img-responsive hidden-xs initial loading" alt="University of Malaya (UM)">
+			</div>
+
+<div class="image-cover ed_detail_head lg ">
   <div class="container">
-    <div class="row align-items-center justify-content-center">
-      <div class="col-xl-2 col-lg-3 col-md-3 col-12 mb-4">
-        <div class="imguniersity">
-          <img data-src="{{ asset($university->imgpath) }}" class="" alt="{{ $university->name }}">
-
-        </div>
-      </div>
-
-      <div class="col-xl-10 col-lg-9 col-md-9 col-12 mb-4">
-        <div class="ed_detail_wrap light">
-          <ul class="cources_facts_list">
+  <div class="ed_detail_wrap light">
+<ul class="cources_facts_list">
             <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
             <li class="facts-1"><a href="{{ route('select.university') }}">University</a>
             </li>
@@ -22,6 +16,73 @@
               <li class="facts-1">{{ Request::segment(3) }}</li>
             @endif
           </ul>
+</div>
+
+  </div>
+
+
+  
+  <script>
+    function setSource(value) {
+      //alert(value);
+      $('#requestfor').val(value);
+    }
+
+    function printErrorMsg(msg) {
+      $.each(msg, function(key, value) {
+        $("#" + key + "-err").text(value);
+      });
+    }
+
+    $(document).ready(function() {
+      $('#dataForm').on('submit', function(event) {
+        event.preventDefault();
+        $(".errSpan").text(''); // Clear previous error messages
+        $.ajax({
+          url: "{{ route('brochure.inquiry') }}",
+          method: "POST",
+          data: new FormData(this),
+          contentType: false,
+          cache: false,
+          processData: false,
+          success: function(data) {
+            if ($.isEmptyObject(data.error)) {
+              if (data.hasOwnProperty('success')) {
+                Swal.fire({
+                  title: 'Success',
+                  text: data.message,
+                  icon: 'success',
+                  confirmButtonText: 'OK'
+                }).then(() => {
+                  $('#dataForm')[0].reset(); // Reset the form
+                  $('#exampleModalCenter').hide(); // Close the modal
+                });
+              }
+            } else {
+              printErrorMsg(data.error); // Display validation errors
+            }
+          },
+          error: function(xhr, status, error) {
+            console.error('AJAX Error:', status, error); // Log errors for debugging
+          }
+        });
+      });
+    });
+  </script>
+</div>
+<section class="university-blade" >
+<div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-xl-2 col-lg-3 col-md-3 col-12 mb-4">
+        <div class="imguniersity">
+          <img data-src="{{ asset($university->imgpath) }}" class="" alt="{{ $university->name }}">
+
+        </div>
+      </div>
+
+      <div class="col-xl-10 col-lg-9 col-md-9 col-12 mb-4">
+        <div class="ed_detail_wrap light">
+          
           <div class="ed_header_caption">
             <h1 class="ed_title">
               {{ $university->name }} Rankings, Courses, Fees, Admission {{ date('Y') }} & Scholarships
@@ -29,6 +90,18 @@
             <ul>
               <li><i class="ti-location-pin"></i><span>Location:</span> {{ $university->city }},
                 {{ $university->state }}</li>
+                <li>
+                  <div class="dv-loc d-flex align-items-center ">
+                  <span class="loc mobile">
+                  Rating:
+                  </span>
+                                      
+                    <div class="empty-ratings"><span>★★★★★</span></div>
+                 
+              
+                  </div>
+             
+                </li>
               <li><i class="fa fa-graduation-cap"></i><span>Type:</span>
                 {{ $university->instituteType->type ?? 'N/A' }}
               </li>
@@ -58,6 +131,8 @@
       </div>
     </div>
   </div>
+</section>
+ 
 
   <!-- Modal -->
   <div class="modal registration-modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -234,51 +309,3 @@
       </div>
     </div>
   </div>
-  <script>
-    function setSource(value) {
-      //alert(value);
-      $('#requestfor').val(value);
-    }
-
-    function printErrorMsg(msg) {
-      $.each(msg, function(key, value) {
-        $("#" + key + "-err").text(value);
-      });
-    }
-
-    $(document).ready(function() {
-      $('#dataForm').on('submit', function(event) {
-        event.preventDefault();
-        $(".errSpan").text(''); // Clear previous error messages
-        $.ajax({
-          url: "{{ route('brochure.inquiry') }}",
-          method: "POST",
-          data: new FormData(this),
-          contentType: false,
-          cache: false,
-          processData: false,
-          success: function(data) {
-            if ($.isEmptyObject(data.error)) {
-              if (data.hasOwnProperty('success')) {
-                Swal.fire({
-                  title: 'Success',
-                  text: data.message,
-                  icon: 'success',
-                  confirmButtonText: 'OK'
-                }).then(() => {
-                  $('#dataForm')[0].reset(); // Reset the form
-                  $('#exampleModalCenter').hide(); // Close the modal
-                });
-              }
-            } else {
-              printErrorMsg(data.error); // Display validation errors
-            }
-          },
-          error: function(xhr, status, error) {
-            console.error('AJAX Error:', status, error); // Log errors for debugging
-          }
-        });
-      });
-    });
-  </script>
-</div>

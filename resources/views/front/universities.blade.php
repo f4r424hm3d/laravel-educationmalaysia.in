@@ -58,7 +58,7 @@
       <div class="row">
         <div class="col-xl-3 col-lg-3 col-md-12 col-12">
 
-          <div id="accordionExample" class="accordion shadow circullum hide-23 full-width accord-mobile">
+          <div id="accordionExample" class="  accordion shadow circullum hide-23 full-width accord-mobile">
             @include('front.filter-universities')
           </div>
         </div>

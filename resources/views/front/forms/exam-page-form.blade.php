@@ -23,7 +23,7 @@
       <!-- Name Field -->
       <div class="row">
         <div class="col-md-12 mb-3">
-          <div class="form-group text-left">
+          <div class="form-group mb-0 text-left">
             <label for="name">Name</label>
             <input placeholder="Name" type="text" name="name" id="name" value="{{ old('name') }}"
               class="form-control" pattern="[a-zA-Z\s]+" required>
@@ -36,9 +36,9 @@
         <!-- Email Field -->
 
         <div class="col-md-12 mb-3">
-          <div class="form-group text-left">
+          <div class="form-group mb-0 text-left">
             <label for="email">Email</label>
-            <input type="email" class="form-control" name="email" id="email" value="{{ old('email') }}"
+            <input type="email" placeholder="Email" class="form-control" name="email" id="email" value="{{ old('email') }}"
               required>
             @error('email')
               <span class="text-danger">{{ $message }}</span>
@@ -49,7 +49,7 @@
         <!-- Phone Field -->
 
         <div class="col-md-5 mb-3 pr-0">
-          <div class="form-group text-left">
+          <div class="form-group mb-0 text-left">
             <label for="c_code">Country Code</label>
             <select class="form-control" name="c_code" id="c_code" required>
               <option value="">Select</option>
@@ -66,7 +66,7 @@
           </div>
         </div>
         <div class="col-md-7 mb-3">
-          <div class="form-group text-left">
+          <div class="form-group mb-0 text-left">
             <label for="mobile">Phone</label>
             <input type="text" class="form-control" name="mobile" id="mobile" placeholder="987654321"
               value="{{ old('mobile') }}" required>
@@ -79,7 +79,7 @@
         <!-- Nationality Field -->
 
         <div class="col-md-12 mb-3">
-          <div class="form-group text-left">
+          <div class="form-group mb-0 text-left">
             <label for="s-nationality">Nationality</label>
             <select class="form-control" name="nationality" id="s-nationality" required>
               <option value="">Select Nationality</option>
@@ -98,7 +98,7 @@
         <!-- Interested Program Field -->
 
         <div class="col-md-12 mb-3 ">
-          <div class="form-group text-left">
+          <div class="form-group mb-0 text-left">
             <label for="interested_program">Select Interested Exam</label>
             <select class="form-control" name="interested_program" id="interested_program" required>
               <option value="">Select Interested Exam</option>
