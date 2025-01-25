@@ -61,7 +61,8 @@
                     {!! $row->p !!}
                   @endforeach
                 </div>
-                <!-- <div class="show-more">(Show More)</div> -->
+                <div class="show-more mt-2">Show More...</div>
+                <!-- <div class="show-more mt-2">Show Less</div> -->
               </div>
             </div>
           @endif

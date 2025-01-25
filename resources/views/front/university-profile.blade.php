@@ -93,10 +93,37 @@
                 <li>
                   <div class="dv-loc d-flex align-items-center ">
                   <span class="loc mobile">
+                  <i class="fa fa-star-half-o me-1 " aria-hidden="true"></i>
                   Rating:
                   </span>
                                       
                     <div class="empty-ratings"><span>★★★★★</span></div>
+                 
+              
+                  </div>
+             
+                </li>
+                <li>
+                  <div class="dv-loc d-flex align-items-center ">
+                  <span class="loc mobile">
+                  <i class="fa fa-graduation-cap me-1" aria-hidden="true"></i>
+
+                  Schooling:
+                  </span>
+                                      
+                    <div class="empty-ratings"><span>Yes</span></div>
+                 
+              
+                  </div>
+             
+                </li>
+                <li>
+                  <div class="dv-loc d-flex align-items-center ">
+                  <span class="loc mobile">
+                  <i class="fa fa-eye me-1" aria-hidden="true"></i>View:
+                  </span>
+                                      
+                    <div class="empty-ratings"><span>266</span></div>
                  
               
                   </div>

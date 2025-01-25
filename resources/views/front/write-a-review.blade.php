@@ -22,7 +22,7 @@
   <!-- Breadcrumb -->
 
   <!-- Content -->
-  <section>
+  <section class="reveiew-section" >
     <div class="container">
 
       <div class="row">
@@ -165,7 +165,7 @@
                   </div>
 
                   <div class="col-lg-12 col-md-12">
-                    <div class="form-group mb-2">
+                    <div class="form-group mb-2 setlabel">
                       <label>Write a Review* <i class="fa fa-info-circle theme-cl" data-toggle="tooltip"
                           title="Give your review"></i> <span class="pl-2 theme-cl font-size-13">(Description cannot be
                           less than 150 characters.)</span></label>
@@ -176,7 +176,7 @@
                           placeholder="Share your experience at this institution from the time you first enrolled to its various course subjects, student lifestyle, teaching and facilities."
                           style="height:100px; padding-top:17px">{{ old('description') }}</textarea>
                       </div>
-                      <div class="star-rating mt-2">
+                      <div class="star-rating my-4">
                         @for ($i = 1; $i <= 5; $i++)
                           <input id="star-{{ $i }}" type="radio" name="rating"
                             value="{{ $i }}" />

@@ -2,7 +2,7 @@
 <h3 class="filter-title">Filter by <span><a href="javascript:void(0)" onclick="removeAllAppliedFilter()" class="clearAll" rel="nofollow">Clear
 All</a></span> </h3>
 <div class="card mb-2 p-2 ">
-  <div id="headingLevel" class="card-header secondarybxa shadow-sm border-0 pt-2 pb-2 pl-4 pr-4">
+  <div id="headingLevel" class="card-header secondarybxa shadow-sm border-0 ">
     <h6 class="mb-0 accordion_title size-xs">
       <a rel="nofollow" href="#" data-toggle="collapse" data-target="#collapseLevel" aria-expanded="true"
         aria-controls="collapseLevel" class="d-block position-relative text-dark collapsible-link "
@@ -32,7 +32,7 @@ All</a></span> </h3>
   </div>
 </div>
 <div class="card mb-2 p-2 ">
-  <div id="headingCat" class="card-header secondarybxa shadow-sm border-0 pt-2 pb-2 pl-4 pr-4">
+  <div id="headingCat" class="card-header secondarybxa shadow-sm border-0 ">
     <h6 class="mb-0 accordion_title size-xs">
       <a rel="nofollow" href="#" data-toggle="collapse" data-target="#collapseCat" aria-expanded="true"
         aria-controls="collapseCat" class="d-block position-relative text-dark collapsible-link "
@@ -63,7 +63,7 @@ All</a></span> </h3>
   </div>
 </div>
 <div class="card mb-2 p-2 ">
-  <div id="headingSpc" class="card-header secondarybxa shadow-sm border-0 pt-2 pb-2 pl-4 pr-4">
+  <div id="headingSpc" class="card-header secondarybxa shadow-sm border-0 ">
     <h6 class="mb-0 accordion_title size-xs">
       <a rel="nofollow" href="#" data-toggle="collapse" data-target="#collapseSpc" aria-expanded="true"
         aria-controls="collapseSpc" class="d-block position-relative text-dark collapsible-link "
@@ -93,7 +93,7 @@ All</a></span> </h3>
   </div>
 </div>
 <div class="card mb-2 p-2 ">
-  <div id="headingStudyModes" class="card-header secondarybxa shadow-sm border-0 pt-2 pb-2 pl-4 pr-4">
+  <div id="headingStudyModes" class="card-header secondarybxa shadow-sm border-0 ">
     <h6 class="mb-0 accordion_title size-xs">
       <a rel="nofollow" href="#" data-toggle="collapse" data-target="#collapseStudyModes" aria-expanded="true"
         aria-controls="collapseStudyModes" class="d-block position-relative text-dark collapsible-link "
@@ -125,7 +125,7 @@ All</a></span> </h3>
   </div>
 </div>
 <div class="card mb-2 p-2 ">
-  <div id="headingIntake" class="card-header secondarybxa shadow-sm border-0 pt-2 pb-2 pl-4 pr-4">
+  <div id="headingIntake" class="card-header secondarybxa shadow-sm border-0 ">
     <h6 class="mb-0 accordion_title size-xs">
       <a rel="nofollow" href="#" data-toggle="collapse" data-target="#collapseIntake" aria-expanded="true"
         aria-controls="collapseIntake" class="d-block position-relative text-dark collapsible-link "

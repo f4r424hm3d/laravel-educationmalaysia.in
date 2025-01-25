@@ -67,7 +67,7 @@
   </div>
   <!-- Breadcrumb -->
   <!-- nav-bar   -->
-  <div class="new-scoll-links scroll-bar scroll-sticky new-stickyadd">
+  <div class="new-scoll-links scroll-bar scroll-sticky new-stickyadd  ">
     <div class="container">
       <ul class="links scrollTo vertically-scrollbar">
         @php
@@ -77,7 +77,7 @@
           <li class="{{ $i == 1 ? 'active' : '' }}"><a href="#{{ slugify($row->tab) }}">{{ ucwords($row->tab) }}</a></li>
           @php
             $i++;
-          @endphp
+          @endphp 
         @endforeach
       </ul>
     </div>
@@ -88,7 +88,7 @@
       <div class="row">
 
         <div class="col-lg-8 col-md-8">
-          <div class="new-exam-page set-exam-pages ">
+          <div class="new-exam-page set-exam-pages li-pages ">
             @php
               $pgcont = 1;
             @endphp
@@ -245,25 +245,28 @@
   </section>
   <!-- Content -->
   <script>
-    $('a[href*="#"]')
-      .not('[href="#"]')
-      .not('[href="#0"]')
-      .click(function(event) {
-        if (
-          location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
-          location.hostname == this.hostname
-        ) {
-          var target = $(this.hash);
-          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-          if (target.length) {
-            event.preventDefault();
-            $('html, body').animate({
-              scrollTop: target.offset().top - 80
-            }, 500, function() {});
-          }
-        }
-      });
+    // $('a[href*="#"]')
+    //   .not('[href="#"]')
+    //   .not('[href="#0"]')
+    //   .click(function(event) {
+    //     if (
+    //       location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
+    //       location.hostname == this.hostname
+    //     ) {
+    //       var target = $(this.hash);
+    //       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+    //       if (target.length) {
+    //         event.preventDefault();
+    //         $('html, body').animate({
+    //           scrollTop: target.offset().top - 80
+    //         }, 500, function() {});
+    //       }
+    //     }
+    //   });
 
+
+
+    
     function goToUniPrograms(uname, specializationId) {
       if (specializationId != '') {
         $.ajax({

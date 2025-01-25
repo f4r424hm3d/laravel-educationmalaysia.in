@@ -126,9 +126,16 @@
                               </a>
                             </h6>
                             <div class="row">
-                              <div class="col-md-12">
+                              <div class="col-md-6 col-12">
                                 <i class="ti-location-pin"></i>
                                 {{ formatLocation($row->city, $row->state, $row->country) }}
+                              </div>
+                              <div class="col-md-6 col-12">
+                                <div class="flex-wrap align-items-center d-flex align-items-center justify-content-start ">
+                                  <span class="theme-cl mb-0">Rating : </span>
+
+                                  <span class="ratingstar mx-1">★★★★★</span>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -169,6 +176,7 @@
   <span class="duratinss"> {{ $row->rank ?? 'N/A' }} </span>                       
                       </div>
                       </div>
+                      
                     </div>
                   </div>
                   <br>

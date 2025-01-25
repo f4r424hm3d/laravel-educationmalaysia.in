@@ -166,12 +166,13 @@
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-3 col-6 mt-1 mb-1"><span class="theme-cl">Study
-                              Mode:</span>{{ $row->study_mode != '' ? $row->study_mode : 'N/A' }}</div>
+                              Mode:</span> <span class="theme-rl" >{{ $row->study_mode != '' ? $row->study_mode : 'N/A' }}</span> </div>
                           <div class="col-md-3 col-6 mt-1 mb-1"><span class="theme-cl">App
-                              deadline:</span>{{ $row->application_deadline != '' ? $row->application_deadline : 'N/A' }}
+                              deadline:</span>  <span  class="theme-rl"  >{{ $row->application_deadline != '' ? $row->application_deadline : 'N/A' }}</span>
                           </div>
                           <div class="col-md-3 col-6 mt-1 mb-1"><span
-                              class="theme-cl">Intakes:</span>{{ $row->intake != '' ? $row->intake : 'N/A' }}
+                              class="theme-cl">Intakes:</span>
+                              <span class="theme-rl" >{{ $row->intake != '' ? $row->intake : 'N/A' }}</span>
                           </div>
                         </div>
                       </div>

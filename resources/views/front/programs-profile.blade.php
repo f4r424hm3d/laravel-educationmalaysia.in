@@ -281,7 +281,7 @@
                               <div class="education_block_grid style_2 mb-3 all-programss">
                                 <div class="education_block_body mb-0">
                                   <div class="row align-items-center mx-auto "> 
-                                    <div class="col-12 col-sm-12 col-md-3">
+                                    <div class="col-12 col-sm-12 col-md-3  pl-md-0">
                                       <div class="path-img">
                                         <img data-src="{{ asset($tu->university->imgpath) }}" class="img-fluid rounded"
                                           alt="">

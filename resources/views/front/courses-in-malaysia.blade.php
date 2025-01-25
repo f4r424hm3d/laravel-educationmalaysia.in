@@ -71,7 +71,7 @@
         <div class="col-xl-9 col-lg-9 col-md-12 col-12">
           <div class="row align-items-center mb-3">
             <div class="col-lg-12 col-md-12 col-sm-12">
-              <div class="forms-found">
+              <div class="forms-found ">
                 Found <strong>{{ $total }}</strong> programs
                 <p>{!! $page_contents !!}</p>
               </div>
@@ -173,13 +173,13 @@
                               </div>
                             </div>
                             <div class="row">
-                              <div class="col-md-4 col-12">
+                              <div class="col-md-3 col-12">
                                 <div class="flex-wrap align-items-center setgap2 block-desktop">
                                   <span class="theme-cl ">Institute Type : </span>
                                   <span class="duratinss">{{ $row->university->instituteType->type }} </span>
                                 </div>
                               </div>
-                              <div class="col-md-4 col-12">
+                              <div class="col-md-3 col-12">
                                 <div class="flex-wrap align-items-center setgap2 block-desktop">
                                   <span class="theme-cl">Course : </span>
                                   <span class="duratinss"> {{ $row->university->programs->count() ?? 'N/A' }}</span>
@@ -192,11 +192,18 @@
                                   @endif
                                 </div>
                               </div>
-                              <div class="col-md-4 col-12">
+                              <div class="col-md-3 col-12">
                                 <div class="flex-wrap align-items-center setgap2 block-desktop">
                                   <span class="theme-cl">World Ranking : </span>
 
                                   <span class="duratinss">{{ $row->university->rank ?? 'N/A' }}</span>
+                                </div>
+                              </div>
+                              <div class="col-md-3 col-12">
+                                <div class="flex-wrap align-items-center setgap2 block-desktop">
+                                  <span class="theme-cl">Rating : </span>
+
+                                  <span class="ratingstar">★★★★★</span>
                                 </div>
                               </div>
                             </div>
