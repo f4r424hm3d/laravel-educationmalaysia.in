@@ -78,7 +78,9 @@
                 <h6 class="mb-0 accordion_title">
                   <a href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                     aria-controls="collapseTwo"
-                    class="d-block position-relative collapsed text-dark collapsible-link py-2">Popular Courses</a>
+                    class="d-block position-relative collapsed text-dark collapsible-link py-2">
+                    Find {{ $university->name }} Courses
+                  </a>
                 </h6>
               </div>
               <div id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample" class="collapse show">
@@ -143,8 +145,105 @@
                       </div>
                     </div>
                   </div>
-                  <div align="center"><a href="{{ url('university/' . $university->uname . '/courses') }}"
-                      class="btn btn-primary">View all courses</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="multi-streams">
+            <div class="card">
+              <div class="card-header">
+                <h3>{{ $university->name }} Popular Courses</h3>
+              </div>
+              <div class="card-body">
+                <div class="row ">
+                  <div class="col-12 col-sm-12 col-md-2 ">
+                    <h2 class="top-streams">
+                      Top Streams:
+                    </h2>
+                  </div>
+                  <div class=" col-12 col-sm-12 col-md-10">
+                    <div class="multi-options">
+                      <ul>
+
+                        @foreach ($universtySpecializationsForCourses as $row)
+                          <li><span class="spanstream"
+                              onclick="goToUniPrograms('{{ $university->uname }}', '{{ $row->id }}')">
+                              {{ $row->name }}
+                            </span></li>
+                        @endforeach
+                        <li> <a target="_blank" href="{{ url('university/' . $university->uname . '/courses') }}"
+                            class="btn btn-sm btn-primary span-linames">View All</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3>Malaysia Popular Courses</h3>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-2 ">
+                    <h2 class="top-streams">
+                      Top Streams:
+                    </h2>
+                  </div>
+                  <div class=" col-12 col-sm-12 col-md-10">
+                    <div class="multi-options">
+                      <ul>
+                        @foreach ($randomSpecializations as $row)
+                          <li>
+                            <a class="spanstream" target="_blank"
+                              href="{{ url($row->slug . '-courses') }}">{{ $row->name }}</a>
+                          </li>
+                        @endforeach
+                        <li>
+                          <a target="_blank" href="{{ url('courses-in-malaysia') }}"
+                            class="btn btn-sm btn-primary span-linames">View
+                            All</a>
+                        </li>
+                      </ul>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3>Top Courses to Study in Malaysia</h3>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-2 ">
+                    <h2 class="top-streams">
+                      Top Streams:
+                    </h2>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="multi-options">
+                      <ul>
+                        @foreach ($specializationsWithContents as $row)
+                          <li>
+                            <a class="spanstream" target="_blank"
+                              href="{{ route('specialization.detail', ['slug' => $row->slug]) }}">{{ $row->name }}</a>
+                          </li>
+                        @endforeach
+                        <li>
+
+                          <a target="_blank" href="{{ url('specialization') }}"
+                            class="btn btn-sm btn-primary span-linames">View
+                            All</a>
+                        </li>
+                      </ul>
+                    </div>
+
                   </div>
                 </div>
               </div>
@@ -154,10 +253,11 @@
         </div>
         <!-- Sidebar -->
         <div class="col-xl-4 col-lg-4 col-md-12">
+          @include('front.forms.university-side-form')
           <div class="ed_view_box style_2">
             <div class="ed_author">
               <div class="ed_author_box">
-                <h4>Affilated Colleges</h4>
+                <h4>Featured Universities</h4>
               </div>
             </div>
             @foreach ($trendingUniversity as $row)
@@ -181,12 +281,99 @@
                 </div>
               </div>
             @endforeach
+            <div class="ed_view_box style_2">
+              <div class="ed_author">
+                <div class="ed_author_box">
+                  <h4>Find Universities Courses</h4>
+                </div>
+              </div>
 
+              <div class="learnup-list">
+                <div class="learnup-list-thumb">
+                  <a href="{{ url('courses/pre-university') }}">
+                    <img data-src="{{ asset('assets') }}/web/images/fuc-icons/pre-university.png" class="img-fluid"
+                      alt="Pre University">
+                  </a>
+                </div>
+                <div class="learnup-list-caption">
+                  <h6>
+                    <p>Certificate Course in Malaysia </p>
+                  </h6>
+                </div>
+              </div>
+              <div class="learnup-list">
+                <div class="learnup-list-thumb">
+                  <a href="{{ url('courses/diploma') }}">
+                    <img data-src="{{ asset('assets') }}/web/images/fuc-icons/diploma.png" class="img-fluid"
+                      alt="Pre University">
+                  </a>
+                </div>
+                <div class="learnup-list-caption">
+                  <h6>
+                    <p>Diploma Course in Malaysia </p>
+                  </h6>
+                </div>
+              </div>
+              <div class="learnup-list">
+                <div class="learnup-list-thumb">
+                  <a href="{{ url('courses/under-graduate') }}">
+                    <img data-src="{{ asset('assets') }}/web/images/fuc-icons/under-graduate.png" class="img-fluid"
+                      alt="Pre University">
+                  </a>
+                </div>
+                <div class="learnup-list-caption">
+                  <h6>
+                    <p>Bachelor Course in Malaysia </p>
+                  </h6>
+                </div>
+              </div>
+              <div class="learnup-list">
+                <div class="learnup-list-thumb">
+                  <a href="{{ url('courses/post-graduate') }}">
+                    <img data-src="{{ asset('assets') }}/web/images/fuc-icons/post-graduate.png" class="img-fluid"
+                      alt="Pre University">
+                  </a>
+                </div>
+                <div class="learnup-list-caption">
+                  <h6>
+                    <p>Master Degree in Malaysia </p>
+                  </h6>
+                </div>
+              </div>
+              <div class="learnup-list">
+                <div class="learnup-list-thumb">
+                  <a href="{{ url('courses/phd') }}">
+                    <img data-src="{{ asset('assets') }}/web/images/fuc-icons/phd.png" class="img-fluid"
+                      alt="Pre University">
+                  </a>
+                </div>
+                <div class="learnup-list-caption">
+                  <h6>
+                    <p>PHD Courses in Malaysia </p>
+                  </h6>
+                </div>
+              </div>
+            </div>
           </div>
-          @include('front.forms.university-side-form')
         </div>
       </div>
     </div>
   </section>
   <!-- Content -->
+  <script>
+    function goToUniPrograms(uname, specializationId) {
+      if (specializationId != '') {
+        $.ajax({
+          url: "{{ url('university-course-list/specialization') }}",
+          method: "GET",
+          data: {
+            specialization_id: specializationId
+          },
+          success: function(data) {
+            window.open("{{ url('university/') }}/" + uname + "/courses", "_blank");
+          }
+        });
+      }
+    }
+  </script>
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Models\Country;
 use App\Models\CourseCategory;
+use App\Models\CourseSpecialization;
 use App\Models\DefaultOgImage;
 use App\Models\DynamicPageSeo;
 use App\Models\FeesAndDeadline;
@@ -56,7 +57,17 @@ class UniversityProfileFc extends Controller
     $captcha = generateMathQuestion();
     session(['captcha_answer' => $captcha['answer']]);
 
-    $data = compact('university', 'trendingUniversity', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'schema', 'countries', 'phonecodes', 'captcha', 'levels', 'course_categories');
+    $universtySpecializationsForCourses = CourseSpecialization::inRandomOrder()->whereHas('programs', function ($query) use ($university) {
+      $query->where('university_id', $university->id);
+    })->limit(15)->get();
+
+    $randomSpecializations = CourseSpecialization::inRandomOrder()->whereHas('programs', function ($query) use ($university) {
+      $query->where('status', 1);
+    })->limit(15)->get();
+
+    $specializationsWithContents = CourseSpecialization::inRandomOrder()->whereHas('contents')->limit(15)->get();
+
+    $data = compact('university', 'trendingUniversity', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'schema', 'countries', 'phonecodes', 'captcha', 'levels', 'course_categories', 'universtySpecializationsForCourses', 'randomSpecializations', 'specializationsWithContents');
     return view('front.university-overview')->with($data);
   }
   public function gallery($university_slug, Request $request)

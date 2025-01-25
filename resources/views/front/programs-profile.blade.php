@@ -280,7 +280,7 @@
                             <div class="singles_items">
                               <div class="education_block_grid style_2 mb-3 all-programss">
                                 <div class="education_block_body mb-0">
-                                  <div class="row align-items-center mx-auto "> 
+                                  <div class="row align-items-center mx-auto ">
                                     <div class="col-12 col-sm-12 col-md-3  pl-md-0">
                                       <div class="path-img">
                                         <img data-src="{{ asset($tu->university->imgpath) }}" class="img-fluid rounded"
@@ -290,52 +290,50 @@
                                     <div class="col-12 col-sm-12 col-md-9">
                                       <h6 class="mb-1">{{ $tu->university->name }}</h6>
                                       <ul class="loc-rating">
-                                        <li class="loc " >
-                                        <i class="ti-location-pin mr-2"></i>{{ $tu->university->city }}
+                                        <li class="loc ">
+                                          <i class="ti-location-pin mr-2"></i>{{ $tu->university->city }}
                                         </li>
-                                        <li class="loc" >
-                                        <i class="ti-location-pin mr-2"></i>{{ $tu->university->state }}
+                                        <li class="loc">
+                                          <i class="ti-location-pin mr-2"></i>{{ $tu->university->state }}
                                         </li>
-                                        <li class="loc" >
-                                        <i class="ti-eye mr-2"></i>{{ $tu->university->instituteType->type ?? 'N/A' }}
+                                        <li class="loc">
+                                          <i class="ti-eye mr-2"></i>{{ $tu->university->instituteType->type ?? 'N/A' }}
                                         </li>
                                       </ul>
-                                     
+
                                     </div>
                                   </div>
                                 </div>
 
                                 <div class="education_block_fo ">
                                   <div class="row mx-auto align-items-center">
-                                  <div class="col-12 col-sm-12 col-md-7 col-lg-7">
-                                    <h3 class="h3-progrmsn" >
-                                      <a
-                                        href="{{ url('university/' . $tu->university->uname . '/course/' . $tu->slug) }}">
-                                        {{ $tu->course_name }}
-                                      </a>
-                                    </h3>
-                                    <div class="aminities">
-                                      <?php echo $tu->duration; ?>
-                                      <span></span>
-                                      <?php echo $tu->study_mode; ?>
-                                      <span></span>
-                                      <?php echo $tu->intake; ?>
+                                    <div class="col-12 col-sm-12 col-md-7 col-lg-7">
+                                      <h3 class="h3-progrmsn">
+                                        <a
+                                          href="{{ url('university/' . $tu->university->uname . '/course/' . $tu->slug) }}">
+                                          {{ $tu->course_name }}
+                                        </a>
+                                      </h3>
+                                      <div class="aminities">
+                                        <?php echo $tu->duration; ?>
+                                        <span></span>
+                                        <?php echo $tu->study_mode; ?>
+                                        <span></span>
+                                        <?php echo $tu->intake; ?>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-5 col-lg-5">
+                                      <div class="d-flex align-items-center set-gap justify-content-end ">
+                                        <a href="{{ route('university.course.details', ['university_slug' => $tu->university->uname, 'course_slug' => $tu->slug]) }}"
+                                          class="btn btn-primary">View
+                                          detials</a>
+                                        <a href="{{ route('university.courses', ['university_slug' => $tu->university->uname]) }}"
+                                          class="btn btn-primary">View
+                                          courses</a>
+                                      </div>
                                     </div>
                                   </div>
-                                  <div class="col-12 col-sm-12 col-md-5 col-lg-5">
-                                    <div class="d-flex align-items-center set-gap justify-content-end ">
-                                    <a href="{{ route('university.course.details', ['university_slug' => $tu->university->uname, 'course_slug' => $tu->slug]) }}"
-                                    class="btn btn-primary">View
-                                    detials</a>
-                                  <a href="{{ route('university.courses', ['university_slug' => $tu->university->uname]) }}"
-                                    class="btn btn-primary">View
-                                    courses</a>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  
 
-                                  
                                 </div>
                               </div>
                             </div>
@@ -349,109 +347,105 @@
             @endif
           </div>
 
-        <div class="multi-streams">
-        <div class="card">
-            <div class="card-header">
-              <h3>{{ $university->name }} Popular Courses</h3>
-            </div>
-            <div class="card-body">
-              <div class="row ">
-                <div class="col-12 col-sm-12 col-md-2 ">
-                  <h2 class="top-streams" >
-                  Top Streams:
-                  </h2>
-                </div>
-                <div class=" col-12 col-sm-12 col-md-10">
-               <div class="multi-options" >
-                <ul>
-                
-                
-               @foreach ($universtySpecializationsForCourses as $row)
-               <li><span class="spanstream"  onclick="goToUniPrograms('{{ $university->uname }}', '{{ $row->id }}')"
-                      >
-                      {{ $row->name }}
-                    </span></li>
-                    
-                  @endforeach
-                  <li> <a 
-                    target="_blank" href="{{ url('university/' . $university->uname . '/courses') }}"
-                    class="btn btn-sm btn-primary span-linames">View All</a></li>
-                    </ul>
-               </div>
-                </div>
+          <div class="multi-streams">
+            <div class="card">
+              <div class="card-header">
+                <h3>{{ $university->name }} Popular Courses</h3>
               </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <h3>Malaysia Popular Courses</h3>
-            </div>
-            <div class="card-body">
-              <div class="row">
-              <div class="col-12 col-sm-12 col-md-2 ">
-                  <h2 class="top-streams" >
-                  Top Streams:
-                  </h2>
-                </div>
-                <div class=" col-12 col-sm-12 col-md-10">
-               <div class="multi-options" >
-                <ul>
-                @foreach ($randomSpecializations as $row)
-                <li>
-                <a class="spanstream"  target="_blank" href="{{ url($row->slug . '-courses') }}">{{ $row->name }}</a>
-                </li>
-                @endforeach
-                <li>
-                <a target="_blank" href="{{ url('courses-in-malaysia') }}" class="btn btn-sm btn-primary span-linames">View
-                All</a>
-                </li>
-                  </ul>
-                
+              <div class="card-body">
+                <div class="row ">
+                  <div class="col-12 col-sm-12 col-md-2 ">
+                    <h2 class="top-streams">
+                      Top Streams:
+                    </h2>
                   </div>
-               
-                    
-                 
-                  
+                  <div class=" col-12 col-sm-12 col-md-10">
+                    <div class="multi-options">
+                      <ul>
+
+                        @foreach ($universtySpecializationsForCourses as $row)
+                          <li><span class="spanstream"
+                              onclick="goToUniPrograms('{{ $university->uname }}', '{{ $row->id }}')">
+                              {{ $row->name }}
+                            </span></li>
+                        @endforeach
+                        <li> <a target="_blank" href="{{ url('university/' . $university->uname . '/courses') }}"
+                            class="btn btn-sm btn-primary span-linames">View All</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3>Malaysia Popular Courses</h3>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-2 ">
+                    <h2 class="top-streams">
+                      Top Streams:
+                    </h2>
+                  </div>
+                  <div class=" col-12 col-sm-12 col-md-10">
+                    <div class="multi-options">
+                      <ul>
+                        @foreach ($randomSpecializations as $row)
+                          <li>
+                            <a class="spanstream" target="_blank"
+                              href="{{ url($row->slug . '-courses') }}">{{ $row->name }}</a>
+                          </li>
+                        @endforeach
+                        <li>
+                          <a target="_blank" href="{{ url('courses-in-malaysia') }}"
+                            class="btn btn-sm btn-primary span-linames">View
+                            All</a>
+                        </li>
+                      </ul>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3>Top Courses to Study in Malaysia</h3>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-2 ">
+                    <h2 class="top-streams">
+                      Top Streams:
+                    </h2>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="multi-options">
+                      <ul>
+                        @foreach ($specializationsWithContents as $row)
+                          <li>
+                            <a class="spanstream" target="_blank"
+                              href="{{ route('specialization.detail', ['slug' => $row->slug]) }}">{{ $row->name }}</a>
+                          </li>
+                        @endforeach
+                        <li>
+
+                          <a target="_blank" href="{{ url('specialization') }}"
+                            class="btn btn-sm btn-primary span-linames">View
+                            All</a>
+                        </li>
+                      </ul>
+                    </div>
+
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="card">
-            <div class="card-header">
-              <h3>Top Courses to Study in Malaysia</h3>
-            </div>
-            <div class="card-body">
-              <div class="row">
-              <div class="col-12 col-sm-12 col-md-2 ">
-                  <h2 class="top-streams" >
-                  Top Streams:
-                  </h2>
-                </div>
-                <div class="col-md-10">
-                <div class="multi-options" >
-                <ul>
-                @foreach ($specializationsWithContents as $row)
-                <li>
-                <a class="spanstream"  target="_blank"
-                      href="{{ route('specialization.detail', ['slug' => $row->slug]) }}">{{ $row->name }}</a>
-                </li>
-                @endforeach
-                    <li>
-
-                    <a target="_blank" href="{{ url('specialization') }}" class="btn btn-sm btn-primary span-linames">View
-                    All</a>
-                    </li>
-  </ul>
-                </div>
-          
-             
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         </div>
 
@@ -593,6 +587,21 @@
           $("#" + btn_id).text('Failed');
         });
       });
+    }
+
+    function goToUniPrograms(uname, specializationId) {
+      if (specializationId != '') {
+        $.ajax({
+          url: "{{ url('university-course-list/specialization') }}",
+          method: "GET",
+          data: {
+            specialization_id: specializationId
+          },
+          success: function(data) {
+            window.open("{{ url('university/') }}/" + uname + "/courses", "_blank");
+          }
+        });
+      }
     }
   </script>
 @endsection
