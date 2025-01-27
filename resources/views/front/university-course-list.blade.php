@@ -1,5 +1,6 @@
 @php
   use App\Models\StudentApplication;
+  use App\Helpers\UniversityProgramListButton;
 @endphp
 @extends('front.layouts.main')
 @push('seo_meta_tag')
@@ -64,55 +65,49 @@
           <!-- all universities -->
           <div class="filter-block">
             <div class="theme-div">
-              
-             
-          <div class="programe">
-          <span class="theme-cl">{{ $total }}     </span>
-          <h2>
-            Programme offered by
-            </h2>
-            <span
-                class="theme-cl">{{ $university->name }}</span>
 
-          </div>
-         
-      
-          </div>
-          <div class="d-flex justify-content-between align-items-center mt-2">
-          <h4 class="selections mb-0">Showing courses based on your selection</h4>
-            <div class="portal-filter">
-              <div class="heading m-0">Filters Applied</div>
-              <ul>
-                @if (session()->has('UCF_level'))
-                  <li><a onclick="removeFilter('UCF_level')" href="javascript:void(0)">{{ $filter_level }}<span
-                        class="cross">×</span></a></li>
-                @endif
-                @if (session()->has('UCF_course_category'))
-                  <li><a onclick="removeFilter('UCF_course_category')"
-                      href="javascript:void(0)">{{ $filter_category->name }}<span class="cross">×</span></a>
-                  </li>
-                @endif
-                @if (session()->has('UCF_specialization'))
-                  <li><a onclick="removeFilter('UCF_specialization')"
-                      href="javascript:void(0)">{{ $filter_specialization->name }}<span class="cross">×</span></a></li>
-                @endif
-                @if (session()->has('UCF_study_mode'))
-                  <li><a onclick="removeFilter('UCF_study_mode')"
-                      href="javascript:void(0)">{{ session()->get('UCF_study_mode') }}<span class="cross">×</span></a>
-                  </li>
-                @endif
-              </ul>
-              @if (session()->has('UCF_level') ||
-                      session()->has('UCF_course_category') ||
-                      session()->has('UCF_specialization') ||
-                      session()->has('UCF_study_mode'))
-                <a onclick="removeAllFilter()" href="javascript:void(0)" class="clearAll">Clear All</a>
-              @endif
+              <div class="programe">
+                <span class="theme-cl">{{ $total }} </span>
+                <h2>
+                  Programme offered by
+                </h2>
+                <span class="theme-cl">{{ $university->name }}</span>
+
+              </div>
+
             </div>
-          </div>
-          
-
-           
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <h4 class="selections mb-0">Showing courses based on your selection</h4>
+              <div class="portal-filter">
+                <div class="heading m-0">Filters Applied</div>
+                <ul>
+                  @if (session()->has('UCF_level'))
+                    <li><a onclick="removeFilter('UCF_level')" href="javascript:void(0)">{{ $filter_level }}<span
+                          class="cross">×</span></a></li>
+                  @endif
+                  @if (session()->has('UCF_course_category'))
+                    <li><a onclick="removeFilter('UCF_course_category')"
+                        href="javascript:void(0)">{{ $filter_category->name }}<span class="cross">×</span></a>
+                    </li>
+                  @endif
+                  @if (session()->has('UCF_specialization'))
+                    <li><a onclick="removeFilter('UCF_specialization')"
+                        href="javascript:void(0)">{{ $filter_specialization->name }}<span class="cross">×</span></a></li>
+                  @endif
+                  @if (session()->has('UCF_study_mode'))
+                    <li><a onclick="removeFilter('UCF_study_mode')"
+                        href="javascript:void(0)">{{ session()->get('UCF_study_mode') }}<span class="cross">×</span></a>
+                    </li>
+                  @endif
+                </ul>
+                @if (session()->has('UCF_level') ||
+                        session()->has('UCF_course_category') ||
+                        session()->has('UCF_specialization') ||
+                        session()->has('UCF_study_mode'))
+                  <a onclick="removeAllFilter()" href="javascript:void(0)" class="clearAll">Clear All</a>
+                @endif
+              </div>
+            </div>
 
           </div>
 
@@ -137,28 +132,7 @@
 
                     <div class="dashboard_single_course_head">
                       <div class="dashboard_single_course_head_flex">
-                        <h4 class="dashboard_course_title">{{ $row->course_name }}
-
-                          @if (session()->has('studentLoggedIn'))
-                            <div id="shortlisted_mark{{ $row->id }}"
-                              class="woo_buttons float-right {{ $check ? '' : 'hide-this' }}">
-                              <a href="javascript:void(0)" class="btn woo_btn_light" data-toggle="tooltip"
-                                data-placement="top" title="Shortlisted">
-                                <i style="background-color: red" class="ti-heart"></i>
-                              </a>
-                            </div>
-
-                            <div id="add_to_shortlist_mark{{ $row->id }}"
-                              class="woo_buttons float-right {{ $check ? 'hide-this' : '' }}">
-                              <a href="javascript:void(0)" onclick="shortlistProgram('{{ $row->id }}')"
-                                class="btn woo_btn_light" data-toggle="tooltip" data-placement="top"
-                                title="Add To Shortlist">
-                                <i class="ti-heart"></i>
-                              </a>
-                            </div>
-                          @endif
-
-                        </h4>
+                        <h4 class="dashboard_course_title">{{ $row->course_name }}</h4>
                       </div>
                     </div>
 
@@ -166,46 +140,28 @@
                       <div class="col-md-12">
                         <div class="row">
                           <div class="col-md-3 col-6 mt-1 mb-1"><span class="theme-cl">Study
-                              Mode:</span> <span class="theme-rl" >{{ $row->study_mode != '' ? $row->study_mode : 'N/A' }}</span> </div>
+                              Mode:</span> <span
+                              class="theme-rl">{{ $row->study_mode != '' ? $row->study_mode : 'N/A' }}</span> </div>
                           <div class="col-md-3 col-6 mt-1 mb-1"><span class="theme-cl">App
-                              deadline:</span>  <span  class="theme-rl"  >{{ $row->application_deadline != '' ? $row->application_deadline : 'N/A' }}</span>
+                              deadline:</span> <span
+                              class="theme-rl">{{ $row->application_deadline != '' ? $row->application_deadline : 'N/A' }}</span>
                           </div>
-                          <div class="col-md-3 col-6 mt-1 mb-1"><span
-                              class="theme-cl">Intakes:</span>
-                              <span class="theme-rl" >{{ $row->intake != '' ? $row->intake : 'N/A' }}</span>
+                          <div class="col-md-3 col-6 mt-1 mb-1"><span class="theme-cl">Intakes:</span>
+                            <span class="theme-rl">{{ $row->intake != '' ? $row->intake : 'N/A' }}</span>
                           </div>
                         </div>
                       </div>
                     </div>
 
                     <div class="row align-items-center">
-                    <div class="col-md-12">
-                      <div class="d-flex set-ggap justify-content-end">
-                        <a href="{{ route('university.course.details', ['university_slug' => $university->slug, 'course_slug' => $row->slug]) }}"
-                          class="card-btn2">
-                          View Details
-                        </a>
-                        @if (!session()->has('studentLoggedIn'))
-                          <span class="btn btn-modern2" onclick="ApplyNow()"><span>Apply Now</span></span>
-                        @else
-                          @if ($check)
-                            @if ($check->status == 0)
-                              <span class="btn btn-modern2"
-                                onClick="window.location.href = '<?php echo url('CourseController/directApply/' . $row->id); ?>';"><span>Apply
-                                  Now</span></span>
-                            @endif
-                            @if ($check->status == 1)
-                              <button style="background-color:green!important" type="button" class="shortList"><span><i
-                                    class="fa fa-check"></i> Applied</span></button>
-                            @endif
-                          @else
-                            <span class="btn btn-modern2"
-                              onClick="window.location.href = '<?php echo url('CourseController/directApply/' . $row->id); ?>';"><span>Apply
-                                Now</span></span>
-                            </a>
-                          @endif
-                        @endif
-                      </div>
+                      <div class="col-md-12">
+                        <div class="d-flex set-ggap justify-content-end">
+                          <a href="{{ route('university.course.details', ['university_slug' => $university->slug, 'course_slug' => $row->slug]) }}"
+                            class="card-btn2">
+                            View Details
+                          </a>
+                          {!! UniversityProgramListButton::getApplyButton($row->id) !!}
+                        </div>
                       </div>
                     </div>
 
@@ -239,8 +195,7 @@
                   data-target="#collapseFive2" aria-expanded="true" aria-controls="collapseFive2"
                   class="d-block position-relative text-dark collapsible-link py-2">Study Level</a></h6>
             </div>
-            <div id="collapseFive2" aria-labelledby="headingFive2" data-parent="#accordionExample"
-              class="collapse show">
+            <div id="collapseFive2" aria-labelledby="headingFive2" data-parent="#accordionExample" class="collapse show">
               <div class="scrlbar">
                 <div class="card-body pl-4 pr-4 pb-2">
                   <ul class="no-ul-list mb-3">
@@ -424,6 +379,11 @@
     }
   </script>
   <script>
+    function ApplyNow() {
+      //$('#errmsg').show();
+      window.open("{{ url('sign-up?return_to=' . request()->path()) }}", "_self");
+    }
+
     function ApplyLevelFilter(val) {
       //alert(val);
       $.ajax({
