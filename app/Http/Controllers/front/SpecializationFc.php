@@ -35,6 +35,8 @@ class SpecializationFc extends Controller
       $query->where('specialization_id', $specialization->id);
     })->get();
 
+    $featuredUniversities = University::inRandomOrder()->active()->limit(10)->get();
+
 
     // printArray($relatedUniversities->toArray());
     // die;
@@ -70,7 +72,7 @@ class SpecializationFc extends Controller
     $captcha = generateMathQuestion();
     session(['captcha_answer' => $captcha['answer']]);
     //die;
-    $data = compact('specialization', 'relatedUniversities', 'specializations', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path',  'captcha', 'countries', 'phonecodes', 'programs');
+    $data = compact('specialization', 'relatedUniversities', 'specializations', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path',  'captcha', 'countries', 'phonecodes', 'programs', 'featuredUniversities');
     return view('front.specialization-details')->with($data);
   }
 }

@@ -77,7 +77,7 @@
           <li class="{{ $i == 1 ? 'active' : '' }}"><a href="#{{ slugify($row->tab) }}">{{ ucwords($row->tab) }}</a></li>
           @php
             $i++;
-          @endphp 
+          @endphp
         @endforeach
       </ul>
     </div>
@@ -236,6 +236,36 @@
               </ul>
             </div>
           @endif
+          @if ($featuredUniversities->count() > 0)
+            <div class="card">
+              <div class="ed_author">
+                <div class="ed_author_box">
+                  <h4>Featured Universities</h4>
+                </div>
+              </div>
+              @foreach ($featuredUniversities as $row)
+                <div class="learnup-list">
+                  <div class="learnup-list-thumb">
+                    <a href="{{ route('university.overview', ['university_slug' => $row->uname]) }}">
+                      <img data-src="{{ asset($row->imgpath) }}" class="img-fluid" alt="{{ $row->name }}">
+                    </a>
+                  </div>
+                  <div class="learnup-list-caption">
+                    <h6><a
+                        href="{{ route('university.overview', ['university_slug' => $row->uname]) }}">{{ $row->name }}</a>
+                    </h6>
+                    <p class="mb-0"><i class="ti-location-pin"></i> {{ $row->city }}, {{ $row->state }}</p>
+                    <div class="learnup-info">
+                      <span>
+                        <a href="{{ route('university.courses', ['university_slug' => $row->uname]) }}"><i
+                            class="fa fa-graduation-cap"></i> Programme</a>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              @endforeach
+            </div>
+          @endif
           @include('front.forms.category-specialization-form')
         </div>
 
@@ -266,7 +296,7 @@
 
 
 
-    
+
     function goToUniPrograms(uname, specializationId) {
       if (specializationId != '') {
         $.ajax({

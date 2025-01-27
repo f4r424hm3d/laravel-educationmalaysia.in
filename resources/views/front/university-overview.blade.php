@@ -255,32 +255,34 @@
         <div class="col-xl-4 col-lg-4 col-md-12">
           @include('front.forms.university-side-form')
           <div class="ed_view_box style_2">
-            <div class="ed_author">
-              <div class="ed_author_box">
-                <h4>Featured Universities</h4>
-              </div>
-            </div>
-            @foreach ($trendingUniversity as $row)
-              <div class="learnup-list">
-                <div class="learnup-list-thumb">
-                  <a href="{{ route('university.overview', ['university_slug' => $row->uname]) }}">
-                    <img data-src="{{ asset($row->imgpath) }}" class="img-fluid" alt="{{ $row->name }}">
-                  </a>
+            @if ($trendingUniversity->count() > 0)
+              <div class="ed_author">
+                <div class="ed_author_box">
+                  <h4>Featured Universities</h4>
                 </div>
-                <div class="learnup-list-caption">
-                  <h6><a
-                      href="{{ route('university.overview', ['university_slug' => $row->uname]) }}">{{ $row->name }}</a>
-                  </h6>
-                  <p class="mb-0"><i class="ti-location-pin"></i> {{ $row->city }}, {{ $row->state }}</p>
-                  <div class="learnup-info">
-                    <span>
-                      <a href="{{ route('university.courses', ['university_slug' => $row->uname]) }}"><i
-                          class="fa fa-graduation-cap"></i> Programme</a>
-                    </span>
+              </div>
+              @foreach ($trendingUniversity as $row)
+                <div class="learnup-list">
+                  <div class="learnup-list-thumb">
+                    <a href="{{ route('university.overview', ['university_slug' => $row->uname]) }}">
+                      <img data-src="{{ asset($row->imgpath) }}" class="img-fluid" alt="{{ $row->name }}">
+                    </a>
+                  </div>
+                  <div class="learnup-list-caption">
+                    <h6><a
+                        href="{{ route('university.overview', ['university_slug' => $row->uname]) }}">{{ $row->name }}</a>
+                    </h6>
+                    <p class="mb-0"><i class="ti-location-pin"></i> {{ $row->city }}, {{ $row->state }}</p>
+                    <div class="learnup-info">
+                      <span>
+                        <a href="{{ route('university.courses', ['university_slug' => $row->uname]) }}"><i
+                            class="fa fa-graduation-cap"></i> Programme</a>
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            @endforeach
+              @endforeach
+            @endif
             <div class="ed_view_box style_2">
               <div class="ed_author">
                 <div class="ed_author_box">
