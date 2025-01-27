@@ -76,7 +76,7 @@ class UniversityList
       $query->whereRaw("FIND_IN_SET(?, intake)", [$request->intake]);
     }
 
-    $rows = $query->count();
+    $rows = $query->get()->count();
     return $rows;
   }
 }

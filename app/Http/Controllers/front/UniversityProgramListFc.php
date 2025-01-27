@@ -173,6 +173,7 @@ class UniversityProgramListFc extends Controller
     $request = new Request();
     $rows = UniversityList::universityPrograms($request);
     $nou = UniversityList::universityCount($request);
+    //die;
     $noc = $rows->total();
 
     $npu = $rows->nextPageUrl() ?? null;
