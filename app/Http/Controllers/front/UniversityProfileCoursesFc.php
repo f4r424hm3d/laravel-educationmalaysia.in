@@ -207,8 +207,8 @@ class UniversityProfileCoursesFc extends Controller
     $wrdseo = ['url' => 'university-course-detail'];
     $dseo = DynamicPageSeo::where($wrdseo)->first();
 
-    $breadcrumbCurrent = '<li class="facts-1">' . $program->program_name . '</li>';
-    $title = $program->program_name;
+    $breadcrumbCurrent = '<li class="facts-1">' . $program->course_name . '</li>';
+    $title = $program->course_name;
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'universityname' => $university->name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 

@@ -17,7 +17,7 @@
           <li class="facts-1">{{ Request::segment(3) }}</li>
         @endif
         @if (Request::segment(4) != '')
-          <li class="facts-1">{{ Request::segment(4) }}</li>
+          <li class="facts-1">{{ $program->course_name }}</li>
         @endif
       </ul>
     </div>
