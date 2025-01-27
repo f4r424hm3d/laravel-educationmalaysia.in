@@ -64,7 +64,7 @@
       <div class="row">
         <div class="col-xl-3 col-lg-3 col-md-12 col-12">
           <div id="accordionExample" class=" accordion shadow circullum hide-23 full-width accord-mobile">
-            
+
             @include('front.filter-courses-in-malaysia')
           </div>
         </div>
@@ -167,7 +167,7 @@
                                     <i class="ti-location-pin"></i>
                                     {{ formatLocation($row->university->city, $row->university->state, $row->university->country) }}
                                   </div>
-                                  
+
                                 </div>
 
                               </div>
@@ -277,6 +277,37 @@
 
   </section>
   <!-- Content -->
+  <section class="top-trending-courses">
+    <div class="container">
+      <div class="show-more-box-trending">
+        <div class="text show-more-height-trending">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <h2>Top <span>Trending</span> Courses</h2>
+            </div>
+          </div>
+          <div class="row">
+            @foreach ($specializations as $row)
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <a href="{{ url('stream/' . $row->slug) }}" target="_blank">
+                  <div class="fuc-box">
+                    <p>{{ $row->name }} <i class="fa fa-angle-right"></i></p>
+                  </div>
+                </a>
+              </div>
+            @endforeach
+          </div>
+        </div>
+      </div>
+    </div>
+    <center>
+      <a href="{{ url('specialization') }}" class="new-btn">
+        Browse All Courses
+      </a>
+    </center>
+    <br>
+    </br>
+  </section>
   <!-- Mobile Filter -->
   <div id="filter-sidebar" class="filter-sidebar">
     <div class="filt-head">
@@ -311,9 +342,9 @@
           </div>
         </div>
         <!-- <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div> -->
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div> -->
       </div>
     </div>
   </div>

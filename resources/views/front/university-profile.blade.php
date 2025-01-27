@@ -87,7 +87,7 @@
 
           <div class="ed_header_caption">
             <h1 class="ed_title">
-              {{ $university->name }} Rankings, Courses, Fees, Admission {{ date('Y') }} & Scholarships
+              {{ $university->name }}
             </h1>
             <ul>
               <li><i class="ti-location-pin"></i><span>Location:</span> {{ $university->city }},
