@@ -1,11 +1,6 @@
 @php
-  use App\Models\AppliedProgram;
-  if (session()->has('studentLoggedIn')) {
-      $where = ['program_id' => $program->id, 'student_id' => session()->get('student_id')];
-      $check = AppliedProgram::where($where)->count();
-  } else {
-      $check = 0;
-  }
+  use App\Models\StudentApplication;
+  use App\Helpers\UniversityProgramListButton;
 @endphp
 @extends('front.layouts.main')
 @push('seo_meta_tag')
@@ -166,18 +161,7 @@
           <div class="edu_wraper p-3">
             <!-- Call to action -->
             <div class="justify-content-center align-content-center text-center font-weight-bold">
-              @if (session()->has('studentLoggedIn'))
-                @if ($check > 0)
-                  <a id="applyBtn1" href="javascript:void()"
-                    class="btn btn-theme-2 ml-2 rounded rounded-circle">Applied</a>
-                @else
-                  <a id="applyBtn1" href="javascript:void()" onclick="applyProgram('{{ $program->id }}','applyBtn1')"
-                    class="btn btn-theme-2 ml-2 rounded rounded-circle">APPLY NOW</a>
-                @endif
-              @else
-                <a href="{{ url('/sign-up/?return_to=' . $path . '&program_id=' . $program->id) }}"
-                  class="btn btn-theme-2 ml-2 rounded rounded-circle" style="border:0px">APPLY NOW</a>
-              @endif
+              {!! UniversityProgramListButton::getApplyButton($program->id, 'btn btn-theme-2 ml-2 rounded rounded-circle') !!}
               <a href="{{ route('university.courses', ['university_slug' => $university->uname]) }}"
                 class="btn btn-theme-2 ml-2 rounded rounded-circle" style="border:0px">View all courses</a>
             </div>
