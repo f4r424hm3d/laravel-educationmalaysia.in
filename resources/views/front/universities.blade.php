@@ -39,8 +39,10 @@
               <li class="facts-1">Universities in Malaysia</li>
             </ul>
             <div class="ed_header_caption mb-0">
-              <h4 class="ed_title mb-2 mt-3" ><span><?php echo $total; ?></span> <?php echo $currentInstituteType; ?> In <span>Malaysia</span></h4>
-              <p class="mb-0" >Find a list of top <?php echo $currentInstituteType; ?> in malaysia. Get details such as institution type, campus
+              <h4 class="ed_title mb-2 mt-3"><span><?php echo $total; ?></span> <?php echo $currentInstituteType; ?> In <span>Malaysia</span>
+              </h4>
+              <p class="mb-0">Find a list of top <?php echo $currentInstituteType; ?> in malaysia. Get details such as institution type,
+                campus
                 location, courses offered, World rating and other pertinent information about all the top
                 <?php echo $currentInstituteType; ?> in malaysia. Fill out an online request form to get the complete information about any
                 top <?php echo $currentInstituteType; ?> in malaysia you're interested in.</p>
@@ -97,9 +99,10 @@
               @endif
             </div>
             <div class="text-right desktop-hide ml-auto px-3">
-            <button type="button" class="btn btn-modern2 univ-btn reviews-btn rounded" data-toggle="modal" data-target="#exampleModal">
-  Filter show
-</button>
+              <button type="button" class="btn btn-modern2 univ-btn reviews-btn rounded" data-toggle="modal"
+                data-target="#exampleModal">
+                Filter show
+              </button>
             </div>
           </div>
           <!-- all universities -->
@@ -108,75 +111,79 @@
               @if ($rows->count() > 0)
                 @foreach ($rows as $row)
                   <div class="dashboard_single_course align-items-center d-block">
-                <div class="row">
-                <div class="col-lg-10 pr-md-0">
                     <div class="row">
-                      <div class="col-lg-2 col-md-3 col-sm-4 col-12 mb-4">
-                      <div class="divimg">
-                        <img data-src="{{ asset($row->imgpath) }}" class="img-fluid" alt="{{ $row->name }} Logo">
-                        </div>
-                      </div>
-                      <div class="col-lg-10 col-md-9 col-sm-8 col-12 mb-4">
-                      <div class="dashboard_single_course_caption ">
-                        <div class="dashboard_single_course_head">
-                          <div class="dashboard_single_course_head_flex mt-0">
-                            <h6 class="dashboard_course_title mb-1" style="font-size:20px">
-                              <a href="{{ route('university.overview', ['university_slug' => $row->uname]) }}">
-                                {{ $row->name }}
-                              </a>
-                            </h6>
-                            <div class="row">
-                              <div class="col-md-6 col-12">
-                                <i class="ti-location-pin"></i>
-                                {{ formatLocation($row->city, $row->state, $row->country) }}
-                              </div>
-                              <div class="col-md-6 col-12">
-                                <div class="flex-wrap align-items-center d-flex align-items-center justify-content-start ">
-                                  <span class="theme-cl mb-0">Rating : </span>
-
-                                  <span class="ratingstar mx-1">★★★★★</span>
+                      <div class="col-lg-10 pr-md-0">
+                        <div class="row">
+                          <div class="col-lg-2 col-md-3 col-sm-4 col-12 mb-4">
+                            <div class="divimg">
+                              <img data-src="{{ asset($row->imgpath) }}" class="img-fluid" alt="{{ $row->name }} Logo">
+                            </div>
+                          </div>
+                          <div class="col-lg-10 col-md-9 col-sm-8 col-12 mb-4">
+                            <div class="dashboard_single_course_caption ">
+                              <div class="dashboard_single_course_head">
+                                <div class="dashboard_single_course_head_flex mt-0">
+                                  <h6 class="dashboard_course_title mb-1" style="font-size:20px">
+                                    <a href="{{ route('university.overview', ['university_slug' => $row->uname]) }}">
+                                      {{ $row->name }}
+                                    </a>
+                                  </h6>
+                                  <div class="d-flex align-items-center justify-content-start set-ratings ">
+                                    <div class="locationss">
+                                      <i class="ti-location-pin"></i>
+                                      {{ formatLocation($row->city, $row->state, $row->country) }}
+                                    </div>
+                                    <div class="locationssd">
+                                      <div class="loc-rating">
+                                        <span class="loc mobile">
+                                          Rating:
+                                          <div class="star-ratings">
+                                            {!! universityRating($row->rating) !!}
+                                          </div>
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
+
                               </div>
                             </div>
                           </div>
-                          
+
                         </div>
                       </div>
-                      </div>
-                     
-                    </div>
-                    </div>
 
-                    <div class="col-lg-2 mb-4">
+                      <div class="col-lg-2 mb-4">
                         <div class="dc_head_right">
                           <div class="dropdown">
-                          <a href="{{ route('university.overview', ['university_slug' => $row->uname]) }}"
-                                class="btn btn-modern2 univ-btn reviews-btn">View
-                                Details</a>                          </div>
+                            <a href="{{ route('university.overview', ['university_slug' => $row->uname]) }}"
+                              class="btn btn-modern2 univ-btn reviews-btn">View
+                              Details</a>
+                          </div>
                         </div>
                       </div>
 
-                </div>
+                    </div>
                     <div class="row ">
-                    <div class="col-md-4 col-12">
-                       <div class="flex-wrap align-items-center setgap2 block-desktop">
-                        <span class="theme-cl">Institute Type:</span>
-  <span class="duratinss"> {{ $row->instituteType->type }}</span>                       
+                      <div class="col-md-4 col-lg-3 col-12">
+                        <div class="flex-wrap align-items-center setgap2 block-desktop">
+                          <span class="theme-cl">Institute Type:</span>
+                          <span class="duratinss"> {{ $row->instituteType->type }}</span>
+                        </div>
                       </div>
+                      <div class="col-md-4 col-lg-3 col-12">
+                        <div class="flex-wrap align-items-center setgap2 block-desktop">
+                          <span class="theme-cl">Course:</span>
+                          <span class="duratinss"> {{ $row->programs->count() ?? 'N/A' }} </span>
+                        </div>
                       </div>
-                    <div class="col-md-4 col-12">
-                       <div class="flex-wrap align-items-center setgap2 block-desktop">
-                        <span class="theme-cl">Course:</span>
-  <span class="duratinss"> {{ $row->programs->count() ?? 'N/A' }} </span>                       
+                      <div class="col-md-4 col-lg-3 col-12">
+                        <div class="flex-wrap align-items-center setgap2 block-desktop">
+                          <span class="theme-cl">World Ranking:</span>
+                          <span class="duratinss"> {{ $row->rank ?? 'N/A' }} </span>
+                        </div>
                       </div>
-                      </div>
-                    <div class="col-md-4 col-12">
-                       <div class="flex-wrap align-items-center setgap2 block-desktop">
-                        <span class="theme-cl">World Ranking:</span>
-  <span class="duratinss"> {{ $row->rank ?? 'N/A' }} </span>                       
-                      </div>
-                      </div>
-                      
+
                     </div>
                   </div>
                   <br>
@@ -206,29 +213,29 @@
     </div>
   </div>
 
-<!-- Modal -->
-<div class="modal modal-filter-set fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Filter Title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body study-filters">
-      <div id="accordionExample" class="accordion shadow circullum hide-23 full-width ">
+  <!-- Modal -->
+  <div class="modal modal-filter-set fade " id="exampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Filter Title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body study-filters">
+          <div id="accordionExample" class="accordion shadow circullum hide-23 full-width ">
             @include('front.filter-universities')
           </div>
+        </div>
+        <!-- <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                              </div> -->
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div> -->
     </div>
   </div>
-</div>
-
 
   <!-- Show more -->
   <script>

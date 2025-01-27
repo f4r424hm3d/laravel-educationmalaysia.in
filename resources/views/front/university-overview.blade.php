@@ -254,8 +254,8 @@
         <!-- Sidebar -->
         <div class="col-xl-4 col-lg-4 col-md-12">
           @include('front.forms.university-side-form')
-          <div class="ed_view_box style_2">
-            @if ($trendingUniversity->count() > 0)
+          @if ($trendingUniversity->count() > 0)
+            <div class="ed_view_box style_2">
               <div class="ed_author">
                 <div class="ed_author_box">
                   <h4>Featured Universities</h4>
@@ -282,78 +282,79 @@
                   </div>
                 </div>
               @endforeach
-            @endif
-            <div class="ed_view_box style_2">
-              <div class="ed_author">
-                <div class="ed_author_box">
-                  <h4>Find Universities Courses</h4>
-                </div>
-              </div>
+            </div>
+          @endif
 
-              <div class="learnup-list">
-                <div class="learnup-list-thumb">
-                  <a href="{{ url('courses/pre-university') }}">
-                    <img data-src="{{ asset('assets') }}/web/images/fuc-icons/pre-university.png" class="img-fluid"
-                      alt="Pre University">
-                  </a>
-                </div>
-                <div class="learnup-list-caption">
-                  <h6>
-                    <p>Certificate Course in Malaysia </p>
-                  </h6>
-                </div>
+          <div class="ed_view_box style_2">
+            <div class="ed_author">
+              <div class="ed_author_box">
+                <h4>Find Universities Courses</h4>
               </div>
-              <div class="learnup-list">
-                <div class="learnup-list-thumb">
-                  <a href="{{ url('courses/diploma') }}">
-                    <img data-src="{{ asset('assets') }}/web/images/fuc-icons/diploma.png" class="img-fluid"
-                      alt="Pre University">
-                  </a>
-                </div>
-                <div class="learnup-list-caption">
-                  <h6>
-                    <p>Diploma Course in Malaysia </p>
-                  </h6>
-                </div>
+            </div>
+
+            <div class="learnup-list">
+              <div class="learnup-list-thumb">
+                <a href="{{ url('courses/pre-university') }}">
+                  <img data-src="{{ asset('assets') }}/web/images/fuc-icons/pre-university.png" class="img-fluid"
+                    alt="Pre University">
+                </a>
               </div>
-              <div class="learnup-list">
-                <div class="learnup-list-thumb">
-                  <a href="{{ url('courses/under-graduate') }}">
-                    <img data-src="{{ asset('assets') }}/web/images/fuc-icons/under-graduate.png" class="img-fluid"
-                      alt="Pre University">
-                  </a>
-                </div>
-                <div class="learnup-list-caption">
-                  <h6>
-                    <p>Bachelor Course in Malaysia </p>
-                  </h6>
-                </div>
+              <div class="learnup-list-caption">
+                <h6>
+                  <p>Certificate Course in Malaysia </p>
+                </h6>
               </div>
-              <div class="learnup-list">
-                <div class="learnup-list-thumb">
-                  <a href="{{ url('courses/post-graduate') }}">
-                    <img data-src="{{ asset('assets') }}/web/images/fuc-icons/post-graduate.png" class="img-fluid"
-                      alt="Pre University">
-                  </a>
-                </div>
-                <div class="learnup-list-caption">
-                  <h6>
-                    <p>Master Degree in Malaysia </p>
-                  </h6>
-                </div>
+            </div>
+            <div class="learnup-list">
+              <div class="learnup-list-thumb">
+                <a href="{{ url('courses/diploma') }}">
+                  <img data-src="{{ asset('assets') }}/web/images/fuc-icons/diploma.png" class="img-fluid"
+                    alt="Pre University">
+                </a>
               </div>
-              <div class="learnup-list">
-                <div class="learnup-list-thumb">
-                  <a href="{{ url('courses/phd') }}">
-                    <img data-src="{{ asset('assets') }}/web/images/fuc-icons/phd.png" class="img-fluid"
-                      alt="Pre University">
-                  </a>
-                </div>
-                <div class="learnup-list-caption">
-                  <h6>
-                    <p>PHD Courses in Malaysia </p>
-                  </h6>
-                </div>
+              <div class="learnup-list-caption">
+                <h6>
+                  <p>Diploma Course in Malaysia </p>
+                </h6>
+              </div>
+            </div>
+            <div class="learnup-list">
+              <div class="learnup-list-thumb">
+                <a href="{{ url('courses/under-graduate') }}">
+                  <img data-src="{{ asset('assets') }}/web/images/fuc-icons/under-graduate.png" class="img-fluid"
+                    alt="Pre University">
+                </a>
+              </div>
+              <div class="learnup-list-caption">
+                <h6>
+                  <p>Bachelor Course in Malaysia </p>
+                </h6>
+              </div>
+            </div>
+            <div class="learnup-list">
+              <div class="learnup-list-thumb">
+                <a href="{{ url('courses/post-graduate') }}">
+                  <img data-src="{{ asset('assets') }}/web/images/fuc-icons/post-graduate.png" class="img-fluid"
+                    alt="Pre University">
+                </a>
+              </div>
+              <div class="learnup-list-caption">
+                <h6>
+                  <p>Master Degree in Malaysia </p>
+                </h6>
+              </div>
+            </div>
+            <div class="learnup-list">
+              <div class="learnup-list-thumb">
+                <a href="{{ url('courses/phd') }}">
+                  <img data-src="{{ asset('assets') }}/web/images/fuc-icons/phd.png" class="img-fluid"
+                    alt="Pre University">
+                </a>
+              </div>
+              <div class="learnup-list-caption">
+                <h6>
+                  <p>PHD Courses in Malaysia </p>
+                </h6>
               </div>
             </div>
           </div>

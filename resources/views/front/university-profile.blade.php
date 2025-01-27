@@ -93,14 +93,15 @@
               <li><i class="ti-location-pin"></i><span>Location:</span> {{ $university->city }},
                 {{ $university->state }}</li>
               <li>
-                <div class="dv-loc d-flex align-items-center ">
-                  <span class="loc mobile">
-                    <i class="fa fa-star-half-o me-1 " aria-hidden="true"></i>
-                    Rating:
-                  </span>
-
-                  <div class="empty-ratings" title="<?php echo htmlspecialchars($university->rating); ?>"><span>★★★★★</span></div>
-
+                <div class="locationssd">
+                  <div class="loc-rating">
+                    <span class="loc mobile">
+                      Rating:
+                      <div class="star-ratings">
+                        {!! universityRating($university->rating) !!}
+                      </div>
+                    </span>
+                  </div>
                 </div>
 
               </li>

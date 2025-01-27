@@ -303,3 +303,13 @@ if (!function_exists('ip_details')) {
     return $details;
   }
 }
+if (!function_exists('universityRating')) {
+
+  function universityRating($rating)
+  {
+    $gs = ($rating * 100) / 5;
+    $gs = $gs > 0 ? $gs : 90;
+    $output = '<div class="fill-ratings" style="width:' . $gs . '%;"><span>★★★★★</span></div><div class="empty-ratings"><span>★★★★★</span></div>';
+    return $output;
+  }
+}
