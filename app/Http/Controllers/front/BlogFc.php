@@ -54,6 +54,11 @@ class BlogFc extends Controller
   {
     $category = BlogCategory::website()->where('slug', $category_slug)->firstOrFail();
 
+    // $explodeSlug = explode('-', $slug);
+    // $blog_id = end($explodeSlug);
+    // array_pop($explodeSlug);
+    // $updatedSlug = implode($explodeSlug, "-");
+
     preg_match('/\d+$/', $slug, $matches);
     $blog_id = $matches[0] ?? null;
 
