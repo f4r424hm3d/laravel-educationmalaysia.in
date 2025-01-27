@@ -35,6 +35,10 @@ class University extends Model
   {
     return $this->hasMany(UniversityProgram::class, 'university_id', 'id');
   }
+  public function activePrograms()
+  {
+    return $this->hasMany(UniversityProgram::class, 'university_id', 'id')->where('status', 1);
+  }
   public function photos()
   {
     return $this->hasMany(UniversityPhoto::class, 'u_id', 'id');

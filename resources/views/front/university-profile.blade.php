@@ -131,7 +131,7 @@
               <li><i class="fa fa-graduation-cap"></i><span>Type:</span>
                 {{ $university->instituteType->type ?? 'N/A' }}
               </li>
-              <li><i class="ti-user"></i><span>Courses:</span> {{ $university->programs->count() }}</li>
+              <li><i class="ti-user"></i><span>Courses:</span> {{ $university->activePrograms->count() }}</li>
               <li><i class="fa fa-building"></i><span>QS World University Rankings:</span>
                 {{ $university->qs_rank }}
               </li>
