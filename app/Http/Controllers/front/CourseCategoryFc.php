@@ -23,14 +23,15 @@ class CourseCategoryFc extends Controller
     $category = CourseCategory::where('slug', $slug)->whereHas('contents')->website()->firstOrFail();
     $categories = CourseCategory::inRandomOrder()->whereHas('contents')->where('id', '!=', $category->id)->website()->limit(10)->get();
 
+    // Fetch related universities
+    $relatedUniversities = University::whereHas('programs', function ($query) use ($category) {
+      $query->where('course_category_id', $category->id);
+    })->get();
+
+    $featuredUniversities = University::inRandomOrder()->active()->limit(10)->get();
+
     $page = request()->get('page', 1) - 1;
     $start_from = 10 * $page;
-
-    // Fetch related universities
-    $relatedUniversities = UniversityProgram::select('university_id')->distinct()->where('course_category_id', $category->id)->get();
-
-    // printArray($relatedUniversities->toArray());
-    // die;
 
     $programs = UniversityProgram::website()->where('course_category_id', $category->id)->orderBy('course_name', 'ASC')->get();
 
@@ -63,7 +64,7 @@ class CourseCategoryFc extends Controller
     $captcha = generateMathQuestion();
     session(['captcha_answer' => $captcha['answer']]);
 
-    $data = compact('category', 'categories', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path',  'captcha', 'countries', 'phonecodes', 'programs');
+    $data = compact('category', 'categories', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path',  'captcha', 'countries', 'phonecodes', 'programs', 'relatedUniversities', 'featuredUniversities');
     return view('front.category-details')->with($data);
   }
 }
