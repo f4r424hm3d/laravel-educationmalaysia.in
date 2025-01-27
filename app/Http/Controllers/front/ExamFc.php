@@ -4,6 +4,7 @@ namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Country;
+use App\Models\CourseSpecialization;
 use App\Models\DefaultOgImage;
 use App\Models\Destination;
 use App\Models\DynamicPageSeo;
@@ -12,6 +13,7 @@ use App\Models\ExamContent;
 use App\Models\ExamFaq;
 use App\Models\ExamTab;
 use App\Models\ExamTabFaq;
+use App\Models\University;
 use Illuminate\Http\Request;
 
 class ExamFc extends Controller
@@ -33,6 +35,9 @@ class ExamFc extends Controller
     $exams = Exam::website()->where(['status' => 1])->where('id', '!=', $exam->id)->get();
 
     $allExams = Exam::website()->where(['status' => 1])->get();
+
+    $specializations = CourseSpecialization::inRandomOrder()->limit(10)->whereHas('contents')->get();
+    $featuredUniversities = University::inRandomOrder()->active()->limit(10)->get();
 
     $page_url = url()->current();
 
@@ -60,7 +65,7 @@ class ExamFc extends Controller
     $captcha = generateMathQuestion();
     session(['captcha_answer' => $captcha['answer']]);
 
-    $data = compact('exam', 'exams', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'countries', 'phonecodes', 'captcha', 'allExams');
+    $data = compact('exam', 'exams', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'countries', 'phonecodes', 'captcha', 'allExams', 'specializations', 'featuredUniversities');
     return view('front.exam-detail')->with($data);
   }
 }
