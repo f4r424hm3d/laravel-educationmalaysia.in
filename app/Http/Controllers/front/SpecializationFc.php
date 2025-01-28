@@ -5,6 +5,7 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Models\Country;
 use App\Models\CourseSpecialization;
+use App\Models\CourseSpecializationFaq;
 use App\Models\DefaultImage;
 use App\Models\DynamicPageSeo;
 use App\Models\University;
@@ -28,6 +29,8 @@ class SpecializationFc extends Controller
 
     // Fetch course specialization by slug and website filter
     $specialization = CourseSpecialization::where('slug', $slug)->firstOrFail();
+    //$faqs = CourseSpecializationFaq::where('specialization_id', $specialization->id)->get();
+    //return $specialization->faqs;
     $specializations = CourseSpecialization::inRandomOrder()->where('id', '!=', $specialization->id)->limit(10)->whereHas('contents')->get();
 
     // Fetch related universities

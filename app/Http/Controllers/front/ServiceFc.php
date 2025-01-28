@@ -4,11 +4,13 @@ namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Country;
+use App\Models\CourseSpecialization;
 use App\Models\DefaultOgImage;
 use App\Models\Destination;
 use App\Models\DynamicPageSeo;
 use App\Models\Service;
 use App\Models\ServiceContent;
+use App\Models\University;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; // Import DB facade
 use Illuminate\Support\Carbon;
@@ -99,7 +101,11 @@ class ServiceFc extends Controller
 
     $source = 'Service Page';
 
-    $data = compact('services', 'service', 'allServices', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'seo_rating', 'seoRatingSchema', 'countries', 'phonecodes', 'captcha', 'source');
+    $specializations = CourseSpecialization::inRandomOrder()->limit(10)->whereHas('contents')->get();
+
+    $featuredUniversities = University::inRandomOrder()->active()->limit(10)->get();
+
+    $data = compact('services', 'service', 'allServices', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'seo_rating', 'seoRatingSchema', 'countries', 'phonecodes', 'captcha', 'source', 'specializations', 'featuredUniversities');
     return view('front.service-detail')->with($data);
   }
 }

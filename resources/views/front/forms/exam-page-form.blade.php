@@ -14,7 +14,7 @@
     @error('g-recaptcha-response')
       <span class="text-danger">{{ $message }}</span>
     @enderror
-    <form action="{{ route('stream.inquiry') }}" method="post" class="px-3">
+    <form action="{{ route('stream.inquiry') }}" method="post" class="px-3" id="enquiry-now">
       @csrf
       <input type="hidden" name="source" value="Education Malaysia - Exam Page">
       <input type="hidden" name="source_path" value="{{ URL::full() }}">
@@ -38,8 +38,8 @@
         <div class="col-md-12 mb-3">
           <div class="form-group mb-0 text-left">
             <label for="email">Email</label>
-            <input type="email" placeholder="Email" class="form-control" name="email" id="email" value="{{ old('email') }}"
-              required>
+            <input type="email" placeholder="Email" class="form-control" name="email" id="email"
+              value="{{ old('email') }}" required>
             @error('email')
               <span class="text-danger">{{ $message }}</span>
             @enderror

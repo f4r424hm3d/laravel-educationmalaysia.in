@@ -76,7 +76,7 @@
 
               {!! $exam->description !!}
 
-              <a href="#inquiry" class="big-center-btn btn-theme text-white rounded">
+              <a href="#enquiry-now" class="big-center-btn btn-theme text-white rounded">
                 Enquiry Now
               </a>
 

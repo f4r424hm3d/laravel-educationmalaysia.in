@@ -191,38 +191,32 @@
                 $pgcont++;
               @endphp
             @endforeach
-            <div class="boxfaq">
-              <h2>FAQs : {{ $specialization->name }}</h2>
-              <div id="accordion">
-                @if ($specialization->faqs->count() > 0)
-                  <div class="boxfaq">
-                    <h2>FAQs : {{ $specialization->name }}</h2>
-                    <div id="accordion">
-                      @foreach ($specialization->faqs as $row)
-                        <div class="card">
-                          <div class="card-header" id="headdingbx{{ $row->id }}">
-                            <h5 class="mb-0">
-                              <button class="btn btn-link" data-toggle="collapse"
-                                data-target="#onebx{{ $row->id }}" aria-expanded="true"
-                                aria-controls="onebx{{ $row->id }}">
-                                {{ $row->question }}
-                              </button>
-                            </h5>
-                          </div>
+            @if ($specialization->faqs->count() > 0)
+              <div class="boxfaq">
+                <h2>FAQs : {{ $specialization->name }}</h2>
+                <div id="accordion">
+                  @foreach ($specialization->faqs as $row)
+                    <div class="card">
+                      <div class="card-header" id="headdingbx{{ $row->id }}">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link" data-toggle="collapse" data-target="#onebx{{ $row->id }}"
+                            aria-expanded="true" aria-controls="onebx{{ $row->id }}">
+                            {{ $row->question }}
+                          </button>
+                        </h5>
+                      </div>
 
-                          <div id="onebx{{ $row->id }}" class="collapse "
-                            aria-labelledby="headdingbx{{ $row->id }}" data-parent="#accordion">
-                            <div class="card-body">
-                              {!! $row->answer !!}
-                            </div>
-                          </div>
+                      <div id="onebx{{ $row->id }}" class="collapse "
+                        aria-labelledby="headdingbx{{ $row->id }}" data-parent="#accordion">
+                        <div class="card-body">
+                          {!! $row->answer !!}
                         </div>
-                      @endforeach
+                      </div>
                     </div>
-                  </div>
-                @endif
+                  @endforeach
+                </div>
               </div>
-            </div>
+            @endif
           </div>
 
         </div>

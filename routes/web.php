@@ -881,6 +881,24 @@ foreach ($specializations as $row) {
   Route::get($row->slug . '-courses', [UniversityProgramListFc::class, 'filterUniversity']);
 }
 
+$levelSpc = UniversityProgram::with('getSpecialization')
+  ->select('specialization_id', 'level')
+  ->whereNotNull('specialization_id')
+  ->where('specialization_id', '!=', '')
+  ->whereNotNull('level')
+  ->where('level', '!=', '')
+  ->distinct()
+  ->get();
+
+foreach ($levelSpc as $data) {
+  $level_slug = slugify($data->level);
+  if ($data->getSpecialization) {
+    $specialization_slug = $data->getSpecialization->slug;
+    Route::get($level_slug . '-in-' . $specialization_slug . '-courses', [UniversityProgramListFc::class, 'filterUniversityByLevelSpc']);
+  }
+}
+
+
 Route::prefix('courses-in-malaysia')->group(function () {
   Route::get('/remove-filter', [UniversityProgramListFc::class, 'removeFilter'])->name('cl.remove.filter');
   Route::get('/remove-all-filter', [UniversityProgramListFc::class, 'removeAllFilter'])->name('cl.remove.all.filter');
