@@ -40,7 +40,7 @@
               </li>
               <li><a href="{{ url('courses/under-graduate') }}"><i class="fa fa-angle-right"></i>UNDER
                   GRADUATE</a></li>
-              <li><a href="{{ url('courses/post-graduate') }}/exam/gmat/overview"><i class="fa fa-angle-right"></i>POST
+              <li><a href="{{ url('courses/post-graduate') }}"><i class="fa fa-angle-right"></i>POST
                   GRADUATE</a></li>
               <li><a href="{{ url('courses/phd') }}"><i class="fa fa-angle-right"></i>PhD COURSES</a>
               </li>
