@@ -17,7 +17,7 @@ class CourseCategoryFc extends Controller
   {
     $countries = Country::orderBy('name', 'ASC')->get();
     $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
-    $defaultImage = DefaultImage::where('page', 'course-category-detail')->get();
+    $defaultImage = DefaultImage::where('page', 'course-category-detail')->first();
 
     // Fetch course specialization by slug and website filter
     $category = CourseCategory::where('slug', $slug)->whereHas('contents')->website()->firstOrFail();
@@ -55,7 +55,7 @@ class CourseCategoryFc extends Controller
     $meta_description = $category->meta_description == '' ? $dseo->description : $category->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
 
-    $og_image_path = $category->content_image_path ?? $category->ogimgpath;
+    $og_image_path = $category->content_image_path ?? $defaultImage->image_path;
 
     $seo_rating = $category->seo_rating == '0' ? '0' : $category->seo_rating;
 

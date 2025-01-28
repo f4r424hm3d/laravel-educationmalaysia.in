@@ -33,7 +33,6 @@
   <!-- font-awesome  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
   <link rel="preload" href="{{ url('front/') }}/assets/css/colors.css" as="style"
     onload="this.onload=null;this.rel='stylesheet'">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -104,9 +103,8 @@
               @if (session()->has('studentLoggedIn'))
                 <li class="login_click light"><a href="{{ url('/student/profile/') }}">Profile</a></li>
               @else
-              <li class="login_click purple"><a href="{{ url('/') }}/sign-in">Sign Up</a></li>
+                <li class="login_click purple"><a href="{{ url('/') }}/sign-up">Sign Up</a></li>
                 <li class="login_click light"><a href="{{ url('/') }}/sign-in">Login</a></li>
-               
               @endif
             </ul>
             <ul class="nav-menu align-to-right">
