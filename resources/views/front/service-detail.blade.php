@@ -32,8 +32,8 @@
 @endpush
 @section('main-section')
   <!-- Breadcrumb -->
-  <div class="image-cover ed_detail_head lg" style="background:url({{ url('/front/') }}/assets/img/ub.jpg);"
-    data-overlay="8">
+  <div class="head-imags" style="background:url({{ url('/front/') }}/assets/img/banner-head.jpg);"></div>
+  <div class="image-cover ed_detail_head lg" public data-overlay="8">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-12 col-md-12">
