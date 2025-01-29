@@ -6,26 +6,10 @@
   @include('front.layouts.static_page_meta_tag')
 @endpush
 @section('main-section')
-  <!-- Content -->
-  <link rel='stylesheet' id='wb-table-grid-public-css-css'
-    href='https://educationmalaysia.in/front/assets/compare/wb-table-grid-public.css' type='text/css' media='all' />
-  <link rel='stylesheet' id='style-responsive-css'
-    href='https://educationmalaysia.in/front/assets/compare/style-responsive.css' type='text/css' media='all' />
-  <link rel='stylesheet' id='style-custom-css' href='https://educationmalaysia.in/front/assets/compare/style-custom.css'
-    type='text/css' media='all' />
-
-  <link rel='stylesheet' id='searchwp-live-search-css' href='https://educationmalaysia.in/front/assets/compare/style.css'
-    type='text/css' media='all' />
-  <link rel='stylesheet' id='tablepress-default-css'
-    href='https://educationmalaysia.in/front/assets/compare/tablepress-combined.min.css' type='text/css' media='all' />
-  <script type='text/javascript' src='https://educationmalaysia.in/front/assets/compare/jquery.js'></script>
-  <script type='text/javascript' src='https://educationmalaysia.in/front/assets/compare/jquery-migrate.min.js'></script>
-  <script type='text/javascript' src='https://educationmalaysia.in/front/assets/compare/wb-table-grid-public.js'></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <div class="gdlr-content">
-    <div class="image-cover ed_detail_head lg"
-      style="background:url(https://educationmalaysia.in/front/assets/img/ub.jpg);" data-overlay="8">
+    <div class="image-cover ed_detail_head lg" style="background:url(https://educationmalaysia.in/front/assets/img/ub.jpg);"
+      data-overlay="8">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-12 col-md-12">
@@ -33,13 +17,13 @@
               <div class="compare-header">
                 <div class="container">
                   <form method="get">
-                    <h2>Discover the best Universities in the World</h2>
+                    <h2>Discover the best Universities in the Malaysia</h2>
                     <div class="row">
                       <div class="col-md-4">
                         <select id="level" name="level" required>
                           <option value="">Select Level</option>
                           @foreach ($levels as $row)
-                            <option value="{{ $row->getLevel->id }}">{{ $row->getLevel->level }}</option>
+                            <option value="{{ $row->level }}">{{ $row->level }}</option>
                           @endforeach
                         </select>
                       </div>
@@ -57,7 +41,7 @@
                     <span class="text-danger" id="errDiv" style="display:none;">Please select all fields.</span>
                     <center class="mt-4">
                       <button type="submit" class="btn btn-modern-compare float-none">
-                        Compare Now <span><i class="ti-reload mr-0"></i></span>
+                        Compare University <span><i class="ti-reload mr-0"></i></span>
                       </button>
                     </center>
                   </form>
@@ -71,10 +55,11 @@
 
     <div class="main-content-container container gdlr-item-start-content">
       <div class="gdlr-item gdlr-main-content text-center">
-        <h1>Find &amp; Compare Courses</h1>
-        <h3 style="font-weight: normal;">Gain practical &amp; industry-specific knowledge in the field of Accounting
-          through a course. Learn more about each institution&#8217;s and find out which college / university suits you
-          best.</h3>
+        <h1>Find & Compare Courses in Malaysia</h1>
+        <h3 style="font-weight: normal;">
+          Gain practical & industry-specific knowledge in the field of Accounting through a course. Learn more about each
+          institution’s and find out which college / university suits you best.
+        </h3>
         <div class="clear"></div>
         <div class="gdlr-space"></div>
         @if ($programs != null)
@@ -180,8 +165,8 @@
                                 <div class="WBGridTable-middle">
                                   <span>
                                     <div class="WBGridTable-content">
-                                      <a href="{{ url($row->getUniversity->slug) }}" target="_blank">
-                                        <img data-src="{{ asset($row->getUniversity->logo_path) }}" alt="Logo" />
+                                      <a href="{{ url('university/' . $row->university->uname) }}" target="_blank">
+                                        <img data-src="{{ asset($row->university->logo_path) }}" alt="Logo" />
                                       </a>
                                     </div>
                                   </span>
@@ -192,7 +177,7 @@
                                   <span>
                                     <div class="WBGridTable-content">
                                       <div style="margin:8px;">
-                                        <strong>{{ $row->getUniversity->name }}</strong>
+                                        <strong>{{ $row->university->name }}</strong>
                                       </div>
                                     </div>
                                   </span>
@@ -236,8 +221,8 @@
                                   <div class="WBGridTable-title">
                                     <strong>Campus</strong>
                                   </div>
-                                  <div class="WBGridTable-content">{{ $row->getUniversity->city }},
-                                    {{ $row->getUniversity->state }}</div>
+                                  <div class="WBGridTable-content">{{ $row->university->city }},
+                                    {{ $row->university->state }}</div>
                                 </span>
                               </div>
                             </li>
@@ -396,7 +381,7 @@
           url: "{{ url('compare/get-category-by-level') }}",
           method: "GET",
           data: {
-            level_id: level
+            level: level
           },
           success: function(result) {
             //alert(result);
@@ -412,7 +397,7 @@
           method: "GET",
           data: {
             course_category_id: course_category,
-            level_id: level
+            level: level
           },
           success: function(result) {
             //alert(result);

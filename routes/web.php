@@ -742,7 +742,8 @@ Route::get('select-university', [HomeFc::class, 'SelectUniversities'])->name('se
 Route::get('select-level', [HomeFc::class, 'SelectLevel'])->name('select.level');
 
 Route::get('compare', [CompareFc::class, 'index'])->name('compare');
-
+Route::get('compare/get-category-by-level', [CompareFc::class, 'getCategoryByLevel']);
+Route::get('compare/get-spc-by-level-and-category', [CompareFc::class, 'getSpcByLC']);
 
 Route::get('get-info', [BlogFc::class, 'index'])->name('blog');
 Route::get('get-info/{category_slug}', [BlogFc::class, 'blogByCategory'])->name('blog.category');
