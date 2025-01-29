@@ -1,15 +1,30 @@
 @php
-  use App\Models\AppliedProgram;
+  use App\Models\StudentApplication;
+  use App\Helpers\UniversityProgramListButton;
 @endphp
 @extends('front.layouts.main')
 @push('seo_meta_tag')
   @include('front.layouts.static_page_meta_tag')
 @endpush
 @section('main-section')
+  <!-- Content -->
+  <link rel='stylesheet' id='wb-table-grid-public-css-css'
+    href='{{ url('/') }}/front/assets/compare/wb-table-grid-public.css' type='text/css' media='all' />
+  <link rel='stylesheet' id='style-responsive-css' href='{{ url('/') }}/front/assets/compare/style-responsive.css'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='style-custom-css' href='{{ url('/') }}/front/assets/compare/style-custom.css'
+    type='text/css' media='all' />
 
+  <link rel='stylesheet' id='searchwp-live-search-css' href='{{ url('/') }}/front/assets/compare/style.css'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='tablepress-default-css'
+    href='{{ url('/') }}/front/assets/compare/tablepress-combined.min.css' type='text/css' media='all' />
+  <script type='text/javascript' src='{{ url('/') }}/front/assets/compare/jquery.js'></script>
+  <script type='text/javascript' src='{{ url('/') }}/front/assets/compare/jquery-migrate.min.js'></script>
+  <script type='text/javascript' src='{{ url('/') }}/front/assets/compare/wb-table-grid-public.js'></script>
   <div class="gdlr-content">
-    <div class="image-cover ed_detail_head lg" style="background:url(https://educationmalaysia.in/front/assets/img/ub.jpg);"
-      data-overlay="8">
+    <div class="image-cover ed_detail_head lg"
+      style="background:url(https://educationmalaysia.in/front/assets/img/ub.jpg);" data-overlay="8">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-12 col-md-12">
@@ -150,14 +165,6 @@
                       <div class="WBGridContent-hiddenWidth">
 
                         @foreach ($programs as $row)
-                          @php
-                            if (session()->has('studentLoggedIn')) {
-                                $where = ['program_id' => $row->id, 'student_id' => session()->get('student_id')];
-                                $check = AppliedProgram::where($where)->count();
-                            } else {
-                                $check = 0;
-                            }
-                          @endphp
                           <ul class="WBGridContent-cell">
 
                             <div class="WBGridTable-topRow">
@@ -187,18 +194,7 @@
                                 <div class="WBGridTable-middle">
                                   <span>
                                     <div class="WBGridTable-content wbGrids-button">
-                                      @if (session()->has('studentLoggedIn'))
-                                        @if ($check > 0)
-                                          <a href="javascript:void()" class="gdlr-button small">Applied</a>
-                                        @else
-                                          <a href="javascript:void()" onclick="applyProgram('{{ $row->id }}')"
-                                            class="gdlr-button small apply-btn{{ $row->id }}">Apply</a>
-                                        @endif
-                                      @else
-                                        <a href="{{ url('/sign-in/?return_to=' . $path . '&program_id=' . $row->id) }}"
-                                          class="gdlr-button small" style="border:0px">Apply</a>
-                                      @endif
-
+                                      {!! UniversityProgramListButton::getApplyButton($row->id, 'gdlr-button small') !!}
                                     </div>
                                   </span>
                                 </div>
@@ -315,17 +311,7 @@
                               <div class="WBGridTable-middle">
                                 <span>
                                   <div class="WBGridTable-content wbGrids-button">
-                                    @if (session()->has('studentLoggedIn'))
-                                      @if ($check > 0)
-                                        <a href="javascript:void()" class="gdlr-button small">Applied</a>
-                                      @else
-                                        <a href="javascript:void()" onclick="applyProgram('{{ $row->id }}')"
-                                          class="gdlr-button small apply-btn{{ $row->id }}">Apply</a>
-                                      @endif
-                                    @else
-                                      <a href="{{ url('/sign-in/?return_to=' . $path . '&program_id=' . $row->id) }}"
-                                        class="gdlr-button small" style="border:0px">Apply</a>
-                                    @endif
+                                    {!! UniversityProgramListButton::getApplyButton($row->id, 'gdlr-button small') !!}
                                   </div>
                                 </span>
                               </div>
