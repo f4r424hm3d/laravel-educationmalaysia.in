@@ -246,7 +246,7 @@ class UniversityProfileCoursesFc extends Controller
 
     $specializationsWithContents = CourseSpecialization::inRandomOrder()->whereHas('contents')->limit(15)->get();
 
-    $similarPrograms = UniversityProgram::inRandomOrder()->where('level', $program->level)->where('specialization_id', $program->specialization_id)->where('id', '!=', $program->id)->limit(10)->get();
+    $similarPrograms = UniversityProgram::inRandomOrder()->where('level', $program->level)->where('specialization_id', $program->specialization_id)->where('id', '!=', $program->id)->limit(10)->where('slug', '!=', '')->whereNotNull('slug')->where('status', 1)->get();
 
     $data = compact('program', 'university', 'trendingUniversity', 'path', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'months', 'breadcrumbCurrent', 'countries', 'phonecodes', 'captcha', 'levels', 'course_categories', 'universtySpecializationsForCourses', 'randomSpecializations', 'specializationsWithContents', 'similarPrograms');
     return view('front.programs-profile')->with($data);
