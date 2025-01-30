@@ -2,15 +2,15 @@
 
 use Carbon\Carbon;
 
-// define('TO_EMAIL', 'studytutelage@gmail.com');
-// define('TO_NAME', 'Team tutelage Study');
-// define('CC_EMAIL', 'vandana@educationmalaysia.in');
-// define('CC_NAME', 'Vandana Sarswat');
+define('TO_EMAIL', 'studytutelage@gmail.com');
+define('TO_NAME', 'Team tutelage Study');
+define('CC_EMAIL', 'vandana@educationmalaysia.in');
+define('CC_NAME', 'Vandana Sarswat');
 
-define('TO_EMAIL', 'farazahmad280@gmail.com');
-define('TO_NAME', 'Mohd Faraz');
-define('CC_EMAIL', '4hm3df4r42@gmail.com');
-define('CC_NAME', 'Education Malaysia Education');
+// define('TO_EMAIL', 'farazahmad280@gmail.com');
+// define('TO_NAME', 'Mohd Faraz');
+// define('CC_EMAIL', '4hm3df4r42@gmail.com');
+// define('CC_NAME', 'Education Malaysia Education');
 
 
 define('BCC_EMAIL', 'farazahmad280@gmail.com');

@@ -5,10 +5,10 @@
 @endpush
 @section('main-section')
   <section class="banner-section">
-  
+
     <div class="container">
-    <h2 class="banner-titles">MALAYSIAN UNIVERSITIES EDUCATION & TRAINING FAIR
-    </h2>
+      <h2 class="banner-titles">MALAYSIAN UNIVERSITIES EDUCATION & TRAINING FAIR
+      </h2>
       <div class="row">
 
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -35,226 +35,176 @@
           </a>
         </div>
       </div>
-      <h2 class="bannerma" >Malaysian Universities Education held in Tripoli hosted by Ministry of Higher Education and Scientific Research of Libya and organized by Malaysian Export Academy (MEXA).</h2>
+      <h2 class="bannerma">Malaysian Universities Education held in Tripoli hosted by Ministry of Higher Education and
+        Scientific Research of Libya and organized by Malaysian Export Academy (MEXA).</h2>
     </div>
 
   </section>
 
-<!-- Modal -->
-<div class="modal courses-modal  fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"> what is offered by the participating universities.?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <!-- Modal -->
+  <div class="modal courses-modal  fade" id="courseListModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"> what is offered by the participating universities.?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <footer class="dark-footer skin-dark-footer pt-3 rounded">
+            <div class="container-fluid">
+              <div class="row">
+
+                @foreach ($result as $data)
+                  <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
+                    <div class="footer-widget">
+                      <span class="widget-title">{{ $data['category_name'] }}</span>
+                      <ul class="footer-menu">
+                        @foreach ($data['specializations'] as $specialization_name)
+                          <li> <i class="ti-arrow-right"></i> {{ $specialization_name }}</li>
+                        @endforeach
+                      </ul>
+                    </div>
+                  </div>
+                @endforeach
+
+              </div>
+            </div>
+
+          </footer>
+        </div>
+
       </div>
-      <div class="modal-body">
-     <footer class="dark-footer skin-dark-footer pt-3 rounded">
-   <div class="container-fluid">
-   <div class="row">
-  <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
-    <div class="footer-widget">
-      <span class="widget-title">Top Courses</span>
-      <ul class="footer-menu">
-        <li> <i class="ti-arrow-right"></i> Accounting & Finance</li>
-        <li> <i class="ti-arrow-right"></i> Civil Engineering</li>
-        <li> <i class="ti-arrow-right"></i> Arts/Fine Arts</li>
-        <li> <i class="ti-arrow-right"></i> Hospitality</li>
-        <li> <i class="ti-arrow-right"></i> Business Management</li>
-        <li> <i class="ti-arrow-right"></i> Computer Engineering</li>
-        <li> <i class="ti-arrow-right"></i> Physiology</li>
-        <li> <i class="ti-arrow-right"></i> Medicine</li>
-        <li> <i class="ti-arrow-right"></i> Business Information Systems</li>
-      </ul>
     </div>
   </div>
-
-  <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
-    <div class="footer-widget">
-      <span class="widget-title">Qualified Level</span>
-      <ul class="footer-menu">
-        <li> <i class="ti-arrow-right"></i> CERTIFICATE</li>
-        <li> <i class="ti-arrow-right"></i> PRE UNIVERSITY</li>
-        <li> <i class="ti-arrow-right"></i> DIPLOMA</li>
-        <li> <i class="ti-arrow-right"></i> UNDER GRADUATE</li>
-        <li> <i class="ti-arrow-right"></i> POST GRADUATE</li>
-        <li> <i class="ti-arrow-right"></i> PhD COURSES</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
-    <div class="footer-widget">
-      <span class="widget-title">HELP & SUPPORT</span>
-      <ul class="footer-menu">
-        <li> <i class="ti-arrow-right"></i> FAQs</li>
-        <li> <i class="ti-arrow-right"></i> What People Say</li>
-        <li> <i class="ti-arrow-right"></i> Contact us</li>
-        <li> <i class="ti-arrow-right"></i> Terms & Conditions</li>
-        <li> <i class="ti-arrow-right"></i> Articles</li>
-        <li> <i class="ti-arrow-right"></i> Privacy Policy</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mt-4">
-    <div class="indin-office">
-      <span class="Head-indian">India Head Office</span>
-      <p>B-16 Ground Floor, Mayfield Garden, Sector 50, Gurugram, Haryana, India 122002</p>
-      <p>Phone: +91-98185-60331</p>
-      <p>Email: info@educationmalaysia.in</p>
-    </div>
-  </div>
-
-  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mt-4">
-    <div class="indin-office">
-      <span class="Head-indian">Malaysia Office</span>
-      <p>8, Jalan Tun Sambanthan, Wilayah Persekutuan Kuala Lumpur Malaysia 50470</p>
-      <p>Phone: +60 11 1778 4424</p>
-    </div>
-  </div>
-
-  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mt-4">
-    <div class="indin-office">
-      <span class="Head-indian">Pakistan Office</span>
-      <p>#311, Garden Heights, Garden Town Lahore Pakistan 54000</p>
-      <p>Phone: +60-11-1778-4424</p>
-    </div>
-  </div>
-
-  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mt-4">
-    <div class="indin-office">
-      <span class="b">Bangladesh Office</span>
-      <p>H-16, Road-09, Sector-01, (Flat-A5/B), Uttara, Dhaka, Bangladesh 1230</p>
-      <p>Phone: +91-98185-60331</p>
-      <ul class="linksfooters">
-        <li class="lia" > <i class="fa fa-facebook" aria-hidden="true"></i>  </li>
-        <li class="lia" > <i class="fa fa-twitter" aria-hidden="true"></i>  </li>
-        <li class="lia" > <i class="fa fa-linkedin" aria-hidden="true"></i>  </li>
-        <li class="lia" > <i class="fa fa-pinterest" aria-hidden="true"></i>  </li>
-        <li class="lia" > <i class="fa fa-instagram" aria-hidden="true"></i>  </li>
-        <li class="lia" > <i class="fa fa-youtube" aria-hidden="true"></i>  </li>
-      </ul>
-    </div>
-  </div>
-</div>
-   </div>
-
-</footer>
-      </div>
-    
-    </div>
-  </div>
-</div>
 
   <section class="Sureworks">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 mb-4 ">
-          <a href="{{ url('specialization') }}">
-            <div class="flex flex-col all-flexx gap-3 items-center text-center h-100 " >
-<div class="imgflx">
-<img src="{{ url('/') }}/assets/images/courses.png" alt="">
-</div>
-            <h2 class="text-xl font-bold">Courses</h2>
+          <a href="#" data-toggle="modal" data-target="#courseListModal">
+            <div class="flex flex-col all-flexx gap-3 items-center text-center h-100 ">
+              <div class="imgflx">
+                <img src="{{ url('/') }}/assets/images/courses.png" alt="">
+              </div>
+              <h2 class="text-xl font-bold">Courses</h2>
               <p>Discover a diverse range of programs from undergraduate to postgraduate degrees, explore options in
                 medicine, engineering, business, IT, and more.</p>
             </div>
           </a>
-          <button class="btn btn-primary"  data-toggle="modal" data-target="#exampleModal" >courses</button>
+          {{-- <button class="btn btn-primary" data-toggle="modal" data-target="#courseListModal">courses</button> --}}
         </div>
         <div class="col-lg-4 mb-4 ">
           <a href="{{ url(url()->current() . '/institutions') }}">
             <div class="flex flex-col all-flexx gap-3 h-100 items-center text-center">
-             <div class="imgflx">
-             <img src="{{ url('/') }}/assets/images/institution.png" alt="">
-             </div>
+              <div class="imgflx">
+                <img src="{{ url('/') }}/assets/images/institution.png" alt="">
+              </div>
               <h2 class="text-xl font-bold">Institutions</h2>
               <p>Connect with globally recognized Malaysian universities and institutions renowned for academic
                 excellence.
               </p>
             </div>
           </a>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Institutions</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal"
+            data-target=".bd-example-modal-lg">Institutions</button>
 
         </div>
-<!-- ------------------------------------- -->
+        <!-- ------------------------------------- -->
 
-<!-- Large modal -->
+        <!-- Large modal -->
 
-<div class="modal institution-modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-    <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">what is offered by the participating universities.?        </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    <div class="modal-body">
-    <div class="row-institutes">
-        <div class="row align-items-center">
-          <div class="col-2 col-sm-12 col-md-2 mb-4">
-            <div class="institues-img">
-              <img src="/assets/images/malaysia-uni1.jpeg" class="img-fluid" alt="">
+        <div class="modal institution-modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+          aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">what is offered by the participating universities.? </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row-institutes">
+                  <div class="row align-items-center">
+                    <div class="col-2 col-sm-12 col-md-2 mb-4">
+                      <div class="institues-img">
+                        <img src="/assets/images/malaysia-uni1.jpeg" class="img-fluid" alt="">
+                      </div>
+
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-10 mb-4 ">
+                      <div class="universitynames">
+                        <h2>University of Malaya (UM)</h2>
+                        <p> <span>Location:</span> Kuala Lumpur</p>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="c">
+                    <p class=" parargraph-more">
+                      UKM is located in Bangi, a township just next to Kajang. It is easy to take Commuter train, just
+                      about 20
+                      minutes ride to Kuala Lumpur, the capital of Malaysia. Taxis are plentiful and easy accessible too.
+                      Taxi
+                      will cost you about RM 5.00 per trip to UKM.
+                      UKM is located in Bangi, a township just next to Kajang. It is easy to take Commuter train, just
+                      about 20
+                      minutes ride to Kuala Lumpur, the capital of Malaysia. Taxis are plentiful and easy accessible too.
+                      Taxi
+                      will cost you about RM 5.00 per trip to UKM.
+                      UKM is located in Bangi, a township just next to Kajang. It is easy to take Commuter train, just
+                      about 20
+                      minutes ride to Kuala Lumpur, the capital of Malaysia. Taxis are plentiful and easy accessible too.
+                      Taxi
+                      will cost you about RM 5.00 per trip to UKM.
+
+                      UKM is located in Bangi, a township just next to Kajang. It is easy to take Commuter train, just
+                      about 20
+                      minutes ride to Kuala Lumpur, the capital of Malaysia. Taxis are plentiful and easy accessible too.
+                      Taxi
+                      will cost you about RM 5.00 per trip to UKM.
+                      UKM is located in Bangi, a township just next to Kajang. It is easy to take Commuter train, just
+                      about 20
+                      minutes ride to Kuala Lumpur, the capital of Malaysia. Taxis are plentiful and easy accessible too.
+                      Taxi
+                      will cost you about RM 5.00 per trip to UKM.
+
+                      UKM is located in Bangi, a township just next to Kajang. It is easy to take Commuter train, just
+                      about 20
+                      minutes ride to Kuala Lumpur, the capital of Malaysia. Taxis are plentiful and easy accessible too.
+                      Taxi
+                      will cost you about RM 5.00 per trip to UKM.UKM is located in Bangi, a township just next to Kajang.
+                      It is
+                      easy to take Commuter train, just about 20 minutes ride to Kuala Lumpur, the capital of Malaysia.
+                      Taxis are
+                      plentiful and easy accessible too. Taxi will cost you about RM 5.00 per trip to UKM.UKM is located
+                      in Bangi,
+                      a township just next to Kajang. It is easy to take Commuter train, just about 20 minutes ride to
+                      Kuala
+                      Lumpur, the capital of Malaysia. Taxis are plentiful and easy accessible too. Taxi will cost you
+                      about RM
+                      5.00 per trip to UKM.
+                    </p>
+                    <a class="showbx" href="#">Show More <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </a>
+                    <a class="showbx" href="#">Show Less <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                  <button class="featuresoption"> <span></span> Featured </button>
+                </div>
+              </div>
             </div>
-
           </div>
-          <div class="col-12 col-sm-12 col-md-10 mb-4 ">
-            <div class="universitynames">
-              <h2>University of Malaya (UM)</h2>
-              <p> <span>Location:</span> Kuala Lumpur</p>
-            </div>
-          </div>
-         
         </div>
-        <div class="c">
-            <p class=" parargraph-more">
-              UKM is located in Bangi, a township just next to Kajang. It is easy to take Commuter train, just about 20
-              minutes ride to Kuala Lumpur, the capital of Malaysia. Taxis are plentiful and easy accessible too. Taxi
-              will cost you about RM 5.00 per trip to UKM.
-              UKM is located in Bangi, a township just next to Kajang. It is easy to take Commuter train, just about 20
-              minutes ride to Kuala Lumpur, the capital of Malaysia. Taxis are plentiful and easy accessible too. Taxi
-              will cost you about RM 5.00 per trip to UKM.
-              UKM is located in Bangi, a township just next to Kajang. It is easy to take Commuter train, just about 20
-              minutes ride to Kuala Lumpur, the capital of Malaysia. Taxis are plentiful and easy accessible too. Taxi
-              will cost you about RM 5.00 per trip to UKM.
-
-              UKM is located in Bangi, a township just next to Kajang. It is easy to take Commuter train, just about 20
-              minutes ride to Kuala Lumpur, the capital of Malaysia. Taxis are plentiful and easy accessible too. Taxi
-              will cost you about RM 5.00 per trip to UKM.
-              UKM is located in Bangi, a township just next to Kajang. It is easy to take Commuter train, just about 20
-              minutes ride to Kuala Lumpur, the capital of Malaysia. Taxis are plentiful and easy accessible too. Taxi
-              will cost you about RM 5.00 per trip to UKM.
-
-              UKM is located in Bangi, a township just next to Kajang. It is easy to take Commuter train, just about 20
-              minutes ride to Kuala Lumpur, the capital of Malaysia. Taxis are plentiful and easy accessible too. Taxi
-              will cost you about RM 5.00 per trip to UKM.UKM is located in Bangi, a township just next to Kajang. It is
-              easy to take Commuter train, just about 20 minutes ride to Kuala Lumpur, the capital of Malaysia. Taxis are
-              plentiful and easy accessible too. Taxi will cost you about RM 5.00 per trip to UKM.UKM is located in Bangi,
-              a township just next to Kajang. It is easy to take Commuter train, just about 20 minutes ride to Kuala
-              Lumpur, the capital of Malaysia. Taxis are plentiful and easy accessible too. Taxi will cost you about RM
-              5.00 per trip to UKM.
-            </p>
-            <a class="showbx" href="#">Show More <i class="fa fa-angle-down" aria-hidden="true"></i>
-            </a>
-            <a class="showbx" href="#">Show Less <i class="fa fa-angle-up" aria-hidden="true"></i>
-            </a>
-          </div>
-        <button class="featuresoption"> <span></span> Featured </button>
-      </div>
-    </div>
-    </div>
-  </div>
-</div>
-<!-- -------------------------------  -->
+        <!-- -------------------------------  -->
         <div class="col-lg-4 mb-4 ">
           <div class="flex flex-col all-flexx gap-3 h-100 items-center text-center">
-           <div class="imgflx">
-           <img src="{{ url('/') }}/assets/images/scholarship.png" alt="">
-           </div>
+            <div class="imgflx">
+              <img src="{{ url('/') }}/assets/images/scholarship.png" alt="">
+            </div>
             <h2 class="text-xl font-bold">Scholarships</h2>
             <p>Exclusive scholarship opportunities for Libyan students sponsored by the Libyan Government.</p>
           </div>
@@ -272,23 +222,25 @@
             <h2 class="main-faris">
               Education Fair 2025 </h2>
             <!-- <p class="all-fair mb-2">{{ $pageDetail->date_and_address }}</p> -->
-            <p class="all-fair mb-2">Libyan Academy for Postgraduate Studies, Tripoli Libya. 22nd & 23rd February 2025, 9.30am to 1.00pm & 4.00pm to 8.00pm</p>
+            <p class="all-fair mb-2">Libyan Academy for Postgraduate Studies, Tripoli Libya. 22nd & 23rd February 2025,
+              9.30am to 1.00pm & 4.00pm to 8.00pm</p>
             <h2 class="fairs">
-            Malaysian Universities Education & Training Fair  </h2>
-            <ul class="set_uls" >
+              Malaysian Universities Education & Training Fair </h2>
+            <ul class="set_uls">
               <li><b><i class="fa fa-map-pin" aria-hidden="true"></i>
-              Venue / Place</b> <span>:</span>  Libyan Academy for Postgraduate Studies, Tripoli, Libya</li>
-              <li><b><i class="fa fa-calendar" aria-hidden="true"></i>Date:</b> <span>:</span> 22nd & 23rd February 2025</li>
+                  Venue / Place</b> <span>:</span> Libyan Academy for Postgraduate Studies, Tripoli, Libya</li>
+              <li><b><i class="fa fa-calendar" aria-hidden="true"></i>Date:</b> <span>:</span> 22nd & 23rd February 2025
+              </li>
               <li><b><i class="fa fa-clock-o" aria-hidden="true"></i>
-              Time:</b> <span>:</span>  9:30 AM – 1:00 PM & 4:00 PM – 8:00 PM</li>
+                  Time:</b> <span>:</span> 9:30 AM – 1:00 PM & 4:00 PM – 8:00 PM</li>
             </ul>
             <!-- <ul class="set_uls" >
-              <li><b>Hosted by:</b>  Ministry of Higher Education and Scientific Research, Libya
-              </li>
-              <li><b>Organised by:</b> Malaysian Export Academy (MEXA), Malaysia
-              </li>
-              <li><b>Supported by:</b> NAPEI, Malaysia</li>
-            </ul> -->
+                                      <li><b>Hosted by:</b>  Ministry of Higher Education and Scientific Research, Libya
+                                      </li>
+                                      <li><b>Organised by:</b> Malaysian Export Academy (MEXA), Malaysia
+                                      </li>
+                                      <li><b>Supported by:</b> NAPEI, Malaysia</li>
+                                    </ul> -->
             <div class="imgsfaird">
               <img src="/assets/images/libya-malaysia.png" class="imgsfairs" alt="">
             </div>
@@ -414,7 +366,7 @@
                 </div>
 
                 <div class="col-lg-12 col-md-12 col-sm-12">
-               
+
                   <div class="form-check checkbx-white pl-4">
                     <input type="checkbox" class="form-check-input" id="test5">
                     <label class="form-check-label px-0 " for="test5">By clicking on register I agree to the
@@ -439,16 +391,16 @@
 
   <section class="educationfairs">
     <div class="container">
-    <h2 class="set-fairs mb-4">Why Join This Education Fair?</h2>
+      <h2 class="set-fairs mb-4">Why Join This Education Fair?</h2>
       <div class="row align-items-center  justify-content-center  ">
-       
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
-          
-        <div class="fariul">
-          <div class="flspan">
-          <span> <img src="/assets/images/top-universities.png " class="img-fluid" alt=""></span>
 
-          </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
+
+          <div class="fariul">
+            <div class="flspan">
+              <span> <img src="/assets/images/top-universities.png " class="img-fluid" alt=""></span>
+
+            </div>
             <div class="fair-us">
               <h2>Meet Top Universities</h2>
               <p>Connect with Malaysia’s leading institutions in one place.</p>
@@ -457,11 +409,11 @@
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
-        <div class="fariul">
-        <div class="flspan">
-        <span> <img src="/assets/images/Exclusive-Scholarship.png " class="img-fluid" alt=""></span>
+          <div class="fariul">
+            <div class="flspan">
+              <span> <img src="/assets/images/Exclusive-Scholarship.png " class="img-fluid" alt=""></span>
 
-        </div>
+            </div>
             <div class="fair-us">
               <h2>Exclusive Scholarships</h2>
               <p>Learn about scholarships for Libyan students.</p>
@@ -470,11 +422,11 @@
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
-        <div class="fariul">
-        <div class="flspan">
-        <span> <img src="/assets/images/Spot-Admissions.png " class="img-fluid" alt=""></span>
+          <div class="fariul">
+            <div class="flspan">
+              <span> <img src="/assets/images/Spot-Admissions.png " class="img-fluid" alt=""></span>
 
-        </div>
+            </div>
             <div class="fair-us">
               <h2>Spot Admissions</h2>
               <p>Apply on the spot for eligible programs.</p>
@@ -483,11 +435,11 @@
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
-        <div class="fariul">
-        <div class="flspan">
-        <span> <img src="/assets/images/Visa-travel.png " class="img-fluid" alt=""></span>
+          <div class="fariul">
+            <div class="flspan">
+              <span> <img src="/assets/images/Visa-travel.png " class="img-fluid" alt=""></span>
 
-        </div>
+            </div>
             <div class="fair-us">
               <h2>Visa & Travel Support</h2>
               <p>Get step-by-step guidance on studying in Malaysia.</p>
@@ -496,10 +448,10 @@
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
-        <div class="fariul">
-        <div class="flspan">
-        <span> <img src="/assets/images/Work-Internships.png " class="img-fluid" alt=""></span>
-        </div>
+          <div class="fariul">
+            <div class="flspan">
+              <span> <img src="/assets/images/Work-Internships.png " class="img-fluid" alt=""></span>
+            </div>
             <div class="fair-us">
               <h2>Work & Internships</h2>
               <p>Explore part-time work and internship options.</p>
@@ -508,11 +460,11 @@
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
-        <div class="fariul">
-        <div class="flspan">
-        <span> <img src="/assets/images/Cultural-Insights.png " class="img-fluid" alt=""></span>
+          <div class="fariul">
+            <div class="flspan">
+              <span> <img src="/assets/images/Cultural-Insights.png " class="img-fluid" alt=""></span>
 
-        </div>
+            </div>
             <div class="fair-us">
               <h2>Cultural Insights</h2>
               <p>Learn about life and student support in Malaysia.</p>
@@ -521,9 +473,9 @@
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
-        <div class="fariul">
+          <div class="fariul">
             <div class="flspan">
-            <span> <img src="/assets/images/save-time.png " class="img-fluid" alt=""></span>
+              <span> <img src="/assets/images/save-time.png " class="img-fluid" alt=""></span>
 
             </div>
             <div class="fair-us">
@@ -594,9 +546,12 @@
         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
           <div class="all-fairss">
             <h2> <span>Why Attend </span> the Malaysian Universities Education Fair Tripoli, Libya?</h2>
-            <p>The Education Fair is a pioneering event designed to connect Libyan students with representatives from prestigious universities from Malaysia.
-Sponsored by the Libyan Government, this Education Fair provides students with invaluable opportunities to explore international academic pathways, secure scholarships, and take significant steps toward fulfilling their educational aspirations.
-</p>
+            <p>The Education Fair is a pioneering event designed to connect Libyan students with representatives from
+              prestigious universities from Malaysia.
+              Sponsored by the Libyan Government, this Education Fair provides students with invaluable opportunities to
+              explore international academic pathways, secure scholarships, and take significant steps toward fulfilling
+              their educational aspirations.
+            </p>
           </div>
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6">
@@ -620,7 +575,7 @@ Sponsored by the Libyan Government, this Education Fair provides students with i
 
         <div class="col-12 col-sm-12 col-md-4 mb-4">
           <div class="cards-spec">
-            
+
             <div class="special-black event-overlay">
 
               <h2>Government Sponsored Scholarships</h2>
@@ -646,7 +601,7 @@ Sponsored by the Libyan Government, this Education Fair provides students with i
         </div>
         <div class="col-12 col-sm-12 col-md-4 mb-4">
           <div class="cards-spec">
-           
+
             <div class="special-black event-overlay">
 
               <h2>On-The-Spot Offers and Admissions</h2>
@@ -850,55 +805,55 @@ Sponsored by the Libyan Government, this Education Fair provides students with i
   </section>
 
   <section class="faq-sections">
-   
+
     <div class="container">
-    <div class=" faq-details">
-      Frequently Ask <span>Question</span>
-    </div>
+      <div class=" faq-details">
+        Frequently Ask <span>Question</span>
+      </div>
       <div class="row align-items-center">
         <div class="col-md-12">
 
           <div id="accordion" class="mainacc">
             <div class="card-diff">
               <div class="row">
-              @foreach ($pageDetail->faqs as $row)
-              <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-4">
-                <div class=" card mb-0">
-                  <div class="card-header" id="heading{{ $row->id }}">
-                    <h5 class="mb-0">
-                      <button class="btn btn-link" data-toggle="collapsed" data-target="#collapse{{ $row->id }}"
-                        aria-expanded="true" aria-controls="collapse{{ $row->id }}">
-                        <div class="clickfa d-flex justify-content-between gapss align-items-center">
-                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                          <h2 class="span-accord">{{ $row->question }}</h2> 
+                @foreach ($pageDetail->faqs as $row)
+                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-4">
+                    <div class=" card mb-0">
+                      <div class="card-header" id="heading{{ $row->id }}">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link" data-toggle="collapsed"
+                            data-target="#collapse{{ $row->id }}" aria-expanded="true"
+                            aria-controls="collapse{{ $row->id }}">
+                            <div class="clickfa d-flex justify-content-between gapss align-items-center">
+                              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                              <h2 class="span-accord">{{ $row->question }}</h2>
 
-
+                            </div>
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="collapse{{ $row->id }}" class="collapse "
+                        aria-labelledby="heading{{ $row->id }}" data-parent="#accordion">
+                        <div class="card-body">
+                          <p class="card-anwer"> {!! $row->answer !!}</p>
                         </div>
-                      </button>
-                    </h5>
-                  </div>
-                  <div id="collapse{{ $row->id }}" class="collapse "
-                    aria-labelledby="heading{{ $row->id }}" data-parent="#accordion">
-                    <div class="card-body">
-                     <p class="card-anwer" > {!! $row->answer !!}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                </div>
-              @endforeach
+                @endforeach
               </div>
-             
+
             </div>
 
           </div>
 
         </div>
         <!-- <div class="col-md-6">
-                        <div class="imgfaq">
-                          <img src="{{ url('/') }}/assets/web/images/faq.png" class="img-fluid" alt="">
+                                                <div class="imgfaq">
+                                                  <img src="{{ url('/') }}/assets/web/images/faq.png" class="img-fluid" alt="">
 
-                        </div>
-                      </div> -->
+                                                </div>
+                                              </div> -->
       </div>
     </div>
   </section>

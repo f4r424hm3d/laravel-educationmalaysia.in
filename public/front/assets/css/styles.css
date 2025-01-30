@@ -4852,11 +4852,11 @@ ul.badge_info li.power {
     list-style: none;
     font-size: 14px;
 }
-.ed_header_caption ul li span {
+/* .ed_header_caption ul li span {
     font-size: 12px;
     font-weight: 500;
     color: #f8f8f8;
-}
+} */
 .ed_header_caption {
     width: 100%;
     display: block;
@@ -13296,7 +13296,7 @@ section.levellight h2 span {
 .imgsfaird{
     width: 100%;
     text-align: left;
-    padding-right: 22px;
+    /* padding-right: 22px; */
 }
 .imgsfairs {
     width: 100%;
@@ -13352,7 +13352,7 @@ ul.set_uls {
 }
 .fairs {
     color: #000000;
-    font-size: 23px;
+    font-size: 18px;
     font-weight: 500;
     padding: 0px 0px 5px;
     margin: 0px;
@@ -13440,8 +13440,8 @@ ul.study-abroads {
 
 
 .all-fair {
-    font-size: 16px;
-    margin: 0px auto 22px;
+    font-size: 18px;
+    margin: 0px auto 7px !important;
     color: #0a4191;
     font-weight: 600;
 }
@@ -13475,7 +13475,7 @@ section.studaies-abroad {
 }
 
 .all-forms {
-    padding: 20px  50px;
+    padding: 20px;
 }
 
 .all-forms .new-regist {
@@ -14215,7 +14215,7 @@ span.theme-cl {
     padding: 5px;
 }
 .btn.btn-modern2.univ-btn.reviews-btn {
-    font-size: 12px;
+    font-size: 14px;
     padding: 6px  12px !important;
     height: unset;
     font-weight: 500;
@@ -15506,7 +15506,7 @@ ul.linksfooters a i {
 }
 .institues-img {
     width: 100%;
-    height: 108px;
+    /* height: 108px; */
     border-radius: 10px;
     overflow: hidden;
     object-fit: cover;
@@ -16266,4 +16266,197 @@ button.set-bx:hover, .nav-menu.nav-menu-social > li.login_click.purple:hover, .b
 .li-pages ul li {
     display: flex;
     gap: 12px;
+}
+
+.loc-rating .mobile {
+    padding-left: 12px;
+    padding-right: 0px;
+    border: 0px;
+    display: block;
+    margin-left: 0px;
+}
+
+.loc-rating .star-ratings {
+    unicode-bidi: bidi-override;
+    color: #ccc;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 10px;
+}
+
+.loc-rating .fill-ratings {
+    color: #e7711b;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    display: block;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.loc-rating .empty-ratings {
+    padding: 0;
+    display: block;
+    z-index: 0;
+}
+.loc-rating .set-ratings{
+    gap: 5px;
+}
+.loc-rating .star-ratings span{
+    font-size: 16px;
+}
+.ps-section__header .img-div {
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.ps-section__header .img-div img {
+}
+
+.ps-section__header .img-div .fa-check-circle {
+    position: absolute;
+    top: -2px;
+    font-size: 22px;
+    color: #03a84e;
+    right: 2px;
+}
+
+.ps-section__header .img-div img {
+    width: 67%;
+}
+
+.cont-div a.bio-btn {
+    display: block;
+}
+
+.cont-div h6 {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.head-imags {
+    width: 100%;
+    background-position: center !important;
+    height: 270px;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}
+section.comparediv {
+    text-align: center;
+    padding: 22px;
+    /* background-image: url('./front/assets/img/ub.jpg'); */
+    background-image: url('../img/ub.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 270px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+section.comparediv:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #09409085;
+}
+
+.ed_detail_w form h2 {
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+.bx-uni {
+    background-color: #ffffff9c;
+    padding: 24px 24px 0px 24px;
+}
+.compoarecourses{
+    padding: 50px 0px;
+}
+.user-course {
+    width: 875px;
+    text-align: center;
+    margin: 0px auto;
+}
+
+.courses-modal .modal-title {
+    font-size: 16px;
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.courses-modal .modal-header {
+    background-color: #094090;
+}
+
+
+.courses-modal .modal-dialog, .institution-modal .modal-dialog {
+    max-width: 1200px;
+}
+
+.bannerma{
+    text-align: center;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 22px;
+    font-size: 25px;
+}
+
+ul.linksfooters .lia {
+    width: 27px;
+    height: 27px;
+    display: flex;
+    border-radius: 79px;
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+}
+
+ul.linksfooters .lia:hover {
+    background-color: #e37849;
+    color: #fff;
+}
+.institution-modal .modal-header {
+    background-color: #094090;
+    color: #fff;
+}
+.fade.show {
+    opacity: 1;
+    background-color: #00000080;
+}
+.main-faris{
+    color: #000000;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 0px 0px 5px;
+    margin: 0px;
+}
+
+.set_uls li b .fa {
+    display: block;
+    width: 126px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.set_uls li {
+    display: flex;
+    gap: 16px;
+    font-weight: 600;
+}
+
+.set_uls li b {
+    display: block;
+    width: 126px;
+    font-size: 13px;
 }

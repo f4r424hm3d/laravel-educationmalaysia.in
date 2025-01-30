@@ -26,7 +26,33 @@ class LibiaLandingPageFc extends Controller
     $captcha = generateMathQuestion();
     session(['captcha_answer' => $captcha['answer']]);
 
-    $pageDetail = LandingPage::where(['page_slug' => $page_slug])->first();
+    $pageDetail = LandingPage::where(['page_slug' => $page_slug])->firstOrFail();
+
+    $universityIds = $pageDetail->universities->pluck('university_id')->toArray();
+
+    $result = [];
+
+    if ($pageDetail) {
+      $universityIds = $pageDetail->universities->pluck('university_id')->toArray();
+
+      $universityCourses = UniversityProgram::whereIn('university_id', $universityIds)
+        ->with(['category:id,name', 'getSpecialization:id,name']) // Load category and specialization names
+        ->get()
+        ->groupBy('course_category_id');
+
+      // Prepare structured data for the view
+      foreach ($universityCourses as $course_category_id => $specializations) {
+        $categoryName = optional($specializations->first()->category)->name;
+        $uniqueSpecializations = $specializations->unique('specialization_id')->map(function ($program) {
+          return optional($program->getSpecialization)->name;
+        })->filter()->toArray(); // Remove null values
+
+        $result[] = [
+          'category_name' => $categoryName,
+          'specializations' => $uniqueSpecializations,
+        ];
+      }
+    }
 
     $countries = Country::orderBy('name', 'ASC')->get();
     $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
@@ -41,7 +67,7 @@ class LibiaLandingPageFc extends Controller
 
     $curCountry = '';
 
-    $data = compact('captcha', 'pageDetail', 'countries', 'phonecodes', 'levels', 'programs', 'curCountry', 'categories');
+    $data = compact('captcha', 'pageDetail', 'countries', 'phonecodes', 'levels', 'programs', 'curCountry', 'categories', 'result');
     return view('front.education-fair-in-libia-2025')->with($data);
   }
   public function courses(Request $request)
