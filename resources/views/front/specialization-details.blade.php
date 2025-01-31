@@ -45,8 +45,8 @@
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4 mb-md-0  ">
           <div class="specilaizationbx">
-          <img src="https://www.educationmalaysia.in/assets/web/images/em-cource-img-lite.webp"
-          alt="accounting finance in Malaysia" class="initial loading" data-was-processed="true">
+            <img src="https://www.educationmalaysia.in/assets/web/images/em-cource-img-lite.webp"
+              alt="accounting finance in Malaysia" class="initial loading" data-was-processed="true">
           </div>
         </div>
       </div>
@@ -278,6 +278,15 @@
   </section>
   <!-- Content -->
   <script>
+    $(document).ready(function() {
+      // Wrap the table in a div with class 'table-responsive'
+      $('table').before('<div class="table-responsive"></div>');
+
+      // Move the table inside the newly created div
+      $('table').prev('.table-responsive').append($('table'));
+    });
+
+
     function goToUniPrograms(uname, specializationId) {
       if (specializationId != '') {
         $.ajax({

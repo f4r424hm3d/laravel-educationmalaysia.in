@@ -117,19 +117,21 @@
               {!! $blog->description !!}
             </div>
             <div class="ps-section__header">
-										<div class="row ">
-											<div class="col-md-2">
-												<div class="img-div"> <img src="/assets/images/owl.png" alt="Team Education Malaysia" class="img-fluid"> <i class="fa fa-check-circle"></i> </div>
-											</div>
-											<div class="col-md-10">
-												<div class="cont-div">
-													<h6>Team Education Malaysia</h6>
-													<span>Content Curator | Updated on - Aug 18, 2023</span>
-																										<a href="#" class="bio-btn">Read Full Bio</a>
-												</div>
-											</div>
-										</div>
-									</div>
+              <div class="row ">
+                <div class="col-md-2">
+                  <div class="img-div"> <img src="/assets/images/owl.png" alt="Team Education Malaysia" class="img-fluid">
+                    <i class="fa fa-check-circle"></i>
+                  </div>
+                </div>
+                <div class="col-md-10">
+                  <div class="cont-div">
+                    <h6>Team Education Malaysia</h6>
+                    <span>Content Curator | Updated on - Aug 18, 2023</span>
+                    <a href="#" class="bio-btn">Read Full Bio</a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-sm-12 col-12">
@@ -182,4 +184,13 @@
       </div>
     </div>
   </section>
+  <script>
+    $(document).ready(function() {
+      // Wrap the table in a div with class 'table-responsive'
+      $('table').before('<div class="table-responsive"></div>');
+
+      // Move the table inside the newly created div
+      $('table').prev('.table-responsive').append($('table'));
+    });
+  </script>
 @endsection
