@@ -235,12 +235,12 @@
                   Time:</b> <span>:</span> 9:30 AM – 1:00 PM & 4:00 PM – 8:00 PM</li>
             </ul>
             <!-- <ul class="set_uls" >
-                                      <li><b>Hosted by:</b>  Ministry of Higher Education and Scientific Research, Libya
-                                      </li>
-                                      <li><b>Organised by:</b> Malaysian Export Academy (MEXA), Malaysia
-                                      </li>
-                                      <li><b>Supported by:</b> NAPEI, Malaysia</li>
-                                    </ul> -->
+                                        <li><b>Hosted by:</b>  Ministry of Higher Education and Scientific Research, Libya
+                                        </li>
+                                        <li><b>Organised by:</b> Malaysian Export Academy (MEXA), Malaysia
+                                        </li>
+                                        <li><b>Supported by:</b> NAPEI, Malaysia</li>
+                                      </ul> -->
             <div class="imgsfaird">
               <img src="/assets/images/libya-malaysia.png" class="imgsfairs" alt="">
             </div>
@@ -849,14 +849,23 @@
 
         </div>
         <!-- <div class="col-md-6">
-                                                <div class="imgfaq">
-                                                  <img src="{{ url('/') }}/assets/web/images/faq.png" class="img-fluid" alt="">
+                                                  <div class="imgfaq">
+                                                    <img src="{{ url('/') }}/assets/web/images/faq.png" class="img-fluid" alt="">
 
-                                                </div>
-                                              </div> -->
+                                                  </div>
+                                                </div> -->
       </div>
     </div>
   </section>
+  <script>
+    $(document).ready(function() {
+      // Wrap the table in a div with class 'table-responsive'
+      $('table').before('<div class="table-responsive"></div>');
+
+      // Move the table inside the newly created div
+      $('table').prev('.table-responsive').append($('table'));
+    });
+  </script>
   <script>
     function showPassword(id) {
       $("#" + id).attr('type', 'text');
