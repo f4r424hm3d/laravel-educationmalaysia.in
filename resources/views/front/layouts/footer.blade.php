@@ -267,7 +267,7 @@
         <div class="content">
           <span class="d-block font-size-13 mb-2">The team typically replies in a few minutes.</span>
 
-          <a class="country-box" target="_blank"
+          {{-- <a class="country-box" target="_blank"
             href="https://api.whatsapp.com/send?phone=918448391296&text=Hello there!! I want to get counseling by experts. Want to know more information about Study Abroad Consultants in India - Education Malaysia Education">
             <div class="row align-items-center">
               <div class="col-2 pr-0"><img data-src="https://www.educationmalaysia.in/front/assets/img/flag-india.png"
@@ -296,10 +296,10 @@
                   width="20">
               </div>
             </div>
-          </a>
+          </a> --}}
 
           <a class="country-box" target="_blank"
-            href="https://api.whatsapp.com/send?phone=601123828704&text=Hello there!! I want to get counseling from experts. Want to know more information about Study Abroad Consultants in India - Education Malaysia Education">
+            href="https://api.whatsapp.com/send?phone=601117784424&text=Hello there!! I want to get counseling from experts. Want to know more information about Study Abroad Consultants in India - Education Malaysia Education">
             <div class="row align-items-center">
               <div class="col-2 pr-0"><img
                   data-src="https://www.educationmalaysia.in/front/assets/img/flag-malaysia.png" alt="indian flag"
@@ -470,7 +470,7 @@
     </script>
     <!-- Whatsapp Box and Button -->
     <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
       var Tawk_API = Tawk_API || {},
         Tawk_LoadStart = new Date();
       (function() {
@@ -482,7 +482,7 @@
         s1.setAttribute('crossorigin', '*');
         s0.parentNode.insertBefore(s1, s0);
       })();
-    </script>
+    </script> --}}
     <!--End of Tawk.to Script-->
 
     <!-- owl-carousel start  -->
