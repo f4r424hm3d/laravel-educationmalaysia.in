@@ -29,8 +29,8 @@
 
   <section class="browser-all ">
     <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 col-xl-4 mb-4 ">
+      <div class="row justify-content-center ">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4 ">
           <div class="browserall">
             <div class="card">
               <img src="{{ asset('assets/images/owl.png') }}" class="study-owl">
@@ -39,7 +39,7 @@
             <a href="{{ url('public-institution-in-malaysia') }}" class="new-btn">Browser-all</a>
           </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xl-4 mb-4 ">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4 ">
           <div class="browserall">
             <div class="card">
               <img src="{{ asset('assets/images/owl.png') }}" class="study-owl">
@@ -48,7 +48,7 @@
             <a href="{{ url('private-institution-in-malaysia') }}" class="new-btn">Browser-all</a>
           </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xl-4 mb-4 ">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4 ">
           <div class="browserall">
             <div class="card">
               <img src="{{ asset('assets/images/owl.png') }}" class="study-owl">
@@ -64,9 +64,8 @@
   <section>
     <div class="container ">
       <div class="row">
-        <div class="cor">
-          <div class="col-md-12">
-            <div class="cor-con-mid">
+      <div class="col-md-12">
+            <div class="cor-con-mid table-res ">
               <div class="cor-p5 university-blades">
                 {!! $pageContentTop->description !!}
               </div>
@@ -141,7 +140,6 @@
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   </section>

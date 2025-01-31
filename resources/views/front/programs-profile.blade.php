@@ -311,7 +311,9 @@
                                         <a href="{{ route('university.course.details', ['university_slug' => $tu->university->uname, 'course_slug' => $tu->slug]) }}"
                                           class="btn btn-primary">View
                                           detials</a>
-                                        {!! UniversityProgramListButton::getApplyButton($tu->id, 'btn btn-primary') !!}
+                                        <a href="{{ route('university.courses', ['university_slug' => $tu->university->uname]) }}"
+                                          class="btn btn-primary">View
+                                          courses</a>
                                       </div>
                                     </div>
                                   </div>

@@ -37,15 +37,17 @@
   <!-- Breadcrumb -->
   <div class="new-top-header">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-8">
+      <div class="row align-items-center flex-column-reverse flex-md-row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-8 mb-4 mb-md-0  ">
           <h2 class="malaysia-student">{{ $specialization->name }} Course in Malaysia : Complete Guide for International
             Students
           </h2>
         </div>
-        <div class="col-md-4">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4 mb-md-0  ">
+          <div class="specilaizationbx">
           <img src="https://www.educationmalaysia.in/assets/web/images/em-cource-img-lite.webp"
-            alt="accounting finance in Malaysia" class="initial loading" data-was-processed="true">
+          alt="accounting finance in Malaysia" class="initial loading" data-was-processed="true">
+          </div>
         </div>
       </div>
     </div>

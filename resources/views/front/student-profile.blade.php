@@ -622,7 +622,7 @@
                       <span class="image-preview-input-title">Browse</span>
                       <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" />
                     </div>
-                  </span>
+                  
                 </div>
               </div>
               <div class="col-md-12"><button class="saveBtn">Save</button><button class="cancelBtn">Cancel</button>

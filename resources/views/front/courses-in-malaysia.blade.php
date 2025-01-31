@@ -288,7 +288,7 @@
           </div>
           <div class="row">
             @foreach ($specializations as $row)
-              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                 <a href="{{ url('stream/' . $row->slug) }}" target="_blank">
                   <div class="fuc-box">
                     <p>{{ $row->name }} <i class="fa fa-angle-right"></i></p>
@@ -299,12 +299,13 @@
           </div>
         </div>
       </div>
-    </div>
-    <center>
+      <div class="text-center mt-4" >
       <a href="{{ url('specialization') }}" class="new-btn">
         Browse All Courses
       </a>
-    </center>
+    </div>
+    </div>
+  
     <br>
     </br>
   </section>

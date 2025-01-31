@@ -52,11 +52,11 @@
               </div>
             </div> -->
 
-            <div class="d-none d-md-block col-lg-6 col-md-5 bg-cover">
+            <div class="d-none d-lg-block col-lg-6 col-xl-6 col-md-5 bg-cover">
             <img src="/assets/images/forgot.jpg" class="forgots" alt="">
 
             </div>
-            <div class="col-lg-6 col-md-7 position-static p-2 sign-froms">
+            <div class="col-lg-6 col-xl-6 col-md-12 position-static p-2 sign-froms">
               @if (session()->has('smsg'))
               <div class="alert alert-success alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>

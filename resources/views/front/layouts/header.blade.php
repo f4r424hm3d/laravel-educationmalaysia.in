@@ -19,7 +19,6 @@
   <!--Meta Tag Seo-->
   @stack('seo_meta_tag')
   @stack('pagination_tag')
-  <!-- CSS -->
 
   <!-- Google Tag Manager -->
   <script>
@@ -40,6 +39,7 @@
   </script>
   <!-- End Google Tag Manager -->
 
+  <!-- CSS -->
   <!-- slick slider  -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
@@ -107,7 +107,7 @@
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WP578P4K" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <!-- End Google Tag Manager (noscript) -->
   <div id="main-wrapper">
     <!-- Top header-->
     <div class="header header-light head-shadow py-2">
@@ -129,8 +129,10 @@
             </ul>
             <ul class="nav-menu align-to-right">
               <li><a href="{{ route('home') }}">Home</a></li>
-              <li class="mega-dropdown"><a href="#">Resources<span class="submenu-indicator"></span></a>
-                <ul class="nav-dropdown nav-submenu mega-dropdown-menu new-width mob-width">
+              <li class="nav-item dropdown maindrop"><a href="#">Resources<span
+                    class="submenu-indicator"></span></a>
+                <!-- nav-dropdown nav-submenu mega-dropdown-menu new-width mob-width -->
+                <ul class="dropdown-menu nav-dropdown mega-dropdown-menu over-menu">
                   <div class="row mx-md-auto ">
                     <div class=" col-xl-3 col-lg-3 col-md-12 ">
                       <div class="b-font">Exams</div>

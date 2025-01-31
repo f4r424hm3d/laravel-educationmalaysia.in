@@ -1120,12 +1120,14 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label>Upload Document</label>
-                                    <div class="input-group b-0 image-preview">
-                                        <input type="text" class="image-preview-filename">
-                                        <span class="input-group-btn">
-                                            <div class="btn btn-primary rounded image-preview-input">
-                                                <span class="fa fa-folder-open"></span>
-                                                <span class="image-preview-input-title">Browse</span>
+                                    <div class="input-group maininput b-0 ">
+                                        <input type="text" class="inputbuts">
+                                        
+                                            <div class="btn btn-primary rounded">
+                                            <div class="d-flex align-items-center ">
+                                            <span class="fa fa-folder-open"></span>
+                                            <span class="image-preview-input-title">Browse</span>
+                                            </div>
                                                 <input type="file" accept="image/png, image/jpeg, image/gif"
                                                     name="doc" />
                                             </div>

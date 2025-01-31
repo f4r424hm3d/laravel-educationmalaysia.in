@@ -58,7 +58,7 @@
               <div class="row">
 
                 @foreach ($result as $data)
-                  <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
+                  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 mb-4">
                     <div class="footer-widget">
                       <span class="widget-title">{{ $data['category_name'] }}</span>
                       <ul class="footer-menu">
@@ -821,7 +821,7 @@
                     <div class=" card mb-0">
                       <div class="card-header" id="heading{{ $row->id }}">
                         <h5 class="mb-0">
-                          <button class="btn btn-link" data-toggle="collapsed"
+                          <button class="btn btn-link" data-toggle="collapse"
                             data-target="#collapse{{ $row->id }}" aria-expanded="true"
                             aria-controls="collapse{{ $row->id }}">
                             <div class="clickfa d-flex justify-content-between gapss align-items-center">
