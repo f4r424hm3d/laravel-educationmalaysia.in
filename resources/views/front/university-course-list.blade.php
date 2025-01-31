@@ -53,11 +53,11 @@
     <div class="container">
       <div class="row">
         <!-- Desktop Filter -->
-        <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="col-lg-3 col-md-12 col-sm-12 co-l2">
           @include('front.filter-university-profile-course-list', ['type' => 'W'])
         </div>
         <!-- Desktop Filter -->
-        <div class="col-lg-9 col-md-12 col-12">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-12">
           <div class="dn db-991 mt30 mb0 show-23 mb-3">
             <div id="main2"><a href="javascript:void(0)" class="btn btn-theme filter_open" onClick="openNav()"
                 id="open2">Show Filter<span class="ml-2"><i class="fa fa-angle-right"></i></span></a></div>
@@ -76,7 +76,7 @@
               </div>
 
             </div>
-            <div class="d-flex justify-content-between align-items-center mt-2">
+            <div class="d-flex justify-content-between align-items-center mt-2 setbxs">
               <h4 class="selections mb-0">Showing courses based on your selection</h4>
               <div class="portal-filter">
                 <div class="heading m-0">Filters Applied</div>
@@ -137,16 +137,16 @@
                     </div>
 
                     <div class="row align-items-center">
-                      <div class="col-md-12">
+                      <div class="col-md-12 mb-4">
                         <div class="row">
-                          <div class="col-md-3 col-6 mt-1 mb-1"><span class="theme-cl">Study
+                          <div class="col-md-3 col-12 mb-3"><span class="theme-cl">Study
                               Mode:</span> <span
                               class="theme-rl">{{ $row->study_mode != '' ? $row->study_mode : 'N/A' }}</span> </div>
-                          <div class="col-md-3 col-6 mt-1 mb-1"><span class="theme-cl">App
+                          <div class="col-md-3 col-12 mb-3"><span class="theme-cl">App
                               deadline:</span> <span
                               class="theme-rl">{{ $row->application_deadline != '' ? $row->application_deadline : 'N/A' }}</span>
                           </div>
-                          <div class="col-md-3 col-6 mt-1 mb-1"><span class="theme-cl">Intakes:</span>
+                          <div class="col-md-3 col-12 mb-3"><span class="theme-cl">Intakes:</span>
                             <span class="theme-rl">{{ $row->intake != '' ? $row->intake : 'N/A' }}</span>
                           </div>
                         </div>
@@ -154,7 +154,7 @@
                     </div>
 
                     <div class="row align-items-center">
-                      <div class="col-md-12">
+                      <div class="col-md-12 mb-4">
                         <div class="d-flex set-ggap justify-content-end">
                           <a href="{{ route('university.course.details', ['university_slug' => $university->slug, 'course_slug' => $row->slug]) }}"
                             class="card-btn2">

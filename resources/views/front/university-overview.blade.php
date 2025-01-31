@@ -86,7 +86,7 @@
               <div id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample" class="collapse show">
                 <div class="card-body pl-4 pr-4">
                   <div class="row">
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
                       <div class="courses b-all">
                         <a target="_blank"
                           href="{{ url('university/' . $university->uname . '/pre-university-courses') }}">
@@ -96,7 +96,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
                       <div class="courses b-all">
                         <a target="_blank"
                           href="{{ url('university/' . $university->uname . '/pre-university-courses') }}">
@@ -106,7 +106,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
                       <div class="courses b-all">
                         <a target="_blank" href="{{ url('university/' . $university->uname . '/diploma-courses') }}">
                           <img data-src="{{ asset('assets/web/images/fuc-icons/diploma.png') }}" alt="icon"
@@ -115,7 +115,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
                       <div class="courses b-all">
                         <a target="_blank"
                           href="{{ url('university/' . $university->uname . '/under-graduate-courses') }}">
@@ -125,7 +125,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
                       <div class="courses b-all">
                         <a target="_blank"
                           href="{{ url('university/' . $university->uname . '/post-graduate-courses') }}">
@@ -135,7 +135,7 @@
                         </a>
                       </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
                       <div class="courses b-all">
                         <a target="_blank" href="{{ url('university/' . $university->uname . '/phd-courses') }}">
                           <img data-src="{{ asset('assets/web/images/fuc-icons/phd.png') }}" alt="icon"
@@ -157,12 +157,12 @@
               </div>
               <div class="card-body">
                 <div class="row ">
-                  <div class="col-12 col-sm-12 col-md-2 ">
+                  <div class="col-12 col-sm-12 col-md-2 mb-4 ">
                     <h2 class="top-streams">
                       Top Streams:
                     </h2>
                   </div>
-                  <div class=" col-12 col-sm-12 col-md-10">
+                  <div class=" col-12 col-sm-12 col-md-10 mb-4">
                     <div class="multi-options">
                       <ul>
 
@@ -187,12 +187,12 @@
               </div>
               <div class="card-body">
                 <div class="row">
-                  <div class="col-12 col-sm-12 col-md-2 ">
+                  <div class="col-12 col-sm-12 col-md-2 mb-4 ">
                     <h2 class="top-streams">
                       Top Streams:
                     </h2>
                   </div>
-                  <div class=" col-12 col-sm-12 col-md-10">
+                  <div class=" col-12 col-sm-12 col-md-10 mb-4">
                     <div class="multi-options">
                       <ul>
                         @foreach ($randomSpecializations as $row)
@@ -221,12 +221,12 @@
               </div>
               <div class="card-body">
                 <div class="row">
-                  <div class="col-12 col-sm-12 col-md-2 ">
+                  <div class="col-12 col-sm-12 col-md-2 mb-4 ">
                     <h2 class="top-streams">
                       Top Streams:
                     </h2>
                   </div>
-                  <div class="col-md-10">
+                  <div class="col-md-10 mb-4">
                     <div class="multi-options">
                       <ul>
                         @foreach ($specializationsWithContents as $row)

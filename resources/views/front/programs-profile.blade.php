@@ -56,7 +56,7 @@
     <div class="container">
       <div class="row">
 
-        <div class="col-lg-8 col-md-8">
+        <div class="col-lg-8 col-md-12">
           <x-FrontResultNotification></x-FrontResultNotification>
           <!-- Course details -->
 
@@ -67,21 +67,21 @@
             <div class="row align-items-center mx-auto">
               <div class="col-md-12">
                 <div class="row">
-                  <div class="col-md-4 col-12 mt-2 mb-2">
+                  <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-2 mb-2">
                     <div class="row">
                       <div class="col-lg-3 col-2 course-icon-new"><i class="ti-flag-alt"></i></div>
                       <div class="col-lg-9 col-10"><span class="theme-cl">Study Mode:</span><span
                           class="course-new-sc">{{ ucwords($program->study_mode) }}</span></div>
                     </div>
                   </div>
-                  <div class="col-md-4 col-12 mt-2 mb-2">
+                  <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-2 mb-2">
                     <div class="row">
                       <div class="col-lg-3 col-2 course-icon-new"><i class="ti-time"></i></div>
                       <div class="col-lg-9 col-10"><span class="theme-cl">Duration:</span><span
                           class="course-new-sc">{{ $program->duration }}</span></div>
                     </div>
                   </div>
-                  <div class="col-md-4 col-12 mt-2 mb-2">
+                  <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-2 mb-2">
                     <div class="row">
                       <div class="col-lg-3 col-2 course-icon-new"><i class="ti-files"></i></div>
                       <div class="col-lg-9 col-10"><span class="theme-cl">Level:</span><span
@@ -89,21 +89,21 @@
                     </div>
                   </div>
 
-                  <div class="col-md-4 col-12 mt-2 mb-2">
+                  <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-2 mb-2">
                     <div class="row">
                       <div class="col-lg-3 col-2 course-icon-new"><i class="ti-medall-alt"></i></div>
                       <div class="col-lg-9 col-10"><span class="theme-cl">Exam Accepted:</span><span
                           class="course-new-sc">{{ j2s($program->exam_accepted ?? null) }}</span></div>
                     </div>
                   </div>
-                  <div class="col-md-4 col-12 mt-2 mb-2">
+                  <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-2 mb-2">
                     <div class="row">
                       <div class="col-lg-3 col-2 course-icon-new"><i class="ti-calendar"></i></div>
                       <div class="col-lg-9 col-10"><span class="theme-cl">Intake:</span><span
                           class="course-new-sc">{{ $program->intake }}</span></div>
                     </div>
                   </div>
-                  <div class="col-md-4 col-12 mt-2 mb-2">
+                  <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-2 mb-2">
                     <div class="row">
                       <div class="col-lg-3 col-2 course-icon-new"><i class="ti-money"></i></div>
                       <div class="col-lg-9 col-10"><span class="theme-cl">Tuition Fees:</span><span
@@ -265,13 +265,13 @@
                               <div class="education_block_grid style_2 mb-3 all-programss">
                                 <div class="education_block_body mb-0">
                                   <div class="row align-items-center mx-auto ">
-                                    <div class="col-12 col-sm-12 col-md-3  pl-md-0">
+                                    <div class="col-12 col-sm-12 col-md-3 mb-4  pl-md-0">
                                       <div class="path-img">
                                         <img data-src="{{ asset($tu->university->imgpath) }}" class="img-fluid rounded"
                                           alt="">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-9">
+                                    <div class="col-12 col-sm-12 col-md-9 mb-4">
                                       <h6 class="mb-1">{{ $tu->university->name }}</h6>
                                       <ul class="loc-rating">
                                         <li class="loc ">
@@ -291,7 +291,7 @@
 
                                 <div class="education_block_fo ">
                                   <div class="row mx-auto align-items-center">
-                                    <div class="col-12 col-sm-12 col-md-7 col-lg-7">
+                                    <div class="col-12 col-sm-12 col-md-7 col-lg-7 mb-4">
                                       <h3 class="h3-progrmsn">
                                         <a
                                           href="{{ url('university/' . $tu->university->uname . '/course/' . $tu->slug) }}">
@@ -306,7 +306,7 @@
                                         <?php echo $tu->intake; ?>
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-5 col-lg-5">
+                                    <div class="col-12 col-sm-12 col-md-5 col-lg-5 mb-4">
                                       <div class="d-flex align-items-center set-gap justify-content-end ">
                                         <a href="{{ route('university.course.details', ['university_slug' => $tu->university->uname, 'course_slug' => $tu->slug]) }}"
                                           class="btn btn-primary">View
@@ -434,7 +434,7 @@
         </div>
 
         <!-- Sidebar -->
-        <div class="col-lg-4 col-md-4">
+        <div class="col-lg-4 col-md-12">
           @include('front.forms.university-side-form')
           @if ($trendingUniversity->count() > 0)
             <div class="ed_view_box style_2">

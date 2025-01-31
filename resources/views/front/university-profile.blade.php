@@ -222,14 +222,14 @@
                   <input type="hidden" name="source_path" value="{{ URL::full() }}">
 
                   <div class="row">
-                    <div class="col-12 col-sm-6">
+                    <div class="col-12 col-sm-12 col-md-6">
                       <div class="form-group">
                         <input name="name" type="text" class="form-control" placeholder="Full Name*"
                           value="{{ old('name') }}" required="">
                       </div>
                       <span class="text-danger" id="name-err"></span>
                     </div>
-                    <div class="col-12 col-sm-6">
+                    <div class="col-12 col-sm-12 col-md-6">
                       <div class="form-group">
                         <input name="email" type="text" placeholder="Email" value="{{ old('email') }}"
                           class="form-control">
@@ -237,7 +237,7 @@
                       <span class="text-danger" id="email-err"></span>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-12 col-sm-12 col-md-6 ">
                       <div class="form-group">
                         <div class="d-flex align-items-center setgap3 position-relative mobile-field">
                           <select name="c_code" class="form-control call-select" required>
@@ -254,7 +254,7 @@
                         <span class="text-danger" id="c_code-err"></span>
                       </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-12 col-sm-12 col-md-6 ">
                       <div class="form-group">
                         <select name="nationality" id="nationality" class="form-control">
                           <option value="">Nationality</option>
@@ -268,7 +268,7 @@
                       </div>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-12 col-sm-12 col-md-6 ">
                       <div class="form-group">
                         <select name="highest_qualification" id="highest_qualification" class="form-control ">
                           <option value="">Your Highest Qualification Level</option>
@@ -282,7 +282,7 @@
                       </div>
 
                     </div>
-                    <div class="col-6">
+                    <div class="col-12 col-sm-12 col-md-6 ">
                       <div class="form-group">
                         <select name="intrested_subject" id="intrested_subject" class="form-control ">
                           <option value="">Intrested Course Category</option>
@@ -296,7 +296,7 @@
                       </div>
 
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
                       <div class="form-group">
                         <div class="d-flex all-regi align-items-center setgap3">
                           <input type="text" placeholder="Captcha : {{ $captcha['text'] }}  ="
@@ -309,7 +309,7 @@
                       </div>
 
                     </div>
-                    <div class="col-12 text-right ">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12  text-right ">
                       <p class=" mb-3 text-left linkp">By submitting this form, you accept and
                         agree to our <a href="{{ route('tc') }}" rel="noopener" target="_blank">Terms of
                           Use.</a></p>

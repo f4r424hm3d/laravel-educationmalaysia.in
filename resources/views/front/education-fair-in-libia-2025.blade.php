@@ -83,7 +83,7 @@
   <section class="Sureworks">
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 mb-4 ">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4 ">
           <a href="#" data-toggle="modal" data-target="#courseListModal">
             <div class="flex flex-col all-flexx gap-3 items-center text-center h-100 ">
               <div class="imgflx">
@@ -96,7 +96,7 @@
           </a>
           {{-- <button class="btn btn-primary" data-toggle="modal" data-target="#courseListModal">courses</button> --}}
         </div>
-        <div class="col-lg-4 mb-4 ">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4 ">
           <a href="{{ url(url()->current() . '/institutions') }}">
             <div class="flex flex-col all-flexx gap-3 h-100 items-center text-center">
               <div class="imgflx">
@@ -200,7 +200,7 @@
           </div>
         </div>
         <!-- -------------------------------  -->
-        <div class="col-lg-4 mb-4 ">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 ">
           <div class="flex flex-col all-flexx gap-3 h-100 items-center text-center">
             <div class="imgflx">
               <img src="{{ url('/') }}/assets/images/scholarship.png" alt="">
@@ -217,7 +217,7 @@
   <section class="registrations-fomrs" id="register">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-md-6">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-4">
           <div class="fair-details">
             <h2 class="main-faris">
               Education Fair 2025 </h2>
@@ -247,7 +247,7 @@
             <!-- <a href="#register" class="new-registor">Register Now</a> -->
           </div>
         </div>
-        <div class="col-md-6 ">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-4 ">
 
           <div class="all-forms main-modals">
             <h2 class="new-regist">Register Now</h2>
@@ -352,13 +352,13 @@
                   </div>
                 </div>
 
-                <div class="col-lg-6 col-md-4 col-sm-12">
+                <div class="col-lg-6 col-md-6 col-sm-12">
                   <div class="form-group">
                     <input type="text" placeholder="Captcha: {{ $captcha['text'] }} =" class="form-control"
                       value="Captcha: {{ $captcha['text'] }} =" disabled readonly>
                   </div>
                 </div>
-                <div class="col-lg-6 col-md-8 col-sm-12">
+                <div class="col-lg-6 col-md-12  col-sm-12">
                   <div class="form-group">
                     <input type="text" id="captcha" placeholder="Enter the Captcha Value" class="form-control"
                       name="captcha_answer" required>
@@ -394,7 +394,7 @@
       <h2 class="set-fairs mb-4">Why Join This Education Fair?</h2>
       <div class="row align-items-center  justify-content-center  ">
 
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-4 ">
 
           <div class="fariul">
             <div class="flspan">
@@ -408,7 +408,7 @@
 
           </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-4 ">
           <div class="fariul">
             <div class="flspan">
               <span> <img src="/assets/images/Exclusive-Scholarship.png " class="img-fluid" alt=""></span>
@@ -421,7 +421,7 @@
 
           </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-4 ">
           <div class="fariul">
             <div class="flspan">
               <span> <img src="/assets/images/Spot-Admissions.png " class="img-fluid" alt=""></span>
@@ -434,7 +434,7 @@
 
           </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-4 ">
           <div class="fariul">
             <div class="flspan">
               <span> <img src="/assets/images/Visa-travel.png " class="img-fluid" alt=""></span>
@@ -447,7 +447,7 @@
 
           </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-4 ">
           <div class="fariul">
             <div class="flspan">
               <span> <img src="/assets/images/Work-Internships.png " class="img-fluid" alt=""></span>
@@ -459,7 +459,7 @@
 
           </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-4 ">
           <div class="fariul">
             <div class="flspan">
               <span> <img src="/assets/images/Cultural-Insights.png " class="img-fluid" alt=""></span>
@@ -472,7 +472,7 @@
 
           </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 ">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 mb-4 ">
           <div class="fariul">
             <div class="flspan">
               <span> <img src="/assets/images/save-time.png " class="img-fluid" alt=""></span>
@@ -502,7 +502,7 @@
 
             <div class="flex flex-col divide-y">
               <div
-                class=" px-2 py-2 align-items-center gap-3 my-0 justify-content-between d-flex border-top border-bottom ">
+                class=" px-2 py-2 align-items-center  setparticaptes gap-3 my-0 justify-content-between d-flex border-top border-bottom ">
                 <span class="grow"><label>EXHIBITOR</label></span>
                 <div class="d-flex justify-content-between spacebx">
                   <span class="shrink"><label>BOOTH</label></span>
@@ -514,7 +514,7 @@
             </div>
             @foreach ($pageDetail->universities as $row)
               <div
-                class="px-2 py-2 align-items-center gap-3 my-0 justify-content-between d-flex border-top border-bottom">
+                class="px-2 py-2 align-items-center setparticaptes gap-3 my-0 justify-content-between d-flex border-top border-bottom">
                 <div class="grow">
                   <a href="{{ url('university/' . $row->university_slug) }}" target="_blank">
                     <span class="">{{ $row->university->name }}</span>
@@ -543,7 +543,7 @@
   <section class="education-fairs">
     <div class="container">
       <div class="row align-items-center ">
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-4 ">
           <div class="all-fairss">
             <h2> <span>Why Attend </span> the Malaysian Universities Education Fair Tripoli, Libya?</h2>
             <p>The Education Fair is a pioneering event designed to connect Libyan students with representatives from
@@ -554,8 +554,8 @@
             </p>
           </div>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-          <div class="all-fairss-img">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-4 ">
+          <div class="all-fairss-img text-center ">
             <img src="/assets/images/group-photos.png " class="img-fluid" alt="">
           </div>
         </div>
@@ -573,7 +573,7 @@
       </div>
       <div class="row">
 
-        <div class="col-12 col-sm-12 col-md-4 mb-4">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
           <div class="cards-spec">
 
             <div class="special-black event-overlay">
@@ -587,7 +587,7 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-sm-12 col-md-4 mb-4">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
           <div class="cards-spec">
             <div class="special-black event-overlay">
 
@@ -599,7 +599,7 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-sm-12 col-md-4 mb-4">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
           <div class="cards-spec">
 
             <div class="special-black event-overlay">
@@ -612,7 +612,7 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-sm-12 col-md-4 mb-4">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
           <div class="cards-spec">
             <div class="special-black event-overlay">
 
@@ -625,7 +625,7 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-sm-12 col-md-4 mb-4">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
           <div class="cards-spec">
             <div class="special-black event-overlay">
 
@@ -638,7 +638,7 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-sm-12 col-md-4 mb-4">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
           <div class="cards-spec">
             <div class="special-black event-overlay">
 
@@ -817,7 +817,7 @@
             <div class="card-diff">
               <div class="row">
                 @foreach ($pageDetail->faqs as $row)
-                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-4">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
                     <div class=" card mb-0">
                       <div class="card-header" id="heading{{ $row->id }}">
                         <h5 class="mb-0">
