@@ -26,7 +26,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-          <h2>{{ ucwords($category->category_name) }} Frequently Asked Questions</h2>
+          <h4 class="faqusrs" >{{ ucwords($category->category_name) }} Frequently Asked Questions</h4>
           <div class="container">
             <div class="custom-tab customize-tab tabs_creative">
               <ul class="nav nav-tabs pb-2 b-0 vertically-scrollbar mb-2" id="myTab" role="tablist">
@@ -42,14 +42,14 @@
               </ul>
 
               <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade active show" id="faq" role="tabpanel" aria-labelledby="faq-tab"
+                <div class="tab-pane  active" id="faq" role="tabpanel" aria-labelledby="faq-tab"
                   aria-expanded="true">
 
                   <div id="accordionExample" class="accordion circullum">
 
                     @foreach ($category->faqs as $faq)
-                      <div class="card mb-0 shadow-0">
-                        <div id="heading{{ $faq->id }}" class="card-header bg-white border-0 b-b pl-0 pr-4">
+                      <div class="card">
+                        <div id="heading{{ $faq->id }}" class="card-header">
                           <div class="mb-0 accordion_title"><a href="#" data-toggle="collapse"
                               data-target="#collapse{{ $faq->id }}" aria-expanded="false"
                               aria-controls="collapse{{ $faq->id }}"
@@ -59,7 +59,7 @@
                         </div>
                         <div id="collapse{{ $faq->id }}" aria-labelledby="heading{{ $faq->id }}"
                           data-parent="#accordionExample" class="collapse">
-                          <div class="card-body pt-3 pl-0 pr-0">
+                          <div class="card-body">
                             {!! $faq->answer !!}
                           </div>
                         </div>

@@ -131,6 +131,14 @@
   </section>
   <!-- Content -->
   <script>
+    $(document).ready(function() {
+      // Wrap the table in a div with class 'table-responsive'
+      $('table').before('<div class="table-responsive"></div>');
+
+      // Move the table inside the newly created div
+      $('table').prev('.table-responsive').append($('table'));
+    });
+
     $('a[href*="#"]')
       .not('[href="#"]')
       .not('[href="#0"]')

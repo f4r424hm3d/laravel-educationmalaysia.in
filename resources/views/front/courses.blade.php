@@ -32,9 +32,11 @@
 
             <div class="text show-more-height">
               <div class="author">
-                <div class="img-div">
-                  <img src="{{ userIcon($pageContent->author->profile_picture ?? null) }}"
-                    alt="{{ $pageContent->author->name ?? 'Author' }}"><i class="fa fa-check-circle"></i>
+                <div class="new-uers">
+                  <div class="img-div">
+                    <img src="{{ userIcon($pageContent->author->profile_picture ?? null) }}"
+                      alt="{{ $pageContent->author->name ?? 'Author' }}"><i class="fa fa-check-circle"></i>
+                  </div>
                 </div>
                 <div class="cont-div">
                   <a
@@ -59,10 +61,10 @@
       @foreach ($categories as $row)
         <div class="home-top-cour">
           <div class="row">
-            <div class="col-md-3 text-center">
+            <div class="col-12 col-sm-12 col-md-3 text-center mb-3">
               <img data-src="{{ asset($row->imgpath) }}" alt="{{ $row->name }}" class="img-responsive initial loaded">
             </div>
-            <div class="col-md-9 ">
+            <div class="col-12 col-sm-12 col-md-9 mb-3 ">
               <div class="home-top-cour-desc">
                 <a href="{{ route('category.detail', ['slug' => $row->slug]) }}">
                   <h3>{{ $row->name }}</h3>
@@ -87,6 +89,14 @@
     </div>
   </section>
   <script>
+    $(document).ready(function() {
+      // Wrap the table in a div with class 'table-responsive'
+      $('table').before('<div class="table-responsive"></div>');
+
+      // Move the table inside the newly created div
+      $('table').prev('.table-responsive').append($('table'));
+    });
+
     function goToCourses(CFilterLevel, CFilterCategory, CFilterSpecialization) {
       //alert(CFilterLevel + ' , ' + CFilterSpecialization);
       $.ajax({
