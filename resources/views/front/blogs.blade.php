@@ -22,17 +22,17 @@
   </div>
   <!-- Breadcrumb -->
   <!-- Content -->
-  <section>
+  <section class="py-5" >
     <div class="container">
       <div class="row">
         @foreach ($blogs as $row)
-          <div class="col-md-4">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4">
             <div class="singles_items p-0">
               <div class="education_block_grid style_2">
                 <div class="education_block_thumb n-shadow">
                   <a
                     href="{{ route('blog.detail', ['category_slug' => $row->category->slug, 'slug' => $row->slug . '-' . $row->id]) }}">
-                    <img data-src="{{ asset($row->imgpath) }}" class="img-fluid" alt="{{ $row->headline }}">
+                    <img data-src="{{ asset($row->imgpath) }}" class="blogimags" alt="{{ $row->headline }}">
                   </a>
                   <div class="cources_price"><a
                       href="{{ route('blog.category', ['category_slug' => $row->category->slug]) }}">{{ $row->category->cate_name }}</a>

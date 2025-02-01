@@ -25,24 +25,23 @@
   <!-- Breadcrumb -->
   <section class="min-sec">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 p-0">
-          <div class="card">
-            <div class="card-body pt-3 pl-0 pr-0">
-              <h1>Terms & Conditions</h1>
+      <div class="all-privacys">
+      <div class="privacy-policy">
+              <h2 class="pricacy" >Terms & Conditions</h2>
+              <div class="static">
               <p>The User of the web-site www.educationmalaysia.in must carefully read and agree to the following
                 terms and conditions, including any future amendments (hereinafter collectively referred to as the
                 "Terms & Conditions") before using the web-site www.educationmalaysia.in. By using the web-site User
                 is accepting to be bound by the provisions of these terms & conditions, the privacy policy of the
                 Education Malaysia.</p>
               <p>1.4 : Your use of the Website is subject to these terms and conditions (“the Terms”).</p>
-              <h3>2. Changes to the Terms</h3>
+              <h5>2. Changes to the Terms</h5>
               <p>2.1 : We reserve the right at all times to vary, change, alter, amend, add to or remove any of
                 these Terms. Please ensure that you review these Terms each time you use the Website as you will be
                 deemed to have accepted a variation if you continue to use the Website after the variation has been
                 posted.</p>
               <p>2.2 : The current draft of these Terms was adopted and published on 21 February 2020.</p>
-              <h3>3. Information about you and visits to the Website</h3>
+              <h5>3. Information about you and visits to the Website</h5>
               <p>3.1 We process information about you in accordance with our <a href="privacy-policy.php"
                   class="b">Privacy Policy</a> By using the Website, you consent to such processing and you
                 warrant that all data provided by you is accurate.</p>
@@ -51,7 +50,7 @@
                 using our Apply service. We may use the details you provide in future to contact you in accordance
                 with our privacy policy. You agree to disclose true and complete information during the account
                 registration process, and to update your information if and when it changes.</p>
-              <h3>4. Access to and use of our Website</h3>
+              <h5>4. Access to and use of our Website</h5>
               <p>4.1 : You may only use the Website for lawful purposes. When using the Website, you must not:</p>
               <ul>
                 <li>4.1.2 : Use the Website in any way that is unlawful or fraudulent or has any unlawful or
@@ -103,7 +102,7 @@
                 allocated by us, at any time, if in our opinion you have failed to comply with any of the provisions
                 of these Terms. We will not be liable for any loss or damage whatsoever resulting from the
                 disclosure of your Personal ID, code or password contrary to these Terms. </p>
-              <h3>5. Intellectual property rights</h3>
+              <h5>5. Intellectual property rights</h5>
               <p>5.1 : We are the owner or licensee of all copyright and other intellectual property rights in any
                 material contained on the Website.</p>
               <p>5.2 : You may access any part of the Website and download or copy material (by printing off
@@ -126,7 +125,7 @@
               </p>
               <p>5.8 : Any rights not expressly granted in these Terms, or any document referenced in them, are
                 reserved to Education Malaysia.</p>
-              <h3>6. Uploading content to the Website</h3>
+              <h5>6. Uploading content to the Website</h5>
               <p>6.3 : When you upload or post content to our website, you:</p>
               <p>6.3.1 : grant to us an irrevocable, perpetual, worldwide, non-exclusive, royalty-free, transferable
                 licence (with right to sub-license) to use, publish, reproduce, distribute, produce derivative works
@@ -144,7 +143,7 @@
                 permission, then you should not upload it.</p>
               <p>6.7 : We shall be entitled to disclose your identity to any third party who claims that any content
                 uploaded by you infringes their rights.</p>
-              <h3>7. Links to other websites</h3>
+              <h5>7. Links to other websites</h5>
               <p>7.1 : Education Malaysia provides links to websites and other resources provided by third parties
                 and aims to link to websites that we feel will enhance your experience by offering useful background
                 knowledge, specialist advice and information, and informed commentary and views. We only provide
@@ -157,7 +156,7 @@
                 any loss or damage that may arise from your use of them.</p>
               <p>7.4 : We fix or remove missing, broken, or redirected links whenever we find them. If you spot
                 anything which isn’t working in the way you would expect it to, please let us know.</p>
-              <h3>8. Disclaimer and limitation of liability</h3>
+              <h5>8. Disclaimer and limitation of liability</h5>
               <p>8.1 : Education Malaysia has taken care to ensure that the information on the Website is correct.
                 However, no warranty, express or implied, is given as to: (i) its accuracy; or (ii) its
                 availability, and Education Malaysia does not accept any liability for error or omission. Education
@@ -190,7 +189,7 @@
               <p>8.6 : Nothing in these Terms shall exclude liability for death or personal injury directly caused
                 by our negligence, nor any other liability which cannot be excluded or limited under applicable law.
               </p>
-              <h3>9. General</h3>
+              <h5>9. General</h5>
               <p>9.2 : These Terms shall be construed and interpreted in accordance with the laws of Malaysia. The
                 courts of Malaysia shall have exclusive jurisdiction in relation to any claim, dispute or other
                 matters arising therefrom, without prejudice to Education Malaysia right to bring proceedings in the
@@ -201,10 +200,10 @@
               <p>9.4 : The failure by us to exercise any right or remedy under these terms and conditions shall not
                 constitute a waiver of that right or remedy.</p>
 
+              </div>
             </div>
-          </div>
-        </div>
       </div>
+    
     </div>
   </section>
 @endsection

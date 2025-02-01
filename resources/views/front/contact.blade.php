@@ -24,11 +24,11 @@
   </div>
   <!-- Breadcrumb -->
   <!-- Content -->
-  <section class="bg-light">
+  <section class="bg-light contactusz ">
     <div class="container">
 
       <div class="row">
-        <div class="col-lg-4 col-md-5">
+        <div class="col-lg-4 col-md-5 col-sm-12 mb-4 ">
           <div class="prc_wrap">
             <div class="prc_wrap_header">
               <h4 class="property_block_title">Contacts info & Details</h4>
@@ -67,7 +67,7 @@
           </div>
         </div>
 
-        <div class="col-lg-8 col-md-7">
+        <div class="col-lg-8 col-md-7 col-sm-12 mb-4">
           <div class="prc_wrap">
             <div class="prc_wrap_header">
               <h4 class="property_block_title">Get in Touch</h4>
@@ -122,10 +122,12 @@
                   @enderror
                 </div>
                 <div class="form-group">
-                  <label for="captcha_question">{{ $captcha['text'] }}</label>
+                 
                   <div class="input-group">
-                    <div class="input-icon"><span class="ti-captcha_answer"></span></div>
-                    <input type="number" name="captcha_answer" class="form-control b-0 pl-0"
+                    <div class="input-icon"><span class="ti-captcha_answer">
+                    <label for="captcha_question">{{ $captcha['text'] }}</label>
+                    </span></div>
+                    <input type="number" name="captcha_answer" class="form-control"
                       placeholder="Enter Captcha Value" required="">
                   </div>
                   @error('captcha_answer')
@@ -181,8 +183,8 @@
                     <div class="container">
                       <div class="row">
                         @foreach ($addresses as $address)
-                          <div class="col-lg-4 col-md-4 col-sm-6 mt-2">
-                            <div class="card mb-0">
+                          <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
+                            <div class="card mb-0 h-100">
                               <div class="card-body">
                                 <h5>{{ $address->city }}</h5>
                                 <h4 class="cn-info-title"><i class="ti-home mr-1 theme-cl"></i> Location:</h4>

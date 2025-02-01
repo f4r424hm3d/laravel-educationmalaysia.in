@@ -110,7 +110,7 @@
   <!-- End Google Tag Manager (noscript) -->
   <div id="main-wrapper">
     <!-- Top header-->
-    <div class="header header-light head-shadow py-2">
+    <!-- <div class="header header-light head-shadow py-2">
       <div class="container">
         <nav id="navigation" class="navigation navigation-landscape new-navigatoins">
           <div class="nav-header">
@@ -131,7 +131,6 @@
               <li><a href="{{ route('home') }}">Home</a></li>
               <li class="nav-item dropdown maindrop"><a href="#">Resources<span
                     class="submenu-indicator"></span></a>
-                <!-- nav-dropdown nav-submenu mega-dropdown-menu new-width mob-width -->
                 <ul class="dropdown-menu nav-dropdown mega-dropdown-menu over-menu">
                   <div class="row mx-md-auto ">
                     <div class=" col-xl-3 col-lg-3 col-md-12 ">
@@ -177,5 +176,96 @@
         </nav>
       </div>
     </div>
-    <div class="clearfix"></div>
+    <div class="clearfix"></div> -->
+
+    <nav class="navbar navbar-expand-lg navbar-light main-heddd">
+ <div class="container">
+    <a class="navbar-brand" href="{{ url('/') }} " alt="Education Malaysia Education Logo">
+        <img src="{{ url('front/') }}/assets/img/logo.png" class="logo-max" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+      
+  
+      
+        <li class="nav-item dropdown all-dropdowns">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Resources
+
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <div class="row mx-auto ">
+                    <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-3 ">
+                      <div class="b-font">Exams</div>
+                      <ul class="li_dd">
+                        <li><a href="https://www.educationmalaysia.in/exams">English Exams</a></li>
+                                                  <li><a href="https://www.educationmalaysia.in/muet">MUET</a></li>
+                                                  <li><a href="https://www.educationmalaysia.in/pte">PTE</a></li>
+                                                  <li><a href="https://www.educationmalaysia.in/toefl">TOEFL</a></li>
+                                                  <li><a href="https://www.educationmalaysia.in/ielts">IELTS</a></li>
+                                              </ul>
+                    </div>
+                    <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-3 ">
+                      <div class="b-font">Services</div>
+                      <ul class="li_dd">
+                        <li><a href="https://www.educationmalaysia.in/services">Our Services</a></li>
+                                                  <li><a href="https://www.educationmalaysia.in/admission-guidance">Admission Guidance</a></li>
+                                                  <li><a href="https://www.educationmalaysia.in/tourism-in-malaysia">Tourism In Malaysia</a></li>
+                                                  <li><a href="https://www.educationmalaysia.in/visa-guidance">Visa Guidance</a></li>
+                                                  <li><a href="https://www.educationmalaysia.in/discover-malaysia">Discover Malaysia</a></li>
+                                              </ul>
+                    </div>
+                    <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-3 ">
+                      <div class="b-font">About Us</div>
+                      <ul class="li_dd">
+                        <li><a href="https://www.educationmalaysia.in/who-we-are">Who we are</a></li>
+                        <li><a href="https://www.educationmalaysia.in/what-people-say" target="_blank">What Students Say</a></li>
+                        <li><a href="https://www.educationmalaysia.in/select-level" target="_blank">Study Malaysia</a></li>
+                        <li><a href="https://www.educationmalaysia.in/why-study-in-malaysia">Why Study In Malaysia?</a></li>
+                      </ul>
+                    </div>
+                    <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-3 ">
+                      <img src="https://www.educationmalaysia.in/assets/web/images/em-menu2.jpg" class="img-fluid" alt="">
+                    </div>
+                  </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Search Courses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">All Univerities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Specialization</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Scolarships</a>
+          </li>
+      </ul>
+      <form class="d-flex align-items-center set-gap">
+        <button class="btn btn-primary">Sign Up</button>
+        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Login</button>
+        <!-- <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Profile</button> -->
+      </form>
+    </div>
+ </div>
+      </nav>
+
+<!-- new header added start -->
+
+<!-- new header added end -->
+
     <!-- Top header-->
