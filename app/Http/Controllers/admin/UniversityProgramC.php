@@ -28,7 +28,6 @@ class UniversityProgramC extends Controller
     $specializations = CourseSpecialization::all();
     $programs = Program::all();
     $studymodes = StudyMode::all();
-    $coursemodes = CourseMode::all();
     $months = Month::orderBy('month_number')->get();
     $university = University::find($university_id);
     //$levels = Level::where('destination_id', $university->destination_id)->get();
@@ -54,7 +53,7 @@ class UniversityProgramC extends Controller
     }
     $page_title = "University Programs";
     $page_route = "university-programs";
-    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'university', 'categories', 'specializations', 'programs', 'levels', 'studymodes', 'i', 'coursemodes', 'exams', 'months');
+    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'university', 'categories', 'specializations', 'programs', 'levels', 'studymodes', 'i', 'exams', 'months');
     return view('admin.university-programs')->with($data);
   }
   public function store($university_id, Request $request)

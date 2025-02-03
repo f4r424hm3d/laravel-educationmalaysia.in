@@ -85,7 +85,6 @@ class UniversityFacilityC extends Controller
     $field = UniversityFacility::find($id);
     $field->u_id = $request['u_id'];
     $field->title = $request['title'];
-    $field->heading = $request['heading'];
     $field->description = $request['description'];
 
     $field->save();

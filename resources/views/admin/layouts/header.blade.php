@@ -213,10 +213,10 @@
                       id="topnav-auth" role="button">
                       <span data-key="t-authentication">Course Specialization</span>
                     </a>
-                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('Programs') }}"
+                    {{-- <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('Programs') }}"
                       id="topnav-auth" role="button">
                       <span data-key="t-authentication">Programs</span>
-                    </a>
+                    </a> --}}
                   </div>
                 </div>
               </li>
@@ -236,10 +236,10 @@
                       id="topnav-auth" role="button">
                       <span data-key="t-authentication">Study Mode</span>
                     </a>
-                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('course-modes') }}"
+                    {{-- <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('course-modes') }}"
                       id="topnav-auth" role="button">
                       <span data-key="t-authentication">Course Mode</span>
-                    </a>
+                    </a> --}}
                     <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('university') }}"
                       id="topnav-auth" role="button">
                       <span data-key="t-authentication">University</span>
