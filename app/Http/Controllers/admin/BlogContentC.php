@@ -91,7 +91,7 @@ class BlogContentC extends Controller
   {
     // return $request;
     // die;
-    $rows = BlogContent::where('blog_id', $request->blog_id)->paginate(10)->withPath('/admin/' . $this->page_route . '/' . $request->blog_id);
+    $rows = BlogContent::orderBy('position')->where('blog_id', $request->blog_id)->paginate(10)->withPath('/admin/' . $this->page_route . '/' . $request->blog_id);
     $i = 1;
     $output = '<table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
     <thead>
@@ -100,7 +100,6 @@ class BlogContentC extends Controller
         <th>Position</th>
         <th>Title</th>
         <th>Description</th>
-        <th>Position</th>
         <th>Parent Title</th>
         <th>Action</th>
       </tr>
