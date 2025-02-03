@@ -258,5 +258,5 @@
   <script>
     CKEDITOR.replace("description");
   </script>
-  @include('admin.js.common-delete')
+  @include('admin.js.common-delete-data')
 @endsection
