@@ -2,19 +2,34 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\front\BlogFc;
+use App\Models\Scopes\WebsiteScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
   use HasFactory;
+  protected $guarded = [];
+  protected static function booted()
+  {
+    static::addGlobalScope(new WebsiteScope);
+  }
   public function category()
+  {
+    return $this->hasOne(BlogCategory::class, 'id', 'cate_id');
+  }
+  public function getCategory()
   {
     return $this->hasOne(BlogCategory::class, 'id', 'cate_id');
   }
   public function contents()
   {
     return $this->hasMany(BlogContent::class, 'blog_id', 'id')->orderBy('position', 'asc');
+  }
+  public function faqs()
+  {
+    return $this->hasMany(BlogFaq::class, 'blog_id', 'id');
   }
   public function parentContents()
   {

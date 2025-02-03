@@ -114,7 +114,6 @@
                 <p>{!! $row->description !!}</p><br>
               @endforeach
 
-              {!! $blog->description !!}
             </div>
             <div class="ps-section__header">
               <div class="row ">
@@ -186,11 +185,9 @@
   </section>
   <script>
     $(document).ready(function() {
-      // Wrap the table in a div with class 'table-responsive'
-      $('table').before('<div class="table-responsive"></div>');
-
-      // Move the table inside the newly created div
-      $('table').prev('.table-responsive').append($('table'));
+      $('table').each(function() {
+        $(this).prev('div').addClass('table-responsive');
+      });
     });
   </script>
 @endsection

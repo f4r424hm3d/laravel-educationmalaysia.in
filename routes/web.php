@@ -5,6 +5,8 @@ use App\Http\Controllers\admin\AdminLogin;
 use App\Http\Controllers\admin\AuthorC;
 use App\Http\Controllers\admin\BlogC;
 use App\Http\Controllers\admin\BlogCategoryC;
+use App\Http\Controllers\admin\BlogContentC;
+use App\Http\Controllers\admin\BlogFaqC;
 use App\Http\Controllers\admin\CareerC;
 use App\Http\Controllers\admin\CourseCategoryC;
 use App\Http\Controllers\admin\CourseCategoryContentC;
@@ -474,6 +476,23 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
       Route::get('/delete/{id}', [BlogC::class, 'delete']);
       Route::get('/update/{id}', [BlogC::class, 'index']);
       Route::post('/update/{id}', [BlogC::class, 'update']);
+    });
+    Route::prefix('/blog-contents/')->group(function () {
+      Route::get('/get-data', [BlogContentC::class, 'getData']);
+      Route::get('/get-position', [BlogContentC::class, 'getPosition']);
+      Route::get('/delete/{id}', [BlogContentC::class, 'delete']);
+      Route::post('/store', [BlogContentC::class, 'store']);
+      Route::get('/{blog_id}/', [BlogContentC::class, 'index']);
+      Route::get('{blog_id}/update/{id}', [BlogContentC::class, 'index']);
+      Route::post('{blog_id}/update/{id}', [BlogContentC::class, 'update']);
+    });
+    Route::prefix('/blog-faqs/')->group(function () {
+      Route::get('/get-data', [BlogFaqC::class, 'getData']);
+      Route::get('/delete/{id}', [BlogFaqC::class, 'delete']);
+      Route::post('/store', [BlogFaqC::class, 'store']);
+      Route::get('/{blog_id}/', [BlogFaqC::class, 'index']);
+      Route::get('{blog_id}/update/{id}', [BlogFaqC::class, 'index']);
+      Route::post('{blog_id}/update/{id}', [BlogFaqC::class, 'update']);
     });
 
     Route::prefix('/users')->group(function () {

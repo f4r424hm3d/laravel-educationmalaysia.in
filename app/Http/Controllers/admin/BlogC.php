@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Author;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\User;
@@ -12,7 +13,7 @@ class BlogC extends Controller
 {
   public function index($id = null)
   {
-    $users = User::all();
+    $users = Author::all();
     $category = BlogCategory::all();
     $rows = Blog::get();
     if ($id != null) {
@@ -41,8 +42,8 @@ class BlogC extends Controller
     // die;
     $request->validate(
       [
-        'category_id' => 'required',
-        'title' => 'required|unique:blogs,title',
+        'cate_id' => 'required',
+        'headline' => 'required|unique:blogs,headline',
         'description' => 'required',
       ]
     );
@@ -55,16 +56,16 @@ class BlogC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('thumbnail')->move('uploads/blogs/', $file_name);
       if ($move) {
-        $field->thumbnail_name = $file_name;
-        $field->thumbnail_path = 'uploads/blogs/' . $file_name;
+        $field->imgname = $file_name;
+        $field->imgpath = 'uploads/blogs/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
-    $field->category_id = $request['category_id'];
-    $field->user_id = $request['user_id'];
-    $field->title = $request['title'];
-    $field->slug = slugify($request['title']);
+    $field->cate_id = $request['cate_id'];
+    $field->author_id = $request['author_id'];
+    $field->headline = $request['headline'];
+    $field->slug = slugify($request['headline']);
     $field->description = $request['description'];
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
@@ -84,8 +85,8 @@ class BlogC extends Controller
   {
     $request->validate(
       [
-        'category_id' => 'required',
-        'title' => 'required|unique:blogs,title,' . $id,
+        'cate_id' => 'required',
+        'headline' => 'required|unique:blogs,headline,' . $id,
         'description' => 'required',
       ]
     );
@@ -98,16 +99,16 @@ class BlogC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('thumbnail')->move('uploads/blogs/', $file_name);
       if ($move) {
-        $field->thumbnail_name = $file_name;
-        $field->thumbnail_path = 'uploads/blogs/' . $file_name;
+        $field->imgname = $file_name;
+        $field->imgpath = 'uploads/blogs/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
-    $field->category_id = $request['category_id'];
-    $field->user_id = $request['user_id'];
-    $field->title = $request['title'];
-    $field->slug = slugify($request['title']);
+    $field->cate_id = $request['cate_id'];
+    $field->author_id = $request['author_id'];
+    $field->headline = $request['headline'];
+    $field->slug = slugify($request['headline']);
     $field->description = $request['description'];
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];

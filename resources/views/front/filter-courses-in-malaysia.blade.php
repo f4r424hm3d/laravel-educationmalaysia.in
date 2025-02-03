@@ -1,5 +1,5 @@
 <div class="all-cardbx">
-  <h3 class="filter-title">Filter by <span><a href="javascript:void(0)" onclick="removeAllAppliedFilter()" class="clearAll"
+  <h3 class="filter-title">Filter by <span><a href="javascript:void(0)" onclick="removeAllFilter()" class="clearAll"
         rel="nofollow">Clear
         All</a></span> </h3>
   <div class="card mb-2 p-2 ">

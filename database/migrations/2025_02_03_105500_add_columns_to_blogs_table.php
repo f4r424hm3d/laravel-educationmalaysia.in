@@ -1,0 +1,32 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+  /**
+   * Run the migrations.
+   */
+  public function up(): void
+  {
+    Schema::table('blogs', function (Blueprint $table) {
+      $table->text('og_image_path')->nullable();
+      $table->decimal('seo_rating', 2, 1)->nullable();
+      $table->integer('review_number')->after('seo_rating')->nullable();
+      $table->decimal('best_rating', 2, 1)->after('review_number')->nullable();
+      $table->longText('schema')->after('best_rating')->nullable();
+    });
+  }
+
+  /**
+   * Reverse the migrations.
+   */
+  public function down(): void
+  {
+    Schema::table('blogs', function (Blueprint $table) {
+      //
+    });
+  }
+};

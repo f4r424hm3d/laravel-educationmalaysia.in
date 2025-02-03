@@ -367,13 +367,13 @@ class UniversityProgramListFc extends Controller
 
     if (session()->has('CFilterSpecialization')) {
       $curSpc = CourseSpecialization::find(session()->get('CFilterSpecialization'));
-      $main = $curSpc->specialization_slug . '-courses';
+      $main = $curSpc->slug . '-courses';
     } else if (session()->has('CFilterCategory')) {
       $curCat = CourseCategory::find(session()->get('CFilterCategory'));
-      $main = $curCat->category_slug . '-courses';
+      $main = $curCat->slug . '-courses';
     } else if (session()->has('CFilterLevel')) {
-      $curLevel = Level::find(session()->get('CFilterLevel'));
-      $main = $curLevel->slug . '-courses';
+      $curLevel = Level::where('slug', session()->get('CFilterLevel'))->first();
+      $main = slugify($curLevel->level) . '-courses';
     } else {
       $main = 'courses-in-malaysia';
     }

@@ -258,14 +258,14 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
 
-                  <span data-key="t-extra-pages">Blogs</span>
+                  <span data-key="t-extra-pages">Get Info</span>
                   <div class="arrow-down"></div>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="topnav-more">
                   <div class="dropdown">
                     <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('blog-category') }}"
                       id="topnav-auth" role="button">
-                      <span data-key="t-authentication">Blog Category</span>
+                      <span data-key="t-authentication">Category</span>
                     </a>
                     <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('blogs') }}" id="topnav-auth"
                       role="button">

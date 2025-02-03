@@ -37,13 +37,14 @@ class BlogCategoryC extends Controller
     // die;
     $request->validate(
       [
-        'category_name' => 'required|unique:blog_categories,category_name',
+        'cate_name' => 'required|unique:blog_categories,cate_name',
       ]
     );
     $field = new BlogCategory;
 
-    $field->category_name = $request['category_name'];
-    $field->category_slug = slugify($request['category_name']);
+    $field->cate_name = $request['cate_name'];
+    $field->slug = slugify($request['cate_name']);
+    $field->website = site_var;
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
     $field->meta_description = $request['meta_description'];
@@ -62,12 +63,12 @@ class BlogCategoryC extends Controller
   {
     $request->validate(
       [
-        'category_name' => 'required|unique:blog_categories,category_name,' . $id,
+        'cate_name' => 'required|unique:blog_categories,cate_name,' . $id,
       ]
     );
     $field = BlogCategory::find($id);
-    $field->category_name = $request['category_name'];
-    $field->category_slug = slugify($request['category_name']);
+    $field->cate_name = $request['cate_name'];
+    $field->slug = slugify($request['cate_name']);
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
     $field->meta_description = $request['meta_description'];

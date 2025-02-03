@@ -32,7 +32,7 @@
               var type = 'success';
               getData();
               $('#dataForm')[0].reset();
-              CKEDITOR.instances.description.setData('');
+              setEditorBlank()
             }
           } else {
             //alert(data.error);

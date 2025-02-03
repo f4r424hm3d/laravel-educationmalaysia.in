@@ -59,6 +59,11 @@ class UniversityListFilters
   public static function category()
   {
     $categoryListForFilter = CourseCategory::query()->whereHas('programs');
+    $categoryListForFilter = $categoryListForFilter->whereHas('programs', function ($query) {
+      $query->where('status', 1)->where('website', site_var)->whereHas('university', function ($universityQuery) {
+        $universityQuery->where('status', 1); // Filter universities with status = 1
+      });
+    });
     if (session()->has('CFilterLevel')) {
       $categoryListForFilter = $categoryListForFilter->whereHas('programs', function ($query) {
         $query->where('level', session()->get('CFilterLevel'));
