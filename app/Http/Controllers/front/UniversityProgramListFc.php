@@ -69,8 +69,8 @@ class UniversityProgramListFc extends Controller
 
 
     // GET LEVEL FOR FILTER SIDEBAR
-    //$levelListForFilter = UniversityListFilters::level();
-    $levelListForFilter = Level::all();
+    $levelListForFilter = UniversityListFilters::level();
+    //$levelListForFilter = Level::all();
 
     // GET CATEGORY FOR FILTER SIDEBAR
     $categoryListForFilter = UniversityListFilters::category();
@@ -192,8 +192,8 @@ class UniversityProgramListFc extends Controller
     $i = ($cp - 1) * $pp + 1;
 
     // GET LEVEL FOR FILTER SIDEBAR
-    //$levelListForFilter = UniversityListFilters::level();
-    $levelListForFilter = Level::all();
+    $levelListForFilter = UniversityListFilters::level();
+    //$levelListForFilter = Level::all();
 
     // GET CATEGORY FOR FILTER SIDEBAR
     $categoryListForFilter = UniversityListFilters::category();
@@ -314,8 +314,8 @@ class UniversityProgramListFc extends Controller
     $i = ($cp - 1) * $pp + 1;
 
     // GET LEVEL FOR FILTER SIDEBAR
-    //$levelListForFilter = UniversityListFilters::level();
-    $levelListForFilter = Level::all();
+    $levelListForFilter = UniversityListFilters::level();
+    //$levelListForFilter = Level::all();
 
     // GET CATEGORY FOR FILTER SIDEBAR
     $categoryListForFilter = UniversityListFilters::category();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\DashboardPermission;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -20,28 +21,34 @@ class AdminLogin extends Controller
   {
     //printArray($request->all());
     //die;
-    $field = User::where('role', 'admin')->where('email', $request['username'])->first();
+    $field = User::where('email', $request['username'])->first();
     // printArray($field->toArray());
     // die;
     if (is_null($field)) {
       session()->flash('emsg', 'Email address not exist.');
       return redirect('admin/login');
     } else {
-      if (Hash::check($request['password'], $field->password)) {
-        if ($field->status == 1) {
-          $lc = $field->login_count == '' ? 0 : $field->login_count + 1;
-          $field->login_count = $lc;
-          $field->last_login = date("Y-m-d H:i:s");
-          $field->save();
-          session()->flash('smsg', 'Succesfully logged in');
-          $request->session()->put('adminLoggedIn', ['user_id' => $field->id, 'user_name' => $field->name, 'username' => $request['username']]);
-          return redirect('admin/dashboard');
+      $checkPermission = DashboardPermission::where('user_id', $field->id)->where('dashboard', site_var)->where('status', 1)->first();
+      if ($field->role == 'admin' || $checkPermission == true) {
+        if (Hash::check($request['password'], $field->password)) {
+          if ($field->status == 1) {
+            $lc = $field->login_count == '' ? 0 : $field->login_count + 1;
+            $field->login_count = $lc;
+            $field->last_login = date("Y-m-d H:i:s");
+            $field->save();
+            session()->flash('smsg', 'Succesfully logged in');
+            $request->session()->put('adminLoggedIn', ['user_id' => $field->id, 'user_name' => $field->name, 'username' => $request['username']]);
+            return redirect('admin/dashboard');
+          } else {
+            session()->flash('emsg', 'You dont have permission to login. Please contact admin.');
+            return redirect('admin/login');
+          }
         } else {
-          session()->flash('emsg', 'You dont have permission to login. Please contact admin.');
+          session()->flash('emsg', 'Incorrect password entered');
           return redirect('admin/login');
         }
       } else {
-        session()->flash('emsg', 'Incorrect password entered');
+        session()->flash('emsg', 'You do not have permission to login. Please contact admin.');
         return redirect('admin/login');
       }
     }

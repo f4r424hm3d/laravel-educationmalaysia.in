@@ -26,6 +26,10 @@ class UniversityProgram extends Model
   {
     return $this->hasOne(Level::class, 'level', 'level');
   }
+  public function getLevel()
+  {
+    return $this->hasOne(Level::class, 'level', 'level');
+  }
 
   public function university()
   {

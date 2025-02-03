@@ -42,7 +42,7 @@
   </section>
 
   <!-- Modal -->
-  <div class="modal courses-modal  fade" id="courseListModal" tabindex="-1" role="dialog"
+  <div class="modal courses-modal  fade" id="courseListModaldfdf" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -73,6 +73,109 @@
               </div>
             </div>
 
+          </footer>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal courses-modal  fade" id="courseListModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"> what is offered by the participating universities.?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <footer class="dark-footer skin-dark-footer pt-3 rounded">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
+                  <div class="footer-widget">
+                    <span class="widget-title">Top Courses</span>
+                    <ul class="footer-menu">
+                      <li> <i class="ti-arrow-right"></i> Accounting & Finance</li>
+                      <li> <i class="ti-arrow-right"></i> Civil Engineering</li>
+                      <li> <i class="ti-arrow-right"></i> Arts/Fine Arts</li>
+                      <li> <i class="ti-arrow-right"></i> Hospitality</li>
+                      <li> <i class="ti-arrow-right"></i> Business Management</li>
+                      <li> <i class="ti-arrow-right"></i> Computer Engineering</li>
+                      <li> <i class="ti-arrow-right"></i> Physiology</li>
+                      <li> <i class="ti-arrow-right"></i> Medicine</li>
+                      <li> <i class="ti-arrow-right"></i> Business Information Systems</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
+                  <div class="footer-widget">
+                    <span class="widget-title">Qualified Level</span>
+                    <ul class="footer-menu">
+                      <li> <i class="ti-arrow-right"></i> CERTIFICATE</li>
+                      <li> <i class="ti-arrow-right"></i> PRE UNIVERSITY</li>
+                      <li> <i class="ti-arrow-right"></i> DIPLOMA</li>
+                      <li> <i class="ti-arrow-right"></i> UNDER GRADUATE</li>
+                      <li> <i class="ti-arrow-right"></i> POST GRADUATE</li>
+                      <li> <i class="ti-arrow-right"></i> PhD COURSES</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
+                  <div class="footer-widget">
+                    <span class="widget-title">HELP & SUPPORT</span>
+                    <ul class="footer-menu">
+                      <li> <i class="ti-arrow-right"></i> FAQs</li>
+                      <li> <i class="ti-arrow-right"></i> What People Say</li>
+                      <li> <i class="ti-arrow-right"></i> Contact us</li>
+                      <li> <i class="ti-arrow-right"></i> Terms & Conditions</li>
+                      <li> <i class="ti-arrow-right"></i> Articles</li>
+                      <li> <i class="ti-arrow-right"></i> Privacy Policy</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mt-4">
+                  <div class="indin-office">
+                    <span class="Head-indian">India Head Office</span>
+                    <p>B-16 Ground Floor, Mayfield Garden, Sector 50, Gurugram, Haryana, India 122002</p>
+                    <p>Phone: +91-98185-60331</p>
+                    <p>Email: info@educationmalaysia.in</p>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mt-4">
+                  <div class="indin-office">
+                    <span class="Head-indian">Malaysia Office</span>
+                    <p>8, Jalan Tun Sambanthan, Wilayah Persekutuan Kuala Lumpur Malaysia 50470</p>
+                    <p>Phone: +60 11 1778 4424</p>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mt-4">
+                  <div class="indin-office">
+                    <span class="Head-indian">Pakistan Office</span>
+                    <p>#311, Garden Heights, Garden Town Lahore Pakistan 54000</p>
+                    <p>Phone: +60-11-1778-4424</p>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mt-4">
+                  <div class="indin-office">
+                    <span class="b">Bangladesh Office</span>
+                    <p>H-16, Road-09, Sector-01, (Flat-A5/B), Uttara, Dhaka, Bangladesh 1230</p>
+                    <p>Phone: +91-98185-60331</p>
+                    <ul class="linksfooters">
+                      <li class="lia"> <i class="fa fa-facebook" aria-hidden="true"></i> </li>
+                      <li class="lia"> <i class="fa fa-twitter" aria-hidden="true"></i> </li>
+                      <li class="lia"> <i class="fa fa-linkedin" aria-hidden="true"></i> </li>
+                      <li class="lia"> <i class="fa fa-pinterest" aria-hidden="true"></i> </li>
+                      <li class="lia"> <i class="fa fa-instagram" aria-hidden="true"></i> </li>
+                      <li class="lia"> <i class="fa fa-youtube" aria-hidden="true"></i> </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </footer>
         </div>
 
@@ -235,12 +338,12 @@
                   Time:</b> <span>:</span> 9:30 AM – 1:00 PM & 4:00 PM – 8:00 PM</li>
             </ul>
             <!-- <ul class="set_uls" >
-                                        <li><b>Hosted by:</b>  Ministry of Higher Education and Scientific Research, Libya
-                                        </li>
-                                        <li><b>Organised by:</b> Malaysian Export Academy (MEXA), Malaysia
-                                        </li>
-                                        <li><b>Supported by:</b> NAPEI, Malaysia</li>
-                                      </ul> -->
+                                            <li><b>Hosted by:</b>  Ministry of Higher Education and Scientific Research, Libya
+                                            </li>
+                                            <li><b>Organised by:</b> Malaysian Export Academy (MEXA), Malaysia
+                                            </li>
+                                            <li><b>Supported by:</b> NAPEI, Malaysia</li>
+                                          </ul> -->
             <div class="imgsfaird">
               <img src="/assets/images/libya-malaysia.png" class="imgsfairs" alt="">
             </div>
@@ -849,11 +952,11 @@
 
         </div>
         <!-- <div class="col-md-6">
-                                                  <div class="imgfaq">
-                                                    <img src="{{ url('/') }}/assets/web/images/faq.png" class="img-fluid" alt="">
+                                                      <div class="imgfaq">
+                                                        <img src="{{ url('/') }}/assets/web/images/faq.png" class="img-fluid" alt="">
 
-                                                  </div>
-                                                </div> -->
+                                                      </div>
+                                                    </div> -->
       </div>
     </div>
   </section>

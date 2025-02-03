@@ -9,4 +9,8 @@ class Level extends Model
 {
   use HasFactory;
   protected $guarded = [];
+  public function allUniversityPrograms()
+  {
+    return $this->hasMany(UniversityProgram::class, 'level', 'level');
+  }
 }

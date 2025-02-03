@@ -4,6 +4,7 @@ namespace App\Helpers;
 
 use App\Models\CourseCategory;
 use App\Models\CourseSpecialization;
+use App\Models\Level;
 use App\Models\University;
 use App\Models\UniversityProgram;
 use App\Models\User;
@@ -12,14 +13,47 @@ class UniversityListFilters
 {
   public static function level()
   {
+    $levelListForFilter = Level::orderBy('id');
+
+    if (session()->has('CFilterCategory')) {
+      $levelListForFilter = $levelListForFilter->whereHas('allUniversityPrograms', function ($query) {
+        $query->where('course_category_id', session()->get('CFilterCategory'));
+      });
+    }
+    if (session()->has('CFilterSpecialization')) {
+      $levelListForFilter = $levelListForFilter->whereHas('allUniversityPrograms', function ($query) {
+        $query->where('specialization_id', session()->get('CFilterSpecialization'));
+      });
+    }
+    $levelListForFilter = $levelListForFilter->whereHas('allUniversityPrograms', function ($query) {
+      $query->where('status', 1)->where('website', site_var);
+    });
+
+    $levelListForFilter = $levelListForFilter->get();
+
+    return $levelListForFilter;
+  }
+  public static function levela()
+  {
     $levelListForFilter = UniversityProgram::query();
-    // if (session()->has('CFilterCategory')) {
-    //   $levelListForFilter = $levelListForFilter->where(['course_category_id' => session()->get('CFilterCategory')]);
-    // }
-    // if (session()->has('CFilterSpecialization')) {
-    //   $levelListForFilter = $levelListForFilter->where(['specialization_id' => session()->get('CFilterSpecialization')]);
-    // }
-    $levelListForFilter = $levelListForFilter->select('level')->groupBy('level')->where('status', 1)->get();
+
+    if (session()->has('CFilterCategory')) {
+      $levelListForFilter->where('course_category_id', session()->get('CFilterCategory'));
+    }
+    if (session()->has('CFilterSpecialization')) {
+      $levelListForFilter->where('specialization_id', session()->get('CFilterSpecialization'));
+    }
+
+    $levelListForFilter = $levelListForFilter->select('level')
+      ->groupBy('level')
+      ->whereNotNull('level')
+      ->where('level', '!=', '')
+      ->where('status', 1)
+      ->where('website', site_var)
+      ->with('getLevel')
+      ->orderByRaw('(SELECT id FROM levels WHERE levels.id = university_programs.level) ASC')
+      ->get();
+
     return $levelListForFilter;
   }
   public static function category()
