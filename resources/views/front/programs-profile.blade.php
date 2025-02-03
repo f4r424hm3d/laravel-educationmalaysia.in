@@ -52,7 +52,7 @@
   @include('front.university-profile-menu')
   <!-- Menu -->
   <!-- Content -->
-  <section class="bg-light pt-4 pb-4">
+  <section class="bg-light py-5 program-profiledd ">
     <div class="container">
       <div class="row">
 
@@ -62,51 +62,51 @@
 
           <div class="edu_wraper">
 
-            <h2 class="course-new-title pl-3">{{ $program->course_name }} Fees Structure, Admission, Intake, Deadline</h2>
+            <h2 class="course-new-title">{{ $program->course_name }} Fees Structure, Admission, Intake, Deadline</h2>
 
             <div class="row align-items-center mx-auto">
               <div class="col-md-12">
                 <div class="row">
-                  <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-2 mb-2">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-2">
                     <div class="row">
-                      <div class="col-lg-3 col-2 course-icon-new"><i class="ti-flag-alt"></i></div>
-                      <div class="col-lg-9 col-10"><span class="theme-cl">Study Mode:</span><span
+                      <div class="col-lg-3 col-md-12 col-sm-12 col-12 course-icon-new mb-3"><i class="ti-flag-alt"></i></div>
+                      <div class="col-lg-9 col-md-12 col-sm-12 col-12 mb-3"><span class="theme-cl">Study Mode:</span><span
                           class="course-new-sc">{{ ucwords($program->study_mode) }}</span></div>
                     </div>
                   </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-2 mb-2">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-2">
                     <div class="row">
-                      <div class="col-lg-3 col-2 course-icon-new"><i class="ti-time"></i></div>
-                      <div class="col-lg-9 col-10"><span class="theme-cl">Duration:</span><span
+                      <div class="col-lg-3 col-md-12 col-sm-12 col-12 course-icon-new mb-3"><i class="ti-time"></i></div>
+                      <div class="col-lg-9 col-md-12 col-sm-12 col-12 mb-3"><span class="theme-cl">Duration:</span><span
                           class="course-new-sc">{{ $program->duration }}</span></div>
                     </div>
                   </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-2 mb-2">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-2">
                     <div class="row">
-                      <div class="col-lg-3 col-2 course-icon-new"><i class="ti-files"></i></div>
-                      <div class="col-lg-9 col-10"><span class="theme-cl">Level:</span><span
+                      <div class="col-lg-3 col-md-12 col-sm-12 col-12 course-icon-new mb-3"><i class="ti-files"></i></div>
+                      <div class="col-lg-9 col-md-12 col-sm-12 col-12 mb-3"><span class="theme-cl">Level:</span><span
                           class="course-new-sc">{{ $program->level }}</span></div>
                     </div>
                   </div>
 
-                  <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-2 mb-2">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-2">
                     <div class="row">
-                      <div class="col-lg-3 col-2 course-icon-new"><i class="ti-medall-alt"></i></div>
-                      <div class="col-lg-9 col-10"><span class="theme-cl">Exam Accepted:</span><span
+                      <div class="col-lg-3 col-md-12 col-sm-12 col-12 course-icon-new mb-3"><i class="ti-medall-alt"></i></div>
+                      <div class="col-lg-9 col-md-12 col-sm-12 col-12 mb-3"><span class="theme-cl">Exam Accepted:</span><span
                           class="course-new-sc">{{ j2s($program->exam_accepted ?? null) }}</span></div>
                     </div>
                   </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-2 mb-2">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-2">
                     <div class="row">
-                      <div class="col-lg-3 col-2 course-icon-new"><i class="ti-calendar"></i></div>
-                      <div class="col-lg-9 col-10"><span class="theme-cl">Intake:</span><span
+                      <div class="col-lg-3 col-md-12 col-sm-12 col-12 course-icon-new mb-3"><i class="ti-calendar"></i></div>
+                      <div class="col-lg-9 col-md-12 col-sm-12 col-12 mb-3"><span class="theme-cl">Intake:</span><span
                           class="course-new-sc">{{ $program->intake }}</span></div>
                     </div>
                   </div>
-                  <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-2 mb-2">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-2">
                     <div class="row">
-                      <div class="col-lg-3 col-2 course-icon-new"><i class="ti-money"></i></div>
-                      <div class="col-lg-9 col-10"><span class="theme-cl">Tuition Fees:</span><span
+                      <div class="col-lg-3 col-md-12 col-sm-12 col-12 course-icon-new mb-3"><i class="ti-money"></i></div>
+                      <div class="col-lg-9 col-md-12 col-sm-12 col-12 mb-3"><span class="theme-cl">Tuition Fees:</span><span
                           class="course-new-sc">{{ $program->tution_fees ?? 'N/A' }}</span></div>
                     </div>
                   </div>
@@ -265,13 +265,13 @@
                               <div class="education_block_grid style_2 mb-3 all-programss">
                                 <div class="education_block_body mb-0">
                                   <div class="row align-items-center mx-auto ">
-                                    <div class="col-12 col-sm-12 col-md-3 mb-4  pl-md-0">
+                                    <div class="col-12 col-sm-12 col-md-3 mb-3">
                                       <div class="path-img">
                                         <img data-src="{{ asset($tu->university->imgpath) }}" class="img-fluid rounded"
                                           alt="">
                                       </div>
                                     </div>
-                                    <div class="col-12 col-sm-12 col-md-9 mb-4">
+                                    <div class="col-12 col-sm-12 col-md-9 mb-3">
                                       <h6 class="mb-1">{{ $tu->university->name }}</h6>
                                       <ul class="loc-rating">
                                         <li class="loc ">
@@ -292,7 +292,7 @@
                                 <div class="education_block_fo ">
                                   <div class="row mx-auto align-items-center">
                                     <div class="col-12 col-sm-12 col-md-7 col-lg-7 mb-4">
-                                      <h3 class="h3-progrmsn">
+                                      <h3 class="h3-progrmsn mb-2">
                                         <a
                                           href="{{ url('university/' . $tu->university->uname . '/course/' . $tu->slug) }}">
                                           {{ $tu->course_name }}
@@ -338,12 +338,12 @@
               </div>
               <div class="card-body">
                 <div class="row ">
-                  <div class="col-12 col-sm-12 col-md-2 ">
+                  <div class="col-12 col-sm-12 col-md-2 mb-4 ">
                     <h2 class="top-streams">
                       Top Streams:
                     </h2>
                   </div>
-                  <div class=" col-12 col-sm-12 col-md-10">
+                  <div class=" col-12 col-sm-12 col-md-10 mb-4">
                     <div class="multi-options">
                       <ul>
 
@@ -368,12 +368,12 @@
               </div>
               <div class="card-body">
                 <div class="row">
-                  <div class="col-12 col-sm-12 col-md-2 ">
+                  <div class="col-12 col-sm-12 col-md-2 mb-4 ">
                     <h2 class="top-streams">
                       Top Streams:
                     </h2>
                   </div>
-                  <div class=" col-12 col-sm-12 col-md-10">
+                  <div class=" col-12 col-sm-12 col-md-10 mb-4">
                     <div class="multi-options">
                       <ul>
                         @foreach ($randomSpecializations as $row)
@@ -402,12 +402,12 @@
               </div>
               <div class="card-body">
                 <div class="row">
-                  <div class="col-12 col-sm-12 col-md-2 ">
+                  <div class="col-12 col-sm-12  col-md-2 mb-3 ">
                     <h2 class="top-streams">
                       Top Streams:
                     </h2>
                   </div>
-                  <div class="col-md-10">
+                  <div class="col-12 col-sm-12 col-md-10 mb-3">
                     <div class="multi-options">
                       <ul>
                         @foreach ($specializationsWithContents as $row)

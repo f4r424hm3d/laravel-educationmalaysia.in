@@ -62,22 +62,22 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-xl-3 col-lg-3 col-md-12 col-12">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-12 mb-4">
           <div id="accordionExample" class=" accordion shadow circullum hide-23 full-width accord-mobile">
 
             @include('front.filter-courses-in-malaysia')
           </div>
         </div>
-        <div class="col-xl-9 col-lg-9 col-md-12 col-12">
-          <div class="row align-items-center mb-3">
-            <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="col-xl-9 col-lg-9 col-md-12 col-12 ">
+          <div class="row align-items-center">
+            <div class="col-lg-12 col-md-12 col-sm-12  mb-3">
               <div class="forms-found ">
                 Found <strong>{{ $total }}</strong> programs
                 <p>{!! $page_contents !!}</p>
               </div>
             </div>
 
-            <div class="col-lg-12 col-md-12 col-sm-12 ordering">
+            <div class="col-lg-12 col-md-12 col-sm-12 ordering  mb-3">
               <div class="filter_wraps">
                 <div class="dn db-991 mt30 mb0 show-23">
                   <div id="main2"><a href="javascript:void(0)" class="btn btn-theme filter_open" onClick="openNav()"
@@ -128,7 +128,7 @@
                 </div>
               @endif
             </div>
-            <div class="text-right desktop-hide ml-auto px-3">
+            <div class="text-right desktop-hide ml-auto px-3 mb-3">
               <button type="button" class="btn btn-modern2 univ-btn reviews-btn rounded" data-toggle="modal"
                 data-target="#exampleModalCenter">
                 Filter show
@@ -144,7 +144,7 @@
 
                   <div class="dashboard_single_course align-items-center d-block">
                     <div class="row">
-                      <div class="col-lg-10 pr-md-0">
+                      <div class="col-lg-10 pr-md-0 mb-3">
                         <div class="row">
                           <div class="col-lg-2 col-md-3 col-sm-4 col-12 mb-4">
                             <div class="divimg">
@@ -153,17 +153,17 @@
                             </div>
                           </div>
 
-                          <div class="col-lg-10 col-md-9 col-sm-8 col-12 mb-4">
+                          <div class="col-lg-10 col-md-9 col-sm-8 col-12">
                             <div class="dashboard_single_course_caption ">
                               <div class="dashboard_single_course_head">
                                 <div class="dashboard_single_course_head_flex mt-0">
-                                  <h4 class="dashboard_course_title mb-1" style="font-size:20px">
+                                  <h4 class="dashboard_course_title mb-2">
                                     <a
                                       href="{{ route('university.overview', ['university_slug' => $row->university->uname]) }}">
                                       {{ $row->university->name }}
                                     </a>
                                   </h4>
-                                  <div class="d-flex setgap2 align-items-center locationsloc">
+                                  <div class="d-flex setgap2 align-items-center locationsloc mb-2">
                                     <i class="ti-location-pin"></i>
                                     {{ formatLocation($row->university->city, $row->university->state, $row->university->country) }}
                                   </div>
@@ -173,13 +173,13 @@
                               </div>
                             </div>
                             <div class="row">
-                              <div class="col-md-3 col-12">
+                              <div class="col-md-3 col-12 mb-2">
                                 <div class="flex-wrap align-items-center setgap2 block-desktop">
                                   <span class="theme-cl ">Institute Type : </span>
                                   <span class="duratinss">{{ $row->university->instituteType->type }} </span>
                                 </div>
                               </div>
-                              <div class="col-md-3 col-12">
+                              <div class="col-md-3 col-12 mb-2">
                                 <div class="flex-wrap align-items-center setgap2 block-desktop">
                                   <span class="theme-cl">Course : </span>
                                   <span class="duratinss"> {{ $row->university->programs->count() ?? 'N/A' }}</span>
@@ -192,14 +192,14 @@
                                   @endif
                                 </div>
                               </div>
-                              <div class="col-md-3 col-12">
+                              <div class="col-md-3 col-12 mb-2">
                                 <div class="flex-wrap align-items-center setgap2 block-desktop">
                                   <span class="theme-cl">World Ranking : </span>
 
                                   <span class="duratinss">{{ $row->university->rank ?? 'N/A' }}</span>
                                 </div>
                               </div>
-                              <div class="col-md-3 col-12">
+                              <div class="col-md-3 col-12 mb-2">
                                 <div class="flex-wrap align-items-center setgap2 block-desktop">
                                   <span class="theme-cl">Rating : </span>
 
@@ -210,7 +210,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="col-lg-2">
+                      <div class="col-lg-2 mb-3">
                         <div class="dc_head_right">
                           <div class="dropdown">
                             {!! UniversityProgramListButton::getApplyButton($row->id) !!}
@@ -221,7 +221,7 @@
 
                     <hr>
                     <div class="row">
-                      <div class="col-lg-10 col-md-9 col-sm-12">
+                      <div class="col-lg-10 col-md-9 col-sm-12 mb-3">
                         <h6 class="bachlors">
                           <a class="d-flex align-items-center "
                             href="{{ route('university.course.details', ['university_slug' => $row->university->uname, 'course_slug' => $row->slug]) }}"
@@ -231,14 +231,14 @@
                           </a>
                         </h6>
                         <div class="row">
-                          <div class="col-md-4 col-sm-4 col-12 ">
+                          <div class="col-md-4 col-sm-4 col-12 mb-2 ">
                             <div class="flex-wrap align-items-center setgap2 block-desktop">
                               <span class="theme-cl">
                                 Mode:</span>{{ $row->study_mode }}
                             </div>
 
                           </div>
-                          <div class="col-md-4 col-sm-4 col-12 ">
+                          <div class="col-md-4 col-sm-4 col-12 mb-2 ">
                             <div class="flex-wrap align-items-center setgap2 block-desktop">
                               <span class="theme-cl">Duration:</span> <span class="duratinss">
                                 {{ $row->duration }}
@@ -246,7 +246,7 @@
                             </div>
 
                           </div>
-                          <div class="col-md-4 col-sm-4 col-12">
+                          <div class="col-md-4 col-sm-4 col-12 mb-2">
                             <div class="flex-wrap align-items-center setgap2 block-desktop">
                               <span class="theme-cl">Intakes:</span>
 
@@ -258,7 +258,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="col-lg-2 col-md-3 col-sm-12">
+                      <div class="col-lg-2 col-md-3 col-sm-12 ">
                         <a href="{{ route('university.course.details', ['university_slug' => $row->university->uname, 'course_slug' => $row->slug]) }}"
                           class="btn btn-modern2 univ-btn reviews-btn">View Detail</a>
                       </div>

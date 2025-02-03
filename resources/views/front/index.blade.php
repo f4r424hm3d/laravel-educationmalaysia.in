@@ -254,7 +254,7 @@
 
 
   <!-- seven section start   -->
-  <section class="academic-counsellor">
+  <section class="academic-counsellor new-home-box">
   @if ($pageContent != null)
   <div class="container">
       <div class="edu_wraper mb-0">
@@ -262,10 +262,13 @@
 
           <div class="text show-more-height">
             <div class="author">
-              <div class="img-div">
+            <div class="new-uers">
+            <div class="img-div">
                 <img src="{{ userIcon($pageContent->author->profile_picture ?? null) }}"
                   alt="{{ $pageContent->author->name ?? 'Author' }}"><i class="fa fa-check-circle"></i>
               </div>
+            </div>
+            
               <div class="cont-div">
                 <a
                   href="{{ $pageContent->author_id != null ? url('author/' . $pageContent->author->id . '-' . $pageContent->author->slug) : '#' }}">{{ $pageContent->author->name ?? 'Author' }}
