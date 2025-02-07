@@ -45,6 +45,7 @@ use App\Http\Controllers\admin\LandingPageFaqC;
 use App\Http\Controllers\admin\LandingPageUniversityC;
 use App\Http\Controllers\admin\LevelC;
 use App\Http\Controllers\admin\ProgramC;
+use App\Http\Controllers\admin\ScholarshipC;
 use App\Http\Controllers\admin\StaticPageSeoC;
 use App\Http\Controllers\admin\ServiceC;
 use App\Http\Controllers\admin\ServiceContentC;
@@ -702,6 +703,15 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
       Route::get('/{landing_page_id}/', [LandingPageUniversityC::class, 'index']);
       Route::get('{landing_page_id}/update/{id}', [LandingPageUniversityC::class, 'index']);
       Route::post('{landing_page_id}/update/{id}', [LandingPageUniversityC::class, 'update']);
+    });
+
+    Route::prefix('/scholarships')->group(function () {
+      Route::get('', [ScholarshipC::class, 'index']);
+      Route::get('get-data', [ScholarshipC::class, 'getData']);
+      Route::get('/delete/{id}', [ScholarshipC::class, 'delete']);
+      Route::get('/update/{id}', [ScholarshipC::class, 'index']);
+      Route::post('/update/{id}', [ScholarshipC::class, 'update']);
+      Route::post('/store', [ScholarshipC::class, 'store']);
     });
   });
   Route::prefix('common')->group(function () {

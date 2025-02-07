@@ -312,6 +312,12 @@
                   Landing Pages
                 </a>
               </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle arrow-none" href="{{ aurl('scholarships') }}"
+                  id="topnav-dashboard" role="button" title="Dashboard">
+                  Scholarships
+                </a>
+              </li>
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-more" role="button">
