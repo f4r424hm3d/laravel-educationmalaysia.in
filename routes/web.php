@@ -46,6 +46,8 @@ use App\Http\Controllers\admin\LandingPageUniversityC;
 use App\Http\Controllers\admin\LevelC;
 use App\Http\Controllers\admin\ProgramC;
 use App\Http\Controllers\admin\ScholarshipC;
+use App\Http\Controllers\admin\ScholarshipContentC;
+use App\Http\Controllers\admin\ScholarshipFaqC;
 use App\Http\Controllers\admin\StaticPageSeoC;
 use App\Http\Controllers\admin\ServiceC;
 use App\Http\Controllers\admin\ServiceContentC;
@@ -712,6 +714,23 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
       Route::get('/update/{id}', [ScholarshipC::class, 'index']);
       Route::post('/update/{id}', [ScholarshipC::class, 'update']);
       Route::post('/store', [ScholarshipC::class, 'store']);
+    });
+    Route::prefix('/scholarship-faqs')->group(function () {
+      Route::get('/get-data', [ScholarshipFaqC::class, 'getData']);
+      Route::get('/delete/{id}', [ScholarshipFaqC::class, 'delete']);
+      Route::post('/store', [ScholarshipFaqC::class, 'store']);
+      Route::get('/{scholarship_id}/', [ScholarshipFaqC::class, 'index']);
+      Route::get('{scholarship_id}/update/{id}', [ScholarshipFaqC::class, 'index']);
+      Route::post('{scholarship_id}/update/{id}', [ScholarshipFaqC::class, 'update']);
+    });
+    Route::prefix('/scholarship-contents/')->group(function () {
+      Route::get('/get-data', [ScholarshipContentC::class, 'getData']);
+      Route::get('/get-position', [ScholarshipContentC::class, 'getPosition']);
+      Route::get('/delete/{id}', [ScholarshipContentC::class, 'delete']);
+      Route::post('/store', [ScholarshipContentC::class, 'store']);
+      Route::get('/{scholarship_id}/', [ScholarshipContentC::class, 'index']);
+      Route::get('{scholarship_id}/update/{id}', [ScholarshipContentC::class, 'index']);
+      Route::post('{scholarship_id}/update/{id}', [ScholarshipContentC::class, 'update']);
     });
   });
   Route::prefix('common')->group(function () {

@@ -173,10 +173,9 @@ class ScholarshipC extends Controller
   {
     $request->validate(
       [
-        'page_name' =>  [
-          'required',
-          Rule::unique('landing_pages', 'page_name')->where('website', site_var)->ignore($id),
-        ],
+        'title' => 'required',
+        'thumbnail' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif,webp',
+        'og_image' => 'nullable|max:5000|mimes:jpg,jpeg,png,gif,webp',
       ]
     );
     $field = Scholarship::find($id);
