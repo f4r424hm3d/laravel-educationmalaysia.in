@@ -29,7 +29,7 @@ class University extends Model
   }
   public function reviews()
   {
-    return $this->hasMany(Review::class, 'university_id', 'id');
+    return $this->hasMany(Review::class, 'university_id', 'id')->where('status', 1);
   }
   public function programs()
   {

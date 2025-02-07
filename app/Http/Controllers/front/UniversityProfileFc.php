@@ -153,7 +153,7 @@ class UniversityProfileFc extends Controller
   public function reviews($university_slug, Request $request)
   {
     $university = University::where(['uname' => $university_slug])->active()->firstOrFail();
-
+    //return $university->reviews;
     $trendingUniversity = University::inRandomOrder()->active()->where('id', '!=', $university->id)->limit(10)->get();
 
     $countries = Country::orderBy('name', 'ASC')->get();
