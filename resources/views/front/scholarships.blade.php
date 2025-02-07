@@ -51,8 +51,8 @@
               </div>
               <div class="education_block_footer align-items-center p">
                 @if ($row->page_type == 'landing_page')
-                  {{-- <a href="{{ $row->landing_page_link }}" class="btn-regi">Explore More</a> --}}
-                  <a href="{{ url('scholarship/' . $row->landing_page_link) }}" class="btn-regi">Explore More</a>
+                  <a target="_blank" href="{{ $row->landing_page_link }}" class="btn-regi">Explore More</a>
+                  {{-- <a href="{{ url('scholarship/' . $row->landing_page_link) }}" class="btn-regi">Explore More</a> --}}
                 @else
                   <a href="{{ url('scholarship/' . $row->slug) }}" class="btn-regi">Explore More</a>
                 @endif
