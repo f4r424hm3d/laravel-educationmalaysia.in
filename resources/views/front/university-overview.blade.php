@@ -255,7 +255,7 @@
         <div class="col-xl-4 col-lg-4 col-md-12">
           @include('front.forms.university-side-form')
           @if ($trendingUniversity->count() > 0)
-            <div class="ed_view_box style_2">
+            <div class="ed_view_box style_2 hide-this">
               <div class="ed_author">
                 <div class="ed_author_box">
                   <h4>Featured Universities</h4>
