@@ -70,7 +70,7 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-4">
-          <div class="ed_view_box style_2 hide-this">
+          <div class="ed_view_box style_2 hide-this" style="display: none">
             <div class="ed_author">
               <div class="ed_author_box">
                 <h4>Affilated Colleges</h4>
