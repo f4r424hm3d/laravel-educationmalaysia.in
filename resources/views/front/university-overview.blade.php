@@ -49,7 +49,7 @@
             <!-- Overview -->
             <div class="edu_wraper all-overviews show-overs">
               <div class="show-more-box">
-                <div class="text show-more-height">
+                <div class="text show-more-heigh">
                   @foreach ($university->overviews as $row)
                     @if ($row->h)
                       <h2 class="edu_title">{{ $row->h }}</h2>
@@ -61,7 +61,7 @@
                     {!! $row->p !!}
                   @endforeach
                 </div>
-                <div class="show-more mt-2">Show More...</div>
+                {{-- <div class="show-more mt-2">Show More...</div> --}}
                 <!-- <div class="show-more mt-2">Show Less</div> -->
               </div>
             </div>
