@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Models\AsignedLead;
 use App\Models\Lead;
 use App\Models\Level;
 use App\Models\Student;
@@ -47,6 +48,9 @@ class InquiryController extends Controller
     $field->intrested_subject = $request->interested_program;
     $field->website = site_var;
     $field->save();
+
+    AsignedLead::autoAssign($field->id);
+
     session()->flash('smsg', 'Your inquiry has been submitted succesfully. We will contact you soon.');
 
     $emaildata = [
@@ -116,6 +120,7 @@ class InquiryController extends Controller
     $field->intrested_subject = $request->interested_program;
     $field->website = site_var;
     $field->save();
+    AsignedLead::autoAssign($field->id);
     session()->flash('smsg', 'Your inquiry has been submitted succesfully. We will contact you soon.');
 
     $emaildata = [
@@ -182,6 +187,7 @@ class InquiryController extends Controller
     $field->nationality = $request['nationality'];
     $field->website = site_var;
     $field->save();
+    AsignedLead::autoAssign($field->id);
     session()->flash('smsg', 'Your inquiry has been submitted succesfully. We will contact you soon.');
 
     $emaildata = [
@@ -271,6 +277,7 @@ class InquiryController extends Controller
     $field->website = site_var;
     $field->brochure_status = $brochure_status;
     $field->save();
+    AsignedLead::autoAssign($field->id);
 
     $emaildata = [
       'name' => $request['name'],

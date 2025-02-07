@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\student;
 
 use App\Http\Controllers\Controller;
+use App\Models\AsignedLead;
 use App\Models\StudentApplication;
 use App\Models\Country;
 use App\Models\CourseCategory;
 use App\Models\Level;
 use App\Models\Lead;
 use App\Models\UniversityProgram;
+use App\Models\User;
 use App\Rules\MathCaptchaValidationRule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -94,6 +96,9 @@ class StudentLoginFc extends Controller
       return redirect($return_url);
     } else {
       $field->save();
+
+      AsignedLead::autoAssign($field->id);
+
       session()->flash('smsg', 'An OTP has been send to your registered email address.');
       $request->session()->put('last_id', $field->id);
       if ($request['program_id'] != null) {

@@ -126,7 +126,6 @@ Route::get('/f/optimize', function () {
   return true;
 });
 
-
 //For MIgrate:
 Route::get('/migrate', function () {
   $exitCode = Artisan::call('migrate');
@@ -743,7 +742,6 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
   });
 });
 
-
 // SITE MAP
 Route::get('sitemap.xml', [SitemapController::class, 'sitemap']);
 Route::get('sitemap-home.xml', [SitemapController::class, 'home']);
@@ -757,9 +755,7 @@ Route::get('sitemap-get-info.xml', [SitemapController::class, 'article']);
 Route::get('sitemap-course-level.xml', [SitemapController::class, 'sitemapCourseLevel']);
 Route::get('sitemap-courses-in-malaysia.xml', [SitemapController::class, 'sitemapCoursesInMalaysia']);
 
-
 /* FRONT ROUTES */
-
 Route::get('/', [HomeFc::class, 'index'])->name('home');
 Route::get('/home', [HomeFc::class, 'index']);
 
@@ -767,7 +763,6 @@ Route::get('/specialization', [SpecializationFc::class, 'index'])->name('special
 Route::get('/stream/{slug}', [SpecializationFc::class, 'detail'])->name('specialization.detail');
 
 Route::get('/course/{slug}', [CourseCategoryFc::class, 'detail'])->name('category.detail');
-
 
 Route::get('/faqs', [FaqFc::class, 'index'])->name('faqs');
 Route::get('/faq/{category_slug}', [FaqFc::class, 'byCategory'])->name('faq.category');
@@ -780,7 +775,6 @@ Route::get('reviews', [ReviewFc::class, 'reviews'])->name('reviews');
 Route::get('write-a-review', [ReviewFc::class, 'index'])->name('write.review');
 Route::post('add-review', [ReviewFc::class, 'addReview'])->name('add.review');
 Route::get('reviews/get-programs', [ReviewFc::class, 'getProgramsByUniversity'])->name('review.get.programs');
-
 
 Route::get('what-people-say', [HomeFc::class, 'whatPeopleSay'])->name('wps');
 Route::get('who-we-are', [HomeFc::class, 'whoWeAre'])->name('wwa');
@@ -796,7 +790,6 @@ Route::get('compare/get-spc-by-level-and-category', [CompareFc::class, 'getSpcBy
 Route::get('get-info', [BlogFc::class, 'index'])->name('blog');
 Route::get('get-info/{category_slug}', [BlogFc::class, 'blogByCategory'])->name('blog.category');
 Route::get('get-info/{category_slug}/{slug}', [BlogFc::class, 'detail'])->name('blog.detail');
-
 
 Route::get('scholarship/education-fair-in-libya-2025', [LibiaLandingPageFc::class, 'index'])->name('libia.page');
 Route::get('scholarship/education-fair-in-libya-2025/courses', [LibiaLandingPageFc::class, 'courses'])->name('libia.courses');
@@ -822,7 +815,6 @@ foreach ($exams as $row) {
 Route::get('/scholarships', [OfferLandingPageFc::class, 'index'])->name('scholarships');
 Route::get('/scholarship/{slug}', [OfferLandingPageFc::class, 'PageDetail'])->name('scholarship.detail');
 
-
 Route::prefix('/inquiry')->group(function () {
   Route::post('/inquiry/university-profile-form', [InquiryController::class, 'universityProfile'])->name('inquiry.university.profile');
   Route::post('/inquiry/stream-page-inquiry', [InquiryController::class, 'streamPage'])->name('stream.inquiry');
@@ -830,11 +822,6 @@ Route::prefix('/inquiry')->group(function () {
 
   Route::post('/inquiry/brochure-request', [InquiryController::class, 'brochureRequest'])->name('brochure.inquiry');
 });
-
-
-
-
-
 
 Route::get('/articles', [BlogFc::class, 'index']);
 Route::get('/articles/{slug}', [BlogFc::class, 'blogByCategory']);
