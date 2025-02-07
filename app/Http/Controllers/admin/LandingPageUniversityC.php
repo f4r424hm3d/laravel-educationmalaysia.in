@@ -59,17 +59,34 @@ class LandingPageUniversityC extends Controller
       ]);
     }
 
+    $landingPageId = $request->landing_page_id;
     $universitiesId = $request->university_id;
+    $boothNo = $request->booth_no;
+
+    $insertedCount = 0;
     foreach ($universitiesId as $id) {
-      $field = new LandingPageUniversity();
-      $field->landing_page_id = $request['landing_page_id'];
-      $field->booth_no = $request['booth_no'];
-      $field->university_id = $id;
-      $field->save();
+      // Check if the record already exists
+      $exists = LandingPageUniversity::where('landing_page_id', $landingPageId)
+        ->where('university_id', $id)
+        ->exists();
+
+      if (!$exists) {
+        // Insert only if the record does not exist
+        $field = new LandingPageUniversity();
+        $field->landing_page_id = $landingPageId;
+        $field->booth_no = $boothNo;
+        $field->university_id = $id;
+        $field->save();
+        $insertedCount++;
+      }
     }
 
-    return response()->json(['success' => 'Records inserted successfully.']);
+    if ($insertedCount > 0) {
+      return response()->json(['success' => "$insertedCount records inserted successfully."]);
+    }
+    return response()->json(['success' => 'No new records were inserted as they already exist.']);
   }
+
   public function update($landing_page_id, $id, Request $request)
   {
     $request->validate(
