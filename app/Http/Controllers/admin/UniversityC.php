@@ -174,7 +174,7 @@ class UniversityC extends Controller
     $field->views = $request['views'];
     $field->city = $request['city'];
     $field->state = $request['state'];
-    $field->inst_type = $instituteType->type;
+    $field->inst_type = $instituteType->type ?? null;
     $field->institute_type = $request['institute_type'];
     $field->rating = $request['rating'];
     $field->rank = $request['rank'];
