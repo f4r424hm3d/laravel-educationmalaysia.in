@@ -35,7 +35,7 @@
         <div class="col-md-12">
           <div class="form-group text-left">
             <label for="email">Email</label>
-            <input type="email" class="form-control" name="email" id="email" value="{{ old('email') }}"
+            <input type="email" placeholder="Email" class="form-control" name="email" id="email" value="{{ old('email') }}"
               required>
             @error('email')
               <span class="text-danger">{{ $message }}</span>
