@@ -82,10 +82,11 @@
 
         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6  mt-4">
           <div class="indin-office">
-            <span class="Head-indian">Pakistan Office</span>
+            <span class="Head-indian">Malaysia Office</span>
             <p>Malaysian Export Academy Sdn Bhd 
             47B, Jalan BP 7/2, BP Newtown, Bandar Bukit Puchong, 47120 Puchong, Selangor, Malaysia</p>
-            <p>Phone: <a href="tel:+919818560331">+60-11-1778-4424</a></p>
+            <p >Phone: <a href="tel:+60 012-2245649">+60 012-2245649</a></p>
+            <p>Phone: <a href="tel:+60 012-2631251">+60 012-2631251</a></p>
 
           </div>
 
