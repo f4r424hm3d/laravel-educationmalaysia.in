@@ -86,7 +86,7 @@
                 <!--  SEO INPUT FILED COMPONENT  -->
                 <x-SeoField :ft="$ft" :sd="$sd"></x-SeoField>
                 <!--  SEO INPUT FILED COMPONENT END  -->
-                @if ($ft == ' add')
+                @if ($ft == 'add')
                   <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i>
                     Reset</button>
                 @endif

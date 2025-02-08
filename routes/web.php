@@ -44,6 +44,7 @@ use App\Http\Controllers\admin\LandingPageC;
 use App\Http\Controllers\admin\LandingPageFaqC;
 use App\Http\Controllers\admin\LandingPageUniversityC;
 use App\Http\Controllers\admin\LevelC;
+use App\Http\Controllers\admin\PageContentC;
 use App\Http\Controllers\admin\ProgramC;
 use App\Http\Controllers\admin\ScholarshipC;
 use App\Http\Controllers\admin\ScholarshipContentC;
@@ -730,6 +731,15 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
       Route::get('/{scholarship_id}/', [ScholarshipContentC::class, 'index']);
       Route::get('{scholarship_id}/update/{id}', [ScholarshipContentC::class, 'index']);
       Route::post('{scholarship_id}/update/{id}', [ScholarshipContentC::class, 'update']);
+    });
+
+    Route::prefix('/page-contents')->group(function () {
+      Route::get('', [PageContentC::class, 'index']);
+      Route::get('get-data', [PageContentC::class, 'getData']);
+      Route::get('/delete/{id}', [PageContentC::class, 'delete']);
+      Route::get('/update/{id}', [PageContentC::class, 'index']);
+      Route::post('/update/{id}', [PageContentC::class, 'update']);
+      Route::post('/store', [PageContentC::class, 'store']);
     });
   });
   Route::prefix('common')->group(function () {

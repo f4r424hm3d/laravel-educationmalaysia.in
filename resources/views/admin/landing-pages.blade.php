@@ -62,7 +62,7 @@
                       id="date_and_address_image" :ft="$ft" :sd="$sd"></x-input-field>
                   </div>
                 </div>
-                @if ($ft == ' add')
+                @if ($ft == 'add')
                   <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i>
                     Reset</button>
                 @endif

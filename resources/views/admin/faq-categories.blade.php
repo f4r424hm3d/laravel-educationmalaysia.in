@@ -52,7 +52,7 @@
                     <span id="category_name-err" class="text-danger errSpan"></span>
                   </div>
                 </div>
-                @if ($ft == ' add')
+                @if ($ft == 'add')
                   <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i>
                     Reset</button>
                 @endif

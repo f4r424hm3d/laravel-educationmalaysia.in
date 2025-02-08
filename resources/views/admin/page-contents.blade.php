@@ -45,25 +45,24 @@
                 class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
                 @csrf
                 <div class="row">
-                  <div class="col-md-3 col-sm-12 mb-3">
-                    <x-SelectField label="Select Category" name="category_id" id="category_id" :ft="$ft"
-                      :sd="$sd" :list="$categories" savev="id" showv="category_name">
-                    </x-SelectField>
-                    <span id="category_id-err" class="text-danger errSpan"></span>
+                  <div class="col-md-6 col-sm-12 mb-3">
+                    <x-input-field type="text" label="Enter Page Name" name="page_name" id="page_name"
+                      :ft="$ft" :sd="$sd"></x-input-field>
+                  </div>
+                  <div class="col-md-6 col-sm-12 mb-3">
+                    <x-select-field label="Select Author" name="author_id" id="author_id" :ft="$ft"
+                      :sd="$sd" :list="$authors" savev="id" showv="name" />
                   </div>
                   <div class="col-md-12 col-sm-12 mb-3">
-                    <x-InputField type="text" label="Question" name="question" id="question" :ft="$ft"
-                      :sd="$sd">
-                    </x-InputField>
-                    <span id="question-err" class="text-danger errSpan"></span>
+                    <x-input-field type="text" label="Enter Heading" name="heading" id="heading" :ft="$ft"
+                      :sd="$sd"></x-input-field>
                   </div>
                   <div class="col-md-12 col-sm-12 mb-3">
-                    <x-TextareaField type="text" label="Answer" name="answer" id="answer" :ft="$ft"
-                      :sd="$sd">
-                    </x-TextareaField>
-                    <span id="answer-err" class="text-danger errSpan"></span>
+                    <x-textarea-field label="Description" name="description" id="description" :ft="$ft"
+                      :sd="$sd"></x-textarea-field>
                   </div>
                 </div>
+                <hr>
                 @if ($ft == 'add')
                   <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i>
                     Reset</button>
@@ -91,16 +90,12 @@
   </div>
   <script>
     $(function() {
-      var $answer = CKEDITOR.replace('answer');
+      var $description = CKEDITOR.replace('description');
 
-      $answer.on('change', function() {
-        $answer.updateElement();
+      $description.on('change', function() {
+        $description.updateElement();
       });
     });
-
-    function setEditorBlank() {
-      CKEDITOR.instances.answer.setData('');
-    }
   </script>
   @include('admin.js.common-ajax-page')
 @endsection

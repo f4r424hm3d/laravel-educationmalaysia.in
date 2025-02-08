@@ -59,7 +59,7 @@
 
                   <div class="col-md-4 col-sm-12 mb-3">
                     <div class="form-group">
-                      @if ($ft == ' add')
+                      @if ($ft == 'add')
                         <button type="reset" class="btn btn-sm btn-warning  mr-1 setBtn"><i class="ti-trash"></i>
                           Reset</button>
                       @endif
