@@ -65,9 +65,20 @@
           </div>
         </div>
         <div class="col-xl-9 col-lg-9 col-md-12 col-12">
+
           <div class="row align-items-center mb-3">
             <div class="col-lg-12 col-md-12 col-sm-12">
               Found <strong>{{ $total }}</strong> Universities
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <div>
+                <form class="form" method="get">
+                  <input class="form-control form-group" name="search" type="text" placeholder="Search Universities"
+                    value="{{ request('search', '') }}">
+                  <button class="btn btn-sm btn-primary">Search</button>
+                  <a class="btn btn-sm btn-warning" href="{{ url('universities-in-malaysia') }}">Reset</a>
+                </form>
+              </div>
             </div>
 
             <div class="col-lg-12 col-md-12 col-sm-12 ordering">
@@ -230,9 +241,9 @@
           </div>
         </div>
         <!-- <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                              </div> -->
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                              </div> -->
       </div>
     </div>
   </div>

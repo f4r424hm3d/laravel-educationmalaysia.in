@@ -58,7 +58,7 @@
                   <div class="cn-info-content">
                     <h4 class="cn-info-title"><i class="ti-mobile mr-1 theme-cl"></i> Call Us</h4>
                     (+91) 9818560331<br>
-                    (+91) 9342914452
+                    (+91) 8448436700
                   </div>
                 </div>
 
@@ -122,13 +122,13 @@
                   @enderror
                 </div>
                 <div class="form-group">
-                 
+
                   <div class="input-group">
                     <div class="input-icon"><span class="ti-captcha_answer">
-                    <label for="captcha_question">{{ $captcha['text'] }}</label>
-                    </span></div>
-                    <input type="number" name="captcha_answer" class="form-control"
-                      placeholder="Enter Captcha Value" required="">
+                        <label for="captcha_question">{{ $captcha['text'] }}</label>
+                      </span></div>
+                    <input type="number" name="captcha_answer" class="form-control" placeholder="Enter Captcha Value"
+                      required="">
                   </div>
                   @error('captcha_answer')
                     <span class="text-danger">{{ $message }}</span>

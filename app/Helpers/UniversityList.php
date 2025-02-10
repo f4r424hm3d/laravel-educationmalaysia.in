@@ -20,8 +20,11 @@ class UniversityList
     //$query->groupBy('university_id');
     $query->where('status', 1);
 
-    $query->whereHas('university', function ($subQuery) {
+    $query->whereHas('university', function ($subQuery) use ($request) {
       $subQuery->where('status', 1);
+      if ($request->has('search') && $request->search != '') {
+        $subQuery->where('name', 'like', '%' . $request->search . '%');
+      }
     });
 
     if (session()->has('CFilterLevel')) {
@@ -53,8 +56,11 @@ class UniversityList
     $query->groupBy('university_id');
     $query->where('status', 1);
 
-    $query->whereHas('university', function ($subQuery) {
+    $query->whereHas('university', function ($subQuery) use ($request) {
       $subQuery->where('status', 1);
+      if ($request->has('search') && $request->search != '') {
+        $subQuery->where('name', 'like', '%' . $request->search . '%');
+      }
     });
 
     if (session()->has('CFilterLevel')) {

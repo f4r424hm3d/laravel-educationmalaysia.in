@@ -48,7 +48,7 @@ class UniversityProgramListFc extends Controller
       $intake = $request->intake;
     }
 
-    $request = new Request();
+    //$request = new Request();
     $rows = UniversityList::universityPrograms($request);
     $nou = UniversityList::universityCount($request);
     $noc = $rows->total();
@@ -172,7 +172,7 @@ class UniversityProgramListFc extends Controller
       $intake = $request->intake;
     }
 
-    $request = new Request();
+    //$request = new Request();
     $rows = UniversityList::universityPrograms($request);
     $nou = UniversityList::universityCount($request);
     //die;
@@ -294,7 +294,7 @@ class UniversityProgramListFc extends Controller
       $intake = $request->intake;
     }
 
-    $request = new Request();
+    //$request = new Request();
     $rows = UniversityList::universityPrograms($request);
     $nou = UniversityList::universityCount($request);
     //die;

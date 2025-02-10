@@ -24,6 +24,9 @@ class UniversityListFc extends Controller
     $currentState = '';
 
     $query = University::orderBy('name')->active();
+    if ($request->has('search') && $request->search != '') {
+      $query->where('name', 'like', '%' . $request->search . '%');
+    }
     if (session()->has('FilterInstituteType')) {
       $instituteType = InstituteType::where('seo_title_slug', session()->get('FilterInstituteType'))->firstOrFail();
       $currentInstituteType = $instituteType->type;
@@ -170,7 +173,9 @@ class UniversityListFc extends Controller
 
 
     $query = University::query();
-
+    if ($request->has('search') && $request->search != '') {
+      $query->where('name', 'like', '%' . $request->search . '%');
+    }
     $query->where('destination_id', $destination->id);
 
     if (session()->has('FilterState')) {
