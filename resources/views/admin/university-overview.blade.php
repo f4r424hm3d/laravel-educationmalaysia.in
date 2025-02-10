@@ -161,6 +161,6 @@
       }
     }
 
-    CKEDITOR.replace("description");
+    CKEDITOR.replace("p");
   </script>
 @endsection

@@ -283,8 +283,8 @@ class StudentLoginFc extends Controller
     }
 
     if ($field->status != 1) {
-      $this->sendOtp($field, $return_url);
-      return;
+      return $this->sendOtp($field, $return_url);
+      //return;
     }
 
     $password = $request->password;
@@ -307,10 +307,12 @@ class StudentLoginFc extends Controller
 
       $this->updateLoginDetails($field, $request);
       return redirect($request['return_to'] ?? 'student/profile');
+    } else {
+      // Password does not match (generic error message)
+      session()->flash('emsg', 'Password is incorrect.');
     }
 
-    // Password does not match (generic error message)
-    session()->flash('emsg', 'Password is incorrect.');
+
     return redirect($return_url);
   }
 
@@ -346,7 +348,7 @@ class StudentLoginFc extends Controller
   private function sendOtp($field, $return_url)
   {
     $otp = rand(1000, 9999);
-    $otp_expire_at = now()->addMinutes(5);
+    $otp_expire_at = now()->addMinutes(15);
 
     $emaildata = ['name' => $field->name, 'otp' => $otp];
     $dd = ['to' => $field->email, 'to_name' => $field->name, 'subject' => 'Email OTP'];
@@ -368,7 +370,7 @@ class StudentLoginFc extends Controller
       $field->otp = $otp;
       $field->otp_expire_at = $otp_expire_at;
       $field->save();
-      session()->flash('smsg', 'An OTP has been sent to your registered email address.');
+      session()->flash('smsg', 'An OTP has been sent to your registered email. It will expire in 15 minutes.');
       session()->put('last_id', $field->id);
       return redirect('confirmed-email');
     }
