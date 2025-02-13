@@ -105,7 +105,7 @@ class LandingPageUniversityC extends Controller
   {
     // return $request;
     // die;
-    $rows = LandingPageUniversity::where('landing_page_id', $request->landing_page_id)->paginate(10)->withPath('/admin/' . $this->page_route . '/' . $request->landing_page_id);
+    $rows = LandingPageUniversity::where('landing_page_id', $request->landing_page_id)->paginate(30)->withPath('/admin/' . $this->page_route . '/' . $request->landing_page_id);
     $i = 1;
     $output = '<table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
     <thead>

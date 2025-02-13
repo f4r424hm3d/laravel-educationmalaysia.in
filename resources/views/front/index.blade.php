@@ -219,8 +219,9 @@
         </div>
 
         <div class="col-xl-4  col-lg-12 hidden-xs text-center">
-          <img src="{{ asset('assets/images/icons-new-home/malaysia-map.png') }}"
-            class="map-malysia loading" alt="Malaysia Map"></div>
+          <img src="{{ asset('assets/images/icons-new-home/malaysia-map.png') }}" class="map-malysia loading"
+            alt="Malaysia Map">
+        </div>
       </div>
     </div>
   </section>
@@ -231,7 +232,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-12 col-md-12 mb-3">
           <div class="sec-heading">
-            <h2 class="mt-0 chooses" >Choose Your Favourite Programme in Malaysia</h2>
+            <h2 class="mt-0 chooses">Choose Your Favourite Programme in Malaysia</h2>
           </div>
         </div>
       </div>
@@ -251,42 +252,41 @@
   </section>
   <!-- five section end  -->
 
-
-
   <!-- seven section start   -->
   <section class="academic-counsellor new-home-box">
-  @if ($pageContent != null)
-  <div class="container">
-      <div class="edu_wraper mb-0">
-        <div class="show-more-box-country">
+    @if ($pageContent != null)
+      <div class="container">
+        <div class="edu_wraper mb-0">
+          <div class="show-more-box-country">
 
-          <div class="text show-more-height">
-            <div class="author">
-            <div class="new-uers">
-            <div class="img-div">
-                <img src="{{ userIcon($pageContent->author->profile_picture ?? null) }}"
-                  alt="{{ $pageContent->author->name ?? 'Author' }}"><i class="fa fa-check-circle"></i>
+            <div class="text show-more-height">
+              <div class="author">
+                <div class="new-uers">
+                  <div class="img-div">
+                    <img src="{{ userIcon($pageContent->author->profile_picture ?? null) }}"
+                      alt="{{ $pageContent->author->name ?? 'Author' }}"><i class="fa fa-check-circle"></i>
+                  </div>
+                </div>
+
+                <div class="cont-div">
+                  <a
+                    href="{{ $pageContent->author_id != null ? url('author/' . $pageContent->author->id . '-' . $pageContent->author->slug) : '#' }}">{{ $pageContent->author->name ?? 'Author' }}
+                  </a><span> Updated on - {{ getFormattedDate($pageContent->updated_at, 'M d, Y') }}</span>
+                </div>
               </div>
-            </div>
-            
-              <div class="cont-div">
-                <a
-                  href="{{ $pageContent->author_id != null ? url('author/' . $pageContent->author->id . '-' . $pageContent->author->slug) : '#' }}">{{ $pageContent->author->name ?? 'Author' }}
-                </a><span> Updated on - {{ getFormattedDate($pageContent->updated_at, 'M d, Y') }}</span>
+              <div class="sec-heading mb-2">
+                <h2>Study in {{ $pageContent->heading }}</h2>
               </div>
+              {!! $pageContent->description !!}
             </div>
-            <div class="sec-heading mb-2">
-              <h2>Study in {{ $pageContent->heading }}</h2>
-            </div>
-            {!! $pageContent->description !!}
+            <div class="show-more">(Show More)</div>
           </div>
-          <div class="show-more">(Show More)</div>
         </div>
       </div>
-    </div><section class="pb-5" >
+      <section class="pb-5">
 
-  </section>
-  @endif
+      </section>
+    @endif
     <div class="container">
       <div class="row flex-column-reverse flex-xl-row">
         <div class="col-xl-7 col-lg-12 mb-4">
@@ -375,15 +375,15 @@
               </div>
             </div>
           </div>
-       
-         <div class="text-center text-xl-left pt-mob"> <a href="#" class="new-btn">Talk to Counsellor <svg
-                    xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
-                    class="bi bi-arrow-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z">
-                    </path>
-                  </svg></a> </div>
-       
+
+          <div class="text-center text-xl-left pt-mob"> <a href="#" class="new-btn">Talk to Counsellor <svg
+                xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                class="bi bi-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z">
+                </path>
+              </svg></a> </div>
+
         </div>
         <div class="col-xl-5 col-lg-12 mb-4">
           <div class="row">
@@ -688,5 +688,12 @@
         $("#errsd").text('Please select start date');
       }
     }
+    $(document).ready(function() {
+      $("table").each(function() {
+        if (!$(this).parent().hasClass("table-responsive")) {
+          $(this).wrap("<div class='table-responsive'></div>");
+        }
+      });
+    });
   </script>
 @endsection
