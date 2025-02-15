@@ -68,6 +68,8 @@ use App\Http\Controllers\admin\UniversityScholarshipContentC;
 use App\Http\Controllers\admin\UniversityVideoGalleryC;
 use App\Http\Controllers\admin\UploadFilesC;
 use App\Http\Controllers\admin\UserC;
+use App\Http\Controllers\Common\TestAbcTc;
+use App\Http\Controllers\Common\TestPunchingC;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\front\AuthorFc;
 use App\Http\Controllers\front\BlogFc;
@@ -749,6 +751,15 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
     Route::get('/bulk-delete', [CommonController::class, 'bulkDelete']);
     Route::get('/get-country-by-destination', [CommonController::class, 'getCountryByDestination']);
     Route::get('/slugify', [CommonController::class, 'slugify']);
+  });
+  Route::prefix('test/abc')->group(function () {
+    Route::prefix('/punching')->group(function () {
+      Route::get('', [TestPunchingC::class, 'index']);
+      Route::post('/store', [TestPunchingC::class, 'store']);
+      Route::get('/delete/{id}', [TestPunchingC::class, 'delete']);
+      Route::get('/update/{id}', [TestPunchingC::class, 'index']);
+      Route::post('/update/{id}', [TestPunchingC::class, 'update']);
+    });
   });
 });
 

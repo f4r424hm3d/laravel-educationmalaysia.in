@@ -61,6 +61,14 @@ class User extends Authenticatable
   {
     $query->where('role', 'author');
   }
+  public function scopeOther($query)
+  {
+    $query->where('role', '!=', 'admin');
+  }
+  public function scopeActive($query)
+  {
+    $query->where('status', '1');
+  }
   public function empByDepartment()
   {
     return $this->hasMany(User::class, 'department', 'department')->orderBy('priority');
