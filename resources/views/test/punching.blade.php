@@ -102,7 +102,7 @@
                   </div>
                   <div class="col-md-6 col-sm-12 mb-3">
                     <button class="btn btn-sm btn-primary setBtn" type="submit">Search</button>
-                    <a href="{{ aurl($page_route) }}" class="btn btn-sm btn-danger setBtn"><i class="ti-trash"></i>
+                    <a href="{{ url($page_route) }}" class="btn btn-sm btn-danger setBtn"><i class="ti-trash"></i>
                       Clear</a>
                   </div>
                 </div>
