@@ -52,10 +52,10 @@
                     <x-SelectField label="Course Category" name="course_category_id" id="course_category_id"
                       savev="id" showv="name" :list="$category" :ft="$ft" :sd="$sd"></x-SelectField>
                   </div>
-                  {{-- <div class="col-md-4 col-sm-12 mb-3 ">
+                  <div class="col-md-4 col-sm-12 mb-3 ">
                     <x-InputField type="text" label="Specialization" name="name" id="name" :ft="$ft"
                       :sd="$sd"></x-InputField>
-                  </div> --}}
+                  </div>
                   <div class="col-md-4 col-sm-12 mb-3">
                     <x-InputField type="text" label="Specialization Slug" name="slug" id="slug"
                       :ft="$ft" :sd="$sd"></x-InputField>
