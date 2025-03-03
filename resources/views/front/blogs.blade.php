@@ -13,7 +13,7 @@
           <div class="ed_detail_wrap light">
             <ul class="cources_facts_list">
               <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
-              <li class="facts-1">Get Info</li>
+              <li class="facts-1">Blog</li>
             </ul>
           </div>
         </div>
@@ -22,7 +22,7 @@
   </div>
   <!-- Breadcrumb -->
   <!-- Content -->
-  <section class="py-5" >
+  <section class="py-5">
     <div class="container">
       <div class="row">
         @foreach ($blogs as $row)

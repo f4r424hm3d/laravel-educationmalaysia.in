@@ -58,7 +58,7 @@
               <li><a href="{{ url('contact-us') }}"><i class="fa fa-angle-right"></i> Contact us</a></li>
               <li><a href="{{ url('terms-and-conditions') }}"><i class="fa fa-angle-right"></i> Terms & Conditions</a>
               </li>
-              <li><a href="{{ url('get-info') }}"><i class="fa fa-angle-right"></i> Articles</a></li>
+              <li><a href="{{ route('blog') }}"><i class="fa fa-angle-right"></i> Blog</a></li>
               <li><a href="{{ url('privacy-policy') }}"><i class="fa fa-angle-right"></i> Privacy Policy</a></li>
             </ul>
           </div>
@@ -83,9 +83,9 @@
         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6  mt-4">
           <div class="indin-office">
             <span class="Head-indian">Malaysia Office</span>
-            <p>Malaysian Export Academy Sdn Bhd 
-            47B, Jalan BP 7/2, BP Newtown, Bandar Bukit Puchong, 47120 Puchong, Selangor, Malaysia</p>
-            <p >Phone: <a href="tel:+60 012-2245649">+60 012-2245649</a></p>
+            <p>Malaysian Export Academy Sdn Bhd
+              47B, Jalan BP 7/2, BP Newtown, Bandar Bukit Puchong, 47120 Puchong, Selangor, Malaysia</p>
+            <p>Phone: <a href="tel:+60 012-2245649">+60 012-2245649</a></p>
             <p>Phone: <a href="tel:+60 012-2631251">+60 012-2631251</a></p>
 
           </div>

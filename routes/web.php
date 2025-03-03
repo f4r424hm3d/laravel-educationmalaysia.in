@@ -814,9 +814,14 @@ Route::get('compare', [CompareFc::class, 'index'])->name('compare');
 Route::get('compare/get-category-by-level', [CompareFc::class, 'getCategoryByLevel']);
 Route::get('compare/get-spc-by-level-and-category', [CompareFc::class, 'getSpcByLC']);
 
-Route::get('get-info', [BlogFc::class, 'index'])->name('blog');
-Route::get('get-info/{category_slug}', [BlogFc::class, 'blogByCategory'])->name('blog.category');
-Route::get('get-info/{category_slug}/{slug}', [BlogFc::class, 'detail'])->name('blog.detail');
+
+Route::get('blog', [BlogFc::class, 'index'])->name('blog');
+Route::get('blog/{category_slug}', [BlogFc::class, 'blogByCategory'])->name('blog.category');
+Route::get('blog/{category_slug}/{slug}', [BlogFc::class, 'detail'])->name('blog.detail');
+
+// Route::get('get-info', [BlogFc::class, 'index'])->name('blog');
+// Route::get('get-info/{category_slug}', [BlogFc::class, 'blogByCategory'])->name('blog.category');
+// Route::get('get-info/{category_slug}/{slug}', [BlogFc::class, 'detail'])->name('blog.detail');
 
 // Route::get('scholarship/education-fair-in-libya-2025', [LibiaLandingPageFc::class, 'index'])->name('libia.page');
 // Route::get('scholarship/education-fair-in-libya-2025/courses', [LibiaLandingPageFc::class, 'courses'])->name('libia.courses');

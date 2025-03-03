@@ -18,12 +18,12 @@
       }, {
         "@type": "ListItem",
         "position": 2,
-        "name": "Get Info",
+        "name": "Blog",
         "item": "{{ route('blog') }}"
       }, {
         "@type": "ListItem",
         "position": 3,
-        "name": "Get Info By category",
+        "name": "Blog By category",
         "item": "{{ route('blog.category',['category_slug'=>$blog->category->slug]) }}"
       }, {
         "@type": "ListItem",
@@ -44,7 +44,7 @@
           <div class="ed_detail_wrap light">
             <ul class="cources_facts_list">
               <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
-              <li class="facts-1"><a href="{{ route('blog') }}">Get Info</a></li>
+              <li class="facts-1"><a href="{{ route('blog') }}">Blog</a></li>
               <li class="facts-1"><a
                   href="{{ route('blog.category', ['category_slug' => $blog->category->slug]) }}">{{ $blog->category->cate_name }}</a>
               </li>
