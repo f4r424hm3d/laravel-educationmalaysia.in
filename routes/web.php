@@ -819,13 +819,19 @@ Route::get('blog', [BlogFc::class, 'index'])->name('blog');
 Route::get('blog/{category_slug}', [BlogFc::class, 'blogByCategory'])->name('blog.category');
 Route::get('blog/{category_slug}/{slug}', [BlogFc::class, 'detail'])->name('blog.detail');
 
-// Route::get('get-info', [BlogFc::class, 'index'])->name('blog');
-// Route::get('get-info/{category_slug}', [BlogFc::class, 'blogByCategory'])->name('blog.category');
-// Route::get('get-info/{category_slug}/{slug}', [BlogFc::class, 'detail'])->name('blog.detail');
+// Old URLs redirecting to new URLs
+Route::get('get-info', function () {
+  return redirect()->route('blog', [], 301);
+});
 
-// Route::get('scholarship/education-fair-in-libya-2025', [LibiaLandingPageFc::class, 'index'])->name('libia.page');
-// Route::get('scholarship/education-fair-in-libya-2025/courses', [LibiaLandingPageFc::class, 'courses'])->name('libia.courses');
-// Route::get('scholarship/education-fair-in-libya-2025/institutions', [LibiaLandingPageFc::class, 'institutions'])->name('libia.institutions');
+Route::get('get-info/{category_slug}', function ($category_slug) {
+  return redirect()->route('blog.category', ['category_slug' => $category_slug], 301);
+});
+
+Route::get('get-info/{category_slug}/{slug}', function ($category_slug, $slug) {
+  return redirect()->route('blog.detail', ['category_slug' => $category_slug, 'slug' => $slug], 301);
+});
+
 
 Route::post('/libia/register', [LibiaLandingPageFc::class, 'register'])->name('libia.register');
 Route::post('/libia/fetch-program', [LibiaLandingPageFc::class, 'getProgramsByUniversity'])->name('libia.fetch.program');
