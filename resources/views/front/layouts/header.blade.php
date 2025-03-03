@@ -146,10 +146,12 @@
                     </ul>
                   </div>
                   <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-3 ">
-                    <div class="b-font"><a href="{{ url('services') }}">Services</a></div>
+                    <div class="b-font"><a href="{{ route('services') }}">Services</a></div>
                     <ul class="li_dd">
                       @foreach ($sitePages as $page)
-                        <li><a href="{{ url($page->uri) }}">{{ ucfirst($page->page_name) }}</a></li>
+                        <li><a
+                            href="{{ route('service.detail', ['uri' => $page->uri]) }}">{{ ucfirst($page->page_name) }}</a>
+                        </li>
                       @endforeach
                     </ul>
                   </div>

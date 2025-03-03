@@ -827,10 +827,13 @@ Route::post('/libia/fetch-program', [LibiaLandingPageFc::class, 'getProgramsByUn
 
 Route::get('/transfer-service-data', [ServiceFc::class, 'transferSitePageData']);
 
-Route::get('/services', [ServiceFc::class, 'index'])->name('services');
+Route::get('resources/services', [ServiceFc::class, 'index'])->name('services');
+Route::get('resources/services/{uri}', [ServiceFc::class, 'serviceDetail'])->name('service.detail');
 $services = Service::where('website', 'MYS')->get();
 foreach ($services as $row) {
-  Route::get($row->uri, [ServiceFc::class, 'serviceDetail']);
+  Route::get($row->uri, function () use ($row) {
+    return redirect("resources/services/$row->uri", 301);
+  });
 }
 
 Route::get('resources/exams', [ExamFc::class, 'index'])->name('exams');

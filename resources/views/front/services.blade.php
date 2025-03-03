@@ -12,7 +12,8 @@
           <div class="ed_detail_wrap light">
             <ul class="cources_facts_list">
               <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
-              <li class="facts-1"><a href="{{ url('/services/') }}">Services</a></li>
+              <li class="facts-1">Resources</li>
+              <li class="facts-1">Services</li>
             </ul>
           </div>
         </div>
@@ -35,7 +36,7 @@
       <div class="row">
         @foreach ($services as $row)
           <div class="col-lg-3 col-md-3 col-sm-4">
-            <a href="{{ url($row->uri) }}" target="_blank">
+            <a href="{{ route('service.detail', ['uri' => $row->uri]) }}" target="_blank">
               <div class="fuc-box">
                 <p class="card-body">{{ $row->page_name }} <i class="fa fa-angle-right"></i>
                 </p>

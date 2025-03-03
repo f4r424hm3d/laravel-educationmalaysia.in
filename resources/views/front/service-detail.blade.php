@@ -18,11 +18,16 @@
       }, {
         "@type": "ListItem",
         "position": 2,
+        "name": "Resources",
+        "item": "{{ url('/') }}"
+      },{
+        "@type": "ListItem",
+        "position": 3,
         "name": "Services",
         "item": "{{ url('services') }}"
       }, {
         "@type": "ListItem",
-        "position": 3,
+        "position": 4,
         "name": "{{ $service->page_name }}",
         "item": "{{ url()->current() }}"
       }]
@@ -32,15 +37,15 @@
 @endpush
 @section('main-section')
   <!-- Breadcrumb -->
-   <div class="head-imags" style="background:url({{ url('/front/') }}/assets/img/banner-head.jpg);" ></div>
-  <div class="image-cover ed_detail_head lg" public
-    data-overlay="8">
+  <div class="head-imags" style="background:url({{ url('/front/') }}/assets/img/banner-head.jpg);"></div>
+  <div class="image-cover ed_detail_head lg" public data-overlay="8">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-12 col-md-12">
           <div class="ed_detail_wrap light">
             <ul class="cources_facts_list">
               <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
+              <li class="facts-1">Resources</li>
               <li class="facts-1"><a href="{{ url('/services/') }}">Services</a></li>
               <li class="facts-1">{{ $service->page_name }}</li>
             </ul>
@@ -104,7 +109,7 @@
             <h4 class="title">Other Services</h4>
             <ul>
               @foreach ($services as $row)
-                <li><a href="{{ url($row->uri) }}">{{ $row->page_name }}<span><i
+                <li><a href="{{ route('service.detail', ['uri' => $row->uri]) }}">{{ $row->page_name }}<span><i
                         class="fa fa-angle-right"></i></span></a>
                 </li>
               @endforeach

@@ -60,10 +60,9 @@ class ServiceFc extends Controller
     // Return success message
     return response()->json(['message' => 'Data transferred successfully!']);
   }
-  public function serviceDetail(Request $request)
+  public function serviceDetail($slug, Request $request)
   {
-    $slug = $request->segment(1);
-    $service = Service::website()->where('uri', $slug)->first();
+    $service = Service::website()->where('uri', $slug)->firstOrFail();
     $services = Service::website()->where('id', '!=', $service->id)->get();
     $allServices = Service::website()->get();
     $countries = Country::orderBy('name', 'ASC')->get();
