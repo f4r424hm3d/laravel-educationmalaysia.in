@@ -13,7 +13,7 @@
     <loc>{{ url('/') }}/sitemap-services.xml</loc>
   </sitemap>
   <sitemap>
-    <loc>{{ url('/') }}/sitemap-select-university.xml</loc>
+    <loc>{{ url('/') }}/sitemap-universities.xml</loc>
   </sitemap>
   <sitemap>
     <loc>{{ url('/') }}/sitemap-university.xml</loc>

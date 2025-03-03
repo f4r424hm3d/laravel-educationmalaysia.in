@@ -21,7 +21,7 @@
     <priority>1</priority>
   </url>
   <url>
-    <loc>{{ url('select-university') }}</loc>
+    <loc>{{ url('universities') }}</loc>
     <lastmod>{{ date('Y-m-d') }}</lastmod>
     <changefreq>always</changefreq>
     <priority>1</priority>

@@ -768,7 +768,7 @@ Route::get('sitemap.xml', [SitemapController::class, 'sitemap']);
 Route::get('sitemap-home.xml', [SitemapController::class, 'home']);
 Route::get('sitemap-exams.xml', [SitemapController::class, 'exam']);
 Route::get('sitemap-services.xml', [SitemapController::class, 'services']);
-Route::get('sitemap-select-university.xml', [SitemapController::class, 'selectuni']);
+Route::get('sitemap-universities.xml', [SitemapController::class, 'selectuni']);
 Route::get('sitemap-university.xml', [SitemapController::class, 'university']);
 Route::get('sitemap-specialization.xml', [SitemapController::class, 'specialization']);
 Route::get('sitemap-course.xml', [SitemapController::class, 'courses']);
