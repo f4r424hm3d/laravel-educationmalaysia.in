@@ -13,6 +13,7 @@
           <div class="ed_detail_wrap light">
             <ul class="cources_facts_list">
               <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
+              <li class="facts-1">Resources</li>
               <li class="facts-1">Exams</li>
             </ul>
             <div class="ed_header_caption mb-0">
@@ -46,7 +47,7 @@
                 <h4 class="bl-title card-title">{{ $row->headline }}</h4>
               </div>
               <div class="education_block_footer align-items-center p">
-                <a href="{{ url($row->uri) }}" class="btn-regi">View Details</a>
+                <a href="{{ route('exam.detail', ['uri' => $row->uri]) }}" class="btn-regi">View Details</a>
               </div>
             </div>
           </div>

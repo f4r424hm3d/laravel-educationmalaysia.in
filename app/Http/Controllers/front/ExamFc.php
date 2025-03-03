@@ -24,9 +24,8 @@ class ExamFc extends Controller
     $data = compact('exams');
     return view('front.exams')->with($data);
   }
-  public function examDetail(Request $request)
+  public function examDetail($uri, Request $request)
   {
-    $uri = $request->segment(1);
     $countries = Country::orderBy('name', 'ASC')->get();
     $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
 

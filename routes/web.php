@@ -833,10 +833,14 @@ foreach ($services as $row) {
   Route::get($row->uri, [ServiceFc::class, 'serviceDetail']);
 }
 
-Route::get('/exams', [ExamFc::class, 'index'])->name('exams');
+Route::get('resources/exams', [ExamFc::class, 'index'])->name('exams');
+Route::get('resources/exams/{uri}', [ExamFc::class, 'examDetail'])->name('exam.detail');
+
 $exams = Exam::where('website', 'MYS')->get();
 foreach ($exams as $row) {
-  Route::get($row->uri, [ExamFc::class, 'examDetail']);
+  Route::get($row->uri, function () use ($row) {
+    return redirect("resources/exams/$row->uri", 301);
+  });
 }
 
 Route::get('/scholarships', [OfferLandingPageFc::class, 'index'])->name('scholarships');

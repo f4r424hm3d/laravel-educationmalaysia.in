@@ -452,7 +452,7 @@
           @endforeach
         </div>
         <div class="row justify-content-center">
-          <a href="{{ url('exams') }}" class="btn btn-modern float-none">View all Exams<span><i
+          <a href="{{ route('exams') }}" class="btn btn-modern float-none">View all Exams<span><i
                 class="fa fa-angle-right"></i></span></a>
         </div>
       </div>

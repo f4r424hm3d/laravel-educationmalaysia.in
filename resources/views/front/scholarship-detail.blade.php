@@ -19,7 +19,7 @@
         "@type": "ListItem",
         "position": 2,
         "name": "Scholarships",
-        "item": "{{ url('exams') }}"
+        "item": "{{ route('exams') }}"
       }, {
         "@type": "ListItem",
         "position": 3,

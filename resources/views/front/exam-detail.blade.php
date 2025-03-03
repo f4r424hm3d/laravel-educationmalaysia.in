@@ -17,18 +17,13 @@
         "item": "{{ url('/') }}"
       }, {
         "@type": "ListItem",
-        "position": 2,
-        "name": "Exams",
-        "item": "{{ url('exams') }}"
-      }, {
-        "@type": "ListItem",
         "position": 3,
-        "name": "{{ $exam->exam_name }}",
-        "item": "{{ url('exam/' . $exam->exam_slug . '/overview') }}"
+        "name": "Exams",
+        "item": "{{ route('exams') }}"
       }, {
         "@type": "ListItem",
         "position": 4,
-        "name": "{{ $exam->headline }}",
+        "name": "{{ $exam->page_name }}",
         "item": "{{ url()->current() }}"
       }]
     }
@@ -45,7 +40,8 @@
           <div class="ed_detail_wrap light">
             <ul class="cources_facts_list">
               <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
-              <li class="facts-1"><a href="{{ url('exams') }}">Exams</a></li>
+              <li class="facts-1">Resources</li>
+              <li class="facts-1"><a href="{{ route('exams') }}">Exams</a></li>
               <li class="facts-1"><a href="{{ url($exam->uri) }}">{{ $exam->page_name }}</a>
               </li>
             </ul>
@@ -92,7 +88,7 @@
               <ul>
                 @foreach ($exams as $row)
                   <li>
-                    <a href="{{ url($row->uri) }}">
+                    <a href="{{ route('exam.detail', ['uri' => $row->uri]) }}">
                       {{ $row->page_name }}<span><i class="fa fa-angle-right"></i></span>
                     </a>
                   </li>
@@ -106,7 +102,7 @@
               <ul>
                 @foreach ($specializations as $row)
                   <li>
-                    <a href="{{ url('stream/' . $row->slug) }}">
+                    <a href="{{ route('specialization.detail', ['slug' => $row->slug]) }}">
                       {{ $row->name }}<span><i class="fa fa-angle-right"></i></span>
                     </a>
                   </li>

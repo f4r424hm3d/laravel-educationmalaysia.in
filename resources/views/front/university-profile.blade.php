@@ -139,6 +139,7 @@
               <li><i class="fa fa-globe"></i><span>Times Higher Education World University
                   Rankings:</span>
                 {{ $university->times_rank }}</li>
+                <li><i class="fa fa-location-arrow" aria-hidden="true"></i> Get Direction </li>
             </ul>
           </div>
 
@@ -298,7 +299,7 @@
                     </div>
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
                       <div class="form-group">
-                        <div class="d-flex all-regi align-items-center setgap3">
+                        <div class="d-flex all-regi align-items-center setgap3 main-register ">
                           <input type="text" placeholder="Captcha : {{ $captcha['text'] }}  ="
                             class="form-control  widthss" value="Captcha : {{ $captcha['text'] }}  =" disbaled=""
                             readonly="">
