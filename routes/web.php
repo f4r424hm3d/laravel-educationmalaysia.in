@@ -772,7 +772,7 @@ Route::get('sitemap-universities.xml', [SitemapController::class, 'selectuni']);
 Route::get('sitemap-university.xml', [SitemapController::class, 'university']);
 Route::get('sitemap-specialization.xml', [SitemapController::class, 'specialization']);
 Route::get('sitemap-course.xml', [SitemapController::class, 'courses']);
-Route::get('sitemap-get-info.xml', [SitemapController::class, 'article']);
+Route::get('sitemap-blog.xml', [SitemapController::class, 'article']);
 Route::get('sitemap-course-level.xml', [SitemapController::class, 'sitemapCourseLevel']);
 Route::get('sitemap-courses-in-malaysia.xml', [SitemapController::class, 'sitemapCoursesInMalaysia']);
 

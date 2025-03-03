@@ -25,7 +25,7 @@
     <loc>{{ url('/') }}/sitemap-course.xml</loc>
   </sitemap>
   <sitemap>
-    <loc>{{ url('/') }}/sitemap-get-info.xml</loc>
+    <loc>{{ url('/') }}/sitemap-blog.xml</loc>
   </sitemap>
   <sitemap>
     <loc>{{ url('/') }}/sitemap-course-level.xml</loc>
