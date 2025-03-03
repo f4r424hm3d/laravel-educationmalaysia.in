@@ -781,7 +781,10 @@ Route::get('/', [HomeFc::class, 'index'])->name('home');
 Route::get('/home', [HomeFc::class, 'index']);
 
 Route::get('/specialization', [SpecializationFc::class, 'index'])->name('specializations');
-Route::get('/stream/{slug}', [SpecializationFc::class, 'detail'])->name('specialization.detail');
+Route::get('/stream/{slug}', function ($slug) {
+  return redirect("/specialization/{$slug}", 301);
+});
+Route::get('/specialization/{slug}', [SpecializationFc::class, 'detail'])->name('specialization.detail');
 
 Route::get('/course/{slug}', [CourseCategoryFc::class, 'detail'])->name('category.detail');
 
@@ -801,7 +804,10 @@ Route::get('what-people-say', [HomeFc::class, 'whatPeopleSay'])->name('wps');
 Route::get('who-we-are', [HomeFc::class, 'whoWeAre'])->name('wwa');
 Route::get('contact-us', [ContactFc::class, 'index'])->name('contact');
 
-Route::get('select-university', [HomeFc::class, 'SelectUniversities'])->name('select.university');
+Route::get('universities', [HomeFc::class, 'SelectUniversities'])->name('select.university');
+Route::get('select-university', function () {
+  return redirect('universities/', 301);
+});
 Route::get('select-level', [HomeFc::class, 'SelectLevel'])->name('select.level');
 
 Route::get('compare', [CompareFc::class, 'index'])->name('compare');

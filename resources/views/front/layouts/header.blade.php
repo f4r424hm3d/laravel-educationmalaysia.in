@@ -168,9 +168,9 @@
                 </div>
               </div>
             </li>
-            <li class="nav-item"><a href="{{ url('courses-in-malaysia') }}" class="nav-link">Search Courses</a></li>
-            <li class="nav-item"><a href="{{ url('select-university') }}" class="nav-link">All Universities</a></li>
-            <li class="nav-item"><a href="{{ url('specialization') }}" class="nav-link">Specialization</a></li>
+            <li class="nav-item"><a href="{{ url('courses-in-malaysia') }}" class="nav-link">Courses</a></li>
+            <li class="nav-item"><a href="{{ route('select.university') }}" class="nav-link">Universities</a></li>
+            <li class="nav-item"><a href="{{ route('specializations') }}" class="nav-link">Specialization</a></li>
             <li class="nav-item"><a href="{{ url('scholarships') }}" class="nav-link">Scholarship</a></li>
           </ul>
           <form class="d-flex align-items-center set-gap">

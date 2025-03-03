@@ -59,7 +59,7 @@
           <div class="ed_detail_wrap light">
             <ul class="cources_facts_list">
               <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
-              <li class="facts-1"><a href="{{ url('specialization') }}">Course</a></li>
+              <li class="facts-1"><a href="{{ url('specialization') }}">Specialization</a></li>
               <li class="facts-1">{{ $specialization->name }}</li>
             </ul>
           </div>

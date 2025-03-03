@@ -47,7 +47,6 @@
           <div class="ed_detail_wrap light">
             <ul class="cources_facts_list">
               <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
-              <li class="facts-1"><a href="{{ url('specialization') }}">Courses</a></li>
               <li class="facts-1"><span>{{ ucwords(str_replace('-', ' ', Request::segment(1))) }}</span></li>
             </ul>
           </div>
@@ -353,9 +352,9 @@
           </div>
         </div>
         <!-- <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                          </div> -->
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary">Save changes</button>
+                            </div> -->
       </div>
     </div>
   </div>

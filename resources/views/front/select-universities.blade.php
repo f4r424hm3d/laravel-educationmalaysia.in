@@ -10,8 +10,8 @@
       <div class="container ">
 
         <ul class="breadcrumb py-3">
-          <li><a class="mx-1" href="https://www.educationmalaysia.in/">Home</a></li>
-          <li> / <span class="mx-1"> Select University</span></li>
+          <li><a class="mx-1" href="{{ url('/') }}">Home</a></li>
+          <li> / <span class="mx-1">Universities</span></li>
         </ul>
       </div>
     </div>
@@ -64,82 +64,82 @@
   <section>
     <div class="container ">
       <div class="row">
-      <div class="col-md-12">
-            <div class="cor-con-mid table-res ">
-              <div class="cor-p5 university-blades">
-                {!! $pageContentTop->description !!}
-              </div>
-              <h3 class="about-more">Find out more about:</h3>
-              <ul class="nav nav-tabs all-mars" id="myTab" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                    aria-controls="home" aria-selected="true">PRIVATE UNIVERSITIES</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                    aria-controls="profile" aria-selected="false">PUBLIC UNIVERSITIES</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
-                    aria-controls="contact" aria-selected="false">FOREIGN UNIVERSITIES</a>
-                </li>
-              </ul>
-              <div class="tab-content all-mass" id="myTabContent">
-                <div class="tab-pane  fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                  <h3 class="priviate-us">Private Universities in Malaysia</h3>
-                  <section>
-                    <div class="stu-db">
-                      <div class=" pg-inn">
-                        <div style="overflow-x:auto;" class="all-listst">
-                          {!! $pageContentPrivate->description !!}
-                        </div>
+        <div class="col-md-12">
+          <div class="cor-con-mid table-res ">
+            <div class="cor-p5 university-blades">
+              {!! $pageContentTop->description !!}
+            </div>
+            <h3 class="about-more">Find out more about:</h3>
+            <ul class="nav nav-tabs all-mars" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                  aria-controls="home" aria-selected="true">PRIVATE UNIVERSITIES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                  aria-controls="profile" aria-selected="false">PUBLIC UNIVERSITIES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                  aria-controls="contact" aria-selected="false">FOREIGN UNIVERSITIES</a>
+              </li>
+            </ul>
+            <div class="tab-content all-mass" id="myTabContent">
+              <div class="tab-pane  fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <h3 class="priviate-us">Private Universities in Malaysia</h3>
+                <section>
+                  <div class="stu-db">
+                    <div class=" pg-inn">
+                      <div style="overflow-x:auto;" class="all-listst">
+                        {!! $pageContentPrivate->description !!}
                       </div>
                     </div>
-                  </section>
-                  <div class="text-center">
-                    <a href="{{ url('private-institution-in-malaysia') }}" class="new-btn mar10">Browse All Private
-                      Universities</a>
                   </div>
-                </div>
-                <div class="tab-pane  fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                  <h3 class="priviate-us">Public Universities in Malaysia</h3>
-                  <section>
-                    <div class="stu-db">
-                      <div class=" pg-inn">
-                        <div style="overflow-x:auto;" class="all-listst">
-                          {!! $pageContentPublic->description !!}
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                  <div class="text-center">
-                    <a href="{{ url('public-institution-in-malaysia') }}" class="new-btn mar10">Browse All Public
-                      Universities</a>
-                  </div>
-                </div>
-                <div class="tab-pane  fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                  <h3 class="priviate-us">Foreign Universities in Malaysia</h3>
-                  <section>
-                    <div class="stu-db">
-                      <div class=" pg-inn">
-                        <div style="overflow-x:auto;" class="all-listst">
-                          {!! $pageContentForeign->description !!}
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                  <div class="text-center">
-                    <a href="{{ url('foreign-universities-in-malaysia') }}" class="new-btn ">Browse All Foreign
-                      Universities</a>
-                  </div>
+                </section>
+                <div class="text-center">
+                  <a href="{{ url('private-institution-in-malaysia') }}" class="new-btn mar10">Browse All Private
+                    Universities</a>
                 </div>
               </div>
-
-              <div class="cor-p5">
-                {!! $pageContentBottom->description !!}
+              <div class="tab-pane  fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <h3 class="priviate-us">Public Universities in Malaysia</h3>
+                <section>
+                  <div class="stu-db">
+                    <div class=" pg-inn">
+                      <div style="overflow-x:auto;" class="all-listst">
+                        {!! $pageContentPublic->description !!}
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <div class="text-center">
+                  <a href="{{ url('public-institution-in-malaysia') }}" class="new-btn mar10">Browse All Public
+                    Universities</a>
+                </div>
+              </div>
+              <div class="tab-pane  fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <h3 class="priviate-us">Foreign Universities in Malaysia</h3>
+                <section>
+                  <div class="stu-db">
+                    <div class=" pg-inn">
+                      <div style="overflow-x:auto;" class="all-listst">
+                        {!! $pageContentForeign->description !!}
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <div class="text-center">
+                  <a href="{{ url('foreign-universities-in-malaysia') }}" class="new-btn ">Browse All Foreign
+                    Universities</a>
+                </div>
               </div>
             </div>
+
+            <div class="cor-p5">
+              {!! $pageContentBottom->description !!}
+            </div>
           </div>
+        </div>
       </div>
     </div>
   </section>
