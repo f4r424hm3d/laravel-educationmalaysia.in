@@ -90,13 +90,13 @@ class UniversityListFc extends Controller
       $request->session()->put($col, $val);
     }
     if (session()->has('FilterState') && session()->has('FilterInstituteType')) {
-      $path = url(session()->get('FilterInstituteType') . '-in-' . slugify(session()->get('FilterState')));
+      $path = url('universities/' . session()->get('FilterInstituteType') . '-in-' . slugify(session()->get('FilterState')));
     } else if (session()->has('FilterInstituteType')) {
-      $path = url(session()->get('FilterInstituteType') . '-in-malaysia');
+      $path = url('universities/' . session()->get('FilterInstituteType') . '-in-malaysia');
     } else if (session()->has('FilterState')) {
-      $path = url('universities-in-' . slugify(session()->get('FilterState')));
+      $path = url('universities/universities-in-' . slugify(session()->get('FilterState')));
     } else {
-      $path = url('universities-in-malaysia');
+      $path = url('universities/universities-in-malaysia');
     }
     echo $path;
   }
@@ -105,13 +105,13 @@ class UniversityListFc extends Controller
   {
     session()->forget($request->value);
     if (session()->has('FilterState') && session()->has('FilterInstituteType')) {
-      $path = url(session()->get('FilterInstituteType') . '-in-' . slugify(session()->get('FilterState')));
+      $path = url('universities/' . session()->get('FilterInstituteType') . '-in-' . slugify(session()->get('FilterState')));
     } else if (session()->has('FilterInstituteType')) {
-      $path = url(session()->get('FilterInstituteType') . '-in-malaysia');
+      $path = url('universities/' . session()->get('FilterInstituteType') . '-in-malaysia');
     } else if (session()->has('FilterState')) {
-      $path = url('universities-in-' . slugify(session()->get('FilterState')));
+      $path = url('universities/universities-in-' . slugify(session()->get('FilterState')));
     } else {
-      $path = url('universities-in-malaysia');
+      $path = url('universities/universities-in-malaysia');
     }
     echo $path;
   }

@@ -36,7 +36,7 @@
               <img src="{{ asset('assets/images/owl.png') }}" class="study-owl">
               <h2>Public University</h2>
             </div>
-            <a href="{{ url('public-institution-in-malaysia') }}" class="new-btn">Browser-all</a>
+            <a href="{{ url('universities/public-institution-in-malaysia') }}" class="new-btn">Browser-all</a>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4 ">
@@ -45,7 +45,7 @@
               <img src="{{ asset('assets/images/owl.png') }}" class="study-owl">
               <h2>Private University</h2>
             </div>
-            <a href="{{ url('private-institution-in-malaysia') }}" class="new-btn">Browser-all</a>
+            <a href="{{ url('universities/private-institution-in-malaysia') }}" class="new-btn">Browser-all</a>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4 ">
@@ -54,7 +54,7 @@
               <img src="{{ asset('assets/images/owl.png') }}" class="study-owl">
               <h2>Foregin University</h2>
             </div>
-            <a href="{{ url('foreign-universities-in-malaysia') }}" class="new-btn">Browser-all</a>
+            <a href="{{ url('universities/foreign-universities-in-malaysia') }}" class="new-btn">Browser-all</a>
           </div>
         </div>
       </div>

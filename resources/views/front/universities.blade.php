@@ -36,7 +36,8 @@
           <div class="ed_detail_wrap light">
             <ul class="cources_facts_list">
               <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
-              <li class="facts-1">Universities in Malaysia</li>
+              <li class="facts-1">Universities</li>
+              <li class="facts-1">{{ unslugify(Request::segment(2)) }}</li>
             </ul>
             <div class="ed_header_caption mb-0">
               <h4 class="ed_title mb-2 mt-3"><span><?php echo $total; ?></span> <?php echo $currentInstituteType; ?> In <span>Malaysia</span>
@@ -76,7 +77,7 @@
                   <input class="form-control form-group" name="search" type="text" placeholder="Search Universities"
                     value="{{ request('search', '') }}">
                   <button class="btn btn-sm btn-primary">Search</button>
-                  <a class="btn btn-sm btn-warning" href="{{ url('universities-in-malaysia') }}">Reset</a>
+                  <a class="btn btn-sm btn-warning" href="{{ route('uim') }}">Reset</a>
                 </form>
               </div>
             </div>
@@ -241,9 +242,9 @@
           </div>
         </div>
         <!-- <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                              </div> -->
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                                          </div> -->
       </div>
     </div>
   </div>
@@ -343,7 +344,7 @@
         url: "{{ route('university.list.remove.all.filter') }}",
         method: "GET",
         success: function(b) {
-          window.open("{{ url('universities-in-malaysia') }}", '_SELF');
+          window.open("{{ url('universities/universities-in-malaysia') }}", '_SELF');
         }
       })
     }

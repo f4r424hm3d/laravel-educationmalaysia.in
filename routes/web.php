@@ -879,11 +879,11 @@ Route::get('author/{slug}' . $row->slug, [AuthorFc::class, 'index']);
 
 // UNIVERSITIES IN MALAYSIA ROUTES START
 
-Route::get('universities-in-malaysia', [UniversityListFc::class, 'index'])->name('uim');
+Route::get('universities/universities-in-malaysia', [UniversityListFc::class, 'index'])->name('uim');
 
 $instTYpe = University::select('institute_type')->where(['status' => 1])->where('institute_type', '!=', null)->groupBy('institute_type')->get();
 foreach ($instTYpe as $row) {
-  Route::get($row->instituteType->seo_title_slug . '-in-malaysia', [UniversityListFc::class, 'index']);
+  Route::get('universities/' . $row->instituteType->seo_title_slug . '-in-malaysia', [UniversityListFc::class, 'index']);
 }
 
 // Generate routes for universities by state
@@ -891,7 +891,7 @@ $states = University::select('state')->where(['status' => 1])->where('state', '!
 
 foreach ($states as $state) {
   $state_slug = slugify($state->state); // Slugify the state name
-  Route::get('universities-in-' . $state_slug, [UniversityListFc::class, 'index']);
+  Route::get('universities/universities-in-' . $state_slug, [UniversityListFc::class, 'index']);
 }
 
 $uniqueCombinations = University::select('institute_type', 'state')->whereNotNull('institute_type')->where('institute_type', '!=', '')->whereNotNull('state')->where('state', '!=', '')->distinct()->get();
@@ -899,7 +899,7 @@ $uniqueCombinations = University::select('institute_type', 'state')->whereNotNul
 // Generate routes dynamically
 foreach ($uniqueCombinations as $row) {
   $state_slug = slugify($row->state);
-  Route::get($row->instituteType->seo_title_slug . '-in-' . $state_slug, [UniversityListFc::class, 'index']);
+  Route::get('universities/' . $row->instituteType->seo_title_slug . '-in-' . $state_slug, [UniversityListFc::class, 'index']);
 }
 
 Route::get('universities-in-malaysia/apply-filter', [UniversityListFc::class, 'applyFilter'])->name('university.list.apply.filter');
