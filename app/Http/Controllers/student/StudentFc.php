@@ -187,23 +187,25 @@ class StudentFc extends Controller
   public function submitEduSum(Request $request)
   {
     $id = session()->get('student_id');
-    $request->validate(
-      [
-        'country_of_education' => 'required',
-        'highest_level_of_education' => 'required',
-        'grading_scheme' => 'required',
-        'grade_average' => 'required',
-      ]
-    );
+
+    $request->validate([
+      'country_of_education' => 'required',
+      'highest_level_of_education' => 'required',
+      'grading_scheme' => 'required',
+      'grade_average' => ['required', 'regex:/^[a-zA-Z0-9\s\.\-]+$/'],
+    ]);
+
     $field = Lead::find($id);
-    $field->country_of_education = $request['country_of_education'];
-    $field->highest_level_of_education = $request['highest_level_of_education'];
-    $field->grading_scheme = $request['grading_scheme'];
-    $field->grade_average = $request['grade_average'];
+    $field->country_of_education = $request->input('country_of_education');
+    $field->highest_level_of_education = $request->input('highest_level_of_education');
+    $field->grading_scheme = $request->input('grading_scheme');
+    $field->grade_average = strip_tags($request->input('grade_average'));
     $field->save();
+
     session()->flash('smsg', 'Record has been updated successfully.');
     return redirect('student/profile');
   }
+
   public function addSchool(Request $request)
   {
     $id = session()->get('student_id');
@@ -377,7 +379,7 @@ class StudentFc extends Controller
       [
         'refused_visa' => 'required',
         'valid_study_permit' => 'required',
-        'visa_note' => 'required',
+        'visa_note' => 'required|regex:/^[a-zA-Z0-9\s\.\-]+$/',
       ]
     );
     $field = Lead::find($id);
@@ -395,7 +397,7 @@ class StudentFc extends Controller
     // die;
     $request->validate(
       [
-        'document_name' => 'required',
+        'document_name' => 'required|regex:/^[a-zA-Z0-9\s\.\-]+$/',
         'doc' => 'required|max:2024|mimes:png,jpg,jpeg,pdf',
       ]
     );

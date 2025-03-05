@@ -13,4 +13,8 @@ class Exam extends Model
   {
     static::addGlobalScope(new WebsiteScope);
   }
+  public function scopeWebsite($query)
+  {
+    return $query->where('website', site_var);
+  }
 }
