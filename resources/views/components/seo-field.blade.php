@@ -61,7 +61,7 @@
   <div class="col-md-3 col-sm-12">
     <div class="form-group mb-3">
       <label>Best Rating</label>
-      <input name="best_rating" type="number" class="form-control" placeholder="Seo Rating"
+      <input name="best_rating" type="number" class="form-control" placeholder="Best Rating"
         value="{{ $ft == 'edit' ? $sd->best_rating : old('best_rating') }}" min="1" max="5"
         step=".1">
       <span id="best_rating-err" class="text-danger errSpan">
@@ -74,7 +74,7 @@
   <div class="col-md-3 col-sm-12">
     <div class="form-group mb-3">
       <label>Number of Review</label>
-      <input name="review_number" type="number" class="form-control" placeholder="Seo Rating"
+      <input name="review_number" type="number" class="form-control" placeholder="Toral Reviews"
         value="{{ $ft == 'edit' ? $sd->review_number : old('review_number') }}">
       <span id="review_number-err" class="text-danger errSpan">
         @error('review_number')
