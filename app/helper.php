@@ -22,6 +22,17 @@ define('DOMAIN', 'educationmalaysia.in');
 define('phone_india', ' +91-98185-60331');
 define('contact_email', ' info@educationmalaysia.in');
 
+define('IMAGE_DOMAIN', 'https://www.images.britannicaoverseas.com/em');
+
+if (!function_exists('ftpFile')) {
+
+  function ftpFile($path)
+  {
+    $output = IMAGE_DOMAIN . $path;
+    return $output;
+  }
+}
+
 
 if (!function_exists('printArray')) {
   function printArray($data)

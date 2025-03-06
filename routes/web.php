@@ -850,12 +850,19 @@ foreach ($services as $row) {
 Route::get('resources/exams', [ExamFc::class, 'index'])->name('exams');
 Route::get('resources/exams/{uri}', [ExamFc::class, 'examDetail'])->name('exam.detail');
 
-$exams = Exam::where('website', 'MYS')->get();
-foreach ($exams as $row) {
-  Route::get($row->uri, function () use ($row) {
-    return redirect("resources/exams/$row->uri", 301);
+$redirects = [
+  'ielts' => '/resources/exams/ielts/',
+  'pte' => '/resources/exams/pte/',
+  'muet' => '/resources/exams/muet/',
+  'toefl' => '/resources/exams/toefl/',
+];
+
+foreach ($redirects as $oldUrl => $newUrl) {
+  Route::get($oldUrl, function () use ($newUrl) {
+    return redirect($newUrl, 301);
   });
 }
+
 
 Route::get('/scholarships', [OfferLandingPageFc::class, 'index'])->name('scholarships');
 Route::get('/scholarship/{slug}', [OfferLandingPageFc::class, 'PageDetail'])->name('scholarship.detail');
