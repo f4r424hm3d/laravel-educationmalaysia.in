@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Helpers\FileUploadHelper;
 use App\Http\Controllers\Controller;
 use App\Models\UploadFiles;
 use Illuminate\Http\Request;
@@ -59,6 +60,15 @@ class UploadFilesC extends Controller
         $field->file_path = 'uploads/files/' . $file_name;
       }
     }
+
+    // Handle Logo Upload
+    // $fileUpload = FileUploadHelper::uploadFile($request, 'file', 'organizations/files');
+    // if (!empty($fileUpload)) {
+    //   $field->file_name = $fileUpload['fileName'];
+    //   $field->file_path = $fileUpload['filePath'];
+    // }
+
+
     $field->title = $request['title'];
     $field->save();
     return response()->json(['success' => 'Record hase been added succesfully.']);

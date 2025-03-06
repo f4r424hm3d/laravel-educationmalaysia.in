@@ -10,14 +10,20 @@ class FileUploadHelper
   public static function uploadFile($request, $fieldName, $folder)
   {
     if ($request->hasFile($fieldName)) {
+      $fileOriginalName = $request->file($fieldName)->getClientOriginalName();
+      $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
+      $file_name_slug = slugify($fileNameWithoutExtention);
+      $fileExtention = $request->file($fieldName)->getClientOriginalExtension();
+      $fileName = $file_name_slug . '_' . time() . '.' . $fileExtention;
+
       $file = $request->file($fieldName);
-      $fileName = time() . '_' . $file->getClientOriginalName();
 
       // Upload file to SFTP
       Storage::disk('ftp')->put("uploads/{$folder}/{$fileName}", fopen($file, 'r+'));
 
       // Return the file path to be stored in the database
-      return '/uploads/' . $folder . '/' . $fileName;
+      $filePath = '/uploads/' . $folder . '/' . $fileName;
+      return ['fileName' => $fileName, 'filePath' => $filePath];
     }
 
     return null;
