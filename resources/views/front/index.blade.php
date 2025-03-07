@@ -559,8 +559,7 @@
                 <div class="service-icon"><span><i class="fa fa-sitemap"></i></span></div>
                 <div class="title">End-to-End Student Support</div>
                 <p>From choosing the right university to application processing, visa assistance, and accommodation
-                  support, we provide one-on-one expert guidance
-                </p>
+                  support, we provide one-on-one expert guidance.</p>
               </div>
 
             </h3>
@@ -569,8 +568,10 @@
             <h3>
               <div class="servicebox">
                 <div class="service-icon"><span><i class="fa fa-sitemap"></i></span></div>
-                <div class="title">Transparent & Cost-Effective Services</div>
-                <p>Our guidance ensures students get the best value for their investment, No hidden charges.</p>
+                <div class="title">Transparent & Cost-Effective Services
+                </div>
+                <p>Our guidance ensures student gets the best value for their investment, No hidden charges, reliable,
+                  student-focused support to help you achieve your academic goals.</p>
               </div>
 
             </h3>
