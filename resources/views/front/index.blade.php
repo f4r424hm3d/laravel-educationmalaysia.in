@@ -256,7 +256,7 @@
   <section class="academic-counsellor new-home-box">
     @if ($pageContent != null)
       <div class="container">
-        <div class="edu_wraper mb-0">
+        <div class="edu_wraper mb-0 showdetailss ">
           <div class="show-more-box-country">
 
             <div class="text show-more-height">
@@ -394,38 +394,44 @@
           <div class="new-home-fuc ">
             <div class="row">
               <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a href="#">
-                  <div class="fuc-box"><span><img src="{{ asset('assets/images/fuc-icons/certificate.png') }} "
-                        alt="Certificate Courses" class="loading"></span>
+                  <div class="fuc-box">
+                    <div class="img-div"><img src="{{ asset('assets/images/fuc-icons/certificate.png') }} "
+                        alt="Certificate Courses" class="loading"></div>
                     <p>Certificate <i class="fa fa-angle-right"></i></p>
                   </div>
                 </a></div>
               <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a href="#">
-                  <div class="fuc-box"><span><img src="{{ asset('assets/images/fuc-icons/pre-university.png') }} "
-                        alt="Pre University Courses" class="loading"></span>
+                  <div class="fuc-box">
+                    <div class="img-div"><img src="{{ asset('assets/images/fuc-icons/pre-university.png') }} "
+                        alt="Pre University Courses" class="loading"></div>
                     <p>Pre University <i class="fa fa-angle-right"></i></p>
                   </div>
                 </a></div>
               <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a href="#">
-                  <div class="fuc-box"><span><img src="{{ asset('assets/images/fuc-icons/diploma.png') }} "
-                        alt="Diploma Courses" class="loading"></span>
+                  <div class="fuc-box">
+                    <div class="img-div"><img src="{{ asset('assets/images/fuc-icons/diploma.png') }} "
+                        alt="Diploma Courses" class="loading"></div>
                     <p>Diploma <i class="fa fa-angle-right"></i></p>
                   </div>
                 </a></div>
               <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a href="#">
-                  <div class="fuc-box"> <span><img src="{{ asset('assets/images/fuc-icons/under-graduate.png') }} "
-                        alt="Under Graduate Courses" class="loading"></span>
+                  <div class="fuc-box">
+                    <div class="img-div"><img src="{{ asset('assets/images/fuc-icons/under-graduate.png') }} "
+                        alt="Under Graduate Courses" class="loading"></div>
                     <p>Under Graduate <i class="fa fa-angle-right"></i></p>
                   </div>
                 </a></div>
               <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a href="#">
-                  <div class="fuc-box mb-0"> <span><img src="{{ asset('assets/images/fuc-icons/post-graduate.png') }} "
-                        alt="Post Graduate Courses" class="loading"></span>
+                  <div class="fuc-box mb-0">
+                    <div class="img-div"><img src="{{ asset('assets/images/fuc-icons/post-graduate.png') }} "
+                        alt="Post Graduate Courses" class="loading"></div>
                     <p>Post Graduate <i class="fa fa-angle-right"></i></p>
                   </div>
                 </a></div>
               <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a href="#">
-                  <div class="fuc-box mb-0"> <span><img src="{{ asset('assets/images/fuc-icons/phd.png') }} "
-                        alt="P.hd Courses" class="loading"></span>
+                  <div class="fuc-box mb-0">
+                    <div class="img-div"><img src="{{ asset('assets/images/fuc-icons/phd.png') }} " alt="P.hd Courses"
+                        class="loading"></div>
                     <p>P.hd <i class="fa fa-angle-right"></i></p>
                   </div>
                 </a></div>
@@ -539,10 +545,10 @@
             <h3>
               <div class="servicebox">
                 <div class="service-icon"><span><i class="fa fa-sitemap"></i></span></div>
-                <div class="title">Personalized Guidance</div>
-                <p>Our team of experienced consultants has an in-depth understanding of the Malaysian
-                  education landscape. We provide tailored advice that aligns with your academic goals and
-                  aspirations.</p>
+                <div class="title">Official University Partner </div>
+                <p>We work directly with top Malaysian universities, and provide most accurate and updated information on
+                  courses, fees, and scholarships.
+                </p>
               </div>
 
             </h3>
@@ -551,10 +557,10 @@
             <h3>
               <div class="servicebox">
                 <div class="service-icon"><span><i class="fa fa-sitemap"></i></span></div>
-                <div class="title">Personalized Guidance</div>
-                <p>Our team of experienced consultants has an in-depth understanding of the Malaysian
-                  education landscape. We provide tailored advice that aligns with your academic goals and
-                  aspirations.</p>
+                <div class="title">End-to-End Student Support</div>
+                <p>From choosing the right university to application processing, visa assistance, and accommodation
+                  support, we provide one-on-one expert guidance
+                </p>
               </div>
 
             </h3>
@@ -563,10 +569,8 @@
             <h3>
               <div class="servicebox">
                 <div class="service-icon"><span><i class="fa fa-sitemap"></i></span></div>
-                <div class="title">Personalized Guidance</div>
-                <p>Our team of experienced consultants has an in-depth understanding of the Malaysian
-                  education landscape. We provide tailored advice that aligns with your academic goals and
-                  aspirations.</p>
+                <div class="title">Transparent & Cost-Effective Services</div>
+                <p>Our guidance ensures students get the best value for their investment, No hidden charges.</p>
               </div>
 
             </h3>

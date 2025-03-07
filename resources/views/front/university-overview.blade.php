@@ -69,7 +69,7 @@
 
           <div id="accordionExample" class="accordion shadow circullum">
             <!-- Call to action -->
-            <div class="d-flex justify-content-center align-items-center set-gap my-3">
+            <div class="d-flex justify-content-center align-items-center flex-wrap set-gap my-3">
               <h3 class="intake_fee mb-0"> GET DETAILS ON FEE, ADMISSION, INTAKE</h3>
               <a href="{{ url('/sign-up/?return_to=') }}" class="btn btn-primary">Apply Now</a>
             </div>
@@ -378,5 +378,13 @@
         });
       }
     }
+
+    $(document).ready(function() {
+    $("table").each(function() {
+        if (!$(this).parent().hasClass("table-responsive")) {
+            $(this).wrap("<div class='table-responsive'></div>");
+        }
+    });
+});
   </script>
 @endsection

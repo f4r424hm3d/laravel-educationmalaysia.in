@@ -42,33 +42,29 @@
   <section class="bg-light pt-4 pb-4">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-md-8">
-          <div class="card">
-            <div class="card-body p-4">
-              <div class="card">
-                <div class="card-body pl-4 pr-4">
-                  <div class="row">
-                    @foreach ($university->videos as $row)
-                      <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-                        <iframe width="100%" height="200" src="{{ $row->imgpath }}" title="YouTube video player"
-                          frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowfullscreen></iframe>
-                      </div>
-                    @endforeach
+        <div class="col-lg-8 col-md-12">
+        <div class="card">
+                  <div class="card-body p-4">
+                    <div class="row">
+                      @foreach ($university->videos as $row)
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                          <iframe width="100%" height="200" src="{{ $row->imgpath }}" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                        </div>
+                      @endforeach
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
           <!-- Call to action -->
           <div class="justify-content-center align-content-center text-center mb-4 font-weight-bold">
             GET DETAILS ON FEE, ADMISSION, INTAKE <a href="{{ url('/sign-up/?return_to=') }}"
               class="btn btn-theme-2 ml-2 rounded rounded-circle">Apply Now</a>
           </div>
         </div>
-        <div class="col-lg-4 col-md-4">
-          <div class="ed_view_box style_2 hide-this">
+        <div class="col-lg-4 col-md-12">
+          <div class="ed_view_box style_2">
             <div class="ed_author">
               <div class="ed_author_box">
                 <h4>Affilated Colleges</h4>
