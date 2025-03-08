@@ -44,7 +44,6 @@ class BlogC extends Controller
       [
         'cate_id' => 'required',
         'headline' => 'required|unique:blogs,headline',
-        'description' => 'required',
       ]
     );
     $field = new Blog;
@@ -87,7 +86,6 @@ class BlogC extends Controller
       [
         'cate_id' => 'required',
         'headline' => 'required|unique:blogs,headline,' . $id,
-        'description' => 'required',
       ]
     );
     $field = Blog::find($id);

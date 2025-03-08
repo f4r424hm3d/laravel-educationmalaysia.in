@@ -86,7 +86,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-body">
-              <table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
+              <table id="datatable" class="table table-bordered dt-responsiv nowra w-100">
                 <thead>
                   <tr>
                     <th>Sr. No.</th>
