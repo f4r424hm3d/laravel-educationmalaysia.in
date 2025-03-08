@@ -1,3 +1,12 @@
+<script>
+  $(document).ready(function() {
+    $("table").each(function() {
+      if (!$(this).parent().hasClass("table-responsive")) {
+        $(this).wrap("<div class='table-responsive'></div>");
+      }
+    });
+  });
+</script>
 <!-- Footer -->
 <footer class="dark-footer skin-dark-footer">
   <div>

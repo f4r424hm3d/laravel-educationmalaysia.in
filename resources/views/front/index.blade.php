@@ -20,7 +20,7 @@
                   </h3>
                   <p>Navigate admissions, access essential resources, and connect with our vibrant
                     community for a fulfilling academic journey in Malaysia.</p>
-                  <a href="#" class="slider-btn">Know More</a>
+                  <a href="{{ url('specialization') }}" class="slider-btn">Know More</a>
                 </div>
               </div>
             </div>
@@ -38,7 +38,7 @@
                     Explore top-tier universities and colleges known for academic excellence and
                     innovation.
                   </p>
-                  <a href="#" class="slider-btn">Explore Universities </a>
+                  <a href="{{ url('universities-in-malaysia') }}" class="slider-btn">Explore Universities </a>
                 </div>
               </div>
             </div>
@@ -54,7 +54,7 @@
                   </h3>
                   <p>Education Malaysia: Your portal to a world of educational opportunities, fostering
                     academic excellence and personal growth</p>
-                  <a href="#" class="slider-btn">Find Your Course </a>
+                  <a href="{{ url('specialization') }}" class="slider-btn">Find Your Course </a>
                 </div>
               </div>
             </div>
@@ -693,12 +693,5 @@
         $("#errsd").text('Please select start date');
       }
     }
-    $(document).ready(function() {
-      $("table").each(function() {
-        if (!$(this).parent().hasClass("table-responsive")) {
-          $(this).wrap("<div class='table-responsive'></div>");
-        }
-      });
-    });
   </script>
 @endsection
