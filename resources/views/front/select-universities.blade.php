@@ -143,4 +143,23 @@
       </div>
     </div>
   </section>
+  <script>
+    function applyFilter(col, val) {
+      //alert(col+' '+val);
+      if (val != '') {
+        $.ajax({
+          url: "{{ route('university.list.apply.filter') }}",
+          method: "GET",
+          data: {
+            col: col,
+            val: val
+          },
+          success: function(data) {
+            //alert(data);
+            window.location.replace(data);
+          }
+        });
+      }
+    }
+  </script>
 @endsection

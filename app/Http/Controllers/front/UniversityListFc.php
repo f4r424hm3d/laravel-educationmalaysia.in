@@ -15,13 +15,43 @@ use App\Models\StudyMode;
 use App\Models\University;
 use App\Models\UniversityProgram;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class UniversityListFc extends Controller
 {
   public function index(Request $request)
   {
+
     $currentInstituteType = '';
     $currentState = '';
+    // Get the current URL
+    $path = $request->path(); // Get the current route path
+
+    // Extract institute_type_slug and state from the URL
+    if (!session()->has('FilterInstituteType') || !session()->has('FilterState')) {
+      if (preg_match('/^universities\/([a-z0-9-]+)-in-malaysia$/', $path, $matches)) {
+        $instituteTypeSlug = $matches[1];
+        $instituteType = InstituteType::where('seo_title_slug', $instituteTypeSlug)->first();
+        if ($instituteType) {
+          session()->put('FilterInstituteType', $instituteTypeSlug);
+        }
+      } elseif (preg_match('/^universities\/universities-in-([a-zA-Z0-9-]+)$/', $path, $matches)) {
+        $stateSlug = $matches[1];
+        $state = unslugify($stateSlug);
+        session()->put('FilterState', $state);
+      } elseif (preg_match('/^universities\/([a-z0-9-]+)-in-([a-zA-Z0-9-]+)$/', $path, $matches)) {
+        $instituteTypeSlug = $matches[1];
+        $stateSlug = $matches[2];
+
+        $instituteType = InstituteType::where('seo_title_slug', $instituteTypeSlug)->first();
+        if ($instituteType) {
+          session()->put('FilterInstituteType', $instituteTypeSlug);
+        }
+
+        $state = unslugify($stateSlug);
+        session()->put('FilterState', $state);
+      }
+    }
 
     $query = University::orderBy('name')->active();
     if ($request->has('search') && $request->search != '') {

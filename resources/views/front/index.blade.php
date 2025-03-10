@@ -619,7 +619,7 @@
     </div>
 
     <div class="text-center pt-4">
-      <a href="{{ route('uim') }}" class="new-btn">
+      <a href="{{ route('select.university') }}" class="new-btn">
         Browse All Universities
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
           class="bi bi-arrow-right" viewBox="0 0 16 16">
