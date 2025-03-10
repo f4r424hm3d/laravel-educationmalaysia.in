@@ -139,7 +139,7 @@
               <li><i class="fa fa-globe"></i><span>Times Higher Education World University
                   Rankings:</span>
                 {{ $university->times_rank }}</li>
-                <li><i class="fa fa-location-arrow" aria-hidden="true"></i> Get Direction </li>
+              <li><i class="fa fa-location-arrow" aria-hidden="true"></i> Get Direction </li>
             </ul>
           </div>
 
@@ -172,31 +172,33 @@
           <div class="row flex-column-reverse flex-md-row align-items-center">
             <div class="col-12 col-sm-12 col-md-4 col-lg-4 pr-md-0">
               <div class="all-grays">
-                <h2>How New-Education-Malysia helps you in </h2>
+                <h2>How Education Malaysia helps you in </h2>
                 <div class="d-flex set-gaps gap-3 flex-wrap align-items-center">
                   <div class="border-alls">
-                    <img src="/assets/images/open-book.png" alt="">
-                    <h4>Brochure Details</h4>
+                    {{-- <img src="/assets/images/open-book.png" alt=""> --}}
+                    🎓
+                    <h4>Comprehensive Course Guidance</h4>
                   </div>
                   <div class="border-alls">
-                    <img src="/assets/images/open-book.png" alt="">
-                    <h4>Brochure Details</h4>
+                    📖
+                    <h4>Brochure Access</h4>
                   </div>
                   <div class="border-alls">
-                    <img src="/assets/images/open-book.png" alt="">
-                    <h4>Brochure Details</h4>
+                    🌍
+                    <h4>International Student Support
+                    </h4>
                   </div>
                   <div class="border-alls">
-                    <img src="/assets/images/open-book.png" alt="">
-                    <h4>Brochure Details</h4>
+                    💡
+                    <h4>Personalized Counseling</h4>
                   </div>
                   <div class="border-alls">
-                    <img src="/assets/images/open-book.png" alt="">
-                    <h4>Brochure Details</h4>
+                    💰
+                    <h4>Scholarship Assistance</h4>
                   </div>
                   <div class="border-alls">
-                    <img src="/assets/images/open-book.png" alt="">
-                    <h4>Brochure Details</h4>
+                    📞
+                    <h4>24/7 Suppor</h4>
                   </div>
                 </div>
 

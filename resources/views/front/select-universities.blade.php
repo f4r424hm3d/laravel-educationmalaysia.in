@@ -97,7 +97,8 @@
                   </div>
                 </section>
                 <div class="text-center">
-                  <a href="{{ url('private-institution-in-malaysia') }}" class="new-btn mar10">Browse All Private
+                  <a href="{{ url('universities/private-institution-in-malaysia') }}" class="new-btn mar10">Browse All
+                    Private
                     Universities</a>
                 </div>
               </div>
@@ -113,7 +114,8 @@
                   </div>
                 </section>
                 <div class="text-center">
-                  <a href="{{ url('public-institution-in-malaysia') }}" class="new-btn mar10">Browse All Public
+                  <a href="{{ url('universities/public-institution-in-malaysia') }}" class="new-btn mar10">Browse All
+                    Public
                     Universities</a>
                 </div>
               </div>
@@ -129,7 +131,8 @@
                   </div>
                 </section>
                 <div class="text-center">
-                  <a href="{{ url('foreign-universities-in-malaysia') }}" class="new-btn ">Browse All Foreign
+                  <a href="{{ url('universities/foreign-universities-in-malaysia') }}" class="new-btn ">Browse All
+                    Foreign
                     Universities</a>
                 </div>
               </div>
