@@ -38,7 +38,7 @@
                     Explore top-tier universities and colleges known for academic excellence and
                     innovation.
                   </p>
-                  <a href="{{ url('universities-in-malaysia') }}" class="slider-btn">Explore Universities </a>
+                  <a href="{{ route('uim') }}" class="slider-btn">Explore Universities </a>
                 </div>
               </div>
             </div>
@@ -54,7 +54,7 @@
                   </h3>
                   <p>Education Malaysia: Your portal to a world of educational opportunities, fostering
                     academic excellence and personal growth</p>
-                  <a href="{{ url('specialization') }}" class="slider-btn">Find Your Course </a>
+                  <a href="{{ url('courses-in-malaysia') }}" class="slider-btn">Find Your Course </a>
                 </div>
               </div>
             </div>
@@ -393,45 +393,51 @@
           </div>
           <div class="new-home-fuc ">
             <div class="row">
-              <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a href="#">
+              <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a
+                  href="https://www.educationmalaysia.in/courses/pre-university">
                   <div class="fuc-box">
-                    <div class="img-div"><img src="{{ asset('assets/images/fuc-icons/certificate.png') }} "
+                    <div class="img-divs"><img src="{{ asset('assets/images/fuc-icons/certificate.png') }} "
                         alt="Certificate Courses" class="loading"></div>
                     <p>Certificate <i class="fa fa-angle-right"></i></p>
                   </div>
                 </a></div>
-              <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a href="#">
+              <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a
+                  href="https://www.educationmalaysia.in/courses/pre-university">
                   <div class="fuc-box">
-                    <div class="img-div"><img src="{{ asset('assets/images/fuc-icons/pre-university.png') }} "
+                    <div class="img-divs"><img src="{{ asset('assets/images/fuc-icons/pre-university.png') }} "
                         alt="Pre University Courses" class="loading"></div>
                     <p>Pre University <i class="fa fa-angle-right"></i></p>
                   </div>
                 </a></div>
-              <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a href="#">
+              <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a
+                  href="https://www.educationmalaysia.in/courses/diploma">
                   <div class="fuc-box">
-                    <div class="img-div"><img src="{{ asset('assets/images/fuc-icons/diploma.png') }} "
+                    <div class="img-divs"><img src="{{ asset('assets/images/fuc-icons/diploma.png') }} "
                         alt="Diploma Courses" class="loading"></div>
                     <p>Diploma <i class="fa fa-angle-right"></i></p>
                   </div>
                 </a></div>
-              <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a href="#">
+              <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a
+                  href="https://www.educationmalaysia.in/courses/under-graduate">
                   <div class="fuc-box">
-                    <div class="img-div"><img src="{{ asset('assets/images/fuc-icons/under-graduate.png') }} "
+                    <div class="img-divs"><img src="{{ asset('assets/images/fuc-icons/under-graduate.png') }} "
                         alt="Under Graduate Courses" class="loading"></div>
                     <p>Under Graduate <i class="fa fa-angle-right"></i></p>
                   </div>
                 </a></div>
-              <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a href="#">
+              <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a
+                  href="https://www.educationmalaysia.in/courses/post-graduate">
                   <div class="fuc-box mb-0">
-                    <div class="img-div"><img src="{{ asset('assets/images/fuc-icons/post-graduate.png') }} "
+                    <div class="img-divs"><img src="{{ asset('assets/images/fuc-icons/post-graduate.png') }} "
                         alt="Post Graduate Courses" class="loading"></div>
                     <p>Post Graduate <i class="fa fa-angle-right"></i></p>
                   </div>
                 </a></div>
-              <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a href="#">
+              <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a
+                  href="https://www.educationmalaysia.in/courses/phd">
                   <div class="fuc-box mb-0">
-                    <div class="img-div"><img src="{{ asset('assets/images/fuc-icons/phd.png') }} " alt="P.hd Courses"
-                        class="loading"></div>
+                    <div class="img-divs"><img src="{{ asset('assets/images/fuc-icons/phd.png') }} "
+                        alt="P.hd Courses" class="loading"></div>
                     <p>P.hd <i class="fa fa-angle-right"></i></p>
                   </div>
                 </a></div>
@@ -613,7 +619,7 @@
     </div>
 
     <div class="text-center pt-4">
-      <a href="{{ url('universities-in-malaysia') }}" class="new-btn">
+      <a href="{{ route('uim') }}" class="new-btn">
         Browse All Universities
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
           class="bi bi-arrow-right" viewBox="0 0 16 16">

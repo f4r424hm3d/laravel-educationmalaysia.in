@@ -52,7 +52,7 @@
           <div class="browserall">
             <div class="card">
               <img src="{{ asset('assets/images/owl.png') }}" class="study-owl">
-              <h2>Foregin University</h2>
+              <h2>Foreign University</h2>
             </div>
             <a href="{{ url('universities/foreign-universities-in-malaysia') }}" class="new-btn">Browser-all</a>
           </div>

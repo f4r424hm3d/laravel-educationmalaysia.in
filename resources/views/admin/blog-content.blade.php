@@ -42,7 +42,7 @@
               </h4>
             </div>
             <div class="card-body" id="tblCDiv">
-              <form id="{{ $ft == 'add' ? 'dataForm' : 'editForm' }}" {{ $ft == 'edit' ? 'action=' . $url . '/' : '' }}
+              <form id="{{ $ft == 'add' ? 'dataForm' : 'editForm' }}" {{ $ft == 'edit' ? 'action=' . $url : '' }}
                 class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
                 @csrf
                 <input type="hidden" name="blog_id" value="{{ $blog_id }}">
@@ -118,6 +118,7 @@
               $("#trdata").html(data);
               if (ft == 'add') {
                 setPosition();
+                getParentHeadings();
               }
             }
           });
@@ -131,7 +132,7 @@
       return new Promise(function(resolve, reject) {
         setTimeout(() => {
           $.ajax({
-            url: "{{ aurl($page_route . '/get-position') }}/",
+            url: "{{ aurl($page_route . '/get-position') }}",
             method: "GET",
             data: {
               blog_id: blog_id,
@@ -139,6 +140,26 @@
             success: function(data) {
               //alert(data);
               $("#position").val(data);
+            }
+          });
+        });
+      });
+    }
+
+    function getParentHeadings() {
+      //alert('Hello');
+      var blog_id = '{{ $blog_id }}';
+      return new Promise(function(resolve, reject) {
+        setTimeout(() => {
+          $.ajax({
+            url: "{{ aurl($page_route . '/get-parent-headings') }}",
+            method: "GET",
+            data: {
+              blog_id: blog_id,
+            },
+            success: function(data) {
+              //alert(data);
+              $("#parent_id").html(data);
             }
           });
         });

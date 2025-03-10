@@ -26,7 +26,7 @@ class BlogContentC extends Controller
       $sd = BlogContent::find($id);
       if (!is_null($sd)) {
         $ft = 'edit';
-        $url = url('admin/' . $this->page_route . '/' . $blog_id . '/update/' . $id . '/');
+        $url = url('admin/' . $this->page_route . '/' . $blog_id . '/update/' . $id);
         $title = 'Update';
       } else {
         return redirect('admin/' . $this->page_route . '/' . $blog_id);
@@ -69,6 +69,8 @@ class BlogContentC extends Controller
   }
   public function update($blog_id, $id, Request $request)
   {
+    // echo $blog_id;
+    // die;
     $request->validate(
       [
         'blog_id' => 'required',
@@ -145,5 +147,14 @@ class BlogContentC extends Controller
     $rows = BlogContent::where('blog_id', $request->blog_id)->count();
     $lastPosition = $rows + 1;
     return $lastPosition;
+  }
+  public function getParentHeadings(Request $request)
+  {
+    $rows = BlogContent::where('blog_id', $request->blog_id)->where('parent_id', null)->get();
+    $output = '<option value="">Select</option>';
+    foreach ($rows as $row) {
+      $output .= '<option value="' . $row->id . '">' . $row->title . '</option>';
+    }
+    return $output;
   }
 }
