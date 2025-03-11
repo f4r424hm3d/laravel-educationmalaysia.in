@@ -13,7 +13,8 @@
         <div>
           <h3>
             <div class="slidd">
-              <img class="img-fluid" src="{{ asset('assets/images/banner.png') }}" alt="First slide">
+              <img class="img-fluid" src="https://educationmalaysia.in/uploads/files/banner1_1741674968.webp"
+                alt="First slide">
               <div class="slidersshome">
                 <div class="text-center mainsliders">
                   <h3 class="elh-banner-title">Education Roadmap: From Admissions to Community Connection
@@ -29,7 +30,8 @@
         <div>
           <h3>
             <div class="slidd">
-              <img class="img-fluid" src="{{ asset('assets/images/banner2.png') }}" alt="First slide">
+              <img class="img-fluid" src="https://educationmalaysia.in/uploads/files/banner1_1741674968.webp"
+                alt="First slide">
               <div class="slidersshome">
                 <div class="text-center mainsliders">
                   <h3 class="elh-banner-title">Welcome to the premier platform for academic excellence in

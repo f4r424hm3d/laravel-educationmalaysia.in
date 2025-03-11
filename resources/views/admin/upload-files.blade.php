@@ -35,8 +35,8 @@
               <h4 class="card-title">{{ $title }} Record</h4>
             </div>
             <div class="card-body">
-              <form action="{{ aurl('upload-files/store-ajax') }}" class="needs-validation" method="post"
-                enctype="multipart/form-data" novalidate>
+              <form id="{{ $ft == 'add' ? 'dataForm' : 'editForm' }}" {{ $ft == 'edit' ? 'action=' . $url : '' }}
+                class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
                 @csrf
                 <div class="row">
                   <div class="col-md-3">
