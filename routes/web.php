@@ -951,7 +951,7 @@ Route::prefix('/university-course-list')->group(function () {
 
 // COURSES IN MALAYSIA ROUTES FRONT
 
-Route::get('courses-in-malaysia', [UniversityProgramListFc::class, 'index']);
+Route::get('courses-in-malaysia', [UniversityProgramListFc::class, 'index'])->name('cim');
 
 $levels = UniversityProgram::select('level')->groupBy('level')->get();
 foreach ($levels as $level) {
