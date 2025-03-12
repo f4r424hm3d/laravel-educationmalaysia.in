@@ -49,7 +49,8 @@
         <div>
           <h3>
             <div class="slidd">
-              <img class="img-fluid" src="{{ asset('assets/images/banner1.png') }}" alt="First slide">
+              <img class="img-fluid" src="https://educationmalaysia.in/uploads/files/banner2_1741675006.webp"
+                alt="First slide">
               <div class="slidersshome">
                 <div class="text-center mainsliders">
                   <h3 class="elh-banner-title">Explore. Learn. Excel. Your Future Begins Here.
