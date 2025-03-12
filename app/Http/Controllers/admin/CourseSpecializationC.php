@@ -37,19 +37,19 @@ class CourseSpecializationC extends Controller
       $sd = CourseSpecialization::find($id);
       if (!is_null($sd)) {
         $ft = 'edit';
-        $url = url('admin/course-specialization/update/' . $id);
+        $url = url('admin/' . $this->page_route . '/update/' . $id);
         $title = 'Update';
       } else {
-        return redirect('admin/course-specialization');
+        return redirect('admin/' . $this->page_route . '');
       }
     } else {
       $ft = 'add';
-      $url = url('admin/course-specialization/store');
+      $url = url('admin/' . $this->page_route . '/store');
       $title = 'Add New';
       $sd = '';
     }
     $page_title = "Course Specialization";
-    $page_route = "course-specialization";
+    $page_route = $this->page_route;
     $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'category', 'i', 'authors');
     return view('admin.course-specialization')->with($data);
   }
@@ -139,7 +139,7 @@ class CourseSpecializationC extends Controller
     $field->review_number = $request['review_number'];
     $field->save();
     session()->flash('smsg', 'New record has been added successfully.');
-    return redirect('admin/course-specialization');
+    return redirect('admin/' . $this->page_route);
   }
   public function delete($id)
   {
@@ -232,7 +232,7 @@ class CourseSpecializationC extends Controller
     $field->review_number = $request['review_number'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
-    return redirect('admin/course-specialization');
+    return redirect('admin/' . $this->page_route);
   }
   public function Import(Request $request)
   {
@@ -246,7 +246,7 @@ class CourseSpecializationC extends Controller
       try {
         $result = Excel::import(new CourseSpecializationImport, $file);
         // session()->flash('smsg', 'Data has been imported succesfully.');
-        return redirect('admin/course-specialization');
+        return redirect('admin/' . $this->page_route);
       } catch (\Exception $ex) {
         dd($ex);
       }

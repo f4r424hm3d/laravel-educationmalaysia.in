@@ -74,7 +74,7 @@
   <div class="col-md-3 col-sm-12">
     <div class="form-group mb-3">
       <label>Number of Review</label>
-      <input name="review_number" type="number" class="form-control" placeholder="Toral Reviews"
+      <input name="review_number" type="number" class="form-control" placeholder="Total Reviews"
         value="{{ $ft == 'edit' ? $sd->review_number : old('review_number') }}">
       <span id="review_number-err" class="text-danger errSpan">
         @error('review_number')

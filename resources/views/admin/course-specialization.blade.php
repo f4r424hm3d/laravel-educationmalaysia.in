@@ -85,7 +85,7 @@
                 <hr>
 
                 {{-- SEO INPUT FILED COMPONENT --}}
-                <x-SeoField :ft="$ft" :sd="$sd"></x-SeoField>
+                <x-seo-field :ft="$ft" :sd="$sd"></x-seo-field>
                 {{-- SEO INPUT FILED COMPONENT END --}}
 
                 @if ($ft == 'add')
