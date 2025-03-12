@@ -22,12 +22,12 @@ class HomeFc extends Controller
   public function index(Request $request)
   {
     $blogs = Blog::limit(10)->get();
-    $universities = University::inRandomOrder()->active()->homeview()->limit(20)->get();
+    $universities = University::inRandomOrder()->active()->homeview()->limit(12)->get();
     $universityRanks = University::inRandomOrder()->active()->homeview()->where(function ($query) {
       $query->whereNotNull('qs_rank')->where('qs_rank', '!=', '')
         ->orWhereNotNull('times_rank')->where('times_rank', '!=', '')
         ->orWhereNotNull('rank')->where('rank', '!=', '');
-    })->limit(20)->get();
+    })->limit(10)->get();
 
     $specializations = CourseSpecialization::inRandomOrder()->limit(20)->get();
     $specializationsWithContent = CourseSpecialization::inRandomOrder()->whereHas('contents')->limit(20)->get();

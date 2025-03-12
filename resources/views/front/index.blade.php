@@ -13,7 +13,7 @@
         <div>
           <h3>
             <div class="slidd">
-              <img class="img-fluid" src="https://educationmalaysia.in/uploads/files/banner1_1741674968.webp"
+              <img class="img-fluid" data-src="https://educationmalaysia.in/uploads/files/banner1_1741674968.webp"
                 alt="First slide">
               <div class="slidersshome">
                 <div class="text-center mainsliders">
@@ -30,7 +30,7 @@
         <div>
           <h3>
             <div class="slidd">
-              <img class="img-fluid" src="https://educationmalaysia.in/uploads/files/banner1_1741674968.webp"
+              <img class="img-fluid" data-src="https://educationmalaysia.in/uploads/files/banner1_1741674968.webp"
                 alt="First slide">
               <div class="slidersshome">
                 <div class="text-center mainsliders">
@@ -49,7 +49,7 @@
         <div>
           <h3>
             <div class="slidd">
-              <img class="img-fluid" src="https://educationmalaysia.in/uploads/files/banner2_1741675006.webp"
+              <img class="img-fluid" data-src="https://educationmalaysia.in/uploads/files/banner2_1741675006.webp"
                 alt="First slide">
               <div class="slidersshome">
                 <div class="text-center mainsliders">
