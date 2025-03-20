@@ -58,7 +58,7 @@
                   <div class="cn-info-content">
                     <h4 class="cn-info-title"><i class="ti-mobile mr-1 theme-cl"></i> Call Us</h4>
                     (+91) 9818560331<br>
-                    (+91) 8448436700
+                    (+91) 8130798532
                   </div>
                 </div>
 

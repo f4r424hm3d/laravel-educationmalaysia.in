@@ -214,7 +214,7 @@
                       </td>
                       <td>
                         <x-delete-button :id="$row->id" />
-                        <x-edit-button url="url('admin/' . $page_route . '/update/' . $row->id)" />
+                        <x-edit-button url="{{ url('admin/' . $page_route . '/update/' . $row->id) }}" />
                       </td>
                     </tr>
                     @php

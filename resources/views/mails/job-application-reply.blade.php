@@ -57,7 +57,7 @@
               <br>
               <b>Education Malaysia Education</b> <br>
               <b>(+91) 9818560331</b> <br>
-              <b>(+91) 8448436700</b>
+              <b>(+91) 8130798532</b>
               <br>
               <br>
               <br>
