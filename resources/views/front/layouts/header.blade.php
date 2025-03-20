@@ -22,22 +22,23 @@
 
   <!-- CSS -->
   <!-- slick slider  -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+  <link rel="stylesheet" href= "{{ cdn('front/assets/css/slick.css') }}">
+  <link rel="stylesheet" href="{{ cdn('front/assets/css/slick-theme.css') }}">
   <!-- slick slider end  -->
 
   <!-- Owl Carousel CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-  <link href="{{ cdn('front/assets/css/styles.css') }}" rel="stylesheet">
+  <link rel="stylesheet"  href="{{ cdn('front/assets/css/owl.carousel.min.css') }}">
   <!-- font-awesome  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="{{ cdn('front/assets/css/font-awesome.min.css') }}" rel="stylesheet">
+  <link rel="stylesheet"
+  href="{{ cdn('front/assets/css/owl.theme.default.min.css') }}">
+  <link rel="stylesheet" href="{{ cdn('front/assets/css/styles.css') }}">
+  
 
   <link rel="preload" href="{{ cdn('front/assets/css/colors.css') }}" as="style"
     onload="this.onload=null;this.rel='stylesheet'">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="{{ cdn('front/assets/js/jquery-3.6.0.min.js') }}"></script>
+  <script src="{{ cdn('front/assets/js/sweetalert2@11.js') }}"></script>
 
   <!-- Google Tag Manager -->
   <script>
