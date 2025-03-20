@@ -30,11 +30,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-  <link href="{{ url('front/') }}/assets/css/styles.css" rel="stylesheet">
+  <link href="{{ cdn('front/assets/css/styles.css') }}" rel="stylesheet">
   <!-- font-awesome  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <link rel="preload" href="{{ url('front/') }}/assets/css/colors.css" as="style"
+  <link rel="preload" href="{{ cdn('front/assets/css/colors.css') }}" as="style"
     onload="this.onload=null;this.rel='stylesheet'">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -114,7 +114,7 @@
     <nav class="navbar navbar-expand-lg navbar-light main-heddd">
       <div class="container">
         <a class="navbar-brand" href="{{ url('/') }} " alt="Education Malaysia Education Logo">
-          <img src="{{ url('front/') }}/assets/img/logo.png" class="logo-max" alt="">
+          <img src="{{ cdn('front/assets/img/logo.png') }}" class="logo-max" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -165,7 +165,7 @@
                     </ul>
                   </div>
                   <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-3 ">
-                    <img src="{{ asset('assets/web/images/em-menu2.jpg') }}" class="img-fluid" alt="">
+                    <img src="{{ cdn('assets/web/images/em-menu2.jpg') }}" class="img-fluid" alt="">
                   </div>
                 </div>
               </div>

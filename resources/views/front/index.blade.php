@@ -6,75 +6,6 @@
   <!-- Top header-->
   <!-- Content -->
   <!-- ============================ Hero Banner  Start================================== -->
-<!-- carousel slider start -->
-<!-- <section class="main-sliderss">
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-    <div class="slidd">
-              <img class="img-fluid" data-src="https://educationmalaysia.in/uploads/files/banner1_1741674968.webp"
-                alt="First slide">
-              <div class="slidersshome">
-                <div class="text-center mainsliders">
-                  <h3 class="elh-banner-title">Education Roadmap: From Admissions to Community Connection
-                  </h3>
-                  <p>Navigate admissions, access essential resources, and connect with our vibrant
-                    community for a fulfilling academic journey in Malaysia.</p>
-                  <a href="{{ url('specialization') }}" class="slider-btn">Know More</a>
-                </div>
-              </div>
-            </div>
-    </div>
-    <div class="carousel-item">
-    <div class="slidd">
-              <img class="img-fluid" data-src="https://educationmalaysia.in/uploads/files/banner1_1741674968.webp"
-                alt="First slide">
-              <div class="slidersshome">
-                <div class="text-center mainsliders">
-                  <h3 class="elh-banner-title">Welcome to the premier platform for academic excellence in
-                    Malaysia!</h3>
-                  <p>
-                    Explore top-tier universities and colleges known for academic excellence and
-                    innovation.
-                  </p>
-                  <a href="{{ route('uim') }}" class="slider-btn">Explore Universities </a>
-                </div>
-              </div>
-            </div>
-    </div>
-    <div class="carousel-item">
-    <div class="slidd">
-              <img class="img-fluid" data-src="https://educationmalaysia.in/uploads/files/banner2_1741675006.webp"
-                alt="First slide">
-              <div class="slidersshome">
-                <div class="text-center mainsliders">
-                  <h3 class="elh-banner-title">Explore. Learn. Excel. Your Future Begins Here.
-                  </h3>
-                  <p>Education Malaysia: Your portal to a world of educational opportunities, fostering
-                    academic excellence and personal growth</p>
-                  <a href="{{ url('courses-in-malaysia') }}" class="slider-btn">Find Your Course </a>
-                </div>
-              </div>
-            </div>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-</section> -->
-
-<!-- carousel slider end   -->
   <!-- first section start  -->
   <section class="main-sliderss">
     <div class="content">
@@ -82,8 +13,7 @@
         <div>
           <h3>
             <div class="slidd">
-              <img class="img-fluid" data-src="https://educationmalaysia.in/uploads/files/banner1_1741674968.webp"
-                alt="First slide">
+              <img class="img-fluid" src="{{ cdn('uploads/files/banner1_1741674968.webp') }}" alt="First slide">
               <div class="slidersshome">
                 <div class="text-center mainsliders">
                   <h3 class="elh-banner-title">Education Roadmap: From Admissions to Community Connection
@@ -99,8 +29,7 @@
         <div>
           <h3>
             <div class="slidd">
-              <img class="img-fluid" data-src="https://educationmalaysia.in/uploads/files/banner1_1741674968.webp"
-                alt="First slide">
+              <img class="img-fluid" src="{{ cdn('uploads/files/banner1_1741674968.webp') }}" alt="First slide">
               <div class="slidersshome">
                 <div class="text-center mainsliders">
                   <h3 class="elh-banner-title">Welcome to the premier platform for academic excellence in
@@ -118,8 +47,7 @@
         <div>
           <h3>
             <div class="slidd">
-              <img class="img-fluid" data-src="https://educationmalaysia.in/uploads/files/banner2_1741675006.webp"
-                alt="First slide">
+              <img class="img-fluid" src="{{ cdn('uploads/files/banner2_1741675006.webp') }}" alt="First slide">
               <div class="slidersshome">
                 <div class="text-center mainsliders">
                   <h3 class="elh-banner-title">Explore. Learn. Excel. Your Future Begins Here.
@@ -152,9 +80,9 @@
                 <div class="item-ol">
                   <div class="header">
                     <div class="divv">
-                    <div class="imgdiv">
-                      <img src="{{ asset($row->imgpath) }}" alt="{{ $row->name }}" class="img-fluid">
-                    </div>
+                      <div class="imgdiv">
+                        <img src="{{ asset($row->imgpath) }}" alt="{{ $row->name }}" class="img-fluid">
+                      </div>
                     </div>
                     <div>
                       <div class="university-name">{{ $row->name }}</div>

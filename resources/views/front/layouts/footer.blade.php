@@ -137,23 +137,23 @@
       <span id="back2Top" class="top-scroll" title="Back to top"><i class="ti-arrow-up"></i></span>
     </div>
     <!-- All Js -->
-    <script src="{{ url('front/') }}/assets/js/jquery.min.js"></script>
-    <script src="{{ url('front/') }}/assets/js/popper.min.js"></script>
-    <script src="{{ url('front/') }}/assets/js/bootstrap.min.js"></script>
-    <script src="{{ url('front/') }}/assets/js/select2.min.js"></script>
-    <script src="{{ url('front/') }}/assets/js/slick.js"></script>
-    <script src="{{ url('front/') }}/assets/js/jquery.counterup.min.js"></script>
-    <script src="{{ url('front/') }}/assets/js/counterup.min.js"></script>
-    <script src="{{ url('front/') }}/assets/js/custom.js"></script>
+    <script src="{{ cdn('front/assets/js/jquery.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/popper.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/select2.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/slick.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/counterup.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/custom.js') }}"></script>
     <script>
       $('#side-menu').metisMenu();
     </script>
-    <script src="{{ url('front/') }}/assets/js/metisMenu.min.js"></script>
+    <script src="{{ cdn('front/assets/js/metisMenu.min.js') }}"></script>
 
     <!-- Zoom -->
-    <link rel="preload" href="{{ url('front/') }}/assets/fancybox/jquery.fancybox.min.css" as="style"
+    <link rel="preload" href="{{ cdn('front/assets/fancybox/jquery.fancybox.min.css') }}" as="style"
       onload="this.onload=null;this.rel='stylesheet'">
-    <script src="{{ url('front/') }}/assets/fancybox/jquery.fancybox.min.js" defer></script>
+    <script src="{{ cdn('front/assets/fancybox/jquery.fancybox.min.js') }}" defer></script>
     <script>
       jQuery(document).ready(function($) {
         $(function() {
@@ -277,37 +277,6 @@
 
         <div class="content">
           <span class="d-block font-size-13 mb-2">The team typically replies in a few minutes.</span>
-
-          {{-- <a class="country-box" target="_blank"
-            href="https://api.whatsapp.com/send?phone=918448391296&text=Hello there!! I want to get counseling by experts. Want to know more information about Study Abroad Consultants in India - Education Malaysia Education">
-            <div class="row align-items-center">
-              <div class="col-2 pr-0"><img data-src="https://www.educationmalaysia.in/front/assets/img/flag-india.png"
-                  alt="indian flag" class="img-fluid"></div>
-              <div class="col-8 pr0">
-                <strong>Location: India Gurgaon</strong><br>Start Chat with a Counsellor
-              </div>
-              <div class="col-1 pr-0 text-right"><img
-                  data-src="https://www.educationmalaysia.in/front/assets/img/wad.png" alt="counsellor"
-                  width="20">
-              </div>
-            </div>
-          </a>
-
-          <a class="country-box" target="_blank"
-            href="https://api.whatsapp.com/send?phone=919342914452&text=Hello there!! I want to get counseling by experts. Want to know more information about Study Abroad Consultants in India - Education Malaysia Education">
-            <div class="row align-items-center">
-              <div class="col-2 pr-0"><img data-src="https://www.educationmalaysia.in/front/assets/img/flag-india.png"
-                  alt="indian flag" class="img-fluid"></div>
-              <div class="col-8 pr0">
-                <strong>Location: India Chennai</strong><br>
-                Start Chat with a Counsellor
-              </div>
-              <div class="col-1 pr-0 text-right"><img
-                  data-src="https://www.educationmalaysia.in/front/assets/img/wad.png" alt="counsellor"
-                  width="20">
-              </div>
-            </div>
-          </a> --}}
 
           <a class="country-box" target="_blank"
             href="https://api.whatsapp.com/send?phone=601117784424&text=Hello there!! I want to get counseling from experts. Want to know more information about Study Abroad Consultants in India - Education Malaysia Education">
