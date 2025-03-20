@@ -90,7 +90,7 @@
                       <div class="courses b-all">
                         <a target="_blank"
                           href="{{ url('university/' . $university->uname . '/pre-university-courses') }}">
-                          <img data-src="{{ asset('assets/web/images/fuc-icons/certificate.png') }}" alt="icon"
+                          <img data-src="{{ cdn('assets/web/images/fuc-icons/certificate.png') }}" alt="icon"
                             height="40" width="40">
                           <span>Certificate</span>
                         </a>
@@ -100,7 +100,7 @@
                       <div class="courses b-all">
                         <a target="_blank"
                           href="{{ url('university/' . $university->uname . '/pre-university-courses') }}">
-                          <img data-src="{{ asset('assets/web/images/fuc-icons/pre-university.png') }}" alt="icon"
+                          <img data-src="{{ cdn('assets/web/images/fuc-icons/pre-university.png') }}" alt="icon"
                             height="40" width="40">
                           <span>Pre University</span>
                         </a>
@@ -109,7 +109,7 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
                       <div class="courses b-all">
                         <a target="_blank" href="{{ url('university/' . $university->uname . '/diploma-courses') }}">
-                          <img data-src="{{ asset('assets/web/images/fuc-icons/diploma.png') }}" alt="icon"
+                          <img data-src="{{ cdn('assets/web/images/fuc-icons/diploma.png') }}" alt="icon"
                             height="40" width="40">
                           <span>Diploma</span>
                         </a>
@@ -119,7 +119,7 @@
                       <div class="courses b-all">
                         <a target="_blank"
                           href="{{ url('university/' . $university->uname . '/under-graduate-courses') }}">
-                          <img data-src="{{ asset('assets/web/images/fuc-icons/under-graduate.png') }}" alt="icon"
+                          <img data-src="{{ cdn('assets/web/images/fuc-icons/under-graduate.png') }}" alt="icon"
                             height="40" width="40">
                           <span>Under Graduate</span>
                         </a>
@@ -129,7 +129,7 @@
                       <div class="courses b-all">
                         <a target="_blank"
                           href="{{ url('university/' . $university->uname . '/post-graduate-courses') }}">
-                          <img data-src="{{ asset('assets/web/images/fuc-icons/post-graduate.png') }}" alt="icon"
+                          <img data-src="{{ cdn('assets/web/images/fuc-icons/post-graduate.png') }}" alt="icon"
                             height="40" width="40">
                           <span>Post Graduate</span>
                         </a>
@@ -138,8 +138,8 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
                       <div class="courses b-all">
                         <a target="_blank" href="{{ url('university/' . $university->uname . '/phd-courses') }}">
-                          <img data-src="{{ asset('assets/web/images/fuc-icons/phd.png') }}" alt="icon"
-                            height="40" width="40">
+                          <img data-src="{{ cdn('assets/web/images/fuc-icons/phd.png') }}" alt="icon" height="40"
+                            width="40">
                           <span>Phd</span>
                         </a>
                       </div>
@@ -294,10 +294,10 @@
 
             <a class="learnup-list" href="{{ url('courses/pre-university') }}">
               <div class="learnup-list-thumb">
-               
-                  <img data-src="{{ asset('assets') }}/web/images/fuc-icons/pre-university.png" class="img-fluid"
-                    alt="Pre University">
-              
+
+                <img data-src="{{ cdn('assets') }}/web/images/fuc-icons/pre-university.png" class="img-fluid"
+                  alt="Pre University">
+
               </div>
               <div class="learnup-list-caption">
                 <h6>
@@ -307,10 +307,10 @@
             </a>
             <a href="{{ url('courses/diploma') }}" class="learnup-list">
               <div class="learnup-list-thumb">
-              
-                  <img data-src="{{ asset('assets') }}/web/images/fuc-icons/diploma.png" class="img-fluid"
-                    alt="Pre University">
-               
+
+                <img data-src="{{ cdn('assets') }}/web/images/fuc-icons/diploma.png" class="img-fluid"
+                  alt="Pre University">
+
               </div>
               <div class="learnup-list-caption">
                 <h6>
@@ -320,43 +320,43 @@
             </a>
             <a class="learnup-list" href="{{ url('courses/under-graduate') }}">
               <div class="learnup-list-thumb">
-              
-                  <img data-src="{{ asset('assets') }}/web/images/fuc-icons/under-graduate.png" class="img-fluid"
-                    alt="Pre University">
-                
+
+                <img data-src="{{ cdn('assets') }}/web/images/fuc-icons/under-graduate.png" class="img-fluid"
+                  alt="Pre University">
+
               </div>
               <div class="learnup-list-caption">
                 <h6>
                   <p>Bachelor Course in Malaysia </p>
                 </h6>
               </div>
-              </a>
-              <a class="learnup-list" href="{{ url('courses/post-graduate') }}">
+            </a>
+            <a class="learnup-list" href="{{ url('courses/post-graduate') }}">
               <div class="learnup-list-thumb">
-                
-                  <img data-src="{{ asset('assets') }}/web/images/fuc-icons/post-graduate.png" class="img-fluid"
-                    alt="Pre University">
-                
+
+                <img data-src="{{ cdn('assets') }}/web/images/fuc-icons/post-graduate.png" class="img-fluid"
+                  alt="Pre University">
+
               </div>
               <div class="learnup-list-caption">
                 <h6>
                   <p>Master Degree in Malaysia </p>
                 </h6>
               </div>
-              </a>
-              <a class="learnup-list" href="{{ url('courses/phd') }}">
+            </a>
+            <a class="learnup-list" href="{{ url('courses/phd') }}">
               <div class="learnup-list-thumb">
-              
-                  <img data-src="{{ asset('assets') }}/web/images/fuc-icons/phd.png" class="img-fluid"
-                    alt="Pre University">
-              
+
+                <img data-src="{{ cdn('assets') }}/web/images/fuc-icons/phd.png" class="img-fluid"
+                  alt="Pre University">
+
               </div>
               <div class="learnup-list-caption">
                 <h6>
                   <p>PHD Courses in Malaysia </p>
                 </h6>
               </div>
-              </a>
+            </a>
           </div>
         </div>
       </div>
@@ -380,11 +380,11 @@
     }
 
     $(document).ready(function() {
-    $("table").each(function() {
+      $("table").each(function() {
         if (!$(this).parent().hasClass("table-responsive")) {
-            $(this).wrap("<div class='table-responsive'></div>");
+          $(this).wrap("<div class='table-responsive'></div>");
         }
+      });
     });
-});
   </script>
 @endsection

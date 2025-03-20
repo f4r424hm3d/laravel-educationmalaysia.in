@@ -19,7 +19,7 @@
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="u-stall">
-                        <div class="img-box"><img src=" {{ asset('assets/web/images/testimonialimage.png') }}"
+                        <div class="img-box"><img src=" {{ cdn('assets/web/images/testimonialimage.png') }}"
                             class="img-fluid" alt=""></div>
                         <p class="testimonial">As a student Iam really thankful that I got contacted
                           with
@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-lg-6">
                       <div class="u-stall">
-                        <div class="img-box"><img src=" {{ asset('assets/web/images/testimonialimage.png') }}"
+                        <div class="img-box"><img src=" {{ cdn('assets/web/images/testimonialimage.png') }}"
                             class="img-fluid" alt=""></div>
                         <p class="testimonial">I am studying accountancy in Malaysia and got a very
                           good
@@ -49,7 +49,7 @@
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="u-stall">
-                        <div class="img-box"><img src=" {{ asset('assets/web/images/testimonialimage.png') }}"
+                        <div class="img-box"><img src=" {{ cdn('assets/web/images/testimonialimage.png') }}"
                             class="img-fluid" alt=""></div>
                         <p class="testimonial">As a student Iam really thankful that I got contacted
                           with
@@ -61,7 +61,7 @@
                     </div>
                     <div class="col-lg-6">
                       <div class="u-stall">
-                        <div class="img-box"><img src=" {{ asset('assets/web/images/testimonialimage.png') }}"
+                        <div class="img-box"><img src=" {{ cdn('assets/web/images/testimonialimage.png') }}"
                             class="img-fluid" alt=""></div>
                         <p class="testimonial">I am studying accountancy in Malaysia and got a very
                           good
@@ -79,7 +79,7 @@
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="u-stall">
-                        <div class="img-box"><img src=" {{ asset('assets/web/images/testimonialimage.png') }}"
+                        <div class="img-box"><img src=" {{ cdn('assets/web/images/testimonialimage.png') }}"
                             class="img-fluid" alt=""></div>
                         <p class="testimonial">Excellent Consultant
                           Great.......</p>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="col-lg-6">
                       <div class="u-stall">
-                        <div class="img-box"><img src=" {{ asset('assets/web/images/testimonialimage.png') }}"
+                        <div class="img-box"><img src=" {{ cdn('assets/web/images/testimonialimage.png') }}"
                             class="img-fluid" alt=""></div>
                         <p class="testimonial">Deserve to be thank your coordination for the
                           admission

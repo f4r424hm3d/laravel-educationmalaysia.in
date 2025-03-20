@@ -22,20 +22,20 @@
   <!-- Breadcrumb -->
 
   <!-- Content -->
-  <section class="py-5" >
+  <section class="py-5">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="about-short">
             <div class="sec-heading ">
-              <h2 class="mb-4 text-center" >About <span class="theme-cl1">Education Malaysia</span></h2>
+              <h2 class="mb-4 text-center">About <span class="theme-cl1">Education Malaysia</span></h2>
             </div>
             <div class="font-size-16">
               <div class="cor-p3 border-bottom-0 pb-1">
                 <div class="row flex-column-reverse flex-lg-row align-items-center">
                   <div class="col-sm-12 col-md-12 col-lg-7">
-                    <h2 >About Us</h2>
-                    <div class="pad10 font b" >The Achievement of Perfection is our
+                    <h2>About Us</h2>
+                    <div class="pad10 font b">The Achievement of Perfection is our
                       goal but Excellence is Guarantee!</div>
                     <p>Britannica Overseas is the cutting edge of higher education’s Recruitment, Marketing and student
                       enrollment. We have been a well founded solutions specialist to our partner institutions since 2015.
@@ -54,35 +54,34 @@
                       industry by introducing software and marketing solutions.</p>
                   </div>
                   <div class="col-sm-12 col-md-12 col-lg-5">
-                    <div class="imgfix" >
-                    <img
-                    src=" {{ asset('assets/web/images/education-malaysia-aboutus.png') }}" class="img-fuild w-100">
+                    <div class="imgfix">
+                      <img src=" {{ cdn('assets/web/images/education-malaysia-aboutus.png') }}" class="img-fuild w-100">
                     </div>
                   </div>
-                 
+
                 </div>
-              
-                    <h3>Vision</h3>
-                    <p>Our vision is to make a transformative impact on the Study Abroad Service Sector through continual
-                      innovation in student services by connecting institutions, recruiters, and students across the
-                      globe.</p>
-                    <h3>Mission</h3>
-                    <ul>
-                      <li>To simplify the Overseas Education Admission Process & provide World’s Best Education Solutions
-                      </li>
-                      <li>To render scrupulous services and build robust business relationships</li>
-                      <li>To strive to be the world’s most reliable service brand</li>
-                    </ul>
-                    <h3>Core Values</h3>
-                    <p>Integrity, Honesty, Commitment, Transparency, Excellence and Value Addition.</p>
-                    <h3>Objectives</h3>
-                    <p>To Expand the Academic Horizons.</p>
-                
+
+                <h3>Vision</h3>
+                <p>Our vision is to make a transformative impact on the Study Abroad Service Sector through continual
+                  innovation in student services by connecting institutions, recruiters, and students across the
+                  globe.</p>
+                <h3>Mission</h3>
+                <ul>
+                  <li>To simplify the Overseas Education Admission Process & provide World’s Best Education Solutions
+                  </li>
+                  <li>To render scrupulous services and build robust business relationships</li>
+                  <li>To strive to be the world’s most reliable service brand</li>
+                </ul>
+                <h3>Core Values</h3>
+                <p>Integrity, Honesty, Commitment, Transparency, Excellence and Value Addition.</p>
+                <h3>Objectives</h3>
+                <p>To Expand the Academic Horizons.</p>
+
               </div>
               <div class="cor-p3 pt-0 border-top-0 mb-5">
                 <div class="row">
                   <div class="col-md-12 col-sm-12">
-                    <h2 class="b" >Our Services</h2>
+                    <h2 class="b">Our Services</h2>
                     <p>Britannica Overseas believes in re-inventing the Overseas Education Services for the students who
                       want to study in Malaysia from all over the world. We have joined the forces with the Top
                       Universities globally and with like minded student recruiters. We together strive to attain the
@@ -96,14 +95,21 @@
                     <!--    <li><a data-toggle="tab" href="#partners"><span>Partners</span></a></li>-->
                     <!--</ul>-->
                     <ul class="nav nav-pills all-mars mb-3 pb-3 pt-2" id="pills-tab" role="tablist">
-                      <li class="nav-item"><a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Universities</a></li>
-                      <li class="nav-item"><a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Students</a> </li>
-                      <li class="nav-item"><a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Partners</a></li>
+                      <li class="nav-item"><a class="nav-link active" id="pills-home-tab" data-toggle="pill"
+                          href="#pills-home" role="tab" aria-controls="pills-home"
+                          aria-selected="true">Universities</a></li>
+                      <li class="nav-item"><a class="nav-link" id="pills-profile-tab" data-toggle="pill"
+                          href="#pills-profile" role="tab" aria-controls="pills-profile"
+                          aria-selected="false">Students</a> </li>
+                      <li class="nav-item"><a class="nav-link" id="pills-contact-tab" data-toggle="pill"
+                          href="#pills-contact" role="tab" aria-controls="pills-contact"
+                          aria-selected="false">Partners</a></li>
                     </ul>
                     <div class="tab-content all-schools" id="pills-tabContent">
-                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                        aria-labelledby="pills-home-tab">
                         <h2 class="pad10"> For Universities</h2>
-                        <ul class="allschol" >
+                        <ul class="allschol">
                           <li>We are partnered with the most esteemed Universities/ Institutions globally and enlarge the
                             options for the students who look for out of the way higher education prospects around the
                             world. </li>
@@ -167,7 +173,7 @@
                         <h3 class="pad10 b">Our Clients</h3>
                         <p>Having a vast number of clients in our list, we understand our client’s frame of reference and
                           conclude solutions more than they expect.</p>
-                        <ul class="partner-client" >
+                        <ul class="partner-client">
                           <li>Partner with us for Swift Services & Higher Commissions</li>
                           <li>
                             <h5 class="b">Multi-Country Advantage</h5>
@@ -220,88 +226,92 @@
                       </div>
                     </div>
 
-
                   </div>
                 </div>
               </div>
-      <se ction class="all-chooses">
-      <div class="row">
-                <div class="col-md-4 col-sm-12 mb-4">
-                  <div class="card h-100"> <img  src=" {{ asset('assets/web/images/Establish-an-India-Office.jpg') }}" 
-                      alt="Establish an India Office" >
-                    <div class="card-body" >
-                      <h5 class="card-title text-center pad10" >Establish an
-                        India Office</h5>
-                      <p>If you plan to set up an
+              <se ction class="all-chooses">
+                <div class="row">
+                  <div class="col-md-4 col-sm-12 mb-4">
+                    <div class="card h-100"> <img src=" {{ cdn('assets/web/images/Establish-an-India-Office.jpg') }}"
+                        alt="Establish an India Office">
+                      <div class="card-body">
+                        <h5 class="card-title text-center pad10">Establish an
+                          India Office</h5>
+                        <p>If you plan to set up an
 
-                        office in India to smoothen the process between the students and agents then we
+                          office in India to smoothen the process between the students and agents then we
 
-                        will be the best choice to help you do so. Our Legal team will guide you
+                          will be the best choice to help you do so. Our Legal team will guide you
 
-                        through every step from the legal aspects like RBI License required for this purpose.</p>
+                          through every step from the legal aspects like RBI License required for this purpose.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-12 mb-4">
+                    <div class="card  h-100"> <img
+                        src=" {{ cdn('assets/web/images/market-research-and-analysis.jpg') }}"
+                        alt="marketing research and Analysis">
+                      <div class="card-body">
+                        <h5 class="card-title text-center pad10">Market
+                          Research and Analysis</h5>
+                        <p>Our service will include understanding of these markets and trace out the effective strategies
+                          for marketing which will suit your needs , requirements and goals.<br />
+                          &nbsp;<br />
+                          &nbsp;<br />
+                          &nbsp;</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-12 mb-4">
+                    <div class="card h-100"> <img src=" {{ cdn('assets/web/images/marketing-and-branding.jpg') }}"
+                        alt="Marketing and Branding">
+                      <div class="card-body">
+                        <h5 class="card-title text-center pad10">Marketing
+                          and Branding</h5>
+                        <p>Our marketing and Branding strategies will help you outstretch to a vast pool of prospective
+                          international candidates. We will also assist you in conducting International Education Fairs to
+                          showcase the best of your programs, features and services.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4 col-sm-12 mb-4">
-                  <div class="card  h-100"> <img src=" {{ asset('assets/web/images/market-research-and-analysis.jpg') }}" 
-                      alt="marketing research and Analysis" >
-                    <div class="card-body" >
-                      <h5 class="card-title text-center pad10">Market
-                        Research and Analysis</h5>
-                      <p>Our service will include understanding of these markets and trace out the effective strategies
-                        for marketing which will suit your needs , requirements and goals.<br />
-                        &nbsp;<br />
-                        &nbsp;<br />
-                        &nbsp;</p>
+              </se>
+              <section class="pb-5 pt-3 choose-uss mar10">
+                <div class="text-center">
+                  <h2 class="text-center">Why Choose Us?</h2>
+                </div>
+                <div class=" row">
+
+                  <div class="col-md-4 col-sm-12 mb-4">
+                    <div class="card-body h-100 ">
+                      <h3 class="text-center">We Understand Business</h3>
+                      <p>The Boundless experience in the education industry gives us a unique advantage of far reaching
+                        and
+                        understanding the Education Industry in India.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-12 mb-4">
+                    <div class="card-body h-100 ">
+                      <h3 class="text-center">We are good at what we do</h3>
+                      <p>We work with a highly professional with much experience and resources to provide you with cost
+                        effective yet target oriented high output marketing solutions. The goal is to aid out the needs
+                        and
+                        requirements of our client by helping them to perceive their international student enrollment
+                        goals.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-12 mb-4">
+                    <div class="card-body h-100 ">
+                      <h3 class="text-center">An Accomplished Team</h3>
+                      <p>Our extensive and vast experience in the education industry gives an edge to our clients as our
+                        Team of education and marketing experts work with the client and for the client by understanding
+                        and
+                        explaining every step taken in the process. We understand the needs of.</p>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4 col-sm-12 mb-4">
-                  <div class="card h-100"> <img src=" {{ asset('assets/web/images/marketing-and-branding.jpg') }}" 
-                      alt="Marketing and Branding" >
-                    <div class="card-body" >
-                      <h5 class="card-title text-center pad10" >Marketing
-                        and Branding</h5>
-                      <p>Our marketing and Branding strategies will help you outstretch to a vast pool of prospective
-                        international candidates. We will also assist you in conducting International Education Fairs to
-                        showcase the best of your programs, features and services.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-      </se>
-             <section class="pb-5 pt-3 choose-uss mar10" >
-             <div class="text-center">
-              <h2 class="text-center">Why Choose Us?</h2>
-              </div>
-              <div class=" row">
-               
-                <div class="col-md-4 col-sm-12 mb-4">
-                  <div class="card-body h-100 ">
-                    <h3 class="text-center">We Understand Business</h3>
-                    <p>The Boundless experience in the education industry gives us a unique advantage of far reaching and
-                      understanding the Education Industry in India.</p>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-12 mb-4">
-                  <div class="card-body h-100 ">
-                    <h3 class="text-center">We are good at what we do</h3>
-                    <p>We work with a highly professional with much experience and resources to provide you with cost
-                      effective yet target oriented high output marketing solutions. The goal is to aid out the needs and
-                      requirements of our client by helping them to perceive their international student enrollment goals.
-                    </p>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-12 mb-4">
-                  <div class="card-body h-100 " >
-                    <h3 class="text-center">An Accomplished Team</h3>
-                    <p>Our extensive and vast experience in the education industry gives an edge to our clients as our
-                      Team of education and marketing experts work with the client and for the client by understanding and
-                      explaining every step taken in the process. We understand the needs of.</p>
-                  </div>
-                </div>
-              </div>
-             </section>
+              </section>
             </div>
           </div>
         </div>

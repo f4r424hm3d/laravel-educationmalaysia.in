@@ -33,7 +33,7 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4 ">
           <div class="browserall">
             <div class="card">
-              <img src="{{ asset('assets/images/owl.png') }}" class="study-owl">
+              <img src="{{ cdn('assets/images/owl.png') }}" class="study-owl">
               <h2>Public University</h2>
             </div>
             <a href="{{ url('universities/public-institution-in-malaysia') }}" class="new-btn">Browser-all</a>
@@ -42,7 +42,7 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4 ">
           <div class="browserall">
             <div class="card">
-              <img src="{{ asset('assets/images/owl.png') }}" class="study-owl">
+              <img src="{{ cdn('assets/images/owl.png') }}" class="study-owl">
               <h2>Private University</h2>
             </div>
             <a href="{{ url('universities/private-institution-in-malaysia') }}" class="new-btn">Browser-all</a>
@@ -51,7 +51,7 @@
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4 ">
           <div class="browserall">
             <div class="card">
-              <img src="{{ asset('assets/images/owl.png') }}" class="study-owl">
+              <img src="{{ cdn('assets/images/owl.png') }}" class="study-owl">
               <h2>Foreign University</h2>
             </div>
             <a href="{{ url('universities/foreign-universities-in-malaysia') }}" class="new-btn">Browser-all</a>

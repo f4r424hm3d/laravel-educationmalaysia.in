@@ -83,7 +83,7 @@
               <h3>{{ $service->headline }}</h3>
             </div>
             <hr>
-            <img data-src="{{ asset('assets/uploadFiles/study/' . $service->imgpath) }}" class="img-fluid w-100 mb-3"
+            <img data-src="{{ cdn('assets/uploadFiles/study/' . $service->imgpath) }}" class="img-fluid w-100 mb-3"
               alt="{{ $service->headline }}">
             <div class="edu_wraper">
               @php

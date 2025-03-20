@@ -7,7 +7,7 @@
   <section class="bannerfixed">
     <div class="container">
       <div class="banner-fix">
-        <img src="{{ asset('assets/images/new-banner2.png') }}" class="fix-banners" alt="">
+        <img src="{{ cdn('assets/images/new-banner2.png') }}" class="fix-banners" alt="">
       </div>
     </div>
   </section>

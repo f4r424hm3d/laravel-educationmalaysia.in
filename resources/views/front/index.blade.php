@@ -129,7 +129,7 @@
           <div class="row">
             <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="header">
-                <div class="visa-approve"><img src="{{ asset('assets/images/icons-new-home/visa-approval.png') }} "
+                <div class="visa-approve"><img src="{{ cdn('assets/images/icons-new-home/visa-approval.png') }} "
                     class="loading" alt="Visa Approval Rate"></div>
                 <div>
                   <div class="heading">90%</div>
@@ -139,7 +139,7 @@
             </div>
             <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="header">
-                <div><img src=" {{ asset('assets/images/icons-new-home/institute.png') }}" class="loading"
+                <div><img src=" {{ cdn('assets/images/icons-new-home/institute.png') }}" class="loading"
                     alt="Total Institutions and Universities"></div>
                 <div>
                   <div class="heading">500+</div>
@@ -149,7 +149,7 @@
             </div>
             <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="header">
-                <div><img src="{{ asset('assets/images/icons-new-home/summer.png ') }}" class="loading"
+                <div><img src="{{ cdn('assets/images/icons-new-home/summer.png ') }}" class="loading"
                     alt="Best Intake in Malaysia"></div>
                 <div>
                   <div class="heading">Summer</div>
@@ -159,7 +159,7 @@
             </div>
             <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="header">
-                <div><img src="{{ asset('assets/images/icons-new-home/study-cost.png ') }}" class="loading"
+                <div><img src="{{ cdn('assets/images/icons-new-home/study-cost.png ') }}" class="loading"
                     alt="Average Study Cost"></div>
                 <div>
                   <div class="heading">11400$ to 150000$</div>
@@ -169,7 +169,7 @@
             </div>
             <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="header">
-                <div><img src="{{ asset('assets/images/icons-new-home/living-cost.png ') }}" class="loading"
+                <div><img src="{{ cdn('assets/images/icons-new-home/living-cost.png ') }}" class="loading"
                     alt="Living Cost"></div>
                 <div>
                   <div class="heading">1000$ to 1200$</div>
@@ -179,7 +179,7 @@
             </div>
             <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="header">
-                <div><img src="{{ asset('assets/images/icons-new-home/travel-cost.png ') }}" class="loading"
+                <div><img src="{{ cdn('assets/images/icons-new-home/travel-cost.png ') }}" class="loading"
                     alt="Travel Cost"></div>
                 <div>
                   <div class="heading">800$ to 4000$</div>
@@ -189,7 +189,7 @@
             </div>
             <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="header">
-                <div><img src="{{ asset('assets/images/icons-new-home/tofel.png') }}" class="loading"
+                <div><img src="{{ cdn('assets/images/icons-new-home/tofel.png') }}" class="loading"
                     alt="Min TOFEL Score"></div>
                 <div>
                   <div class="heading">80 (iBT)</div>
@@ -199,7 +199,7 @@
             </div>
             <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="header">
-                <div><img src="{{ asset('assets/images/icons-new-home/ielts.png') }}" class="loading"
+                <div><img src="{{ cdn('assets/images/icons-new-home/ielts.png') }}" class="loading"
                     alt="Min IELTS Score"></div>
                 <div>
                   <div class="heading">6</div>
@@ -209,7 +209,7 @@
             </div>
             <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
               <div class="header">
-                <div><img src="{{ asset('assets/images/icons-new-home/pte.png ') }}" class="loading"
+                <div><img src="{{ cdn('assets/images/icons-new-home/pte.png ') }}" class="loading"
                     alt="Min PTE Score"></div>
                 <div>
                   <div class="heading">58</div>
@@ -221,7 +221,7 @@
         </div>
 
         <div class="col-xl-4  col-lg-12 hidden-xs text-center">
-          <img src="{{ asset('assets/images/icons-new-home/malaysia-map.png') }}" class="map-malysia loading"
+          <img src="{{ cdn('assets/images/icons-new-home/malaysia-map.png') }}" class="map-malysia loading"
             alt="Malaysia Map">
         </div>
       </div>
@@ -398,7 +398,7 @@
               <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a
                   href="https://www.educationmalaysia.in/courses/pre-university">
                   <div class="fuc-box">
-                    <div class="img-divs"><img src="{{ asset('assets/images/fuc-icons/certificate.png') }} "
+                    <div class="img-divs"><img src="{{ cdn('assets/images/fuc-icons/certificate.png') }} "
                         alt="Certificate Courses" class="loading"></div>
                     <p>Certificate <i class="fa fa-angle-right"></i></p>
                   </div>
@@ -406,7 +406,7 @@
               <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a
                   href="https://www.educationmalaysia.in/courses/pre-university">
                   <div class="fuc-box">
-                    <div class="img-divs"><img src="{{ asset('assets/images/fuc-icons/pre-university.png') }} "
+                    <div class="img-divs"><img src="{{ cdn('assets/images/fuc-icons/pre-university.png') }} "
                         alt="Pre University Courses" class="loading"></div>
                     <p>Pre University <i class="fa fa-angle-right"></i></p>
                   </div>
@@ -414,7 +414,7 @@
               <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a
                   href="https://www.educationmalaysia.in/courses/diploma">
                   <div class="fuc-box">
-                    <div class="img-divs"><img src="{{ asset('assets/images/fuc-icons/diploma.png') }} "
+                    <div class="img-divs"><img src="{{ cdn('assets/images/fuc-icons/diploma.png') }} "
                         alt="Diploma Courses" class="loading"></div>
                     <p>Diploma <i class="fa fa-angle-right"></i></p>
                   </div>
@@ -422,7 +422,7 @@
               <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a
                   href="https://www.educationmalaysia.in/courses/under-graduate">
                   <div class="fuc-box">
-                    <div class="img-divs"><img src="{{ asset('assets/images/fuc-icons/under-graduate.png') }} "
+                    <div class="img-divs"><img src="{{ cdn('assets/images/fuc-icons/under-graduate.png') }} "
                         alt="Under Graduate Courses" class="loading"></div>
                     <p>Under Graduate <i class="fa fa-angle-right"></i></p>
                   </div>
@@ -430,7 +430,7 @@
               <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a
                   href="https://www.educationmalaysia.in/courses/post-graduate">
                   <div class="fuc-box mb-0">
-                    <div class="img-divs"><img src="{{ asset('assets/images/fuc-icons/post-graduate.png') }} "
+                    <div class="img-divs"><img src="{{ cdn('assets/images/fuc-icons/post-graduate.png') }} "
                         alt="Post Graduate Courses" class="loading"></div>
                     <p>Post Graduate <i class="fa fa-angle-right"></i></p>
                   </div>
@@ -438,8 +438,8 @@
               <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-12 "><a
                   href="https://www.educationmalaysia.in/courses/phd">
                   <div class="fuc-box mb-0">
-                    <div class="img-divs"><img src="{{ asset('assets/images/fuc-icons/phd.png') }} "
-                        alt="P.hd Courses" class="loading"></div>
+                    <div class="img-divs"><img src="{{ cdn('assets/images/fuc-icons/phd.png') }} " alt="P.hd Courses"
+                        class="loading"></div>
                     <p>P.hd <i class="fa fa-angle-right"></i></p>
                   </div>
                 </a></div>

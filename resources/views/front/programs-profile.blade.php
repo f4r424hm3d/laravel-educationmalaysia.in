@@ -69,7 +69,8 @@
                 <div class="row">
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-2">
                     <div class="row">
-                      <div class="col-lg-3 col-md-12 col-sm-12 col-12 course-icon-new mb-3"><i class="ti-flag-alt"></i></div>
+                      <div class="col-lg-3 col-md-12 col-sm-12 col-12 course-icon-new mb-3"><i class="ti-flag-alt"></i>
+                      </div>
                       <div class="col-lg-9 col-md-12 col-sm-12 col-12 mb-3"><span class="theme-cl">Study Mode:</span><span
                           class="course-new-sc">{{ ucwords($program->study_mode) }}</span></div>
                     </div>
@@ -91,14 +92,17 @@
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-2">
                     <div class="row">
-                      <div class="col-lg-3 col-md-12 col-sm-12 col-12 course-icon-new mb-3"><i class="ti-medall-alt"></i></div>
-                      <div class="col-lg-9 col-md-12 col-sm-12 col-12 mb-3"><span class="theme-cl">Exam Accepted:</span><span
-                          class="course-new-sc">{{ j2s($program->exam_accepted ?? null) }}</span></div>
+                      <div class="col-lg-3 col-md-12 col-sm-12 col-12 course-icon-new mb-3"><i class="ti-medall-alt"></i>
+                      </div>
+                      <div class="col-lg-9 col-md-12 col-sm-12 col-12 mb-3"><span class="theme-cl">Exam
+                          Accepted:</span><span class="course-new-sc">{{ j2s($program->exam_accepted ?? null) }}</span>
+                      </div>
                     </div>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-2">
                     <div class="row">
-                      <div class="col-lg-3 col-md-12 col-sm-12 col-12 course-icon-new mb-3"><i class="ti-calendar"></i></div>
+                      <div class="col-lg-3 col-md-12 col-sm-12 col-12 course-icon-new mb-3"><i class="ti-calendar"></i>
+                      </div>
                       <div class="col-lg-9 col-md-12 col-sm-12 col-12 mb-3"><span class="theme-cl">Intake:</span><span
                           class="course-new-sc">{{ $program->intake }}</span></div>
                     </div>
@@ -106,8 +110,8 @@
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-2">
                     <div class="row">
                       <div class="col-lg-3 col-md-12 col-sm-12 col-12 course-icon-new mb-3"><i class="ti-money"></i></div>
-                      <div class="col-lg-9 col-md-12 col-sm-12 col-12 mb-3"><span class="theme-cl">Tuition Fees:</span><span
-                          class="course-new-sc">{{ $program->tution_fees ?? 'N/A' }}</span></div>
+                      <div class="col-lg-9 col-md-12 col-sm-12 col-12 mb-3"><span class="theme-cl">Tuition
+                          Fees:</span><span class="course-new-sc">{{ $program->tution_fees ?? 'N/A' }}</span></div>
                     </div>
                   </div>
                 </div>
@@ -480,10 +484,10 @@
 
             <a class="learnup-list" href="{{ url('courses/pre-university') }}">
               <div class="learnup-list-thumb">
-               
-                  <img data-src="{{ asset('assets') }}/web/images/fuc-icons/pre-university.png" class="img-fluid"
-                    alt="Pre University">
-              
+
+                <img data-src="{{ cdn('assets') }}/web/images/fuc-icons/pre-university.png" class="img-fluid"
+                  alt="Pre University">
+
               </div>
               <div class="learnup-list-caption">
                 <h6>
@@ -493,10 +497,10 @@
             </a>
             <a href="{{ url('courses/diploma') }}" class="learnup-list">
               <div class="learnup-list-thumb">
-              
-                  <img data-src="{{ asset('assets') }}/web/images/fuc-icons/diploma.png" class="img-fluid"
-                    alt="Pre University">
-               
+
+                <img data-src="{{ cdn('assets') }}/web/images/fuc-icons/diploma.png" class="img-fluid"
+                  alt="Pre University">
+
               </div>
               <div class="learnup-list-caption">
                 <h6>
@@ -506,43 +510,43 @@
             </a>
             <a class="learnup-list" href="{{ url('courses/under-graduate') }}">
               <div class="learnup-list-thumb">
-              
-                  <img data-src="{{ asset('assets') }}/web/images/fuc-icons/under-graduate.png" class="img-fluid"
-                    alt="Pre University">
-                
+
+                <img data-src="{{ cdn('assets') }}/web/images/fuc-icons/under-graduate.png" class="img-fluid"
+                  alt="Pre University">
+
               </div>
               <div class="learnup-list-caption">
                 <h6>
                   <p>Bachelor Course in Malaysia </p>
                 </h6>
               </div>
-              </a>
-              <a class="learnup-list" href="{{ url('courses/post-graduate') }}">
+            </a>
+            <a class="learnup-list" href="{{ url('courses/post-graduate') }}">
               <div class="learnup-list-thumb">
-                
-                  <img data-src="{{ asset('assets') }}/web/images/fuc-icons/post-graduate.png" class="img-fluid"
-                    alt="Pre University">
-                
+
+                <img data-src="{{ cdn('assets') }}/web/images/fuc-icons/post-graduate.png" class="img-fluid"
+                  alt="Pre University">
+
               </div>
               <div class="learnup-list-caption">
                 <h6>
                   <p>Master Degree in Malaysia </p>
                 </h6>
               </div>
-              </a>
-              <a class="learnup-list" href="{{ url('courses/phd') }}">
+            </a>
+            <a class="learnup-list" href="{{ url('courses/phd') }}">
               <div class="learnup-list-thumb">
-              
-                  <img data-src="{{ asset('assets') }}/web/images/fuc-icons/phd.png" class="img-fluid"
-                    alt="Pre University">
-              
+
+                <img data-src="{{ cdn('assets') }}/web/images/fuc-icons/phd.png" class="img-fluid"
+                  alt="Pre University">
+
               </div>
               <div class="learnup-list-caption">
                 <h6>
                   <p>PHD Courses in Malaysia </p>
                 </h6>
               </div>
-              </a>
+            </a>
           </div>
         </div>
 

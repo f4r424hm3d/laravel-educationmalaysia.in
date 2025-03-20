@@ -33,7 +33,7 @@
 
             <div class="ed-ad-img">
 
-              <img class="alluniversty" src=" {{ asset('assets/images/levels/pre-university-courses.png') }}"
+              <img class="alluniversty" src=" {{ cdn('assets/images/levels/pre-university-courses.png') }}"
                 alt="pre university">
 
             </div>
@@ -54,7 +54,7 @@
 
             <div class="ed-ad-img">
 
-              <img class="alluniversty" src=" {{ asset('assets/images/levels/under-graduate-courses.png') }}"
+              <img class="alluniversty" src=" {{ cdn('assets/images/levels/under-graduate-courses.png') }}"
                 alt="under grd'">
 
             </div>
@@ -77,7 +77,7 @@
 
             <div class="ed-ad-img">
 
-              <img class="alluniversty" src=" {{ asset('assets/images/levels/graduadtion.png') }}" alt=" graduadtion">
+              <img class="alluniversty" src=" {{ cdn('assets/images/levels/graduadtion.png') }}" alt=" graduadtion">
 
             </div>
 
@@ -97,8 +97,7 @@
 
             <div class="ed-ad-img">
 
-              <img class="alluniversty" src=" {{ asset('assets/images/levels/degree-courses.png') }}"
-                alt="degree courses">
+              <img class="alluniversty" src=" {{ cdn('assets/images/levels/degree-courses.png') }}" alt="degree courses">
 
             </div>
 
@@ -119,8 +118,7 @@
 
             <div class="ed-ad-img">
 
-              <img class="alluniversty" src=" {{ asset('assets/images/levels/master-courses.png') }}"
-                alt="master courses">
+              <img class="alluniversty" src=" {{ cdn('assets/images/levels/master-courses.png') }}" alt="master courses">
 
             </div>
 
@@ -140,7 +138,7 @@
 
             <div class="ed-ad-img">
 
-              <img class="alluniversty" src=" {{ asset('assets/images/levels/phd-courses.png') }}" alt="phd courses">
+              <img class="alluniversty" src=" {{ cdn('assets/images/levels/phd-courses.png') }}" alt="phd courses">
 
             </div>
 
