@@ -1073,7 +1073,7 @@
                     <h2>Uploaded Documents</h2>
                   </div>
                 </div>
-                <table class="table table-striped table-inverse table-responsive">
+                <table class="table">
                   <thead class="thead-inverse">
                     <tr>
                       <th>S.N.</th>

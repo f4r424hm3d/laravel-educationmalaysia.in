@@ -292,71 +292,71 @@
               </div>
             </div>
 
-            <div class="learnup-list">
+            <a class="learnup-list" href="{{ url('courses/pre-university') }}">
               <div class="learnup-list-thumb">
-                <a href="{{ url('courses/pre-university') }}">
+               
                   <img data-src="{{ asset('assets') }}/web/images/fuc-icons/pre-university.png" class="img-fluid"
                     alt="Pre University">
-                </a>
+              
               </div>
               <div class="learnup-list-caption">
                 <h6>
                   <p>Certificate Course in Malaysia </p>
                 </h6>
               </div>
-            </div>
-            <div class="learnup-list">
+            </a>
+            <a href="{{ url('courses/diploma') }}" class="learnup-list">
               <div class="learnup-list-thumb">
-                <a href="{{ url('courses/diploma') }}">
+              
                   <img data-src="{{ asset('assets') }}/web/images/fuc-icons/diploma.png" class="img-fluid"
                     alt="Pre University">
-                </a>
+               
               </div>
               <div class="learnup-list-caption">
                 <h6>
                   <p>Diploma Course in Malaysia </p>
                 </h6>
               </div>
-            </div>
-            <div class="learnup-list">
+            </a>
+            <a class="learnup-list" href="{{ url('courses/under-graduate') }}">
               <div class="learnup-list-thumb">
-                <a href="{{ url('courses/under-graduate') }}">
+              
                   <img data-src="{{ asset('assets') }}/web/images/fuc-icons/under-graduate.png" class="img-fluid"
                     alt="Pre University">
-                </a>
+                
               </div>
               <div class="learnup-list-caption">
                 <h6>
                   <p>Bachelor Course in Malaysia </p>
                 </h6>
               </div>
-            </div>
-            <div class="learnup-list">
+              </a>
+              <a class="learnup-list" href="{{ url('courses/post-graduate') }}">
               <div class="learnup-list-thumb">
-                <a href="{{ url('courses/post-graduate') }}">
+                
                   <img data-src="{{ asset('assets') }}/web/images/fuc-icons/post-graduate.png" class="img-fluid"
                     alt="Pre University">
-                </a>
+                
               </div>
               <div class="learnup-list-caption">
                 <h6>
                   <p>Master Degree in Malaysia </p>
                 </h6>
               </div>
-            </div>
-            <div class="learnup-list">
+              </a>
+              <a class="learnup-list" href="{{ url('courses/phd') }}">
               <div class="learnup-list-thumb">
-                <a href="{{ url('courses/phd') }}">
+              
                   <img data-src="{{ asset('assets') }}/web/images/fuc-icons/phd.png" class="img-fluid"
                     alt="Pre University">
-                </a>
+              
               </div>
               <div class="learnup-list-caption">
                 <h6>
                   <p>PHD Courses in Malaysia </p>
                 </h6>
               </div>
-            </div>
+              </a>
           </div>
         </div>
       </div>
