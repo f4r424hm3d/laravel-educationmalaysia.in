@@ -297,8 +297,8 @@
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 col-12 ">
               <div class="academic-card">
                 <div class="academic-card-body"> <i><img
-                      src="https://www.educationmalaysia.in/assets/web/images/icons-new-home/register-yourself.png"
-                      alt="Register Yourself" class="img-fluid"></i>
+                      src="{{ cdn('assets/web/images/icons-new-home/register-yourself.png') }}" alt="Register Yourself"
+                      class="img-fluid"></i>
                   <h5 class="academic-card-title mt-2 mb-0">Register<br><span>Yourself</span></h5>
                 </div>
               </div>
