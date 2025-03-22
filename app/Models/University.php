@@ -49,7 +49,7 @@ class University extends Model
   }
   public function overviews()
   {
-    return $this->hasMany(UniversityOverview::class, 'u_id', 'id');
+    return $this->hasMany(UniversityOverview::class, 'u_id', 'id')->orderBy('position');
   }
   public function scopeActive($query)
   {
