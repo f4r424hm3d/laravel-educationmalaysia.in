@@ -102,336 +102,356 @@
         </div>
         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6  mt-4">
           <div class="indin-office">
-
+            <i class="fa fa-facebook" aria-hidden="true"></i>
             <span class="b">Bangladesh Office</span>
             <p>H-16, Road-09, Sector-01, (Flat-A5/B), Uttara, Dhaka, Bangladesh 1230</p>
             <p>Phone: <a href="tel:+919818560331">+91-98185-60331</a></p>
             <ul class="linksfooters">
               <li><a href="https://www.facebook.com/educationmalaysia.in" target="_blank" class="fb"
-                  aria-label="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                  aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
               </li>
               <li><a href="https://twitter.com/educatemalaysia/" target="_blank" class="tw" aria-label="Twitter"><i
-                    class="fa fa-twitter" aria-hidden="true"></i></a>
+                    class="fab fa-twitter"></i></a>
               </li>
               <li><a href="https://www.linkedin.com/company/educationmalaysia/" target="_blank" class="ln"
-                  aria-label="Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  aria-label="Linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
               </li>
               <li><a href="https://www.pinterest.com/educationmalaysiain/" target="_blank" rel="" class="pn"
-                  aria-label="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a> </li>
+                  aria-label="Pinterest"><i class="fab fa-pinterest" aria-hidden="true"></i></a> </li>
               <li><a href="https://www.instagram.com/educationmalaysia.in/" target="_blank" rel=""
-                  class="pn" aria-label="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a> </li>
+                  class="pn" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+              </li>
               <li><a href="https://www.youtube.com/@educationmalaysia6986" target="_blank" class="yt"
-                  aria-label="YouTube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                  aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
               </li>
             </ul>
           </div>
         </div>
 
       </div>
+      <!-- <div class="row">
+
+            </div> -->
+
+      <!-- Footer End -->
+
       <span id="back2Top" class="top-scroll" title="Back to top"><i class="ti-arrow-up"></i></span>
     </div>
-  </div>
-</footer>
-<script>
-  $('#side-menu').metisMenu();
-</script>
-<script src="{{ cdn('front/assets/js/metisMenu.min.js') }}"></script>
+    <!-- All Js -->
+    <script src="{{ cdn('front/assets/js/jquery.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/popper.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/select2.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/slick.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/counterup.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/custom.js') }}"></script>
+    <script>
+      $('#side-menu').metisMenu();
+    </script>
+    <script src="{{ cdn('front/assets/js/metisMenu.min.js') }}"></script>
 
-<!-- Zoom -->
-<link rel="preload" href="{{ cdn('front/assets/fancybox/jquery.fancybox.min.css') }}" as="style"
-  onload="this.onload=null;this.rel='stylesheet'">
-<script src="{{ cdn('front/assets/fancybox/jquery.fancybox.min.js') }}" defer></script>
-<script>
-  jQuery(document).ready(function($) {
-    $(function() {
-      $(".scrollTo a").click(function(e) {
-        var destination = $(this).attr('href');
-        $(".scrollTo li").removeClass('active');
-        $(this).parent().addClass('active');
-        $('html, body').animate({
-          scrollTop: $(destination).offset().top - 90
-        }, 500);
+    <!-- Zoom -->
+    <link rel="preload" href="{{ cdn('front/assets/fancybox/jquery.fancybox.min.css') }}" as="style"
+      onload="this.onload=null;this.rel='stylesheet'">
+    <script src="{{ cdn('front/assets/fancybox/jquery.fancybox.min.js') }}" defer></script>
+    <script>
+      jQuery(document).ready(function($) {
+        $(function() {
+          $(".scrollTo a").click(function(e) {
+            var destination = $(this).attr('href');
+            $(".scrollTo li").removeClass('active');
+            $(this).parent().addClass('active');
+            $('html, body').animate({
+              scrollTop: $(destination).offset().top - 90
+            }, 500);
+          });
+        });
+        var totalHeight = $('#myHeader').height() + $('.proHead').height();
+        $(window).scroll(function() {
+          if ($(this).scrollTop() > totalHeight) {
+            $('.proHead').addClass('sticky');
+          } else {
+            $('.proHead').removeClass('sticky');
+          }
+        })
       });
-    });
-    var totalHeight = $('#myHeader').height() + $('.proHead').height();
-    $(window).scroll(function() {
-      if ($(this).scrollTop() > totalHeight) {
-        $('.proHead').addClass('sticky');
-      } else {
-        $('.proHead').removeClass('sticky');
-      }
-    })
-  });
-</script>
+    </script>
 
-<script>
-  $(document).on('click', '#close-preview', function() {
-    $('.image-preview').popover('hide');
-    // Hover befor close the preview
-    $('.image-preview').hover(
-      function() {
-        $('.image-preview').popover('show');
-      },
-      function() {
+    <script>
+      $(document).on('click', '#close-preview', function() {
         $('.image-preview').popover('hide');
-      }
-    );
-  });
-
-  $(function() {
-    // Create the close button
-    var closebtn = $('<button/>', {
-      type: "button",
-      text: 'x',
-      id: 'close-preview',
-      style: 'font-size: initial;',
-    });
-    closebtn.attr("class", "close pull-right");
-    // Set the popover default content
-    $('.image-preview').popover({
-      trigger: 'manual',
-      html: true,
-      title: "<strong>Preview</strong>" + $(closebtn)[0].outerHTML,
-      content: "There's no image",
-      placement: 'bottom'
-    });
-    // Clear event
-    $('.image-preview-clear').click(function() {
-      $('.image-preview').attr("data-content", "").popover('hide');
-      $('.image-preview-filename').val("");
-      $('.image-preview-clear').hide();
-      $('.image-preview-input input:file').val("");
-      $(".image-preview-input-title").text("Browse");
-    });
-    // Create the preview image
-    $(".image-preview-input input:file").change(function() {
-      var img = $('<img/>', {
-        id: 'dynamic',
-        width: 250,
-        height: 200
+        // Hover befor close the preview
+        $('.image-preview').hover(
+          function() {
+            $('.image-preview').popover('show');
+          },
+          function() {
+            $('.image-preview').popover('hide');
+          }
+        );
       });
-      var file = this.files[0];
-      var reader = new FileReader();
-      // Set preview image into the popover data-content
-      reader.onload = function(e) {
-        $(".image-preview-input-title").text("Change");
-        $(".image-preview-clear").show();
-        $(".image-preview-filename").val(file.name);
-        img.attr('src', e.target.result);
-        $(".image-preview").attr("data-content", $(img)[0].outerHTML).popover("show");
-      }
-      reader.readAsDataURL(file);
-    });
-  });
-</script>
 
-<script>
-  $("#upload").click(function() {
-    $("#upload-file").trigger('click');
-  });
-</script>
-<script>
-  $(".show-more").click(function() {
-    if ($(".text").hasClass("show-more-height")) {
-      $(this).text("(Show Less)");
-    } else {
-      $(this).text("(Show More)");
-    }
-    $(".text").toggleClass("show-more-height");
-  });
-</script>
+      $(function() {
+        // Create the close button
+        var closebtn = $('<button/>', {
+          type: "button",
+          text: 'x',
+          id: 'close-preview',
+          style: 'font-size: initial;',
+        });
+        closebtn.attr("class", "close pull-right");
+        // Set the popover default content
+        $('.image-preview').popover({
+          trigger: 'manual',
+          html: true,
+          title: "<strong>Preview</strong>" + $(closebtn)[0].outerHTML,
+          content: "There's no image",
+          placement: 'bottom'
+        });
+        // Clear event
+        $('.image-preview-clear').click(function() {
+          $('.image-preview').attr("data-content", "").popover('hide');
+          $('.image-preview-filename').val("");
+          $('.image-preview-clear').hide();
+          $('.image-preview-input input:file').val("");
+          $(".image-preview-input-title").text("Browse");
+        });
+        // Create the preview image
+        $(".image-preview-input input:file").change(function() {
+          var img = $('<img/>', {
+            id: 'dynamic',
+            width: 250,
+            height: 200
+          });
+          var file = this.files[0];
+          var reader = new FileReader();
+          // Set preview image into the popover data-content
+          reader.onload = function(e) {
+            $(".image-preview-input-title").text("Change");
+            $(".image-preview-clear").show();
+            $(".image-preview-filename").val(file.name);
+            img.attr('src', e.target.result);
+            $(".image-preview").attr("data-content", $(img)[0].outerHTML).popover("show");
+          }
+          reader.readAsDataURL(file);
+        });
+      });
+    </script>
 
-<div class="whats-float">
-  <a href="javascript:void()" class="open-button" onClick="openForm()">
-    <span>Need any help<br><small>Chat with us</small></span>
-    <img data-src="/assets/images/wa.png" width="30" alt="whatsapp"></a>
-</div>
+    <script>
+      $("#upload").click(function() {
+        $("#upload-file").trigger('click');
+      });
+    </script>
+    <script>
+      $(".show-more").click(function() {
+        if ($(".text").hasClass("show-more-height")) {
+          $(this).text("(Show Less)");
+        } else {
+          $(this).text("(Show More)");
+        }
+        $(".text").toggleClass("show-more-height");
+      });
+    </script>
 
-<div class="chat-popup" id="myForm">
-  <div class="wa-container">
-    <button type="button" class="cancel" onClick="closeForm()"><i class="ti-close"></i></button>
-    <div class="whtsapp-header">
-      <div class="row">
-        <div class="col-2 pr0"><img data-src="https://www.educationmalaysia.in/front/assets/img/wa.png"
-            alt="whatsapp" class="img-fluid"></div>
-        <div class="col-10">
-          <div class="title">Start a Conversation</div>
-          <div class="text">Hi! Click one of our member below to chat on <strong>WhatsApp</strong>
+    <div class="whats-float">
+      <a href="javascript:void()" class="open-button" onClick="openForm()">
+        <span>Need any help<br><small>Chat with us</small></span>
+        <img data-src="/assets/images/wa.png" width="30" alt="whatsapp"></a>
+    </div>
+
+    <div class="chat-popup" id="myForm">
+      <div class="wa-container">
+        <button type="button" class="cancel" onClick="closeForm()"><i class="ti-close"></i></button>
+        <div class="whtsapp-header">
+          <div class="row">
+            <div class="col-2 pr0"><img data-src="https://www.educationmalaysia.in/front/assets/img/wa.png"
+                alt="whatsapp" class="img-fluid"></div>
+            <div class="col-10">
+              <div class="title">Start a Conversation</div>
+              <div class="text">Hi! Click one of our member below to chat on <strong>WhatsApp</strong>
+              </div>
+            </div>
           </div>
         </div>
+
+        <div class="content">
+          <span class="d-block font-size-13 mb-2">The team typically replies in a few minutes.</span>
+
+          <a class="country-box" target="_blank"
+            href="https://api.whatsapp.com/send?phone=601117784424&text=Hello there!! I want to get counseling from experts. Want to know more information about Study Abroad Consultants in India - Education Malaysia Education">
+            <div class="row align-items-center">
+              <div class="col-2 pr-0"><img
+                  data-src="https://www.educationmalaysia.in/front/assets/img/flag-malaysia.png" alt="indian flag"
+                  class="img-fluid"></div>
+              <div class="col-8 pr0">
+                <strong>Location: Malaysia</strong><br>
+                Start Chat with a Counsellor
+              </div>
+              <div class="col-1 pr-0 text-right"><img
+                  data-src="https://www.educationmalaysia.in/front/assets/img/wad.png" alt="counsellor"
+                  width="20">
+              </div>
+            </div>
+          </a>
+
+        </div>
+
       </div>
     </div>
 
-    <div class="content">
-      <span class="d-block font-size-13 mb-2">The team typically replies in a few minutes.</span>
+    <!-- Include jQuery and Slick Carousel libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
-      <a class="country-box" target="_blank"
-        href="https://api.whatsapp.com/send?phone=601117784424&text=Hello there!! I want to get counseling from experts. Want to know more information about Study Abroad Consultants in India - Education Malaysia Education">
-        <div class="row align-items-center">
-          <div class="col-2 pr-0"><img data-src="https://www.educationmalaysia.in/front/assets/img/flag-malaysia.png"
-              alt="indian flag" class="img-fluid"></div>
-          <div class="col-8 pr0">
-            <strong>Location: Malaysia</strong><br>
-            Start Chat with a Counsellor
-          </div>
-          <div class="col-1 pr-0 text-right"><img data-src="https://www.educationmalaysia.in/front/assets/img/wad.png"
-              alt="counsellor" width="20">
-          </div>
-        </div>
-      </a>
+    <!-- Initialize Slick Carousel -->
+    <script>
+      $(document).ready(function() {
+        $(".multiple-items").slick({
+          dots: true,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          responsive: [{
+              breakpoint: 1200, // For devices with a width <= 1024px
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 2,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 1024, // For devices with a width <= 1024px
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 768, // For devices with a width <= 600px
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            },
+            {
+              breakpoint: 600, // For devices with a width <= 600px
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: false
+              }
+            }
+          ]
+        });
 
-    </div>
+        $(".secondheader").slick({
+          dots: true,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 1, // Change based on your preference
+          slidesToScroll: 1, // Change based on your preference
+          responsive: [{
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 2,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+          ]
+        });
 
-  </div>
-</div>
+        $(".serviceitedms").slick({
+          dots: true,
+          infinite: true,
+          speed: 500,
+          arrows: true, // Enable arrows
+          slidesToShow: 3,
+          slidesToScroll: 2,
+          responsive: [{
+              breakpoint: 1200, // For devices with a width <= 1024px
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 2,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 1024, // For devices with a width <= 1024px
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 768, // For devices with a width <= 600px
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            },
+            {
+              breakpoint: 600, // For devices with a width <= 600px
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+          ]
+        });
 
-<!-- Initialize Slick Carousel -->
-<script>
-  $(document).ready(function() {
-    $(".multiple-items").slick({
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 4,
-      responsive: [{
-          breakpoint: 1200, // For devices with a width <= 1024px
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 2,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 1024, // For devices with a width <= 1024px
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 768, // For devices with a width <= 600px
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 600, // For devices with a width <= 600px
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            dots: false
-          }
-        }
-      ]
-    });
-
-    $(".secondheader").slick({
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1, // Change based on your preference
-      slidesToScroll: 2, // Change based on your preference
-      responsive: [{
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 2,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    });
-
-    $(".serviceitedms").slick({
-      dots: true,
-      infinite: true,
-      speed: 500,
-      arrows: true, // Enable arrows
-      slidesToShow: 3,
-      slidesToScroll: 2,
-      responsive: [{
-          breakpoint: 1200, // For devices with a width <= 1024px
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 2,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 1024, // For devices with a width <= 1024px
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 768, // For devices with a width <= 600px
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 600, // For devices with a width <= 600px
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    });
-
-  });
-</script>
-
-<!-- top slider mainheader  -->
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var lazyImages = document.querySelectorAll('[data-src]');
-    var observer = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var lazyImage = entry.target;
-          lazyImage.src = lazyImage.dataset.src;
-          observer.unobserve(lazyImage);
-        }
       });
-    });
-    lazyImages.forEach(function(lazyImage) {
-      observer.observe(lazyImage);
-    });
-  });
-</script>
+    </script>
 
-<script>
-  function openForm() {
-    document.getElementById("myForm").style.display = "block";
-  }
+    <!-- top slider mainheader  -->
 
-  function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-  }
-</script>
-<!-- Whatsapp Box and Button -->
-<!--Start of Tawk.to Script-->
-{{-- <script type="text/javascript">
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var lazyImages = document.querySelectorAll('[data-src]');
+        var observer = new IntersectionObserver(function(entries, observer) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var lazyImage = entry.target;
+              lazyImage.src = lazyImage.dataset.src;
+              observer.unobserve(lazyImage);
+            }
+          });
+        });
+        lazyImages.forEach(function(lazyImage) {
+          observer.observe(lazyImage);
+        });
+      });
+    </script>
+
+    <script>
+      function openForm() {
+        document.getElementById("myForm").style.display = "block";
+      }
+
+      function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+      }
+    </script>
+    <!-- Whatsapp Box and Button -->
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
       var Tawk_API = Tawk_API || {},
         Tawk_LoadStart = new Date();
       (function() {
@@ -443,64 +463,54 @@
         s1.setAttribute('crossorigin', '*');
         s0.parentNode.insertBefore(s1, s0);
       })();
-    </script> --}}
-<!--End of Tawk.to Script-->
+    </script>
+    <!--End of Tawk.to Script-->
 
-<!-- owl-carousel start  -->
-<script>
-  $(document).ready(function() {
-    $(".owl-carousel").owlCarousel({
-      responsiveBaseElement: $('body'),
-      loop: true,
-      margin: 10,
-      responsiveClass: true,
-      // autoHeight: true,
-      autoplayTimeout: 4000,
-      autoplay: true,
-      smartSpeed: 800,
-      nav: true,
-      // dots: false,
-      items: 2,
-      responsive: {
-        0: {
-          items: 1
-        },
+    <!-- owl-carousel start  -->
+    <script>
+      $(document).ready(function() {
+        $(".owl-carousel").owlCarousel({
+          responsiveBaseElement: $('body'),
+          loop: true,
+          margin: 10,
+          responsiveClass: true,
+          // autoHeight: true,
+          autoplayTimeout: 4000,
+          autoplay: true,
+          smartSpeed: 800,
+          nav: true,
+          // dots: false,
+          items: 2,
+          responsive: {
+            0: {
+              items: 1
+            },
 
-        600: {
-          items: 1
-        },
+            600: {
+              items: 1
+            },
 
-        1000: {
-          items: 2
-        },
+            1000: {
+              items: 2
+            },
 
-        1200: {
-          items: 3
-        }
-      }
+            1200: {
+              items: 3
+            }
+          }
 
 
-    });
-  });
-</script>
+        });
+      });
+    </script>
 
-<!-- jQuery -->
+    <!-- jQuery -->
 
-<!-- All Js -->
-<script src="{{ cdn('front/assets/js/popper.min.js') }}"></script>
-<script src="{{ cdn('front/assets/js/bootstrap.min.js') }}"></script>
-<script src="{{ cdn('front/assets/js/select2.min.js') }}"></script>
-<script src="{{ cdn('front/assets/js/slick.js') }}"></script>
-<script src="{{ cdn('front/assets/js/jquery.counterup.min.js') }}"></script>
-<script src="{{ cdn('front/assets/js/counterup.min.js') }}"></script>
-<script src="{{ cdn('front/assets/js/custom.js') }}"></script>
-<!-- Include jQuery and Slick Carousel libraries -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-<!-- Owl Carousel JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-<!-- owl-carousel end  -->
+    <!-- owl-carousel end  -->
 
-</body>
+    </body>
 
-</html>
+    </html>
