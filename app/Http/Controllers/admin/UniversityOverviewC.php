@@ -12,7 +12,8 @@ class UniversityOverviewC extends Controller
   public function index($university_id, $id = null)
   {
     $university = University::find($university_id);
-    $rows = UniversityOverview::where('u_id', $university_id)->get();
+    $rows = UniversityOverview::orderBy('position')->where('u_id', $university_id)->get();
+    $lastPosition = $rows->count() + 1;
     if ($id != null) {
       $sd = UniversityOverview::find($id);
       if (!is_null($sd)) {
@@ -30,7 +31,7 @@ class UniversityOverviewC extends Controller
     }
     $page_title = "University Overview";
     $page_route = "university-overview";
-    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'university');
+    $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'university', 'lastPosition');
     return view('admin.university-overview')->with($data);
   }
   public function store($university_id, Request $request)
@@ -61,6 +62,7 @@ class UniversityOverviewC extends Controller
     $field->u_id = $request['university_id'];
     $field->h = $request['h'];
     $field->p = $request['p'];
+    $field->position = $request['position'];
     $field->save();
     session()->flash('smsg', 'New record has been added successfully.');
     return redirect('admin/university-overview/' . $university_id);
@@ -96,6 +98,7 @@ class UniversityOverviewC extends Controller
     $field->u_id = $request['university_id'];
     $field->h = $request['h'];
     $field->p = $request['p'];
+    $field->position = $request['position'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
     return redirect('admin/university-overview/' . $university_id);

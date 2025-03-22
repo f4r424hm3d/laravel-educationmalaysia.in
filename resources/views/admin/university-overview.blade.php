@@ -45,13 +45,18 @@
                 novalidate>
                 @csrf
                 <div class="row">
-                  <div class="col-md-9 col-sm-12 mb-3">
+                  <div class="col-md-8 col-sm-12 mb-3">
                     <x-InputField type="text" label="Title" name="h" id="h" :ft="$ft"
                       :sd="$sd"></x-InputField>
                   </div>
-                  <div class="col-md-3 col-sm-12 mb-3">
+                  <div class="col-md-2 col-sm-12 mb-3">
                     <x-InputField type="file" label="Thumbnail" name="thumbnail" id="thumbnail" :ft="$ft"
                       :sd="$sd"></x-InputField>
+                  </div>
+                  <div class="col-md-2 col-sm-12 mb-3">
+                    <x-number-input type="number" label="Position" name="position" id="position" :ft="$ft"
+                      :sd="$sd">
+                    </x-number-input>
                   </div>
                   <div class="col-md-12 col-sm-12 mb-3">
                     <x-TextareaField label="Decription" name="p" id="p" :ft="$ft"
@@ -87,6 +92,7 @@
                 <thead>
                   <tr>
                     <th>Sr. No.</th>
+                    <th>Position</th>
                     <th>Title</th>
                     <th>Description</th>
                     <th>Thumbnail</th>
@@ -101,6 +107,7 @@
                   @foreach ($rows as $row)
                     <tr id="row{{ $row->id }}">
                       <td>{{ $i }}</td>
+                      <td>{{ $row->position }}</td>
                       <td>{{ $row->h }}</td>
                       <td>
                         <x-content-view-modal :row="$row" field="p" title="Description" />
@@ -140,6 +147,14 @@
     </div>
   </div>
   <script>
+    setPosition();
+
+    function setPosition() {
+      //alert('Hello');
+      var lastPosition = '{{ $lastPosition }}';
+      $("#position").val(lastPosition);
+    }
+
     function DeleteAjax(id) {
       //alert(id);
       var cd = confirm("Are you sure ?");
