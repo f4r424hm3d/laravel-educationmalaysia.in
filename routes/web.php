@@ -67,6 +67,7 @@ use App\Http\Controllers\admin\UniversityScholarshipC;
 use App\Http\Controllers\admin\UniversityScholarshipContentC;
 use App\Http\Controllers\admin\UniversityVideoGalleryC;
 use App\Http\Controllers\admin\UploadFilesC;
+use App\Http\Controllers\admin\UrlRedirectionC;
 use App\Http\Controllers\admin\UserC;
 use App\Http\Controllers\Common\TestAbcTc;
 use App\Http\Controllers\Common\TestPunchingC;
@@ -104,6 +105,7 @@ use App\Models\Exam;
 use App\Models\Service;
 use App\Models\University;
 use App\Models\UniversityProgram;
+use App\Models\UrlRedirection;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -138,6 +140,13 @@ Route::get('/f/migrate', function () {
   $exitCode = Artisan::call('migrate');
   return true;
 });
+
+$customsRedirections = UrlRedirection::all()->toArray();
+foreach ($customsRedirections as $row) {
+  Route::get($row['old_url'], function () use ($row) {
+    return redirect($row['new_url'], 301);
+  });
+}
 
 /* STUDENT ROUTES BEFORE LOGIN */
 Route::middleware([StudentLoggedOut::class])->group(function () {
@@ -744,6 +753,15 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
       Route::post('/update/{id}', [PageContentC::class, 'update']);
       Route::post('/store', [PageContentC::class, 'store']);
     });
+
+    Route::prefix('/url-redirections')->group(function () {
+      Route::get('/', [UrlRedirectionC::class, 'index']);
+      Route::get('/get-data', [UrlRedirectionC::class, 'getData']);
+      Route::post('/store', [UrlRedirectionC::class, 'store']);
+      Route::get('/update/{id}', [UrlRedirectionC::class, 'index']);
+      Route::post('/update/{id}', [UrlRedirectionC::class, 'update']);
+      Route::get('/delete/{id}', [UrlRedirectionC::class, 'delete']);
+    });
   });
   Route::prefix('common')->group(function () {
     Route::get('/change-status', [CommonController::class, 'changeStatus']);
@@ -841,10 +859,11 @@ Route::get('/transfer-service-data', [ServiceFc::class, 'transferSitePageData'])
 
 Route::get('resources/services', [ServiceFc::class, 'index'])->name('services');
 Route::get('resources/services/{uri}', [ServiceFc::class, 'serviceDetail'])->name('service.detail');
-$services = Service::where('website', 'MYS')->get();
+
+$services = Service::where('website', 'MYS')->get()->toArray();
 foreach ($services as $row) {
-  Route::get($row->uri, function () use ($row) {
-    return redirect("resources/services/$row->uri", 301);
+  Route::get($row['uri'], function () use ($row) {
+    return redirect("resources/services/{$row['uri']}", 301);
   });
 }
 

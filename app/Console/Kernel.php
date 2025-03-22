@@ -7,14 +7,11 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-  /**
-   * The Artisan commands provided by your application.
-   *
-   * @var array
-   */
   protected $commands = [
-    \App\Console\Commands\MakeFrontViewCommand::class, // Register your custom command
-    \App\Console\Commands\MakeAdminViewCommand::class,
+    \App\Console\Commands\MakeAdminView::class, // Register your custom command here
+    \App\Console\Commands\MakeFrontView::class,
+    \App\Console\Commands\MakeAdminController::class,
+    \App\Console\Commands\MakeCustomImport::class,
   ];
 
   /**

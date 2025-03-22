@@ -354,6 +354,10 @@
                       id="topnav-auth" role="button">
                       <span data-key="t-authentication">Upload Files</span>
                     </a>
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('url-redirections') }}"
+                      id="topnav-auth" role="button">
+                      <span data-key="t-authentication">Url Redirections</span>
+                    </a>
                   </div>
                 </div>
               </li>
