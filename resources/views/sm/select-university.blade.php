@@ -9,13 +9,13 @@
     <priority>1</priority>
   </url>
   <url>
-    <loc>{{ url('universities/public-universities-in-malaysia') }}</loc>
+    <loc>{{ url('universities/public-institution-in-malaysia') }}</loc>
     <lastmod>{{ date('Y-m-d') }}</lastmod>
     <changefreq>always</changefreq>
     <priority>1</priority>
   </url>
   <url>
-    <loc>{{ url('universities/private-universities-in-malaysia') }}</loc>
+    <loc>{{ url('universities/private-institution-in-malaysia') }}</loc>
     <lastmod>{{ date('Y-m-d') }}</lastmod>
     <changefreq>always</changefreq>
     <priority>1</priority>
