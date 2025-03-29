@@ -128,7 +128,8 @@
                         <div class="row">
                           <div class="col-lg-2 col-md-3 col-sm-4 col-12 mb-4">
                             <div class="divimg">
-                              <img data-src="{{ asset($row->imgpath) }}" class="img-fluid" alt="{{ $row->name }} Logo">
+                              <img data-src="{{ asset($row->logo_path) }}" class="img-fluid"
+                                alt="{{ $row->name }} Logo">
                             </div>
                           </div>
                           <div class="col-lg-10 col-md-9 col-sm-8 col-12 mb-4">
@@ -242,9 +243,9 @@
           </div>
         </div>
         <!-- <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                                          </div> -->
+                                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                              <button type="button" class="btn btn-primary">Save changes</button>
+                                                            </div> -->
       </div>
     </div>
   </div>

@@ -605,7 +605,7 @@
                 <a href="{{ route('university.overview', ['university_slug' => $row->uname]) }}">
                   <div class="fuc-box">
                     <span>
-                      <img data-src="{{ $row->imgpath }}" alt="{{ $row->name }} Logo" class="loading"
+                      <img data-src="{{ $row->logo_path }}" alt="{{ $row->name }} Logo" class="loading"
                         data-was-processed="true">
                     </span>
                     <p>{{ $row->name }}<i class="fa fa-angle-right"></i></p>
