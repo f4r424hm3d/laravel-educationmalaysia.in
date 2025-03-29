@@ -95,7 +95,7 @@ class SitemapController extends Controller
   public function sitemapCoursesInMalaysia()
   {
     $utf = '<?xml version="1.0" encoding="UTF-8"?>';
-    $levels = UniversityProgram::select('level', 'updated_at')->groupBy('level')->get();
+    $levels = UniversityProgram::select('level', 'updated_at')->groupBy('level')->whereNotNull('level')->where('level', '!=', '')->get();
     $categories = CourseCategory::whereHas('programs')->select('slug', 'updated_at')->orderBy('name')->get();
     $specializations = CourseSpecialization::whereHas('programs')->select('slug', 'updated_at')->orderBy('name')->get();
     $data = compact('utf', 'levels', 'categories', 'specializations');

@@ -81,7 +81,7 @@
                   <div class="header">
                     <div class="divv">
                       <div class="imgdiv">
-                        <img src="{{ asset($row->imgpath) }}" alt="{{ $row->name }}" class="img-fluid">
+                        <img src="{{ asset($row->logo_path) }}" alt="{{ $row->name }}" class="img-fluid">
                       </div>
                     </div>
                     <div>
