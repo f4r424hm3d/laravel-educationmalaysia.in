@@ -22,24 +22,12 @@
   <!-- Breadcrumb -->
 
   <!-- Content -->
-  <section class="reveiew-section" >
+  <section class="reveiew-section">
     <div class="container">
 
       <div class="row">
 
         <div class="col-lg-12 col-md-12">
-          @if (session()->has('smsg'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-              {{ session()->get('smsg') }}
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-          @endif
-          @if (session()->has('emsg'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              {{ session()->get('emsg') }}
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-          @endif
 
           <div class="prc_wrap">
             <div class="prc_wrap_header">
@@ -55,6 +43,16 @@
 
           <div class="prc_wrap bg-light">
             <div class="prc_wrap-body">
+              @if (session()->has('smsg'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  {{ session()->get('smsg') }}
+                </div>
+              @endif
+              @if (session()->has('emsg'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  {{ session()->get('emsg') }}
+                </div>
+              @endif
 
               <h4 class="mt-2">Rate the University - <span class="theme-cl">SUBMIT YOUR REVIEW</span></h4>
               <p>Your email address will not be published. Required fields are marked<span class="theme-cl">*</span></p>
@@ -68,12 +66,11 @@
                       <div class="input-group">
                         <div class="input-icon"><span class="ti-user"></span></div>
                         <input name="name" type="text" class="form-control b-0 pl-0" placeholder="Enter your name"
-                          value="{{ old('name') }}" required="">
-                        <span class="text-danger">
-                          @error('nationality')
-                            {{ $message }}
-                          @enderror
-                        </span>
+                          value="{{ old('name') }}">
+
+                        @error('name')
+                          <span class="text-danger">{{ $message }}</span>
+                        @enderror
                       </div>
                     </div>
                   </div>
@@ -84,12 +81,10 @@
                       <div class="input-group">
                         <div class="input-icon"><span class="ti-email"></span></div>
                         <input name="email" type="email" class="form-control b-0 pl-0" placeholder="Enter your email"
-                          value="{{ old('name') }}" required="">
-                        <span class="text-danger">
-                          @error('email')
-                            {{ $message }}
-                          @enderror
-                        </span>
+                          value="{{ old('email') }}">
+                        @error('email')
+                          <span class="text-danger">{{ $message }}</span>
+                        @enderror
                       </div>
                     </div>
                   </div>
@@ -101,11 +96,9 @@
                         <div class="input-icon"><span class="ti-mobile"></span></div>
                         <input name="mobile" type="number" class="form-control b-0 pl-0"
                           placeholder="Enter your mobile no." value="{{ old('mobile') }}" required="">
-                        <span class="text-danger">
-                          @error('mobile')
-                            {{ $message }}
-                          @enderror
-                        </span>
+                        @error('mobile')
+                          <span class="text-danger">{{ $message }}</span>
+                        @enderror
                       </div>
                     </div>
                   </div>
@@ -117,11 +110,15 @@
                         <option value="">Select University</option>
                         @foreach ($universities as $row)
                           <option value="{{ $row->id }}"
-                            {{ old('university') && old('university') == $row->id ? 'Selected' : '' }}>
+                            {{ old('university') && old('university') == $row->id ? 'Selected' : '' }}
+                            {{ request('university') == $row->id ? 'selected' : '' }}>
                             {{ $row->name }}
                           </option>
                         @endforeach
                       </select>
+                      @error('university')
+                        <span class="text-danger">{{ $message }}</span>
+                      @enderror
                     </div>
                   </div>
 
@@ -131,6 +128,9 @@
                       <select id="program" name="program" class="form-control">
                         <option value="">Select Program</option>
                       </select>
+                      @error('program')
+                        <span class="text-danger">{{ $message }}</span>
+                      @enderror
                     </div>
                   </div>
 
@@ -146,6 +146,9 @@
                           </option>
                         @endfor
                       </select>
+                      @error('passing_year')
+                        <span class="text-danger">{{ $message }}</span>
+                      @enderror
                     </div>
                   </div>
 
@@ -162,6 +165,9 @@
                           value="{{ old('review_title') }}" required="">
                       </div>
                     </div>
+                    @error('review_title')
+                      <span class="text-danger">{{ $message }}</span>
+                    @enderror
                   </div>
 
                   <div class="col-lg-12 col-md-12">
@@ -175,6 +181,9 @@
                         <textarea name="description" id="description" type="text" class="form-control b-0 pl-0"
                           placeholder="Share your experience at this institution from the time you first enrolled to its various course subjects, student lifestyle, teaching and facilities."
                           style="height:100px; padding-top:17px">{{ old('description') }}</textarea>
+                        @error('description')
+                          <span class="text-danger">{{ $message }}</span>
+                        @enderror
                       </div>
                       <div class="star-rating my-4">
                         @for ($i = 1; $i <= 5; $i++)
@@ -185,6 +194,9 @@
                           </label>
                         @endfor
                       </div>
+                      @error('rating')
+                        <span class="text-danger">{{ $message }}</span>
+                      @enderror
                     </div>
                   </div>
                 </div>

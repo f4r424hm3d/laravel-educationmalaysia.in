@@ -15,7 +15,7 @@
             <div class="carousel-inner">
               @if ($students->count() > 0)
                 <div class="carousel-item active">
-                  <div class="say-h2"> What our users say ?</div>
+                  <div class="say-h2"> What our Students say ?</div>
                   <div class="overflows mx-5">
                     <div class="row">
                       @foreach ($students as $row)
