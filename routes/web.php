@@ -820,6 +820,7 @@ Route::post('add-review', [ReviewFc::class, 'addReview'])->name('add.review');
 Route::get('reviews/get-programs', [ReviewFc::class, 'getProgramsByUniversity'])->name('review.get.programs');
 
 Route::get('what-people-say', [HomeFc::class, 'whatPeopleSay'])->name('wps');
+Route::post('testimonial/add', [HomeFc::class, 'addTestimonial'])->name('testimonial.add');
 Route::get('who-we-are', [HomeFc::class, 'whoWeAre'])->name('wwa');
 Route::get('contact-us', [ContactFc::class, 'index'])->name('contact');
 

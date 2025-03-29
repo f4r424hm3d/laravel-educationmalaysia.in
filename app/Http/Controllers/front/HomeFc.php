@@ -4,6 +4,7 @@ namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\Country;
 use App\Models\CourseCategory;
 use App\Models\CourseSpecialization;
 use App\Models\Destination;
@@ -80,7 +81,12 @@ class HomeFc extends Controller
   }
   public function whatPeopleSay(Request $request)
   {
-    return view('front.what-people-say');
+    $students = Testimonial::where('status', true)->where('user_type', 'student')->get();
+    $guardians = Testimonial::where('status', true)->where('user_type', 'guardian')->get();
+    $universities = Testimonial::where('status', true)->where('user_type', 'university')->get();
+    $countries = Country::all();
+    $data = compact('countries', 'students', 'guardians', 'universities');
+    return view('front.what-people-say')->with($data);
   }
   public function SelectLevel(Request $request)
   {
@@ -107,5 +113,25 @@ class HomeFc extends Controller
     //printArray($pageContent);
     $data = compact('pageContent', 'categories', 'level');
     return view('front.courses')->with($data);
+  }
+  public function addTestimonial(Request $request)
+  {
+    // Validate input data
+    $validatedData = $request->validate([
+      'name' => 'required|string|regex:/^[a-zA-Z\s]+$/u|max:255',
+      'email' => 'required|email|max:255|unique:testimonials,email',
+      'user_type' => 'required|in:Student,Guardian,University',
+      'country' => 'required|string|max:255',
+      'review' => 'required|string|regex:/^[a-zA-Z0-9\s]+$/u|min:10',
+    ]);
+
+    // Prevent XSS by stripping HTML tags
+    $validatedData['name'] = strip_tags($validatedData['name']);
+    $validatedData['review'] = strip_tags($validatedData['review']);
+
+    // Create and store the testimonial
+    Testimonial::create($validatedData);
+
+    return redirect()->back()->with('success', 'Testimonial submitted successfully!');
   }
 }
