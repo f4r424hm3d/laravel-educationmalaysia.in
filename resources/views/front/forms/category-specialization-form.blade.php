@@ -8,15 +8,13 @@
     <span id="emsg">{{ session()->get('emsg') }}</span>
   </div>
 @endif
+
 <div class="single_widgets widget_category">
   <h5 class="title text-center">Get in touch</h5>
   <div class="row align-items-center booking p-0">
-    @error('g-recaptcha-response')
-      <span class="text-danger">{{ $message }}</span>
-    @enderror
     <form action="{{ route('stream.inquiry') }}" method="post" class="p-3" id="enquiry-form">
       @csrf
-      @if (Request::segment(1) == 'stream')
+      @if (Request::segment(1) == 'specialization')
         <input type="hidden" name="source" value="Education Malaysia - Specialization Page">
       @endif
       @if (Request::segment(1) == 'course')
@@ -30,8 +28,8 @@
         <div class="col-12">
           <div class="form-group">
             <label for="name">Name</label>
-            <input placeholder="Name" type="text" name="name" id="name" value="{{ old('name') }}" class="form-control"
-              pattern="[a-zA-Z\s]+" required>
+            <input placeholder="Name" type="text" name="name" id="name" value="{{ old('name') }}"
+              class="form-control" pattern="[a-zA-Z\s]+" required>
             @error('name')
               <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -44,8 +42,8 @@
         <div class="col-12">
           <div class="form-group">
             <label for="email">Email</label>
-            <input  placeholder="Email" type="email" class="form-control" name="email" id="email" value="{{ old('email') }}"
-              required>
+            <input placeholder="Email" type="email" class="form-control" name="email" id="email"
+              value="{{ old('email') }}" required>
             @error('email')
               <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -127,10 +125,10 @@
 
       <!-- Captcha Field -->
       <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="col-lg-12 col-md-12 col-sm-12">
           <input type="text" placeholder="Captcha: {{ $captcha['text'] }} =" class="form-control" disabled readonly>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="col-lg-12 col-md-12 col-sm-12">
           <input type="text" id="captcha" placeholder="Enter the Captcha Code" class="form-control"
             name="captcha_answer" required>
         </div>
