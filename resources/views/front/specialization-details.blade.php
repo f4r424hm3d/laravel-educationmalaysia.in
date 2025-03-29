@@ -250,7 +250,7 @@
                 <div class="learnup-list">
                   <div class="learnup-list-thumb">
                     <a href="{{ route('university.overview', ['university_slug' => $row->uname]) }}">
-                      <img data-src="{{ asset($row->imgpath) }}" class="img-fluid" alt="{{ $row->name }}">
+                      <img data-src="{{ asset($row->logo_path) }}" class="img-fluid" alt="{{ $row->name }}">
                     </a>
                   </div>
                   <div class="learnup-list-caption">
