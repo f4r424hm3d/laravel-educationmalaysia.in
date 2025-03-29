@@ -105,7 +105,7 @@ class InquiryController extends Controller
         'mobile' => 'required|numeric',
         'email' => 'required|email',
         'nationality' => 'required',
-        'interested_program' => 'required',
+        // 'interested_program' => 'required',
       ]
     );
     $field = new Lead();
@@ -116,8 +116,8 @@ class InquiryController extends Controller
     $field->source = $request['source'];
     $field->source_path = $request['source_path'];
     $field->nationality = $request['nationality'];
-    $field->interested_program = $request->interested_program;
-    $field->intrested_subject = $request->interested_program;
+    // $field->interested_program = $request->interested_program;
+    // $field->intrested_subject = $request->interested_program;
     $field->website = site_var;
     $field->save();
     AsignedLead::autoAssign($field->id);
@@ -133,7 +133,7 @@ class InquiryController extends Controller
       'nationality' => $request['nationality'] ?? null,
       'university' => null,
       'program' => $request->interested_program ?? null,
-      'interest' => $request->interested_program,
+      'interest' => $request->interested_program ?? null,
     ];
     $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'We have Received Your Request – Expect a Response Soon'];
 

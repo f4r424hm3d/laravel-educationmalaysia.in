@@ -103,11 +103,11 @@
       </div>
 
       <!-- Interested Program Field -->
-      <div class="row">
+      {{-- <div class="row">
         <div class="col-12">
           <div class="form-group">
             <label for="interested_program">Select Interested Program</label>
-            <select class="form-control" name="interested_program" id="interested_program" required>
+            <select class="form-control" name="interested_program" id="interested_program" >
               <option value="">Select Interested Program</option>
               @foreach ($programs as $row)
                 <option value="{{ $row->course_name }}"
@@ -121,7 +121,7 @@
             @enderror
           </div>
         </div>
-      </div>
+      </div> --}}
 
       <!-- Captcha Field -->
       <div class="row">
