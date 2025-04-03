@@ -62,6 +62,13 @@ class SitemapController extends Controller
     $data = compact('utf', 'universities');
     return response()->view('sm.university', $data)->header('Content-Type', 'application/xml; charset=utf-8');
   }
+  public function universityProgram(Request $request)
+  {
+    $utf = '<?xml version="1.0" encoding="UTF-8"?>';
+    $rows = UniversityProgram::where('status', 1)->get();
+    $data = compact('utf', 'rows');
+    return response()->view('sm.university-program', $data)->header('Content-Type', 'application/xml; charset=utf-8');
+  }
   public function specialization(Request $request)
   {
     $utf = '<?xml version="1.0" encoding="UTF-8"?>';

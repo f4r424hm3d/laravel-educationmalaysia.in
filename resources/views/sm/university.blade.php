@@ -40,14 +40,6 @@
         <changefreq>always</changefreq>
         <priority>0.5</priority>
       </url>
-      @foreach ($row->programs as $program)
-        <url>
-          <loc>{{ url('university/' . $row->uname . '/course/' . $program->slug) }}</loc>
-          <lastmod>{{ $row->updated_at->format('Y-m-d') }}</lastmod>
-          <changefreq>always</changefreq>
-          <priority>0.5</priority>
-        </url>
-      @endforeach
     @endif
   @endforeach
 </urlset>

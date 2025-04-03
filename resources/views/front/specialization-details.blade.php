@@ -123,7 +123,7 @@
                 </div>
                 <br>
                 <div>
-                  @if ($relatedUniversities)
+                  @if ($relatedUniversities->count() > 0)
                     <div>
                       <h2>List of {{ $specialization->name }} Universities in Malaysia with courses</h2>
                       @foreach ($relatedUniversities as $row)
@@ -183,8 +183,9 @@
                       @endforeach
                     </div>
                     <div class="text-center mb-4">
-                      <a href="{{ url($specialization->slug . '-courses') }}" class="btn  btn-primary">
-                        Browse All Courses</a>
+                      <a href="{{ url($specialization->slug . '-courses') }}" class="btn btn-primary" rel="nofollow">
+                        Browse All Courses
+                      </a>
                     </div>
                   @endif
                 </div>
