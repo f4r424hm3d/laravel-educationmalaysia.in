@@ -202,7 +202,7 @@
             <div class="row">
               <div class="col-12 col-sm-5 col-md-5">
                 <div class="all-blues">
-                  <img src=" {{ cdn('/assets/images/scholorship-malysia.webp') }}" alt="">
+                  <img src=" {{ cdn('/assets/images/scholorship-malysia.webp') }}" alt="Scholarship Malaysia Image">
                 </div>
               </div>
               <div class="col-12 col-sm-7 col-md-7">
