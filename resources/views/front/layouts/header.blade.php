@@ -29,32 +29,6 @@
   <script src="{{ cdn('front/assets/js/jquery.min.js') }}"></script>
   <script src="{{ cdn('front/assets/js/sweetalert2@11.js') }}" defer></script>
 
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-WP578P4K');
-  </script>
-  <!-- End Google Tag Manager -->
-  <style>
-    .hide-this {
-      display: none;
-    }
-  </style>
-
-  <!-- Favicons-->
-  @stack('breadcrumb_schema')
   <style>
     .hide-this {
       display: none;
@@ -91,6 +65,43 @@
       color: #ffffff
     }
   </style>
+  @stack('breadcrumb_schema')
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "EducationMalaysia",
+        "url": "https://www.educationmalaysia.in/",
+        "logo": "https://www.educationmalaysia.in/assets/web/images/education-malaysia-new-logo.png",
+        "image": "https://www.educationmalaysia.in/assets/web/images/education-malaysia-new-logo.png",
+        "sameAs": ["https://www.facebook.com/educationmalaysia.in", "https://www.pinterest.com/educationmalaysiain/",
+            "https://twitter.com/educatemalaysia/", "https://www.instagram.com/educationmalaysia.in/", "https://www.quora.com/profile/Education-Malaysia-3", "https://www.linkedin.com/company/educationmalaysia/", "https://www.youtube.com/channel/UCK7S9yvQnx08CgcDMMfYAyg"
+        ],
+        "contactPoint": [{
+            "@type": "ContactPoint",
+            "telephone": "+91 9818560331",
+            "contactType": "customer support"
+        }]
+    }
+  </script>
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WP578P4K');
+  </script>
+  <!-- End Google Tag Manager -->
 </head>
 
 <body class="red-skin">
