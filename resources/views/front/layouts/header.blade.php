@@ -26,7 +26,7 @@
   <link rel="preload" href="{{ cdn('front/assets/css/colors.css') }}" as="style"
     onload="this.onload=null;this.rel='stylesheet'">
 
-  <script src="{{ cdn('front/assets/js/jquery.min.js') }}" defer></script>
+  <script src="{{ cdn('front/assets/js/jquery.min.js') }}"></script>
   <script src="{{ cdn('front/assets/js/sweetalert2@11.js') }}" defer></script>
 
   <!-- Google Tag Manager -->
