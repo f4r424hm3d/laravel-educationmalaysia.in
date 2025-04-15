@@ -376,9 +376,6 @@ class StudentLoginFc extends Controller
     }
   }
 
-
-
-
   public function sendMail()
   {
     $emaildata = ['name' => 'Mohd Faraz', 'otp' => '1278'];

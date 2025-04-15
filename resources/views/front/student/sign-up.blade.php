@@ -15,47 +15,11 @@
         <div class="row justify-content-center">
           <div class="col-lg-12 col-md-12">
             <div class="row no-gutters position-relative log_rads">
-              <!-- <div class="d-none d-md-block col-lg-6 col-md-5 bg-cover"
-                style="background:#1f2431 url({{ url('/front/') }}/assets/img/log.png)no-repeat;">
-                <div class="lui_9okt6">
-                  <div class="_loh_revu97">
-                    <div id="reviews-login">
-                      <div class="_loh_r96">
-                        <div class="_bloi_quote"><i class="fa fa-quote-left"></i></div>
-                        <div class="_loh_r92">
-                          <h4>Good Services</h4>
-                        </div>
-                        <div class="_loh_r93">
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                        </div>
-                        <div class="_loh_foot_r93">
-                          <h4>Shilpa D. Setty</h4>
-                          <span>Team Leader</span>
-                        </div>
-                      </div>
-                      <div class="_loh_r96">
-                        <div class="_bloi_quote"><i class="fa fa-quote-left"></i></div>
-                        <div class="_loh_r92">
-                          <h4>Good Services</h4>
-                        </div>
-                        <div class="_loh_r93">
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                        </div>
-                        <div class="_loh_foot_r93">
-                          <h4>Adam Wilsom</h4>
-                          <span>Mak Founder</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-              <div class="d-none d-lg-block col-lg-6 col-xl-6 col-md-5">
-            <img src="/assets/images/singup.jpg" class="singups" alt="">
 
-            </div>     
+              <div class="d-none d-lg-block col-lg-6 col-xl-6 col-md-5">
+                <img src="/assets/images/singup.jpg" class="singups" alt="">
+
+              </div>
               <div class="col-lg-6 col-xl-6 col-md-12 position-static p-2 sign-froms">
                 @if (session()->has('smsg'))
                   <div class="alert alert-success alert-dismissable">
@@ -96,8 +60,8 @@
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-icon"><span class="ti-email"></span></div>
-                        <input name="email" type="email" class="form-control "
-                          placeholder="Enter Your Email Id" value="{{ old('email') }}" required="">
+                        <input name="email" type="email" class="form-control " placeholder="Enter Your Email Id"
+                          value="{{ old('email') }}" required="">
                       </div>
                       <span class="text-danger">
                         @error('email')
@@ -216,11 +180,11 @@
                       </span>
                     </div>
                     <div class="form-group">
-                     
+
                       <div class="input-group">
                         <div class="input-icon"><span class="ti-captcha_answer">
-                        <label for="captcha_question">{{ $question['text'] }}</label>
-                        </span></div>
+                            <label for="captcha_question">{{ $question['text'] }}</label>
+                          </span></div>
                         <input type="number" name="captcha_answer" class="form-control"
                           placeholder="Enter Captcha Value" required="">
                       </div>

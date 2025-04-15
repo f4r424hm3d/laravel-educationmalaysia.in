@@ -84,7 +84,7 @@
           <div class="indin-office">
             <span class="Head-indian"> Malaysia Office</span>
             <p>8, Jalan Tun Sambanthan, Wilayah Persekutuan Kuala Lumpur Malaysia 50470</p>
-            <p>Phone: <a href="tel:+919818560331">+60 11 1778 4424</a></p>
+            <p>Phone: <a href="tel:+60176472057">+60 176472057</a></p>
 
           </div>
         </div>
@@ -138,7 +138,6 @@
       <span id="back2Top" class="top-scroll" title="Back to top"><i class="ti-arrow-up"></i></span>
     </div>
     <!-- All Js -->
-    <script src="{{ cdn('front/assets/js/jquery.min.js') }}"></script>
     <script src="{{ cdn('front/assets/js/popper.min.js') }}"></script>
     <script src="{{ cdn('front/assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ cdn('front/assets/js/select2.min.js') }}"></script>
@@ -149,7 +148,10 @@
     <script>
       $('#side-menu').metisMenu();
     </script>
-    <script src="{{ cdn('front/assets/js/metisMenu.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/metisMenu.min.js') }}"></script><!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- Include jQuery and Slick Carousel libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
     <!-- Zoom -->
     <link rel="preload" href="{{ cdn('front/assets/fancybox/jquery.fancybox.min.css') }}" as="style"
@@ -300,10 +302,6 @@
 
       </div>
     </div>
-
-    <!-- Include jQuery and Slick Carousel libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
     <!-- Initialize Slick Carousel -->
     <script>
@@ -505,11 +503,6 @@
     </script>
 
     <!-- jQuery -->
-
-    <!-- Owl Carousel JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
-    <!-- owl-carousel end  -->
 
     </body>
 

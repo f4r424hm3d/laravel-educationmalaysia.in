@@ -895,6 +895,7 @@ Route::prefix('/inquiry')->group(function () {
   Route::post('/inquiry/simple-form', [InquiryController::class, 'simpleForm'])->name('simple.inquiry');
 
   Route::post('/inquiry/brochure-request', [InquiryController::class, 'brochureRequest'])->name('brochure.inquiry');
+  Route::post('/inquiry/modal-form', [InquiryController::class, 'modalForm'])->name('modal.submit');
 });
 
 Route::get('/articles', [BlogFc::class, 'index']);

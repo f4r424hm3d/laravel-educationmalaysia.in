@@ -10,10 +10,15 @@ use App\Models\Student;
 use App\Models\University;
 use App\Models\UniversityBrochure;
 use App\Rules\MathCaptchaValidationRule;
+use App\Rules\MathCaptchaValidationRuleModal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Validation\Rule;
 
 class InquiryController extends Controller
 {
@@ -338,5 +343,57 @@ class InquiryController extends Controller
     );
 
     return response()->json(['success' => true, 'message' => 'Your inquiry has been submitted succesfully. We will contact you soon.']);
+  }
+  public function modalForm(Request $request)
+  {
+    // printArray($request->all());
+    // die;
+    $seg1 = $request['return_to'] != null ? 'return_to=' . $request['return_to'] : null;
+    $otp = rand(1000, 9999);
+    $otp_expire_at = date("YmdHis", strtotime("+15 minutes"));
+    // Validate and store data
+    $data = $request->validate([
+      'name' => 'required|regex:/^[a-zA-Z ]*$/',
+      'email' => 'required|email:rfc,dns|unique:leads,email',
+      'country_code' => 'required|numeric|digits_between:1,5',
+      'mobile' => 'required|numeric|digits_between:9,12',
+      'country' => 'required',
+      'highest_qualification' => 'required',
+      'intrested_program' => 'required',
+    ]);
+
+    $field = new Lead();
+    $field->name = $request['name'];
+    $field->email = $request['email'];
+    $field->c_code = $request['country_code'];
+    $field->mobile = $request['mobile'];
+    $field->country = $request['country'];
+    $field->highest_qualification = $request['highest_qualification'];
+    $field->source = 'Education Malaysia - Modal Form';
+    $field->source_path = $request['source_path'];
+    $field->website = site_var;
+    $field->otp = $otp;
+    $field->otp_expire_at = $otp_expire_at;
+    $field->status = 0;
+    $field->save();
+    AsignedLead::autoAssign($field->id);
+
+    session()->flash('smsg', 'An OTP has been send to your registered email address.');
+    $request->session()->put('last_id', $field->id);
+
+    $emaildata = ['name' => $request['name'], 'otp' => $otp];
+    $dd = ['to' => $request['email'], 'to_name' => $request['name'], 'subject' => 'OTP'];
+
+    Mail::send(
+      'mails.send-otp',
+      $emaildata,
+      function ($message) use ($dd) {
+        $message->to($dd['to'], $dd['to_name']);
+        $message->subject('OTP');
+        $message->priority(1);
+      }
+    );
+
+    return response()->json(['success' => true, 'seg' => $seg1]);
   }
 }
