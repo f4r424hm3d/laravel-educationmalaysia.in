@@ -1,26 +1,3 @@
-@php
-  use App\Models\Exam;
-  use App\Models\Country;
-  use App\Models\SitePage;
-  use App\Models\Level;
-  use App\Models\CourseCategory;
-  $exams = Exam::where('hview', 1)
-      ->where('website', site_var)
-      ->inRandomOrder()
-      ->limit(4)
-      ->get();
-  $sitePages = SitePage::where('hview', 1)->inRandomOrder()->limit(4)->get();
-  $phonecodesSF = Country::select('phonecode', 'name')
-      ->where('phonecode', '!=', '0')
-      ->orderBy('phonecode', 'asc')
-      ->get();
-  $countriesSF = Country::orderBy('name', 'asc')->get();
-  $levels = Level::groupBy('level')->orderBy('level', 'ASC')->get();
-  $course_categories = CourseCategory::orderBy('name', 'asc')->get();
-
-  $modalCaptcha = generateMathQuestion();
-  session(['modal_captcha_answer' => $modalCaptcha['answer']]);
-@endphp
 <!DOCTYPE html>
 <html lang="en">
 

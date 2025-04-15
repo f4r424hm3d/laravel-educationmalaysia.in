@@ -1,6 +1,7 @@
 <?php
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Config;
 
 define('TO_EMAIL', 'studytutelage@gmail.com');
 define('TO_NAME', 'Team tutelage Study');
