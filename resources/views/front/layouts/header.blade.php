@@ -197,9 +197,6 @@
       </div>
     </nav>
 
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     <!-- Modal -->
     <div class="modal all-malaysia fade" id="exampleModalCenter" tabindex="-1" role="dialog"
       aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -326,14 +323,10 @@
       </div>
     </div>
     <script>
-      // Optional: manually open for testing
-      //openModal();
-      // Define the function first
       function openModal() {
         $('#exampleModalCenter').modal('show');
       }
-      //alert('test');
-      //$('#exampleModalCenter').modal('show');
+
       const studentLoggedIn = {{ session()->has('studentLoggedIn') ? 'true' : 'false' }};
       const excludedPaths = [
         '/sign-in',
