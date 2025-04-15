@@ -148,10 +148,8 @@
     <script>
       $('#side-menu').metisMenu();
     </script>
-    <script src="{{ cdn('front/assets/js/metisMenu.min.js') }}"></script><!-- Owl Carousel JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <!-- Include jQuery and Slick Carousel libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="{{ cdn('front/assets/js/metisMenu.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/owl.carousel.min.js') }}"></script>
 
     <!-- Zoom -->
     <link rel="preload" href="{{ cdn('front/assets/fancybox/jquery.fancybox.min.css') }}" as="style"
