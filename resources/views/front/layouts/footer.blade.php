@@ -138,18 +138,19 @@
       <span id="back2Top" class="top-scroll" title="Back to top"><i class="ti-arrow-up"></i></span>
     </div>
     <!-- All Js -->
-    <script src="{{ cdn('front/assets/js/popper.min.js') }}"></script>
-    <script src="{{ cdn('front/assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ cdn('front/assets/js/select2.min.js') }}"></script>
-    <script src="{{ cdn('front/assets/js/slick.js') }}"></script>
-    <script src="{{ cdn('front/assets/js/jquery.counterup.min.js') }}"></script>
-    <script src="{{ cdn('front/assets/js/counterup.min.js') }}"></script>
-    <script src="{{ cdn('front/assets/js/custom.js') }}"></script>
-    <script>
-      $('#side-menu').metisMenu();
+    <script src="{{ cdn('front/assets/js/popper.min.js') }}" defer></script>
+    <script src="{{ cdn('front/assets/js/bootstrap.min.js') }}" defer></script>
+    <script src="{{ cdn('front/assets/js/select2.min.js') }}" defer></script>
+    <script src="{{ cdn('front/assets/js/slick.js') }}" defer></script>
+    <script src="{{ cdn('front/assets/js/counterup.min.js') }}" defer></script>
+    <script src="{{ cdn('front/assets/js/custom.js') }}" defer></script>
+    <script src="{{ cdn('front/assets/js/metisMenu.min.js') }}" defer></script>
+    <script src="{{ cdn('front/assets/js/owl.carousel.min.js') }}" defer></script>
+    <script defer>
+      window.addEventListener('DOMContentLoaded', function() {
+        $('#side-menu').metisMenu();
+      });
     </script>
-    <script src="{{ cdn('front/assets/js/metisMenu.min.js') }}"></script>
-    <script src="{{ cdn('front/assets/js/owl.carousel.min.js') }}"></script>
 
     <!-- Zoom -->
     <link rel="preload" href="{{ cdn('front/assets/fancybox/jquery.fancybox.min.css') }}" as="style"
