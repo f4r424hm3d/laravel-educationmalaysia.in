@@ -50,7 +50,7 @@ class InquiryController extends Controller
     $field->university_id = $university->id;
     $field->intrested_university = $university->name;
     $field->interested_program = $request->interested_program;
-    $field->intrested_subject = $request->interested_program;
+    $field->interested_course_category = $request->interested_program;
     $field->website = site_var;
     $field->save();
 
@@ -122,7 +122,7 @@ class InquiryController extends Controller
     $field->source_path = $request['source_path'];
     $field->nationality = $request['nationality'];
     // $field->interested_program = $request->interested_program;
-    // $field->intrested_subject = $request->interested_program;
+    // $field->interested_course_category = $request->interested_program;
     $field->website = site_var;
     $field->save();
     AsignedLead::autoAssign($field->id);
@@ -245,7 +245,7 @@ class InquiryController extends Controller
       'email' => 'required|email',
       'nationality' => 'required',
       'highest_qualification' => 'required',
-      'intrested_subject' => 'required',
+      'interested_course_category' => 'required',
       'university_id' => 'required',
       'source_path' => 'required',
       'requestfor' => 'required',
@@ -260,7 +260,7 @@ class InquiryController extends Controller
     $university = University::find($request->university_id);
     $levelDetail = Level::where('level', $request['highest_qualification'])->first();
 
-    $brochures = UniversityBrochure::where(['university_id' => $university->id, 'category' => $request->intrested_subject, 'level_id' => $levelDetail->id, 'brochure_type' => $request->requestfor, 'status' => 1])->get();
+    $brochures = UniversityBrochure::where(['university_id' => $university->id, 'category' => $request->interested_course_category, 'level_id' => $levelDetail->id, 'brochure_type' => $request->requestfor, 'status' => 1])->get();
     if ($brochures->count() < 1) {
       $brochure_status = 'Brochure Not Available';
     } else {
@@ -274,7 +274,7 @@ class InquiryController extends Controller
     $field->email = $request['email'];
     $field->nationality = $request['nationality'];
     $field->highest_qualification = $request['highest_qualification'];
-    $field->intrested_subject = $request['intrested_subject'];
+    $field->interested_course_category = $request['interested_course_category'];
     $field->intrested_university = $university->name;
     $field->university_id = $university->id;
     $field->source = $request->requestfor == 'fees' ? 'Education Malaysia - Fees Request' : 'Education Malaysia - Brochure Request';
@@ -370,7 +370,7 @@ class InquiryController extends Controller
     $field->country = $request['country'];
     $field->highest_qualification = $request['highest_qualification'];
     $field->interested_program = $request['interested_program'];
-    $field->intrested_subject = $request['interested_program'];
+    $field->interested_course_category = $request['interested_program'];
     $field->source = 'Education Malaysia - Modal Form';
     $field->source_path = $request['source_path'];
     $field->website = site_var;

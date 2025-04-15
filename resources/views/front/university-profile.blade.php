@@ -287,15 +287,16 @@
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 ">
                       <div class="form-group">
-                        <select name="intrested_subject" id="intrested_subject" class="form-control ">
+                        <select name="interested_course_category" id="interested_course_category"
+                          class="form-control ">
                           <option value="">Intrested Course Category</option>
                           @foreach ($course_categories as $row)
                             <option value="{{ $row->name }}"
-                              {{ old('intrested_subject') && old('intrested_subject') == $row->name ? 'Selected' : '' }}>
+                              {{ old('interested_course_category') && old('interested_course_category') == $row->name ? 'Selected' : '' }}>
                               {{ $row->name }}</option>
                           @endforeach
                         </select>
-                        <span class="text-danger" id="intrested_subject-err"></span>
+                        <span class="text-danger" id="interested_course_category-err"></span>
                       </div>
 
                     </div>

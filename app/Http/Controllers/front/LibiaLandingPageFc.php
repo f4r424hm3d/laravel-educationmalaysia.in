@@ -125,7 +125,7 @@ class LibiaLandingPageFc extends Controller
     $field->c_code = $request['c_code'];
     $field->mobile = $request['mobile'];
     $field->highest_qualification = $request['highest_qualification'];
-    $field->intrested_subject = $request->program;
+    $field->interested_course_category = $request->program;
     $field->interested_program = $request->program;
     $field->nationality = $request['nationality'];
     $field->password = $password;

@@ -58,7 +58,7 @@ class StudentLoginFc extends Controller
         'password' => ['required', 'string', Password::min(8)->mixedCase()->numbers()->symbols()],
         'confirm_password' => 'required|same:password',
         'highest_qualification' => 'required',
-        'intrested_subject' => 'required',
+        'interested_course_category' => 'required',
         'nationality' => 'required'
       ]
     );
@@ -66,7 +66,7 @@ class StudentLoginFc extends Controller
     $field->name = $request['name'];
     $field->email = $request['email'];
     $field->highest_qualification = $request['highest_qualification'];
-    $field->intrested_subject = $request['intrested_subject'];
+    $field->interested_course_category = $request['interested_course_category'];
     $field->nationality = $request['nationality'];
     $field->c_code = $request['c_code'];
     $field->mobile = $request['mobile'];

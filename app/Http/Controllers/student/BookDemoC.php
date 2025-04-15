@@ -65,7 +65,7 @@ class BookDemoC extends Controller
       'c_code' => $request['c_code'],
       'mobile' => $request['mobile'],
       'preferred_destination' => $request['preferred_destination'],
-      'intrested_subject' => $request['degree_planning_to_study'],
+      'interested_course_category' => $request['degree_planning_to_study'],
       'source' => 'Education Malaysia Book Demo',
     ];
 
