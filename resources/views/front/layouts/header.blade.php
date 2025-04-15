@@ -213,7 +213,7 @@
             <div class="row">
               <div class="col-12 col-sm-5 col-md-5">
                 <div class="all-blues">
-                  <img src=" {{ cdn('/assets/images/scholorship-malysia.png') }}" alt="">
+                  <img src=" {{ cdn('/assets/images/scholorship-malysia.webp') }}" alt="">
                 </div>
               </div>
               <div class="col-12 col-sm-7 col-md-7">
@@ -224,7 +224,7 @@
                     <!-- Input Fields -->
                     <div class="col-12">
                       <div class="form-group">
-                        <label for="fullName">Full Name {{ session('modal_captcha_answer') }}</label>
+                        <label for="fullName">Full Name</label>
                         <input type="text" class="form-control" id="fullName" name="name"
                           placeholder="Full Name">
                         <span class="text-danger error-name"></span>
@@ -290,13 +290,13 @@
                     <div class="col-6">
                       <div class="form-group">
                         <label for="program">Interested Program</label>
-                        <select class="form-control" id="program" name="intrested_program">
+                        <select class="form-control" id="program" name="interested_program">
                           <option value="">Select a program</option>
                           @foreach ($course_categories as $row)
                             <option value="{{ $row->name }}">{{ $row->name }}</option>
                           @endforeach
                         </select>
-                        <span class="text-danger error-intrested_program"></span>
+                        <span class="text-danger error-interested_program"></span>
                       </div>
                     </div>
 
@@ -381,7 +381,7 @@
           $('.text-danger').text('');
 
           $.ajax({
-            url: "{{ route('modal.submit') }}/",
+            url: "{{ route('modal.submit') }}",
             method: 'POST',
             data: $(this).serialize(),
             headers: {

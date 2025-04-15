@@ -359,7 +359,7 @@ class InquiryController extends Controller
       'mobile' => 'required|numeric|digits_between:9,12',
       'country' => 'required',
       'highest_qualification' => 'required',
-      'intrested_program' => 'required',
+      'interested_program' => 'required',
     ]);
 
     $field = new Lead();
@@ -369,6 +369,8 @@ class InquiryController extends Controller
     $field->mobile = $request['mobile'];
     $field->country = $request['country'];
     $field->highest_qualification = $request['highest_qualification'];
+    $field->interested_program = $request['interested_program'];
+    $field->intrested_subject = $request['interested_program'];
     $field->source = 'Education Malaysia - Modal Form';
     $field->source_path = $request['source_path'];
     $field->website = site_var;
