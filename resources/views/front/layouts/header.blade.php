@@ -16,7 +16,6 @@
   <link rel="stylesheet" href="{{ cdn('front/assets/css/owl.carousel.min.css') }}">
   <!-- font-awesome  -->
   <link href="{{ cdn('front/assets/css/font-awesome.min.css') }}" rel="stylesheet">
-  <link rel="stylesheet" href="{{ cdn('front/assets/css/owl.theme.default.min.css') }}">
   <link rel="stylesheet" href="{{ cdn('front/assets/css/styles.css') }}">
 
   <link rel="preload" href="{{ cdn('front/assets/css/colors.css') }}" as="style"
