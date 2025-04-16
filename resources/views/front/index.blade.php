@@ -27,29 +27,11 @@
             </div>
           </h3>
         </div>
+
         <div>
           <h3>
             <div class="slidd">
-              <img class="img-fluid" src="{{ cdn('uploads/files/banner1_1741674968.webp') }}" alt="First slide"
-                loading="eager" fetchpriority="high">
-              <div class="slidersshome">
-                <div class="text-center mainsliders">
-                  <h3 class="elh-banner-title">Welcome to the premier platform for academic excellence in
-                    Malaysia!</h3>
-                  <p>
-                    Explore top-tier universities and colleges known for academic excellence and
-                    innovation.
-                  </p>
-                  <a href="{{ route('uim') }}" class="slider-btn">Explore Universities </a>
-                </div>
-              </div>
-            </div>
-          </h3>
-        </div>
-        <div>
-          <h3>
-            <div class="slidd">
-              <img class="img-fluid" src="{{ cdn('uploads/files/banner2_1741675006.webp') }}" alt="First slide"
+              <img class="img-fluid" src="{{ cdn('uploads/files/banner2_1741675006.webp') }}" alt="Second slide"
                 loading="eager" fetchpriority="high">
               <div class="slidersshome">
                 <div class="text-center mainsliders">

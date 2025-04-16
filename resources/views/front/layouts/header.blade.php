@@ -28,7 +28,7 @@
 
   <script src="{{ cdn('front/assets/js/jquery.min.js') }}"></script>
   <script src="{{ cdn('front/assets/js/sweetalert2@11.js') }}" defer></script>
-
+  <!-- In your <head> -->
   <link rel="preload" as="image" href="{{ cdn('uploads/files/banner1_1741674968.webp') }}" type="image/webp">
 
   <style>
