@@ -117,8 +117,9 @@
 
     <nav class="navbar navbar-expand-lg navbar-light main-heddd">
       <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }} " alt="Education Malaysia Education Logo">
-          <img src="{{ cdn('front/assets/img/logo.png') }}" class="logo-max" alt="">
+        <a class="navbar-brand" href="{{ url('/') }}">
+          <img src="{{ cdn('front/assets/img/logo.png') }}" class="logo-max" alt="Education Malaysia Education Logo"
+            width="300" height="100">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
