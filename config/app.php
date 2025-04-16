@@ -123,8 +123,8 @@ return [
     'store' => env('APP_MAINTENANCE_STORE', 'database'),
   ],
 
-  // 'cdn' => array(
-  //   "educationmalaysiaofficial.b-cdn.net" => ""
-  // ),
+  'cdn' => array(
+    "educationmalaysia04.b-cdn.net" => ""
+  ),
 
 ];
