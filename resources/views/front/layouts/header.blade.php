@@ -30,6 +30,7 @@
   <script src="{{ cdn('front/assets/js/sweetalert2@11.js') }}" defer></script>
   <!-- In your <head> -->
   <link rel="preload" as="image" href="{{ cdn('uploads/files/banner1_1741674968.webp') }}" type="image/webp">
+  <link rel="preload" as="image" href="{{ cdn('assets/web/images/em-menu2.webp') }}" type="image/jpeg">
 
   <style>
     .hide-this {
@@ -168,7 +169,8 @@
                     </ul>
                   </div>
                   <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-3 ">
-                    <img src="{{ cdn('assets/web/images/em-menu2.jpg') }}" class="img-fluid" alt="">
+                    <img src="{{ cdn('assets/web/images/em-menu2.webp') }}" class="img-fluid" alt="About us Image"
+                      width="300" height="200">
                   </div>
                 </div>
               </div>
