@@ -93,7 +93,7 @@
           <div class="indin-office">
             <span class="Head-indian">Malaysia Office</span>
             <p>SRIM SOLUTIONS SDN BHD
-Unit 108 & 109 3rd Floor, Wisma RKT No. 2 Jalan Raja Abdullah50300 Kuala Lumpur</p>
+              Unit 108 & 109 3rd Floor, Wisma RKT No. 2 Jalan Raja Abdullah50300 Kuala Lumpur</p>
             <!-- <p>Phone: <a href="tel:+60 012-2245649">+60 012-2245649</a></p> -->
             <p>Phone: <a href="tel:+60 012-2631251">+60 012-2631251</a></p>
 
@@ -138,7 +138,6 @@ Unit 108 & 109 3rd Floor, Wisma RKT No. 2 Jalan Raja Abdullah50300 Kuala Lumpur<
       <span id="back2Top" class="top-scroll" title="Back to top"><i class="ti-arrow-up"></i></span>
     </div>
     <!-- All Js -->
-    <script src="{{ cdn('front/assets/js/jquery.min.js') }}"></script>
     <script src="{{ cdn('front/assets/js/popper.min.js') }}"></script>
     <script src="{{ cdn('front/assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ cdn('front/assets/js/select2.min.js') }}"></script>
@@ -302,7 +301,6 @@ Unit 108 & 109 3rd Floor, Wisma RKT No. 2 Jalan Raja Abdullah50300 Kuala Lumpur<
     </div>
 
     <!-- Include jQuery and Slick Carousel libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
     <!-- Initialize Slick Carousel -->
@@ -354,8 +352,8 @@ Unit 108 & 109 3rd Floor, Wisma RKT No. 2 Jalan Raja Abdullah50300 Kuala Lumpur<
         //   dots: true,
         //   infinite: true,
         //   speed: 500,
-        //   slidesToShow: 1, 
-        //   slidesToScroll: 1, 
+        //   slidesToShow: 1,
+        //   slidesToScroll: 1,
         //   responsive: [{
         //       breakpoint: 1024,
         //       settings: {
