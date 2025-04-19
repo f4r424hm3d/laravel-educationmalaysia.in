@@ -114,7 +114,7 @@
     <nav class="navbar navbar-expand-lg navbar-light main-heddd">
       <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-          <img src="{{ cdn('front/assets/img/logo.png') }}" class="logo-max" alt="Education Malaysia Education Logo">
+          <img src="{{ cdn('front/assets/img/malysia-logo.png') }}" class="logo-max" alt="Education Malaysia Education Logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -134,7 +134,7 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <div class="row mx-auto ">
-                  <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-3 ">
+                  <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-3 ">
                     <div class="b-font"><a href="{{ route('exams') }}">Exams</a></div>
                     <ul class="li_dd">
                       @foreach ($exams as $exam)
@@ -145,7 +145,7 @@
 
                     </ul>
                   </div>
-                  <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-3 ">
+                  <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-3 ">
                     <div class="b-font"><a href="{{ route('services') }}">Services</a></div>
                     <ul class="li_dd">
                       @foreach ($sitePages as $page)
@@ -155,7 +155,7 @@
                       @endforeach
                     </ul>
                   </div>
-                  <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-3 ">
+                  <div class=" col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-3 ">
                     <div class="b-font">About Us</div>
                     <ul class="li_dd">
                       <li><a href="{{ route('wwa') }}">Who we are</a></li>
@@ -164,10 +164,10 @@
                       <li><a href="{{ url('why-study-in-malaysia') }}">Why Study In Malaysia?</a></li>
                     </ul>
                   </div>
-                  <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-3 ">
+                  <!-- <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-3 ">
                     <img src="{{ cdn('assets/web/images/em-menu2.webp') }}" class="img-fluid" alt="About us Image"
                       width="300" height="200">
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </li>

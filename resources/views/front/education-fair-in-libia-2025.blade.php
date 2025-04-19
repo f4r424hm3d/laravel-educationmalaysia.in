@@ -149,7 +149,7 @@
                   <div class="indin-office">
                     <span class="Head-indian">Malaysia Office</span>
                     <p>8, Jalan Tun Sambanthan, Wilayah Persekutuan Kuala Lumpur Malaysia 50470</p>
-                    <p>Phone: +60 11 1778 4424</p>
+                    <p>Phone: +60 176472057</p>
                   </div>
                 </div>
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mt-4">

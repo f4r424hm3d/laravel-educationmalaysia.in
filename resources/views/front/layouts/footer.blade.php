@@ -92,9 +92,9 @@
         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6  mt-4">
           <div class="indin-office">
             <span class="Head-indian">Malaysia Office</span>
-            <p>Malaysian Export Academy Sdn Bhd
-              47B, Jalan BP 7/2, BP Newtown, Bandar Bukit Puchong, 47120 Puchong, Selangor, Malaysia</p>
-            <p>Phone: <a href="tel:+60 012-2245649">+60 012-2245649</a></p>
+            <p>SRIM SOLUTIONS SDN BHD
+Unit 108 & 109 3rd Floor, Wisma RKT No. 2 Jalan Raja Abdullah50300 Kuala Lumpur</p>
+            <!-- <p>Phone: <a href="tel:+60 012-2245649">+60 012-2245649</a></p> -->
             <p>Phone: <a href="tel:+60 012-2631251">+60 012-2631251</a></p>
 
           </div>
@@ -138,19 +138,18 @@
       <span id="back2Top" class="top-scroll" title="Back to top"><i class="ti-arrow-up"></i></span>
     </div>
     <!-- All Js -->
-    <script src="{{ cdn('front/assets/js/popper.min.js') }}" defer></script>
-    <script src="{{ cdn('front/assets/js/bootstrap.min.js') }}" defer></script>
-    <script src="{{ cdn('front/assets/js/select2.min.js') }}" defer></script>
-    <script src="{{ cdn('front/assets/js/slick.js') }}" defer></script>
-    <script src="{{ cdn('front/assets/js/counterup.min.js') }}" defer></script>
-    <script src="{{ cdn('front/assets/js/custom.js') }}" defer></script>
-    <script src="{{ cdn('front/assets/js/metisMenu.min.js') }}" defer></script>
-    <script src="{{ cdn('front/assets/js/owl.carousel.min.js') }}" defer></script>
-    <script defer>
-      window.addEventListener('DOMContentLoaded', function() {
-        $('#side-menu').metisMenu();
-      });
+    <script src="{{ cdn('front/assets/js/jquery.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/popper.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/select2.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/slick.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/counterup.min.js') }}"></script>
+    <script src="{{ cdn('front/assets/js/custom.js') }}"></script>
+    <script>
+      $('#side-menu').metisMenu();
     </script>
+    <script src="{{ cdn('front/assets/js/metisMenu.min.js') }}"></script>
 
     <!-- Zoom -->
     <link rel="preload" href="{{ cdn('front/assets/fancybox/jquery.fancybox.min.css') }}" as="style"
@@ -302,6 +301,10 @@
       </div>
     </div>
 
+    <!-- Include jQuery and Slick Carousel libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
     <!-- Initialize Slick Carousel -->
     <script>
       $(document).ready(function() {
@@ -347,30 +350,30 @@
           ]
         });
 
-        $(".secondheader").slick({
-          dots: true,
-          infinite: true,
-          speed: 500,
-          slidesToShow: 1, // Change based on your preference
-          slidesToScroll: 1, // Change based on your preference
-          responsive: [{
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 2,
-                infinite: true,
-                dots: true
-              }
-            },
-            {
-              breakpoint: 600,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-              }
-            }
-          ]
-        });
+        // $(".secondheader").slick({
+        //   dots: true,
+        //   infinite: true,
+        //   speed: 500,
+        //   slidesToShow: 1, 
+        //   slidesToScroll: 1, 
+        //   responsive: [{
+        //       breakpoint: 1024,
+        //       settings: {
+        //         slidesToShow: 1,
+        //         slidesToScroll: 2,
+        //         infinite: true,
+        //         dots: true
+        //       }
+        //     },
+        //     {
+        //       breakpoint: 600,
+        //       settings: {
+        //         slidesToShow: 1,
+        //         slidesToScroll: 1
+        //       }
+        //     }
+        //   ]
+        // });
 
         $(".serviceitedms").slick({
           dots: true,
@@ -502,6 +505,11 @@
     </script>
 
     <!-- jQuery -->
+
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- owl-carousel end  -->
 
     </body>
 
