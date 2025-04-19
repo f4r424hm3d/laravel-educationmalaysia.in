@@ -17,11 +17,7 @@
 
   <!-- font-awesome  -->
   <link href="{{ cdn('front/assets/css/font-awesome.min.css') }}" rel="stylesheet">
-  <link rel="preload" href="{{ cdn('front/assets/css/styles.css') }}" as="style"
-    onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="{{ cdn('front/assets/css/styles.css') }}">
-  </noscript>
+  <link rel="stylesheet" href="{{ cdn('front/assets/css/styles.css') }}">
 
   <link rel="preload" href="{{ cdn('front/assets/css/colors.css') }}" as="style"
     onload="this.onload=null;this.rel='stylesheet'">
