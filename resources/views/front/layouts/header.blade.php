@@ -191,106 +191,126 @@
     </nav>
 
     <!-- Modal -->
-    <div class="modal all-malaysia fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+    <div class="modal all-malaysia fade" id="modalSignupForm" tabindex="-1" role="dialog"
       aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-center" role="document">
+      <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-
+          <img src="{{ cdn('front/assets/img/malysia-logo.png') }}" class="logo-max"
+            alt="Education Malaysia Education Logo">
           <div class="modal-body">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
+
             <div class="row">
-              <div class="col-12 col-sm-5 col-md-5">
+              <!-- <div class="col-12 col-sm-5 col-md-5">
                 <div class="all-blues">
                   <img src=" {{ cdn('/assets/images/scholorship-malysia.webp') }}" alt="Scholarship Malaysia Image">
                 </div>
-              </div>
-              <div class="col-12 col-sm-7 col-md-7">
+              </div> -->
+              <div class="col-12 col-sm-12 col-md-12">
                 <div class="all-fieldss">
+
+                  <h2 class="malaysiastudys">Malaysia Calling – Up to 100% Scholarships! <span>( Limited Time Only!
+                      )</span></h2>
+
                   <form class="row" id="counsellingForm">
                     <input type="hidden" name="source_path" value="{{ url()->current() }}">
                     <input type="hidden" name="return_to" value="{{ $_GET['return_to'] ?? null }}">
                     <!-- Input Fields -->
-                    <div class="col-12">
+                    <div class="col-12 col-sm-6 col-md-6">
                       <div class="form-group">
-                        <label for="fullName">Full Name</label>
-                        <input type="text" class="form-control" id="fullName" name="name"
-                          placeholder="Full Name">
-                        <span class="text-danger error-name"></span>
-                      </div>
-                    </div>
-
-                    <div class="col-12">
-                      <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" name="email"
-                          placeholder="Email Address">
-                        <span class="text-danger error-email"></span>
-                      </div>
-                    </div>
-
-                    <div class="col-12">
-                      <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <div class="d-flex set-phones">
-                          <select name="country_code" id="country_code" class="form-control">
-                            <option value="">Select</option>
-                            @foreach ($phonecodesSF as $item)
-                              <option value="{{ $item->phonecode }}">{{ $item->phonecode }} ({{ $item->name }})
-                              </option>
-                            @endforeach
-                          </select>
-                          <span class="text-danger error-country_code"></span>
-                          <input type="tel" class="form-control" id="phone" name="mobile"
-                            placeholder="9876543210">
-                          <span class="text-danger error-mobile"></span>
+                        <!-- <label for="fullName">Full Name</label> -->
+                        <div>
+                          <input type="text" class="form-control" id="fullName" name="name"
+                            placeholder="Full Name">
+                          <span class="text-danger error-name span-bs"></span>
                         </div>
+                      </div>
+                    </div>
 
+                    <div class="col-12 col-sm-6 col-md-6">
+                      <div class="form-group">
+                        <!-- <label for="email">Email Address</label> -->
+                        <div>
+                          <input type="email" class="form-control" id="email" name="email"
+                            placeholder="Email Address">
+                          <span class="text-danger error-email span-bs"></span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-6">
+                      <div class="form-group">
+
+                        <!-- <label for="phone">Phone Number</label> -->
+                        <select name="country_code" id="country_code" class="form-control">
+                          <option value="">Country Code</option>
+                          @foreach ($phonecodesSF as $item)
+                            <option value="{{ $item->phonecode }}">{{ $item->phonecode }} ({{ $item->name }})
+                            </option>
+                          @endforeach
+                        </select>
+                        <span class="text-danger error-country_code span-bs"></span>
+                      </div>
+
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6">
+                      <div class="form-group">
+                        <!-- <label for="phone" class="number-ss">Phone Number</label> -->
+                        <input type="tel" class="form-control" id="phone" name="mobile"
+                          placeholder="Mobile Number">
+                        <span class="text-danger error-mobile span-bs"></span>
                       </div>
                     </div>
 
                     <!-- Select Fields -->
-                    <div class="col-6">
+                    <div class="col-12 col-sm-12 col-md-12">
                       <div class="form-group">
-                        <label for="rcountry">Country of Residence</label>
-                        <select class="form-control" id="rcountry" name="country">
-                          <option value="">Select Country</option>
-                          @foreach ($countriesSF as $item)
-                            <option value="{{ $item->name }}">{{ $item->name }}</option>
-                          @endforeach
-                        </select>
-                        <span class="text-danger error-country"></span>
+                        <!-- <label for="rcountry">Country of Residence</label> -->
+                        <div>
+                          <select class="form-control" id="rcountry" name="country">
+                            <option value="">Select Country</option>
+                            @foreach ($countriesSF as $item)
+                              <option value="{{ $item->name }}">{{ $item->name }}</option>
+                            @endforeach
+                          </select>
+                          <span class="text-danger error-country span-bs"></span>
+                        </div>
                       </div>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-12 col-sm-12 col-md-12">
                       <div class="form-group">
-                        <label for="highest_qualification">Highest Qualification</label>
-                        <select class="form-control" id="highest_qualification" name="highest_qualification">
-                          <option value="">Select your qualification</option>
-                          @foreach ($levels as $row)
-                            <option value="{{ $row->level }}">{{ $row->level }}</option>
-                          @endforeach
-                        </select>
-                        <span class="text-danger error-highest_qualification"></span>
+                        <!-- <label for="highest_qualification">Highest Qualification</label> -->
+                        <div>
+                          <select class="form-control" id="highest_qualification" name="highest_qualification">
+                            <option value="">Select your qualification</option>
+                            @foreach ($levels as $row)
+                              <option value="{{ $row->level }}">{{ $row->level }}</option>
+                            @endforeach
+                          </select>
+                          <span class="text-danger error-highest_qualification span-bs"></span>
+                        </div>
                       </div>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-12 col-sm-12 col-md-12">
                       <div class="form-group">
-                        <label for="program">Interested Program</label>
-                        <select class="form-control" id="program" name="interested_program">
-                          <option value="">Select a program</option>
-                          @foreach ($course_categories as $row)
-                            <option value="{{ $row->name }}">{{ $row->name }}</option>
-                          @endforeach
-                        </select>
-                        <span class="text-danger error-interested_program"></span>
+                        <!-- <label for="program">Interested Program</label> -->
+                        <div>
+                          <select class="form-control" id="program" name="interested_program">
+                            <option value="">Select a program</option>
+                            @foreach ($course_categories as $row)
+                              <option value="{{ $row->name }}">{{ $row->name }}</option>
+                            @endforeach
+                          </select>
+                          <span class="text-danger error-interested_program span-bs"></span>
+                        </div>
                       </div>
                     </div>
 
-                    {{-- <div class="col-6">
+                    {{-- <div class="col-12 col-sm-6 col-md-6">
                       <div class="form-group">
                         <label for="intake">Preferred Intake</label>
                         <select class="form-control" id="intake">
@@ -304,7 +324,7 @@
                     </div> --}}
 
                     <div class="col-12">
-                      <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+                      <button type="submit" class="btn btn-primary w-100" id="submitBtn">Submit</button>
                     </div>
                   </form>
                 </div>
@@ -317,7 +337,7 @@
     </div>
     <script>
       function openModal() {
-        $('#exampleModalCenter').modal('show');
+        $('#modalSignupForm').modal('show');
       }
 
       const studentLoggedIn = {{ session()->has('studentLoggedIn') ? 'true' : 'false' }};
@@ -344,14 +364,14 @@
             const lastClosed = localStorage.getItem('enquiry_modal_closed_time');
             if (lastClosed) {
               const diff = Date.now() - parseInt(lastClosed);
-              if (diff > 3 * 1 * 1000) {
+              if (diff > 1 * 1000) {
                 openModal();
               }
             }
           }
         }
 
-        $('#exampleModalCenter').on('hidden.bs.modal', function() {
+        $('#modalSignupForm').on('hidden.bs.modal', function() {
           if (localStorage.getItem(modalKey) !== 'submitted') {
             localStorage.setItem(modalKey, 'closed');
             localStorage.setItem('enquiry_modal_closed_time', Date.now().toString());
