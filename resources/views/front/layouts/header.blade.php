@@ -114,7 +114,8 @@
     <nav class="navbar navbar-expand-lg navbar-light main-heddd">
       <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-          <img src="{{ cdn('front/assets/img/malysia-logo.png') }}" class="logo-max" alt="Education Malaysia Education Logo">
+          <img src="{{ cdn('front/assets/img/malysia-logo.png') }}" class="logo-max"
+            alt="Education Malaysia Education Logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -343,7 +344,7 @@
             const lastClosed = localStorage.getItem('enquiry_modal_closed_time');
             if (lastClosed) {
               const diff = Date.now() - parseInt(lastClosed);
-              if (diff > 1 * 1000) {
+              if (diff > 3 * 1 * 1000) {
                 openModal();
               }
             }
