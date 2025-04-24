@@ -57,7 +57,7 @@
                   confirmButtonText: 'OK'
                 }).then(() => {
                   $('#dataForm')[0].reset(); // Reset the form
-                  $('#exampleModalCenter').hide(); // Close the modal
+                  $('#downloadBrochureModal').hide(); // Close the modal
                 });
               }
             } else {
@@ -145,11 +145,11 @@
 
           <div class="head-btns">
             <a onclick="setSource('brochure')" href="#" class="btn btn-white-t-theme btn-50L" data-toggle="modal"
-              data-target="#exampleModalCenter"><i class="ti-download mr-1"></i>
+              data-target="#downloadBrochureModal"><i class="ti-download mr-1"></i>
               Download
               Brochure</a>
             <a onclick="setSource('fees')" href="#" class="btn btn-white-t-theme btn-50R" data-toggle="modal"
-              data-target="#exampleModalCenter"><i class="ti-user mr-1"></i> Download
+              data-target="#downloadBrochureModal"><i class="ti-user mr-1"></i> Download
               Fees
               Structure</a>
             <a href="{{ route('write.review') }}" class="btn btn-white-t-theme"><i class="ti-pencil-alt mr-1"></i>
@@ -162,7 +162,7 @@
 </section>
 
 <!-- Modal -->
-<div class="modal registration-modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+<div class="modal registration-modal fade" id="downloadBrochureModal" tabindex="-1" role="dialog"
   aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
