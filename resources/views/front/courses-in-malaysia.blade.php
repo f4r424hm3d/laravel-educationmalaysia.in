@@ -152,7 +152,7 @@
                   <!-- Single University -->
 
                   <!-- duplicate new design start   -->
-                  <div class="dashboard_single_course align-items-center d-block">
+                  <div class="dashboard_single_course align-items-center d-block mb-4">
                     <div class="row align-items-center">
                       <div class="col-lg-12 pr-md-0 mb-3">
                         <div class="row align-items-center ">
@@ -173,27 +173,25 @@
                                       {{ $row->university->name }}
                                     </a>
                                   </h4>
-                              
+                                  <div class="d-flex setgap2 align-items-center locationsloc mb-2">
+                                    <i class="ti-location-pin"></i>
+                                    {{ formatLocation($row->university->city, $row->university->state, $row->university->country) }}
+                                  </div>
                                 </div>
 
                               </div>
                             </div>
                             <div class="main-top-malysia">
-                            <div class="top-malysia">
-                                <div class="flex-wrap align-items-center setgap2 block-desktop locationsloc">
-                                <i class="ti-location-pin"></i>
-                                {{ formatLocation($row->university->city, $row->university->state, $row->university->country) }}
-                                </div>
-                              </div>
+                            
                               <div class="top-malysia">
                                 <div class="flex-wrap align-items-center setgap2 block-desktop">
-                                  <!-- <span class="theme-cl ">Institute Type : </span> -->
+                                  <span class="theme-cl ">Institute Type : </span>
                                   <span class="duratinss">{{ $row->university->instituteType->type }} </span>
                                 </div>
                               </div>
                               <div class="top-malysia">
                                 <div class="flex-wrap align-items-center setgap2 block-desktop">
-                                  <!-- <span class="theme-cl">Course : </span> -->
+                                  <span class="theme-cl">Course : </span>
                                   <span class="duratinss"> {{ $row->university->programs->count() ?? 'N/A' }}</span>
 
                                   @if ($row->university->programs->count() > 0)
@@ -206,14 +204,14 @@
                               </div>
                               <div class="top-malysia">
                                 <div class="flex-wrap align-items-center setgap2 block-desktop">
-                                  <!-- <span class="theme-cl">World Ranking : </span> -->
+                                  <span class="theme-cl">World Ranking : </span>
 
                                   <span class="duratinss">{{ $row->university->rank ?? 'N/A' }}</span>
                                 </div>
                               </div>
                               <div class="top-malysia">
                                 <div class="flex-wrap align-items-center setgap2 block-desktop">
-                                  <!-- <span class="theme-cl">Rating : </span> -->
+                                  <span class="theme-cl">Rating : </span>
 
                                   <span class="ratingstar">★★★★★</span>
                                 </div>
@@ -237,17 +235,17 @@
                         </h6>
                         <div class="main-maalysia">
                           <div class="list-malysia">
-                            <div class="flex-wrap align-items-center setgap2">
-                              <!-- <span class="theme-cl">
+                            <div class="flex-wrap align-items-center setgap2 block-desktop">
+                              <span class="theme-cl">
                                 Mode:
-                              </span> -->
+                              </span>
                               <span class="duratinss"> {{ $row->study_mode }}</span>
                             </div>
 
                           </div>
                           <div class="list-malysia">
                             <div class="flex-wrap align-items-center setgap2 block-desktop">
-                              <!-- <span class="theme-cl">Duration:</span>  -->
+                              <span class="theme-cl">Duration:</span> 
                               <span class="duratinss">
                                 {{ $row->duration }}
                               </span>
@@ -256,7 +254,7 @@
                           </div>
                           <div class="list-malysia">
                             <div class="flex-wrap align-items-center setgap2 block-desktop">
-                              <!-- <span class="theme-cl">Intakes:</span> -->
+                              <span class="theme-cl">Intakes:</span>
 
                               <span class="duratinss">
                                 {{ $row->intake }}

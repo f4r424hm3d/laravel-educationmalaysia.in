@@ -113,8 +113,8 @@
 
           <div class="dashboard_container">
             <div class="dashboard_container_body">
-
-              @foreach ($rows as $row)
+<div class="row">
+@foreach ($rows as $row)
                 @php
                   $study_modes = $row->study_mode != null ? json_decode($row->study_mode) : '';
                   $study_modes = $study_modes != null ? implode(', ', $study_modes) : '';
@@ -126,8 +126,10 @@
                   }
                 @endphp
 
-                <!-- Single University -->
-                <div class="dashboard_single_course pl-4 pr-4">
+<div class="col-12 col-sm-6 col-md-6 col-lg-6 mb-4"
+>
+<!-- Single University -->
+<div class="dashboard_single_course">
                   <div class="dashboard_single_course_caption pl-0 mt-0">
 
                     <div class="dashboard_single_course_head">
@@ -135,27 +137,27 @@
                         <h4 class="dashboard_course_title">{{ $row->course_name }}</h4>
                       </div>
                     </div>
-
-                    <div class="row align-items-center">
-                      <div class="col-md-12 mb-4">
-                        <div class="row">
-                          <div class="col-md-3 col-12 mb-3"><span class="theme-cl">Study
+<div class="university-maalysia">
+<div class="row align-items-center">
+                      <div class="col-12 col-sm-12 mb-3">
+                        <div >
+                          <div class="list-universits"><span class="theme-cl"><i class="fa fa-book mr-2" aria-hidden="true"></i>
+                          Study
                               Mode:</span> <span
                               class="theme-rl">{{ $row->study_mode != '' ? $row->study_mode : 'N/A' }}</span> </div>
-                          <div class="col-md-3 col-12 mb-3"><span class="theme-cl">App
+                          <div class="list-universits"><span class="theme-cl"><i class="fa fa-calendar mr-2" aria-hidden="true"></i>
+                          App
                               deadline:</span> <span
                               class="theme-rl">{{ $row->application_deadline != '' ? $row->application_deadline : 'N/A' }}</span>
                           </div>
-                          <div class="col-md-3 col-12 mb-3"><span class="theme-cl">Intakes:</span>
+                          <div class="list-universits"><span class="theme-cl"><i class="fa fa-file-text mr-2" aria-hidden="true"></i>
+                          Intakes:</span>
                             <span class="theme-rl">{{ $row->intake != '' ? $row->intake : 'N/A' }}</span>
                           </div>
                         </div>
                       </div>
-                    </div>
-
-                    <div class="row align-items-center">
-                      <div class="col-md-12 mb-4">
-                        <div class="d-flex set-ggap justify-content-end">
+                      <div class="col-12 col-sm-12">
+                        <div class="d-flex set-ggap justify-content-end courss-added">
                           <a href="{{ route('university.course.details', ['university_slug' => $university->slug, 'course_slug' => $row->slug]) }}"
                             class="card-btn2">
                             View Details
@@ -164,11 +166,20 @@
                         </div>
                       </div>
                     </div>
+</div>
+                   
+
+                   
 
                   </div>
                 </div>
+</div>
+                
               @endforeach
-              {!! $rows->links('pagination::bootstrap-4') !!}
+            
+</div>
+{!! $rows->links('pagination::bootstrap-4') !!}
+
             </div>
           </div>
         </div>
