@@ -175,14 +175,14 @@
                                   </h4>
                                   <div class="d-flex setgap2 align-items-center locationsloc mb-2">
                                     <i class="ti-location-pin"></i>
-                                    {{ formatLocation($row->university->city, $row->university->state, $row->university->country) }}
+                                    {{ $row->university->city }}
                                   </div>
                                 </div>
 
                               </div>
                             </div>
                             <div class="main-top-malysia">
-                            
+
                               <div class="top-malysia">
                                 <div class="flex-wrap align-items-center setgap2 block-desktop">
                                   <span class="theme-cl ">Institute Type : </span>
@@ -220,7 +220,7 @@
                           </div>
                         </div>
                       </div>
-                     
+
                     </div>
 
                     <div class="row align-items-center ">
@@ -245,7 +245,7 @@
                           </div>
                           <div class="list-malysia">
                             <div class="flex-wrap align-items-center setgap2 block-desktop">
-                              <span class="theme-cl">Duration:</span> 
+                              <span class="theme-cl">Duration:</span>
                               <span class="duratinss">
                                 {{ $row->duration }}
                               </span>
@@ -266,149 +266,22 @@
                       </div>
                       <div class="col-lg-4 col-md-4 col-sm-4 col-12 mb-3 ">
 
-                   
-                       <div class="d-flex flex-malysias">
-                       <div class="dc_head_right">
-                          <div class="dropdown ">
-                            {!! UniversityProgramListButton::getApplyButton($row->id) !!}
+                        <div class="d-flex flex-malysias">
+                          <div class="dc_head_right">
+                            <div class="dropdown ">
+                              {!! UniversityProgramListButton::getApplyButton($row->id) !!}
+                            </div>
                           </div>
-                        </div>
-                      
 
-                        <a href="{{ route('university.course.details', ['university_slug' => $row->university->uname, 'course_slug' => $row->slug]) }}"
-                          class="btn btn-outline-primary">View Detail</a>
-                       </div>
+                          <a href="{{ route('university.course.details', ['university_slug' => $row->university->uname, 'course_slug' => $row->slug]) }}"
+                            class="btn btn-outline-primary">View Detail</a>
+                        </div>
                       </div>
                     </div>
                   </div>
-                   <!-- duplicate new design End -->
+                  <!-- duplicate new design End -->
 
-
-                   <!-- old design comment  start -->
-                  <!-- <div class="dashboard_single_course align-items-center d-block">
-                    <div class="row">
-                      <div class="col-lg-10 pr-md-0 mb-3">
-                        <div class="row">
-                          <div class="col-lg-2 col-md-3 col-sm-4 col-12 mb-4">
-                            <div class="divimg">
-                              <img data-src="{{ asset($row->university->imgpath) }}" class="img-fluid"
-                                alt="{{ $row->university->name }} Logo">
-                            </div>
-                          </div>
-
-                          <div class="col-lg-10 col-md-9 col-sm-8 col-12">
-                            <div class="dashboard_single_course_caption ">
-                              <div class="dashboard_single_course_head">
-                                <div class="dashboard_single_course_head_flex mt-0">
-                                  <h4 class="dashboard_course_title mb-2">
-                                    <a
-                                      href="{{ route('university.overview', ['university_slug' => $row->university->uname]) }}">
-                                      {{ $row->university->name }}
-                                    </a>
-                                  </h4>
-                                  <div class="d-flex setgap2 align-items-center locationsloc mb-2">
-                                    <i class="ti-location-pin"></i>
-                                    {{ formatLocation($row->university->city, $row->university->state, $row->university->country) }}
-                                  </div>
-
-                                </div>
-
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-3 col-12 mb-2">
-                                <div class="flex-wrap align-items-center setgap2 block-desktop">
-                                  <span class="theme-cl ">Institute Type : </span>
-                                  <span class="duratinss">{{ $row->university->instituteType->type }} </span>
-                                </div>
-                              </div>
-                              <div class="col-md-3 col-12 mb-2">
-                                <div class="flex-wrap align-items-center setgap2 block-desktop">
-                                  <span class="theme-cl">Course : </span>
-                                  <span class="duratinss"> {{ $row->university->programs->count() ?? 'N/A' }}</span>
-
-                                  @if ($row->university->programs->count() > 0)
-                                    <a href="{{ route('university.courses', ['university_slug' => $row->university->uname]) }}"
-                                      class="new-rbtn">
-                                      <i class="fa fa-graduation-cap"></i> All Programs
-                                    </a>
-                                  @endif
-                                </div>
-                              </div>
-                              <div class="col-md-3 col-12 mb-2">
-                                <div class="flex-wrap align-items-center setgap2 block-desktop">
-                                  <span class="theme-cl">World Ranking : </span>
-
-                                  <span class="duratinss">{{ $row->university->rank ?? 'N/A' }}</span>
-                                </div>
-                              </div>
-                              <div class="col-md-3 col-12 mb-2">
-                                <div class="flex-wrap align-items-center setgap2 block-desktop">
-                                  <span class="theme-cl">Rating : </span>
-
-                                  <span class="ratingstar">★★★★★</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-2 mb-3">
-                        <div class="dc_head_right">
-                          <div class="dropdown">
-                            {!! UniversityProgramListButton::getApplyButton($row->id) !!}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <hr>
-                    <div class="row">
-                      <div class="col-lg-10 col-md-9 col-sm-12 mb-3">
-                        <h6 class="bachlors">
-                          <a class="d-flex align-items-center "
-                            href="{{ route('university.course.details', ['university_slug' => $row->university->uname, 'course_slug' => $row->slug]) }}"
-                            contenteditable="false" style="cursor: pointer;">
-                            <i class="fa fa-hand-point-right mr-1 theme-cl"></i>
-                            {{ $row->course_name }}
-                          </a>
-                        </h6>
-                        <div class="row">
-                          <div class="col-md-4 col-sm-4 col-12 mb-2 ">
-                            <div class="flex-wrap align-items-center setgap2 block-desktop">
-                              <span class="theme-cl">
-                                Mode:</span>{{ $row->study_mode }}
-                            </div>
-
-                          </div>
-                          <div class="col-md-4 col-sm-4 col-12 mb-2 ">
-                            <div class="flex-wrap align-items-center setgap2 block-desktop">
-                              <span class="theme-cl">Duration:</span> <span class="duratinss">
-                                {{ $row->duration }}
-                              </span>
-                            </div>
-
-                          </div>
-                          <div class="col-md-4 col-sm-4 col-12 mb-2">
-                            <div class="flex-wrap align-items-center setgap2 block-desktop">
-                              <span class="theme-cl">Intakes:</span>
-
-                              <span class="duratinss">
-                                {{ $row->intake }}
-                              </span>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-2 col-md-3 col-sm-12 ">
-                        <a href="{{ route('university.course.details', ['university_slug' => $row->university->uname, 'course_slug' => $row->slug]) }}"
-                          class="btn btn-modern2 univ-btn reviews-btn">View Detail</a>
-                      </div>
-                    </div>
-                  </div> -->
-
-                   <!-- old design comment  end -->
+                  <!-- old design comment  end -->
                 @endforeach
               @else
                 <center>No Data Found with your match</center>
@@ -488,9 +361,9 @@
           </div>
         </div>
         <!-- <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Save changes</button>
-                            </div> -->
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                          <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div> -->
       </div>
     </div>
   </div>
