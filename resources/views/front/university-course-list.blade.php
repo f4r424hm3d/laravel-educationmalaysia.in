@@ -113,72 +113,70 @@
 
           <div class="dashboard_container">
             <div class="dashboard_container_body">
-<div class="row">
-@foreach ($rows as $row)
-                @php
-                  $study_modes = $row->study_mode != null ? json_decode($row->study_mode) : '';
-                  $study_modes = $study_modes != null ? implode(', ', $study_modes) : '';
-                  $exams = $row->exam_accepted != null ? json_decode($row->exam_accepted) : '';
-                  $exams = $exams != null ? implode(', ', $exams) : '';
-                  if (session()->has('studentLoggedIn')) {
-                      $where = ['prog_id' => $row->id, 'stdid' => session()->get('student_id')];
-                      $check = StudentApplication::where($where)->first();
-                  }
-                @endphp
+              <div class="row">
+                @foreach ($rows as $row)
+                  @php
+                    $study_modes = $row->study_mode != null ? json_decode($row->study_mode) : '';
+                    $study_modes = $study_modes != null ? implode(', ', $study_modes) : '';
+                    $exams = $row->exam_accepted != null ? json_decode($row->exam_accepted) : '';
+                    $exams = $exams != null ? implode(', ', $exams) : '';
+                    if (session()->has('studentLoggedIn')) {
+                        $where = ['prog_id' => $row->id, 'stdid' => session()->get('student_id')];
+                        $check = StudentApplication::where($where)->first();
+                    }
+                  @endphp
 
-<div class="col-12 col-sm-6 col-md-6 col-lg-6 mb-4"
->
-<!-- Single University -->
-<div class="dashboard_single_course">
-                  <div class="dashboard_single_course_caption pl-0 mt-0">
+                  <div class="col-12 col-sm-6 col-md-6 col-lg-6 mb-4">
+                    <!-- Single University -->
+                    <div class="dashboard_single_course">
+                      <div class="dashboard_single_course_caption pl-0 mt-0">
 
-                    <div class="dashboard_single_course_head">
-                      <div class="dashboard_single_course_head_flex">
-                        <h4 class="dashboard_course_title">{{ $row->course_name }}</h4>
-                      </div>
-                    </div>
-<div class="university-maalysia">
-<div class="row align-items-center">
-                      <div class="col-12 col-sm-12 mb-3">
-                        <div >
-                          <div class="list-universits"><span class="theme-cl"><i class="fa fa-book mr-2" aria-hidden="true"></i>
-                          Study
-                              Mode:</span> <span
-                              class="theme-rl">{{ $row->study_mode != '' ? $row->study_mode : 'N/A' }}</span> </div>
-                          <div class="list-universits"><span class="theme-cl"><i class="fa fa-calendar mr-2" aria-hidden="true"></i>
-                          App
-                              deadline:</span> <span
-                              class="theme-rl">{{ $row->application_deadline != '' ? $row->application_deadline : 'N/A' }}</span>
-                          </div>
-                          <div class="list-universits"><span class="theme-cl"><i class="fa fa-file-text mr-2" aria-hidden="true"></i>
-                          Intakes:</span>
-                            <span class="theme-rl">{{ $row->intake != '' ? $row->intake : 'N/A' }}</span>
+                        <div class="dashboard_single_course_head">
+                          <div class="dashboard_single_course_head_flex">
+                            <h4 class="dashboard_course_title">{{ $row->course_name }}</h4>
                           </div>
                         </div>
-                      </div>
-                      <div class="col-12 col-sm-12">
-                        <div class="d-flex set-ggap justify-content-end courss-added">
-                          <a href="{{ route('university.course.details', ['university_slug' => $university->slug, 'course_slug' => $row->slug]) }}"
-                            class="card-btn2">
-                            View Details
-                          </a>
-                          {!! UniversityProgramListButton::getApplyButton($row->id) !!}
+                        <div class="university-maalysia">
+                          <div class="row align-items-center">
+                            <div class="col-12 col-sm-12 mb-3">
+                              <div>
+                                <div class="list-universits"><span class="theme-cl"><i class="fa fa-book mr-2"
+                                      aria-hidden="true"></i>
+                                    Study
+                                    Mode:</span> <span
+                                    class="theme-rl">{{ $row->study_mode != '' ? $row->study_mode : 'N/A' }}</span> </div>
+                                <div class="list-universits"><span class="theme-cl"><i class="fa fa-calendar mr-2"
+                                      aria-hidden="true"></i>
+                                    App
+                                    deadline:</span> <span
+                                    class="theme-rl">{{ $row->application_deadline != '' ? $row->application_deadline : 'N/A' }}</span>
+                                </div>
+                                <div class="list-universits"><span class="theme-cl"><i class="fa fa-file-text mr-2"
+                                      aria-hidden="true"></i>
+                                    Intakes:</span>
+                                  <span class="theme-rl">{{ $row->intake != '' ? $row->intake : 'N/A' }}</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-12 col-sm-12">
+                              <div class="d-flex set-ggap justify-content-end courss-added">
+                                <a href="{{ route('university.course.details', ['university_slug' => $university->slug, 'course_slug' => $row->slug]) }}"
+                                  class="card-btn2">
+                                  View Details
+                                </a>
+                                {!! UniversityProgramListButton::getApplyButton($row->id) !!}
+                              </div>
+                            </div>
+                          </div>
                         </div>
+
                       </div>
                     </div>
-</div>
-                   
-
-                   
-
                   </div>
-                </div>
-</div>
-                
-              @endforeach
-            
-</div>
-{!! $rows->links('pagination::bootstrap-4') !!}
+                @endforeach
+
+              </div>
+              {!! $rows->links('pagination::bootstrap-4') !!}
 
             </div>
           </div>
@@ -206,7 +204,8 @@
                   data-target="#collapseFive2" aria-expanded="true" aria-controls="collapseFive2"
                   class="d-block position-relative text-dark collapsible-link py-2">Study Level</a></h6>
             </div>
-            <div id="collapseFive2" aria-labelledby="headingFive2" data-parent="#accordionExample" class="collapse show">
+            <div id="collapseFive2" aria-labelledby="headingFive2" data-parent="#accordionExample"
+              class="collapse show">
               <div class="scrlbar">
                 <div class="card-body pl-4 pr-4 pb-2">
                   <ul class="no-ul-list mb-3">
