@@ -193,10 +193,7 @@
     </div>
     <div class="show-hide-sidebar">
       <div class="sidebar-widgets">
-        <form class="form-inline addons mb-3">
-          <input class="form-control" type="search" placeholder="Search Courses" aria-label="Search">
-          <button class="btn my-2 my-sm-0" type="submit"><i class="ti-search"></i></button>
-        </form>
+
         <div id="accordionExample" class="accordion shadow circullum full-width">
           <div class="card mb-2">
             <div id="headingFive2" class="card-header bg-white shadow-sm border-0 pt-2 pb-2 pl-4 pr-4">
@@ -204,8 +201,7 @@
                   data-target="#collapseFive2" aria-expanded="true" aria-controls="collapseFive2"
                   class="d-block position-relative text-dark collapsible-link py-2">Study Level</a></h6>
             </div>
-            <div id="collapseFive2" aria-labelledby="headingFive2" data-parent="#accordionExample"
-              class="collapse show">
+            <div id="collapseFive2" aria-labelledby="headingFive2" data-parent="#accordionExample" class="collapse show">
               <div class="scrlbar">
                 <div class="card-body pl-4 pr-4 pb-2">
                   <ul class="no-ul-list mb-3">

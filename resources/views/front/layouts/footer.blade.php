@@ -102,10 +102,11 @@
         </div>
         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6  mt-4">
           <div class="indin-office">
-            <i class="fa fa-facebook" aria-hidden="true"></i>
-            <span class="b">Bangladesh Office</span>
-            <p>H-16, Road-09, Sector-01, (Flat-A5/B), Uttara, Dhaka, Bangladesh 1230</p>
-            <p>Phone: <a href="tel:+919818560331">+91-98185-60331</a></p>
+            <span class="b">Zambia Office</span>
+            <p>
+              2nd Floor
+              Provident House, Next to Bank of Zambia </p>
+            <p>Phone: <a href="tel:+260971868086">+260-971868086</a></p>
             <ul class="linksfooters">
               <li><a href="https://www.facebook.com/educationmalaysia.in" target="_blank" class="fb"
                   aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>

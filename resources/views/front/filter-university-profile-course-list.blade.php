@@ -1,7 +1,7 @@
-<form class="form-inline addons hide-23 mb-2 set-onlines">
+<!-- <form class="form-inline addons hide-23 mb-2 set-onlines">
   <input class="form-control img-fluid" type="search" placeholder="Search Courses" aria-label="Search">
   <button class="btn my-2 my-sm-0" type="submit"><i class="ti-search"></i></button>
-</form>
+</form> -->
 <div id="accordionExample" class="accordion shadow circullum hide-23 full-width">
   <div class="card mb-2">
     <div id="heading{{ $type }}One" class="card-header bg-white shadow-sm border-0 pt-2 pb-2 pl-4 pr-4">
