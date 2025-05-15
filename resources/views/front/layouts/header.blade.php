@@ -364,7 +364,7 @@
             const lastClosed = localStorage.getItem('enquiry_modal_closed_time');
             if (lastClosed) {
               const diff = Date.now() - parseInt(lastClosed);
-              if (diff > 3 * 5 * 1000) {
+              if (diff > 1 * 1 * 1000) {
                 openModal();
               }
             }
