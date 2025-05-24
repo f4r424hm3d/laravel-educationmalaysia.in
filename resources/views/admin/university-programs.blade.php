@@ -176,8 +176,8 @@
                         Name : {{ $row->course_name }} <br>
                       </td>
                       <td>
-                        Category : {{ $row->category->name }} <br>
-                        Specialization : {{ $row->getSpecialization->name }} <br>
+                        Category : {{ $row->category->name ?? 'n/a' }} <br>
+                        Specialization : {{ $row->getSpecialization->name ?? 'n/a' }} <br>
                         Level : {{ $row->level }} <br>
                       </td>
                       <td>{{ $row->duration }}</td>
