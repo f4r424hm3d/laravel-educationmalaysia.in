@@ -222,7 +222,7 @@
                     </h6>
                   </div>
                   <div id="collapseFive{{ $ucc->id }}" aria-labelledby="headingFive{{ $ucc->id }}"
-                    data-parent="#accordionExample" class="collapse">
+                    data-parent="#accordionExample" class="collapse show">
                     <div class="card-body pl-4 pr-4 ">
                       <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 p-0">
@@ -254,7 +254,7 @@
                   <h6 class="mb-0 accordion_title title-accord">
                     <a href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true"
                       aria-controls="collapseFive"
-                      class="d-block position-relative collapsed text-dark collapsible-link py-2">
+                      class="d-block position-relative collapsed text-dark collapsible-link py-2 removed-icon">
                       Similar Programs
                     </a>
                   </h6>
