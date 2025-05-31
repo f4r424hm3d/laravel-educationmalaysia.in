@@ -280,7 +280,7 @@
           <span class="d-block font-size-13 mb-2">The team typically replies in a few minutes.</span>
 
           <a class="country-box" target="_blank"
-            href="https://api.whatsapp.com/send?phone=601117784424&text=Hello there!! I want to get counseling from experts. Want to know more information about Study Abroad Consultants in India - Education Malaysia Education">
+            href="https://api.whatsapp.com/send?phone=60176472057&text=Hello there!! I want to get counseling from experts. Want to know more information about Study Abroad Consultants in India - Education Malaysia Education">
             <div class="row align-items-center">
               <div class="col-2 pr-0"><img
                   data-src="https://www.educationmalaysia.in/front/assets/img/flag-malaysia.png" alt="indian flag"
