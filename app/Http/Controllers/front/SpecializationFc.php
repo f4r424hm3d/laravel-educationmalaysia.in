@@ -28,7 +28,7 @@ class SpecializationFc extends Controller
     $defaultImage = DefaultImage::where('page', 'specialization-detail')->first();
 
     // Fetch course specialization by slug and website filter
-    $specialization = CourseSpecialization::where('slug', $slug)->firstOrFail();
+    $specialization = CourseSpecialization::whereHas('contents')->where('slug', $slug)->firstOrFail();
     //$faqs = CourseSpecializationFaq::where('specialization_id', $specialization->id)->get();
     //return $specialization->faqs;
     $specializations = CourseSpecialization::inRandomOrder()->where('id', '!=', $specialization->id)->limit(10)->whereHas('contents')->get();
