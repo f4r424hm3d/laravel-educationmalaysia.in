@@ -348,23 +348,23 @@
 
       $(document).ready(function() {
         const modalKey = 'enquiry_modal_status';
+        const closeCountKey = 'enquiry_modal_close_count';
+        const neverShowKey = 'enquiry_modal_never_show';
         const currentPath = window.location.pathname;
 
-        // Do not show modal on excluded pages
-        if (excludedPaths.includes(currentPath)) {
-          return;
-        }
+        if (excludedPaths.includes(currentPath)) return;
 
-        let modalStatus = localStorage.getItem(modalKey);
+        const modalStatus = localStorage.getItem(modalKey);
+        const neverShow = localStorage.getItem(neverShowKey) === 'true';
 
-        if (!studentLoggedIn && modalStatus !== 'submitted') {
+        if (!studentLoggedIn && !neverShow && modalStatus !== 'submitted') {
           if (modalStatus !== 'closed') {
             openModal();
           } else {
             const lastClosed = localStorage.getItem('enquiry_modal_closed_time');
             if (lastClosed) {
               const diff = Date.now() - parseInt(lastClosed);
-              if (diff > 1 * 1 * 1000) {
+              if (diff > 1000) {
                 openModal();
               }
             }
@@ -375,6 +375,13 @@
           if (localStorage.getItem(modalKey) !== 'submitted') {
             localStorage.setItem(modalKey, 'closed');
             localStorage.setItem('enquiry_modal_closed_time', Date.now().toString());
+
+            let closeCount = parseInt(localStorage.getItem(closeCountKey) || '0') + 1;
+            localStorage.setItem(closeCountKey, closeCount.toString());
+
+            if (closeCount >= 3) {
+              localStorage.setItem(neverShowKey, 'true');
+            }
           }
         });
 
@@ -383,7 +390,6 @@
 
           let submitBtn = $('#submitBtn');
           submitBtn.prop('disabled', true).html('Submitting...');
-
           $('.text-danger').text('');
 
           $.ajax({
@@ -413,6 +419,5 @@
             }
           });
         });
-
       });
     </script>
