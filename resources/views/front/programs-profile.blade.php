@@ -227,15 +227,15 @@
                       <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 p-0">
                           <!-- <div class="arrow_slide two_slide-dots arrow_middle">   -->
-                            <div class="singles_items">
-                              <div class="boxcontent">
-                                <h3>
-                                  {{ $ucc->tab_title }} of {{ $program->course_name }} in {{ $university->name }}
-                                  Malaysia
-                                </h3>
-                                {!! $ucc->description !!}
-                              </div>
+                          <div class="singles_items">
+                            <div class="boxcontent">
+                              <h3>
+                                {{ $ucc->tab_title }} of {{ $program->course_name }} in {{ $university->name }}
+                                Malaysia
+                              </h3>
+                              {!! $ucc->description !!}
                             </div>
+                          </div>
                           <!-- </div> -->
                         </div>
                       </div>
@@ -245,7 +245,6 @@
               @endforeach
             @endif
           </div>
-
 
           <div id="accordionExample" class="accordion shadow circullum mt-4 program-accordian  newprogramss">
             @if ($similarPrograms->count() > 0)
@@ -265,68 +264,68 @@
                     <div class="row">
                       <div class="col-lg-12 col-md-12 col-sm-12 p-0">
                         <!-- <div class="arrow_slide two_slide-dots arrow_middle"> -->
-                          @foreach ($similarPrograms as $tu)
-                            <div class="singles_items">
-                              <div class="education_block_grid style_2 mb-3 all-programss">
-                                <div class="education_block_body mb-0">
-                                  <div class="row align-items-center mx-auto ">
-                                    <div class="col-12 col-sm-12 col-md-3 mb-3">
-                                      <div class="path-img">
-                                        <img data-src="{{ asset($tu->university->imgpath) }}" class="img-fluid rounded"
-                                          alt="">
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-9 mb-3">
-                                      <h6 class="mb-1">{{ $tu->university->name }}</h6>
-                                      <ul class="loc-rating">
-                                        <li class="loc ">
-                                          <i class="ti-location-pin mr-2"></i>{{ $tu->university->city }}
-                                        </li>
-                                        <li class="loc">
-                                          <i class="ti-location-pin mr-2"></i>{{ $tu->university->state }}
-                                        </li>
-                                        <li class="loc">
-                                          <i class="ti-eye mr-2"></i>{{ $tu->university->instituteType->type ?? 'N/A' }}
-                                        </li>
-                                      </ul>
-
+                        @foreach ($similarPrograms as $tu)
+                          <div class="singles_items">
+                            <div class="education_block_grid style_2 mb-3 all-programss">
+                              <div class="education_block_body mb-0">
+                                <div class="row align-items-center mx-auto ">
+                                  <div class="col-12 col-sm-12 col-md-3 mb-3">
+                                    <div class="path-img">
+                                      <img data-src="{{ asset($tu->university->imgpath) }}" class="img-fluid rounded"
+                                        alt="">
                                     </div>
                                   </div>
-                                </div>
+                                  <div class="col-12 col-sm-12 col-md-9 mb-3">
+                                    <h6 class="mb-1">{{ $tu->university->name }}</h6>
+                                    <ul class="loc-rating">
+                                      <li class="loc ">
+                                        <i class="ti-location-pin mr-2"></i>{{ $tu->university->city }}
+                                      </li>
+                                      <li class="loc">
+                                        <i class="ti-location-pin mr-2"></i>{{ $tu->university->state }}
+                                      </li>
+                                      <li class="loc">
+                                        <i class="ti-eye mr-2"></i>{{ $tu->university->instituteType->type ?? 'N/A' }}
+                                      </li>
+                                    </ul>
 
-                                <div class="education_block_fo ">
-                                  <div class="row mx-auto align-items-center">
-                                    <div class="col-12 col-sm-12 col-md-7 col-lg-7 mb-4">
-                                      <h3 class="h3-progrmsn mb-2">
-                                        <a
-                                          href="{{ url('university/' . $tu->university->uname . '/course/' . $tu->slug) }}">
-                                          {{ $tu->course_name }}
-                                        </a>
-                                      </h3>
-                                      <div class="aminities">
-                                        <?php echo $tu->duration; ?>
-                                        <span></span>
-                                        <?php echo $tu->study_mode; ?>
-                                        <span></span>
-                                        <?php echo $tu->intake; ?>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-sm-12 col-md-5 col-lg-5 mb-4">
-                                      <div class="d-flex align-items-center set-gap justify-content-end ">
-                                        <a href="{{ route('university.course.details', ['university_slug' => $tu->university->uname, 'course_slug' => $tu->slug]) }}"
-                                          class="btn btn-primary">View
-                                          detials</a>
-                                        <a href="{{ route('university.courses', ['university_slug' => $tu->university->uname]) }}"
-                                          class="btn btn-primary">View
-                                          courses</a>
-                                      </div>
-                                    </div>
                                   </div>
-
                                 </div>
                               </div>
+
+                              <div class="education_block_fo ">
+                                <div class="row mx-auto align-items-center">
+                                  <div class="col-12 col-sm-12 col-md-7 col-lg-7 mb-4">
+                                    <h3 class="h3-progrmsn mb-2">
+                                      <a
+                                        href="{{ url('university/' . $tu->university->uname . '/course/' . $tu->slug) }}">
+                                        {{ $tu->course_name }}
+                                      </a>
+                                    </h3>
+                                    <div class="aminities">
+                                      <?php echo $tu->duration; ?>
+                                      <span></span>
+                                      <?php echo $tu->study_mode; ?>
+                                      <span></span>
+                                      <?php echo $tu->intake; ?>
+                                    </div>
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-5 col-lg-5 mb-4">
+                                    <div class="d-flex align-items-center set-gap justify-content-end ">
+                                      <a href="{{ route('university.course.details', ['university_slug' => $tu->university->uname, 'course_slug' => $tu->slug]) }}"
+                                        class="btn btn-primary">View
+                                        detials</a>
+                                      <a href="{{ route('university.courses', ['university_slug' => $tu->university->uname]) }}"
+                                        class="btn btn-primary">View
+                                        courses</a>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
-                          @endforeach
+                          </div>
+                        @endforeach
                         <!-- </div> -->
                       </div>
                     </div>
@@ -335,38 +334,6 @@
               </div>
             @endif
           </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
           <div class="multi-streams">
             <div class="card">

@@ -13,10 +13,13 @@
         <li class="facts-1"><a
             href="{{ route('university.overview', ['university_slug' => $university->uname]) }}">{{ $university->name }}</a>
         </li>
-        @if (Request::segment(3) != '')
+        @if (Request::segment(3) != '' && Request::segment(4) == '')
           <li class="facts-1">{{ Request::segment(3) }}</li>
         @endif
         @if (Request::segment(4) != '')
+          <li class="facts-1">
+            <a href="{{ route('university.courses', ['university_slug' => $university->uname]) }}">Courses</a>
+          </li>
           <li class="facts-1">{{ $program->course_name }}</li>
         @endif
       </ul>
