@@ -1020,6 +1020,6 @@ Route::prefix('courses-in-malaysia')->group(function () {
 
 
 // Redirect from singular 'course' to plural 'courses'
-// Route::get('/university/{university}/course/{course}', function ($university, $course) {
-//     return redirect("/university/{$university}/courses/{$course}", 301);
-// });
+Route::get('/university/{university}/course/{course}', function ($university, $course) {
+    return redirect("/university/{$university}/courses/{$course}", 301);
+});
