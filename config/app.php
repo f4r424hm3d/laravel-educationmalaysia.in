@@ -124,7 +124,7 @@ return [
   ],
 
   'cdn' => array(
-    "educationmalaysiamanjit10june.b-cdn.net" => ""
+    "educationmalaysia25june.b-cdn.ne" => ""
   ),
 
 ];
