@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AddressC;
 use App\Http\Controllers\admin\AdminDashboard;
 use App\Http\Controllers\admin\AdminLogin;
 use App\Http\Controllers\admin\AuthorC;
@@ -765,6 +766,14 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
       Route::get('/update/{id}', [UrlRedirectionC::class, 'index']);
       Route::post('/update/{id}', [UrlRedirectionC::class, 'update']);
       Route::get('/delete/{id}', [UrlRedirectionC::class, 'delete']);
+    });
+    Route::prefix('/addresses')->group(function () {
+      Route::get('/', [AddressC::class, 'index']);
+      Route::get('/get-data', [AddressC::class, 'getData']);
+      Route::post('/store', [AddressC::class, 'store']);
+      Route::get('/update/{id}', [AddressC::class, 'index']);
+      Route::post('/update/{id}', [AddressC::class, 'update']);
+      Route::get('/delete/{id}', [AddressC::class, 'delete']);
     });
   });
   Route::prefix('common')->group(function () {

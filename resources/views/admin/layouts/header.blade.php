@@ -358,6 +358,10 @@
                       id="topnav-auth" role="button">
                       <span data-key="t-authentication">Url Redirections</span>
                     </a>
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('addresses') }}"
+                      id="topnav-auth" role="button">
+                      <span data-key="t-authentication">Addresses</span>
+                    </a>
                   </div>
                 </div>
               </li>
