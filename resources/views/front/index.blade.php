@@ -3,26 +3,73 @@
   @include('front.layouts.static_page_meta_tag')
 @endpush
 @section('main-section')
-  <section class="main-sliderss">
+  <!-- Top header-->
+  <!-- Content -->
+  <!-- ============================ Hero Banner  Start================================== -->
+  <!-- first section start  -->
+  <!-- <section class="main-sliderss">
     <div class="content">
       <div class="slider secondheader">
-
-        <div class="slidd">
-          <img class="img-fluid" src="{{ cdn('uploads/files/banner1_1741674968.webp') }}" alt="First slide" loading="eager"
-            fetchpriority="high">
-          <div class="slidersshome">
-            <div class="text-center mainsliders">
-              <h3 class="elh-banner-title">Education Roadmap: From Admissions to Community Connection
-              </h3>
-              <p>Navigate admissions, access essential resources, and connect with our vibrant
-                community for a fulfilling academic journey in Malaysia.</p>
-              <a href="{{ url('specialization') }}" class="slider-btn">Know More</a>
+        <div>
+          <h3>
+            <div class="slidd">
+              <img class="img-fluid" src="{{ cdn('uploads/files/banner1_1741674968.webp') }}" alt="First slide"
+                loading="eager" fetchpriority="high">
+              <div class="slidersshome">
+                <div class="text-center mainsliders">
+                  <h3 class="elh-banner-title">Education Roadmap: From Admissions to Community Connection
+                  </h3>
+                  <p>Navigate admissions, access essential resources, and connect with our vibrant
+                    community for a fulfilling academic journey in Malaysia.</p>
+                  <a href="{{ url('specialization') }}" class="slider-btn">Know More</a>
+                </div>
+              </div>
             </div>
-          </div>
+          </h3>
         </div>
 
+        <div>
+          <h3>
+            <div class="slidd">
+              <img class="img-fluid" src="{{ cdn('uploads/files/banner2_1741675006.webp') }}" alt="Second slide"
+                loading="eager" fetchpriority="high">
+              <div class="slidersshome">
+                <div class="text-center mainsliders">
+                  <h3 class="elh-banner-title">Explore. Learn. Excel. Your Future Begins Here.
+                  </h3>
+                  <p>Education Malaysia: Your portal to a world of educational opportunities, fostering
+                    academic excellence and personal growth</p>
+                  <a href="{{ url('courses-in-malaysia') }}" class="slider-btn">Find Your Course </a>
+                </div>
+              </div>
+            </div>
+          </h3>
+        </div>
+      </div>
+    </div> -->
+
+    <section class="main-sliderss">
+    <div class="content">
+      <div class="slider secondheader">
+        
+        <div class="slidd">
+              <img class="img-fluid" src="{{ cdn('uploads/files/banner1_1741674968.webp') }}" alt="First slide"
+                loading="eager" fetchpriority="high">
+              <div class="slidersshome">
+                <div class="text-center mainsliders">
+                  <h3 class="elh-banner-title">Education Roadmap: From Admissions to Community Connection
+                  </h3>
+                  <p>Navigate admissions, access essential resources, and connect with our vibrant
+                    community for a fulfilling academic journey in Malaysia.</p>
+                  <a href="{{ url('specialization') }}" class="slider-btn">Know More</a>
+                </div>
+              </div>
+            </div>
+
+      
       </div>
     </div>
+
 
   </section>
   <!-- first section  end-->

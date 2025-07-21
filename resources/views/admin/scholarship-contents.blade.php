@@ -49,13 +49,11 @@
                 <div class="row">
                   <div class="col-md-12 col-sm-12 mb-3">
                     <x-input-field type="text" label="Enter Tab" name="tab" id="tab" :ft="$ft"
-                      :sd="$sd">
-                    </x-input-field>
+                      :sd="$sd" />
                   </div>
                   <div class="col-md-12 col-sm-12 mb-3">
                     <x-textarea-field label="Enter Description" name="description" id="description" :ft="$ft"
-                      :sd="$sd">
-                    </x-textarea-field>
+                      :sd="$sd" />
                   </div>
                   {{-- <div class="col-md-6 col-sm-12 mb-3">
                     <x-select-field type="text" label="Select Parent Title" name="parent_id" id="parent_id"

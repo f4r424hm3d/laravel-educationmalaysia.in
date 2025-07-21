@@ -48,7 +48,7 @@
 
         <!-- Phone Field -->
 
-        <div class="col-md-5 mb-3 pr-0">
+        <div class="col-md-5 mb-3">
           <div class="form-group mb-0 text-left">
             <label for="c_code">Country Code</label>
             <select class="form-control" name="c_code" id="c_code" required>

@@ -13,7 +13,7 @@
     <div id="collapseLevel" aria-labelledby="headingLevel" data-parent="#accordionExample" class="collapse show"
       role="region">
       <div class="scrlbar mt-2 mr-0 ">
-        <div class="card-body px-0">
+        <div class="card-body p-0">
           <ul class="no-ul-list mb-3">
             @foreach ($levelListForFilter as $level)
               <li>
@@ -23,7 +23,7 @@
                       : "ApplyFilter('" . slugify($level->level) . "')" }}"
                   {{ session()->get('CFilterLevel') == $level->level ? 'checked' : '' }}>
                 <label for="level{{ $level->level }}" class="checkbox-custom-label">
-                  {{ $level->level }}
+                <div class="check-texts"> {{ $level->level }}</div> 
                 </label>
               </li>
             @endforeach
@@ -43,7 +43,7 @@
     <div id="collapseCat" aria-labelledby="headingCat" data-parent="#accordionExample" class="collapse show"
       role="region">
       <div class="scrlbar mt-2 mr-0 ">
-        <div class="card-body px-0">
+        <div class="card-body p-0">
           <ul class="no-ul-list mb-3">
             @foreach ($categoryListForFilter as $cat)
               <li>
@@ -53,7 +53,7 @@
                       : "ApplyFilter('" . $cat->slug . "')" }}"
                   {{ session()->get('CFilterCategory') == $cat->id ? 'checked' : '' }}>
                 <label for="cat{{ $cat->id }}" class="checkbox-custom-label">
-                  {{ $cat->name }}
+                  <div class="check-texts">{{ $cat->name }}</div>
                 </label>
               </li>
             @endforeach
@@ -73,7 +73,7 @@
     <div id="collapseSpc" aria-labelledby="headingSpc" data-parent="#accordionExample" class="collapse show"
       role="region">
       <div class="scrlbar mt-2 mr-0 ">
-        <div class="card-body px-0">
+        <div class="card-body p-0">
           <ul class="no-ul-list mb-3">
             @foreach ($spcListForFilter as $spc)
               <li>
@@ -83,7 +83,7 @@
                       : "ApplyFilter('" . $spc->slug . "')" }}"
                   {{ session()->get('FilterSpecialization') == $spc->id ? 'checked' : '' }}>
                 <label for="spc{{ $spc->id }}" class="checkbox-custom-label">
-                  {{ $spc->name }}
+                <div class="check-texts"> {{ $spc->name }}</div> 
                 </label>
               </li>
             @endforeach
@@ -104,7 +104,7 @@
     <div id="collapseIntake" aria-labelledby="headingIntake" data-parent="#accordionExample" class="collapse show"
       role="region">
       <div class="scrlbar mt-2 mr-0 ">
-        <div class="card-body px-0">
+        <div class="card-body p-0">
           <ul class="no-ul-list mb-3">
             @foreach ($intakes as $intake)
               <li>
@@ -115,7 +115,7 @@
                       : "ApplyStaticFilter('intake','" . $intake->month_short_name . "')" }}"
                   {{ isset($_GET['intake']) && $_GET['intake'] == $intake->month_short_name ? 'checked' : '' }}>
                 <label for="intake{{ $intake->month_short_name }}" class="checkbox-custom-label">
-                  {{ $intake->month_short_name }}
+                 <div class="check-texts">{{ $intake->month_short_name }}</div> 
                 </label>
               </li>
             @endforeach
@@ -137,7 +137,7 @@
     <div id="collapseStudyModes" aria-labelledby="headingStudyModes" data-parent="#accordionExample"
       class="collapse show" role="region">
       <div class="scrlbar mt-2 mr-0 ">
-        <div class="card-body px-0">
+        <div class="card-body p-0">
           <ul class="no-ul-list mb-3">
             @foreach ($studyModes as $sm)
               <li>
@@ -148,7 +148,7 @@
                       : "ApplyStaticFilter('study_mode','" . $sm->study_mode . "')" }}"
                   {{ isset($_GET['study_mode']) && $_GET['study_mode'] == $sm->study_mode ? 'checked' : '' }}>
                 <label for="sm{{ $sm->study_mode }}" class="checkbox-custom-label">
-                  {{ $sm->study_mode }}
+                 <div class="check-texts">{{ $sm->study_mode }}</div> 
                 </label>
               </li>
             @endforeach

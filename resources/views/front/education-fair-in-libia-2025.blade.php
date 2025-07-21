@@ -190,7 +190,7 @@
           <a href="#" data-toggle="modal" data-target="#courseListModal">
             <div class="flex flex-col all-flexx gap-3 items-center text-center h-100 ">
               <div class="imgflx">
-                <img src="{{ url('/') }}/assets/images/courses.png" alt="">
+                <img src="{{ cdn('/') }}/assets/images/courses.png" alt="">
               </div>
               <h2 class="text-xl font-bold">Courses</h2>
               <p>Discover a diverse range of programs from undergraduate to postgraduate degrees, explore options in
@@ -203,7 +203,7 @@
           <a href="{{ url(url()->current() . '/institutions') }}">
             <div class="flex flex-col all-flexx gap-3 h-100 items-center text-center">
               <div class="imgflx">
-                <img src="{{ url('/') }}/assets/images/institution.png" alt="">
+                <img src="{{ cdn('/') }}/assets/images/institution.png" alt="">
               </div>
               <h2 class="text-xl font-bold">Institutions</h2>
               <p>Connect with globally recognized Malaysian universities and institutions renowned for academic
@@ -306,7 +306,7 @@
         <div class="col-12 col-sm-12 col-md-6 col-lg-4 ">
           <div class="flex flex-col all-flexx gap-3 h-100 items-center text-center">
             <div class="imgflx">
-              <img src="{{ url('/') }}/assets/images/scholarship.png" alt="">
+              <img src="{{ cdn('/') }}/assets/images/scholarship.png" alt="">
             </div>
             <h2 class="text-xl font-bold">Scholarships</h2>
             <p>Exclusive scholarship opportunities for Libyan students sponsored by the Libyan Government.</p>
@@ -837,62 +837,62 @@
               <div class="slider">
                 <div class="slide-track">
                   <div class="slide">
-                    <img src="{{ url('/') }}/assets/web/images/govermentlibya.png" alt="">
+                    <img src="{{ cdn('/') }}/assets/web/images/govermentlibya.png" alt="">
                   </div>
                   <div class="slide">
-                    <img src="{{ url('/') }}/assets/web/images/Libia-education-board-Logo.png" alt="">
-                  </div>
-
-                  <div class="slide">
-                    <img src="{{ url('/') }}/assets/web/images/govt-logo.png" alt="">
+                    <img src="{{ cdn('/') }}/assets/web/images/Libia-education-board-Logo.png" alt="">
                   </div>
 
                   <div class="slide">
-                    <img src="{{ url('/') }}/assets/web/images/britannica-logo.png" alt="">
+                    <img src="{{ cdn('/') }}/assets/web/images/govt-logo.png" alt="">
                   </div>
 
                   <div class="slide">
-                    <img src="{{ url('/') }}/assets/web/images/Flag-of-Libya.png" alt="">
+                    <img src="{{ cdn('/') }}/assets/web/images/britannica-logo.png" alt="">
+                  </div>
+
+                  <div class="slide">
+                    <img src="{{ cdn('/') }}/assets/web/images/Flag-of-Libya.png" alt="">
                   </div>
                   <!-- 1  -->
 
                   <div class="slide">
-                    <img src="{{ url('/') }}/assets/web/images/govermentlibya.png" alt="">
+                    <img src="{{ cdn('/') }}/assets/web/images/govermentlibya.png" alt="">
                   </div>
                   <div class="slide">
-                    <img src="{{ url('/') }}/assets/web/images/Libia-education-board-Logo.png" alt="">
-                  </div>
-
-                  <div class="slide">
-                    <img src="{{ url('/') }}/assets/web/images/govt-logo.png" alt="">
+                    <img src="{{ cdn('/') }}/assets/web/images/Libia-education-board-Logo.png" alt="">
                   </div>
 
                   <div class="slide">
-                    <img src="{{ url('/') }}/assets/web/images/britannica-logo.png" alt="">
+                    <img src="{{ cdn('/') }}/assets/web/images/govt-logo.png" alt="">
                   </div>
 
                   <div class="slide">
-                    <img src="{{ url('/') }}/assets/web/images/Flag-of-Libya.png" alt="">
+                    <img src="{{ cdn('/') }}/assets/web/images/britannica-logo.png" alt="">
+                  </div>
+
+                  <div class="slide">
+                    <img src="{{ cdn('/') }}/assets/web/images/Flag-of-Libya.png" alt="">
                   </div>
                   <!-- 2  -->
 
                   <div class="slide">
-                    <img src="{{ url('/') }}/assets/web/images/govermentlibya.png" alt="">
+                    <img src="{{ cdn('/') }}/assets/web/images/govermentlibya.png" alt="">
                   </div>
                   <div class="slide">
-                    <img src="{{ url('/') }}/assets/web/images/Libia-education-board-Logo.png" alt="">
-                  </div>
-
-                  <div class="slide">
-                    <img src="{{ url('/') }}/assets/web/images/govt-logo.png" alt="">
+                    <img src="{{ cdn('/') }}/assets/web/images/Libia-education-board-Logo.png" alt="">
                   </div>
 
                   <div class="slide">
-                    <img src="{{ url('/') }}/assets/web/images/britannica-logo.png" alt="">
+                    <img src="{{ cdn('/') }}/assets/web/images/govt-logo.png" alt="">
                   </div>
 
                   <div class="slide">
-                    <img src="{{ url('/') }}/assets/web/images/Flag-of-Libya.png" alt="">
+                    <img src="{{ cdn('/') }}/assets/web/images/britannica-logo.png" alt="">
+                  </div>
+
+                  <div class="slide">
+                    <img src="{{ cdn('/') }}/assets/web/images/Flag-of-Libya.png" alt="">
                   </div>
 
                 </div>
@@ -953,7 +953,7 @@
         </div>
         <!-- <div class="col-md-6">
                                                       <div class="imgfaq">
-                                                        <img src="{{ url('/') }}/assets/web/images/faq.png" class="img-fluid" alt="">
+                                                        <img src="{{ cdn('/') }}/assets/web/images/faq.png" class="img-fluid" alt="">
 
                                                       </div>
                                                     </div> -->

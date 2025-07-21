@@ -33,8 +33,8 @@
                 <span class="rating-overview-box-percent">Based on {{ $total }} Review</span>
                 </div>
                 </div>
-                
-                
+
+
               </div>
             </div>
 
@@ -45,7 +45,7 @@
             </div>
 
 </div>
-           
+
           </div>
         </div>
       </div>
@@ -62,7 +62,7 @@
               <div class="show-more-box-country">
                 <div class="text show-more-heigh">
                   <div class="author pt-0">
-                    <div class="img-div"><img data-src="{{ asset('front/assets/img/user.jpg') }}"
+                    <div class="img-div"><img data-src="{{ cdn('front/assets/img/user.jpg') }}"
                         alt="{{ $row->name }}"><i class="fa fa-check-circle"></i>
                     </div>
                     <div class="cont-div">
