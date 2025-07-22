@@ -123,6 +123,8 @@ return [
     'store' => env('APP_MAINTENANCE_STORE', 'database'),
   ],
 
+  'frontend_api_key' => env('FRONTEND_API_KEY'),
+
   // 'cdn' => array(
   //   "educationmalaysiaranitesh07july.b-cdn.net" => ""
   // ),

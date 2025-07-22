@@ -124,7 +124,7 @@ use Illuminate\Support\Facades\Route;
 
 //Reoptimized class loader:
 Route::get('/optimize', function () {
-  $exitCode = Artisan::call('optimize');
+  $exitCode = Artisan::call('optimize:clear');
   return '<h1>Reoptimized class loader</h1>';
 });
 Route::get('/optimize-clear', function () {
@@ -814,9 +814,9 @@ Route::get('/', [HomeFc::class, 'index'])->name('home');
 Route::get('/home', [HomeFc::class, 'index']);
 
 Route::get('/specialization', [SpecializationFc::class, 'index'])->name('specializations');
-Route::get('/stream/{slug}', function ($slug) {
-  return redirect("/specialization/{$slug}", 301);
-});
+// Route::get('/stream/{slug}', function ($slug) {
+//   return redirect("/specialization/{$slug}", 301);
+// });
 Route::get('/specialization/{slug}', [SpecializationFc::class, 'detail'])->name('specialization.detail');
 
 Route::get('/course/{slug}', [CourseCategoryFc::class, 'detail'])->name('category.detail');
