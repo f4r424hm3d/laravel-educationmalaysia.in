@@ -25,7 +25,8 @@
             <td valign="top" class="content" style="background:white;padding:20px 35px 10px 35px;">
               <h3>Hello {{ $name }}, </h3>
               <p style="text-align: justify">
-                {{ $otp }} is your One Time Password (OTP) from <b>Study Abroad</b>. It will expire in next
+                {{ $otp }} is your One Time Password (OTP) from <b>{{ config('app.name') }}</b>. It will expire
+                in next
                 5 minutes.
                 <br>
                 <br>
