@@ -240,9 +240,9 @@
                   </div>
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-3   ">
                     <label>Postal/Zip Code</label>
-                    <input type="text" class=" pif form-control" name="zip_code" id="zip_code"
-                      placeholder="Enter Postal/Zipcode" value="<?php echo $student->zip_code == 0 ? '' : $student->zip_code; ?>">
-                    @error('zip_code')
+                    <input type="text" class=" pif form-control" name="zipcode" id="zipcode"
+                      placeholder="Enter Postal/Zipcode" value="<?php echo $student->zipcode == 0 ? '' : $student->zipcode; ?>">
+                    @error('zipcode')
                       <span class="text-danger">{{ $message }}</span>
                     @enderror
                   </div>
@@ -312,13 +312,13 @@
                       </option>
                       <option value="Percentage scale (0-100)" <?php echo $student->grading_scheme ==
                       'Percentage scale
-                                                                                                (0-100)'
+                                                                                                                      (0-100)'
                           ? 'Selected'
                           : ''; ?>>Percentage
                         scale (0-100)</option>
                       <option value="Grade Points (10 scale)" <?php echo $student->grading_scheme ==
                       'Grade Points (10
-                                                                                                scale)'
+                                                                                                                      scale)'
                           ? 'Selected'
                           : ''; ?>>Grade Points
                         (10 scale)</option>

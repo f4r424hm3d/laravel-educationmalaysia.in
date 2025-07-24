@@ -156,7 +156,7 @@ class StudentFc extends Controller
         'city' => 'regex:/^[a-zA-Z ]*$/',
         'state' => 'regex:/^[a-zA-Z ]*$/',
         'country' => 'regex:/^[a-zA-Z ]*$/',
-        'zip_code' => 'required',
+        'zipcode' => 'required',
         'home_contact_number' => 'required|numeric',
       ]
     );
@@ -178,7 +178,7 @@ class StudentFc extends Controller
     $field->city = $request['city'];
     $field->state = $request['state'];
     $field->country = $request['country'];
-    $field->zip_code = $request['zip_code'];
+    $field->zipcode = $request['zipcode'];
     $field->home_contact_number = $request['home_contact_number'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
