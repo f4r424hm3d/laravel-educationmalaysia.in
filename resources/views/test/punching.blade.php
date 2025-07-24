@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @push('title')
-  <title>{{ $page_title }}</title>
+  <title>{{ $page_title }} This is just testing.</title>
 @endpush
 @section('main-section')
   <div class="page-content">
