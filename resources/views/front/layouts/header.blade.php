@@ -64,6 +64,105 @@
       color: #ffffff
     }
   </style>
+
+  <style>
+    .sidepanelv {
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      height: 100%;
+      top: 0;
+      right: 0;
+      background-color: #ffffff;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+
+    .sidepanelv .closebtnd:hover {
+      color: #f1f1f1;
+    }
+
+    .sidepanelv .closebtnd {
+      position: absolute;
+      top: 0;
+      right: 0px;
+      width: 100%;
+      font-size: 36px;
+    }
+
+    .openbtnv {
+      cursor: pointer;
+      background-color: #ffffff;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 3px;
+      float: right;
+      border: 1px solid #dedede;
+    }
+
+    .openbtnv:hover {
+      background-color: #444;
+    }
+
+    .more-div {
+      padding: 12px;
+    }
+
+    .more-div .nav-item .nav-link {
+      border-bottom: 1px solid #00000040;
+      margin-bottom: 4px;
+      margin-top: 4px;
+      border-radius: 0px;
+      padding: 6px 12px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .more-div .all-dropdowns .dropdown-menu.show {
+      max-height: 135px;
+    }
+
+    .main-heddd .set-gap a {
+      width: 100%;
+    }
+
+    .all-closes-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 11px;
+    }
+
+    .closeNAV {
+      color: #252525b8;
+      margin-right: 3px;
+      position: absolute;
+      top: 15px;
+      right: 13px;
+      border: 1px solid #252525b8;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      justify-content: center;
+      border-radius: 3px;
+      font-weight: 300;
+      align-items: center;
+      font-size: 30px;
+    }
+
+    .closeNAV:hover {
+      background-color: #004291;
+      border-color: #fff;
+      color: #fff !important;
+    }
+
+    .more-div .nav-item .nav-link i {
+      color: #004291;
+      margin-right: 3px;
+    }
+  </style>
   @stack('breadcrumb_schema')
   <script type="application/ld+json">
     {
@@ -117,11 +216,12 @@
           <img src="{{ cdn('front/assets/img/malysia-logo.png') }}" class="logo-max"
             alt="Education Malaysia Education Logo">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        <!-- desktop  html start -->
+        <button class="navbar-toggler mobile-off" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <div class="collapse mobile-off navbar-collapse justify-content-end" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item active">
               <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
@@ -187,6 +287,92 @@
             @endif
           </form>
         </div>
+        <!-- desktop  html end -->
+        <!-- Mobile  html start -->
+        <button class=" desktop-off openbtnv" onclick="openNavd()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class=" desktop-off  justify-content-end sidepanelv" id="mySidepanelvd">
+          <div class="more-div">
+            <div class="all-closes-flex closebtnd">
+              <a class="navbar-brand" href="{{ url('/') }}">
+                <img src="{{ cdn('front/assets/img/malysia-logo.png') }}" class="logo-max"
+                  alt="Education Malaysia Education Logo">
+              </a> <a href="javascript:void(0)" class="closeNAV" onclick="closeNavd()">×</a>
+            </div>
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url('/') }}"><i class="fa fa-home"></i>Home <span
+                    class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item dropdown all-dropdowns">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-cog" aria-hidden="true"></i> Resources
+
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <div class="row mx-auto ">
+                    <div class=" col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3 ">
+                      <div class="b-font"><a href="{{ route('exams') }}">Exams</a></div>
+                      <ul class="li_dd">
+                        @foreach ($exams as $exam)
+                          <li><a
+                              href="{{ route('exam.detail', ['uri' => $exam->uri]) }}">{{ ucfirst($exam->page_name) }}</a>
+                          </li>
+                        @endforeach
+
+                      </ul>
+                    </div>
+                    <div class=" col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3 ">
+                      <div class="b-font"><a href="{{ route('services') }}">Services</a></div>
+                      <ul class="li_dd">
+                        @foreach ($sitePages as $page)
+                          <li><a
+                              href="{{ route('service.detail', ['uri' => $page->uri]) }}">{{ ucfirst($page->page_name) }}</a>
+                          </li>
+                        @endforeach
+                      </ul>
+                    </div>
+                    <div class=" col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3 ">
+                      <div class="b-font">About Us</div>
+                      <ul class="li_dd">
+                        <li><a href="{{ route('wwa') }}">Who we are</a></li>
+                        <li><a href="{{ route('wps') }}" target="_blank">What Students Say</a></li>
+                        <li><a href="{{ route('select.level') }}" target="_blank">Study Malaysia</a></li>
+                        <li><a href="{{ url('why-study-in-malaysia') }}">Why Study In Malaysia?</a></li>
+                      </ul>
+                    </div>
+                    <!-- <div class=" col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-3 ">
+                    <img src="{{ cdn('assets/web/images/em-menu2.webp') }}" class="img-fluid" alt="About us Image"
+                      width="300" height="200">
+                  </div> -->
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item"><a href="{{ url('courses-in-malaysia') }}" class="nav-link"><i
+                    class="fa fa-book" aria-hidden="true"></i>Courses</a></li>
+              <li class="nav-item"><a href="{{ route('select.university') }}" class="nav-link"><i
+                    class="fa fa-university"></i>Universities</a></li>
+              <li class="nav-item"><a href="{{ route('specializations') }}" class="nav-link"><i
+                    class="fa fa-cogs"></i>Specialization</a></li>
+              <li class="nav-item"><a href="{{ url('scholarships') }}" class="nav-link"><i
+                    class="fa fa-graduation-cap"></i> Scholarship</a></li>
+            </ul>
+            <form class="d-flex align-items-center set-gap">
+              @if (session()->has('studentLoggedIn'))
+                <a href="{{ url('/student/profile/') }}" class="btn btn-outline-dark my-2 my-sm-0"
+                  type="submit">Profile</a>
+              @else
+                <a class="btn btn-primary" href="{{ url('sign-up') }}">Sign Up</a>
+                <a class="btn btn-outline-dark my-2 my-sm-0" href="{{ url('sign-in') }}">Login</a>
+              @endif
+            </form>
+          </div>
+        </div>
+        <!-- Mobile  html start -->
       </div>
     </nav>
 
@@ -420,4 +606,15 @@
           });
         });
       });
+    </script>
+    <script>
+      function openNavd() {
+        var panel = document.getElementById("mySidepanelvd");
+        panel.style.width = "100%";
+        panel.style.maxWidth = "100%";
+      }
+
+      function closeNavd() {
+        document.getElementById("mySidepanelvd").style.width = "0";
+      }
     </script>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CountryApi;
+use App\Http\Controllers\Api\ExamApi;
 use App\Http\Controllers\Api\SpecializationApi;
 use App\Http\Controllers\Api\StaticPageSeoApi;
 use App\Http\Middleware\CheckApiKey;
@@ -43,6 +44,10 @@ Route::middleware([CheckApiKey::class])->group(function () {
   Route::get('/filter/specializations', [SpecializationApi::class, 'byFilter']);
   Route::get('/specialization-detail-by-id/{id}', [SpecializationApi::class, 'detailById']);
   Route::get('/specialization-detail-by-slug/{slug}', [SpecializationApi::class, 'detailBySlug']);
+
+
+  Route::get('/exams', [ExamApi::class, 'index']);
+  Route::get('/exam-details/{uri}', [ExamApi::class, 'examDetail']);
 
   Route::get('/static-page-seo/{page?}', [StaticPageSeoApi::class, 'getSeoData'])->where('page', '.*');
 });

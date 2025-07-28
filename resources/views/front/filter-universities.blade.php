@@ -7,7 +7,7 @@
   <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample" class="collapse show"
     role="region">
     <div class="scrlbar">
-      <div class="card-body pl-4 pr-4 pb-2">
+      <div class="card-body pl-4 pr-4 pb-2 ">
         <ul class="no-ul-list mb-3">
           @foreach ($instituteTypes as $row)
             @php
@@ -21,7 +21,9 @@
               <input id="inst{{ $row->instituteType->id }}" class="checkbox-custom" name="institute_type"
                 type="checkbox" onclick="{{ $onClickFunction }}" {{ $checked }}>
               <label for="inst{{ $row->instituteType->id }}" class="checkbox-custom-label">
-                {{ $row->instituteType->type }}</label>
+                
+              <div class="check-texts"> {{ $row->instituteType->type }}</div>
+              </label>
             </li>
           @endforeach
         </ul>
@@ -51,7 +53,10 @@
             <li>
               <input id="state{{ slugify($row->state) }}" class="checkbox-custom" name="state_filter" type="checkbox"
                 onclick="{{ $onClickFunctionState }}" {{ $checkedState }}>
-              <label for="state{{ slugify($row->state) }}" class="checkbox-custom-label">{{ $row->state }}</label>
+              <label for="state{{ slugify($row->state) }}" class="checkbox-custom-label">
+<div class="check-texts">{{ $row->state }}</div>
+
+              </label>
             </li>
           @endforeach
         </ul>

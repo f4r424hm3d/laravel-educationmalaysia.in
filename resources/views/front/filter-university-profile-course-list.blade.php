@@ -20,7 +20,9 @@
                 <input id="level{{ $row->level }}" class="checkbox-custom" name="institute_type" type="checkbox"
                   onclick="{{ session()->get('UCF_level') == $row->level ? 'removeFilter(`UCF_level`)' : 'ApplyLevelFilter(`' . $row->level . '`)' }}"
                   {{ session()->get('UCF_level') == $row->level ? 'checked' : '' }}>
-                <label for="level{{ $row->level }}" class="checkbox-custom-label">{{ $row->level }}</label>
+                <label for="level{{ $row->level }}" class="checkbox-custom-label">
+                <div class="check-texts">{{ $row->level }}</div>
+                </label>
               </li>
             @endforeach
           </ul>
@@ -47,7 +49,9 @@
                   onclick="{{ session()->get('UCF_course_category') == $row->category->id ? 'removeFilter(`UCF_course_category`)' : 'ApplyCategoryFilter(`' . $row->category->id . '`)' }}"
                   {{ session()->get('UCF_course_category') == $row->category->id ? 'checked' : '' }}>
                 <label for="category{{ $row->category->id }}"
-                  class="checkbox-custom-label">{{ $row->category->name }}</label>
+                  class="checkbox-custom-label">
+                  <div class="check-texts">{{ $row->category->name }}</div>
+                  </label>
               </li>
             @endforeach
           </ul>
@@ -74,7 +78,9 @@
                   ?>"
                   {{ session()->get('UCF_specialization') == $row->getSpecialization->id ? 'checked' : '' }}>
                 <label for="spc{{ $row->getSpecialization->id }}"
-                  class="checkbox-custom-label">{{ $row->getSpecialization->name }}</label>
+                  class="checkbox-custom-label">
+                  <div class="check-texts">{{ $row->getSpecialization->name }}</div>
+                  </label>
               </li>
             @endforeach
           </ul>
@@ -164,7 +170,9 @@
                 <input id="sm{{ $row->id }}" class="checkbox-custom" name="institute_type" type="checkbox"
                   onclick="<?php echo session()->get('UCF_study_mode') == $row->study_mode ? " removeFilter('UCF_study_mode')" : "ApplyFilter('UCF_study_mode','" . $row->study_mode . "')"; ?>"
                   {{ session()->get('UCF_study_mode') == $row->study_mode ? 'checked' : '' }}>
-                <label for="sm{{ $row->id }}" class="checkbox-custom-label">{{ $row->study_mode }}</label>
+                <label for="sm{{ $row->id }}" class="checkbox-custom-label">
+                <div class="check-texts">{{ $row->study_mode }}</div>
+                </label>
               </li>
             @endforeach
           </ul>

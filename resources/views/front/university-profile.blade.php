@@ -81,7 +81,6 @@
       <div class="col-xl-2 col-lg-3 col-md-3 col-12 mb-4">
         <div class="imguniersity">
           <img data-src="{{ asset($university->logo_path) }}" class="" alt="{{ $university->name }}">
-
         </div>
       </div>
 

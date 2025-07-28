@@ -13,6 +13,7 @@ use App\Models\ExamContent;
 use App\Models\ExamFaq;
 use App\Models\ExamTab;
 use App\Models\ExamTabFaq;
+use App\Models\StaticPageSeo;
 use App\Models\University;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,23 @@ class ExamFc extends Controller
   public function index(Request $request)
   {
     $exams = Exam::where(['status' => 1])->website()->get();
-    $data = compact('exams');
+    // Fetch SEO data for 'exams'
+    $seo = StaticPageSeo::where('page', 'exams')->first();
+
+    $site = url('/');
+    $tagArray = [
+      'currentmonth' => date('M'),
+      'currentyear' => date('Y'),
+      'site' => $site
+    ];
+
+    $meta_title = isset($seo->title) ? replaceTag($seo->title, $tagArray) : '';
+    $meta_keyword = isset($seo->keyword) ? replaceTag($seo->keyword, $tagArray) : '';
+    $meta_description = isset($seo->description) ? replaceTag($seo->description, $tagArray) : '';
+    $page_content = isset($seo->page_content) ? replaceTag($seo->page_content, $tagArray) : '';
+    $seo_rating = $seo->seo_rating ?? '';
+    $og_image_path = $seo->ogimgpath ?? null;
+    $data = compact('exams', 'meta_title', 'meta_keyword', 'meta_description', 'page_content', 'seo_rating', 'og_image_path');
     return view('front.exams')->with($data);
   }
   public function examDetail($uri, Request $request)

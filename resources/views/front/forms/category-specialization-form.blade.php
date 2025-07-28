@@ -124,15 +124,27 @@
       </div> --}}
 
       <!-- Captcha Field -->
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
+      <!-- <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
           <input type="text" placeholder="Captcha: {{ $captcha['text'] }} =" class="form-control" disabled readonly>
+
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12">
           <input type="text" id="captcha" placeholder="Enter the Captcha Code" class="form-control"
             name="captcha_answer" required>
         </div>
-      </div>
+      </div> -->
+
+      <div class="form-group">
+        
+          <div class="input-group">
+            <div class="input-icon"><span class="ti-captcha_answer">
+            <label for="captcha_question" class="capctaha">{{ $captcha['text'] }}</label>
+            </span></div>
+             <input type="text" id="captcha" placeholder="Enter the Captcha Code" class="form-control border-0"
+            name="captcha_answer" required>
+          </div>
+                  </div>
 
       <!-- Terms & Conditions -->
       <div class="row">
