@@ -51,7 +51,7 @@ class ExamApi extends Controller
 
   public function examDetail($uri, Request $request)
   {
-    $exam = Exam::website()
+    $exam = Exam::select('id', 'page_name', 'uri', 'headline', 'imgpath', 'description', 'meta_title', 'meta_keyword', 'meta_description')->website()
       ->where(['status' => 1])
       ->where('uri', $uri)
       ->firstOrFail();
@@ -100,9 +100,6 @@ class ExamApi extends Controller
     $meta_keyword = $exam->meta_keyword ?: ($dseo->keyword ?? '');
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
 
-    $page_content = $exam->page_content ?: ($dseo->page_content ?? '');
-    $page_content = replaceTag($page_content, $tagArray);
-
     $meta_description = $exam->meta_description ?: ($dseo->description ?? '');
     $meta_description = replaceTag($meta_description, $tagArray);
 
@@ -120,7 +117,6 @@ class ExamApi extends Controller
           'meta_title' => $meta_title,
           'meta_keyword' => $meta_keyword,
           'meta_description' => $meta_description,
-          'page_content' => $page_content,
           'og_image_path' => $og_image_path,
           'title' => $title,
           'headline' => $headline,
