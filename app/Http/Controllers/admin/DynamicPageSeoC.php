@@ -45,17 +45,16 @@ class DynamicPageSeoC extends Controller
       [
         'url' => [
           'required',
-          Rule::unique('static_page_seos', 'url')->where('website', site_var),
+          Rule::unique('dynamic_page_seos', 'url')->where('website', site_var),
         ],
       ]
     );
     $field = new DynamicPageSeo;
     $field->website = site_var;
     $field->url = $request['url'];
-    $field->title = $request['title'];
-    $field->keyword = $request['keyword'];
-    $field->description = $request['description'];
-    $field->page_content = $request['page_content'];
+    $field->meta_title = $request['meta_title'];
+    $field->meta_keyword = $request['meta_keyword'];
+    $field->meta_description = $request['meta_description'];
     $field->seo_rating = $request['seo_rating'];
     $field->best_rating = $request['best_rating'];
     $field->review_number = $request['review_number'];
@@ -67,8 +66,8 @@ class DynamicPageSeoC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('og_image')->move('uploads/seo/', $file_name);
       if ($move) {
-        $field->ogimgname = $file_name;
-        $field->ogimgpath = 'uploads/seo/' . $file_name;
+        $field->og_image_name = $file_name;
+        $field->og_image_path = 'uploads/seo/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
@@ -83,7 +82,7 @@ class DynamicPageSeoC extends Controller
       [
         'url' => [
           'required',
-          Rule::unique('static_page_seos', 'url')
+          Rule::unique('dynamic_page_seos', 'url')
             ->ignore($id)
             ->where('website', site_var),
         ],
@@ -92,10 +91,9 @@ class DynamicPageSeoC extends Controller
     $field = DynamicPageSeo::find($id);
     $field->website = site_var;
     $field->url = $request['url'];
-    $field->title = $request['title'];
-    $field->keyword = $request['keyword'];
-    $field->description = $request['description'];
-    $field->page_content = $request['page_content'];
+    $field->meta_title = $request['meta_title'];
+    $field->meta_keyword = $request['meta_keyword'];
+    $field->meta_description = $request['meta_description'];
     $field->seo_rating = $request['seo_rating'];
     $field->best_rating = $request['best_rating'];
     $field->review_number = $request['review_number'];
@@ -107,8 +105,8 @@ class DynamicPageSeoC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('og_image')->move('uploads/seo/', $file_name);
       if ($move) {
-        $field->ogimgname = $file_name;
-        $field->ogimgpath = 'uploads/seo/' . $file_name;
+        $field->og_image_name = $file_name;
+        $field->og_image_path = 'uploads/seo/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
