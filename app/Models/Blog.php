@@ -21,7 +21,7 @@ class Blog extends Model
   }
   public function getCategory()
   {
-    return $this->hasOne(BlogCategory::class, 'id', 'cate_id');
+    return $this->hasOne(BlogCategory::class, 'id', 'cate_id')->select('id', 'cate_name', 'slug');
   }
   public function contents()
   {

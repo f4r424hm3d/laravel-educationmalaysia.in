@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\BlogApi;
 use App\Http\Controllers\Api\CountryApi;
 use App\Http\Controllers\Api\ExamApi;
 use App\Http\Controllers\Api\SpecializationApi;
@@ -51,3 +52,6 @@ Route::middleware([CheckApiKey::class])->group(function () {
 
   Route::get('/static-page-seo/{page?}', [StaticPageSeoApi::class, 'getSeoData'])->where('page', '.*');
 });
+Route::get('blog', [BlogApi::class, 'index']);
+Route::get('blog-by-category/{category_slug}', [BlogApi::class, 'blogByCategory']);
+Route::get('blog-details/{category_slug}/{slug}', [BlogApi::class, 'detail']);

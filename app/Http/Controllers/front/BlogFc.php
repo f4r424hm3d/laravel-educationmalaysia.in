@@ -70,7 +70,7 @@ class BlogFc extends Controller
 
     $page_url = url()->current();
 
-    $wrdseo = ['url' => 'get-info'];
+    $wrdseo = ['url' => 'blog-details'];
     $dseo = DynamicPageSeo::where($wrdseo)->first();
 
     $sub_slug = $blog->title;
@@ -93,7 +93,7 @@ class BlogFc extends Controller
 
     $og_image_path = $blog->imgpath == '' ? $dseo->ogimgpath : $blog->imgpath;
 
-    $specializations = CourseSpecialization::inRandomOrder()->limit(10)->get();
+    $specializations = CourseSpecialization::whereHas('contents')->inRandomOrder()->limit(10)->get();
     $countries = Country::orderBy('name', 'ASC')->get();
     $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
     $captcha = generateMathQuestion();
