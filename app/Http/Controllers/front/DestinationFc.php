@@ -88,16 +88,16 @@ class DestinationFc extends Controller
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
-    $meta_title = $destination->meta_title == '' ? $dseo->title : $destination->meta_title;
+    $meta_title = $destination->meta_title == '' ? $dseo->meta_title : $destination->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
 
-    $meta_keyword = $destination->meta_keyword == '' ? $dseo->keyword : $destination->meta_keyword;
+    $meta_keyword = $destination->meta_keyword == '' ? $dseo->meta_keyword : $destination->meta_keyword;
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
 
     $page_content = $destination->page_content == '' ? $dseo->page_content : $destination->page_content;
     $page_content = replaceTag($page_content, $tagArray);
 
-    $meta_description = $destination->meta_description == '' ? $dseo->description : $destination->meta_description;
+    $meta_description = $destination->meta_description == '' ? $dseo->meta_description : $destination->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
 
     $og_image_path = $destination->og_img_path ?? $dogimg->file_path;

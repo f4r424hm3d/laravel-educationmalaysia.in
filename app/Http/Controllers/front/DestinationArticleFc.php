@@ -42,16 +42,16 @@ class DestinationArticleFc extends Controller
 
     $tagArray = ['title' => $sub_slug, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
-    $meta_title = $article->meta_title == '' ? $dseo->title : $article->meta_title;
+    $meta_title = $article->meta_title == '' ? $dseo->meta_title : $article->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
 
-    $meta_keyword = $article->meta_keyword == '' ? $dseo->keyword : $article->meta_keyword;
+    $meta_keyword = $article->meta_keyword == '' ? $dseo->meta_keyword : $article->meta_keyword;
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
 
     $page_content = $article->page_content == '' ? $dseo->page_content : $article->page_content;
     $page_content = replaceTag($page_content, $tagArray);
 
-    $meta_description = $article->meta_description == '' ? $dseo->description : $article->meta_description;
+    $meta_description = $article->meta_description == '' ? $dseo->meta_description : $article->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
 
     $og_image_path = $article->image_path == '' ? $dogimg->file_path : $article->image_path;

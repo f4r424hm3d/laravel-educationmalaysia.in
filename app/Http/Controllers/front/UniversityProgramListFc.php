@@ -100,10 +100,10 @@ class UniversityProgramListFc extends Controller
 
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site, 'category' => $category, 'specialization' => $specialization, 'level' => $level, 'nou' => $nou, 'noc' => $noc, 'studymode' => $studymode,];
 
-    $meta_title = replaceTag($dseo->title, $tagArray);
-    $meta_keyword = replaceTag($dseo->keyword, $tagArray);
+    $meta_title = replaceTag($dseo->meta_title, $tagArray);
+    $meta_keyword = replaceTag($dseo->meta_keyword, $tagArray);
     $page_content = replaceTag($dseo->content, $tagArray);
-    $meta_description = replaceTag($dseo->description, $tagArray);
+    $meta_description = replaceTag($dseo->meta_description, $tagArray);
     $og_image_path = $dogimg->file_path;
 
     $page_contents = 'Find a list of Courses in Malaysia to study at top private & Public universities in Malaysia. Learn about the course duration, intake, tuition fee, and discover information about leading private universities offering diploma, bachelor degree, master programs, and phd courses. Apply directly for your desired courses today.';
@@ -221,10 +221,10 @@ class UniversityProgramListFc extends Controller
 
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site, 'category' => $category, 'specialization' => $specialization, 'level' => $level, 'nou' => $nou, 'noc' => $noc, 'studymode' => $studymode,];
 
-    $meta_title = replaceTag($dseo->title, $tagArray);
-    $meta_keyword = replaceTag($dseo->keyword, $tagArray);
+    $meta_title = replaceTag($dseo->meta_title, $tagArray);
+    $meta_keyword = replaceTag($dseo->meta_keyword, $tagArray);
     $page_content = replaceTag($dseo->content, $tagArray);
-    $meta_description = replaceTag($dseo->description, $tagArray);
+    $meta_description = replaceTag($dseo->meta_description, $tagArray);
     $og_image_path = $dogimg->file_path;
 
     $page_contents = 'Discover a list of ' . $noc . ' ' . $pageContentKeyword . ' courses offered by the Top ' . $nou . ' universities and colleges in Malaysia. Gather valuable information such as entry requirements, fee structures, intake schedules for ' . date('Y') . ', study modes, and recommendations for the best universities and colleges offering ' . $pageContentKeyword . ' degree programs. Enroll directly in ' . $pageContentKeyword . ' courses through EducationMalaysia.in.';
@@ -343,10 +343,10 @@ class UniversityProgramListFc extends Controller
 
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site, 'category' => $category, 'specialization' => $specialization, 'level' => $level, 'nou' => $nou, 'noc' => $noc, 'studymode' => $studymode,];
 
-    $meta_title = replaceTag($dseo->title, $tagArray);
-    $meta_keyword = replaceTag($dseo->keyword, $tagArray);
+    $meta_title = replaceTag($dseo->meta_title, $tagArray);
+    $meta_keyword = replaceTag($dseo->meta_keyword, $tagArray);
     $page_content = replaceTag($dseo->content, $tagArray);
-    $meta_description = replaceTag($dseo->description, $tagArray);
+    $meta_description = replaceTag($dseo->meta_description, $tagArray);
     $og_image_path = $dogimg->file_path;
 
     $page_contents = 'Discover a list of ' . $noc . ' ' . $pageContentKeyword . ' courses offered by the Top ' . $nou . ' universities and colleges in Malaysia. Gather valuable information such as entry requirements, fee structures, intake schedules for ' . date('Y') . ', study modes, and recommendations for the best universities and colleges offering ' . $pageContentKeyword . ' degree programs. Enroll directly in ' . $pageContentKeyword . ' courses through EducationMalaysia.in.';

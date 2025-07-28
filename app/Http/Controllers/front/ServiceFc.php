@@ -77,16 +77,16 @@ class ServiceFc extends Controller
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'headline' => $headline, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
-    $meta_title = $service->meta_title == '' ? $dseo->title : $service->meta_title;
+    $meta_title = $service->meta_title == '' ? $dseo->meta_title : $service->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
 
-    $meta_keyword = $service->meta_keyword == '' ? $dseo->keyword : $service->meta_keyword;
+    $meta_keyword = $service->meta_keyword == '' ? $dseo->meta_keyword : $service->meta_keyword;
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
 
     $page_content = $service->page_content == '' ? $dseo->page_content : $service->page_content;
     $page_content = replaceTag($page_content, $tagArray);
 
-    $meta_description = $service->meta_description == '' ? $dseo->description : $service->meta_description;
+    $meta_description = $service->meta_description == '' ? $dseo->meta_description : $service->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
 
     $og_image_path = $service->ogimgpath ?? $dseo->ogimgpath;
