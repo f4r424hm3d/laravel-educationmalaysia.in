@@ -29,7 +29,7 @@ class BlogFc extends Controller
     $wrdseo = ['url' => 'blog-by-category'];
     $dseo = DynamicPageSeo::where($wrdseo)->first();
 
-    $title = $category->category_name;
+    $title = $category->cate_name;
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
@@ -48,6 +48,8 @@ class BlogFc extends Controller
     $og_image_path = $category->imgpath ?? $dseo->ogimgpath;
 
     $data = compact('category', 'blogs', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path');
+    // return $data;
+    // die;
     return view('front.blog-by-category')->with($data);
   }
   public function detail($category_slug, $slug, Request $request)

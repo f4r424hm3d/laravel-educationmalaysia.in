@@ -94,13 +94,13 @@ class ExamApi extends Controller
       'site' => $site
     ];
 
-    $meta_title = $exam->meta_title ?: ($dseo->title ?? '');
+    $meta_title = $exam->meta_title ?: ($dseo->meta_title ?? '');
     $meta_title = replaceTag($meta_title, $tagArray);
 
-    $meta_keyword = $exam->meta_keyword ?: ($dseo->keyword ?? '');
+    $meta_keyword = $exam->meta_keyword ?: ($dseo->meta_keyword ?? '');
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
 
-    $meta_description = $exam->meta_description ?: ($dseo->description ?? '');
+    $meta_description = $exam->meta_description ?: ($dseo->meta_description ?? '');
     $meta_description = replaceTag($meta_description, $tagArray);
 
     $og_image_path = $exam->imgpath ?? ($dseo->ogimgpath ?? null);

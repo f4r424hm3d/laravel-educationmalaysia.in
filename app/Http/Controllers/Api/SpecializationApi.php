@@ -135,16 +135,16 @@ class SpecializationApi extends Controller
       'site' => $site
     ];
 
-    $meta_title = $specialization->meta_title ?: ($dseo->title ?? '');
+    $meta_title = $specialization->meta_title ?: ($dseo->meta_title ?? '');
     $meta_title = replaceTag($meta_title, $tagArray);
 
-    $meta_keyword = $specialization->meta_keyword ?: ($dseo->keyword ?? '');
+    $meta_keyword = $specialization->meta_keyword ?: ($dseo->meta_keyword ?? '');
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
 
     $page_content = $specialization->page_content ?: ($dseo->page_content ?? '');
     $page_content = replaceTag($page_content, $tagArray);
 
-    $meta_description = $specialization->meta_description ?: ($dseo->description ?? '');
+    $meta_description = $specialization->meta_description ?: ($dseo->meta_description ?? '');
     $meta_description = replaceTag($meta_description, $tagArray);
 
     $og_image_path = $specialization->content_image_path ?? ($defaultImage->image_path ?? null);
@@ -233,16 +233,16 @@ class SpecializationApi extends Controller
       'site' => $site
     ];
 
-    $meta_title = $specialization->meta_title ?: ($dseo->title ?? '');
+    $meta_title = $specialization->meta_title ?: ($dseo->meta_title ?? '');
     $meta_title = replaceTag($meta_title, $tagArray);
 
-    $meta_keyword = $specialization->meta_keyword ?: ($dseo->keyword ?? '');
+    $meta_keyword = $specialization->meta_keyword ?: ($dseo->meta_keyword ?? '');
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
 
     $page_content = $specialization->page_content ?: ($dseo->page_content ?? '');
     $page_content = replaceTag($page_content, $tagArray);
 
-    $meta_description = $specialization->meta_description ?: ($dseo->description ?? '');
+    $meta_description = $specialization->meta_description ?: ($dseo->meta_description ?? '');
     $meta_description = replaceTag($meta_description, $tagArray);
 
     $og_image_path = $specialization->content_image_path ?? ($defaultImage->image_path ?? null);
