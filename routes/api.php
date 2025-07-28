@@ -50,8 +50,9 @@ Route::middleware([CheckApiKey::class])->group(function () {
   Route::get('/exams', [ExamApi::class, 'index']);
   Route::get('/exam-details/{uri}', [ExamApi::class, 'examDetail']);
 
+  Route::get('blog', [BlogApi::class, 'index']);
+  Route::get('blog-by-category/{category_slug}', [BlogApi::class, 'blogByCategory']);
+  Route::get('blog-details/{category_slug}/{slug}', [BlogApi::class, 'detail']);
+
   Route::get('/static-page-seo/{page?}', [StaticPageSeoApi::class, 'getSeoData'])->where('page', '.*');
 });
-Route::get('blog', [BlogApi::class, 'index']);
-Route::get('blog-by-category/{category_slug}', [BlogApi::class, 'blogByCategory']);
-Route::get('blog-details/{category_slug}/{slug}', [BlogApi::class, 'detail']);
