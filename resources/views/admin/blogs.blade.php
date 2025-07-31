@@ -45,8 +45,8 @@
                 @csrf
                 <div class="row">
                   <div class="col-md-3 col-sm-12 mb-3">
-                    <x-SelectField label="Category" name="cate_id" id="cate_id" savev="id" showv="cate_name"
-                      :list="$category" :ft="$ft" :sd="$sd"></x-SelectField>
+                    <x-SelectField label="Category" name="category_id" id="category_id" savev="id"
+                      showv="category_name" :list="$category" :ft="$ft" :sd="$sd"></x-SelectField>
                   </div>
                   <div class="col-md-3 col-sm-12 mb-3">
                     <x-SelectField label="Created By" name="author_id" id="author_id" savev="id" showv="name"
@@ -67,7 +67,7 @@
                 </div>
                 <hr>
                 <!--  SEO INPUT FIELD COMPONENT START -->
-                <x-SeoField :ft="$ft" :sd="$sd"></x-SeoField>
+                <x-seo-field :ft="$ft" :sd="$sd" />
                 <!--  SEO INPUT FIELD COMPONENT END  -->
                 @if ($ft == 'add')
                   <button type="reset" class="btn btn-sm btn-warning  mr-1"><i class="ti-trash"></i> Reset</button>
@@ -109,7 +109,7 @@
                     @endphp
                     <tr id="row{{ $row->id }}">
                       <td>{{ $i }}</td>
-                      <td>{{ $row->getCategory->cate_name ?? $row->cate_id }}</td>
+                      <td>{{ $row->getCategory->category_name ?? $row->category_id }}</td>
                       <td>{{ $row->headline }}</td>
                       <td>
                         @if ($row->description != null)

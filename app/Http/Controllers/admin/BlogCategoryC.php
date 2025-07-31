@@ -37,18 +37,17 @@ class BlogCategoryC extends Controller
     // die;
     $request->validate(
       [
-        'cate_name' => 'required|unique:blog_categories,cate_name',
+        'category_name' => 'required|unique:blog_categories,category_name',
       ]
     );
     $field = new BlogCategory;
 
-    $field->cate_name = $request['cate_name'];
-    $field->slug = slugify($request['cate_name']);
+    $field->category_name = $request['category_name'];
+    $field->category_slug = slugify($request['category_name']);
     $field->website = site_var;
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
     $field->meta_description = $request['meta_description'];
-    $field->page_content = $request['page_content'];
     $field->seo_rating = $request['seo_rating'];
     $field->save();
     session()->flash('smsg', 'New record has been added successfully.');
@@ -63,16 +62,15 @@ class BlogCategoryC extends Controller
   {
     $request->validate(
       [
-        'cate_name' => 'required|unique:blog_categories,cate_name,' . $id,
+        'category_name' => 'required|unique:blog_categories,category_name,' . $id,
       ]
     );
     $field = BlogCategory::find($id);
-    $field->cate_name = $request['cate_name'];
-    $field->slug = slugify($request['cate_name']);
+    $field->category_name = $request['category_name'];
+    $field->category_slug = slugify($request['category_name']);
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
     $field->meta_description = $request['meta_description'];
-    $field->page_content = $request['page_content'];
     $field->seo_rating = $request['seo_rating'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');

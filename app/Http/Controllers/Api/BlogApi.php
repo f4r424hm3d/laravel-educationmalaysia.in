@@ -14,7 +14,7 @@ class BlogApi extends Controller
 {
   public function index(Request $request)
   {
-    $blogs = Blog::with('getCategory')->select('id', 'cate_id', 'headline', 'slug', 'imgpath', 'created_at')->website()->orderBy('id', 'desc')->paginate(12);
+    $blogs = Blog::with('getCategory')->select('id', 'category_id', 'headline', 'slug', 'imgpath', 'created_at')->website()->orderBy('id', 'desc')->paginate(12);
     // Fetch SEO data for 'blog'
     $seo = StaticPageSeo::where('page', 'blog')->first();
 
@@ -43,10 +43,10 @@ class BlogApi extends Controller
       ]
     ]);
   }
-  public function blogByCategory($slug, Request $request)
+  public function blogByCategory($category_slug, Request $request)
   {
-    $category = BlogCategory::select('id', 'cate_name', 'slug')->website()->where('slug', $slug)->firstOrFail();
-    $blogs = Blog::with('getCategory')->select('id', 'cate_id', 'headline', 'slug', 'imgpath', 'created_at')->where('cate_id', $category->id)->website()->orderBy('id', 'desc')->paginate(12);
+    $category = BlogCategory::select('id', 'category_name', 'category_slug')->website()->where('category_slug', $category_slug)->firstOrFail();
+    $blogs = Blog::with('getCategory')->select('id', 'category_id', 'headline', 'slug', 'imgpath', 'created_at')->where('category_id', $category->id)->website()->orderBy('id', 'desc')->paginate(12);
 
     $page_url = url()->current();
 
@@ -81,7 +81,7 @@ class BlogApi extends Controller
   }
   public function detail($category_slug, $slug, Request $request)
   {
-    $category = BlogCategory::website()->where('slug', $category_slug)->firstOrFail();
+    $category = BlogCategory::website()->where('category_slug', $category_slug)->firstOrFail();
 
     preg_match('/\d+$/', $slug, $matches);
     $blog_id = $matches[0] ?? null;
@@ -95,10 +95,10 @@ class BlogApi extends Controller
       'parentContents.childContents' => function ($query) {
         $query->select('id', 'parent_id', 'title', 'slug', 'description'); // only these fields from childContents
       }
-    ])->select('id', 'headline', 'slug', 'imgpath', 'created_at', 'updated_at', 'author_id', 'meta_title', 'meta_keyword', 'meta_description')->where('cate_id', $category->id)->where('slug', $updatedSlug)->where('id', $blog_id)->firstOrFail();
+    ])->select('id', 'headline', 'slug', 'imgpath', 'created_at', 'updated_at', 'author_id', 'meta_title', 'meta_keyword', 'meta_description')->where('category_id', $category->id)->where('slug', $updatedSlug)->where('id', $blog_id)->firstOrFail();
 
     $relatedBlogs = Blog::select('id', 'headline', 'imgpath', 'created_at')->website()->where('id', '!=', $blog->id)->orderBy('id', 'desc')->limit(12)->get();
-    $categories = BlogCategory::select('id', 'cate_name', 'slug')->website()->get();
+    $categories = BlogCategory::select('id', 'category_name', 'slug')->website()->get();
 
 
     $dseo = DynamicPageSeo::where('url', 'blog-details')->first();
@@ -107,7 +107,7 @@ class BlogApi extends Controller
 
     $tagArray = [
       'title' => $blog->title,
-      'category' => $category->cate_name,
+      'category' => $category->category_name,
       'currentmonth' => date('M'),
       'currentyear' => date('Y'),
       'site' => $site

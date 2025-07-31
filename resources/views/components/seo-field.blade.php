@@ -34,7 +34,7 @@
       </span>
     </div>
   </div>
-  <div class="col-md-12 col-sm-12 hide-thi">
+  {{-- <div class="col-md-12 col-sm-12 hide-thi">
     <div class="form-group mb-3">
       <label>Page Content</label>
       <input name="page_content" type="text" class="form-control" placeholder="Page Content"
@@ -45,7 +45,7 @@
         @enderror
       </span>
     </div>
-  </div>
+  </div> --}}
   <div class="col-md-3 col-sm-12">
     <div class="form-group mb-3">
       <label>Seo Rating</label>

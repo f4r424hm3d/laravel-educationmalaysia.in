@@ -45,8 +45,8 @@
                 @csrf
                 <div class="row">
                   <div class="col-md-4 col-sm-12 mb-3">
-                    <x-InputField type="text" label="Category Name" name="cate_name" id="cate_name" :ft="$ft"
-                      :sd="$sd"></x-InputField>
+                    <x-InputField type="text" label="Category Name" name="category_name" id="category_name"
+                      :ft="$ft" :sd="$sd"></x-InputField>
                   </div>
                 </div>
                 <hr>
@@ -86,7 +86,7 @@
                   @foreach ($rows as $row)
                     <tr id="row{{ $row->id }}">
                       <td>{{ $i }}</td>
-                      <td>{{ $row->cate_name }}</td>
+                      <td>{{ $row->category_name }}</td>
                       <td>
                         @if ($row->meta_title != null)
                           <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light"

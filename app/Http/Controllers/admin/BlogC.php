@@ -42,7 +42,7 @@ class BlogC extends Controller
     // die;
     $request->validate(
       [
-        'cate_id' => 'required',
+        'category_id' => 'required',
         'headline' => 'required|unique:blogs,headline',
       ]
     );
@@ -61,7 +61,7 @@ class BlogC extends Controller
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
-    $field->cate_id = $request['cate_id'];
+    $field->category_id = $request['category_id'];
     $field->author_id = $request['author_id'];
     $field->headline = $request['headline'];
     $field->slug = slugify($request['headline']);
@@ -84,7 +84,7 @@ class BlogC extends Controller
   {
     $request->validate(
       [
-        'cate_id' => 'required',
+        'category_id' => 'required',
         'headline' => 'required|unique:blogs,headline,' . $id,
       ]
     );
@@ -103,7 +103,7 @@ class BlogC extends Controller
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
-    $field->cate_id = $request['cate_id'];
+    $field->category_id = $request['category_id'];
     $field->author_id = $request['author_id'];
     $field->headline = $request['headline'];
     $field->slug = slugify($request['headline']);
