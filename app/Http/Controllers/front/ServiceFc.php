@@ -14,6 +14,7 @@ use App\Models\University;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; // Import DB facade
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\File;
 
 class ServiceFc extends Controller
 {
@@ -71,40 +72,86 @@ class ServiceFc extends Controller
     $data = compact('services', 'service', 'allServices', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'seo_rating', 'seoRatingSchema', 'countries', 'phonecodes', 'captcha', 'source', 'specializations', 'featuredUniversities');
     return view('front.service-detail')->with($data);
   }
-  public function transferSitePageData()
+  public function transferSitePageDatam()
   {
-    // Fetch all rows from the `site_pages` table
-    $sitePages = DB::table('site_pages')->get();
+    $sourceFolder = 'assets/uploadFiles/study/';
+    $destinationFolder = 'uploads/services/';
 
-    // Prepare an array to store the data to be inserted into `site_page_tabs`
-    $insertData = [];
+    // Create destination folder if not exists
+    if (!File::exists($destinationFolder)) {
+      File::makeDirectory($destinationFolder, 0755, true);
+    }
 
-    // Loop through each row of `site_pages`
-    foreach ($sitePages as $page) {
-      // Map h1, h2, ..., h5 and p1, p2, ..., p5 to tab_title and tab_content
-      for ($i = 1; $i <= 5; $i++) {
-        $heading = $page->{'h' . $i};  // h1, h2, h3, etc.
-        $paragraph = $page->{'p' . $i}; // p1, p2, p3, etc.
+    $sitePages = Service::all();
+    $updatedCount = 0;
+    $movedCount = 0;
 
-        // Only insert if both heading and paragraph are not empty
-        if (!empty($heading) && !empty($paragraph)) {
-          $insertData[] = [
-            'page_id'      => $page->id, // ID from the `site_pages` table
-            'tab_title'    => $heading, // Heading as tab title
-            'tab_content'  => $paragraph, // Paragraph as tab content
-            'created_at'   => Carbon::now(),
-            'updated_at'   => Carbon::now()
-          ];
+    foreach ($sitePages as $row) {
+      if ($row->bannerpath) {
+        $sourcePath = $sourceFolder . $row->bannerpath;
+        $destinationPath = $destinationFolder . $row->bannerpath;
+
+        // Move the file if it exists
+        if (File::exists($sourcePath)) {
+          if (!File::exists($destinationPath)) {
+            File::move($sourcePath, $destinationPath);
+            $movedCount++;
+          }
+
+          // Update banner_path in DB
+          $row->banner_path = 'uploads/services/' . $row->bannerpath;
+          $row->save();
+          $updatedCount++;
         }
       }
     }
 
-    // Insert data into `site_page_tabs`
-    if (!empty($insertData)) {
-      DB::table('site_page_tabs')->insert($insertData);
+    return response()->json([
+      'status' => true,
+      'message' => 'Data transferred successfully!',
+      'files_moved' => $movedCount,
+      'records_updated' => $updatedCount,
+    ]);
+  }
+  public function transferSitePageData()
+  {
+    $sourceFolder = 'assets/uploadFiles/study/';
+    $destinationFolder = 'uploads/services/';
+
+    // Create destination folder if not exists
+    if (!File::exists($destinationFolder)) {
+      File::makeDirectory($destinationFolder, 0755, true);
     }
 
-    // Return success message
-    return response()->json(['message' => 'Data transferred successfully!']);
+    $sitePages = Service::all();
+    $updatedCount = 0;
+    $movedCount = 0;
+
+    foreach ($sitePages as $row) {
+      if ($row->bannerpath) {
+        $sourcePath = $sourceFolder . $row->bannerpath;
+        $destinationPath = $destinationFolder . $row->bannerpath;
+
+        // Move the file if it exists
+        if (File::exists($sourcePath)) {
+          if (!File::exists($destinationPath)) {
+            File::move($sourcePath, $destinationPath);
+            $movedCount++;
+          }
+
+          // Update banner_path in DB
+          $row->banner_path = 'uploads/services/' . $row->bannerpath;
+          $row->save();
+          $updatedCount++;
+        }
+      }
+    }
+
+    return response()->json([
+      'status' => true,
+      'message' => 'Data transferred successfully!',
+      'files_moved' => $movedCount,
+      'records_updated' => $updatedCount,
+    ]);
   }
 }
