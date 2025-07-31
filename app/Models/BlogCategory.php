@@ -16,7 +16,7 @@ class BlogCategory extends Model
   }
   public function blogs()
   {
-    return $this->hasMany(Blog::class, 'cate_id', 'id');
+    return $this->hasMany(Blog::class, 'category_id', 'id');
   }
   public function scopeWebsite($query)
   {

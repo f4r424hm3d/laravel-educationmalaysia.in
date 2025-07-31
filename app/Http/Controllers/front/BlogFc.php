@@ -22,7 +22,7 @@ class BlogFc extends Controller
   public function blogByCategory($category_slug, Request $request)
   {
     $category = BlogCategory::website()->where('category_slug', $category_slug)->firstOrFail();
-    $blogs = Blog::orderBy('id', 'desc')->where('cate_id', $category->id)->paginate(12)->withQueryString();
+    $blogs = Blog::orderBy('id', 'desc')->where('category_id', $category->id)->paginate(12)->withQueryString();
 
     $page_url = url()->current();
 
@@ -66,7 +66,7 @@ class BlogFc extends Controller
 
     $updatedSlug = preg_replace('/-\d+$/', '', $slug);
 
-    $blog = Blog::where('cate_id', $category->id)->where('slug', $updatedSlug)->where('id', $blog_id)->firstOrFail();
+    $blog = Blog::where('category_id', $category->id)->where('slug', $updatedSlug)->where('id', $blog_id)->firstOrFail();
     $blogs = Blog::website()->orderBy('id', 'desc')->where('id', '!=', $blog->id)->limit(12)->get();
     $categories = BlogCategory::website()->get();
 

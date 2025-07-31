@@ -17,11 +17,11 @@ class Blog extends Model
   }
   public function category()
   {
-    return $this->hasOne(BlogCategory::class, 'id', 'cate_id');
+    return $this->hasOne(BlogCategory::class, 'id', 'category_id');
   }
   public function getCategory()
   {
-    return $this->hasOne(BlogCategory::class, 'id', 'cate_id')->select('id', 'category_name', 'category_slug');
+    return $this->hasOne(BlogCategory::class, 'id', 'category_id')->select('id', 'category_name', 'category_slug');
   }
   public function contents()
   {
