@@ -256,12 +256,13 @@
     </script>
 
     <div class="whats-float">
-      <a href="javascript:void()" class="open-button" onClick="openForm()">
+      <a href="https://api.whatsapp.com/send?phone=60176472057&text=Hello there!! I want to get counseling from experts. Want to know more information about Study Abroad Consultants in India - Education Malaysia Education" class="open-button " onClick="openForm()">
+        <span class="edm_whatsapp"></span>
         <span>Need any help<br><small>Chat with us</small></span>
         <img data-src="/assets/images/wa.png" width="30" alt="whatsapp"></a>
     </div>
 
-    <div class="chat-popup" id="myForm">
+    <!-- <div class="chat-popup" id="myForm">
       <div class="wa-container">
         <button type="button" class="cancel" onClick="closeForm()"><i class="ti-close"></i></button>
         <div class="whtsapp-header">
@@ -299,7 +300,7 @@
         </div>
 
       </div>
-    </div>
+    </div> -->
 
     <!-- Include jQuery and Slick Carousel libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>

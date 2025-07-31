@@ -112,7 +112,7 @@
                   <span class="loc mobile">
                     <i class="fa fa-graduation-cap me-1" aria-hidden="true"></i>
 
-                    Schooling:
+                    Scholarship:
                   </span>
 
                   <div class="empty-ratings"><span>Yes</span></div>
