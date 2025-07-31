@@ -45,24 +45,24 @@
                 @csrf
                 <div class="row">
                   <div class="col-md-3 col-sm-12 mb-3">
-                    <x-SelectField label="Category" name="category_id" id="category_id" savev="id"
-                      showv="category_name" :list="$category" :ft="$ft" :sd="$sd"></x-SelectField>
+                    <x-Select-field label="Category" name="category_id" id="category_id" savev="id"
+                      showv="category_name" :list="$category" :ft="$ft" :sd="$sd" />
                   </div>
                   <div class="col-md-3 col-sm-12 mb-3">
-                    <x-SelectField label="Created By" name="author_id" id="author_id" savev="id" showv="name"
-                      :list="$users" :ft="$ft" :sd="$sd"></x-SelectField>
+                    <x-Select-field label="Created By" name="author_id" id="author_id" savev="id" showv="name"
+                      :list="$users" :ft="$ft" :sd="$sd" />
                   </div>
                   <div class="col-md-3 col-sm-12 mb-3">
-                    <x-InputField type="file" label="Thumbnail" name="thumbnail" id="thumbnail" :ft="$ft"
-                      :sd="$sd"></x-InputField>
+                    <x-input-field type="file" label="Thumbnail" name="thumbnail" id="thumbnail" :ft="$ft"
+                      :sd="$sd" />
                   </div>
                   <div class="col-md-12 col-sm-12 mb-3">
-                    <x-InputField type="text" label="Title" name="headline" id="headline" :ft="$ft"
-                      :sd="$sd"></x-InputField>
+                    <x-input-field type="text" label="Title" name="headline" id="headline" :ft="$ft"
+                      :sd="$sd" />
                   </div>
                   <div class="col-md-12 col-sm-12 mb-3">
-                    <x-TextareaField label="Description" name="description" id="description" :ft="$ft"
-                      :sd="$sd"></x-TextareaField>
+                    <x-textarea-field label="Description" name="description" id="description" :ft="$ft"
+                      :sd="$sd" />
                   </div>
                 </div>
                 <hr>
@@ -112,37 +112,11 @@
                       <td>{{ $row->getCategory->category_name ?? $row->category_id }}</td>
                       <td>{{ $row->headline }}</td>
                       <td>
-                        @if ($row->description != null)
-                          <button type="button" class="btn btn-xs btn-outline-info waves-effect waves-light"
-                            data-bs-toggle="modal" data-bs-target="#DesModalScrollable{{ $row->id }}">View</button>
-                          <div class="modal fade" id="DesModalScrollable{{ $row->id }}" tabindex="-1"
-                            role="dialog" aria-labelledby="desModalScrollableTitle{{ $row->id }}"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-scrollable">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="desModalScrollableTitle{{ $row->id }}">
-                                    SEO
-                                  </h5>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  {!! $row->description !!}
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        @else
-                          Null
-                        @endif
+                        <x-content-view-modal :row="$row" field="description" />
                       </td>
                       <td>
-                        @if ($row->imgpath != null && file_exists($row->imgpath))
-                          <img src="{{ asset($row->imgpath) }}" alt="" height="20" width="20">
+                        @if ($row->thumbnail_path != null && file_exists($row->thumbnail_path))
+                          <img src="{{ asset($row->thumbnail_path) }}" alt="" height="20" width="20">
                         @else
                           N/A
                         @endif

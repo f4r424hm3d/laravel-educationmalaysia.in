@@ -55,8 +55,8 @@ class BlogC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('thumbnail')->move('uploads/blogs/', $file_name);
       if ($move) {
-        $field->imgname = $file_name;
-        $field->imgpath = 'uploads/blogs/' . $file_name;
+        $field->thumbnail_name = $file_name;
+        $field->thumbnail_path = 'uploads/blogs/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
@@ -69,16 +69,10 @@ class BlogC extends Controller
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
     $field->meta_description = $request['meta_description'];
-    $field->page_content = $request['page_content'];
     $field->seo_rating = $request['seo_rating'];
     $field->save();
     session()->flash('smsg', 'New record has been added successfully.');
     return redirect('admin/blogs');
-  }
-  public function delete($id)
-  {
-    //echo $id;
-    echo $result = Blog::find($id)->delete();
   }
   public function update($id, Request $request)
   {
@@ -97,8 +91,11 @@ class BlogC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('thumbnail')->move('uploads/blogs/', $file_name);
       if ($move) {
-        $field->imgname = $file_name;
-        $field->imgpath = 'uploads/blogs/' . $file_name;
+        if ($field->thumbnail_path != null && file_exists($field->thumbnail_path)) {
+          unlink($field->thumbnail_path);
+        }
+        $field->thumbnail_name = $file_name;
+        $field->thumbnail_path = 'uploads/blogs/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
@@ -116,5 +113,19 @@ class BlogC extends Controller
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
     return redirect('admin/blogs');
+  }
+  public function delete($id)
+  {
+    $result = Blog::find($id);
+    if (!is_null($result)) {
+      if ($result->thumbnail_path != null && file_exists($result->thumbnail_path)) {
+        unlink($result->thumbnail_path);
+      }
+      $result->delete();
+      session()->flash('smsg', 'Record has been deleted successfully.');
+    } else {
+      session()->flash('emsg', 'Record not found.');
+    }
+    echo $result;
   }
 }
