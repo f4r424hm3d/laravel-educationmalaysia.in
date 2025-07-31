@@ -14,7 +14,7 @@ class BlogApi extends Controller
 {
   public function index(Request $request)
   {
-    $blogs = Blog::with('getCategory')->select('id', 'category_id', 'headline', 'slug', 'imgpath', 'created_at')->website()->orderBy('id', 'desc')->paginate(12);
+    $blogs = Blog::with('getCategory')->select('id', 'category_id', 'headline', 'slug', 'thumbnail_path', 'created_at')->website()->orderBy('id', 'desc')->paginate(12);
     // Fetch SEO data for 'blog'
     $seo = StaticPageSeo::where('page', 'blog')->first();
 
@@ -46,9 +46,7 @@ class BlogApi extends Controller
   public function blogByCategory($category_slug, Request $request)
   {
     $category = BlogCategory::select('id', 'category_name', 'category_slug')->website()->where('category_slug', $category_slug)->firstOrFail();
-    $blogs = Blog::with('getCategory')->select('id', 'category_id', 'headline', 'slug', 'imgpath', 'created_at')->where('category_id', $category->id)->website()->orderBy('id', 'desc')->paginate(12);
-
-    $page_url = url()->current();
+    $blogs = Blog::with('getCategory')->select('id', 'category_id', 'headline', 'slug', 'thumbnail_path', 'created_at')->where('category_id', $category->id)->website()->orderBy('id', 'desc')->paginate(12);
 
     $dseo = DynamicPageSeo::where('url', 'blog-by-category')->first();
     $title = $category->category_name;
@@ -64,14 +62,13 @@ class BlogApi extends Controller
     $meta_title = replaceTag($category->meta_title ?: ($dseo->meta_title ?? ''), $tagArray);
     $meta_keyword = replaceTag($category->meta_keyword ?: ($dseo->meta_keyword ?? ''), $tagArray);
     $meta_description = replaceTag($category->meta_description ?: ($dseo->meta_description ?? ''), $tagArray);
-    $og_image_path = $category->imgpath ?? ($dseo->ogimgpath ?? '');
+    $og_image_path = $category->og_image_path ?? ($dseo->ogimgpath ?? '');
 
     return response()->json([
       'status' => true,
       'category' => $category,
       'blogs' => $blogs,
       'seo' => [
-        'page_url' => $page_url,
         'meta_title' => $meta_title,
         'meta_keyword' => $meta_keyword,
         'meta_description' => $meta_description,
@@ -95,9 +92,9 @@ class BlogApi extends Controller
       'parentContents.childContents' => function ($query) {
         $query->select('id', 'parent_id', 'title', 'slug', 'description'); // only these fields from childContents
       }
-    ])->select('id', 'headline', 'slug', 'imgpath', 'created_at', 'updated_at', 'author_id', 'meta_title', 'meta_keyword', 'meta_description')->where('category_id', $category->id)->where('slug', $updatedSlug)->where('id', $blog_id)->firstOrFail();
+    ])->select('id', 'headline', 'slug', 'thumbnail_path', 'created_at', 'updated_at', 'author_id', 'meta_title', 'meta_keyword', 'meta_description')->where('category_id', $category->id)->where('slug', $updatedSlug)->where('id', $blog_id)->firstOrFail();
 
-    $relatedBlogs = Blog::select('id', 'headline', 'imgpath', 'created_at')->website()->where('id', '!=', $blog->id)->orderBy('id', 'desc')->limit(12)->get();
+    $relatedBlogs = Blog::select('id', 'headline', 'thumbnail_path', 'created_at')->website()->where('id', '!=', $blog->id)->orderBy('id', 'desc')->limit(12)->get();
     $categories = BlogCategory::select('id', 'category_name', 'slug')->website()->get();
 
 
@@ -116,7 +113,7 @@ class BlogApi extends Controller
     $meta_title = replaceTag($blog->meta_title ?: ($dseo->meta_title ?? ''), $tagArray);
     $meta_keyword = replaceTag($blog->meta_keyword ?: ($dseo->meta_keyword ?? ''), $tagArray);
     $meta_description = replaceTag($blog->meta_description ?: ($dseo->meta_description ?? ''), $tagArray);
-    $og_image_path = $blog->imgpath ?: ($dseo->ogimgpath ?? '');
+    $og_image_path = $blog->og_image_path ?: ($dseo->ogimgpath ?? '');
 
     $specializations = CourseSpecialization::whereHas('contents')->select('id', 'name', 'slug')->inRandomOrder()->limit(10)->get();
 
