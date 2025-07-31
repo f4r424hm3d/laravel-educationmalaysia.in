@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\BlogApi;
 use App\Http\Controllers\Api\CountryApi;
 use App\Http\Controllers\Api\ExamApi;
 use App\Http\Controllers\Api\HomeApi;
+use App\Http\Controllers\Api\ServiceApi;
 use App\Http\Controllers\Api\SpecializationApi;
 use App\Http\Controllers\Api\StaticPageSeoApi;
 use App\Http\Middleware\CheckApiKey;
@@ -58,4 +59,8 @@ Route::middleware([CheckApiKey::class])->group(function () {
   Route::get('/static-page-seo/{page?}', [StaticPageSeoApi::class, 'getSeoData'])->where('page', '.*');
 
   Route::get('/home', [HomeApi::class, 'index']);
+
+
+  Route::get('services', [ServiceApi::class, 'index']);
+  Route::get('service-details/{uri}', [ServiceApi::class, 'serviceDetail']);
 });

@@ -24,42 +24,6 @@ class ServiceFc extends Controller
     $data = compact('services');
     return view('front.services')->with($data);
   }
-  public function transferSitePageData()
-  {
-    // Fetch all rows from the `site_pages` table
-    $sitePages = DB::table('site_pages')->get();
-
-    // Prepare an array to store the data to be inserted into `site_page_tabs`
-    $insertData = [];
-
-    // Loop through each row of `site_pages`
-    foreach ($sitePages as $page) {
-      // Map h1, h2, ..., h5 and p1, p2, ..., p5 to tab_title and tab_content
-      for ($i = 1; $i <= 5; $i++) {
-        $heading = $page->{'h' . $i};  // h1, h2, h3, etc.
-        $paragraph = $page->{'p' . $i}; // p1, p2, p3, etc.
-
-        // Only insert if both heading and paragraph are not empty
-        if (!empty($heading) && !empty($paragraph)) {
-          $insertData[] = [
-            'page_id'      => $page->id, // ID from the `site_pages` table
-            'tab_title'    => $heading, // Heading as tab title
-            'tab_content'  => $paragraph, // Paragraph as tab content
-            'created_at'   => Carbon::now(),
-            'updated_at'   => Carbon::now()
-          ];
-        }
-      }
-    }
-
-    // Insert data into `site_page_tabs`
-    if (!empty($insertData)) {
-      DB::table('site_page_tabs')->insert($insertData);
-    }
-
-    // Return success message
-    return response()->json(['message' => 'Data transferred successfully!']);
-  }
   public function serviceDetail($slug, Request $request)
   {
     $service = Service::website()->where('uri', $slug)->firstOrFail();
@@ -106,5 +70,41 @@ class ServiceFc extends Controller
 
     $data = compact('services', 'service', 'allServices', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'seo_rating', 'seoRatingSchema', 'countries', 'phonecodes', 'captcha', 'source', 'specializations', 'featuredUniversities');
     return view('front.service-detail')->with($data);
+  }
+  public function transferSitePageData()
+  {
+    // Fetch all rows from the `site_pages` table
+    $sitePages = DB::table('site_pages')->get();
+
+    // Prepare an array to store the data to be inserted into `site_page_tabs`
+    $insertData = [];
+
+    // Loop through each row of `site_pages`
+    foreach ($sitePages as $page) {
+      // Map h1, h2, ..., h5 and p1, p2, ..., p5 to tab_title and tab_content
+      for ($i = 1; $i <= 5; $i++) {
+        $heading = $page->{'h' . $i};  // h1, h2, h3, etc.
+        $paragraph = $page->{'p' . $i}; // p1, p2, p3, etc.
+
+        // Only insert if both heading and paragraph are not empty
+        if (!empty($heading) && !empty($paragraph)) {
+          $insertData[] = [
+            'page_id'      => $page->id, // ID from the `site_pages` table
+            'tab_title'    => $heading, // Heading as tab title
+            'tab_content'  => $paragraph, // Paragraph as tab content
+            'created_at'   => Carbon::now(),
+            'updated_at'   => Carbon::now()
+          ];
+        }
+      }
+    }
+
+    // Insert data into `site_page_tabs`
+    if (!empty($insertData)) {
+      DB::table('site_page_tabs')->insert($insertData);
+    }
+
+    // Return success message
+    return response()->json(['message' => 'Data transferred successfully!']);
   }
 }
