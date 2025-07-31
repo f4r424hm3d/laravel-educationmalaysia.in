@@ -32,7 +32,7 @@
                 <div class="education_block_thumb n-shadow">
                   <a
                     href="{{ route('blog.detail', ['category_slug' => $row->category->category_slug, 'slug' => $row->slug . '-' . $row->id]) }}">
-                    <img data-src="{{ asset($row->imgpath) }}" class="blogimags" alt="{{ $row->headline }}">
+                    <img data-src="{{ asset($row->thumbnail_path) }}" class="blogimags" alt="{{ $row->headline }}">
                   </a>
                   <div class="cources_price"><a
                       href="{{ route('blog.category', ['category_slug' => $row->category->category_slug]) }}">{{ $row->category->category_name }}</a>

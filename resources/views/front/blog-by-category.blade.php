@@ -33,7 +33,7 @@
                 <div class="education_block_thumb n-shadow">
                   <a class="image-ancors"
                     href="{{ route('blog.detail', ['category_slug' => $row->category->category_slug, 'slug' => $row->slug . '-' . $row->id]) }}">
-                    <img data-src="{{ asset($row->imgpath) }}" class="img-fluid" alt="{{ $row->headline }}">
+                    <img data-src="{{ asset($row->thumbnail_path) }}" class="img-fluid" alt="{{ $row->headline }}">
                   </a>
                   <div class="cources_price"><a
                       href="{{ route('blog.category', ['category_slug' => $row->category->category_slug]) }}">{{ $row->category->category_name }}</a>

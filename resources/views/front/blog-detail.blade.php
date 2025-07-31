@@ -75,7 +75,7 @@
                 </ul>
               </div>
               <div class="article_featured_image">
-                <img class="img-fluid w-100" src="{{ asset($blog->imgpath) }}" alt="{{ $blog->headline }}">
+                <img class="img-fluid w-100" src="{{ asset($blog->thumbnail_path) }}" alt="{{ $blog->headline }}">
               </div>
 
               <div class="card">
@@ -153,7 +153,7 @@
               @foreach ($blogs as $row)
                 <li>
                   <span class="left">
-                    <img data-src="{{ asset($row->imgpath) }}" alt="{{ $row->headline }}" class="">
+                    <img data-src="{{ asset($row->thumbnail_path) }}" alt="{{ $row->headline }}" class="">
                   </span>
                   <span class="right">
                     <a class="feed-title"
