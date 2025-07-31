@@ -23,7 +23,7 @@
       <div class="row">
         <div class="col-xl-12">
           <!-- NOTIFICATION FIELD START -->
-          <x-result-notification-field></x-result-notification-field>
+          <x-result-notification-field />
           <!-- NOTIFICATION FIELD END -->
         </div>
       </div>
@@ -55,10 +55,10 @@
                   <div class="col-md-6 col-sm-12">
                     <div class="form-group mb-3">
                       <label>Meta Title</label>
-                      <input name="title" type="text" class="form-control" placeholder="Enter Meta Title"
-                        value="{{ $ft == 'edit' ? $sd->title : old('title') }}">
-                      <span id="title-err" class="text-danger errSpan">
-                        @error('title')
+                      <input name="meta_title" type="text" class="form-control" placeholder="Enter Meta Title"
+                        value="{{ $ft == 'edit' ? $sd->meta_title : old('meta_title') }}">
+                      <span id="meta_title-err" class="text-danger errSpan">
+                        @error('meta_title')
                           {{ $message }}
                         @enderror
                       </span>
@@ -67,10 +67,10 @@
                   <div class="col-md-6 col-sm-12">
                     <div class="form-group mb-3">
                       <label>Meta Keyword</label>
-                      <input name="keyword" type="text" class="form-control" placeholder="Meta Keyword"
-                        value="{{ $ft == 'edit' ? $sd->keyword : old('keyword') }}">
-                      <span id="keyword-err" class="text-danger errSpan">
-                        @error('keyword')
+                      <input name="meta_keyword" type="text" class="form-control" placeholder="Meta Keyword"
+                        value="{{ $ft == 'edit' ? $sd->meta_keyword : old('meta_keyword') }}">
+                      <span id="meta_keyword-err" class="text-danger errSpan">
+                        @error('meta_keyword')
                           {{ $message }}
                         @enderror
                       </span>
@@ -79,21 +79,9 @@
                   <div class="col-md-12 col-sm-12">
                     <div class="form-group mb-3">
                       <label>Meta Description</label>
-                      <textarea name="description" id="description" class="form-control" cols="30" rows="5">{{ $ft == 'edit' ? $sd->description : old('description') }}</textarea>
-                      <span id="description-err" class="text-danger errSpan">
-                        @error('description')
-                          {{ $message }}
-                        @enderror
-                      </span>
-                    </div>
-                  </div>
-                  <div class="col-md-12 col-sm-12 hide-thi">
-                    <div class="form-group mb-3">
-                      <label>Page Content</label>
-                      <input name="page_content" type="text" class="form-control" placeholder="Page Content"
-                        value="{{ $ft == 'edit' ? $sd->page_content : old('page_content') }}">
-                      <span id="page_content-err" class="text-danger errSpan">
-                        @error('page_content')
+                      <textarea name="meta_description" id="description" class="form-control" cols="30" rows="5">{{ $ft == 'edit' ? $sd->meta_description : old('meta_description') }}</textarea>
+                      <span id="meta_description-err" class="text-danger errSpan">
+                        @error('meta_description')
                           {{ $message }}
                         @enderror
                       </span>

@@ -24,7 +24,7 @@
       <div class="row">
         <div class="col-xl-12">
           <!-- NOTIFICATION FIELD START -->
-          <x-result-notification-field></x-result-notification-field>
+          <x-result-notification-field />
           <!-- NOTIFICATION FIELD END -->
         </div>
       </div>

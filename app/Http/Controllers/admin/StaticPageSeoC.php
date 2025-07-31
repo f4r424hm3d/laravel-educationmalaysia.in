@@ -52,10 +52,9 @@ class StaticPageSeoC extends Controller
     $field = new StaticPageSeo;
     $field->website = site_var;
     $field->page = $request['page'];
-    $field->title = $request['title'];
-    $field->keyword = $request['keyword'];
-    $field->description = $request['description'];
-    $field->page_content = $request['page_content'];
+    $field->meta_title = $request['meta_title'];
+    $field->meta_keyword = $request['meta_keyword'];
+    $field->meta_description = $request['meta_description'];
     $field->seo_rating = $request['seo_rating'];
     $field->best_rating = $request['best_rating'];
     $field->review_number = $request['review_number'];
@@ -67,8 +66,8 @@ class StaticPageSeoC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('og_image')->move('uploads/seo/', $file_name);
       if ($move) {
-        $field->ogimgname = $file_name;
-        $field->ogimgpath = 'uploads/seo/' . $file_name;
+        $field->og_image_name = $file_name;
+        $field->og_image_path = 'uploads/seo/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
@@ -92,10 +91,9 @@ class StaticPageSeoC extends Controller
     $field = StaticPageSeo::find($id);
     $field->website = site_var;
     $field->page = $request['page'];
-    $field->title = $request['title'];
-    $field->keyword = $request['keyword'];
-    $field->description = $request['description'];
-    $field->page_content = $request['page_content'];
+    $field->meta_title = $request['meta_title'];
+    $field->meta_keyword = $request['meta_keyword'];
+    $field->meta_description = $request['meta_description'];
     $field->seo_rating = $request['seo_rating'];
     $field->best_rating = $request['best_rating'];
     $field->review_number = $request['review_number'];
@@ -107,8 +105,11 @@ class StaticPageSeoC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('og_image')->move('uploads/seo/', $file_name);
       if ($move) {
-        $field->ogimgname = $file_name;
-        $field->ogimgpath = 'uploads/seo/' . $file_name;
+        if ($field->og_image_path != '' && file_exists($field->og_image_path)) {
+          unlink($field->og_image_path);
+        }
+        $field->og_image_name = $file_name;
+        $field->og_image_path = 'uploads/seo/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
@@ -120,7 +121,11 @@ class StaticPageSeoC extends Controller
   public function delete($id)
   {
     //echo $id;
-    $result = StaticPageSeo::find($id)->delete();
+    $result = StaticPageSeo::find($id);
+    if ($result->og_image_path != '' && file_exists($result->og_image_path)) {
+      unlink($result->og_image_path);
+    }
+
     if ($result) {
       return response()->json(['success' => true]);
     } else {
