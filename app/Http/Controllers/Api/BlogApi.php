@@ -25,9 +25,9 @@ class BlogApi extends Controller
       'site' => $site
     ];
 
-    $meta_title = isset($seo->title) ? replaceTag($seo->title, $tagArray) : '';
-    $meta_keyword = isset($seo->keyword) ? replaceTag($seo->keyword, $tagArray) : '';
-    $meta_description = isset($seo->description) ? replaceTag($seo->description, $tagArray) : '';
+    $meta_title = isset($seo->meta_title) ? replaceTag($seo->meta_title, $tagArray) : '';
+    $meta_keyword = isset($seo->meta_keyword) ? replaceTag($seo->meta_keyword, $tagArray) : '';
+    $meta_description = isset($seo->meta_description) ? replaceTag($seo->meta_description, $tagArray) : '';
     $seo_rating = $seo->seo_rating ?? '';
     $og_image_path = $seo->ogimgpath ?? null;
 
