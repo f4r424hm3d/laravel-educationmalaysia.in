@@ -24,7 +24,7 @@
         "@type": "ListItem",
         "position": 3,
         "name": "Blog By category",
-        "item": "{{ route('blog.category',['category_slug'=>$blog->category->slug]) }}"
+        "item": "{{ route('blog.category',['category_slug'=>$blog->category->category_slug]) }}"
       }, {
         "@type": "ListItem",
         "position": 4,
@@ -46,7 +46,7 @@
               <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
               <li class="facts-1"><a href="{{ route('blog') }}">Blog</a></li>
               <li class="facts-1"><a
-                  href="{{ route('blog.category', ['category_slug' => $blog->category->slug]) }}">{{ $blog->category->cate_name }}</a>
+                  href="{{ route('blog.category', ['category_slug' => $blog->category->category_slug]) }}">{{ $blog->category->category_name }}</a>
               </li>
               <li class="facts-1">{{ $blog->headline }}</li>
             </ul>
@@ -138,7 +138,8 @@
             <h4 class="title">Categories</h4>
             <ul>
               @foreach ($categories as $row)
-                <li><a href="{{ route('blog.category', ['category_slug' => $row->slug]) }}">{{ $row->cate_name }}
+                <li><a
+                    href="{{ route('blog.category', ['category_slug' => $row->category_slug]) }}">{{ $row->category_name }}
                     <span><i class="fa fa-angle-right"></i></span>
                   </a>
                 </li>
@@ -156,7 +157,7 @@
                   </span>
                   <span class="right">
                     <a class="feed-title"
-                      href="{{ route('blog.detail', ['category_slug' => $row->category->slug, 'slug' => $row->slug . '-' . $row->id]) }}">{{ $row->headline }}</a>
+                      href="{{ route('blog.detail', ['category_slug' => $row->category->category_slug, 'slug' => $row->slug . '-' . $row->id]) }}">{{ $row->headline }}</a>
                     <span class="post-date">
                       <i class="ti-calendar"></i>{{ getFormattedDate($row->created_at, 'd M, Y') }}
                     </span>

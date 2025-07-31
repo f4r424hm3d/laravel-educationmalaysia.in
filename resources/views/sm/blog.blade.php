@@ -10,14 +10,14 @@
   </url>
   @foreach ($categories as $row)
     <url>
-      <loc>{{ url('blog/' . $row->slug) }}</loc>
+      <loc>{{ url('blog/' . $row->category_slug) }}</loc>
       <priority>0.8</priority>
       <changefreq>always</changefreq>
       <lastmod><?php echo date('Y-m-d', strtotime($row->updated_at)); ?></lastmod>
     </url>
     @foreach ($row->blogs as $b)
       <url>
-        <loc>{{ url('blog/' . $row->slug . '/' . $b->slug . '-' . $b->id) }}</loc>
+        <loc>{{ url('blog/' . $row->category_slug . '/' . $b->slug . '-' . $b->id) }}</loc>
         <priority>0.5</priority>
         <changefreq>always</changefreq>
         <lastmod><?php echo date('Y-m-d', strtotime($b->updated_at)); ?></lastmod>

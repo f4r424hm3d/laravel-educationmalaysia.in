@@ -95,6 +95,7 @@ use App\Http\Controllers\sitemap\SitemapController;
 use App\Http\Controllers\student\ApplyProgramFc;
 use App\Http\Controllers\student\StudentFc;
 use App\Http\Controllers\student\StudentLoginFc;
+use App\Http\Controllers\TempController;
 use App\Http\Middleware\AdminLoggedIn;
 use App\Http\Middleware\AdminLoggedOut;
 use App\Http\Middleware\StudentLoggedIn;
@@ -1035,4 +1036,9 @@ Route::prefix('courses-in-malaysia')->group(function () {
 // Redirect from singular 'course' to plural 'courses'
 Route::get('/university/{university}/course/{course}', function ($university, $course) {
   return redirect("/university/{$university}/courses/{$course}", 301);
+});
+
+
+Route::prefix('temp')->group(function () {
+  Route::get('/blogcategory', [TempController::class, 'blogCategory']);
 });

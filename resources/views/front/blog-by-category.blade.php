@@ -14,7 +14,7 @@
             <ul class="cources_facts_list">
               <li class="facts-1"><a href="{{ url('/') }}">Home</a></li>
               <li class="facts-1"><a href="{{ route('blog') }}">Blog</a></li>
-              <li class="facts-1">{{ $category->cate_name }}</li>
+              <li class="facts-1">{{ $category->category_name }}</li>
             </ul>
           </div>
         </div>
@@ -32,17 +32,17 @@
               <div class="education_block_grid style_2">
                 <div class="education_block_thumb n-shadow">
                   <a class="image-ancors"
-                    href="{{ route('blog.detail', ['category_slug' => $row->category->slug, 'slug' => $row->slug . '-' . $row->id]) }}">
+                    href="{{ route('blog.detail', ['category_slug' => $row->category->category_slug, 'slug' => $row->slug . '-' . $row->id]) }}">
                     <img data-src="{{ asset($row->imgpath) }}" class="img-fluid" alt="{{ $row->headline }}">
                   </a>
                   <div class="cources_price"><a
-                      href="{{ route('blog.category', ['category_slug' => $row->category->slug]) }}">{{ $row->category->cate_name }}</a>
+                      href="{{ route('blog.category', ['category_slug' => $row->category->category_slug]) }}">{{ $row->category->category_name }}</a>
                   </div>
                 </div>
                 <div class="education_block_body">
                   <h4 class="bl-title">
                     <a
-                      href="{{ route('blog.detail', ['category_slug' => $row->category->slug, 'slug' => $row->slug . '-' . $row->id]) }}">{{ $row->headline }}</a>
+                      href="{{ route('blog.detail', ['category_slug' => $row->category->category_slug, 'slug' => $row->slug . '-' . $row->id]) }}">{{ $row->headline }}</a>
                   </h4>
                 </div>
                 <div class="cources_info_style3">

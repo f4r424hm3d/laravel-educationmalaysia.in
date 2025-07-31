@@ -19,9 +19,9 @@ class BlogFc extends Controller
     $data = compact('blogs');
     return view('front.blogs')->with($data);
   }
-  public function blogByCategory($slug, Request $request)
+  public function blogByCategory($category_slug, Request $request)
   {
-    $category = BlogCategory::website()->where('slug', $slug)->firstOrFail();
+    $category = BlogCategory::website()->where('category_slug', $category_slug)->firstOrFail();
     $blogs = Blog::orderBy('id', 'desc')->where('cate_id', $category->id)->paginate(12)->withQueryString();
 
     $page_url = url()->current();
@@ -29,7 +29,7 @@ class BlogFc extends Controller
     $wrdseo = ['url' => 'blog-by-category'];
     $dseo = DynamicPageSeo::where($wrdseo)->first();
 
-    $title = $category->cate_name;
+    $title = $category->category_name;
     $site =  DOMAIN;
     $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
@@ -54,7 +54,7 @@ class BlogFc extends Controller
   }
   public function detail($category_slug, $slug, Request $request)
   {
-    $category = BlogCategory::website()->where('slug', $category_slug)->firstOrFail();
+    $category = BlogCategory::website()->where('category_slug', $category_slug)->firstOrFail();
 
     // $explodeSlug = explode('-', $slug);
     // $blog_id = end($explodeSlug);
@@ -76,10 +76,9 @@ class BlogFc extends Controller
     $dseo = DynamicPageSeo::where($wrdseo)->first();
 
     $sub_slug = $blog->title;
-    $category = str_replace('-', ' ', $blog->cate_slug);
     $site = DOMAIN;
 
-    $tagArray = ['title' => $sub_slug, 'category' => $category, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
+    $tagArray = ['title' => $sub_slug, 'category' => $category->category_name, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site];
 
     $meta_title = $blog->meta_title == '' ? $dseo->meta_title : $blog->meta_title;
     $meta_title = replaceTag($meta_title, $tagArray);
