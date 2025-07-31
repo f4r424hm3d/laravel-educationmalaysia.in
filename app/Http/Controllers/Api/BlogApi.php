@@ -95,8 +95,7 @@ class BlogApi extends Controller
     ])->select('id', 'headline', 'slug', 'thumbnail_path', 'created_at', 'updated_at', 'author_id', 'meta_title', 'meta_keyword', 'meta_description')->where('category_id', $category->id)->where('slug', $updatedSlug)->where('id', $blog_id)->firstOrFail();
 
     $relatedBlogs = Blog::select('id', 'headline', 'thumbnail_path', 'created_at')->website()->where('id', '!=', $blog->id)->orderBy('id', 'desc')->limit(12)->get();
-    $categories = BlogCategory::select('id', 'category_name', 'slug')->website()->get();
-
+    $categories = BlogCategory::select('id', 'category_name', 'category_slug')->website()->get();
 
     $dseo = DynamicPageSeo::where('url', 'blog-details')->first();
 
