@@ -57,6 +57,5 @@ Route::middleware([CheckApiKey::class])->group(function () {
 
   Route::get('/static-page-seo/{page?}', [StaticPageSeoApi::class, 'getSeoData'])->where('page', '.*');
 
-
   Route::get('/home', [HomeApi::class, 'index']);
 });

@@ -29,7 +29,11 @@ class HomeApi extends Controller
 
     $specializationsWithContent = CourseSpecialization::select('id', 'name', 'slug')->whereHas('contents')->inRandomOrder()->limit(20)->get();
 
-    $pageContent = PageContent::where('page_name', 'home')->first();
+    $pageContent = PageContent::with([
+      'author' => function ($query) {
+        $query->select('id', 'name'); // fields from parentContents
+      }
+    ])->where('page_name', 'home')->first();
 
     $testimonials = Testimonial::select('id', 'user_type', 'name', 'country', 'review')->limit(20)->active()->inRandomOrder()->get();
 
