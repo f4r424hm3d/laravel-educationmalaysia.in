@@ -141,7 +141,7 @@
                                   </div>
 
                                   <div class="d-flex courcs-gap">
-                                    <h6> Scholarship: <em>Yes</em></h6> <span>{{ $row->activePrograms->count() }}</span>
+                                    <h6> Scholarship: </h6> <span>Yes</span>
                                   </div>
                                 </div>
 

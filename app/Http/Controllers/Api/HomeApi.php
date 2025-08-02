@@ -6,10 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\CourseCategory;
 use App\Models\CourseSpecialization;
+use App\Models\DefaultImage;
+use App\Models\DynamicPageSeo;
 use App\Models\PageContent;
 use App\Models\StaticPageSeo;
 use App\Models\Testimonial;
 use App\Models\University;
+use App\Models\UniversityProgram;
 use Illuminate\Http\Request;
 
 class HomeApi extends Controller
@@ -127,6 +130,68 @@ class HomeApi extends Controller
         'meta_keyword' => $meta_keyword,
         'meta_description' => $meta_description,
         'og_image_path' => $og_image_path
+      ]
+    ]);
+  }
+  public function courseCategoryDetail($slug, Request $request)
+  {
+    // Default image
+    $defaultImage = DefaultImage::where('page', 'course-category-detail')->first();
+
+    // Main course category
+    $category = CourseCategory::with('contents', 'faqs')->select('id', 'name', 'slug')->where('slug', $slug)->whereHas('contents')->website()->firstOrFail();
+
+    // Random other categories (excluding current)
+    $categories = CourseCategory::inRandomOrder()->whereHas('contents')->where('id', '!=', $category->id)
+      ->limit(10)->get(['id', 'name', 'slug']);
+
+    // Related universities
+    $relatedUniversities = University::select(['id', 'name', 'uname', 'logo_path', 'city', 'state', 'inst_type', 'qs_rank'])->withCount('activePrograms')->whereHas('programs', function ($query) use ($category) {
+      $query->where('course_category_id', $category->id);
+    })->get();
+
+    // 🔁 Add program count for each related university
+    foreach ($relatedUniversities as $university) {
+      $university->allspcprograms = UniversityProgram::where([
+        'course_category_id' => $category->id,
+        'university_id' => $university->id,
+      ])->count();
+    }
+
+    // Featured universities
+    $featuredUniversities = University::inRandomOrder()
+      ->active()
+      ->limit(10)
+      ->get(['id', 'name', 'uname', 'logo_path', 'city', 'state']);
+
+    $wrdseo = ['url' => 'subjectdetailpage'];
+    $dseo = DynamicPageSeo::website()->where($wrdseo)->first();
+
+    $title = $category->name;
+    $site = DOMAIN;
+    $tagArray = [
+      'title' => $title,
+      'currentmonth' => date('M'),
+      'currentyear' => date('Y'),
+      'site' => $site
+    ];
+
+    $meta_title = replaceTag($category->meta_title ?: $dseo->meta_title, $tagArray);
+    $meta_keyword = replaceTag($category->meta_keyword ?: $dseo->meta_keyword, $tagArray);
+    $meta_description = replaceTag($category->meta_description ?: $dseo->meta_description, $tagArray);
+    $og_image_path = $category->content_image_path ?? $defaultImage->image_path;
+
+    return response()->json([
+      'category' => $category,
+      'other_categories' => $categories,
+      'related_universities' => $relatedUniversities,
+      'featured_universities' => $featuredUniversities,
+      'seo' => [
+        'meta_title' => $meta_title,
+        'meta_keyword' => $meta_keyword,
+        'meta_description' => $meta_description,
+        'og_image_path' => $og_image_path,
+        'seo_rating' => $category->seo_rating == '0' ? '0' : $category->seo_rating,
       ]
     ]);
   }

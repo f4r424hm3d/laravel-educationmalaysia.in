@@ -60,6 +60,7 @@ Route::middleware([CheckApiKey::class])->group(function () {
 
   Route::get('/home', [HomeApi::class, 'index']);
   Route::get('/courses/{level_slug}', [HomeApi::class, 'coursesByLevel']);
+  Route::get('/course-category/{slug}', [HomeApi::class, 'courseCategoryDetail']);
 
 
   Route::get('services', [ServiceApi::class, 'index']);
