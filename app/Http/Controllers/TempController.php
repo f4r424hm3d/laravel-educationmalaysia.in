@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\CourseCategory;
+use App\Models\CourseSpecialization;
+use App\Models\DynamicPageSeo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -94,6 +97,166 @@ class TempController extends Controller
       'skipped' => $skipped,
       'not_found' => $notFound,
       'message' => 'Blog image processing completed.',
+    ]);
+  }
+  public function moveCourseCategoryImages()
+  {
+    $categories = CourseCategory::all();
+    $fields = ['thumbnail_path', 'banner_path', 'og_image_path'];
+    $moved = [];
+    $notFound = [];
+
+    foreach ($categories as $category) {
+      $updated = false;
+
+      foreach ($fields as $field) {
+        $imgUrl = $category->{$field};
+
+        if (!$imgUrl) continue;
+
+        // Only process if it's from the old study folder
+        if (strpos($imgUrl, 'assets/uploadFiles/study/') !== false) {
+          $fileName = basename(parse_url($imgUrl, PHP_URL_PATH));
+          $oldPath = 'assets/uploadFiles/study/' . $fileName;
+          $newPath = 'uploads/categories/' . $fileName;
+
+          if (file_exists($oldPath)) {
+            // Create the new directory if it doesn't exist
+            if (!file_exists('uploads/categories')) {
+              mkdir('uploads/categories', 0777, true);
+            }
+
+            // Move the image
+            rename($oldPath, $newPath);
+
+            // Update the field with the new path
+            $category->{$field} = $newPath;
+            $updated = true;
+
+            $moved[] = "$field => $fileName";
+          } else {
+            $notFound[] = "$field => $fileName";
+          }
+        }
+      }
+
+      if ($updated) {
+        $category->save();
+      }
+    }
+
+    return response()->json([
+      'moved_images' => $moved,
+      'not_found_images' => $notFound,
+      'message' => 'Course category image migration complete.'
+    ]);
+  }
+  public function moveCourseSpecializationImages()
+  {
+    $specializations = CourseSpecialization::all();
+    $fields = ['thumbnail_path', 'banner_path', 'og_image_path'];
+    $moved = [];
+    $notFound = [];
+
+    foreach ($specializations as $item) {
+      $updated = false;
+
+      foreach ($fields as $field) {
+        $imgUrl = $item->{$field};
+
+        if (!$imgUrl) continue;
+
+        $fileName = basename(parse_url($imgUrl, PHP_URL_PATH));
+
+        // Detect old folder (study or og)
+        if (strpos($imgUrl, 'assets/uploadFiles/study/') !== false) {
+          $oldPath = 'assets/uploadFiles/study/' . $fileName;
+        } elseif (strpos($imgUrl, 'assets/uploadFiles/og/') !== false) {
+          $oldPath = 'assets/uploadFiles/og/' . $fileName;
+        } else {
+          continue; // Not from a known source, skip
+        }
+
+        $newPath = 'uploads/specializations/' . $fileName;
+
+        if (file_exists($oldPath)) {
+          if (!file_exists('uploads/specializations')) {
+            mkdir('uploads/specializations', 0777, true);
+          }
+
+          rename($oldPath, $newPath);
+
+          $item->{$field} = $newPath;
+          $updated = true;
+
+          $moved[] = "$field => $fileName";
+        } else {
+          // File not found — set to null
+          $item->{$field} = null;
+          $updated = true;
+
+          $notFound[] = "$field => $fileName (set to null)";
+        }
+      }
+
+      if ($updated) {
+        $item->save();
+      }
+    }
+
+    return response()->json([
+      'moved_images' => $moved,
+      'not_found_images' => $notFound,
+      'message' => 'Course specialization image migration complete.'
+    ]);
+  }
+  public function moveSeoImages()
+  {
+    $seos = DynamicPageSeo::all();
+    $moved = [];
+    $notFound = [];
+
+    foreach ($seos as $seo) {
+      $imgUrl = $seo->og_image_path;
+
+      if (!$imgUrl) continue;
+
+      // Only process if it's from the old /og/ folder
+      if (strpos($imgUrl, 'assets/uploadFiles/study/') !== false) {
+        $fileName = basename(parse_url($imgUrl, PHP_URL_PATH));
+        $oldPath = 'assets/uploadFiles/study/' . $fileName;
+        $newPath = 'uploads/seos/' . $fileName;
+
+        if (file_exists($oldPath)) {
+          // Ensure target folder exists
+          if (!file_exists('uploads/seos')) {
+            mkdir('uploads/seos', 0777, true);
+          }
+
+          // Move the file
+          rename($oldPath, $newPath);
+
+          // Update both fields
+          $seo->og_image_path = $newPath;
+          $seo->og_image_name = $fileName;
+          $seo->save();
+
+          $moved[] = $fileName;
+        } else {
+          // File missing — set both fields to null
+          $seo->og_image_path = null;
+          $seo->og_image_name = null;
+          $seo->save();
+
+          $notFound[] = "$fileName (set to null)";
+        }
+      }
+    }
+
+    return response()->json([
+      'moved_images' => $moved,
+      'not_found_images' => $notFound,
+      'message' => 'SEO OG image migration complete.'
     ]);
   }
 }

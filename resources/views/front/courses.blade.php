@@ -63,7 +63,8 @@
         <div class="home-top-cour">
           <div class="row">
             <div class="col-12 col-sm-12 col-md-3 text-center mb-3">
-              <img data-src="{{ asset($row->imgpath) }}" alt="{{ $row->name }}" class="img-responsive initial loaded">
+              <img data-src="{{ asset($row->thumbnail_path) }}" alt="{{ $row->name }}"
+                class="img-responsive initial loaded">
             </div>
             <div class="col-12 col-sm-12 col-md-9 mb-3 ">
               <div class="home-top-cour-desc">
