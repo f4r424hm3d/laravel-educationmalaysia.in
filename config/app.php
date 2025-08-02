@@ -125,8 +125,8 @@ return [
 
   'frontend_api_key' => env('FRONTEND_API_KEY'),
 
-  // 'cdn' => array(
-  //   "educationmalaysiaranitesh07july.b-cdn.net" => ""
-  // ),
+  'cdn' => array(
+    "educationmalaysia02augperfectshine.b-cdn.net" => ""
+  ),
 
 ];
