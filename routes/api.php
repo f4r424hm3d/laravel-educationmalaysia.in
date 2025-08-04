@@ -68,4 +68,5 @@ Route::middleware([CheckApiKey::class])->group(function () {
   Route::get('service-details/{uri}', [ServiceApi::class, 'serviceDetail']);
 
   Route::get('/universities', [UniversityApi::class, 'selectUniversity']);
+  Route::get('universities/universities-in-malaysia', [UniversityApi::class, 'universitiesInMalaysia']);
 });

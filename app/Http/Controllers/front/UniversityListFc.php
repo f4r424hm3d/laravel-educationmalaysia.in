@@ -100,7 +100,7 @@ class UniversityListFc extends Controller
 
     $institute_type = $currentInstituteType;
 
-    $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site, 'institute_type' => $institute_type];
+    $tagArray = ['title' => $title, 'nou' => $total, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site, 'institute_type' => $institute_type];
     $meta_title = replaceTag($dseo->meta_title, $tagArray);
     $meta_keyword = replaceTag($dseo->meta_keyword, $tagArray);
     $page_content = replaceTag($dseo->page_content, $tagArray);

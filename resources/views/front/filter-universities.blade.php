@@ -21,8 +21,8 @@
               <input id="inst{{ $row->instituteType->id }}" class="checkbox-custom" name="institute_type"
                 type="checkbox" onclick="{{ $onClickFunction }}" {{ $checked }}>
               <label for="inst{{ $row->instituteType->id }}" class="checkbox-custom-label">
-                
-              <div class="check-texts"> {{ $row->instituteType->type }}</div>
+
+                <div class="check-texts"> {{ $row->instituteType->type }}</div>
               </label>
             </li>
           @endforeach
@@ -54,7 +54,7 @@
               <input id="state{{ slugify($row->state) }}" class="checkbox-custom" name="state_filter" type="checkbox"
                 onclick="{{ $onClickFunctionState }}" {{ $checkedState }}>
               <label for="state{{ slugify($row->state) }}" class="checkbox-custom-label">
-<div class="check-texts">{{ $row->state }}</div>
+                <div class="check-texts">{{ $row->state }}</div>
 
               </label>
             </li>
