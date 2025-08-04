@@ -50,7 +50,7 @@ class SpecializationApi extends Controller
     $meta_description = isset($seo->meta_description) ? replaceTag($seo->meta_description, $tagArray) : '';
     $page_content = isset($seo->page_content) ? replaceTag($seo->page_content, $tagArray) : '';
     $seo_rating = $seo->seo_rating ?? '';
-    $og_image_path = $seo->ogimgpath ?? null;
+    $og_image_path = $seo->og_image_path ?? null;
 
     return response()->json([
       'status' => true,

@@ -72,6 +72,7 @@ class HomeFc extends Controller
     $pageContentPrivate = StaticPageContent::where(['page_name' => 'select-university', 'position' => 'private-university'])->first();
     $pageContentPublic = StaticPageContent::where(['page_name' => 'select-university', 'position' => 'public-university'])->first();
     $pageContentForeign = StaticPageContent::where(['page_name' => 'select-university', 'position' => 'foreign-university'])->first();
+
     $data = compact('banner', 'pageContentTop', 'pageContentForeign', 'pageContentPublic', 'pageContentPrivate', 'pageContentBottom');
     return view('front.select-universities')->with($data);
   }

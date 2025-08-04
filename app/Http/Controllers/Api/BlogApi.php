@@ -29,7 +29,7 @@ class BlogApi extends Controller
     $meta_keyword = isset($seo->meta_keyword) ? replaceTag($seo->meta_keyword, $tagArray) : '';
     $meta_description = isset($seo->meta_description) ? replaceTag($seo->meta_description, $tagArray) : '';
     $seo_rating = $seo->seo_rating ?? '';
-    $og_image_path = $seo->ogimgpath ?? null;
+    $og_image_path = $seo->og_image_path ?? null;
 
     return response()->json([
       'status' => true,

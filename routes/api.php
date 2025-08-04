@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\HomeApi;
 use App\Http\Controllers\Api\ServiceApi;
 use App\Http\Controllers\Api\SpecializationApi;
 use App\Http\Controllers\Api\StaticPageSeoApi;
+use App\Http\Controllers\Api\UniversityApi;
 use App\Http\Middleware\CheckApiKey;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -65,4 +66,6 @@ Route::middleware([CheckApiKey::class])->group(function () {
 
   Route::get('services', [ServiceApi::class, 'index']);
   Route::get('service-details/{uri}', [ServiceApi::class, 'serviceDetail']);
+
+  Route::get('/universities', [UniversityApi::class, 'selectUniversity']);
 });

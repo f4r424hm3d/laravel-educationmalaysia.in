@@ -18,6 +18,6 @@
   $meta_description = replaceTag($meta_description, $tagArray);
 
   $seo_rating = $seo->seo_rating ?? '';
-  $og_image_path = $seo->ogimgpath ?? null;
+  $og_image_path = $seo->og_image_path ?? null;
 @endphp
 @include('front.layouts.dynamic_page_meta_tag')

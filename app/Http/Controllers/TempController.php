@@ -7,6 +7,8 @@ use App\Models\BlogCategory;
 use App\Models\CourseCategory;
 use App\Models\CourseSpecialization;
 use App\Models\DynamicPageSeo;
+use App\Models\StaticPageSeo;
+use App\Models\University;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -257,6 +259,162 @@ class TempController extends Controller
       'moved_images' => $moved,
       'not_found_images' => $notFound,
       'message' => 'SEO OG image migration complete.'
+    ]);
+  }
+  public function moveStaticSeoImages()
+  {
+    $records = StaticPageSeo::all();
+    $moved = [];
+    $notFound = [];
+
+    foreach ($records as $seo) {
+      $imgUrl = $seo->og_image_path;
+
+      if (!$imgUrl) continue;
+
+      // Only handle images from /study/ folder
+      if (strpos($imgUrl, 'assets/uploadFiles/study/') !== false) {
+        $fileName = basename(parse_url($imgUrl, PHP_URL_PATH));
+        $oldPath = 'assets/uploadFiles/study/' . $fileName;
+        $newPath = 'uploads/seos/' . $fileName;
+
+        if (file_exists($oldPath)) {
+          if (!file_exists('uploads/seos')) {
+            mkdir('uploads/seos', 0777, true);
+          }
+
+          // Move file
+          rename($oldPath, $newPath);
+
+          // Update fields
+          $seo->og_image_path = $newPath;
+          $seo->og_image_name = $fileName;
+          $seo->save();
+
+          $moved[] = $fileName;
+        } else {
+          // Set null if not found
+          $seo->og_image_path = null;
+          $seo->og_image_name = null;
+          $seo->save();
+
+          $notFound[] = "$fileName (set to null)";
+        }
+      }
+    }
+
+    return response()->json([
+      'moved_images' => $moved,
+      'not_found_images' => $notFound,
+      'message' => 'Static SEO OG image migration complete.'
+    ]);
+  }
+  public function moveUniversityLogos()
+  {
+    $universities = University::all();
+    $moved = [];
+    $notFound = [];
+
+    foreach ($universities as $university) {
+      $logoPath = $university->logo_path;
+
+      if (!$logoPath) continue;
+
+      // Extract filename from URL or relative path
+      $fileName = basename(parse_url($logoPath, PHP_URL_PATH));
+
+      // Determine source folder based on path
+      if (strpos($logoPath, 'assets/uploadFiles/study/') !== false) {
+        $oldPath = 'assets/uploadFiles/study/' . $fileName;
+      } elseif (strpos($logoPath, 'university/') !== false) {
+        $oldPath = 'university/' . $fileName;
+      } else {
+        $oldPath = $logoPath; // fallback — use as-is
+      }
+
+      $newPath = 'uploads/university/' . $fileName;
+
+      if (file_exists($oldPath)) {
+        // Ensure target directory exists
+        if (!file_exists('uploads/university')) {
+          mkdir('uploads/university', 0777, true);
+        }
+
+        // Move the file
+        rename($oldPath, $newPath);
+
+        // Update the DB
+        $university->logo_path = $newPath;
+        $university->save();
+
+        $moved[] = $fileName;
+      } else {
+        // Set to null if file missing
+        $university->logo_path = null;
+        $university->save();
+
+        $notFound[] = "$fileName (set to null)";
+      }
+    }
+
+    return response()->json([
+      'moved_logos' => $moved,
+      'not_found_logos' => $notFound,
+      'message' => 'University logo migration complete.'
+    ]);
+  }
+  public function moveUniversityBanners()
+  {
+    $universities = University::all();
+    $moved = [];
+    $notFound = [];
+
+    foreach ($universities as $university) {
+      $logoPath = $university->logo_path;
+
+      if (!$logoPath) continue;
+
+      // Extract filename from URL or relative path
+      $fileName = basename(parse_url($logoPath, PHP_URL_PATH));
+
+      // Determine source folder based on path
+      if (strpos($logoPath, 'assets/uploadFiles/study/') !== false) {
+        $oldPath = 'assets/uploadFiles/study/' . $fileName;
+      } elseif (strpos($logoPath, 'university/') !== false) {
+        $oldPath = 'university/' . $fileName;
+      } else {
+        $oldPath = $logoPath; // fallback — use as-is
+      }
+
+      $newPath = 'uploads/university/' . $fileName;
+
+      if (file_exists($oldPath)) {
+        // Ensure target directory exists
+        if (!file_exists('uploads/university')) {
+          mkdir('uploads/university', 0777, true);
+        }
+
+        // Move the file
+        rename($oldPath, $newPath);
+
+        // Update the DB
+        $university->logo_path = $newPath;
+        $university->save();
+
+        $moved[] = $fileName;
+      } else {
+        // Set to null if file missing
+        $university->logo_path = null;
+        $university->save();
+
+        $notFound[] = "$fileName (set to null)";
+      }
+    }
+
+    return response()->json([
+      'moved_logos' => $moved,
+      'not_found_logos' => $notFound,
+      'message' => 'University logo migration complete.'
     ]);
   }
 }

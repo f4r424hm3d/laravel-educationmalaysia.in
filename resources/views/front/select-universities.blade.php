@@ -139,104 +139,100 @@
             </div>
 
             <!-- <div class="cor-p5">
-              {!! $pageContentBottom->description !!}
-            </div> -->
+                {!! $pageContentBottom->description !!}
+              </div> -->
 
-<!-- static section start -->
-<div class="cor-p5">
+            <!-- static section start -->
+            <div class="cor-p5">
               <h2 style="text-align:center">Top 10 Trending Courses in Malaysia</h2>
 
-              <section class="top-trending-courses bg-white pt-4" >
-<div class="row justify-content-center ">
-    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-        <a href="https://www.educationmalaysia.in/stream/medicine">
-            <div class="fuc-box">
-                <p>MBBS <i class="fa fa-angle-right"></i></p>
+              <section class="top-trending-courses bg-white pt-4">
+                <div class="row justify-content-center ">
+                  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <a href="https://www.educationmalaysia.in/stream/medicine">
+                      <div class="fuc-box">
+                        <p>MBBS <i class="fa fa-angle-right"></i></p>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <a href="https://www.educationmalaysia.in/course/mba">
+                      <div class="fuc-box">
+                        <p>MBA <i class="fa fa-angle-right"></i></p>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <a href="https://www.educationmalaysia.in/stream/law">
+                      <div class="fuc-box">
+                        <p>LAW <i class="fa fa-angle-right"></i></p>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <a href="https://www.educationmalaysia.in/stream/cyber-security">
+                      <div class="fuc-box">
+                        <p>Cyber Security <i class="fa fa-angle-right"></i></p>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <a href="https://www.educationmalaysia.in/stream/dentistry">
+                      <div class="fuc-box">
+                        <p>Dentistry <i class="fa fa-angle-right"></i></p>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <a href="https://www.educationmalaysia.in/stream/nursing">
+                      <div class="fuc-box">
+                        <p>Nursing <i class="fa fa-angle-right"></i></p>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <a href="https://www.educationmalaysia.in/stream/accounting">
+                      <div class="fuc-box">
+                        <p>Accounting <i class="fa fa-angle-right"></i></p>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <a href="https://www.educationmalaysia.in/stream/computer-science">
+                      <div class="fuc-box">
+                        <p>Computer Science <i class="fa fa-angle-right"></i></p>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <a href="https://www.educationmalaysia.in/stream/software-engineering">
+                      <div class="fuc-box">
+                        <p>Software Engineering <i class="fa fa-angle-right"></i></p>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <a href="https://www.educationmalaysia.in/stream/human-resource-management">
+                      <div class="fuc-box">
+                        <p>Human Resource Management <i class="fa fa-angle-right"></i></p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </section>
+
             </div>
-        </a>
-    </div>
-    
-    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-        <a href="https://www.educationmalaysia.in/course/mba">
-            <div class="fuc-box">
-                <p>MBA <i class="fa fa-angle-right"></i></p>
-            </div>
-        </a>
-    </div>
 
-    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-        <a href="https://www.educationmalaysia.in/stream/law">
-            <div class="fuc-box">
-                <p>LAW <i class="fa fa-angle-right"></i></p>
-            </div>
-        </a>
-    </div>
-
-    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-        <a href="https://www.educationmalaysia.in/stream/cyber-security">
-            <div class="fuc-box">
-                <p>Cyber Security <i class="fa fa-angle-right"></i></p>
-            </div>
-        </a>
-    </div>
-
-    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-        <a href="https://www.educationmalaysia.in/stream/dentistry">
-            <div class="fuc-box">
-                <p>Dentistry <i class="fa fa-angle-right"></i></p>
-            </div>
-        </a>
-    </div>
-
-    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-        <a href="https://www.educationmalaysia.in/stream/nursing">
-            <div class="fuc-box">
-                <p>Nursing <i class="fa fa-angle-right"></i></p>
-            </div>
-        </a>
-    </div>
-
-    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-        <a href="https://www.educationmalaysia.in/stream/accounting">
-            <div class="fuc-box">
-                <p>Accounting <i class="fa fa-angle-right"></i></p>
-            </div>
-        </a>
-    </div>
-
-    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-        <a href="https://www.educationmalaysia.in/stream/computer-science">
-            <div class="fuc-box">
-                <p>Computer Science <i class="fa fa-angle-right"></i></p>
-            </div>
-        </a>
-    </div>
-
-    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-        <a href="https://www.educationmalaysia.in/stream/software-engineering">
-            <div class="fuc-box">
-                <p>Software Engineering <i class="fa fa-angle-right"></i></p>
-            </div>
-        </a>
-    </div>
-
-    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-        <a href="https://www.educationmalaysia.in/stream/human-resource-management">
-            <div class="fuc-box">
-                <p>Human Resource Management <i class="fa fa-angle-right"></i></p>
-            </div>
-        </a>
-    </div>
-</div>
-</section>
-
-            </div>
-
-
-                     
-
-
-<!-- static section end  -->
+            <!-- static section end  -->
 
           </div>
         </div>

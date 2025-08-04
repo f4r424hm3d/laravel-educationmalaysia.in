@@ -53,7 +53,7 @@ class HomeApi extends Controller
     $meta_title = isset($seo->meta_title) ? replaceTag($seo->meta_title, $tagArray) : '';
     $meta_keyword = isset($seo->meta_keyword) ? replaceTag($seo->meta_keyword, $tagArray) : '';
     $meta_description = isset($seo->meta_description) ? replaceTag($seo->meta_description, $tagArray) : '';
-    $og_image_path = $seo->ogimgpath ?? null;
+    $og_image_path = $seo->og_image_path ?? null;
 
     return response()->json([
       'status' => true,
