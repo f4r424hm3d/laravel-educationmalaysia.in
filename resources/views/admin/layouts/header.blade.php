@@ -242,7 +242,7 @@
                     </a> --}}
                     <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('university') }}"
                       id="topnav-auth" role="button">
-                      <span data-key="t-authentication">University</span>
+                      <span data-key="t-authentication">Universities</span>
                     </a>
                     <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('university/add') }}"
                       id="topnav-auth" role="button">

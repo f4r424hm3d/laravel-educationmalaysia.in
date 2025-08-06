@@ -11,6 +11,7 @@ use App\Models\PageBanner;
 use App\Models\StaticPageContent;
 use App\Models\StaticPageSeo;
 use App\Models\University;
+use App\Models\UniversityOverview;
 use Illuminate\Http\Request;
 
 class UniversityApi extends Controller
@@ -175,6 +176,9 @@ class UniversityApi extends Controller
   public function overview($uname, Request $request)
   {
     $university = University::where(['uname' => $uname])->active()->firstOrFail();
+    $overviews = UniversityOverview::where('university_id', $university->id)
+      ->orderBy('position')
+      ->get();
 
     //$trendingUniversities = University::inRandomOrder()->active()->where('id', '!=', $university->id)->limit(10)->get();
 
@@ -217,28 +221,23 @@ class UniversityApi extends Controller
     $universityPopularCoursesSpecialization = CourseSpecialization::inRandomOrder()
       ->whereHas('programs', function ($query) use ($university) {
         $query->where('university_id', $university->id);
-      })
-      ->limit(15)
-      ->get();
+      })->limit(15)->select('id', 'name', 'slug')->get();
 
     $randomSpecializations = CourseSpecialization::inRandomOrder()
       ->whereHas('programs', function ($query) {
         $query->where('status', 1);
-      })
-      ->limit(15)
-      ->get();
+      })->limit(15)->select('id', 'name', 'slug')->get();
 
-    $specializationsWithContents = CourseSpecialization::inRandomOrder()
-      ->whereHas('contents')
-      ->limit(15)
-      ->get();
+    $specializationsWithContents = CourseSpecialization::inRandomOrder()->whereHas('contents')->limit(15)->select('id', 'name', 'slug')->get();
 
     return response()->json([
       'status' => true,
       'message' => 'University overview fetched successfully',
       'data' => [
-        'university' => $university,
-        // 'trending_university' => $trendingUniversities,
+        'overviews' => $overviews,
+        'university_specializations_for_courses' => $universityPopularCoursesSpecialization,
+        'all_specializations_for_courses' => $randomSpecializations,
+        'specializations_with_contents' => $specializationsWithContents,
         'seo' => [
           'meta_title' => $meta_title,
           'meta_keyword' => $meta_keyword,
@@ -246,9 +245,6 @@ class UniversityApi extends Controller
           'page_content' => $page_content,
           'og_image_path' => $og_image_path,
         ],
-        'university_specializations_for_courses' => $universityPopularCoursesSpecialization,
-        'all_specializations_for_courses' => $randomSpecializations,
-        'specializations_with_contents' => $specializationsWithContents,
       ]
     ]);
   }
