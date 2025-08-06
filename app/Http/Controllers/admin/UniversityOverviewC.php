@@ -12,7 +12,7 @@ class UniversityOverviewC extends Controller
   public function index($university_id, $id = null)
   {
     $university = University::find($university_id);
-    $rows = UniversityOverview::orderBy('position')->where('u_id', $university_id)->get();
+    $rows = UniversityOverview::orderBy('position')->where('university_id', $university_id)->get();
     $lastPosition = $rows->count() + 1;
     if ($id != null) {
       $sd = UniversityOverview::find($id);
@@ -40,8 +40,8 @@ class UniversityOverviewC extends Controller
     // die;
     $request->validate(
       [
-        'h' => 'required',
-        'p' => 'required',
+        'title' => 'required',
+        'description' => 'required',
       ]
     );
     $field = new UniversityOverview;
@@ -53,15 +53,15 @@ class UniversityOverviewC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('thumbnail')->move('uploads/university/', $file_name);
       if ($move) {
-        $field->imgname = $file_name;
-        $field->imgpath = 'uploads/university/' . $file_name;
+        $field->thumbnail_name = $file_name;
+        $field->thumbnail_path = 'uploads/university/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
-    $field->u_id = $request['university_id'];
-    $field->h = $request['h'];
-    $field->p = $request['p'];
+    $field->university_id = $request['university_id'];
+    $field->title = $request['title'];
+    $field->description = $request['description'];
     $field->position = $request['position'];
     $field->save();
     session()->flash('smsg', 'New record has been added successfully.');
@@ -76,8 +76,8 @@ class UniversityOverviewC extends Controller
   {
     $request->validate(
       [
-        'h' => 'required',
-        'p' => 'required',
+        'title' => 'required',
+        'description' => 'required',
       ]
     );
     $field = UniversityOverview::find($id);
@@ -89,15 +89,15 @@ class UniversityOverviewC extends Controller
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
       $move = $request->file('thumbnail')->move('uploads/university/', $file_name);
       if ($move) {
-        $field->imgname = $file_name;
-        $field->imgpath = 'uploads/university/' . $file_name;
+        $field->thumbnail_name = $file_name;
+        $field->thumbnail_path = 'uploads/university/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
     }
-    $field->u_id = $request['university_id'];
-    $field->h = $request['h'];
-    $field->p = $request['p'];
+    $field->university_id = $request['university_id'];
+    $field->title = $request['title'];
+    $field->description = $request['description'];
     $field->position = $request['position'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');

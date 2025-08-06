@@ -51,14 +51,15 @@
               <div class="show-more-box">
                 <div class="text show-more-heigh">
                   @foreach ($university->overviews as $row)
-                    @if ($row->h)
-                      <h2 class="edu_title">{{ $row->h }}</h2>
+                    @if ($row->title)
+                      <h2 class="edu_title">{{ $row->title }}</h2>
                     @endif
-                    @if ($row->imgpath)
-                      <div class="cor-mid-img"> <img data-src="{{ asset($row->imgpath) }}" alt="{{ $university->name }}">
+                    @if ($row->thumbnail_path)
+                      <div class="cor-mid-img"> <img data-src="{{ asset($row->thumbnail_path) }}"
+                          alt="{{ $university->name }}">
                       </div>
                     @endif
-                    {!! $row->p !!}
+                    {!! $row->description !!}
                   @endforeach
                 </div>
                 {{-- <div class="show-more mt-2">Show More...</div> --}}

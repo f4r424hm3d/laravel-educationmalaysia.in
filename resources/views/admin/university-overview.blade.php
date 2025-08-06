@@ -46,7 +46,7 @@
                 @csrf
                 <div class="row">
                   <div class="col-md-8 col-sm-12 mb-3">
-                    <x-InputField type="text" label="Title" name="h" id="h" :ft="$ft"
+                    <x-InputField type="text" label="Title" name="title" id="title" :ft="$ft"
                       :sd="$sd"></x-InputField>
                   </div>
                   <div class="col-md-2 col-sm-12 mb-3">
@@ -59,7 +59,7 @@
                     </x-number-input>
                   </div>
                   <div class="col-md-12 col-sm-12 mb-3">
-                    <x-TextareaField label="Decription" name="p" id="p" :ft="$ft"
+                    <x-TextareaField label="Description" name="description" id="description" :ft="$ft"
                       :sd="$sd"></x-TextareaField>
                   </div>
                 </div>
@@ -108,13 +108,13 @@
                     <tr id="row{{ $row->id }}">
                       <td>{{ $i }}</td>
                       <td>{{ $row->position }}</td>
-                      <td>{{ $row->h }}</td>
+                      <td>{{ $row->title }}</td>
                       <td>
-                        <x-content-view-modal :row="$row" field="p" title="Description" />
+                        <x-content-view-modal :row="$row" field="description" title="Description" />
                       </td>
                       <td>
-                        @if ($row->imgpath != null)
-                          <img src="{{ asset($row->imgpath) }}" alt="" height="80" width="80">
+                        @if ($row->thumbnail_path != null)
+                          <img src="{{ asset($row->thumbnail_path) }}" alt="" height="80" width="80">
                         @else
                           N/A
                         @endif
@@ -176,6 +176,6 @@
       }
     }
 
-    CKEDITOR.replace("p");
+    CKEDITOR.replace("description");
   </script>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\CourseSpecialization;
 use App\Models\DefaultOgImage;
 use App\Models\DynamicPageSeo;
 use App\Models\InstituteType;
@@ -160,6 +161,94 @@ class UniversityApi extends Controller
           'page_content' => $page_content,
           'og_image_path' => $og_image_path,
         ]
+      ]
+    ]);
+  }
+  public function universityDetail($uname)
+  {
+    $university = University::where('uname', $uname)->firstOrFail();
+
+    return response()->json([
+      'university' => $university,
+    ]);
+  }
+  public function overview($uname, Request $request)
+  {
+    $university = University::where(['uname' => $uname])->active()->firstOrFail();
+
+    //$trendingUniversities = University::inRandomOrder()->active()->where('id', '!=', $university->id)->limit(10)->get();
+
+    $wrdseo = ['url' => 'university'];
+    $dseo = DynamicPageSeo::where($wrdseo)->first();
+
+    $title = $university->name;
+    $city = $university->city;
+    $shortnote = $university->shortnote;
+    $inst_type = $university->inst_type;
+    $uname = $university->name;
+
+    $site = DOMAIN;
+
+    $tagArray = [
+      'title' => $title,
+      'address' => $city,
+      'shortnote' => $shortnote,
+      'universitytype' => $inst_type,
+      'universityname' => $uname,
+      'currentmonth' => date('M'),
+      'currentyear' => date('Y'),
+      'site' => $site,
+    ];
+
+    $meta_title = $university->meta_title ?: $dseo->meta_title;
+    $meta_title = replaceTag($meta_title, $tagArray);
+
+    $meta_keyword = $university->meta_keyword ?: $dseo->meta_keyword;
+    $meta_keyword = replaceTag($meta_keyword, $tagArray);
+
+    $page_content = $university->page_content ?: $dseo->page_content;
+    $page_content = replaceTag($page_content, $tagArray);
+
+    $meta_description = $university->meta_description ?: $dseo->meta_description;
+    $meta_description = replaceTag($meta_description, $tagArray);
+
+    $og_image_path = $university->og_image_path ?? $dseo->og_image_path;
+
+    $universityPopularCoursesSpecialization = CourseSpecialization::inRandomOrder()
+      ->whereHas('programs', function ($query) use ($university) {
+        $query->where('university_id', $university->id);
+      })
+      ->limit(15)
+      ->get();
+
+    $randomSpecializations = CourseSpecialization::inRandomOrder()
+      ->whereHas('programs', function ($query) {
+        $query->where('status', 1);
+      })
+      ->limit(15)
+      ->get();
+
+    $specializationsWithContents = CourseSpecialization::inRandomOrder()
+      ->whereHas('contents')
+      ->limit(15)
+      ->get();
+
+    return response()->json([
+      'status' => true,
+      'message' => 'University overview fetched successfully',
+      'data' => [
+        'university' => $university,
+        // 'trending_university' => $trendingUniversities,
+        'seo' => [
+          'meta_title' => $meta_title,
+          'meta_keyword' => $meta_keyword,
+          'meta_description' => $meta_description,
+          'page_content' => $page_content,
+          'og_image_path' => $og_image_path,
+        ],
+        'university_specializations_for_courses' => $universityPopularCoursesSpecialization,
+        'all_specializations_for_courses' => $randomSpecializations,
+        'specializations_with_contents' => $specializationsWithContents,
       ]
     ]);
   }
