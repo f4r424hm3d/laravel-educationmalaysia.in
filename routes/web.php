@@ -1049,4 +1049,6 @@ Route::prefix('temp')->group(function () {
   Route::get('/sseo', [TempController::class, 'moveStaticSeoImages']);
   Route::get('/u-logo', [TempController::class, 'moveUniversityLogos']);
   Route::get('/u-banner', [TempController::class, 'moveUniversityBanners']);
+  Route::get('/u-overview', [TempController::class, 'moveUniversityOverview']);
+  Route::get('/u-overview/update', [TempController::class, 'updateUniversityOverviewThumbnails']);
 });

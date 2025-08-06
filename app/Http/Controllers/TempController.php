@@ -9,8 +9,10 @@ use App\Models\CourseSpecialization;
 use App\Models\DynamicPageSeo;
 use App\Models\StaticPageSeo;
 use App\Models\University;
+use App\Models\UniversityOverview;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class TempController extends Controller
 {
@@ -380,8 +382,6 @@ class TempController extends Controller
       // Determine source folder based on path
       if (strpos($logoPath, 'assets/uploadFiles/study/') !== false) {
         $oldPath = 'assets/uploadFiles/study/' . $fileName;
-      } elseif (strpos($logoPath, 'university/') !== false) {
-        $oldPath = 'university/' . $fileName;
       } else {
         $oldPath = $logoPath; // fallback — use as-is
       }
@@ -415,6 +415,100 @@ class TempController extends Controller
       'moved_logos' => $moved,
       'not_found_logos' => $notFound,
       'message' => 'University logo migration complete.'
+    ]);
+  }
+  public function moveUniversityOverview()
+  {
+    $overviews = UniversityOverview::all();
+    $moved = [];
+    $skipped = [];
+    $notFound = [];
+
+    foreach ($overviews as $overview) {
+      $thumbnailPath = $overview->thumbnail_path;
+
+      if (!$thumbnailPath) continue;
+
+      // ✅ Skip already-migrated paths
+      if (Str::startsWith($thumbnailPath, 'uploads/university/')) {
+        $skipped[] = $thumbnailPath;
+        continue;
+      }
+
+      // Extract filename from URL or relative path
+      $fileName = basename(parse_url($thumbnailPath, PHP_URL_PATH));
+
+      // Determine source path
+      if (strpos($thumbnailPath, 'assets/uploadFiles/study/') !== false) {
+        $oldPath = 'assets/uploadFiles/study/' . $fileName;
+      } elseif (strpos($thumbnailPath, 'university/') !== false) {
+        $oldPath = 'university/' . $fileName;
+      } elseif (file_exists($thumbnailPath)) {
+        $oldPath = $thumbnailPath;
+      } else {
+        $oldPath = null;
+      }
+
+      $newFolder = 'uploads/university';
+      $newPath = $newFolder . '/' . $fileName;
+
+      if ($oldPath && file_exists($oldPath)) {
+        if (!file_exists($newFolder)) {
+          mkdir($newFolder, 0777, true);
+        }
+
+        rename($oldPath, $newPath);
+
+        $overview->thumbnail_path = $newPath;
+        $overview->thumbnail_name = $fileName;
+        $overview->save();
+
+        $moved[] = $fileName;
+      } else {
+        // 🔒 Don't overwrite with null on second run
+        $notFound[] = "$fileName (file missing, not updated)";
+      }
+    }
+
+    return response()->json([
+      'moved_thumbnails' => $moved,
+      'skipped_already_migrated' => $skipped,
+      'missing_files' => $notFound,
+      'message' => 'UniversityOverview thumbnail migration attempt complete.'
+    ]);
+  }
+
+  public function updateUniversityOverviewThumbnails()
+  {
+    $updated = [];
+    $skipped = [];
+
+    $overviews = UniversityOverview::all();
+
+    foreach ($overviews as $overview) {
+      $url = $overview->thumbnail_path;
+
+      if (!$url) {
+        $skipped[] = $overview->id;
+        continue;
+      }
+
+      // Extract filename from URL
+      $fileName = basename(parse_url($url, PHP_URL_PATH));
+      $newPath = 'uploads/university/' . $fileName;
+
+      // Just update the DB (no file operations)
+      $overview->thumbnail_path = $newPath;
+      $overview->thumbnail_name = $fileName;
+      $overview->save();
+
+      $updated[] = $fileName;
+    }
+
+    return response()->json([
+      'updated_records' => $updated,
+      'skipped_records' => $skipped,
+      'message' => 'Thumbnails updated to point to local uploads/university/ path.'
     ]);
   }
 }
