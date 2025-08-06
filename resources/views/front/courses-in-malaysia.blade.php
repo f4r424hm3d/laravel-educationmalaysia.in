@@ -158,7 +158,7 @@
                         <div class="row align-items-center ">
                           <div class="col-lg-3 col-md-3 col-sm-12 col-12 ">
                             <div class="divimg">
-                              <img data-src="{{ asset($row->university->imgpath) }}" class="img-fluid"
+                              <img data-src="{{ asset($row->university->logo_path) }}" class="img-fluid"
                                 alt="{{ $row->university->name }} Logo">
                             </div>
                           </div>
@@ -361,9 +361,9 @@
           </div>
         </div>
         <!-- <div class="modal-footer">
-                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                          <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div> -->
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                          </div> -->
       </div>
     </div>
   </div>
