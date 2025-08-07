@@ -62,10 +62,10 @@ class UniversityGalleryC extends Controller
         $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
         $file_name_slug = slugify($fileNameWithoutExtention);
         $file_name = $file_name_slug . '-' . time() . '.' . $file->getClientOriginalExtension();
-        $move = $file->move('uploads/university/', $file_name);
+        $move = $file->move('uploads/university/photos/', $file_name);
         if ($move) {
           $field->photo_name = $file_name;
-          $field->photo_path = 'uploads/university/' . $file_name;
+          $field->photo_path = 'uploads/university/photos/' . $file_name;
         } else {
           session()->flash('emsg', 'Images not uploaded.');
         }
@@ -91,13 +91,13 @@ class UniversityGalleryC extends Controller
       $file_name_slug = slugify($fileNameWithoutExtention);
       $fileExtention = $request->file('photo')->getClientOriginalExtension();
       $file_name = $file_name_slug . '_' . time() . '.' . $fileExtention;
-      $move = $request->file('photo')->move('uploads/university/', $file_name);
+      $move = $request->file('photo')->move('uploads/university/photos/', $file_name);
       if ($move) {
         if ($field->photo_path != null && file_exists($field->photo_path)) {
           unlink($field->photo_path);
         }
         $field->photo_name = $file_name;
-        $field->photo_path = 'uploads/university/' . $file_name;
+        $field->photo_path = 'uploads/university/photos/' . $file_name;
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }

@@ -1041,14 +1041,15 @@ Route::get('/university/{university}/course/{course}', function ($university, $c
 
 
 Route::prefix('temp')->group(function () {
-  Route::get('/blogcategory', [TempController::class, 'blogCategory']);
-  Route::get('/move-blog', [TempController::class, 'moveBlogImages']);
-  Route::get('/move-category', [TempController::class, 'moveCourseCategoryImages']);
-  Route::get('/move-specialization', [TempController::class, 'moveCourseSpecializationImages']);
-  Route::get('/seo', [TempController::class, 'moveSeoImages']);
-  Route::get('/sseo', [TempController::class, 'moveStaticSeoImages']);
-  Route::get('/u-logo', [TempController::class, 'moveUniversityLogos']);
-  Route::get('/u-banner', [TempController::class, 'moveUniversityBanners']);
-  Route::get('/u-overview', [TempController::class, 'moveUniversityOverview']);
-  Route::get('/u-overview/update', [TempController::class, 'updateUniversityOverviewThumbnails']);
+  // Route::get('/blogcategory', [TempController::class, 'blogCategory']);
+  // Route::get('/move-blog', [TempController::class, 'moveBlogImages']);
+  // Route::get('/move-category', [TempController::class, 'moveCourseCategoryImages']);
+  // Route::get('/move-specialization', [TempController::class, 'moveCourseSpecializationImages']);
+  // Route::get('/seo', [TempController::class, 'moveSeoImages']);
+  // Route::get('/sseo', [TempController::class, 'moveStaticSeoImages']);
+  // Route::get('/u-logo', [TempController::class, 'moveUniversityLogos']);
+  // Route::get('/u-banner', [TempController::class, 'moveUniversityBanners']);
+  // Route::get('/u-overview', [TempController::class, 'moveUniversityOverview']);
+  // Route::get('/u-overview/update', [TempController::class, 'updateUniversityOverviewThumbnails']);
+  // Route::get('/u-photos', [TempController::class, 'photos']);
 });
