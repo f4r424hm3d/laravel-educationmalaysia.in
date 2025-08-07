@@ -56,7 +56,7 @@ class UniversityGalleryC extends Controller
     if ($request->hasFile('photo')) {
       foreach ($request->file('photo') as $key => $file) {
         $field = new UniversityPhoto;
-        $field->university_id = $request['university_id'];
+        $field->university_id = $university_id;
         $field->title = $request['title'];
         $fileOriginalName = $file->getClientOriginalName();
         $fileNameWithoutExtention = pathinfo($fileOriginalName, PATHINFO_FILENAME);
