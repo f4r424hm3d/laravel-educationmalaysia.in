@@ -38,7 +38,7 @@
                   </a>
                 </div>
                 <!-- NOTIFICATION FIELD START -->
-                <x-ResultNotificationField></x-ResultNotificationField>
+                <x-result-notification-field />
                 <!-- NOTIFICATION FIELD END -->
                 <div class="card card-style">
                   <div class="content mb-4">

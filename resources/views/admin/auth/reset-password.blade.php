@@ -43,7 +43,7 @@
                   one number, and one special character (e.g., @, #, $).
                 </p>
                 <!-- NOTIFICATION FIELD START -->
-                <x-ResultNotificationField></x-ResultNotificationField>
+                <x-result-notification-field />
                 <!-- NOTIFICATION FIELD END -->
                 <div class="auth-content my-auto">
                   <form method="post" action="{{ aurl('reset-password') }}" enctype="multipart/form-data">

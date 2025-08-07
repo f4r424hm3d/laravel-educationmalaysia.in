@@ -44,7 +44,7 @@
                   </a>
                 </div>
                 <!-- NOTIFICATION FIELD START -->
-                <x-ResultNotificationField></x-ResultNotificationField>
+                <x-result-notification-field />
                 <!-- NOTIFICATION FIELD END -->
                 <div class="auth-content my-auto">
                   <form action="{{ url('admin/login') }}" method="post">

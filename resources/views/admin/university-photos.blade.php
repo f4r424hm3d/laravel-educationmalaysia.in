@@ -24,7 +24,7 @@
       <div class="row">
         <div class="col-xl-12">
           <!-- NOTIFICATION FIELD START -->
-          <x-ResultNotificationField></x-ResultNotificationField>
+          <x-result-notification-field />
           <!-- NOTIFICATION FIELD END -->
         </div>
       </div>
@@ -46,12 +46,12 @@
                 @csrf
                 <div class="row">
                   <div class="col-md-6 col-sm-12 mb-3">
-                    <x-InputField type="text" label="Title" name="title" id="title" :ft="$ft"
-                      :sd="$sd"></x-InputField>
+                    <x-input-field type="text" label="Title" name="title" id="title" :ft="$ft"
+                      :sd="$sd" />
                   </div>
                   <div class="col-md-4 col-sm-12 mb-3">
-                    <x-MultipleInputField type="file" label="Photo" name="photo" id="photo" :ft="$ft"
-                      :sd="$sd"></x-MultipleInputField>
+                    <x-multiple-input-field type="file" label="Photo" name="photo" id="photo" :ft="$ft"
+                      :sd="$sd" />
                   </div>
                 </div>
                 @if ($ft == 'add')
@@ -101,8 +101,8 @@
                       <td>{{ $i }}</td>
                       <td>{{ $row->title }}</td>
                       <td>
-                        @if ($row->imgpath != null)
-                          <img src="{{ asset($row->imgpath) }}" alt="" height="80" width="80">
+                        @if ($row->photo_path != null)
+                          <img src="{{ asset($row->photo_path) }}" alt="" height="80" width="80">
                         @else
                           N/A
                         @endif

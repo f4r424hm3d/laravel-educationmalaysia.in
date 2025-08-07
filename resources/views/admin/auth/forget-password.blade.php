@@ -40,7 +40,7 @@
                 <h3 class="pt-3 mt-2 text-center font-800 font-40 mb-1">Forgot Password</h3>
                 <p class="text-center color-highlight font-11">Recover your Account password using your Email-id</p>
                 <!-- NOTIFICATION FIELD START -->
-                <x-ResultNotificationField></x-ResultNotificationField>
+                <x-result-notification-field />
                 <!-- NOTIFICATION FIELD END -->
                 <div class="auth-content my-auto">
                   <form action="{{ aurl('forget-password') }}" method="post">

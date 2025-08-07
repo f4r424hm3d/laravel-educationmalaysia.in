@@ -31,7 +31,7 @@
       </div> --}}
         <div class="col-xl-12 col-lg-12">
           <!-- NOTIFICATION FIELD START -->
-          <x-ResultNotificationField></x-ResultNotificationField>
+          <x-result-notification-field />
           <!-- NOTIFICATION FIELD END -->
           <div class="card">
             <div class="card-body">
