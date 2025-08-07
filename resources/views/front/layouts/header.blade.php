@@ -565,7 +565,7 @@
             let closeCount = parseInt(localStorage.getItem(closeCountKey) || '0') + 1;
             localStorage.setItem(closeCountKey, closeCount.toString());
 
-            if (closeCount >= 3) {
+            if (closeCount >= 30) {
               localStorage.setItem(neverShowKey, 'true');
             }
           }
