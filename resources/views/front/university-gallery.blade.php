@@ -51,9 +51,9 @@
                   <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                     <div class="course_overlay_cat">
                       <div class="course_overlay_cat_thumb">
-                        <a href="{{ asset($row->imgpath) }}" class="fancybox" data-fancybox="gallery"
+                        <a href="{{ asset($row->photo_path) }}" class="fancybox" data-fancybox="gallery"
                           data-caption="Image title type here">
-                          <img data-src="{{ asset($row->imgpath) }}" class="img-fluid" alt="{{ $row->title }}">
+                          <img data-src="{{ asset($row->photo_path) }}" class="img-fluid" alt="{{ $row->title }}">
                         </a>
                       </div>
                     </div>

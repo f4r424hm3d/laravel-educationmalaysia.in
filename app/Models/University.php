@@ -41,7 +41,7 @@ class University extends Model
   }
   public function photos()
   {
-    return $this->hasMany(UniversityPhoto::class, 'u_id', 'id');
+    return $this->hasMany(UniversityPhoto::class, 'university_id', 'id');
   }
   public function videos()
   {
