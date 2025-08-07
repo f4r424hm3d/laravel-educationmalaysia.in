@@ -253,8 +253,7 @@ class UniversityApi extends Controller
   public function gallery($uname, Request $request)
   {
     $university = University::where(['uname' => $uname])->active()->firstOrFail();
-    return $universityPhotos = $university->photos;
-    // $universityPhotos = UniversityPhoto::where('university_id', $university->id)->orderBy('position')->get();
+    $universityPhotos = $university->photos;
 
     $wrdseo = ['url' => 'gallery'];
     $dseo = DynamicPageSeo::where($wrdseo)->first();
@@ -284,39 +283,20 @@ class UniversityApi extends Controller
     $meta_keyword = $university->meta_keyword ?: $dseo->meta_keyword;
     $meta_keyword = replaceTag($meta_keyword, $tagArray);
 
-    $page_content = $university->page_content ?: $dseo->page_content;
-    $page_content = replaceTag($page_content, $tagArray);
-
     $meta_description = $university->meta_description ?: $dseo->meta_description;
     $meta_description = replaceTag($meta_description, $tagArray);
 
     $og_image_path = $university->og_image_path ?? $dseo->og_image_path;
 
-    $universityPopularCoursesSpecialization = CourseSpecialization::inRandomOrder()
-      ->whereHas('programs', function ($query) use ($university) {
-        $query->where('university_id', $university->id);
-      })->limit(15)->select('id', 'name', 'slug')->get();
-
-    $randomSpecializations = CourseSpecialization::inRandomOrder()
-      ->whereHas('programs', function ($query) {
-        $query->where('status', 1);
-      })->limit(15)->select('id', 'name', 'slug')->get();
-
-    $specializationsWithContents = CourseSpecialization::inRandomOrder()->whereHas('contents')->limit(15)->select('id', 'name', 'slug')->get();
-
     return response()->json([
       'status' => true,
       'message' => 'University overview fetched successfully',
       'data' => [
-        'overviews' => $overviews,
-        'university_specializations_for_courses' => $universityPopularCoursesSpecialization,
-        'all_specializations_for_courses' => $randomSpecializations,
-        'specializations_with_contents' => $specializationsWithContents,
+        'universityPhotos' => $universityPhotos,
         'seo' => [
           'meta_title' => $meta_title,
           'meta_keyword' => $meta_keyword,
           'meta_description' => $meta_description,
-          'page_content' => $page_content,
           'og_image_path' => $og_image_path,
         ],
       ]
