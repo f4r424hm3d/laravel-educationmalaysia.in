@@ -302,4 +302,56 @@ class UniversityApi extends Controller
       ]
     ]);
   }
+  public function videos($uname, Request $request)
+  {
+    $university = University::where(['uname' => $uname])->active()->firstOrFail();
+    $universityVideos = $university->videos;
+
+    $wrdseo = ['url' => 'video'];
+    $dseo = DynamicPageSeo::where($wrdseo)->first();
+
+    $title = $university->name;
+    $city = $university->city;
+    $shortnote = $university->shortnote;
+    $inst_type = $university->inst_type;
+    $uname = $university->name;
+
+    $site = DOMAIN;
+
+    $tagArray = [
+      'title' => $title,
+      'address' => $city,
+      'shortnote' => $shortnote,
+      'universitytype' => $inst_type,
+      'universityname' => $uname,
+      'currentmonth' => date('M'),
+      'currentyear' => date('Y'),
+      'site' => $site,
+    ];
+
+    $meta_title = $university->meta_title ?: $dseo->meta_title;
+    $meta_title = replaceTag($meta_title, $tagArray);
+
+    $meta_keyword = $university->meta_keyword ?: $dseo->meta_keyword;
+    $meta_keyword = replaceTag($meta_keyword, $tagArray);
+
+    $meta_description = $university->meta_description ?: $dseo->meta_description;
+    $meta_description = replaceTag($meta_description, $tagArray);
+
+    $og_image_path = $university->og_image_path ?? $dseo->og_image_path;
+
+    return response()->json([
+      'status' => true,
+      'message' => 'University overview fetched successfully',
+      'data' => [
+        'universityVideos' => $universityVideos,
+        'seo' => [
+          'meta_title' => $meta_title,
+          'meta_keyword' => $meta_keyword,
+          'meta_description' => $meta_description,
+          'og_image_path' => $og_image_path,
+        ],
+      ]
+    ]);
+  }
 }
