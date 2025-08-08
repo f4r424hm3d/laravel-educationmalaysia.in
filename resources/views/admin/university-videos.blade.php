@@ -50,7 +50,7 @@
                       :sd="$sd"></x-InputField>
                   </div>
                   <div class="col-md-6 col-sm-12 mb-3">
-                    <x-InputField type="text" label="Video Link" name="imgpath" id="imgpath" :ft="$ft"
+                    <x-InputField type="text" label="Video Link" name="video_link" id="video_link" :ft="$ft"
                       :sd="$sd"></x-InputField>
                   </div>
                 </div>

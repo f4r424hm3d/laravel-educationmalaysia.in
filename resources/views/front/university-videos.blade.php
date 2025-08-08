@@ -43,20 +43,20 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-12">
-        <div class="card">
-                  <div class="card-body p-4">
-                    <div class="row">
-                      @foreach ($university->videos as $row)
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                          <iframe width="100%" height="200" src="{{ $row->imgpath }}" title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                        </div>
-                      @endforeach
-                    </div>
+          <div class="card">
+            <div class="card-body p-4">
+              <div class="row">
+                @foreach ($university->videos as $row)
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <iframe width="100%" height="200" src="{{ $row->video_link }}" title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen></iframe>
                   </div>
-                </div>
+                @endforeach
+              </div>
+            </div>
+          </div>
           <!-- Call to action -->
           <div class="justify-content-center align-content-center text-center mb-4 font-weight-bold">
             GET DETAILS ON FEE, ADMISSION, INTAKE <a href="{{ url('/sign-up/?return_to=') }}"
@@ -74,7 +74,7 @@
               <div class="learnup-list">
                 <div class="learnup-list-thumb">
                   <a href="{{ route('university.overview', ['university_slug' => $row->uname]) }}">
-                    <img data-src="{{ asset($row->imgpath) }}" class="img-fluid" alt="{{ $row->name }}">
+                    <img data-src="{{ asset($row->logo_path) }}" class="img-fluid" alt="{{ $row->name }}">
                   </a>
                 </div>
                 <div class="learnup-list-caption">

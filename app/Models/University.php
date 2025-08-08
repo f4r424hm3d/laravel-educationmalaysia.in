@@ -45,7 +45,7 @@ class University extends Model
   }
   public function videos()
   {
-    return $this->hasMany(UniversityVideo::class, 'u_id', 'id');
+    return $this->hasMany(UniversityVideo::class, 'university_id', 'id');
   }
   public function overviews()
   {

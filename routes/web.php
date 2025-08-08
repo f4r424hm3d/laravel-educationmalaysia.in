@@ -375,11 +375,11 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
       Route::post('/{university_id}/update/{id}', [UniversityGalleryC::class, 'update']);
     });
     Route::prefix('/university-videos')->group(function () {
-      Route::get('/{u_id}', [UniversityVideoGalleryC::class, 'index']);
-      Route::post('/{u_id}/store', [UniversityVideoGalleryC::class, 'store']);
+      Route::get('/{university_id}', [UniversityVideoGalleryC::class, 'index']);
+      Route::post('/{university_id}/store', [UniversityVideoGalleryC::class, 'store']);
       Route::get('/delete/{id}', [UniversityVideoGalleryC::class, 'delete']);
-      Route::get('/{u_id}/update/{id}', [UniversityVideoGalleryC::class, 'index']);
-      Route::post('/{u_id}/update/{id}', [UniversityVideoGalleryC::class, 'update']);
+      Route::get('/{university_id}/update/{id}', [UniversityVideoGalleryC::class, 'index']);
+      Route::post('/{university_id}/update/{id}', [UniversityVideoGalleryC::class, 'update']);
     });
     Route::prefix('/university-facilities')->group(function () {
       Route::get('/get-data', [UniversityFacilityC::class, 'getData']);

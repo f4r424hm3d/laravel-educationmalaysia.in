@@ -14,22 +14,22 @@ class UniversityVideoGalleryC extends Controller
   {
     $this->page_route = 'university-videos';
   }
-  public function index($u_id, $id = null)
+  public function index($university_id, $id = null)
   {
-    $university = University::find($u_id);
-    $rows = UniversityVideo::where('u_id', $u_id)->get();
+    $university = University::find($university_id);
+    $rows = UniversityVideo::where('university_id', $university_id)->get();
     if ($id != null) {
       $sd = UniversityVideo::find($id);
       if (!is_null($sd)) {
         $ft = 'edit';
-        $url = url('admin/' . $this->page_route . '/' . $u_id . '/update/' . $id);
+        $url = url('admin/' . $this->page_route . '/' . $university_id . '/update/' . $id);
         $title = 'Update';
       } else {
         return redirect('admin/university-videos');
       }
     } else {
       $ft = 'add';
-      $url = url('admin/' . $this->page_route . '/' . $u_id . '/store');
+      $url = url('admin/' . $this->page_route . '/' . $university_id . '/store');
       $title = 'Add New';
       $sd = '';
     }
@@ -38,23 +38,23 @@ class UniversityVideoGalleryC extends Controller
     $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'university');
     return view('admin.university-videos')->with($data);
   }
-  public function store($u_id, Request $request)
+  public function store($university_id, Request $request)
   {
     // printArray($request->all());
     // die;
     $request->validate(
       [
         'title' => 'required',
-        'imgpath' => 'required',
+        'video_link' => 'required',
       ]
     );
     $field = new UniversityVideo;
-    $field->u_id = $request['u_id'];
+    $field->university_id = $request['university_id'];
     $field->title = $request['title'];
-    $field->imgpath = $request['imgpath'];
+    $field->video_link = $request['video_link'];
     $field->save();
     session()->flash('smsg', 'New record has been added successfully.');
-    return redirect('admin/' . $this->page_route . '/' . $u_id);
+    return redirect('admin/' . $this->page_route . '/' . $university_id);
   }
   public function delete($id)
   {
@@ -66,19 +66,19 @@ class UniversityVideoGalleryC extends Controller
       return response()->json(['success' => false]);
     }
   }
-  public function update($u_id, $id, Request $request)
+  public function update($university_id, $id, Request $request)
   {
     $request->validate(
       [
         'title' => 'required',
-        'imgpath' => 'required',
+        'video_link' => 'required',
       ]
     );
     $field = UniversityVideo::find($id);
     $field->title = $request['title'];
-    $field->imgpath = $request['imgpath'];
+    $field->video_link = $request['video_link'];
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
-    return redirect('admin/' . $this->page_route . '/' . $u_id);
+    return redirect('admin/' . $this->page_route . '/' . $university_id);
   }
 }
