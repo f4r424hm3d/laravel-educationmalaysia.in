@@ -77,6 +77,7 @@ Route::middleware([CheckApiKey::class])->group(function () {
   Route::get('university-details/{uname}', [UniversityApi::class, 'universityDetail']);
   Route::get('university-overview/{uname}', [UniversityApi::class, 'overview']);
   Route::get('university-gallery/{uname}', [UniversityApi::class, 'gallery']);
+  Route::get('university-videos/{uname}', [UniversityApi::class, 'videos']);
+  Route::get('university-courses/{uname}', [UniversityApi::class, 'courses']);
+  Route::get('university-course-details/{uname}/{course_slug}', [UniversityApi::class, 'courseDetail']);
 });
-
-Route::get('university-videos/{uname}', [UniversityApi::class, 'videos']);

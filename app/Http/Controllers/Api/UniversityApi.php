@@ -3,17 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\front\SpecializationFc;
+use App\Models\CourseCategory;
 use App\Models\CourseSpecialization;
 use App\Models\DefaultOgImage;
 use App\Models\DynamicPageSeo;
 use App\Models\InstituteType;
+use App\Models\Month;
 use App\Models\PageBanner;
 use App\Models\StaticPageContent;
 use App\Models\StaticPageSeo;
+use App\Models\StudyMode;
 use App\Models\University;
 use App\Models\UniversityGallery;
 use App\Models\UniversityOverview;
 use App\Models\UniversityPhoto;
+use App\Models\UniversityProgram;
 use Illuminate\Http\Request;
 
 class UniversityApi extends Controller
@@ -352,6 +357,213 @@ class UniversityApi extends Controller
           'og_image_path' => $og_image_path,
         ],
       ]
+    ]);
+  }
+  public function courses($university_slug, Request $request)
+  {
+    $university = University::where('uname', $university_slug)->firstOrFail();
+
+    $query = UniversityProgram::select('id', 'course_name', 'slug', 'study_mode', 'intake', 'application_deadline', 'level', 'course_category_id', 'specialization_id')->where(['university_id' => $university->id, 'status' => 1]);
+
+    // Apply filters
+    if ($request->has('level') && $request->input('level') != '') {
+      $query->where('level', $request->input('level'));
+      $appliedLevel = $request->input('level');
+    } else {
+      $appliedLevel = null;
+    }
+
+    if ($request->has('course_category_id') && $request->input('course_category_id') != '') {
+      $query->where('course_category_id', $request->input('course_category_id'));
+      $appliedCategory = CourseCategory::find($request->input('course_category_id'));
+    } else {
+      $appliedCategory = null;
+    }
+
+    if ($request->has('specialization_id') && $request->input('specialization_id') != '') {
+      $query->where('specialization_id', $request->input('specialization_id'));
+      $appliedSpecialization = CourseSpecialization::find($request->input('specialization_id'));
+    } else {
+      $appliedSpecialization = null;
+    }
+
+    if ($request->has('study_mode') && $request->input('study_mode') != '') {
+      $query->whereJsonContains('study_mode', $request->input('study_mode'));
+      $appliedStudyMode = $request->input('study_mode');
+    } else {
+      $appliedStudyMode = null;
+    }
+
+    $programs = $query->paginate(10)->withQueryString();
+    $noc = $programs->total();
+
+    // Extra data
+    $levels = UniversityProgram::select('level')
+      ->where(['university_id' => $university->id, 'status' => 1])
+      ->distinct()->get();
+
+    $categories = CourseCategory::select('id', 'name', 'slug')
+      ->whereIn('id', function ($query) use ($university, $request) {
+        $query->select('course_category_id')
+          ->from('university_programs')
+          ->where('university_id', $university->id)
+          ->where('status', 1);
+
+        if ($request->filled('level')) {
+          $query->where('level', $request->input('level'));
+        }
+      })->get();
+
+    $specializations = CourseSpecialization::select('id', 'name', 'slug')
+      ->whereIn('id', function ($query) use ($university, $request) {
+        $query->select('specialization_id')
+          ->from('university_programs')
+          ->where('university_id', $university->id)
+          ->where('status', 1);
+
+        if ($request->filled('level')) {
+          $query->where('level', $request->input('level'));
+        }
+        if ($request->filled('course_category_id')) {
+          $query->where('course_category_id', $request->input('course_category_id'));
+        }
+      })->get();
+
+    $studyModes = StudyMode::select('id', 'study_mode')->get();
+
+    $wrdseo = ['url' => 'university-course-list'];
+    $dseo = DynamicPageSeo::where($wrdseo)->first();
+
+    $getCategory = $appliedCategory ? $appliedCategory->name : '';
+    $getSpecialization = $appliedSpecialization ? $appliedSpecialization->specialization_name : '';
+    $level = $appliedLevel ?? null;
+    $university_name = $university->name;
+
+    $title = $university->name;
+    $site =  DOMAIN;
+    $tagArray = ['title' => $title, 'currentmonth' => date('M'), 'currentyear' => date('Y'), 'site' => $site, 'category' => $getCategory, 'specialization' => $getSpecialization, 'level' => $level, 'university' => $university_name, 'noc' => $noc];
+
+    $meta_title = $university->meta_title == '' ? $dseo->meta_title : $university->meta_title;
+    $meta_title = replaceTag($meta_title, $tagArray);
+
+    $meta_keyword = $university->meta_keyword == '' ? $dseo->meta_keyword : $university->meta_keyword;
+    $meta_keyword = replaceTag($meta_keyword, $tagArray);
+
+    $meta_description = $university->meta_description == '' ? $dseo->meta_description : $university->meta_description;
+    $meta_description = replaceTag($meta_description, $tagArray);
+
+    $og_image_path = $university->og_image_path ?? $dseo->og_image_path;
+
+    return response()->json([
+      'programs' => $programs,
+      'filters' => [
+        'level' => $request->input('level') ?? null,
+        'category' => $request->input('course_category_id') ?? null,
+        'specialization' => $request->input('specialization_id') ?? null,
+        'study_mode' => $request->input('study_mode') ?? null,
+      ],
+      'levels' => $levels,
+      'categories' => $categories,
+      'specializations' => $specializations,
+      'study_modes' => $studyModes,
+      'pagination' => [
+        'current_page' => $programs->currentPage(),
+        'per_page' => $programs->perPage(),
+        'total' => $programs->total(),
+        'next_page_url' => $programs->nextPageUrl(),
+        'prev_page_url' => $programs->previousPageUrl(),
+      ],
+      'seos' => [
+        'meta_title' => $meta_title,
+        'meta_keyword' => $meta_keyword,
+        'meta_description' => $meta_description,
+        'og_image_path' => $og_image_path,
+      ],
+    ]);
+  }
+  public function courseDetail($university_slug, $program_slug, Request $request)
+  {
+    // 1. Fetch university and program
+    $university = University::where('uname', $university_slug)->firstOrFail();
+    $program = UniversityProgram::with('contents')->where([
+      'university_id' => $university->id,
+      'slug' => $program_slug
+    ])->firstOrFail();
+
+    // 2. Additional info
+    $trendingUniversity = University::select('id', 'name', 'uname', 'logo_path', 'city', 'state')->limit(10)->get();
+
+    // 3. SEO setup
+    $wrdseo = ['url' => 'university-course-detail'];
+    $dseo = DynamicPageSeo::where($wrdseo)->first();
+
+    $title = $program->course_name;
+    $site = DOMAIN;
+    $tagArray = [
+      'title' => $title,
+      'universityname' => $university->name,
+      'currentmonth' => date('M'),
+      'currentyear' => date('Y'),
+      'site' => $site
+    ];
+
+    $meta_title = $program->meta_title ?: $dseo->meta_title;
+    $meta_title = replaceTag($meta_title, $tagArray);
+
+    $meta_keyword = $program->meta_keyword ?: $dseo->meta_keyword;
+    $meta_keyword = replaceTag($meta_keyword, $tagArray);
+
+    $meta_description = $program->meta_description ?: $dseo->meta_description;
+    $meta_description = replaceTag($meta_description, $tagArray);
+
+    $og_image_path = $program->og_image_path ?? $dseo->ogimgpath;
+
+    // 4. Static info
+    $months = Month::orderBy('id')->get();
+
+    // 6. Specializations
+    $universtySpecializationsForCourses = CourseSpecialization::select('id', 'name', 'slug')->inRandomOrder()
+      ->whereHas('programs', function ($query) use ($university) {
+        $query->where('university_id', $university->id);
+      })->limit(15)->get();
+
+    $randomSpecializations = CourseSpecialization::select('id', 'name', 'slug')->inRandomOrder()
+      ->whereHas('programs', function ($query) use ($university) {
+        $query->where('status', 1);
+      })->limit(15)->get();
+
+    $specializationsWithContents = CourseSpecialization::select('id', 'name', 'slug')->inRandomOrder()
+      ->whereHas('contents')
+      ->limit(15)->get();
+
+    // 7. Similar programs
+    $similarPrograms = UniversityProgram::with(['university:id,name,uname,logo_path,city,state,inst_type'])->inRandomOrder()
+      ->where('level', $program->level)
+      ->where('specialization_id', $program->specialization_id)
+      ->where('id', '!=', $program->id)
+      ->where('slug', '!=', '')
+      ->whereNotNull('slug')
+      ->where('status', 1)
+      ->limit(10)
+      ->select('id', 'course_name', 'slug', 'level', 'specialization_id', 'university_id', 'study_mode', 'duration', 'intake')->get();
+
+    // 8. Return as JSON
+    return response()->json([
+      'program' => $program,
+      'featured_universities' => $trendingUniversity,
+      'similar_programs' => $similarPrograms,
+      'months' => $months,
+      'specializations' => [
+        'university_specializations' => $universtySpecializationsForCourses,
+        'random_specializations' => $randomSpecializations,
+        'specializations_with_contents' => $specializationsWithContents,
+      ],
+      'seo' => [
+        'meta_title' => $meta_title,
+        'meta_keyword' => $meta_keyword,
+        'meta_description' => $meta_description,
+        'og_image_path' => $og_image_path,
+      ],
     ]);
   }
 }
