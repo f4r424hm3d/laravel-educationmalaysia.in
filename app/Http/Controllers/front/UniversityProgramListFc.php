@@ -5,20 +5,15 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Models\CourseCategory;
 use App\Models\CourseSpecialization;
-use App\Models\Destination;
 use App\Models\DynamicPageSeo;
-use App\Models\InstituteType;
 use App\Models\Level;
 use App\Models\Month;
 use App\Models\StudyMode;
-use App\Models\University;
-use App\Models\UniversityProgram;
 use Illuminate\Http\Request;
 use App\Helpers\UniversityListFilters;
 use App\Helpers\UniversityList;
 use App\Models\DefaultOgImage;
 use Illuminate\Support\Str;
-use App\Helpers\UniversityProgramListButton;
 
 class UniversityProgramListFc extends Controller
 {
@@ -356,7 +351,6 @@ class UniversityProgramListFc extends Controller
     $data = compact('rows', 'i', 'total', 'page_url', 'dseo', 'title', 'site', 'meta_title', 'meta_keyword', 'page_content', 'meta_description', 'og_image_path', 'levelListForFilter', 'categoryListForFilter', 'spcListForFilter', 'studyModes', 'curLevel', 'curCat', 'curSpc', 'intakes', 'npu', 'ppu', 'page_contents', 'specializations');
     return view('front.courses-in-malaysia')->with($data);
   }
-
   public function removeFilter(Request $request)
   {
     if ($request->value == 'CFilterCategory') {

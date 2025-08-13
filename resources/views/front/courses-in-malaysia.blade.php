@@ -63,7 +63,6 @@
       <div class="row">
         <div class="col-xl-3 col-lg-3 col-md-12 col-12 mb-4">
           <div id="accordionExample" class=" accordion shadow circullum hide-23 full-width accord-mobile">
-
             @include('front.filter-courses-in-malaysia')
           </div>
         </div>
@@ -361,9 +360,9 @@
           </div>
         </div>
         <!-- <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                          </div> -->
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                              </div> -->
       </div>
     </div>
   </div>

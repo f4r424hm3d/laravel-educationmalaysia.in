@@ -15,16 +15,16 @@ class UniversityListFilters
   {
     $levelListForFilter = Level::orderBy('id');
 
-    if (session()->has('CFilterCategory')) {
-      $levelListForFilter = $levelListForFilter->whereHas('allUniversityPrograms', function ($query) {
-        $query->where('course_category_id', session()->get('CFilterCategory'));
-      });
-    }
-    if (session()->has('CFilterSpecialization')) {
-      $levelListForFilter = $levelListForFilter->whereHas('allUniversityPrograms', function ($query) {
-        $query->where('specialization_id', session()->get('CFilterSpecialization'));
-      });
-    }
+    // if (session()->has('CFilterCategory')) {
+    //   $levelListForFilter = $levelListForFilter->whereHas('allUniversityPrograms', function ($query) {
+    //     $query->where('course_category_id', session()->get('CFilterCategory'));
+    //   });
+    // }
+    // if (session()->has('CFilterSpecialization')) {
+    //   $levelListForFilter = $levelListForFilter->whereHas('allUniversityPrograms', function ($query) {
+    //     $query->where('specialization_id', session()->get('CFilterSpecialization'));
+    //   });
+    // }
     $levelListForFilter = $levelListForFilter->whereHas('allUniversityPrograms', function ($query) {
       $query->where('status', 1)->where('website', site_var);
     });
@@ -37,12 +37,12 @@ class UniversityListFilters
   {
     $levelListForFilter = UniversityProgram::query();
 
-    if (session()->has('CFilterCategory')) {
-      $levelListForFilter->where('course_category_id', session()->get('CFilterCategory'));
-    }
-    if (session()->has('CFilterSpecialization')) {
-      $levelListForFilter->where('specialization_id', session()->get('CFilterSpecialization'));
-    }
+    // if (session()->has('CFilterCategory')) {
+    //   $levelListForFilter->where('course_category_id', session()->get('CFilterCategory'));
+    // }
+    // if (session()->has('CFilterSpecialization')) {
+    //   $levelListForFilter->where('specialization_id', session()->get('CFilterSpecialization'));
+    // }
 
     $levelListForFilter = $levelListForFilter->select('level')
       ->groupBy('level')

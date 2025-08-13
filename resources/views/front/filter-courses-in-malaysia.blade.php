@@ -23,7 +23,7 @@
                       : "ApplyFilter('" . slugify($level->level) . "')" }}"
                   {{ session()->get('CFilterLevel') == $level->level ? 'checked' : '' }}>
                 <label for="level{{ $level->level }}" class="checkbox-custom-label">
-                <div class="check-texts"> {{ $level->level }}</div> 
+                  <div class="check-texts"> {{ $level->level }}</div>
                 </label>
               </li>
             @endforeach
@@ -78,12 +78,12 @@
             @foreach ($spcListForFilter as $spc)
               <li>
                 <input id="spc{{ $spc->id }}" class="checkbox-custom" name="filter_specialization" type="checkbox"
-                  onclick="{{ session()->get('FilterSpecialization') == $spc->id
-                      ? "removeFilter('FilterSpecialization')"
+                  onclick="{{ session()->get('CFilterSpecialization') == $spc->id
+                      ? "removeFilter('CFilterSpecialization')"
                       : "ApplyFilter('" . $spc->slug . "')" }}"
-                  {{ session()->get('FilterSpecialization') == $spc->id ? 'checked' : '' }}>
+                  {{ session()->get('CFilterSpecialization') == $spc->id ? 'checked' : '' }}>
                 <label for="spc{{ $spc->id }}" class="checkbox-custom-label">
-                <div class="check-texts"> {{ $spc->name }}</div> 
+                  <div class="check-texts"> {{ $spc->name }}</div>
                 </label>
               </li>
             @endforeach
@@ -115,7 +115,7 @@
                       : "ApplyStaticFilter('intake','" . $intake->month_short_name . "')" }}"
                   {{ isset($_GET['intake']) && $_GET['intake'] == $intake->month_short_name ? 'checked' : '' }}>
                 <label for="intake{{ $intake->month_short_name }}" class="checkbox-custom-label">
-                 <div class="check-texts">{{ $intake->month_short_name }}</div> 
+                  <div class="check-texts">{{ $intake->month_short_name }}</div>
                 </label>
               </li>
             @endforeach
@@ -148,7 +148,7 @@
                       : "ApplyStaticFilter('study_mode','" . $sm->study_mode . "')" }}"
                   {{ isset($_GET['study_mode']) && $_GET['study_mode'] == $sm->study_mode ? 'checked' : '' }}>
                 <label for="sm{{ $sm->study_mode }}" class="checkbox-custom-label">
-                 <div class="check-texts">{{ $sm->study_mode }}</div> 
+                  <div class="check-texts">{{ $sm->study_mode }}</div>
                 </label>
               </li>
             @endforeach
