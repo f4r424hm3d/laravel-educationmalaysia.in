@@ -11,6 +11,6 @@ class Level extends Model
   protected $guarded = [];
   public function allUniversityPrograms()
   {
-    return $this->hasMany(UniversityProgram::class, 'level', 'level');
+    return $this->hasMany(UniversityProgram::class, 'level', 'level')->where('status', 1)->where('website', site_var);
   }
 }

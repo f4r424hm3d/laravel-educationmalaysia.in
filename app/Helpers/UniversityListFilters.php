@@ -33,29 +33,6 @@ class UniversityListFilters
 
     return $levelListForFilter;
   }
-  public static function levela()
-  {
-    $levelListForFilter = UniversityProgram::query();
-
-    // if (session()->has('CFilterCategory')) {
-    //   $levelListForFilter->where('course_category_id', session()->get('CFilterCategory'));
-    // }
-    // if (session()->has('CFilterSpecialization')) {
-    //   $levelListForFilter->where('specialization_id', session()->get('CFilterSpecialization'));
-    // }
-
-    $levelListForFilter = $levelListForFilter->select('level')
-      ->groupBy('level')
-      ->whereNotNull('level')
-      ->where('level', '!=', '')
-      ->where('status', 1)
-      ->where('website', site_var)
-      ->with('getLevel')
-      ->orderByRaw('(SELECT id FROM levels WHERE levels.id = university_programs.level) ASC')
-      ->get();
-
-    return $levelListForFilter;
-  }
   public static function category()
   {
     $categoryListForFilter = CourseCategory::query()->whereHas('programs');

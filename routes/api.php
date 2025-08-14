@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\BlogApi;
 use App\Http\Controllers\Api\CountryApi;
+use App\Http\Controllers\Api\CoursesInMalaysiaApi;
 use App\Http\Controllers\Api\DropdownListApi;
 use App\Http\Controllers\Api\ExamApi;
 use App\Http\Controllers\Api\HomeApi;
@@ -79,3 +80,4 @@ Route::middleware([CheckApiKey::class])->group(function () {
   Route::get('university-courses/{uname}', [UniversityApi::class, 'courses']);
   Route::get('university-course-details/{uname}/{course_slug}', [UniversityApi::class, 'courseDetail']);
 });
+Route::get('courses-in-malaysia', [CoursesInMalaysiaApi::class, 'index']);
