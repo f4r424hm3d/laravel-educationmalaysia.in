@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\CoursesInMalaysiaApi;
 use App\Http\Controllers\Api\DropdownListApi;
 use App\Http\Controllers\Api\ExamApi;
 use App\Http\Controllers\Api\HomeApi;
+use App\Http\Controllers\Api\ScholarshipApi;
 use App\Http\Controllers\Api\ServiceApi;
 use App\Http\Controllers\Api\SpecializationApi;
 use App\Http\Controllers\Api\StaticPageSeoApi;
@@ -79,5 +80,10 @@ Route::middleware([CheckApiKey::class])->group(function () {
   Route::get('university-videos/{uname}', [UniversityApi::class, 'videos']);
   Route::get('university-courses/{uname}', [UniversityApi::class, 'courses']);
   Route::get('university-course-details/{uname}/{course_slug}', [UniversityApi::class, 'courseDetail']);
+
+  Route::get('courses-in-malaysia', [CoursesInMalaysiaApi::class, 'index']);
+
+
+  Route::get('scholarships', [ScholarshipApi::class, 'index']);
+  Route::get('scholarship-details/{slug}', [ScholarshipApi::class, 'details']);
 });
-Route::get('courses-in-malaysia', [CoursesInMalaysiaApi::class, 'index']);
