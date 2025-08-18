@@ -15,7 +15,7 @@ class BlogC extends Controller
   {
     $users = Author::all();
     $category = BlogCategory::all();
-    $rows = Blog::get();
+    $rows = Blog::orderBy('id', 'desc')->get();
     if ($id != null) {
       $sd = Blog::find($id);
       if (!is_null($sd)) {

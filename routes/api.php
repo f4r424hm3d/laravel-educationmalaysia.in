@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\CountryApi;
 use App\Http\Controllers\Api\CoursesInMalaysiaApi;
 use App\Http\Controllers\Api\DropdownListApi;
 use App\Http\Controllers\Api\ExamApi;
+use App\Http\Controllers\Api\FaqApi;
 use App\Http\Controllers\Api\HomeApi;
 use App\Http\Controllers\Api\ScholarshipApi;
 use App\Http\Controllers\Api\ServiceApi;
@@ -86,4 +87,7 @@ Route::middleware([CheckApiKey::class])->group(function () {
 
   Route::get('scholarships', [ScholarshipApi::class, 'index']);
   Route::get('scholarship-details/{slug}', [ScholarshipApi::class, 'details']);
+
+  Route::get('faqs', [FaqApi::class, 'index']);
+  Route::get('faq-details/{category_slug}', [FaqApi::class, 'details']);
 });
