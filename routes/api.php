@@ -99,4 +99,7 @@ Route::prefix('student')->group(function () {
   Route::post('/register', [StudentAuthApi::class, 'register']);
   Route::post('/verify-otp', [StudentAuthApi::class, 'verifyOtp']);
   Route::post('/resend-otp', [StudentAuthApi::class, 'resendOtp']);
+
+  Route::post('/login', [StudentAuthApi::class, 'login']);
+  Route::post('/logout', [StudentAuthApi::class, 'logout'])->middleware('auth:sanctum');
 });

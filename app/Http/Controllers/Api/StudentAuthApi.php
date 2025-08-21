@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AsignedLead;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -165,5 +166,83 @@ class StudentAuthApi extends Controller
       'status' => true,
       'message' => 'New OTP sent to your email.'
     ], 200);
+  }
+
+  /**
+   * Student Login API
+   */
+  public function login(Request $request)
+  {
+    // Validate request
+    $validator = Validator::make($request->all(), [
+      'email' => 'required|email',
+      'password' => 'required|string'
+    ]);
+
+    if ($validator->fails()) {
+      return response()->json([
+        'status' => false,
+        'message' => 'Validation failed',
+        'errors' => $validator->errors()
+      ], 422);
+    }
+
+    $student = Lead::where('email', $request['email'])->where('website', site_var)->first();
+
+    if (!$student) {
+      return response()->json([
+        'status' => false,
+        'message' => 'Email address does not exist.'
+      ], 401);
+    }
+
+    if ($student->status != 1) {
+      return response()->json([
+        'status' => false,
+        'message' => 'Account not verified. Please verify your email.'
+      ], 403);
+    }
+
+    // Verify password (bcrypt or plain)
+    if (Hash::check($request->password, $student->password)) {
+      // Optionally, update login details here
+    } elseif ($student->password === $request->password) {
+      // Rehash plain text password with bcrypt and save
+      $student->password = Hash::make($request->password);
+      $student->save();
+    } else {
+      return response()->json([
+        'status' => false,
+        'message' => 'Password is incorrect.'
+      ], 401);
+    }
+
+    // If you want to generate API tokens, add this section (optional)
+    $token = $student->createToken('StudentAPIToken')->plainTextToken;
+
+    return response()->json([
+      'status' => true,
+      'message' => 'Login successful.',
+      'data' => [
+        'id' => $student->id,
+        'email' => $student->email,
+        // Add more fields if needed
+        'token' => $token, // send token for auth (if using Laravel Sanctum/Passport)
+      ]
+    ], 200);
+  }
+
+
+  /**
+   * Logout Student
+   */
+  public function logout(Request $request)
+  {
+    $request->user()->tokens()->delete();
+
+    return response()->json([
+      'status' => true,
+      'message' => 'Logged out successfully.'
+    ]);
   }
 }
