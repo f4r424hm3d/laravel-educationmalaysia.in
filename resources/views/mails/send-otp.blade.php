@@ -27,7 +27,7 @@
               <p style="text-align: justify">
                 {{ $otp }} is your One Time Password (OTP) from <b>{{ config('app.name') }}</b>. It will expire
                 in next
-                5 minutes.
+                15 minutes.
                 <br>
                 <br>
                 <br>

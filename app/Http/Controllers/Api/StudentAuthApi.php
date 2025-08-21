@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\AsignedLead;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Mail;
@@ -45,7 +46,7 @@ class StudentAuthApi extends Controller
 
     // Generate OTP
     $otp = rand(1000, 9999);
-    $otp_expire_at = Carbon::now()->addMinutes(5);
+    $otp_expire_at = Carbon::now()->addMinutes(15);
 
     // Save student
     $student = new Lead();
@@ -56,7 +57,7 @@ class StudentAuthApi extends Controller
     $student->nationality = $request->nationality;
     $student->c_code = $request->c_code;
     $student->mobile = $request->mobile;
-    $student->password = Hash::make($request->password);
+    $student->password = $request->password;
     $student->source = 'Education Malaysia - Signup';
     $student->source_path = $request->source_path;
     $student->otp = $otp;
@@ -64,6 +65,7 @@ class StudentAuthApi extends Controller
     $student->status = 0;
     $student->website = site_var;
     $student->save();
+    AsignedLead::autoAssign($student->id);
 
     // Send OTP Email
     Mail::send('mails.send-otp', ['name' => $request->name, 'otp' => $otp], function ($message) use ($request) {
@@ -150,7 +152,7 @@ class StudentAuthApi extends Controller
 
     $otp = rand(1000, 9999);
     $student->otp = $otp;
-    $student->otp_expire_at = Carbon::now()->addMinutes(5);
+    $student->otp_expire_at = Carbon::now()->addMinutes(15);
     $student->save();
 
     // Send OTP Email again

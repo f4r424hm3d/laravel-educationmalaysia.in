@@ -43,7 +43,7 @@ class StudentLoginFc extends Controller
     $seg1 = $request['return_to'] != null ? 'return_to=' . $request['return_to'] : null;
     $return_url = 'sign-up?' . $seg1;
     $otp = rand(1000, 9999);
-    $otp_expire_at = date("YmdHis", strtotime("+5 minutes"));
+    $otp_expire_at = date("YmdHis", strtotime("+15 minutes"));
     $request->validate(
       [
         'captcha_answer' => ['required', 'numeric', new MathCaptchaValidationRule()],
@@ -121,7 +121,7 @@ class StudentLoginFc extends Controller
     $current_time = date("YmdHis");
     if ($result->otp == $request['otp']) {
       if ($current_time > $result->otp_expire_at) {
-        $otp_expire_at = date("YmdHis", strtotime("+5 minute"));
+        $otp_expire_at = date("YmdHis", strtotime("+15 minute"));
         $new_otp = rand(1000, 9999);
         $result->otp = $new_otp;
         $result->otp_expire_at = $otp_expire_at;
