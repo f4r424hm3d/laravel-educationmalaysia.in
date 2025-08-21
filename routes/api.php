@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\ScholarshipApi;
 use App\Http\Controllers\Api\ServiceApi;
 use App\Http\Controllers\Api\SpecializationApi;
 use App\Http\Controllers\Api\StaticPageSeoApi;
+use App\Http\Controllers\Api\StudentAuthApi;
 use App\Http\Controllers\Api\UniversityApi;
 use App\Http\Middleware\CheckApiKey;
 use App\Models\User;
@@ -90,4 +91,12 @@ Route::middleware([CheckApiKey::class])->group(function () {
 
   Route::get('faqs', [FaqApi::class, 'index']);
   Route::get('faq-details/{category_slug}', [FaqApi::class, 'details']);
+});
+
+
+// STUDENT AUTH API ROUTES
+Route::prefix('student')->group(function () {
+  Route::post('/register', [StudentAuthApi::class, 'register']);
+  Route::post('/verify-otp', [StudentAuthApi::class, 'verifyOtp']);
+  Route::post('/resend-otp', [StudentAuthApi::class, 'resendOtp']);
 });

@@ -158,10 +158,12 @@ foreach ($customsRedirections as $row) {
 Route::middleware([StudentLoggedOut::class])->group(function () {
   Route::get('/sign-up', [StudentLoginFc::class, 'signup']);
   Route::post('/sign-up', [StudentLoginFc::class, 'register']);
-  Route::get('/sign-in', [StudentLoginFc::class, 'login']);
-  Route::post('/login', [StudentLoginFc::class, 'signin']);
   Route::get('/confirmed-email', [StudentLoginFc::class, 'confirmedEmail']);
   Route::post('/submit-email-otp', [StudentLoginFc::class, 'submitOtp']);
+
+  Route::get('/sign-in', [StudentLoginFc::class, 'login']);
+  Route::post('/login', [StudentLoginFc::class, 'signin']);
+
   Route::get('/account/password/reset', [StudentLoginFc::class, 'viewForgetPassword']);
   Route::post('/forget-password', [StudentLoginFc::class, 'forgetPassword']);
   Route::get('/forget-password/email-sent', [StudentLoginFc::class, 'emailSent']);

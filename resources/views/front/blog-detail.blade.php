@@ -74,9 +74,11 @@
                   @endif
                 </ul>
               </div>
-              <div class="article_featured_image">
-                <img class="img-fluid w-100" src="{{ asset($blog->thumbnail_path) }}" alt="{{ $blog->headline }}">
-              </div>
+              @if ($blog->thumbnail_path != null && file_exists($blog->thumbnail_path))
+                <div class="article_featured_image">
+                  <img class="img-fluid w-100" src="{{ asset($blog->thumbnail_path) }}" alt="{{ $blog->headline }}">
+                </div>
+              @endif
 
               <div class="card">
                 <div class="card-header">
