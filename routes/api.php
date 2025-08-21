@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\ServiceApi;
 use App\Http\Controllers\Api\SpecializationApi;
 use App\Http\Controllers\Api\StaticPageSeoApi;
 use App\Http\Controllers\Api\StudentAuthApi;
+use App\Http\Controllers\Api\StudentProfileApi;
 use App\Http\Controllers\Api\UniversityApi;
 use App\Http\Middleware\CheckApiKey;
 use App\Models\User;
@@ -51,6 +52,8 @@ Route::middleware([CheckApiKey::class])->group(function () {
 
   Route::get('levels', [DropdownListApi::class, 'levels']);
   Route::get('course-categories', [DropdownListApi::class, 'courseCategories']);
+  Route::get('genders', [DropdownListApi::class, 'genders']);
+  Route::get('marital-statuses', [DropdownListApi::class, 'maritalStatuses']);
 
   Route::get('/specializations', [SpecializationApi::class, 'index']);
   Route::get('/filter/specializations', [SpecializationApi::class, 'byFilter']);
@@ -102,4 +105,10 @@ Route::prefix('student')->group(function () {
 
   Route::post('/login', [StudentAuthApi::class, 'login']);
   Route::post('/logout', [StudentAuthApi::class, 'logout'])->middleware('auth:sanctum');
+
+  // Protected routes require Sanctum auth
+  Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/profile', [StudentProfileApi::class, 'profile']);
+    Route::post('/logout', [StudentProfileApi::class, 'logout']);
+  });
 });
