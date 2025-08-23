@@ -112,4 +112,3 @@ Route::prefix('student')->group(function () {
     Route::post('/logout', [StudentProfileApi::class, 'logout']);
   });
 });
-Route::get('university-details/{uname}', [UniversityApi::class, 'universityDetail']);
