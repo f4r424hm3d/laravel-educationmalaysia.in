@@ -23,8 +23,8 @@ class UniversityC extends Controller
   public function index(Request $request, $id = null)
   {
     $limit_per_page = $request->limit_per_page ?? 10;
-    $order_by = $request->order_by ?? 'name';
-    $order_in = $request->order_in ?? 'ASC';
+    $order_by = $request->order_by ?? 'created_at';
+    $order_in = $request->order_in ?? 'DESC';
     $rows = University::orderBy($order_by, $order_in);
     $filterApplied = false;
     if ($request->has('search') && $request->search != '') {
@@ -182,6 +182,8 @@ class UniversityC extends Controller
     $field->times_rank = $request['times_rank'];
     $field->author_id = $request['author_id'];
     $field->shortnote = $request['shortnote'];
+    $field->featured = $request->boolean('featured');
+    $field->latitude_longitude = $request['latitude_longitude'];
 
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];
@@ -257,7 +259,7 @@ class UniversityC extends Controller
     $field->views = $request['views'];
     $field->city = $request['city'];
     $field->state = $request['state'];
-    $field->inst_type = $instituteType->type;
+    $field->inst_type = $instituteType->type ?? null;
     $field->institute_type = $request['institute_type'];
     $field->rating = $request['rating'];
     $field->rank = $request['rank'];
@@ -265,6 +267,8 @@ class UniversityC extends Controller
     $field->times_rank = $request['times_rank'];
     $field->author_id = $request['author_id'];
     $field->shortnote = $request['shortnote'];
+    $field->featured = $request->boolean('featured');
+    $field->latitude_longitude = $request['latitude_longitude'];
 
     $field->meta_title = $request['meta_title'];
     $field->meta_keyword = $request['meta_keyword'];

@@ -158,7 +158,13 @@
                       </td>
                       <td>
                         <b>City</b> : {{ $row->city ?? 'N/A' }} <br>
-                        <b>State</b> : {{ $row->state ?? 'N/A' }}
+                        <b>State</b> : {{ $row->state ?? 'N/A' }} <br>
+                        @if ($row->latitude_longitude != null)
+                          <a href="https://www.google.com/maps/dir/?api=1&destination={{ $row->latitude_longitude }}"
+                            target="_blank">
+                            Get Directions
+                          </a>
+                        @endif
                       </td>
                       <td>
                         <b>Rank (QS Malaysia)</b> : {{ $row->rank ?? 'N/A' }} <br>
@@ -191,6 +197,17 @@
                                 <span id="ihome_view{{ $row->id }}"
                                   class="badge bg-danger {{ $row->homeview == 0 ? '' : 'hide-this' }}"
                                   onclick="changeStatus('{{ $row->id }}','homeview','1')">Inactive</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Featured</td>
+                              <td>
+                                <span id="afeatured{{ $row->id }}"
+                                  class="badge bg-success {{ $row->featured == 1 ? '' : 'hide-this' }}"
+                                  onclick="changeStatus('{{ $row->id }}','featured','0')">Yes</span>
+                                <span id="ifeatured{{ $row->id }}"
+                                  class="badge bg-danger {{ $row->featured == 0 ? '' : 'hide-this' }}"
+                                  onclick="changeStatus('{{ $row->id }}','featured','1')">No</span>
                               </td>
                             </tr>
                           </tbody>

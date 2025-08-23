@@ -103,6 +103,14 @@
                     <x-input-field type="file" label="Banner" name="banner" id="banner" :ft="$ft"
                       :sd="$sd"></x-input-field>
                   </div>
+                  <div class="col-md-3 col-sm-12 mb-3">
+                    <x-input-field type="text" label="Latitude Longitude" name="latitude_longitude"
+                      id="latitude_longitude" :ft="$ft" :sd="$sd"></x-input-field>
+                  </div>
+                  <div class="col-md-3 col-sm-12 mb-3">
+                    <x-checkbox label="Featured" name="featured" id="featured" :ft="$ft"
+                      :sd="$sd" />
+                  </div>
                   <div class="col-md-12 col-sm-12 mb-3">
                     <x-textarea-field label="Shortnote" name="shortnote" id="shortnote" :ft="$ft"
                       :sd="$sd"></x-textarea-field>
