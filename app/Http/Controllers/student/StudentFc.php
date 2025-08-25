@@ -414,6 +414,7 @@ class StudentFc extends Controller
       if ($move) {
         $field->imgname = $file_name;
         $field->imgpath = 'uploads/documents/' . $file_name;
+        $field->upload_source = 'https://www.educationmalaysia.in/';
       } else {
         session()->flash('emsg', 'Some problem occured. File not uploaded.');
       }
