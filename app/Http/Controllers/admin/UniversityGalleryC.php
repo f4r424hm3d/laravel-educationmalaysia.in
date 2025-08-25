@@ -56,6 +56,7 @@ class UniversityGalleryC extends Controller
     if ($request->hasFile('photo')) {
       foreach ($request->file('photo') as $key => $file) {
         $field = new UniversityPhoto;
+        $field->is_featured = $request->boolean('is_featured');
         $field->university_id = $university_id;
         $field->title = $request['title'];
         $fileOriginalName = $file->getClientOriginalName();
@@ -103,6 +104,7 @@ class UniversityGalleryC extends Controller
       }
     }
     $field->title = $request['title'];
+    $field->is_featured = $request->boolean('is_featured');
     $field->save();
     session()->flash('smsg', 'Record has been updated successfully.');
     return redirect('admin/' . $this->page_route . '/' . $university_id);

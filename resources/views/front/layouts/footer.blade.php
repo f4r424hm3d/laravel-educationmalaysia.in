@@ -260,7 +260,7 @@
         class="ed_whatsapp" onClick="openForm()">
 
         <span>Need any help<br><small>Chat with us</small></span>
-        <img data-src="/assets/images/wa.png" width="30" alt="whatsapp"></a>
+         <img src="{{ cdn('front/assets/img/wa.png') }}" width="30" alt="whatsapp-icon"></a>
     </div>
 
     <!-- <div class="chat-popup" id="myForm">

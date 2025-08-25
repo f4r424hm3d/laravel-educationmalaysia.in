@@ -49,6 +49,12 @@
     .sItems ul li {
       border-bottom: 1px solid #eee
     }
+    .submit-more {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-family: sans-serif;
+    color: #000000;
+}
 
     .sItems ul li.active {
       font-size: 15px;
@@ -513,6 +519,7 @@
                       <button type="submit" class="btn btn-primary w-100" id="submitBtn">Submit</button>
                     </div>
                   </form>
+                  <p class="submit-more text-center mt-2 mb-0">( Submit once – no more popups after that! )</p>
                 </div>
               </div>
             </div>

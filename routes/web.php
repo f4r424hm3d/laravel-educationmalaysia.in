@@ -133,7 +133,7 @@ Route::get('/optimize-clear', function () {
   return '<h1>Reoptimized class loader</h1>';
 });
 Route::get('/f/optimize', function () {
-  $exitCode = Artisan::call('optimize');
+  $exitCode = Artisan::call('optimize:clear');
   return true;
 });
 
