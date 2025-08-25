@@ -47,6 +47,10 @@ class University extends Model
   {
     return $this->hasMany(UniversityVideo::class, 'university_id', 'id');
   }
+  public function facilities()
+  {
+    return $this->hasMany(UniversityFacility::class, 'u_id', 'id');
+  }
   public function overviews()
   {
     return $this->hasMany(UniversityOverview::class, 'university_id', 'id')->orderBy('position');

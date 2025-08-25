@@ -238,10 +238,43 @@
                         Updated at : <b>{{ getFormattedDate($row->updated_at, 'h:i A - d-m-Y') }}</b> <br>
                       </td>
                       <td>
-                        <a title="Profile" href="{{ aurl('university-overview/' . $row->id) }}"
+                        {{-- <a target="_blank" title="Profile" href="{{ aurl('university-overview/' . $row->id) }}"
                           class="waves-effect waves-light btn btn-xs btn-outline btn-success">
                           <i class="fa fa-eye" aria-hidden="true"></i>
-                        </a>
+                        </a> --}}
+                        <div class="dropdown">
+                          <button class="btn btn-xs btn-outline-info font-size-16 shadow-none text-muted dropdown-toggle"
+                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bx bx-dots-horizontal-rounded"></i>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                              <a class="dropdown-item" href="{{ aurl('university-overview/' . $row->id) }}"
+                                target="_blank">Overview <span
+                                  class="badge bg-{{ $row->overviews->count() > 0 ? 'success' : 'danger' }}">{{ $row->overviews->count() }}</span></a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="{{ aurl('university-programs/' . $row->id) }}"
+                                target="_blank">Programs <span
+                                  class="badge bg-{{ $row->programs->count() > 0 ? 'success' : 'danger' }}">{{ $row->programs->count() }}</span></a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="{{ aurl('university-photos/' . $row->id) }}"
+                                target="_blank">Photos <span
+                                  class="badge bg-{{ $row->photos->count() > 0 ? 'success' : 'danger' }}">{{ $row->photos->count() }}</span></a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="{{ aurl('university-videos/' . $row->id) }}"
+                                target="_blank">Videos <span
+                                  class="badge bg-{{ $row->videos->count() > 0 ? 'success' : 'danger' }}">{{ $row->videos->count() }}</span></a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="{{ aurl('university-facilities/' . $row->id) }}"
+                                target="_blank">Facilities <span
+                                  class="badge bg-{{ $row->facilities->count() > 0 ? 'success' : 'danger' }}">{{ $row->facilities->count() }}</span></a>
+                            </li>
+                          </ul>
+                        </div>
                         <a href="javascript:void()" onclick="DeleteAjax('{{ $row->id }}')"
                           class="waves-effect waves-light btn btn-xs btn-outline btn-danger">
                           <i class="fa fa-trash" aria-hidden="true"></i>

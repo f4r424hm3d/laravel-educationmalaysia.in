@@ -175,6 +175,7 @@ class UniversityApi extends Controller
   public function universityDetail($uname)
   {
     $university = University::where('uname', $uname)->firstOrFail();
+    $featuredPhotos = UniversityPhoto::where('university_id', $university->id)->where('is_featured', 1)->get();
     $universityFaculties = CourseCategory::whereHas('programs', function ($query) use ($university) {
       $query->where('university_id', $university->id);
     })->select('id', 'name', 'slug')->get();
@@ -183,6 +184,7 @@ class UniversityApi extends Controller
     return response()->json([
       'university' => $university,
       'faculties' => $universityFaculties,
+      'featured_photos' => $featuredPhotos,
     ]);
   }
   public function overview($uname, Request $request)
