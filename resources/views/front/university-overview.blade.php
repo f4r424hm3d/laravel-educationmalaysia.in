@@ -256,7 +256,7 @@
         <div class="col-xl-4 col-lg-4 col-md-12">
           @include('front.forms.university-side-form')
           @if ($trendingUniversity->count() > 0)
-            <div class="ed_view_box style_2 hide-this">
+            <div class="ed_view_box style_2 hide-thi">
               <div class="ed_author">
                 <div class="ed_author_box">
                   <h4>Featured Universities</h4>
@@ -266,7 +266,7 @@
                 <div class="learnup-list">
                   <div class="learnup-list-thumb">
                     <a href="{{ route('university.overview', ['university_slug' => $row->uname]) }}">
-                      <img data-src="{{ asset($row->imgpath) }}" class="img-fluid" alt="{{ $row->name }}">
+                      <img data-src="{{ asset($row->logo_path) }}" class="img-fluid" alt="{{ $row->name }}">
                     </a>
                   </div>
                   <div class="learnup-list-caption">

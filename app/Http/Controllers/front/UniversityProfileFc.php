@@ -24,7 +24,7 @@ class UniversityProfileFc extends Controller
   {
     $university = University::where(['uname' => $university_slug])->active()->firstOrFail();
 
-    $trendingUniversity = University::inRandomOrder()->active()->where('id', '!=', $university->id)->limit(10)->get();
+    $trendingUniversity = University::whereHas('activePrograms')->inRandomOrder()->active()->where('id', '!=', $university->id)->limit(10)->get();
 
     $countries = Country::orderBy('name', 'ASC')->get();
     $phonecodes = Country::orderBy('phonecode', 'ASC')->where('phonecode', '!=', 0)->get();
