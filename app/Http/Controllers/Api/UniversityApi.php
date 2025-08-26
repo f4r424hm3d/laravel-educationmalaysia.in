@@ -174,7 +174,8 @@ class UniversityApi extends Controller
   }
   public function universityDetail($uname)
   {
-    $university = University::where('uname', $uname)->firstOrFail();
+    $university = University::select('id', 'name', 'uname', 'views', 'state', 'city', 'rank', 'qs_rank', 'times_rank', 'inst_type', 'established_year', 'click', 'logo_path', 'banner_path', 'rating', 'featured', 'latitude_longitude')->where('uname', $uname)->firstOrFail();
+
     $featuredPhotos = UniversityPhoto::where('university_id', $university->id)->where('is_featured', 1)->get();
     $universityFaculties = CourseCategory::whereHas('programs', function ($query) use ($university) {
       $query->where('university_id', $university->id);

@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Models\Scopes\WebsiteScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Schema;
 
 class University extends Model
 {
@@ -75,5 +77,11 @@ class University extends Model
   public function scopeWebsite($query)
   {
     return $query->where('website', site_var);
+  }
+  public function scopeExclude($query, array $columns)
+  {
+    static $all = null;
+    $all ??= Schema::getColumnListing($this->getTable());
+    return $query->select(array_diff($all, Arr::flatten($columns)));
   }
 }
