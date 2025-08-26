@@ -271,7 +271,7 @@
                                 <div class="row align-items-center mx-auto ">
                                   <div class="col-12 col-sm-12 col-md-3 mb-3">
                                     <div class="path-img">
-                                      <img data-src="{{ asset($tu->university->imgpath) }}" class="img-fluid rounded"
+                                      <img data-src="{{ asset($tu->university->logo_path) }}" class="img-fluid rounded"
                                         alt="">
                                     </div>
                                   </div>
@@ -452,7 +452,7 @@
                 <div class="learnup-list">
                   <div class="learnup-list-thumb">
                     <a href="{{ route('university.overview', ['university_slug' => $uni->slug]) }}">
-                      <img data-src="{{ asset($uni->imgpath) }}" class="img-fluid" alt="{{ $uni->name }}">
+                      <img data-src="{{ asset($uni->logo_path) }}" class="img-fluid" alt="{{ $uni->name }}">
                     </a>
                   </div>
                   <div class="learnup-list-caption">

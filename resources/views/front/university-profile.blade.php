@@ -212,7 +212,7 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
                 <div class=" leadform-header">
-                  <div class="lead-hdr-img"><img src="{{ asset($university->imgpath) }}" alt="">
+                  <div class="lead-hdr-img"><img src="{{ asset($university->logo_path) }}" alt="">
                   </div>
                   <div class="hdr-info">
                     <h3 class="">Register Now To Download Brochure</h3>

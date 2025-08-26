@@ -483,7 +483,7 @@
                 @foreach ($universityRanks as $row)
                   <tr>
                     <td width="60" class="d-none mob-hide">
-                      <img data-src="{{ asset($row->imgpath) }}" alt="{{ $row->name }}" class="loading"
+                      <img data-src="{{ asset($row->logo_path) }}" alt="{{ $row->name }}" class="loading"
                         loading="lazy">
                     </td>
                     <td>
