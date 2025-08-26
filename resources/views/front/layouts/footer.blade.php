@@ -23,8 +23,7 @@
               </li>
               <li><a href="{{ url('arts-fine-arts-courses') }}"><i class="ti-arrow-right"></i> Arts/Fine Arts</a></li>
               <li><a href="{{ url('hospitality-courses') }}"><i class="ti-arrow-right"></i> Hospitality</a></li>
-              <li><a href="{{ url('/business-management-courses') }}"><i class="ti-arrow-right"></i> Business
-                  Management</a></li>
+
               <li><a href="{{ url('computer-engineering-courses') }}"><i class="ti-arrow-right"></i> Computer
                   Engineering</a></li>
               <li><a href="{{ url('physiology-courses') }}"><i class="ti-arrow-right"></i> Physiology</a></li>
@@ -260,7 +259,7 @@
         class="ed_whatsapp" onClick="openForm()">
 
         <span>Need any help<br><small>Chat with us</small></span>
-         <img src="{{ cdn('front/assets/img/wa.png') }}" width="30" alt="whatsapp-icon"></a>
+        <img src="{{ cdn('front/assets/img/wa.png') }}" width="30" alt="whatsapp-icon"></a>
     </div>
 
     <!-- <div class="chat-popup" id="myForm">

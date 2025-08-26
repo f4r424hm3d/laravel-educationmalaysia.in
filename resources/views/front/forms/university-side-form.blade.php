@@ -36,7 +36,7 @@
       <div class="col-12 mb-3">
         <div class="row">
           <div class="col-4 pr-0">
-            <select name="c_code" class="form-control bg-white p-2"  required>
+            <select name="c_code" class="form-control bg-white p-2" required>
               <option value="">Select</option>
               @foreach ($countries as $row)
                 <option value="{{ $row->phonecode }}" {{ $row->phonecode == 91 ? 'selected' : '' }}>
@@ -95,8 +95,8 @@
             <li class="b-0 p-0" style="width:auto">
               <input id="reg" class="checkbox-custom m-0" name="reg" type="checkbox" required>
               <label for="reg" class="checkbox-custom-label m-0 float-left">I accept the</label>
-              <a href="{{ url('terms-conditions') }}" class="p-0">
-               <span class="pl-1 float-left" > Terms & Conditions</span>
+              <a href="{{ route('tc') }}" class="p-0">
+                <span class="pl-1 float-left"> Terms & Conditions</span>
               </a>
             </li>
           </ul>
@@ -104,11 +104,11 @@
       </div>
       <div class="col-lg-12 mb-3">
         <div class="form-group">
-        
+
           <div class="input-group">
             <div class="input-icon"><span class="ti-captcha_answer">
-            <label for="captcha_question" class="capctaha">{{ $captcha['text'] }}</label>
-            </span></div>
+                <label for="captcha_question" class="capctaha">{{ $captcha['text'] }}</label>
+              </span></div>
             <input type="number" name="captcha_answer" class="form-control b-0" placeholder="Enter Captcha Value"
               required="">
           </div>
