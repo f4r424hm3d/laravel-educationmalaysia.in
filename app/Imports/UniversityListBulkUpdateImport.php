@@ -2,6 +2,7 @@
 
 namespace App\Imports;
 
+use App\Models\InstituteType;
 use App\Models\University;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
@@ -26,21 +27,23 @@ class UniversityListBulkUpdateImport implements ToCollection, WithHeadingRow, Wi
 
       $field = University::find($row['id']);
 
+      $instituteType = InstituteType::find($row['institute_type']);
+
       $field->name = $row['name'];
-      $field->slug = slugify($row['name']);
-      $field->destination_id = $row['destination_id'];
-      $field->parent_university_id = $row['parent_university_id'];
-      $field->address = $row['address'];
+      $field->uname = slugify($row['name']);
+      $field->views = $row['views'];
       $field->city = $row['city'];
-      $field->city_slug = slugify($row['city']);
       $field->state = $row['state'];
-      $field->state_slug = slugify($row['state']);
-      $field->country = $row['country'];
-      $field->institute_type_id = $row['institute_type_id'];
-      $field->founded = $row['founded'];
-      $field->university_rank = $row['university_rank'];
+      $field->inst_type = $instituteType->type ?? null;
+      $field->institute_type = $row['institute_type'];
+      $field->rating = $row['rating'];
+      $field->rank = $row['rank'];
       $field->qs_rank = $row['qs_rank'];
-      $field->us_world_rank = $row['us_world_rank'];
+      $field->times_rank = $row['times_rank'];
+      $field->shortnote = $row['shortnote'];
+      $field->featured = $row['featured'];
+      $field->latitude_longitude = $row['latitude_longitude'];
+      $field->shortnote = $row['shortnote'];
 
       $field->save();
       $rowsInserted++;

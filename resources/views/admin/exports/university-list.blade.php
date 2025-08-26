@@ -3,17 +3,18 @@
     <tr>
       <th>id</th>
       <th>name</th>
-      <th>destination_id</th>
-      <th>parent_university_id</th>
-      <th>address</th>
+      <th>views</th>
       <th>city</th>
       <th>state</th>
-      <th>country</th>
-      <th>institute_type_id</th>
-      <th>founded</th>
-      <th>university_rank</th>
+      <th>institute_type</th>
+      <th>rating</th>
+      <th>rank</th>
       <th>qs_rank</th>
-      <th>us_world_rank</th>
+      <th>times_rank</th>
+      <th>latitude_longitude</th>
+      <th>featured</th>
+      <th>shortnote</th>
+      <th>established_year</th>
     </tr>
   </thead>
   <tbody>
@@ -21,17 +22,18 @@
       <tr>
         <td>{{ $row->id }}</td>
         <td>{{ $row->name }}</td>
-        <td>{{ $row->destination_id }}</td>
-        <td>{{ $row->parent_university_id }}</td>
-        <td>{{ $row->address }}</td>
+        <td>{{ $row->views }}</td>
         <td>{{ $row->city }}</td>
         <td>{{ $row->state }}</td>
-        <td>{{ $row->country }}</td>
-        <td>{{ $row->institute_type_id }}</td>
-        <td>{{ $row->founded }}</td>
-        <td>{{ $row->university_rank }}</td>
+        <td>{{ $row->institute_type }}</td>
+        <td>{{ $row->rating }}</td>
+        <td>{{ $row->rank }}</td>
         <td>{{ $row->qs_rank }}</td>
-        <td>{{ $row->us_world_rank }}</td>
+        <td>{{ $row->times_rank }}</td>
+        <td>{{ $row->latitude_longitude }}</td>
+        <td>{{ $row->featured }}</td>
+        <td>{{ $row->shortnote }}</td>
+        <td>{{ $row->established_year }}</td>
       </tr>
     @endforeach
   </tbody>

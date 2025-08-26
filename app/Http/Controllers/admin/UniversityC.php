@@ -83,7 +83,6 @@ class UniversityC extends Controller
     $data = compact('rows', 'sd', 'ft', 'url', 'title', 'page_title', 'page_route', 'instType', 'countries', 'states', 'i', 'limit_per_page', 'order_by', 'order_in', 'lpp', 'orderColumns',  'filterApplied', 'filterStates', 'filterCities');
     return view('admin.university')->with($data);
   }
-
   public function add(Request $request, $id = null)
   {
     $instType = InstituteType::all();
@@ -303,23 +302,24 @@ class UniversityC extends Controller
     foreach ($importedData as $row) {
       $university = University::where('name', $row['name'])->first();
       $status = isset($row['status']) ? $row['status'] : '0';
+      $instituteType = InstituteType::find($row['institute_type_id']);
       if (!$university) {
         University::create([
           'name' => $row['name'],
-          'slug' => slugify($row['name']),
-          'address' => $row['address'],
+          'uname' => slugify($row['name']),
           'city' => $row['city'],
-          'city_slug' => slugify($row['city']),
           'state' => $row['state'],
-          'state_slug' => slugify($row['state']),
-          'country' => $row['country'],
-          'founded' => $row['founded'],
-          'university_rank' => $row['university_rank'],
+          'views' => $row['views'],
+          'inst_type' => $instituteType->type ?? null,
+          'institute_type' => $row['institute_type_id'],
+          'rating' => $row['rating'],
+          'rank' => $row['rank'],
           'qs_rank' => $row['qs_rank'],
-          'us_world_rank' => $row['us_world_rank'],
-          'institute_type_id' => $row['institute_type_id'],
-          'destination_id' => $row['destination_id'],
-          'parent_university_id' => $row['parent_university_id'],
+          'times_rank' => $row['times_rank'],
+          'latitude_longitude' => $row['latitude_longitude'],
+          'featured' => $row['featured'],
+          'shortnote' => $row['shortnote'],
+          'established_year' => $row['established_year'],
           'status' => $status,
         ]);
         $totalInsertedRows++;

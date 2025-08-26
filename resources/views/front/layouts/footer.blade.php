@@ -253,7 +253,7 @@
     </script>
 
     <div class="whats-float">
-      <a href="https://api.whatsapp.com/send?phone=60176472057&text=Hello there!! I want to get counseling from experts. Want to know more information about Study Abroad Consultants in India - Education Malaysia Education"
+      <a href="https://api.whatsapp.com/send?phone=60169412464&text=Hello there!! I want to get counseling from experts. Want to know more information about Study Abroad Consultants in India - Education Malaysia Education"
         class="ed_whatsapp" onClick="openForm()">
 
         <span>Need any help<br><small>Chat with us</small></span>

@@ -314,6 +314,33 @@
           </div>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Bulk Update</h4>
+            </div>
+            <div class="card-body" id="tblCDiv">
+              <form method="post" action="{{ url('admin/' . $page_route . '/bulk-update-import') }}" id="import_csv"
+                enctype="multipart/form-data">
+                @csrf
+                <div class="row">
+                  <div class="form-group col-md-4 mb-3">
+                    <label>Select Excel File</label>
+                    <input type="file" name="file" id="file" required class="form-control mb-2 mr-sm-2" />
+                  </div>
+                  <div class="form-group col-md-4 mb-3">
+                    <label>&nbsp;&nbsp;</label>
+                    <button style="margin-top:28px" type="submit" name="import_csv" class="btn btn-sm btn-info"
+                      id="import_csv_btn">Import</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <script>
