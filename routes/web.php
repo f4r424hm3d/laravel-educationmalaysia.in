@@ -817,7 +817,7 @@ Route::get('/', [HomeFc::class, 'index'])->name('home');
 Route::get('/home', [HomeFc::class, 'index']);
 
 Route::get('/specialization', [SpecializationFc::class, 'index'])->name('specializations');
-// Route::get('/stream/{slug}', function ($slug) {
+// Route::get('/specialization/{slug}', function ($slug) {
 //   return redirect("/specialization/{$slug}", 301);
 // });
 Route::get('/specialization/{slug}', [SpecializationFc::class, 'detail'])->name('specialization.detail');

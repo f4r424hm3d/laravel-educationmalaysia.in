@@ -27,7 +27,7 @@
         "@type": "ListItem",
         "position": 3,
         "name": "{{ $category->name }}",
-        "item": "{{ url('stream/' . $category->slug) }}"
+        "item": "{{ url('specialization/' . $category->slug) }}"
       }]
     }
   </script>

@@ -139,8 +139,8 @@
             </div>
 
             <!-- <div class="cor-p5">
-                {!! $pageContentBottom->description !!}
-              </div> -->
+                  {!! $pageContentBottom->description !!}
+                </div> -->
 
             <!-- static section start -->
             <div class="cor-p5">
@@ -149,7 +149,7 @@
               <section class="top-trending-courses bg-white pt-4">
                 <div class="row justify-content-center ">
                   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                    <a href="https://www.educationmalaysia.in/stream/medicine">
+                    <a href="https://www.educationmalaysia.in/specialization/medicine">
                       <div class="fuc-box">
                         <p>MBBS <i class="fa fa-angle-right"></i></p>
                       </div>
@@ -165,7 +165,7 @@
                   </div>
 
                   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                    <a href="https://www.educationmalaysia.in/stream/law">
+                    <a href="https://www.educationmalaysia.in/specialization/law">
                       <div class="fuc-box">
                         <p>LAW <i class="fa fa-angle-right"></i></p>
                       </div>
@@ -173,7 +173,7 @@
                   </div>
 
                   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                    <a href="https://www.educationmalaysia.in/stream/cyber-security">
+                    <a href="https://www.educationmalaysia.in/specialization/cyber-security">
                       <div class="fuc-box">
                         <p>Cyber Security <i class="fa fa-angle-right"></i></p>
                       </div>
@@ -181,7 +181,7 @@
                   </div>
 
                   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                    <a href="https://www.educationmalaysia.in/stream/dentistry">
+                    <a href="https://www.educationmalaysia.in/specialization/dentistry">
                       <div class="fuc-box">
                         <p>Dentistry <i class="fa fa-angle-right"></i></p>
                       </div>
@@ -189,7 +189,7 @@
                   </div>
 
                   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                    <a href="https://www.educationmalaysia.in/stream/nursing">
+                    <a href="https://www.educationmalaysia.in/specialization/nursing">
                       <div class="fuc-box">
                         <p>Nursing <i class="fa fa-angle-right"></i></p>
                       </div>
@@ -197,7 +197,7 @@
                   </div>
 
                   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                    <a href="https://www.educationmalaysia.in/stream/accounting">
+                    <a href="https://www.educationmalaysia.in/specialization/accounting">
                       <div class="fuc-box">
                         <p>Accounting <i class="fa fa-angle-right"></i></p>
                       </div>
@@ -205,7 +205,7 @@
                   </div>
 
                   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                    <a href="https://www.educationmalaysia.in/stream/computer-science">
+                    <a href="https://www.educationmalaysia.in/specialization/computer-science">
                       <div class="fuc-box">
                         <p>Computer Science <i class="fa fa-angle-right"></i></p>
                       </div>
@@ -213,7 +213,7 @@
                   </div>
 
                   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                    <a href="https://www.educationmalaysia.in/stream/software-engineering">
+                    <a href="https://www.educationmalaysia.in/specialization/software-engineering">
                       <div class="fuc-box">
                         <p>Software Engineering <i class="fa fa-angle-right"></i></p>
                       </div>
@@ -221,7 +221,7 @@
                   </div>
 
                   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
-                    <a href="https://www.educationmalaysia.in/stream/human-resource-management">
+                    <a href="https://www.educationmalaysia.in/specialization/human-resource-management">
                       <div class="fuc-box">
                         <p>Human Resource Management <i class="fa fa-angle-right"></i></p>
                       </div>

@@ -23,14 +23,12 @@
               </li>
               <li><a href="{{ url('arts-fine-arts-courses') }}"><i class="ti-arrow-right"></i> Arts/Fine Arts</a></li>
               <li><a href="{{ url('hospitality-courses') }}"><i class="ti-arrow-right"></i> Hospitality</a></li>
-
+              <li><a href="{{ url('/business-management-courses') }}"><i class="ti-arrow-right"></i> Business
+                  Management</a></li>
               <li><a href="{{ url('computer-engineering-courses') }}"><i class="ti-arrow-right"></i> Computer
                   Engineering</a></li>
               <li><a href="{{ url('physiology-courses') }}"><i class="ti-arrow-right"></i> Physiology</a></li>
               <li><a href="{{ url('medicine-courses') }}"><i class="ti-arrow-right"></i> Medicine</a></li>
-              <li><a href="{{ url('business-information-system-courses') }}"><i class="ti-arrow-right"></i> Business
-                  Information
-                  Systems</a></li>
             </ul>
 
           </div>

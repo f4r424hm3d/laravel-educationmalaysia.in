@@ -27,7 +27,7 @@
         "@type": "ListItem",
         "position": 3,
         "name": "{{ $specialization->name }}",
-        "item": "{{ url('stream/' . $specialization->slug) }}"
+        "item": "{{ url('specialization/' . $specialization->slug) }}"
       }]
     }
   </script>
@@ -232,7 +232,7 @@
               <ul>
                 @foreach ($specializations as $row)
                   <li>
-                    <a href="{{ url('stream/' . $row->slug) }}">
+                    <a href="{{ url('specialization/' . $row->slug) }}">
                       {{ $row->name }}<span><i class="fa fa-angle-right"></i></span>
                     </a>
                   </li>
