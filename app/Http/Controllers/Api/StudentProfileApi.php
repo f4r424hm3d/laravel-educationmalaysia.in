@@ -510,7 +510,7 @@ class StudentProfileApi extends Controller
       $fileExt = $file->getClientOriginalExtension();
       $fileName = $fileSlug . '_' . time() . '.' . $fileExt;
 
-      $file->move(public_path('uploads/documents'), $fileName);
+      $file->move('uploads/documents', $fileName);
 
       $field->imgname = $fileName;
       $field->imgpath = 'uploads/documents/' . $fileName;
