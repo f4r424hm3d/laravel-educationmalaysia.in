@@ -271,7 +271,7 @@
                   <div class="col-md-12">
                     <h2 class="mb-3">Education Summary</h2>
                   </div>
-                  <div class="col-12 col-sm-12 col-md-4 col-lg-6   col-xl-3  mb-3 ">
+                  <div class="col-12 col-sm-12 col-md-3 col-lg-6 col-xl-2 mb-3 ">
                     <label>Country of Education <span class="red">*</span></label>
                     <select name="country_of_education" id="country_of_education" class="pif form-control select2">
                       <option value="" <?php echo $student->country_of_education == '' ? 'Selected' : ''; ?>>Select
@@ -287,16 +287,16 @@
                       <span class="text-danger">{{ $message }}</span>
                     @enderror
                   </div>
-                  <div class="col-12 col-sm-12 col-md-4 col-lg-6   col-xl-3  mb-3 ">
+                  <div class="col-12 col-sm-12 col-md-5 col-lg-6 col-xl-4 mb-3 ">
                     <label>Highest Level of Education <span class="red">*</span></label>
                     <select name="highest_level_of_education" id="highest_level_of_education"
                       class=" pif form-control select2">
-                      <option value="" <?php echo $student->highest_level_of_education == '' ? 'Selected' : ''; ?>>
+                      <option value="" {{ $student->highest_level_of_education == '' ? 'Selected' : '' }}>
                         Select
                       </option>
                       @foreach ($levels as $row)
                         <option value="{{ $row->level }}"
-                          {{ $student->country_of_education == $row->level ? 'Selected' : '' }}>
+                          {{ $student->highest_level_of_education == $row->level ? 'Selected' : '' }}>
                           {{ $row->level }}
                         </option>
                       @endforeach
@@ -305,31 +305,27 @@
                       <span class="text-danger">{{ $message }}</span>
                     @enderror
                   </div>
-                  <div class="col-12 col-sm-12 col-md-4 col-lg-6   col-xl-3  mb-3 ">
+                  <div class="col-12 col-sm-12 col-md-5 col-lg-6 col-xl-4 mb-3 ">
                     <label>Grading Scheme <span class="red">*</span></label>
-                    <select name="grading_scheme" id="grading_scheme" class=" pif form-control select2">
-                      <option value="" <?php echo $student->grading_scheme == '' ? 'Selected' : ''; ?>>Select
-                      </option>
-                      <option value="Percentage scale (0-100)" <?php echo $student->grading_scheme ==
-                      'Percentage scale
-                                                                                                                      (0-100)'
-                          ? 'Selected'
-                          : ''; ?>>Percentage
-                        scale (0-100)</option>
-                      <option value="Grade Points (10 scale)" <?php echo $student->grading_scheme ==
-                      'Grade Points (10
-                                                                                                                      scale)'
-                          ? 'Selected'
-                          : ''; ?>>Grade Points
-                        (10 scale)</option>
-                      <option value="Grade (A to E)" <?php echo $student->grading_scheme == 'Grade (A to E)' ? 'Selected' : ''; ?>>
-                        Grade (A to E)</option>
+                    <select name="grading_scheme" id="grading_scheme" class="pif form-control select2">
+                      <option value="" {{ $student->grading_scheme == '' ? 'selected' : '' }}>Select</option>
+                      @php
+                        $gradingSchemes = ['Percentage scale (0-100)', 'Grade Points (10 scale)', 'Grade (A to E)'];
+                      @endphp
+
+                      @foreach ($gradingSchemes as $scheme)
+                        <option value="{{ $scheme }}"
+                          {{ $student->grading_scheme == $scheme ? 'selected' : '' }}>
+                          {{ $scheme }}
+                        </option>
+                      @endforeach
                     </select>
+
                     @error('grading_scheme')
                       <span class="text-danger">{{ $message }}</span>
                     @enderror
                   </div>
-                  <div class="col-12 col-sm-12 col-md-4 col-lg-6   col-xl-3  mb-3 ">
+                  <div class="col-12 col-sm-12 col-md-3 col-lg-6 col-xl-2 mb-3 ">
                     <label>Grade Average <span class="red">*</span></label>
                     <input type="text" class=" pif form-control" name="grade_average" id="grade_average"
                       placeholder="Enter Grade Average" value="{{ $student->grade_average }}">

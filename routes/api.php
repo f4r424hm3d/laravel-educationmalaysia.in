@@ -104,11 +104,27 @@ Route::prefix('student')->group(function () {
   Route::post('/resend-otp', [StudentAuthApi::class, 'resendOtp']);
 
   Route::post('/login', [StudentAuthApi::class, 'login']);
-  Route::post('/logout', [StudentAuthApi::class, 'logout'])->middleware('auth:sanctum');
 
   // Protected routes require Sanctum auth
   Route::middleware('auth:sanctum')->group(function () {
     Route::get('/profile', [StudentProfileApi::class, 'profile']);
+    Route::get('/schools', [StudentProfileApi::class, 'schools']);
+    Route::get('/school/{id}', [StudentProfileApi::class, 'school']);
+    Route::get('/documents', [StudentProfileApi::class, 'documents']);
+
+    Route::post('/personal-information', [StudentProfileApi::class, 'submitPersonalInfo']);
+    Route::post('/education-summary', [StudentProfileApi::class, 'submitEduSum']);
+    Route::post('/add-school', [StudentProfileApi::class, 'addSchool']);
+    Route::post('/update-school', [StudentProfileApi::class, 'updateSchool']);
+    Route::delete('/delete-school/{id}', [StudentProfileApi::class, 'deleteSchool']);
+    Route::post('/update-test-score', [StudentProfileApi::class, 'updateTestScore']);
+    Route::post('/update-gre-score', [StudentProfileApi::class, 'updateGRE']);
+    Route::post('/update-gmat-score', [StudentProfileApi::class, 'updateGMAT']);
+    Route::post('/update-sat-score', [StudentProfileApi::class, 'updateSAT']);
+    Route::post('/update-background-info', [StudentProfileApi::class, 'updateBI']);
+    Route::post('/upload-documents', [StudentProfileApi::class, 'updateDocs']);
+
+
     Route::post('/logout', [StudentProfileApi::class, 'logout']);
   });
 });

@@ -139,8 +139,8 @@
             </div>
 
             <!-- <div class="cor-p5">
-                  {!! $pageContentBottom->description !!}
-                </div> -->
+                    {!! $pageContentBottom->description !!}
+                  </div> -->
 
             <!-- static section start -->
             <div class="cor-p5">
