@@ -692,14 +692,22 @@
                       onchange="testScoreMagic()">
                       <option value="" <?php echo $student->english_exam_type == '' ? 'Selected' : ''; ?>>Select
                       </option>
-                      <?php
-        $exmtype = ["I dont have this", "I will provide this later", "TOEFL", "IELTS", "Duolingo English Test", "PTE"];
-        foreach ($exmtype as $exmtyp) {
-        ?>
-                      <option value="<?php echo $exmtyp; ?>" <?php echo $student->english_exam_type == $exmtyp ? 'Selected' : ''; ?>>
-                        <?php echo $exmtyp; ?>
-                      </option>
-                      <?php } ?>
+                      @php
+                        $exmtype = [
+                            'I dont have this',
+                            'I will provide this later',
+                            'TOEFL',
+                            'IELTS',
+                            'Duolingo English Test',
+                            'PTE',
+                        ];
+                      @endphp
+                      @foreach ($exmtype as $exmtyp)
+                        <option value="{{ $exmtyp }}"
+                          {{ $student->english_exam_type == $exmtyp ? 'Selected' : '' }}>
+                          {{ $exmtyp }}
+                        </option>
+                      @endforeach
                     </select>
                   </div>
                   <div class="col-12 col-sm-12 col-md-4 col-lg-6   col-xl-3  mb-3 ">

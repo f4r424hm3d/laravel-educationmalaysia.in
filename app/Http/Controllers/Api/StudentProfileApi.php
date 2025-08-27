@@ -244,10 +244,93 @@ class StudentProfileApi extends Controller
   /**
    * Update Test Scores (Generic)
    */
+
   public function updateTestScore(Request $request)
   {
-    return $this->updateLeadField($request, ['english_exam_type' => 'required']);
+    $student = $request->user();
+
+    // Allowed exam types
+    $examTypes = [
+      'I dont have this',
+      'I will provide this later',
+      'TOEFL',
+      'IELTS',
+      'Duolingo English Test',
+      'PTE',
+    ];
+
+    // Validate exam type first
+    $validator = Validator::make($request->all(), [
+      'english_exam_type' => 'required|in:' . implode(',', $examTypes),
+    ]);
+
+    if ($validator->fails()) {
+      return response()->json([
+        'status' => false,
+        'errors' => $validator->errors()
+      ], 422);
+    }
+
+    // Prepare dynamic rules
+    $examType = $request->english_exam_type;
+    $rules = [];
+
+    if ($examType === 'TOEFL') {
+      $rules = [
+        'date_of_exam'     => 'required|date',
+        'speaking_score'   => 'required|numeric|min:0|max:30',
+        'listening_score'  => 'required|numeric|min:0|max:30',
+        'reading_score'    => 'required|numeric|min:0|max:30',
+        'writing_score'    => 'required|numeric|min:0|max:30',
+      ];
+    } elseif ($examType === 'IELTS') {
+      $rules = [
+        'date_of_exam'     => 'required|date',
+        'speaking_score'   => 'required|numeric|min:0|max:9',
+        'listening_score'  => 'required|numeric|min:0|max:9',
+        'reading_score'    => 'required|numeric|min:0|max:9',
+        'writing_score'    => 'required|numeric|min:0|max:9',
+      ];
+    } elseif ($examType === 'Duolingo English Test') {
+      $rules = [
+        'date_of_exam'   => 'required|date',
+        'overall_score'  => 'required|numeric|min:0|max:160',
+      ];
+    } elseif ($examType === 'PTE') {
+      $rules = [
+        'date_of_exam'     => 'required|date',
+        'speaking_score'   => 'required|numeric|min:0|max:90',
+        'listening_score'  => 'required|numeric|min:0|max:90',
+        'reading_score'    => 'required|numeric|min:0|max:90',
+        'writing_score'    => 'required|numeric|min:0|max:90',
+        'overall_score'    => 'required|numeric|min:0|max:90',
+      ];
+    }
+
+    // Validate according to rules
+    if (!empty($rules)) {
+      $scoreValidator = Validator::make($request->all(), $rules);
+
+      if ($scoreValidator->fails()) {
+        return response()->json([
+          'status' => false,
+          'errors' => $scoreValidator->errors()
+        ], 422);
+      }
+    }
+
+    // Save data
+    $lead = Lead::find($student->id);
+    $lead->fill($request->all());
+    $lead->save();
+
+    return response()->json([
+      'status' => true,
+      'message' => 'Test Score updated successfully'
+    ]);
   }
+
+
 
   public function updateGRE(Request $request)
   {
