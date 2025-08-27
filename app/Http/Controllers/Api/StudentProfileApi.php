@@ -330,39 +330,116 @@ class StudentProfileApi extends Controller
     ]);
   }
 
-
-
+  /**
+   * Update GRE
+   */
   public function updateGRE(Request $request)
   {
-    return $this->updateLeadField($request, ['gre' => 'required']);
+    $student = $request->user();
+
+    $rules = [
+      'gre_exam_date' => 'required|date',
+      'gre_v_score'   => 'required|numeric|min:0|max:170',
+      'gre_v_rank'    => 'required|numeric|min:0|max:100',
+      'gre_q_score'   => 'required|numeric|min:0|max:170',
+      'gre_q_rank'    => 'required|numeric|min:0|max:100',
+      'gre_w_score'   => 'required|numeric|min:0|max:6',
+      'gre_w_rank'    => 'required|numeric|min:0|max:100',
+    ];
+
+    // Validate input
+    $validator = Validator::make($request->all(), $rules);
+
+    if ($validator->fails()) {
+      return response()->json([
+        'status' => false,
+        'errors' => $validator->errors()
+      ], 422);
+    }
+
+    // Fetch student data
+    $field = Lead::find($student->id);
+
+    // If form submitted, set gre = 1 by default
+    // If checkbox unchecked, set gre = 0
+    $request->merge(['gre' => 1]);
+
+    // Update database
+    $field->fill($request->all());
+    $field->save();
+
+    return response()->json([
+      'status' => true,
+      'message' => 'GRE score updated successfully'
+    ]);
   }
 
+  /**
+   * Update GMAT
+   */
   public function updateGMAT(Request $request)
   {
-    return $this->updateLeadField($request, ['gmat' => 'required']);
+    $student = $request->user();
+
+    $rules = [
+      'gmat_exam_date' => 'required|date',
+      'gmat_v_score'   => 'required|numeric|min:0|max:51',
+      'gmat_v_rank'    => 'required|numeric|min:0|max:100',
+      'gmat_q_score'   => 'required|numeric|min:0|max:51',
+      'gmat_q_rank'    => 'required|numeric|min:0|max:100',
+      'gmat_w_score'   => 'required|numeric|min:0|max:6',
+      'gmat_w_rank'    => 'required|numeric|min:0|max:100',
+      'gmat_ir_score'   => 'required|numeric|min:0|max:8',
+      'gmat_ir_rank'    => 'required|numeric|min:0|max:100',
+      'gmat_total_score'   => 'required|numeric|min:200|max:800',
+      'gmat_total_rank'    => 'required|numeric|min:0|max:100',
+    ];
+
+    // Validate input
+    $validator = Validator::make($request->all(), $rules);
+
+    if ($validator->fails()) {
+      return response()->json([
+        'status' => false,
+        'errors' => $validator->errors()
+      ], 422);
+    }
+
+    // Fetch student data
+    $field = Lead::find($student->id);
+
+    $request->merge(['gmat' => 1]);
+
+    // Update database
+    $field->fill($request->all());
+    $field->save();
+
+    return response()->json([
+      'status' => true,
+      'message' => 'GMAT score updated successfully'
+    ]);
   }
 
   public function updateSAT(Request $request)
   {
-    return $this->updateLeadField($request, ['sat' => 'required']);
-  }
-
-  private function updateLeadField(Request $request, $rules)
-  {
     $student = $request->user();
-    $validator = Validator::make($request->all(), $rules);
+
+    $validator = Validator::make($request->all(), [
+      'country_of_education' => 'required',
+      'highest_level_of_education' => 'required',
+      'grading_scheme' => 'required',
+      'grade_average' => 'required|regex:/^[a-zA-Z0-9\s\.\-]+$/',
+    ]);
 
     if ($validator->fails()) {
       return response()->json(['status' => false, 'errors' => $validator->errors()], 422);
     }
 
     $field = Lead::find($student->id);
-    foreach ($request->except(['_token']) as $key => $value) {
-      $field->$key = $value;
-    }
+    $field->fill($request->only(['country_of_education', 'highest_level_of_education', 'grading_scheme', 'grade_average']));
     $field->save();
 
-    return response()->json(['status' => true, 'message' => 'Score updated successfully']);
+    return response()->json(['status' => true, 'message' => 'Education summary updated successfully']);
   }
 
   /**

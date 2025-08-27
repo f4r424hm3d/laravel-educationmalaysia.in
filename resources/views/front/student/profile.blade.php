@@ -779,44 +779,44 @@
                   <h2 class="mb-3">Additional Qualifications</h2>
                 </div>
               </div>
-              <form class="mb-4" action="<?php echo url('student/update-gre-score'); ?>" method="post">
+              <form class="mb-4" action="{{ url('student/update-gre-score') }}" method="post">
                 @csrf
-                <input type="hidden" name="id" value="<?php echo $student->id; ?>">
+                <input type="hidden" name="id" value="{{ $student->id }}">
                 <div class="row">
                   <div class="col-md-12">
                     <div class="d-flex set-gap align-items-center justify-content-between">
                       <h6 class="scrose">I have GRE exam scores</h6>
                       <div class="OnOff">
                         <input onclick="toggleGRE()" type="checkbox" name="gre" id="gre"
-                          <?php echo $student->gre == '1' ? 'checked' : ''; ?> value="1">
+                          {{ $student->gre == '1' ? 'checked' : '' }} value="1">
                         <label for="gre"></label>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="<?php echo $student->gre == '0' || $student->gre == null ? 'hide-this' : ''; ?>" id="greDiv">
+                <div class="{{ $student->gre == '0' || $student->gre == null ? 'hide-this' : '' }}" id="greDiv">
                   <div class="row">
                     <div class="col-12 col-sm-12 col-md-4 col-lg-6   col-xl-3  mb-3">
                       <label>Date of Exam</label>
                       <input type="date" class="" name="gre_exam_date" placeholder="Exam Date"
-                        value="<?php echo $student->gre_exam_date; ?>" required>
+                        value="{{ $student->gre_exam_date }}" required>
                     </div>
                     <div class="col-12 col-sm-12 col-md-4 col-lg-6   col-xl-3  mb-3">
                       <label>Verbal</label>
                       <div class="d-flex set-gap align-items-center justify-content-between">
                         <input type="number" class="" name="gre_v_score" placeholder="Score"
-                          value="<?php echo $student->gre_v_score; ?>" max="170" step="any" min="0" required>
+                          value="{{ $student->gre_v_score }}" max="170" step="any" min="0" required>
                         <input type="number" class="" name="gre_v_rank" placeholder="Rank"
-                          value="<?php echo $student->gre_v_rank; ?>" step="any" max="100" min="0" required>
+                          value="{{ $student->gre_v_rank }}" step="any" max="100" min="0" required>
                       </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-4 col-lg-6   col-xl-3  mb-3">
                       <label>Quantitative</label>
                       <div class="d-flex set-gap align-items-center justify-content-between">
                         <input type="number" class="" name="gre_q_score" placeholder="Score"
-                          value="<?php echo $student->gre_q_score; ?>" max="170" step="any" min="0" required>
+                          value="{{ $student->gre_q_score }}" max="170" step="any" min="0" required>
                         <input type="number" class="" name="gre_q_rank" placeholder="Rank"
-                          value="<?php echo $student->gre_q_rank; ?>" step="any" max="100" min="0" required>
+                          value="{{ $student->gre_q_rank }}" step="any" max="100" min="0" required>
                       </div>
 
                     </div>
@@ -824,9 +824,9 @@
                       <label>Writing</label>
                       <div class="d-flex set-gap align-items-center justify-content-between">
                         <input type="number" class="" name="gre_w_score" placeholder="Score"
-                          value="<?php echo $student->gre_w_score; ?>" max="6" step="any" min="0" required>
+                          value="{{ $student->gre_w_score }}" max="6" step="any" min="0" required>
                         <input type="number" class="" name="gre_w_rank" placeholder="Rank"
-                          value="<?php echo $student->gre_w_rank; ?>" step="any" max="100" min="0" required>
+                          value="{{ $student->gre_w_rank }}" step="any" max="100" min="0" required>
                       </div>
 
                     </div>
