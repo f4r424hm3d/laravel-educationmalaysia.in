@@ -420,26 +420,42 @@ class StudentProfileApi extends Controller
     ]);
   }
 
+  /**
+   * Update SAT
+   */
   public function updateSAT(Request $request)
   {
     $student = $request->user();
 
-    $validator = Validator::make($request->all(), [
-      'country_of_education' => 'required',
-      'highest_level_of_education' => 'required',
-      'grading_scheme' => 'required',
-      'grade_average' => 'required|regex:/^[a-zA-Z0-9\s\.\-]+$/',
-    ]);
+    $rules = [
+      'sat_exam_date' => 'required|date',
+      'sat_reasoning_point'   => 'required|numeric|min:0|max:1600',
+      'sat_subject_point'    => 'required|numeric|min:0|max:800',
+    ];
+
+    // Validate input
+    $validator = Validator::make($request->all(), $rules);
 
     if ($validator->fails()) {
-      return response()->json(['status' => false, 'errors' => $validator->errors()], 422);
+      return response()->json([
+        'status' => false,
+        'errors' => $validator->errors()
+      ], 422);
     }
 
+    // Fetch student data
     $field = Lead::find($student->id);
-    $field->fill($request->only(['country_of_education', 'highest_level_of_education', 'grading_scheme', 'grade_average']));
+
+    $request->merge(['sat' => 1]);
+
+    // Update database
+    $field->fill($request->all());
     $field->save();
 
-    return response()->json(['status' => true, 'message' => 'Education summary updated successfully']);
+    return response()->json([
+      'status' => true,
+      'message' => 'SAT score updated successfully'
+    ]);
   }
 
   /**
