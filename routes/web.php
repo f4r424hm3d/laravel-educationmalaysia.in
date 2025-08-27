@@ -53,6 +53,7 @@ use App\Http\Controllers\admin\ScholarshipFaqC;
 use App\Http\Controllers\admin\StaticPageSeoC;
 use App\Http\Controllers\admin\ServiceC;
 use App\Http\Controllers\admin\ServiceContentC;
+use App\Http\Controllers\admin\StaticPageContentC;
 use App\Http\Controllers\admin\StudentC;
 use App\Http\Controllers\admin\StudyModeC;
 use App\Http\Controllers\admin\TestimonialC;
@@ -760,6 +761,14 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
       Route::get('/update/{id}', [PageContentC::class, 'index']);
       Route::post('/update/{id}', [PageContentC::class, 'update']);
       Route::post('/store', [PageContentC::class, 'store']);
+    });
+    Route::prefix('/static-page-contents')->group(function () {
+      Route::get('', [StaticPageContentC::class, 'index']);
+      Route::get('get-data', [StaticPageContentC::class, 'getData']);
+      Route::get('/delete/{id}', [StaticPageContentC::class, 'delete']);
+      Route::get('/update/{id}', [StaticPageContentC::class, 'index']);
+      Route::post('/update/{id}', [StaticPageContentC::class, 'update']);
+      Route::post('/store', [StaticPageContentC::class, 'store']);
     });
 
     Route::prefix('/url-redirections')->group(function () {

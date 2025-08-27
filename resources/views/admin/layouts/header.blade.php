@@ -328,7 +328,11 @@
                   <div class="dropdown">
                     <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('page-contents') }}"
                       id="topnav-auth" role="button">
-                      <span data-key="t-authentication">Page Contents</span>
+                      <span data-key="t-authentication">Home Page Contents</span>
+                    </a>
+                    <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('static-page-contents') }}"
+                      id="topnav-auth" role="button">
+                      <span data-key="t-authentication">University Page Contents</span>
                     </a>
                     <a class="dropdown-item dropdown-toggle arrow-none" href="{{ aurl('services') }}"
                       id="topnav-auth" role="button">
