@@ -466,8 +466,8 @@ class StudentProfileApi extends Controller
     $student = $request->user();
 
     $validator = Validator::make($request->all(), [
-      'refused_visa' => 'required',
-      'valid_study_permit' => 'required',
+      'refused_visa' => 'required|in:YES,NO',
+      'valid_study_permit' => 'required|in:YES,NO',
       'visa_note' => 'required|regex:/^[a-zA-Z0-9\s\.\-]+$/',
     ]);
 
