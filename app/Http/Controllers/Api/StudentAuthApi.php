@@ -404,7 +404,7 @@ class StudentAuthApi extends Controller
     $lead->last_login = now();
     $lead->remember_token = null;
     $lead->otp_expire_at = null;
-    $lead->password = Hash::make($request->new_password); // **Secure password hashing**
+    $lead->password = $request->new_password; // **Secure password hashing**
     $lead->save();
 
     // If you want to generate API tokens, add this section (optional)
