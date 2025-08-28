@@ -219,8 +219,7 @@
                     <p class="all-list">{{ $university->name }}</p>
                   </div>
                 </div>
-                <form action="{{ route('inquiry.university.profile') }}" method="post" class="form-added"
-                  id="dataForm">
+                <form method="post" class="form-added" id="dataForm">
                   @csrf
                   <input type="hidden" name="requestfor" id="requestfor" value="">
                   <input type="hidden" name="university_id" value="{{ $university->id }}">

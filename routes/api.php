@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\DropdownListApi;
 use App\Http\Controllers\Api\ExamApi;
 use App\Http\Controllers\Api\FaqApi;
 use App\Http\Controllers\Api\HomeApi;
+use App\Http\Controllers\Api\InquiryApi;
 use App\Http\Controllers\Api\ScholarshipApi;
 use App\Http\Controllers\Api\ServiceApi;
 use App\Http\Controllers\Api\SpecializationApi;
@@ -94,6 +95,15 @@ Route::middleware([CheckApiKey::class])->group(function () {
 
   Route::get('faqs', [FaqApi::class, 'index']);
   Route::get('faq-details/{category_slug}', [FaqApi::class, 'details']);
+
+  Route::prefix('/inquiry')->group(function () {
+    Route::post('/university-profile-form', [InquiryApi::class, 'universityProfile'])->name('inquiry.university.profile');
+    Route::post('/stream-page-inquiry', [InquiryApi::class, 'streamPage'])->name('stream.inquiry');
+    Route::post('/simple-form', [InquiryApi::class, 'simpleForm'])->name('simple.inquiry');
+
+    Route::post('/brochure-request', [InquiryApi::class, 'brochureRequest'])->name('brochure.inquiry');
+    Route::post('/modal-form', [InquiryApi::class, 'modalForm'])->name('modal.submit');
+  });
 });
 
 
