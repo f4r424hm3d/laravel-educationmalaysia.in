@@ -118,6 +118,10 @@ Route::prefix('student')->group(function () {
 
   Route::post('/login', [StudentAuthApi::class, 'login']);
 
+  Route::post('/forget-password', [StudentAuthApi::class, 'forgetPassword']);
+  Route::post('/email-login', [StudentAuthApi::class, 'emailLogin']);
+  Route::post('/reset-password', [StudentAuthApi::class, 'resetPassword']);
+
   // Protected routes require Sanctum auth
   Route::middleware('auth:sanctum')->group(function () {
     Route::get('/profile', [StudentProfileApi::class, 'profile']);

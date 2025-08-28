@@ -355,3 +355,10 @@ function cdn($asset)
   end($cdns);
   return cdnPath(key($cdns), $asset);
 }
+if (!function_exists('reacturl')) {
+  function reacturl($path = null)
+  {
+    $path = strtolower($path);
+    return 'https://www.react.educationmalaysia.in/' . $path;
+  }
+}

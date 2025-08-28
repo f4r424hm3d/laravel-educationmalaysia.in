@@ -314,12 +314,13 @@ class StudentLoginFc extends Controller
   {
     return view('front.student.forget-password');
   }
+
   public function forgetPassword(Request $request)
   {
     // printArray($request->all());
     // die;
     $remember_token = Str::random(45);
-    $otp_expire_at = date("YmdHis", strtotime("+10 minutes"));
+    $otp_expire_at = date("YmdHis", strtotime("+15 minutes"));
     $field = Lead::whereEmail($request['email'])->first();
     if (is_null($field)) {
       session()->flash('emsg', 'Entered wrong email address. Please check.');
