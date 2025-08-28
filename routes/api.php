@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ApplyProgramApi;
 use App\Http\Controllers\Api\BlogApi;
 use App\Http\Controllers\Api\CountryApi;
 use App\Http\Controllers\Api\CoursesInMalaysiaApi;
@@ -146,5 +147,10 @@ Route::prefix('student')->group(function () {
 
     Route::post('/change-password', [StudentProfileApi::class, 'changePassword']);
     Route::post('/logout', [StudentProfileApi::class, 'logout']);
+
+
+    Route::get('/apply-program/{program_id}', [ApplyProgramApi::class, 'applyProgram'])->name('student.apply.program');
+    Route::get('/shortlist-program/{program_id}', [ApplyProgramApi::class, 'shortlistProgram'])->name('student.shortlist.program');
+    Route::get('/delete-program/{id}', [ApplyProgramApi::class, 'deleteProgram']);
   });
 });
