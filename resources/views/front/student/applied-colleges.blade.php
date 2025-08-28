@@ -10,76 +10,76 @@
         @include('front.student.profile-sidebar')
         <div class="col-xl-9 col-lg-8 col-md-12 col-sm-12 mb-4">
           <div class="profile-infos">
-          <div class="infoContent mt-0 p-0">
-          <h2>Your Applied colleges</h2>
-            @if ($appliedprograms->count() > 0)
-              <div class="dashboard_container mt-3">
-                <div class="dashboard_container_body">
+            <div class="infoContent mt-0 p-0">
+              <h2>Your Applied colleges</h2>
+              @if ($appliedprograms->count() > 0)
+                <div class="dashboard_container mt-3">
+                  <div class="dashboard_container_body">
 
-                  @foreach ($appliedprograms as $row)
-                    <div class="dashboard_single_course align-items-center" id="programItem{{ $row->id }}">
-                      <div class="dashboard_single_course_caption p-0">
-                        <div class="dashboard_single_course_head">
-                          <div class="dashboard_single_course_head_flex">
-                            <h4 class="dashboard_course_title">{{ $row->universityProgram->course_name }}</h4>
+                    @foreach ($appliedprograms as $row)
+                      <div class="dashboard_single_course align-items-center" id="programItem{{ $row->id }}">
+                        <div class="dashboard_single_course_caption p-0">
+                          <div class="dashboard_single_course_head">
+                            <div class="dashboard_single_course_head_flex">
+                              <h4 class="dashboard_course_title">{{ $row->universityProgram->course_name }}</h4>
+                            </div>
                           </div>
-                        </div>
 
-                        <div class="row align-items-center">
-                          <div class="col-md-12">
-                            <div class="row">
-                              <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-3 ">
-                                <span class="theme-cl">Study Mode:</span>
-                               
-                                <span class="duratinss"> {{ $row->universityProgram->study_mode }} </span>
-                              </div>
-                              <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-3 ">
-                                <span class="theme-cl">Duration:</span>
-                               
-                                <span class="duratinss" {{ $row->universityProgram->duration ?? 'N/A' }} </span>
+                          <div class="row align-items-center">
+                            <div class="col-md-12">
+                              <div class="row">
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-3 ">
+                                  <span class="theme-cl">Study Mode:</span>
 
-                              </div>
-                              <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-3 "><span class="theme-cl">Deadline:</span>
-                                
-                                <span class="duratinss">{{ $row->universityProgram->application_deadline ?? 'N/A' }} </span>
+                                  <span class="duratinss"> {{ $row->universityProgram->study_mode }} </span>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-3 ">
+                                  <span class="theme-cl">Duration:</span>
 
-                              </div>
-                              <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-3 ">Intake:
-                                <span class="duratinss">{{ $row->universityProgram->intake ?? 'N/A' }} </span>
+                                  <span class="duratinss" {{ $row->universityProgram->duration ?? 'N/A' }} </span>
 
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-3 "><span
+                                    class="theme-cl">Deadline:</span>
+
+                                  <span class="duratinss">{{ $row->universityProgram->application_deadline ?? 'N/A' }}
+                                  </span>
+
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-3 ">Intake:
+                                  <span class="duratinss">{{ $row->universityProgram->intake ?? 'N/A' }} </span>
+
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
 
-                        <div class="row">
-                          <div class="col-md-12 mt-1">
-                            <span class="theme-cl">University :</span> {{ $row->universityProgram->university->name }}
-                            <a href="javascript:void()" onclick="deleteAppliedProgram('{{ $row->id }}')"
-                              class="btn btn-sm btn-danger" style="float:right"><span><i class="ti-trash"></i></span></a>
+                          <div class="row">
+                            <div class="col-md-12 mt-1">
+                              <span class="theme-cl">University :</span> {{ $row->universityProgram->university->name }}
+                              <a href="javascript:void()" onclick="deleteAppliedProgram('{{ $row->id }}')"
+                                class="btn btn-sm btn-danger" style="float:right"><span><i
+                                    class="ti-trash"></i></span></a>
+                            </div>
                           </div>
+
                         </div>
-
                       </div>
-                    </div>
-                  @endforeach
+                    @endforeach
 
+                  </div>
                 </div>
+              @else
+                <p class="text-center">Nothing to show yet. You haven't applied to any colleges.</p>
+              @endif
+              <div class="row justify-content-center mt-3">
+                <a href="{{ url('courses-in-malaysia') }}" class="btn btn-modern float-none">
+                  Browse Colleges<span><i class="fa fa-angle-right"></i></span>
+                </a>
               </div>
-            @else
-           
-                  <p class="text-center" >Nothing to show yet. You haven't applied to any colleges.</p>
-
-              
-            @endif
-            <div class="row justify-content-center mt-3">
-              <a href="{{ url('courses-in-malaysia') }}" class="btn btn-modern float-none">
-                Browse Colleges<span><i class="fa fa-angle-right"></i></span>
-              </a>
             </div>
           </div>
-          </div>
-          
+
         </div>
       </div>
     </div>

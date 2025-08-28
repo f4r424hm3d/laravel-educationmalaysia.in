@@ -124,7 +124,10 @@ Route::prefix('student')->group(function () {
     Route::post('/update-background-info', [StudentProfileApi::class, 'updateBI']);
     Route::post('/upload-documents', [StudentProfileApi::class, 'updateDocs']);
 
+    Route::get('/applied-college', [StudentProfileApi::class, 'appliedCollege']);
+    Route::get('/shortlist', [StudentProfileApi::class, 'shortlist']);
 
+    Route::post('/change-password', [StudentProfileApi::class, 'changePassword']);
     Route::post('/logout', [StudentProfileApi::class, 'logout']);
   });
 });

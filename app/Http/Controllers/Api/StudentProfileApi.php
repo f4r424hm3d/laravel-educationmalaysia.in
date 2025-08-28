@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Lead;
+use App\Models\StudentApplication;
 use App\Models\StudentDocument;
 use App\Models\StudentSchool;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class StudentProfileApi extends Controller
@@ -521,6 +523,99 @@ class StudentProfileApi extends Controller
 
     return response()->json(['status' => true, 'message' => 'Document uploaded successfully']);
   }
+
+  public function appliedCollege(Request $request)
+  {
+    $id = $request->user()->id;
+    $student = Lead::find($id);
+
+    if (!$student) {
+      return response()->json([
+        'status' => false,
+        'message' => 'Student not found.'
+      ], 404);
+    }
+
+    $appliedPrograms = StudentApplication::with(['universityProgram' => function ($query) {
+      $query->with(['university' => function ($query) {
+        $query->select('id', 'name');
+      }])->select('id', 'course_name', 'level', 'duration', 'study_mode', 'intake', 'application_deadline', 'university_id');
+    }])->active()->where('stdid', $id)->select('id', 'stdid', 'prog_id', 'app_status', 'stage')->get();
+
+    return response()->json([
+      'status' => true,
+      'applied_programs' => $appliedPrograms
+    ], 200);
+  }
+
+  public function shortlist(Request $request)
+  {
+    $id = $request->user()->id;
+    $student = Lead::find($id);
+
+    if (!$student) {
+      return response()->json([
+        'status' => false,
+        'message' => 'Student not found.'
+      ], 404);
+    }
+
+    $shortlistedPrograms = StudentApplication::with(['universityProgram' => function ($query) {
+      $query->with(['university' => function ($query) {
+        $query->select('id', 'name');
+      }])->select('id', 'course_name', 'level', 'duration', 'study_mode', 'intake', 'application_deadline', 'university_id');
+    }])->inActive()->where('stdid', $id)->select('id', 'stdid', 'prog_id', 'app_status', 'stage')->get();
+
+    return response()->json([
+      'status' => true,
+      'shortlisted_programs' => $shortlistedPrograms
+    ], 200);
+  }
+
+  public function changePassword(Request $request)
+  {
+    $id = $request->user()->id;
+    $student = Lead::find($id);
+
+    if (!$student) {
+      return response()->json([
+        'status' => false,
+        'message' => 'Student not found.'
+      ], 404);
+    }
+
+    // Validate inputs
+    $validator = Validator::make($request->all(), [
+      'old_password' => 'required',
+      'new_password' => 'required|min:8',
+      'confirm_new_password' => 'required|min:8|same:new_password',
+    ]);
+
+    if ($validator->fails()) {
+      return response()->json([
+        'status' => false,
+        'errors' => $validator->errors()
+      ], 422);
+    }
+
+    // Verify old password
+    if (!Hash::check($request->old_password, $student->password)) {
+      return response()->json([
+        'status' => false,
+        'message' => 'The old password is incorrect.'
+      ], 401);
+    }
+
+    // Update password
+    $student->password = $request->new_password;
+    $student->save();
+
+    return response()->json([
+      'status' => true,
+      'message' => 'Password has been changed successfully.'
+    ], 200);
+  }
+
 
   // Logout API (revoke token)
   public function logout(Request $request)
