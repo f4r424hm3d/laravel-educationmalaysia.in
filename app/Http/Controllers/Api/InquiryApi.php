@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Carbon\Carbon;
 
 class InquiryApi extends Controller
 {
@@ -316,5 +317,164 @@ class InquiryApi extends Controller
         'error' => $e->getMessage()
       ], 500);
     }
+  }
+
+  public function examPage(Request $request)
+  {
+    // Validate the request
+    $validator = Validator::make($request->all(), [
+      'name' => 'required|string|max:255',
+      'source_path' => 'required|string|max:255',
+      'c_code' => 'required|numeric',
+      'mobile' => 'required|numeric',
+      'email' => 'required|email',
+      'nationality' => 'required|string|max:100',
+      'interested_program' => 'required|string|max:100'
+    ]);
+
+    if ($validator->fails()) {
+      return response()->json([
+        'status' => false,
+        'errors' => $validator->errors()
+      ], 422);
+    }
+
+    try {
+      $source = 'Education Malaysia - Exam Page';
+      // Store lead data
+      $lead = new Lead();
+      $lead->name = $request->name;
+      $lead->c_code = $request->c_code;
+      $lead->mobile = $request->mobile;
+      $lead->email = $request->email;
+      $lead->source = $source;
+      $lead->source_path = $request->source_path;
+      $lead->nationality = $request->nationality;
+      $lead->interested_program = $request->interested_program;
+      $lead->website = site_var;
+      $lead->save();
+
+      // Auto-assign the lead to a counselor
+      AsignedLead::autoAssign($lead->id);
+
+      // Email data
+      $emailData = [
+        'name' => $request->name,
+        'email' => $request->email,
+        'c_code' => $request->c_code,
+        'mobile' => $request->mobile,
+        'source' => $source,
+        'source_path' => $request->source_path,
+        'nationality' => $request->nationality,
+        'university' => null,
+        'program' => $request->interested_program ?? null,
+        'interest' => $request->interested_program ?? null,
+      ];
+
+      $userMailData = [
+        'to' => $request->email,
+        'to_name' => $request->name,
+        'subject' => 'We have Received Your Request – Expect a Response Soon'
+      ];
+
+      // Send email to user
+      Mail::send('mails.inquiry-reply', $emailData, function ($message) use ($userMailData) {
+        $message->to($userMailData['to'], $userMailData['to_name']);
+        $message->subject($userMailData['subject']);
+        $message->priority(1);
+      });
+
+      // Send email to team
+      $teamMailData = [
+        'to' => TO_EMAIL,
+        'cc' => CC_EMAIL,
+        'to_name' => TO_NAME,
+        'cc_name' => CC_NAME,
+        'subject' => 'New Enquiry Alert – Team Attention Needed'
+      ];
+
+      Mail::send('mails.inquiry-mail-to-team', $emailData, function ($message) use ($teamMailData) {
+        $message->to($teamMailData['to'], $teamMailData['to_name']);
+        $message->cc($teamMailData['cc'], $teamMailData['cc_name']);
+        $message->subject($teamMailData['subject']);
+        $message->priority(1);
+      });
+
+      // Success response
+      return response()->json([
+        'status' => true,
+        'message' => 'Your inquiry has been submitted successfully. We will contact you soon.',
+        'lead_id' => $lead->id
+      ], 200);
+    } catch (\Exception $e) {
+      return response()->json([
+        'status' => false,
+        'message' => 'Something went wrong while submitting your request.',
+        'error' => $e->getMessage()
+      ], 500);
+    }
+  }
+
+  public function modalForm(Request $request)
+  {
+    // Validate request
+    $validator = Validator::make($request->all(), [
+      'name' => 'required|regex:/^[a-zA-Z ]*$/',
+      'email' => [
+        'required',
+        'email',
+        Rule::unique('leads', 'email')->where('website', site_var),
+      ],
+      'c_code' => 'required|numeric',
+      'mobile' => 'required|numeric',
+      'highest_qualification' => 'required',
+      'interested_course_category' => 'required',
+      'nationality' => 'required'
+    ]);
+
+    if ($validator->fails()) {
+      return response()->json([
+        'status' => false,
+        'message' => 'Validation failed',
+        'errors' => $validator->errors()
+      ], 422);
+    }
+
+    // Generate OTP
+    $otp = rand(1000, 9999);
+    $otp_expire_at = Carbon::now()->addMinutes(15);
+
+    // Save student
+    $student = new Lead();
+    $student->name = $request->name;
+    $student->email = $request->email;
+    $student->highest_qualification = $request->highest_qualification;
+    $student->interested_course_category = $request->interested_course_category;
+    $student->nationality = $request->nationality;
+    $student->c_code = $request->c_code;
+    $student->mobile = $request->mobile;
+    $student->source = 'Education Malaysia - Modal Form';
+    $student->source_path = $request->source_path;
+    $student->otp = $otp;
+    $student->otp_expire_at = $otp_expire_at;
+    $student->status = 0;
+    $student->website = site_var;
+    $student->save();
+    AsignedLead::autoAssign($student->id);
+
+    // Send OTP Email
+    Mail::send('mails.send-otp', ['name' => $request->name, 'otp' => $otp], function ($message) use ($request) {
+      $message->to($request->email, $request->name);
+      $message->subject('Your OTP Code');
+    });
+
+    return response()->json([
+      'status' => true,
+      'message' => 'Registration successful. OTP sent to your email.',
+      'data' => [
+        'id' => $student->id,
+        'email' => $student->email
+      ]
+    ], 200);
   }
 }

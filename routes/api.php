@@ -98,11 +98,14 @@ Route::middleware([CheckApiKey::class])->group(function () {
 
   Route::prefix('/inquiry')->group(function () {
     Route::post('/university-profile-form', [InquiryApi::class, 'universityProfile'])->name('inquiry.university.profile');
-    Route::post('/stream-page-inquiry', [InquiryApi::class, 'streamPage'])->name('stream.inquiry');
+
     Route::post('/simple-form', [InquiryApi::class, 'simpleForm'])->name('simple.inquiry');
 
     Route::post('/brochure-request', [InquiryApi::class, 'brochureRequest'])->name('brochure.inquiry');
+
     Route::post('/modal-form', [InquiryApi::class, 'modalForm'])->name('modal.submit');
+
+    Route::post('/exam-page', [InquiryApi::class, 'examPage'])->name('exam.inquiry');
   });
 });
 
