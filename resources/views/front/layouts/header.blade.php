@@ -49,12 +49,13 @@
     .sItems ul li {
       border-bottom: 1px solid #eee
     }
+
     .submit-more {
-    text-transform: uppercase;
-    font-size: 13px;
-    font-family: sans-serif;
-    color: #000000;
-}
+      text-transform: uppercase;
+      font-size: 13px;
+      font-family: sans-serif;
+      color: #000000;
+    }
 
     .sItems ul li.active {
       font-size: 15px;
@@ -549,21 +550,25 @@
 
         const modalStatus = localStorage.getItem(modalKey);
         const neverShow = localStorage.getItem(neverShowKey) === 'true';
+        let closeCount = parseInt(localStorage.getItem(closeCountKey) || '0');
 
-        if (!studentLoggedIn && !neverShow && modalStatus !== 'submitted') {
+        // Show modal only if user is not logged in, not marked "never show" and not submitted
+        if (!studentLoggedIn && !neverShow && modalStatus !== 'submitted' && closeCount < 3) {
           if (modalStatus !== 'closed') {
-            openModal();
+            // Show modal after 5 seconds delay
+            setTimeout(openModal, 5000);
           } else {
             const lastClosed = localStorage.getItem('enquiry_modal_closed_time');
             if (lastClosed) {
               const diff = Date.now() - parseInt(lastClosed);
-              if (diff > 1000) {
-                openModal();
+              if (diff > 5000) {
+                setTimeout(openModal, 5000);
               }
             }
           }
         }
 
+        // When modal is closed, track close count
         $('#modalSignupForm').on('hidden.bs.modal', function() {
           if (localStorage.getItem(modalKey) !== 'submitted') {
             localStorage.setItem(modalKey, 'closed');
@@ -572,12 +577,14 @@
             let closeCount = parseInt(localStorage.getItem(closeCountKey) || '0') + 1;
             localStorage.setItem(closeCountKey, closeCount.toString());
 
-            if (closeCount >= 30) {
+            // After 3 closes, never show modal again
+            if (closeCount >= 3) {
               localStorage.setItem(neverShowKey, 'true');
             }
           }
         });
 
+        // Form submission via AJAX
         $('#counsellingForm').on('submit', function(e) {
           e.preventDefault();
 
@@ -614,6 +621,7 @@
         });
       });
     </script>
+
     <script>
       function openNavd() {
         var panel = document.getElementById("mySidepanelvd");
