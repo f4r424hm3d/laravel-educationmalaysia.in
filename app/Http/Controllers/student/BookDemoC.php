@@ -127,7 +127,7 @@ class BookDemoC extends Controller
       }
     );
     if ($chk == false) {
-      $emsg = response()->Fail('Sorry! Please try again latter');
+      $emsg = 'Sorry! Please try again later';
       session()->flash('emsg', $emsg);
     } else {
       session()->flash('smsg', 'An OTP has been send to your registered email address.');

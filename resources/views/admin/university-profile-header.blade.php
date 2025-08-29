@@ -18,6 +18,9 @@
           <a href="{{ aurl('university-facilities/' . $university->id) }}"
             class="btn btn-xs btn{{ $page_route == 'university-facilities' ? '' : '-outline' }}-primary">Facilities</a>
 
+          <a href="{{ aurl('university-ranking/' . $university->id) }}"
+            class="btn btn-xs btn{{ $page_route == 'university-ranking' ? '' : '-outline' }}-primary">Rankings</a>
+
         </span>
       </div>
     </div>

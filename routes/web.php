@@ -64,6 +64,7 @@ use App\Http\Controllers\admin\UniversityOtherContentC;
 use App\Http\Controllers\admin\UniversityOverviewC;
 use App\Http\Controllers\admin\UniversityProgramC;
 use App\Http\Controllers\admin\UniversityProgramContentC;
+use App\Http\Controllers\admin\UniversityRankingC;
 use App\Http\Controllers\admin\UniversityReviewC;
 use App\Http\Controllers\admin\UniversityScholarshipC;
 use App\Http\Controllers\admin\UniversityScholarshipContentC;
@@ -399,6 +400,14 @@ Route::middleware([AdminLoggedIn::class])->group(function () {
       Route::get('/{university_id}/', [UniversityOtherContentC::class, 'index']);
       Route::get('/{university_id}/update/{id}', [UniversityOtherContentC::class, 'index']);
       Route::post('/{university_id}/update/{id}', [UniversityOtherContentC::class, 'update']);
+    });
+    Route::prefix('/university-ranking')->group(function () {
+      Route::get('/get-position', [UniversityRankingC::class, 'getPosition']);
+      Route::get('/{university_id}', [UniversityRankingC::class, 'index']);
+      Route::post('/{university_id}/store', [UniversityRankingC::class, 'store']);
+      Route::get('/delete/{id}', [UniversityRankingC::class, 'delete']);
+      Route::get('/{university_id}/update/{id}', [UniversityRankingC::class, 'index']);
+      Route::post('/{university_id}/update/{id}', [UniversityRankingC::class, 'update']);
     });
     Route::prefix('/services')->group(function () {
       Route::get('', [ServiceC::class, 'index']);
