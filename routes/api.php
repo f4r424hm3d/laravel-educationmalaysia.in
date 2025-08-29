@@ -88,6 +88,8 @@ Route::middleware([CheckApiKey::class])->group(function () {
   Route::get('university-courses/{uname}', [UniversityApi::class, 'courses']);
   Route::get('university-course-details/{uname}/{course_slug}', [UniversityApi::class, 'courseDetail']);
 
+  Route::get('university-ranking/{uname}', [UniversityApi::class, 'ranking']);
+
   Route::get('courses-in-malaysia', [CoursesInMalaysiaApi::class, 'index']);
 
 
