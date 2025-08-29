@@ -383,16 +383,16 @@
 
                 <div class="col-lg-4 col-md-4 col-sm-12">
                   <div class="form-group">
-                    <select name="c_code" id="countryCode" class="form-control" required>
+                    <select name="country_code" id="countryCode" class="form-control" required>
                       <option value="">Country Code</option>
                       @foreach ($phonecodes as $row)
                         <option value="{{ $row->phonecode }}"
-                          {{ $row->iso == $curCountry || old('c_code') == $row->phonecode ? 'selected' : '' }}>
+                          {{ $row->iso == $curCountry || old('country_code') == $row->phonecode ? 'selected' : '' }}>
                           +{{ $row->phonecode }}
                         </option>
                       @endforeach
                     </select>
-                    @error('c_code')
+                    @error('country_code')
                       <span class="text-danger">{{ $message }}</span>
                     @enderror
                   </div>

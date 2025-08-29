@@ -172,14 +172,14 @@
                     <label>Enter your mobile number</label>
                     <div class="row">
                       <div class="col-3 pr-0">
-                        <select name="c_code" class="form-control bg-white p-2" required>
+                        <select name="country_code" class="form-control bg-white p-2" required>
                           @foreach ($countries as $row)
                             <option value="{{ $row->phonecode }}"
-                              {{ $row->phonecode == 91 || old('c_code') == $row->phonecode ? 'Selected' : '' }}>
+                              {{ $row->phonecode == 91 || old('country_code') == $row->phonecode ? 'Selected' : '' }}>
                               +({{ $row->phonecode }}) {{ $row->iso3 }} </option>
                           @endforeach
                         </select>
-                        @error('c_code')
+                        @error('country_code')
                           <span class="text-danger">{{ $message }}</span>
                         @enderror
                       </div>

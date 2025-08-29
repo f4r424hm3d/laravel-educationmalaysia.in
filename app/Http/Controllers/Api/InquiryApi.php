@@ -25,7 +25,7 @@ class InquiryApi extends Controller
       'name' => 'required',
       'source' => 'required',
       'source_path' => 'required',
-      'c_code' => 'required|numeric',
+      'country_code' => 'required|numeric',
       'mobile' => 'required|numeric',
       'email' => 'required|email',
       'university_id' => 'required',
@@ -52,7 +52,7 @@ class InquiryApi extends Controller
     // Create a new lead
     $lead = new Lead();
     $lead->name = $request->name;
-    $lead->c_code = $request->c_code;
+    $lead->country_code = $request->country_code;
     $lead->mobile = $request->mobile;
     $lead->email = $request->email;
     $lead->source = 'Education Malaysia - University Profile Page';
@@ -71,7 +71,7 @@ class InquiryApi extends Controller
     $emailData = [
       'name' => $request->name,
       'email' => $request->email,
-      'c_code' => $request->c_code,
+      'country_code' => $request->country_code,
       'mobile' => $request->mobile,
       'source' => $request->source,
       'source_path' => $request->source_path,
@@ -118,7 +118,7 @@ class InquiryApi extends Controller
     // die;
     $validator = Validator::make($request->all(), [
       'name' => 'required',
-      'c_code' => 'required|numeric',
+      'country_code' => 'required|numeric',
       'mobile' => 'required|numeric',
       'email' => 'required|email',
       'nationality' => 'required',
@@ -148,7 +148,7 @@ class InquiryApi extends Controller
 
     $field = new Lead();
     $field->name = $request['name'];
-    $field->c_code = $request['c_code'];
+    $field->country_code = $request['country_code'];
     $field->mobile = $request['mobile'];
     $field->email = $request['email'];
     $field->nationality = $request['nationality'];
@@ -166,7 +166,7 @@ class InquiryApi extends Controller
     $emaildata = [
       'name' => $request['name'],
       'email' => $request['email'],
-      'c_code' => $request['c_code'],
+      'country_code' => $request['country_code'],
       'mobile' => $request['mobile'],
       'source' => $request['source'],
       'source_path' => $request['source_path'],
@@ -232,7 +232,7 @@ class InquiryApi extends Controller
       'name' => 'required|string|max:255',
       'source' => 'required|string|max:255',
       'source_path' => 'required|string|max:255',
-      'c_code' => 'required|numeric',
+      'country_code' => 'required|numeric',
       'mobile' => 'required|numeric',
       'email' => 'required|email',
       'nationality' => 'required|string|max:100'
@@ -249,7 +249,7 @@ class InquiryApi extends Controller
       // Store lead data
       $lead = new Lead();
       $lead->name = $request->name;
-      $lead->c_code = $request->c_code;
+      $lead->country_code = $request->country_code;
       $lead->mobile = $request->mobile;
       $lead->email = $request->email;
       $lead->source = $request->source;
@@ -265,7 +265,7 @@ class InquiryApi extends Controller
       $emailData = [
         'name' => $request->name,
         'email' => $request->email,
-        'c_code' => $request->c_code,
+        'country_code' => $request->country_code,
         'mobile' => $request->mobile,
         'source' => $request->source,
         'source_path' => $request->source_path,
@@ -325,7 +325,7 @@ class InquiryApi extends Controller
     $validator = Validator::make($request->all(), [
       'name' => 'required|string|max:255',
       'source_path' => 'required|string|max:255',
-      'c_code' => 'required|numeric',
+      'country_code' => 'required|numeric',
       'mobile' => 'required|numeric',
       'email' => 'required|email',
       'nationality' => 'required|string|max:100',
@@ -344,7 +344,7 @@ class InquiryApi extends Controller
       // Store lead data
       $lead = new Lead();
       $lead->name = $request->name;
-      $lead->c_code = $request->c_code;
+      $lead->country_code = $request->country_code;
       $lead->mobile = $request->mobile;
       $lead->email = $request->email;
       $lead->source = $source;
@@ -361,7 +361,7 @@ class InquiryApi extends Controller
       $emailData = [
         'name' => $request->name,
         'email' => $request->email,
-        'c_code' => $request->c_code,
+        'country_code' => $request->country_code,
         'mobile' => $request->mobile,
         'source' => $source,
         'source_path' => $request->source_path,
@@ -425,7 +425,7 @@ class InquiryApi extends Controller
         'email',
         Rule::unique('leads', 'email')->where('website', site_var),
       ],
-      'c_code' => 'required|numeric',
+      'country_code' => 'required|numeric',
       'mobile' => 'required|numeric',
       'highest_qualification' => 'required',
       'interested_course_category' => 'required',
@@ -451,7 +451,7 @@ class InquiryApi extends Controller
     $student->highest_qualification = $request->highest_qualification;
     $student->interested_course_category = $request->interested_course_category;
     $student->nationality = $request->nationality;
-    $student->c_code = $request->c_code;
+    $student->country_code = $request->country_code;
     $student->mobile = $request->mobile;
     $student->source = 'Education Malaysia - Modal Form';
     $student->source_path = $request->source_path;

@@ -117,7 +117,7 @@
                   <label>Mobile Number</label>
                   <div class="row">
                       <div class="col-12 col-sm-4 ">
-                        <select name="c_code" id="c_code" class="form-control simple border-0">
+                        <select name="country_code" id="country_code" class="form-control simple border-0">
                           <option value="">Select</option>
                                                       <option value="1">
                               +1 (UNITED STATES MINOR OUTLYING ISLANDS)

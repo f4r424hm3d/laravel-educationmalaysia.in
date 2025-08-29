@@ -63,10 +63,10 @@
                   </div>
                   <div class="form-group mb-3 col-md-2">
                     <label>Country Code</label>
-                    <input name="c_code" type="text" class="form-control" placeholder="Enter Code"
-                      value="{{ $ft == 'edit' ? $sd->c_code : old('c_code') }}">
+                    <input name="country_code" type="text" class="form-control" placeholder="Enter Code"
+                      value="{{ $ft == 'edit' ? $sd->country_code : old('country_code') }}">
                     <span class="text-danger">
-                      @error('c_code')
+                      @error('country_code')
                         {{ $message }}
                       @enderror
                     </span>

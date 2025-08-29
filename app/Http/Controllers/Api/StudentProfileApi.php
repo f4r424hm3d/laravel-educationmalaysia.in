@@ -88,7 +88,7 @@ class StudentProfileApi extends Controller
     $validator = Validator::make($request->all(), [
       'name' => 'required|regex:/^[a-zA-Z ]*$/',
       'email' => 'required|email',
-      'c_code' => 'required|numeric',
+      'country_code' => 'required|numeric',
       'mobile' => 'required|numeric',
       'father' => 'required',
       'mother' => 'required',

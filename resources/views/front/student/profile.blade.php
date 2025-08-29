@@ -61,18 +61,18 @@
                     <div class="d-flex align-items-center set-gapsf">
                       <div class="setcodes">
                         <!-- <label>Country Code <span class="red">*</span></label> -->
-                        <select name="c_code" id="c_code" class="pif select2 form-control">
-                          <option value="" <?php echo $student->c_code == '' ? 'Selected' : ''; ?>>Select
+                        <select name="country_code" id="country_code" class="pif select2 form-control">
+                          <option value="" <?php echo $student->country_code == '' ? 'Selected' : ''; ?>>Select
                           </option>
                           @foreach ($phonecodes as $phone)
                             <option value="{{ $phone->phonecode }}"
-                              {{ $student->c_code == $phone->phonecode ? 'Selected' : '' }}>
+                              {{ $student->country_code == $phone->phonecode ? 'Selected' : '' }}>
                               {{ $phone->phonecode }}
                               ({{ $phone->name }})
                             </option>
                           @endforeach
                         </select>
-                        @error('c_code')
+                        @error('country_code')
                           <span class="text-danger">{{ $message }}</span>
                         @enderror
                       </div>

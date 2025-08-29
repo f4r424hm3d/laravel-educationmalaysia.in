@@ -72,7 +72,7 @@
               <ul>
                 <li>Name : {{ $name }}</li>
                 <li>Email : {{ $email }}</li>
-                <li>Mobile : {{ $c_code ?? '' }} {{ $mobile }}</li>
+                <li>Mobile : {{ $country_code ?? '' }} {{ $mobile }}</li>
                 @if ($nationality)
                   <li>Nationality : {{ $nationality }}</li>
                 @endif

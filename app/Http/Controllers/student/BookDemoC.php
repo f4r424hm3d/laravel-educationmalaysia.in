@@ -40,7 +40,7 @@ class BookDemoC extends Controller
         'intrested_in_paid_counselling' => 'required',
         'name' => 'required|string|max:255',
         'email' => 'required|email',
-        'c_code' => 'required|string|max:10',
+        'country_code' => 'required|string|max:10',
         'mobile' => 'required|string|regex:/^\d{6,15}$/'
       ]
     );
@@ -52,7 +52,7 @@ class BookDemoC extends Controller
     $field->intrested_in_paid_counselling = $request['intrested_in_paid_counselling'];
     $field->name = $request['name'];
     $field->email = $request['email'];
-    $field->c_code = $request['c_code'];
+    $field->country_code = $request['country_code'];
     $field->mobile = $request['mobile'];
     $field->status = 0;
     $field->source_path = $request->source_path;
@@ -62,7 +62,7 @@ class BookDemoC extends Controller
       'website' => 'BRI',
       'name' => $request['name'],
       'email' => $request['email'],
-      'c_code' => $request['c_code'],
+      'country_code' => $request['country_code'],
       'mobile' => $request['mobile'],
       'preferred_destination' => $request['preferred_destination'],
       'interested_course_category' => $request['degree_planning_to_study'],
@@ -200,7 +200,7 @@ class BookDemoC extends Controller
     $emaildata2 = [
       'name' => $student->name,
       'email' => $student->email,
-      'c_code' => $student->c_code,
+      'country_code' => $student->country_code,
       'mobile' => $student->mobile,
       'preferred_counselling_date' => $student->preferred_counselling_date,
       'preferred_counselling_time' => $student->preferred_counselling_time,

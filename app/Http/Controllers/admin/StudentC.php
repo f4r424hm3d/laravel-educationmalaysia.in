@@ -118,14 +118,14 @@ class StudentC extends Controller
       [
         'name' => 'required',
         'email' => 'required',
-        'c_code' => 'nullable|numeric',
+        'country_code' => 'nullable|numeric',
         'mobile' => 'required|numeric',
       ]
     );
     $field = new Student;
     $field->name = $request['name'];
     $field->email = $request['email'];
-    $field->c_code = $request['c_code'];
+    $field->country_code = $request['country_code'];
     $field->mobile = $request['mobile'];
     $field->gender = $request['gender'];
     $field->nationality = $request['nationality'];
@@ -149,14 +149,14 @@ class StudentC extends Controller
       [
         'name' => 'required',
         'email' => 'required',
-        'c_code' => 'nullable|numeric',
+        'country_code' => 'nullable|numeric',
         'mobile' => 'required|numeric',
       ]
     );
     $field = Student::find($id);
     $field->name = $request['name'];
     $field->email = $request['email'];
-    $field->c_code = $request['c_code'];
+    $field->country_code = $request['country_code'];
     $field->mobile = $request['mobile'];
     $field->gender = $request['gender'];
     $field->nationality = $request['nationality'];

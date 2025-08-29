@@ -112,7 +112,7 @@ class LibiaLandingPageFc extends Controller
           'email',
           Rule::unique('leads', 'email')->where('website', site_var),
         ],
-        'c_code' => 'required|numeric',
+        'country_code' => 'required|numeric',
         'mobile' => 'required|numeric',
         'password' => ['required', 'string', Password::min(8)->mixedCase()->numbers()->symbols()],
         'nationality' => 'required'
@@ -122,7 +122,7 @@ class LibiaLandingPageFc extends Controller
     $field = new Lead();
     $field->name = $request['name'];
     $field->email = $request['email'];
-    $field->c_code = $request['c_code'];
+    $field->country_code = $request['country_code'];
     $field->mobile = $request['mobile'];
     $field->highest_qualification = $request['highest_qualification'];
     $field->interested_course_category = $request->program;

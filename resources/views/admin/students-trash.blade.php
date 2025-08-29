@@ -141,7 +141,7 @@
                             {!! $row->dob ? '<b>D.O.B : </b>' . $row->dob . '<br>' : '' !!}
                           </td>
                           <td>
-                            {!! $row->mobile ? '<b>Mobile : </b>' . $row->c_code . ' ' . $row->mobile . '<br>' : '' !!}
+                            {!! $row->mobile ? '<b>Mobile : </b>' . $row->country_code . ' ' . $row->mobile . '<br>' : '' !!}
                             {!! $row->email ? '<b>Email : </b>' . $row->email . '<br>' : '' !!}
                           </td>
                           <td>

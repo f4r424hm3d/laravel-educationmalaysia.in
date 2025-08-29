@@ -52,17 +52,17 @@
       <div class="row">
         <div class="col-5">
           <div class="form-group">
-            <label for="c_code">Country Code</label>
-            <select class="form-control" name="c_code" id="c_code" required>
+            <label for="country_code">Country Code</label>
+            <select class="form-control" name="country_code" id="country_code" required>
               <option value="">Select</option>
               @foreach ($phonecodes as $row)
                 <option value="{{ $row->phonecode }}"
-                  {{ old('c_code') == $row->phonecode || $row->phonecode == '91' ? 'selected' : '' }}>
+                  {{ old('country_code') == $row->phonecode || $row->phonecode == '91' ? 'selected' : '' }}>
                   +{{ $row->phonecode }}
                 </option>
               @endforeach
             </select>
-            @error('c_code')
+            @error('country_code')
               <span class="text-danger">{{ $message }}</span>
             @enderror
           </div>

@@ -53,7 +53,7 @@ class StudentLoginFc extends Controller
           'email',
           Rule::unique('leads', 'email')->where('website', site_var),
         ],
-        'c_code' => 'required|numeric',
+        'country_code' => 'required|numeric',
         'mobile' => 'required|numeric',
         'password' => ['required', 'string', Password::min(8)->mixedCase()->numbers()->symbols()],
         'confirm_password' => 'required|same:password',
@@ -68,7 +68,7 @@ class StudentLoginFc extends Controller
     $field->highest_qualification = $request['highest_qualification'];
     $field->interested_course_category = $request['interested_course_category'];
     $field->nationality = $request['nationality'];
-    $field->c_code = $request['c_code'];
+    $field->country_code = $request['country_code'];
     $field->mobile = $request['mobile'];
     $field->password = $request['password'];
     $field->source = 'Education Malaysia - Signup';

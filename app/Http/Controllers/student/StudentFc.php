@@ -51,7 +51,7 @@ class StudentFc extends Controller
       [
         'name' => 'required|regex:/^[a-zA-Z ]*$/',
         'gender' => 'required|in:Male,Female,Other',
-        'c_code' => 'required|numeric',
+        'country_code' => 'required|numeric',
         'mobile' => 'required|numeric',
         'dob' => 'required|date',
         'nationality' => 'required',
@@ -65,7 +65,7 @@ class StudentFc extends Controller
     $field->gender = $request['gender'];
     $field->dob = $request['dob'];
     $field->nationality = $request['nationality'];
-    $field->c_code = $request['c_code'];
+    $field->country_code = $request['country_code'];
     $field->mobile = $request['mobile'];
     $field->city = $request['city'];
     $field->state = $request['state'];
@@ -141,7 +141,7 @@ class StudentFc extends Controller
       [
         'name' => 'required|regex:/^[a-zA-Z ]*$/',
         'email' => 'required',
-        'c_code' => 'required|numeric',
+        'country_code' => 'required|numeric',
         'mobile' => 'required|numeric',
         'father' => 'required',
         'mother' => 'required',
@@ -163,7 +163,7 @@ class StudentFc extends Controller
     $field = Lead::find($id);
     $field->name = $request['name'];
     $field->email = $request['email'];
-    $field->c_code = $request['c_code'];
+    $field->country_code = $request['country_code'];
     $field->mobile = $request['mobile'];
     $field->father = $request['father'];
     $field->mother = $request['mother'];

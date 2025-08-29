@@ -296,7 +296,7 @@
                       </td>
                       <td>
                         {{ $row->name }}<br>
-                        {{ $row->c_code . ' ' . $row->mobile }} <br>
+                        {{ $row->country_code . ' ' . $row->mobile }} <br>
                         {{ $row->email }}<br>
                         {{ $row->gender }}<br>
                         {{ $row->dob }}<br>

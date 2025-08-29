@@ -71,7 +71,7 @@
               <ul>
                 <li>Name : {{ $name }}</li>
                 <li>Email : {{ $email }}</li>
-                <li>Mobile : {{ $c_code ?? '' }} {{ $mobile }}</li>
+                <li>Mobile : {{ $country_code ?? '' }} {{ $mobile }}</li>
                 <li>Preferred Date & Time : {{ $preferred_counselling_date }} , {{ $preferred_counselling_time }}</li>
                 <li>Preferred Destination : {{ $preferred_destination }}</li>
                 <li>Deegre Planing to Study : {{ $degree_planning_to_study }}</li>

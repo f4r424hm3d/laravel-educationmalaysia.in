@@ -244,10 +244,10 @@
                     <div class="col-12 col-sm-12 col-md-6 ">
                       <div class="form-group">
                         <div class="d-flex align-items-center setgap3 position-relative mobile-field">
-                          <select name="c_code" class="form-control call-select" required>
+                          <select name="country_code" class="form-control call-select" required>
                             @foreach ($phonecodes as $row)
                               <option value="{{ $row->phonecode }}"
-                                {{ (old('c_code') && old('c_code') == $row->phonecode) || $row->phonecode == '91' ? 'Selected' : '' }}>
+                                {{ (old('country_code') && old('country_code') == $row->phonecode) || $row->phonecode == '91' ? 'Selected' : '' }}>
                                 +{{ $row->phonecode }} ({{ $row->name }})
                               </option>
                             @endforeach
@@ -255,7 +255,7 @@
                           <input name="mobile" type="text" class="form-control"
                             placeholder="Mobile/WhatsApp No*" value="{{ old('mobile') }}" required="">
                         </div>
-                        <span class="text-danger" id="c_code-err"></span>
+                        <span class="text-danger" id="country_code-err"></span>
                       </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 ">

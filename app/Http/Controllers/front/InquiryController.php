@@ -32,7 +32,7 @@ class InquiryController extends Controller
         'name' => 'required',
         'source' => 'required',
         'source_path' => 'required',
-        'c_code' => 'required|numeric',
+        'country_code' => 'required|numeric',
         'mobile' => 'required|numeric',
         'email' => 'required|email',
         'university_id' => 'required',
@@ -42,7 +42,7 @@ class InquiryController extends Controller
     $university = University::find($request['university_id']);
     $field = new Lead();
     $field->name = $request['name'];
-    $field->c_code = $request['c_code'];
+    $field->country_code = $request['country_code'];
     $field->mobile = $request['mobile'];
     $field->email = $request['email'];
     $field->source = $request['source'];
@@ -61,7 +61,7 @@ class InquiryController extends Controller
     $emaildata = [
       'name' => $request['name'],
       'email' => $request['email'],
-      'c_code' => $request['c_code'],
+      'country_code' => $request['country_code'],
       'mobile' => $request['mobile'],
       'source' => $request['source'],
       'source_path' => $request['source_path'],
@@ -106,7 +106,7 @@ class InquiryController extends Controller
         'name' => 'required',
         'source' => 'required',
         'source_path' => 'required',
-        'c_code' => 'required|numeric',
+        'country_code' => 'required|numeric',
         'mobile' => 'required|numeric',
         'email' => 'required|email',
         'nationality' => 'required',
@@ -115,7 +115,7 @@ class InquiryController extends Controller
     );
     $field = new Lead();
     $field->name = $request['name'];
-    $field->c_code = $request['c_code'];
+    $field->country_code = $request['country_code'];
     $field->mobile = $request['mobile'];
     $field->email = $request['email'];
     $field->source = $request['source'];
@@ -131,7 +131,7 @@ class InquiryController extends Controller
     $emaildata = [
       'name' => $request['name'],
       'email' => $request['email'],
-      'c_code' => $request['c_code'],
+      'country_code' => $request['country_code'],
       'mobile' => $request['mobile'],
       'source' => $request['source'],
       'source_path' => $request['source_path'],
@@ -176,7 +176,7 @@ class InquiryController extends Controller
         'name' => 'required',
         'source' => 'required',
         'source_path' => 'required',
-        'c_code' => 'required|numeric',
+        'country_code' => 'required|numeric',
         'mobile' => 'required|numeric',
         'email' => 'required|email',
         'nationality' => 'required'
@@ -184,7 +184,7 @@ class InquiryController extends Controller
     );
     $field = new Lead();
     $field->name = $request['name'];
-    $field->c_code = $request['c_code'];
+    $field->country_code = $request['country_code'];
     $field->mobile = $request['mobile'];
     $field->email = $request['email'];
     $field->source = $request['source'];
@@ -198,7 +198,7 @@ class InquiryController extends Controller
     $emaildata = [
       'name' => $request['name'],
       'email' => $request['email'],
-      'c_code' => $request['c_code'],
+      'country_code' => $request['country_code'],
       'mobile' => $request['mobile'],
       'source' => $request['source'],
       'source_path' => $request['source_path'],
@@ -240,7 +240,7 @@ class InquiryController extends Controller
     $validator = Validator::make($request->all(), [
       'captcha_answer' => ['required', 'numeric', new MathCaptchaValidationRule()],
       'name' => 'required',
-      'c_code' => 'required|numeric',
+      'country_code' => 'required|numeric',
       'mobile' => 'required|numeric',
       'email' => 'required|email',
       'nationality' => 'required',
@@ -269,7 +269,7 @@ class InquiryController extends Controller
 
     $field = new Lead();
     $field->name = $request['name'];
-    $field->c_code = $request['c_code'];
+    $field->country_code = $request['country_code'];
     $field->mobile = $request['mobile'];
     $field->email = $request['email'];
     $field->nationality = $request['nationality'];
@@ -287,7 +287,7 @@ class InquiryController extends Controller
     $emaildata = [
       'name' => $request['name'],
       'email' => $request['email'],
-      'c_code' => $request['c_code'],
+      'country_code' => $request['country_code'],
       'mobile' => $request['mobile'],
       'source' => $request['source'],
       'source_path' => $request['source_path'],
@@ -365,7 +365,7 @@ class InquiryController extends Controller
     $field = new Lead();
     $field->name = $request['name'];
     $field->email = $request['email'];
-    $field->c_code = $request['country_code'];
+    $field->country_code = $request['country_code'];
     $field->mobile = $request['mobile'];
     $field->country = $request['country'];
     $field->highest_qualification = $request['highest_qualification'];

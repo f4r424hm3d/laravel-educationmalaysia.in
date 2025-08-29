@@ -29,7 +29,7 @@ class StudentAuthApi extends Controller
         'email',
         Rule::unique('leads', 'email')->where('website', site_var),
       ],
-      'c_code' => 'required|numeric',
+      'country_code' => 'required|numeric',
       'mobile' => 'required|numeric',
       'password' => ['required', 'string', 'min:8'],
       'confirm_password' => 'required|same:password',
@@ -57,7 +57,7 @@ class StudentAuthApi extends Controller
     $student->highest_qualification = $request->highest_qualification;
     $student->interested_course_category = $request->interested_course_category;
     $student->nationality = $request->nationality;
-    $student->c_code = $request->c_code;
+    $student->country_code = $request->country_code;
     $student->mobile = $request->mobile;
     $student->password = $request->password;
     $student->source = 'Education Malaysia - Signup';

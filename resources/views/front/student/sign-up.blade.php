@@ -71,17 +71,17 @@
                     </div>
                     <div class="row">
                       <div class="col-4 pr-0">
-                        <select name="c_code" id="c_code" class="form-control bg-white">
+                        <select name="country_code" id="country_code" class="form-control bg-white">
                           <option value="">Select</option>
                           @foreach ($phonecodes as $row)
                             <option value="{{ $row->phonecode }}"
-                              {{ (old('c_code') && old('c_code') == $row->phonecode) || $row->phonecode == '91' ? 'Selected' : '' }}>
+                              {{ (old('country_code') && old('country_code') == $row->phonecode) || $row->phonecode == '91' ? 'Selected' : '' }}>
                               +{{ $row->phonecode }} ({{ $row->name }})
                             </option>
                           @endforeach
                         </select>
                         <span class="text-danger">
-                          @error('c_code')
+                          @error('country_code')
                             {{ $message }}
                           @enderror
                         </span>
