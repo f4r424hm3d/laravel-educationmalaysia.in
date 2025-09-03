@@ -206,10 +206,24 @@ class StudentAuthApi extends Controller
     }
 
     if ($student->status != 1) {
+      // Generate OTP
+      $otp = rand(1000, 9999);
+      $otp_expire_at = Carbon::now()->addMinutes(15);
+
+      // Send OTP Email
+      Mail::send('mails.send-otp', ['name' => $student->name, 'otp' => $otp], function ($message) use ($student) {
+        $message->to($student->email, $student->name);
+        $message->subject('Your OTP Code');
+      });
+
       return response()->json([
-        'status' => false,
-        'message' => 'Account not verified. Please verify your email.'
-      ], 403);
+        'status' => true,
+        'message' => 'Account not verified. Please verify your email. OTP sent to your email.',
+        'data' => [
+          'id' => $student->id,
+          'email' => $student->email
+        ]
+      ], 200);
     }
 
     // Verify password (bcrypt or plain)
@@ -419,5 +433,36 @@ class StudentAuthApi extends Controller
         'token' => $token,
       ]
     ], 200);
+  }
+
+  private function sendOtp($field, $return_url)
+  {
+    $otp = rand(1000, 9999);
+    $otp_expire_at = now()->addMinutes(15);
+
+    $emaildata = ['name' => $field->name, 'otp' => $otp];
+    $dd = ['to' => $field->email, 'to_name' => $field->name, 'subject' => 'Email OTP'];
+
+    $result = Mail::send(
+      'mails.send-otp',
+      $emaildata,
+      function ($message) use ($dd) {
+        $message->to($dd['to'], $dd['to_name']);
+        $message->subject($dd['subject']);
+        $message->priority(1);
+      }
+    );
+
+    if ($result == false) {
+      session()->flash('emsg', 'Sorry! Please try again later.');
+      return redirect($return_url);
+    } else {
+      $field->otp = $otp;
+      $field->otp_expire_at = $otp_expire_at;
+      $field->save();
+      session()->flash('smsg', 'An OTP has been sent to your registered email. It will expire in 15 minutes.');
+      session()->put('last_id', $field->id);
+      return redirect('confirmed-email');
+    }
   }
 }

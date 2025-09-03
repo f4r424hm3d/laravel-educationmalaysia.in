@@ -370,7 +370,10 @@ class UniversityApi extends Controller
   }
   public function courses($university_slug, Request $request)
   {
-    $university = University::where('uname', $university_slug)->firstOrFail();
+    $university = University::where('uname', $university_slug)->first();
+    if (!$university) {
+      return response()->json(['status' => false, 'message' => 'University not found'], 404);
+    }
 
     $query = UniversityProgram::select('id', 'course_name', 'slug', 'study_mode', 'intake', 'application_deadline', 'level', 'course_category_id', 'specialization_id')->where(['university_id' => $university->id, 'status' => 1]);
 
