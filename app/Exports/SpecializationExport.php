@@ -12,7 +12,7 @@ class SpecializationExport implements FromView
   public function view(): View
   {
     return view('admin.exports.specializations-list', [
-      'rows' => CourseSpecialization::all()
+      'rows' => CourseSpecialization::where('website', 'MYS')->get()
     ]);
   }
 }
